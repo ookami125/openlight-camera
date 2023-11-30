@@ -689,7 +689,7 @@
 
     const-string v0, "device_touchstrip_setting"
 
-    const-string v1, "off"
+    const-string v1, "on"
 
     .line 136
     invoke-interface {p1, v0, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
