@@ -1,0 +1,4 @@
+.vscode
+*.apk
+*.apk.idsig
+debug.log
