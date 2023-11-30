@@ -1,4 +1,11 @@
 .vscode
+.temp
 *.apk
+*.jar
+*.dex
 *.apk.idsig
 debug.log
+out/*
+check/*
+build/*
+.cache
