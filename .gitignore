@@ -8,4 +8,6 @@ debug.log
 out/*
 check/*
 build/*
-.cache
+light_camera/build/*
+*.cache/*
+tools/dex-tools
