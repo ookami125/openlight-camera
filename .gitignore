@@ -9,5 +9,6 @@ out/*
 check/*
 build/*
 light_camera/build/*
-*.cache/*
+*/*.cache/*
 tools/dex-tools
+files.txt

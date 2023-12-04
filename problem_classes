@@ -1,2 +1,21 @@
 light_camera/smali/openlight/co/camera/haptic/PlayHaptic.smali:
 	Causes loss of haptics
+
+light_camera/smali/openlight/co/camera/managers/CameraManager.smali:
+	Code decompiled incorrectly
+
+light_camera/smali/openlight/co/lib/exif/ExifInterface.smali:
+	Method not decompiled: openlight.co.lib.exif.ExifInterface.getJpegAttributes(openlight.co.lib.exif.ExifInterface$ByteOrderedDataInputStream, int, int):void
+
+light_camera/smali/openlight/co/camera/view/setting/SettingAdapter.smali:
+	Multiple Errors on compile
+
+light_camera/smali/openlight/co/camera/view/hud/HudLayout.smali:
+	skipped: "renamed from: openlight.co.camera.view.hud.HudLayout$3  reason: invalid class name"
+
+light_camera/smali/openlight/co/camera/utils/LocationManager.smali:
+	Code decompiled incorrectly
+
+light_camera/smali/openlight/co/camera/CameraInfo.smali:
+	Code decompiled incorrectly
+	Short function failed, this takes priority over other failing decomps.
