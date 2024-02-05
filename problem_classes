@@ -16,9 +16,5 @@ light_camera/smali/openlight/co/camera/view/hud/HudLayout.smali:
 light_camera/smali/openlight/co/camera/utils/LocationManager.smali:
 	Code decompiled incorrectly
 
-light_camera/smali/openlight/co/camera/CameraInfo.smali:
-	Code decompiled incorrectly
-	Short function failed, this takes priority over other failing decomps.
-
 light_camera/smali/openlight/co/camera/CameraActivity.smali:
 	Compiles but Crashes
