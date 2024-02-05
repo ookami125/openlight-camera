@@ -124,7 +124,7 @@ public enum CameraMode {
     public static Map<Integer, CameraMode> getEnabledModes() {
         CameraMode[] values;
         if (mEnabledModes == null) {
-            mEnabledModes = new HashMap();
+            mEnabledModes = new HashMap<Integer, CameraMode>();
             int i = 0;
             for (CameraMode cameraMode : values()) {
                 if (cameraMode.isEnabled()) {
