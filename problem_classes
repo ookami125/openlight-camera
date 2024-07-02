@@ -18,3 +18,7 @@ light_camera/smali/openlight/co/camera/utils/LocationManager.smali:
 
 light_camera/smali/openlight/co/camera/CameraActivity.smali:
 	Compiles but Crashes
+
+light_camera/smali/openlight/co/camera/CameraInfo.smali:
+	Code decompiled incorrectly
+	Short function failed, this takes priority over other failing decomps.
