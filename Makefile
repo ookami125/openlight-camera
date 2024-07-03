@@ -10,6 +10,7 @@ LIGHT_CAMERA_FILES := $(wildcard light_camera/*)
 JAVA_FILES := $(shell find $(SOURCEDIR) -name '*.java')
 CLASS_FILES := $(addprefix $(BUILDDIR)/,$(SOURCES:%.java=%.class))
 
+.PHONY: clean
 clean:
 	rm -rf build
 
@@ -39,5 +40,9 @@ $(OUTPUT_NAME): $(STAGE3_BUILDDIR)
 	$(APKTOOL) b $(STAGE3_BUILDDIR) -o $@
 	apksigner sign --ks .private/my-release-key.keystore --ks-pass file:.private/pass --in $@
 
+.PHONY: install
 install: $(OUTPUT_NAME)
 	adb install -r $(OUTPUT_NAME)
+
+.PHONY: all
+all: $(OUTPUT_NAME)
