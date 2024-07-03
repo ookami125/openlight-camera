@@ -16,3 +16,5 @@ files.txt
 .private/
 .private/pass
 .private/my-release-key.keystore
+
+.env
