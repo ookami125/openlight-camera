@@ -1,1 +1,0 @@
-adb install -r openlight_camera.apk

@@ -10,5 +10,9 @@ check/*
 build/*
 light_camera/build/*
 */*.cache/*
-tools/dex-tools
+tools/
 files.txt
+
+.private/
+.private/pass
+.private/my-release-key.keystore
