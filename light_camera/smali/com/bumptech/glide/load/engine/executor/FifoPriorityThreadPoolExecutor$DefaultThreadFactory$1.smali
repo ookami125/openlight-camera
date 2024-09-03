@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$DefaultThreadFactory;Ljava/lang/Runnable;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
 
     .line 114
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$DefaultThreadFactory$1;->this$0:Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$DefaultThreadFactory;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0xa
 

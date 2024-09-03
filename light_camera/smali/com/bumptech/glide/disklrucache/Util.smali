@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "US-ASCII"
 
@@ -35,7 +35,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,33 +44,33 @@
 .end method
 
 .method static closeQuietly(Ljava/io/Closeable;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     .line 70
-    :try_start_0
+    :try_start_2
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_5
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_5} :catch_6
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_5} :catch_8
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_0
+    :catch_6
     move-exception p0
 
     .line 72
     throw p0
 
-    :catch_1
-    :cond_0
-    :goto_0
+    :catch_8
+    :cond_8
+    :goto_8
     return-void
 .end method
 
 .method static deleteContents(Ljava/io/File;)V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -82,15 +82,15 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_36
 
     .line 57
     array-length p0, v0
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, p0, :cond_2
+    :goto_8
+    if-ge v1, p0, :cond_35
 
     aget-object v2, v0, v1
 
@@ -99,25 +99,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_15
 
     .line 59
     invoke-static {v2}, Lcom/bumptech/glide/disklrucache/Util;->deleteContents(Ljava/io/File;)V
 
     .line 61
-    :cond_0
+    :cond_15
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1e
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 62
-    :cond_1
+    :cond_1e
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -138,11 +138,11 @@
 
     throw p0
 
-    :cond_2
+    :cond_35
     return-void
 
     .line 55
-    :cond_3
+    :cond_36
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -165,7 +165,7 @@
 .end method
 
 .method static readFully(Ljava/io/Reader;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -184,36 +184,36 @@
     new-array v1, v1, [C
 
     .line 39
-    :goto_0
+    :goto_9
     invoke-virtual {p0, v1}, Ljava/io/Reader;->read([C)I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_15
 
     const/4 v3, 0x0
 
     .line 40
     invoke-virtual {v0, v1, v3, v2}, Ljava/io/StringWriter;->write([CII)V
 
-    goto :goto_0
+    goto :goto_9
 
     .line 42
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Ljava/io/StringWriter;->toString()Ljava/lang/String;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_0 .. :try_end_19} :catchall_1d
 
     .line 44
     invoke-virtual {p0}, Ljava/io/Reader;->close()V
 
     return-object v0
 
-    :catchall_0
+    :catchall_1d
     move-exception v0
 
     invoke-virtual {p0}, Ljava/io/Reader;->close()V

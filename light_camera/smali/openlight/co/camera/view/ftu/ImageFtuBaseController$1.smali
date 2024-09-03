@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/ftu/ImageFtuBaseController;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
 
     .line 78
     iput-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
@@ -33,28 +33,30 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
 
     .line 81
     iget p1, p1, Landroid/os/Message;->what:I
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_4a
 
-    goto :goto_0
+    goto :goto_49
 
     .line 96
-    :pswitch_0
+    :pswitch_6
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
 
+    # getter for: Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->mListener:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
     invoke-static {p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->access$000(Lopenlight/co/camera/view/ftu/ImageFtuBaseController;)Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_49
 
     .line 97
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
 
+    # getter for: Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->mListener:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->access$000(Lopenlight/co/camera/view/ftu/ImageFtuBaseController;)Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
 
     move-result-object p0
@@ -63,10 +65,10 @@
 
     invoke-interface {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;->onSingleRunComplete(Lopenlight/co/camera/enums/FtuView;)V
 
-    goto :goto_0
+    goto :goto_49
 
     .line 83
-    :pswitch_1
+    :pswitch_1a
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
 
     const/4 v0, 0x1
@@ -80,21 +82,23 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->updateVisibilityOfView(Z)V
 
-    goto :goto_0
+    goto :goto_49
 
     .line 87
-    :pswitch_2
+    :pswitch_27
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
 
+    # getter for: Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->mListener:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
     invoke-static {p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->access$000(Lopenlight/co/camera/view/ftu/ImageFtuBaseController;)Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_49
 
     .line 88
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
 
+    # getter for: Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->mListener:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
     invoke-static {p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->access$000(Lopenlight/co/camera/view/ftu/ImageFtuBaseController;)Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
 
     move-result-object p1
@@ -112,21 +116,21 @@
 
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->PRIME_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_49
 
     .line 90
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$1;->this$0:Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->onIncorrectResponseInPrime()V
 
-    :cond_0
-    :goto_0
+    :cond_49
+    :goto_49
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0xc9
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_27
+        :pswitch_1a
+        :pswitch_6
     .end packed-switch
 .end method

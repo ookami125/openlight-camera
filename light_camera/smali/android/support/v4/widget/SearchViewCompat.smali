@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,19 +28,19 @@
 .end method
 
 .method private static checkIfLegalArg(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_f
 
     .line 38
     instance-of p0, p0, Landroid/widget/SearchView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
     return-void
 
     .line 39
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "searchView must be an instance of android.widget.SearchView"
@@ -50,7 +50,7 @@
     throw p0
 
     .line 36
-    :cond_1
+    :cond_f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "searchView must be non-null"
@@ -61,7 +61,7 @@
 .end method
 
 .method public static getQuery(Landroid/view/View;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public static isIconified(Landroid/view/View;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public static isQueryRefinementEnabled(Landroid/view/View;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public static isSubmitButtonEnabled(Landroid/view/View;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -133,7 +133,7 @@
 .end method
 
 .method private static newOnCloseListener(Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;)Landroid/widget/SearchView$OnCloseListener;
-    .locals 1
+    .registers 2
 
     .line 209
     new-instance v0, Landroid/support/v4/widget/SearchViewCompat$2;
@@ -144,7 +144,7 @@
 .end method
 
 .method private static newOnQueryTextListener(Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;)Landroid/widget/SearchView$OnQueryTextListener;
-    .locals 1
+    .registers 2
 
     .line 135
     new-instance v0, Landroid/support/v4/widget/SearchViewCompat$1;
@@ -155,7 +155,7 @@
 .end method
 
 .method public static newSearchView(Landroid/content/Context;)Landroid/view/View;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -168,7 +168,7 @@
 .end method
 
 .method public static setIconified(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -184,7 +184,7 @@
 .end method
 
 .method public static setImeOptions(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -200,7 +200,7 @@
 .end method
 
 .method public static setInputType(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -216,7 +216,7 @@
 .end method
 
 .method public static setMaxWidth(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public static setOnCloseListener(Landroid/view/View;Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -252,7 +252,7 @@
 .end method
 
 .method public static setOnQueryTextListener(Landroid/view/View;Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -272,7 +272,7 @@
 .end method
 
 .method public static setQuery(Landroid/view/View;Ljava/lang/CharSequence;Z)V
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -288,7 +288,7 @@
 .end method
 
 .method public static setQueryHint(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -304,7 +304,7 @@
 .end method
 
 .method public static setQueryRefinementEnabled(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -320,7 +320,7 @@
 .end method
 
 .method public static setSearchableInfo(Landroid/view/View;Landroid/content/ComponentName;)V
-    .locals 2
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -355,7 +355,7 @@
 .end method
 
 .method public static setSubmitButtonEnabled(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

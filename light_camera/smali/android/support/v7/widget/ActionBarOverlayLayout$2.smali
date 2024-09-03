@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActionBarOverlayLayout;)V
-    .locals 0
+    .registers 2
 
     .line 109
     iput-object p1, p0, Landroid/support/v7/widget/ActionBarOverlayLayout$2;->this$0:Landroid/support/v7/widget/ActionBarOverlayLayout;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 112
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarOverlayLayout$2;->this$0:Landroid/support/v7/widget/ActionBarOverlayLayout;

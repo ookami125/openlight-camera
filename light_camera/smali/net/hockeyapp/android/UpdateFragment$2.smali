@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/UpdateFragment;Lnet/hockeyapp/android/UpdateFragment;)V
-    .locals 0
+    .registers 3
 
     .line 197
     iput-object p1, p0, Lnet/hockeyapp/android/UpdateFragment$2;->this$0:Lnet/hockeyapp/android/UpdateFragment;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     .line 199
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateFragment$2;->val$updateFragment:Lnet/hockeyapp/android/UpdateFragment;

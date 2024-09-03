@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getSafeKey(Lcom/bumptech/glide/load/Key;)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 19
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->loadIdToSafeHash:Lcom/bumptech/glide/util/LruCache;
@@ -46,7 +46,7 @@
     monitor-enter v0
 
     .line 20
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->loadIdToSafeHash:Lcom/bumptech/glide/util/LruCache;
 
     invoke-virtual {v1, p1}, Lcom/bumptech/glide/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -57,12 +57,12 @@
 
     .line 21
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_38
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_37
 
-    :try_start_1
+    :try_start_e
     const-string v0, "SHA-256"
 
     .line 24
@@ -81,36 +81,36 @@
     invoke-static {v0}, Lcom/bumptech/glide/util/Util;->sha256BytesToHex([B)Ljava/lang/String;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_1f
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_e .. :try_end_1f} :catch_26
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_e .. :try_end_1f} :catch_21
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_2a
 
-    :catch_0
+    :catch_21
     move-exception v0
 
     .line 30
     invoke-virtual {v0}, Ljava/security/NoSuchAlgorithmException;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_2a
 
-    :catch_1
+    :catch_26
     move-exception v0
 
     .line 28
     invoke-virtual {v0}, Ljava/io/UnsupportedEncodingException;->printStackTrace()V
 
     .line 32
-    :goto_0
+    :goto_2a
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->loadIdToSafeHash:Lcom/bumptech/glide/util/LruCache;
 
     monitor-enter v0
 
     .line 33
-    :try_start_2
+    :try_start_2d
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/cache/SafeKeyGenerator;->loadIdToSafeHash:Lcom/bumptech/glide/util/LruCache;
 
     invoke-virtual {p0, p1, v1}, Lcom/bumptech/glide/util/LruCache;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -118,29 +118,29 @@
     .line 34
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_37
 
-    :catchall_0
+    :catchall_34
     move-exception p0
 
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_36
+    .catchall {:try_start_2d .. :try_end_36} :catchall_34
 
     throw p0
 
-    :cond_0
-    :goto_1
+    :cond_37
+    :goto_37
     return-object v1
 
-    :catchall_1
+    :catchall_38
     move-exception p0
 
     .line 21
-    :try_start_3
+    :try_start_39
     monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_3a
+    .catchall {:try_start_39 .. :try_end_3a} :catchall_38
 
     throw p0
 .end method

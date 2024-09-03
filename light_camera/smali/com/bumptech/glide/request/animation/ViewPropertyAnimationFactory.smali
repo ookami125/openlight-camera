@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/request/animation/ViewPropertyAnimation$Animator;)V
-    .locals 0
+    .registers 2
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public build(ZZ)Lcom/bumptech/glide/request/animation/GlideAnimation;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ)",
@@ -57,17 +57,17 @@
         }
     .end annotation
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_15
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
-    goto :goto_0
+    goto :goto_15
 
     .line 28
-    :cond_0
+    :cond_5
     iget-object p1, p0, Lcom/bumptech/glide/request/animation/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/animation/ViewPropertyAnimation;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_12
 
     .line 29
     new-instance p1, Lcom/bumptech/glide/request/animation/ViewPropertyAnimation;
@@ -79,14 +79,14 @@
     iput-object p1, p0, Lcom/bumptech/glide/request/animation/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/animation/ViewPropertyAnimation;
 
     .line 32
-    :cond_1
+    :cond_12
     iget-object p0, p0, Lcom/bumptech/glide/request/animation/ViewPropertyAnimationFactory;->animation:Lcom/bumptech/glide/request/animation/ViewPropertyAnimation;
 
     return-object p0
 
     .line 26
-    :cond_2
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-static {}, Lcom/bumptech/glide/request/animation/NoAnimation;->get()Lcom/bumptech/glide/request/animation/GlideAnimation;
 
     move-result-object p0

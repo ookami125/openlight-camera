@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method public closeOptionsMenu()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -93,7 +93,7 @@
 .end method
 
 .method public collapseActionView()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -106,7 +106,7 @@
 .end method
 
 .method public dispatchMenuVisibilityChanged(Z)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -123,7 +123,7 @@
 .end method
 
 .method public getElevation()F
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -134,7 +134,7 @@
 .end method
 
 .method public getHideOffset()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public getThemedContext()Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public invalidateOptionsMenu()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -209,7 +209,7 @@
 .end method
 
 .method public isHideOnContentScrollEnabled()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -220,7 +220,7 @@
 .end method
 
 .method public isTitleTruncated()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -238,7 +238,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -249,13 +249,13 @@
 .end method
 
 .method onDestroy()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onKeyShortcut(ILandroid/view/KeyEvent;)Z
-    .locals 0
+    .registers 3
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -268,7 +268,7 @@
 .end method
 
 .method public onMenuKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -281,7 +281,7 @@
 .end method
 
 .method public openOptionsMenu()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -312,7 +312,7 @@
 .end method
 
 .method requestFocus()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -346,7 +346,7 @@
 .end method
 
 .method public setDefaultDisplayHomeAsUpEnabled(Z)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -378,18 +378,18 @@
 .end method
 
 .method public setElevation(F)V
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
     cmpl-float p0, p1, p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
     return-void
 
     .line 1021
-    :cond_0
+    :cond_6
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Setting a non-zero elevation is not supported in this action bar configuration."
@@ -400,14 +400,14 @@
 .end method
 
 .method public setHideOffset(I)V
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 1006
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Setting an explicit action bar hide offset is not supported in this action bar configuration."
@@ -418,14 +418,14 @@
 .end method
 
 .method public setHideOnContentScrollEnabled(Z)V
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 966
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "Hide on content scroll is not supported in this action bar configuration."
@@ -436,7 +436,7 @@
 .end method
 
 .method public setHomeActionContentDescription(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
@@ -446,7 +446,7 @@
 .end method
 
 .method public setHomeActionContentDescription(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -456,7 +456,7 @@
 .end method
 
 .method public setHomeAsUpIndicator(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/DrawableRes;
         .end annotation
@@ -466,7 +466,7 @@
 .end method
 
 .method public setHomeAsUpIndicator(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -476,7 +476,7 @@
 .end method
 
 .method public setHomeButtonEnabled(Z)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
@@ -517,7 +517,7 @@
 .end method
 
 .method public setShowHideAnimationEnabled(Z)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -528,13 +528,13 @@
 .end method
 
 .method public setSplitBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public setStackedBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
@@ -556,7 +556,7 @@
 .end method
 
 .method public setWindowTitle(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -570,7 +570,7 @@
 .end method
 
 .method public startActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;

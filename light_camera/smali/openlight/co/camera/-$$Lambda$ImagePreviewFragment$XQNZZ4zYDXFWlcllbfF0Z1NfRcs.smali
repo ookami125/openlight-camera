@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onDone(Z)V
-    .locals 0
+    .registers 2
 
     iget-object p0, p0, Lopenlight/co/camera/-$$Lambda$ImagePreviewFragment$XQNZZ4zYDXFWlcllbfF0Z1NfRcs;->f$0:Lopenlight/co/camera/ImagePreviewFragment;
 

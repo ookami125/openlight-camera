@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 135
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method addFlags(I)V
-    .locals 1
+    .registers 3
 
     .line 151
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -57,7 +57,7 @@
 .end method
 
 .method boundsMatch()Z
-    .locals 4
+    .registers 5
 
     .line 169
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -66,7 +66,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 170
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -83,17 +83,17 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     return v1
 
     .line 175
-    :cond_0
+    :cond_16
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit8 v0, v0, 0x70
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 176
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -110,17 +110,17 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     return v1
 
     .line 181
-    :cond_1
+    :cond_2c
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit16 v0, v0, 0x700
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     .line 182
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -137,17 +137,17 @@
 
     and-int/2addr v0, v2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_42
 
     return v1
 
     .line 187
-    :cond_2
+    :cond_42
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit16 v0, v0, 0x7000
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_58
 
     .line 188
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
@@ -164,40 +164,40 @@
 
     and-int/2addr p0, v0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_58
 
     return v1
 
-    :cond_3
+    :cond_58
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method compare(II)I
-    .locals 0
+    .registers 3
 
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_4
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
-    if-ne p1, p2, :cond_1
+    :cond_4
+    if-ne p1, p2, :cond_8
 
     const/4 p0, 0x2
 
     return p0
 
-    :cond_1
+    :cond_8
     const/4 p0, 0x4
 
     return p0
 .end method
 
 .method resetFlags()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -208,7 +208,7 @@
 .end method
 
 .method setBounds(IIII)V
-    .locals 0
+    .registers 5
 
     .line 140
     iput p1, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
@@ -226,7 +226,7 @@
 .end method
 
 .method setFlags(II)V
-    .locals 2
+    .registers 5
 
     .line 147
     iget v0, p0, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I

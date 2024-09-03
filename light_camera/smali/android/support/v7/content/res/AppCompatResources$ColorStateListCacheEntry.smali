@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/ColorStateList;Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

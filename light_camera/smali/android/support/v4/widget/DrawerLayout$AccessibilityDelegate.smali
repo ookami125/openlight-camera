@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/DrawerLayout;)V
-    .locals 0
+    .registers 2
 
     .line 2252
     iput-object p1, p0, Landroid/support/v4/widget/DrawerLayout$AccessibilityDelegate;->this$0:Landroid/support/v4/widget/DrawerLayout;
@@ -40,7 +40,7 @@
 .end method
 
 .method private addChildrenForAccessibility(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Landroid/view/ViewGroup;)V
-    .locals 3
+    .registers 6
 
     .line 2329
     invoke-virtual {p2}, Landroid/view/ViewGroup;->getChildCount()I
@@ -49,8 +49,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p0, :cond_1
+    :goto_5
+    if-ge v0, p0, :cond_17
 
     .line 2331
     invoke-virtual {p2, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -62,22 +62,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_14
 
     .line 2333
     invoke-virtual {p1, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addChild(Landroid/view/View;)V
 
-    :cond_0
+    :cond_14
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method private copyNodeInfoNoChildren(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 0
+    .registers 3
 
     .line 2345
     iget-object p0, p0, Landroid/support/v4/widget/DrawerLayout$AccessibilityDelegate;->mTmpRect:Landroid/graphics/Rect;
@@ -184,7 +184,7 @@
 
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 2
+    .registers 5
 
     .line 2302
     invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
@@ -193,7 +193,7 @@
 
     const/16 v1, 0x20
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_27
 
     .line 2303
     invoke-virtual {p2}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
@@ -207,7 +207,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_25
 
     .line 2306
     iget-object v0, p0, Landroid/support/v4/widget/DrawerLayout$AccessibilityDelegate;->this$0:Landroid/support/v4/widget/DrawerLayout;
@@ -223,18 +223,18 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_25
 
     .line 2309
     invoke-interface {p1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_25
     const/4 p0, 0x1
 
     return p0
 
     .line 2316
-    :cond_1
+    :cond_27
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result p0
@@ -243,7 +243,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
 
     .line 2290
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
@@ -261,20 +261,20 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 3
+    .registers 6
 
     .line 2257
     sget-boolean v0, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 2258
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 2263
-    :cond_0
+    :cond_8
     invoke-static {p2}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->obtain(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object v0
@@ -293,7 +293,7 @@
     .line 2268
     instance-of v2, v1, Landroid/view/View;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     .line 2269
     check-cast v1, Landroid/view/View;
@@ -301,7 +301,7 @@
     invoke-virtual {p2, v1}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setParent(Landroid/view/View;)V
 
     .line 2271
-    :cond_1
+    :cond_1f
     invoke-direct {p0, p2, v0}, Landroid/support/v4/widget/DrawerLayout$AccessibilityDelegate;->copyNodeInfoNoChildren(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
 
     .line 2272
@@ -313,7 +313,7 @@
     invoke-direct {p0, p2, p1}, Landroid/support/v4/widget/DrawerLayout$AccessibilityDelegate;->addChildrenForAccessibility(Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;Landroid/view/ViewGroup;)V
 
     .line 2277
-    :goto_0
+    :goto_2a
     const-class p0, Landroid/support/v4/widget/DrawerLayout;
 
     invoke-virtual {p0}, Ljava/lang/Class;->getName()Ljava/lang/String;
@@ -344,29 +344,29 @@
 .end method
 
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 1
+    .registers 5
 
     .line 2322
     sget-boolean v0, Landroid/support/v4/widget/DrawerLayout;->CAN_HIDE_DESCENDANTS:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
     invoke-static {p2}, Landroid/support/v4/widget/DrawerLayout;->includeChildForAccessibility(Landroid/view/View;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return p0
 
     .line 2323
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
 
     move-result p0

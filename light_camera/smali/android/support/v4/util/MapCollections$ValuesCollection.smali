@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/util/MapCollections;)V
-    .locals 0
+    .registers 2
 
     .line 355
     iput-object p1, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -60,7 +60,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 .end method
 
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 369
     iget-object p0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -89,7 +89,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 374
     iget-object p0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -98,21 +98,21 @@
 
     move-result p0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,12 +127,12 @@
     move-result-object p1
 
     .line 380
-    :cond_0
+    :cond_4
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 381
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -143,20 +143,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_1
+    :cond_16
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public isEmpty()Z
-    .locals 0
+    .registers 1
 
     .line 390
     iget-object p0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -165,21 +165,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -201,7 +201,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 400
     iget-object v0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -210,7 +210,7 @@
 
     move-result p1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     .line 402
     iget-object p0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -221,14 +221,14 @@
 
     return p0
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -248,8 +248,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_8
+    if-ge v1, v0, :cond_23
 
     .line 413
     iget-object v3, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -265,7 +265,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     .line 415
     iget-object v2, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -278,17 +278,17 @@
 
     move v2, v4
 
-    :cond_0
+    :cond_21
     add-int/2addr v1, v4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_23
     return v2
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -308,8 +308,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_8
+    if-ge v1, v0, :cond_23
 
     .line 429
     iget-object v3, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -325,7 +325,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_21
 
     .line 431
     iget-object v2, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -338,17 +338,17 @@
 
     move v2, v4
 
-    :cond_0
+    :cond_21
     add-int/2addr v1, v4
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_23
     return v2
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 442
     iget-object p0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -361,7 +361,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 447
     iget-object p0, p0, Landroid/support/v4/util/MapCollections$ValuesCollection;->this$0:Landroid/support/v4/util/MapCollections;
@@ -376,7 +376,7 @@
 .end method
 
 .method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

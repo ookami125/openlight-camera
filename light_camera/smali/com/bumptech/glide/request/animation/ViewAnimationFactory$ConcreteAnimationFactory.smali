@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public build()Landroid/view/animation/Animation;
-    .locals 0
+    .registers 1
 
     .line 60
     iget-object p0, p0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory$ConcreteAnimationFactory;->animation:Landroid/view/animation/Animation;

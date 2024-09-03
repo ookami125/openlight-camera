@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public serialize(Ljava/lang/Long;)Lcom/google/gson/JsonElement;
-    .locals 0
+    .registers 2
 
     .line 47
     new-instance p0, Lcom/google/gson/JsonPrimitive;

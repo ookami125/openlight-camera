@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 61
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method private createGradientShader()Landroid/graphics/Shader;
-    .locals 11
+    .registers 12
 
     .line 182
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mRect:Landroid/graphics/Rect;
@@ -243,12 +243,12 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
 
     .line 88
     iget-boolean v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mInvalidateShader:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 89
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mPaint:Landroid/graphics/Paint;
@@ -265,7 +265,7 @@
     iput-boolean v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mInvalidateShader:Z
 
     .line 93
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v0}, Landroid/graphics/Paint;->getStrokeWidth()F
@@ -345,7 +345,7 @@
 .end method
 
 .method public getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 142
     iget p0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderWidth:F
@@ -354,21 +354,21 @@
 
     cmpl-float p0, p0, v0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_9
 
     const/4 p0, -0x3
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, -0x2
 
-    :goto_0
+    :goto_a
     return p0
 .end method
 
 .method public getPadding(Landroid/graphics/Rect;)Z
-    .locals 0
+    .registers 2
 
     .line 114
     iget p0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderWidth:F
@@ -386,12 +386,12 @@
 .end method
 
 .method public isStateful()Z
-    .locals 1
+    .registers 2
 
     .line 159
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderTint:Landroid/content/res/ColorStateList;
 
@@ -399,29 +399,29 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_12
 
-    :cond_0
+    :cond_c
     invoke-super {p0}, Landroid/graphics/drawable/Drawable;->isStateful()Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_14
 
-    :cond_1
+    :cond_12
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_2
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -432,12 +432,12 @@
 .end method
 
 .method protected onStateChange([I)Z
-    .locals 2
+    .registers 4
 
     .line 164
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderTint:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 165
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderTint:Landroid/content/res/ColorStateList;
@@ -451,7 +451,7 @@
     .line 166
     iget v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mCurrentBorderTintColor:I
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_15
 
     const/4 v0, 0x1
 
@@ -462,23 +462,23 @@
     iput p1, p0, Landroid/support/design/widget/CircularBorderDrawable;->mCurrentBorderTintColor:I
 
     .line 171
-    :cond_0
+    :cond_15
     iget-boolean p1, p0, Landroid/support/design/widget/CircularBorderDrawable;->mInvalidateShader:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1c
 
     .line 172
     invoke-virtual {p0}, Landroid/support/design/widget/CircularBorderDrawable;->invalidateSelf()V
 
     .line 174
-    :cond_1
+    :cond_1c
     iget-boolean p0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mInvalidateShader:Z
 
     return p0
 .end method
 
 .method public setAlpha(I)V
-    .locals 1
+    .registers 3
 
     .line 121
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mPaint:Landroid/graphics/Paint;
@@ -492,9 +492,9 @@
 .end method
 
 .method setBorderTint(Landroid/content/res/ColorStateList;)V
-    .locals 2
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 127
     invoke-virtual {p0}, Landroid/support/design/widget/CircularBorderDrawable;->getState()[I
@@ -510,7 +510,7 @@
     iput v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mCurrentBorderTintColor:I
 
     .line 129
-    :cond_0
+    :cond_e
     iput-object p1, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderTint:Landroid/content/res/ColorStateList;
 
     const/4 p1, 0x1
@@ -525,14 +525,14 @@
 .end method
 
 .method setBorderWidth(F)V
-    .locals 2
+    .registers 4
 
     .line 78
     iget v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderWidth:F
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 79
     iput p1, p0, Landroid/support/design/widget/CircularBorderDrawable;->mBorderWidth:F
@@ -554,12 +554,12 @@
     .line 82
     invoke-virtual {p0}, Landroid/support/design/widget/CircularBorderDrawable;->invalidateSelf()V
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .registers 3
 
     .line 136
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mPaint:Landroid/graphics/Paint;
@@ -573,7 +573,7 @@
 .end method
 
 .method setGradientColors(IIII)V
-    .locals 0
+    .registers 5
 
     .line 68
     iput p1, p0, Landroid/support/design/widget/CircularBorderDrawable;->mTopOuterStrokeColor:I
@@ -591,14 +591,14 @@
 .end method
 
 .method final setRotation(F)V
-    .locals 1
+    .registers 3
 
     .line 146
     iget v0, p0, Landroid/support/design/widget/CircularBorderDrawable;->mRotation:F
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 147
     iput p1, p0, Landroid/support/design/widget/CircularBorderDrawable;->mRotation:F
@@ -606,6 +606,6 @@
     .line 148
     invoke-virtual {p0}, Landroid/support/design/widget/CircularBorderDrawable;->invalidateSelf()V
 
-    :cond_0
+    :cond_b
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-    .locals 1
+    .registers 4
 
     .line 28
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -40,7 +40,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;)V
-    .locals 1
+    .registers 4
 
     .line 31
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/drawable/GlideDrawable;-><init>()V
@@ -52,12 +52,12 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->destRect:Landroid/graphics/Rect;
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_30
 
     .line 36
     iput-object p2, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1d
 
     .line 39
     invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
@@ -66,22 +66,22 @@
 
     iget p1, p1, Landroid/util/DisplayMetrics;->densityDpi:I
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1a
 
     const/16 p1, 0xa0
 
     .line 41
-    :cond_0
+    :cond_1a
     iput p1, p2, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->targetDensity:I
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 43
-    :cond_1
+    :cond_1d
     iget p1, p2, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->targetDensity:I
 
     .line 45
-    :goto_0
+    :goto_1f
     iget-object v0, p2, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->bitmap:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, p1}, Landroid/graphics/Bitmap;->getScaledWidth(I)I
@@ -102,7 +102,7 @@
     return-void
 
     .line 33
-    :cond_2
+    :cond_30
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "BitmapState must not be null"
@@ -115,12 +115,12 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
 
     .line 97
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->applyGravity:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/16 v0, 0x77
 
@@ -143,7 +143,7 @@
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->applyGravity:Z
 
     .line 101
-    :cond_0
+    :cond_16
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
 
     iget-object v0, v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->bitmap:Landroid/graphics/Bitmap;
@@ -162,7 +162,7 @@
 .end method
 
 .method public getBitmap()Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 1
 
     .line 136
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -173,7 +173,7 @@
 .end method
 
 .method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-    .locals 0
+    .registers 1
 
     .line 92
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -182,7 +182,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 0
+    .registers 1
 
     .line 56
     iget p0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->height:I
@@ -191,7 +191,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 0
+    .registers 1
 
     .line 51
     iget p0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->width:I
@@ -200,21 +200,21 @@
 .end method
 
 .method public getOpacity()I
-    .locals 1
+    .registers 2
 
     .line 121
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
 
     iget-object v0, v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->bitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 122
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->hasAlpha()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
 
@@ -226,25 +226,25 @@
 
     const/16 v0, 0xff
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_19
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_19
     const/4 p0, -0x1
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 p0, -0x3
 
-    :goto_1
+    :goto_1c
     return p0
 .end method
 
 .method public isAnimated()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -252,7 +252,7 @@
 .end method
 
 .method public isRunning()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -260,18 +260,18 @@
 .end method
 
 .method public mutate()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 128
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->mutated:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     invoke-super {p0}, Lcom/bumptech/glide/load/resource/drawable/GlideDrawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_16
 
     .line 129
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -287,12 +287,12 @@
     .line 130
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->mutated:Z
 
-    :cond_0
+    :cond_16
     return-object p0
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
 
     .line 86
     invoke-super {p0, p1}, Lcom/bumptech/glide/load/resource/drawable/GlideDrawable;->onBoundsChange(Landroid/graphics/Rect;)V
@@ -306,7 +306,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .locals 1
+    .registers 3
 
     .line 106
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -317,7 +317,7 @@
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_12
 
     .line 108
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -327,12 +327,12 @@
     .line 109
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->invalidateSelf()V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .registers 3
 
     .line 115
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;->state:Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;
@@ -346,19 +346,19 @@
 .end method
 
 .method public setLoopCount(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public start()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public stop()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

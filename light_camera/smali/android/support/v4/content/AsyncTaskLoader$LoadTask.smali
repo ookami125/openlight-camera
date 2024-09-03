@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/content/AsyncTaskLoader;)V
-    .locals 1
+    .registers 3
 
     .line 45
     iput-object p1, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/support/v4/content/AsyncTaskLoader;
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 45
     check-cast p1, [Ljava/lang/Void;
@@ -72,7 +72,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -88,12 +88,12 @@
     invoke-virtual {p1}, Landroid/support/v4/content/AsyncTaskLoader;->onLoadInBackground()Ljava/lang/Object;
 
     move-result-object p1
-    :try_end_0
-    .catch Landroid/support/v4/os/OperationCanceledException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Landroid/support/v4/os/OperationCanceledException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object p1
 
-    :catch_0
+    :catch_7
     move-exception p1
 
     .line 61
@@ -101,19 +101,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 68
-    :cond_0
+    :cond_10
     throw p1
 .end method
 
 .method protected onCancelled(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -125,8 +125,8 @@
     iget-object v0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/support/v4/content/AsyncTaskLoader;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/content/AsyncTaskLoader;->dispatchOnCancelled(Landroid/support/v4/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_b
 
     .line 93
     iget-object p0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -135,7 +135,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     iget-object p0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -146,7 +146,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TD;)V"
@@ -158,8 +158,8 @@
     iget-object v0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->this$0:Landroid/support/v4/content/AsyncTaskLoader;
 
     invoke-virtual {v0, p0, p1}, Landroid/support/v4/content/AsyncTaskLoader;->dispatchOnLoadComplete(Landroid/support/v4/content/AsyncTaskLoader$LoadTask;Ljava/lang/Object;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_b
 
     .line 82
     iget-object p0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -168,7 +168,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     iget-object p0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
@@ -179,7 +179,7 @@
 .end method
 
 .method public run()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -195,16 +195,16 @@
 .end method
 
 .method public waitForLoader()V
-    .locals 0
+    .registers 1
 
     .line 108
     :try_start_0
     iget-object p0, p0, Landroid/support/v4/content/AsyncTaskLoader$LoadTask;->mDone:Ljava/util/concurrent/CountDownLatch;
 
     invoke-virtual {p0}, Ljava/util/concurrent/CountDownLatch;->await()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_5} :catch_5
 
-    :catch_0
+    :catch_5
     return-void
 .end method

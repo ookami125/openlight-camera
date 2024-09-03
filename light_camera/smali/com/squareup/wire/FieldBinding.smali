@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/wire/WireField;Ljava/lang/reflect/Field;Ljava/lang/Class;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -151,7 +151,7 @@
 .end method
 
 .method private static getBuilderField(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/reflect/Field;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,13 +168,13 @@
     invoke-virtual {p0, p1}, Ljava/lang/Class;->getField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object v0
 
     .line 33
-    :catch_0
+    :catch_5
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -207,7 +207,7 @@
 .end method
 
 .method private static getBuilderMethod(Ljava/lang/Class;Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/reflect/Method;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -223,7 +223,7 @@
     const/4 v0, 0x1
 
     .line 39
-    :try_start_0
+    :try_start_1
     new-array v0, v0, [Ljava/lang/Class;
 
     const/4 v1, 0x0
@@ -233,13 +233,13 @@
     invoke-virtual {p0, p1, v0}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_a} :catch_b
 
     return-object v0
 
     .line 41
-    :catch_0
+    :catch_b
     new-instance v0, Ljava/lang/AssertionError;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -289,7 +289,7 @@
 
 # virtual methods
 .method adapter()Lcom/squareup/wire/ProtoAdapter;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -302,17 +302,17 @@
     .line 90
     iget-object v0, p0, Lcom/squareup/wire/FieldBinding;->adapter:Lcom/squareup/wire/ProtoAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
     .line 92
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Lcom/squareup/wire/FieldBinding;->isMap()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 93
     invoke-virtual {p0}, Lcom/squareup/wire/FieldBinding;->keyAdapter()Lcom/squareup/wire/ProtoAdapter;
@@ -334,7 +334,7 @@
     return-object v0
 
     .line 99
-    :cond_1
+    :cond_1a
     invoke-virtual {p0}, Lcom/squareup/wire/FieldBinding;->singleAdapter()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v0
@@ -351,7 +351,7 @@
 .end method
 
 .method get(Lcom/squareup/wire/Message;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TM;)",
@@ -366,12 +366,12 @@
     invoke-virtual {p0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object p0
 
-    :catch_0
+    :catch_7
     move-exception p0
 
     .line 134
@@ -383,7 +383,7 @@
 .end method
 
 .method getFromBuilder(Lcom/squareup/wire/Message$Builder;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;)",
@@ -398,12 +398,12 @@
     invoke-virtual {p0, p1}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object p0
 
-    :catch_0
+    :catch_7
     move-exception p0
 
     .line 142
@@ -415,7 +415,7 @@
 .end method
 
 .method isMap()Z
-    .locals 0
+    .registers 1
 
     .line 74
     iget-object p0, p0, Lcom/squareup/wire/FieldBinding;->keyAdapterString:Ljava/lang/String;
@@ -430,7 +430,7 @@
 .end method
 
 .method keyAdapter()Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -442,12 +442,12 @@
     .line 84
     iget-object v0, p0, Lcom/squareup/wire/FieldBinding;->keyAdapter:Lcom/squareup/wire/ProtoAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
     .line 86
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/squareup/wire/FieldBinding;->keyAdapterString:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/squareup/wire/ProtoAdapter;->get(Ljava/lang/String;)Lcom/squareup/wire/ProtoAdapter;
@@ -460,7 +460,7 @@
 .end method
 
 .method set(Lcom/squareup/wire/Message$Builder;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;",
@@ -477,7 +477,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 121
     iget-object p0, p0, Lcom/squareup/wire/FieldBinding;->builderMethod:Ljava/lang/reflect/Method;
@@ -492,21 +492,21 @@
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 123
-    :cond_0
+    :cond_14
     iget-object p0, p0, Lcom/squareup/wire/FieldBinding;->builderField:Ljava/lang/reflect/Field;
 
     invoke-virtual {p0, p1, p2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_19} :catch_1a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_19} :catch_1a
 
-    :goto_0
+    :goto_19
     return-void
 
-    :catch_0
+    :catch_1a
     move-exception p0
 
     .line 126
@@ -518,7 +518,7 @@
 .end method
 
 .method singleAdapter()Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -530,12 +530,12 @@
     .line 78
     iget-object v0, p0, Lcom/squareup/wire/FieldBinding;->singleAdapter:Lcom/squareup/wire/ProtoAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
     .line 80
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/squareup/wire/FieldBinding;->adapterString:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/squareup/wire/ProtoAdapter;->get(Ljava/lang/String;)Lcom/squareup/wire/ProtoAdapter;
@@ -548,7 +548,7 @@
 .end method
 
 .method value(Lcom/squareup/wire/Message$Builder;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TB;",
@@ -564,7 +564,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 105
     invoke-virtual {p0, p1}, Lcom/squareup/wire/FieldBinding;->getFromBuilder(Lcom/squareup/wire/Message$Builder;)Ljava/lang/Object;
@@ -576,17 +576,17 @@
     .line 106
     invoke-interface {p0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_29
 
     .line 107
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lcom/squareup/wire/FieldBinding;->keyAdapterString:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_26
 
     .line 108
     invoke-virtual {p0, p1}, Lcom/squareup/wire/FieldBinding;->getFromBuilder(Lcom/squareup/wire/Message$Builder;)Ljava/lang/Object;
@@ -600,12 +600,12 @@
 
     invoke-interface {p0, p2}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 111
-    :cond_1
+    :cond_26
     invoke-virtual {p0, p1, p2}, Lcom/squareup/wire/FieldBinding;->set(Lcom/squareup/wire/Message$Builder;Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_29
     return-void
 .end method

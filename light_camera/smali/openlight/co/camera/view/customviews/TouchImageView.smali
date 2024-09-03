@@ -91,7 +91,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 133
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;-><init>(Landroid/content/Context;)V
@@ -114,7 +114,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 138
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/AppCompatImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -137,7 +137,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 143
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/widget/AppCompatImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$1000(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/view/GestureDetector;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mGestureDetector:Landroid/view/GestureDetector;
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$1100(Lopenlight/co/camera/view/customviews/TouchImageView;Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
-    .locals 0
+    .registers 2
 
     .line 64
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->setState(Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$1200(Lopenlight/co/camera/view/customviews/TouchImageView;)I
-    .locals 0
+    .registers 1
 
     .line 64
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->viewWidth:I
@@ -187,7 +187,7 @@
 .end method
 
 .method static synthetic access$1300(Lopenlight/co/camera/view/customviews/TouchImageView;)F
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->getImageWidth()F
@@ -198,7 +198,7 @@
 .end method
 
 .method static synthetic access$1400(Lopenlight/co/camera/view/customviews/TouchImageView;FFF)F
-    .locals 0
+    .registers 4
 
     .line 64
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/view/customviews/TouchImageView;->getFixDragTrans(FFF)F
@@ -209,7 +209,7 @@
 .end method
 
 .method static synthetic access$1500(Lopenlight/co/camera/view/customviews/TouchImageView;)I
-    .locals 0
+    .registers 1
 
     .line 64
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->viewHeight:I
@@ -218,7 +218,7 @@
 .end method
 
 .method static synthetic access$1600(Lopenlight/co/camera/view/customviews/TouchImageView;)F
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->getImageHeight()F
@@ -229,7 +229,7 @@
 .end method
 
 .method static synthetic access$1700(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/graphics/Matrix;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$1800(Lopenlight/co/camera/view/customviews/TouchImageView;)V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->fixTrans()V
@@ -247,7 +247,7 @@
 .end method
 
 .method static synthetic access$1900(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/grid/CustomViewPager$OnSwipeOutListener;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->onSwipeOutListener:Lopenlight/co/camera/view/grid/CustomViewPager$OnSwipeOutListener;
@@ -256,7 +256,7 @@
 .end method
 
 .method static synthetic access$2000(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/view/View$OnTouchListener;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->userTouchListener:Landroid/view/View$OnTouchListener;
@@ -265,7 +265,7 @@
 .end method
 
 .method static synthetic access$2100(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->touchImageViewListener:Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
@@ -274,7 +274,7 @@
 .end method
 
 .method static synthetic access$2200(Lopenlight/co/camera/view/customviews/TouchImageView;DFFZ)V
-    .locals 0
+    .registers 6
 
     .line 64
     invoke-direct/range {p0 .. p5}, Lopenlight/co/camera/view/customviews/TouchImageView;->scaleImage(DFFZ)V
@@ -283,7 +283,7 @@
 .end method
 
 .method static synthetic access$2300(Lopenlight/co/camera/view/customviews/TouchImageView;FFZ)Landroid/graphics/PointF;
-    .locals 0
+    .registers 4
 
     .line 64
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/view/customviews/TouchImageView;->transformCoordTouchToBitmap(FFZ)Landroid/graphics/PointF;
@@ -294,7 +294,7 @@
 .end method
 
 .method static synthetic access$2400(Lopenlight/co/camera/view/customviews/TouchImageView;FF)Landroid/graphics/PointF;
-    .locals 0
+    .registers 3
 
     .line 64
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/customviews/TouchImageView;->transformCoordBitmapToTouch(FF)Landroid/graphics/PointF;
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic access$2500(Lopenlight/co/camera/view/customviews/TouchImageView;)V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->fixScaleTrans()V
@@ -314,7 +314,7 @@
 .end method
 
 .method static synthetic access$2600(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->context:Landroid/content/Context;
@@ -323,7 +323,7 @@
 .end method
 
 .method static synthetic access$2700(Lopenlight/co/camera/view/customviews/TouchImageView;)[F
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -332,7 +332,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/view/GestureDetector$OnDoubleTapListener;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->doubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
@@ -341,7 +341,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$Fling;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->fling:Lopenlight/co/camera/view/customviews/TouchImageView$Fling;
@@ -350,7 +350,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/camera/view/customviews/TouchImageView;Lopenlight/co/camera/view/customviews/TouchImageView$Fling;)Lopenlight/co/camera/view/customviews/TouchImageView$Fling;
-    .locals 0
+    .registers 2
 
     .line 64
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->fling:Lopenlight/co/camera/view/customviews/TouchImageView$Fling;
@@ -359,7 +359,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/customviews/TouchImageView;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     .line 64
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->compatPostOnAnimation(Ljava/lang/Runnable;)V
@@ -368,7 +368,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$State;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->state:Lopenlight/co/camera/view/customviews/TouchImageView$State;
@@ -377,7 +377,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/view/customviews/TouchImageView;)F
-    .locals 0
+    .registers 1
 
     .line 64
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->minScale:F
@@ -386,7 +386,7 @@
 .end method
 
 .method static synthetic access$800(Lopenlight/co/camera/view/customviews/TouchImageView;)F
-    .locals 0
+    .registers 1
 
     .line 64
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->maxScale:F
@@ -395,7 +395,7 @@
 .end method
 
 .method static synthetic access$900(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/view/ScaleGestureDetector;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleDetector:Landroid/view/ScaleGestureDetector;
@@ -404,7 +404,7 @@
 .end method
 
 .method private compatPostOnAnimation(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
     .annotation build Landroid/annotation/TargetApi;
         value = 0x10
     .end annotation
@@ -414,63 +414,63 @@
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 1340
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->postOnAnimation(Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_a
     const-wide/16 v0, 0x10
 
     .line 1343
     invoke-virtual {p0, p1, v0, v1}, Lopenlight/co/camera/view/customviews/TouchImageView;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method private fitImageToView()V
-    .locals 11
+    .registers 12
 
     .line 610
     invoke-virtual {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_ff
 
     .line 611
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_ff
 
     .line 612
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_14
 
-    goto/16 :goto_3
+    goto/16 :goto_ff
 
     .line 615
-    :cond_0
+    :cond_14
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_fe
 
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->prevMatrix:Landroid/graphics/Matrix;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
-    goto/16 :goto_2
+    goto/16 :goto_fe
 
     .line 619
-    :cond_1
+    :cond_1e
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v9
@@ -511,7 +511,7 @@
 
     const/high16 v6, 0x3f800000    # 1.0f
 
-    packed-switch v5, :pswitch_data_0
+    packed-switch v5, :pswitch_data_100
 
     .line 651
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -523,7 +523,7 @@
     throw p0
 
     .line 638
-    :pswitch_0
+    :pswitch_47
     invoke-static {v1, v3}, Ljava/lang/Math;->min(FF)F
 
     move-result v1
@@ -535,29 +535,29 @@
     move v3, v1
 
     .line 641
-    :pswitch_1
+    :pswitch_50
     invoke-static {v1, v3}, Ljava/lang/Math;->min(FF)F
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 634
-    :pswitch_2
+    :pswitch_55
     invoke-static {v1, v3}, Ljava/lang/Math;->max(FF)F
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_5b
 
-    :pswitch_3
+    :pswitch_5a
     move v1, v6
 
-    :goto_0
+    :goto_5b
     move v3, v1
 
     .line 659
-    :pswitch_4
+    :pswitch_5c
     iget v5, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->viewWidth:I
 
     int-to-float v5, v5
@@ -598,11 +598,11 @@
 
     move-result v8
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_8f
 
     iget-boolean v8, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->imageRenderedAtLeastOnce:Z
 
-    if-nez v8, :cond_2
+    if-nez v8, :cond_8f
 
     .line 667
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -623,30 +623,30 @@
     .line 669
     sput v6, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
 
-    goto :goto_1
+    goto :goto_f5
 
     .line 677
-    :cond_2
+    :cond_8f
     iget v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->prevMatchViewWidth:F
 
     const/4 v3, 0x0
 
     cmpl-float v1, v1, v3
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_9c
 
     iget v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->prevMatchViewHeight:F
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_9f
 
     .line 678
-    :cond_3
+    :cond_9c
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->savePreviousImageValues()V
 
     .line 681
-    :cond_4
+    :cond_9f
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->prevMatrix:Landroid/graphics/Matrix;
 
     iget-object v3, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -755,7 +755,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->setValues([F)V
 
     .line 716
-    :goto_1
+    :goto_f5
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->fixTrans()V
 
     .line 717
@@ -765,26 +765,26 @@
 
     return-void
 
-    :cond_5
-    :goto_2
+    :cond_fe
+    :goto_fe
     return-void
 
-    :cond_6
-    :goto_3
+    :cond_ff
+    :goto_ff
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_100
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-        :pswitch_4
+        :pswitch_5a
+        :pswitch_55
+        :pswitch_47
+        :pswitch_50
+        :pswitch_5c
     .end packed-switch
 .end method
 
 .method private fixScaleTrans()V
-    .locals 5
+    .registers 6
 
     .line 530
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->fixTrans()V
@@ -809,7 +809,7 @@
 
     const/high16 v1, 0x40000000    # 2.0f
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_25
 
     .line 533
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -831,7 +831,7 @@
     aput v3, v0, v2
 
     .line 536
-    :cond_0
+    :cond_25
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->getImageHeight()F
 
     move-result v0
@@ -842,7 +842,7 @@
 
     cmpg-float v0, v0, v2
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_3e
 
     .line 537
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -864,7 +864,7 @@
     aput v3, v0, v2
 
     .line 539
-    :cond_1
+    :cond_3e
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
 
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -875,7 +875,7 @@
 .end method
 
 .method private fixTrans()V
-    .locals 4
+    .registers 5
 
     .line 510
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -928,45 +928,45 @@
 
     cmpl-float v3, v0, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_30
 
     cmpl-float v2, v1, v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_35
 
     .line 518
-    :cond_0
+    :cond_30
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
 
     invoke-virtual {p0, v0, v1}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
-    :cond_1
+    :cond_35
     return-void
 .end method
 
 .method private getFixDragTrans(FFF)F
-    .locals 0
+    .registers 4
 
     cmpg-float p0, p3, p2
 
-    if-gtz p0, :cond_0
+    if-gtz p0, :cond_6
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_0
+    :cond_6
     return p1
 .end method
 
 .method private getFixTrans(FFF)F
-    .locals 1
+    .registers 5
 
     cmpg-float p0, p3, p2
 
     const/4 v0, 0x0
 
-    if-gtz p0, :cond_0
+    if-gtz p0, :cond_a
 
     sub-float p0, p2, p3
 
@@ -974,17 +974,17 @@
 
     move p0, v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_a
     sub-float p0, p2, p3
 
     move p2, v0
 
-    :goto_0
+    :goto_d
     cmpg-float p3, p1, p0
 
-    if-gez p3, :cond_1
+    if-gez p3, :cond_14
 
     neg-float p1, p1
 
@@ -992,10 +992,10 @@
 
     return p1
 
-    :cond_1
+    :cond_14
     cmpl-float p0, p1, p2
 
-    if-lez p0, :cond_2
+    if-lez p0, :cond_1b
 
     neg-float p0, p1
 
@@ -1003,12 +1003,12 @@
 
     return p0
 
-    :cond_2
+    :cond_1b
     return v0
 .end method
 
 .method private getImageHeight()F
-    .locals 1
+    .registers 2
 
     .line 573
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matchViewHeight:F
@@ -1021,7 +1021,7 @@
 .end method
 
 .method private getImageWidth()F
-    .locals 1
+    .registers 2
 
     .line 569
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matchViewWidth:F
@@ -1034,7 +1034,7 @@
 .end method
 
 .method private printMatrixInfo()V
-    .locals 3
+    .registers 4
 
     const/16 v0, 0x9
 
@@ -1093,20 +1093,20 @@
 .end method
 
 .method private savePreviousImageValues()V
-    .locals 2
+    .registers 3
 
     .line 285
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     iget v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->viewHeight:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     iget v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->viewWidth:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     .line 286
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -1142,14 +1142,14 @@
 
     iput v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->prevViewWidth:I
 
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method private scaleImage(DFFZ)V
-    .locals 4
+    .registers 10
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_7
 
     .line 1016
     iget p5, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->superMinScale:F
@@ -1157,17 +1157,17 @@
     .line 1017
     iget v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->superMaxScale:F
 
-    goto :goto_0
+    goto :goto_b
 
     .line 1020
-    :cond_0
+    :cond_7
     iget p5, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->minScale:F
 
     .line 1021
     iget v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->maxScale:F
 
     .line 1024
-    :goto_0
+    :goto_b
     sget v1, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
 
     .line 1025
@@ -1186,7 +1186,7 @@
 
     cmpl-float v2, v2, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1f
 
     .line 1027
     sput v0, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
@@ -1195,15 +1195,15 @@
 
     float-to-double p1, v0
 
-    goto :goto_1
+    goto :goto_29
 
     .line 1029
-    :cond_1
+    :cond_1f
     sget v0, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
 
     cmpg-float v0, v0, p5
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_29
 
     .line 1030
     sput p5, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
@@ -1213,8 +1213,8 @@
     float-to-double p1, p5
 
     .line 1034
-    :cond_2
-    :goto_1
+    :cond_29
+    :goto_29
     iget-object p5, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
 
     double-to-float p1, p1
@@ -1231,7 +1231,7 @@
 .end method
 
 .method private setState(Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
-    .locals 0
+    .registers 2
 
     .line 790
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->state:Lopenlight/co/camera/view/customviews/TouchImageView$State;
@@ -1240,35 +1240,35 @@
 .end method
 
 .method private setViewSize(III)I
-    .locals 0
+    .registers 4
 
     const/high16 p0, -0x80000000
 
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_b
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     const/high16 p0, 0x40000000    # 2.0f
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     move p2, p3
 
-    goto :goto_0
+    goto :goto_f
 
     .line 736
-    :cond_1
+    :cond_b
     invoke-static {p3, p2}, Ljava/lang/Math;->min(II)I
 
     move-result p2
 
-    :goto_0
+    :goto_f
     return p2
 .end method
 
 .method private sharedConstructing(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x1
 
@@ -1331,7 +1331,7 @@
     .line 156
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3f
 
     .line 157
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
@@ -1339,7 +1339,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
     .line 159
-    :cond_0
+    :cond_3f
     iput p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->minScale:F
 
     const/high16 p1, 0x40400000    # 3.0f
@@ -1396,7 +1396,7 @@
 .end method
 
 .method private transformCoordBitmapToTouch(FF)Landroid/graphics/PointF;
-    .locals 2
+    .registers 5
 
     .line 1180
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -1470,7 +1470,7 @@
 .end method
 
 .method private transformCoordTouchToBitmap(FFZ)Landroid/graphics/PointF;
-    .locals 5
+    .registers 9
 
     .line 1155
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -1537,7 +1537,7 @@
 
     div-float/2addr p2, p0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_44
 
     const/4 p0, 0x0
 
@@ -1560,7 +1560,7 @@
     move-result p2
 
     .line 1168
-    :cond_0
+    :cond_44
     new-instance p0, Landroid/graphics/PointF;
 
     invoke-direct {p0, p1, p2}, Landroid/graphics/PointF;-><init>(FF)V
@@ -1569,7 +1569,7 @@
 .end method
 
 .method private translateMatrixAfterRotate(IFFFIII)V
-    .locals 2
+    .registers 10
 
     int-to-float p6, p6
 
@@ -1577,7 +1577,7 @@
 
     const/high16 v1, 0x3f000000    # 0.5f
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_15
 
     .line 768
     iget-object p2, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -1598,14 +1598,14 @@
 
     aput p6, p2, p1
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_15
     const/4 p7, 0x0
 
     cmpl-float p7, p2, p7
 
-    if-lez p7, :cond_1
+    if-lez p7, :cond_22
 
     .line 774
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
@@ -1618,10 +1618,10 @@
 
     aput p2, p0, p1
 
-    goto :goto_0
+    goto :goto_32
 
     .line 784
-    :cond_1
+    :cond_22
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
 
     move-result p2
@@ -1647,14 +1647,14 @@
 
     aput p2, p0, p1
 
-    :goto_0
+    :goto_32
     return-void
 .end method
 
 
 # virtual methods
 .method public canScrollHorizontally(I)Z
-    .locals 3
+    .registers 5
 
     .line 799
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -1683,23 +1683,23 @@
 
     const/4 v2, 0x0
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_19
 
     return v2
 
-    :cond_0
+    :cond_19
     const/high16 v1, -0x40800000    # -1.0f
 
     cmpl-float v1, v0, v1
 
-    if-ltz v1, :cond_1
+    if-ltz v1, :cond_22
 
-    if-gez p1, :cond_1
+    if-gez p1, :cond_22
 
     return v2
 
     .line 808
-    :cond_1
+    :cond_22
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result v0
@@ -1720,20 +1720,20 @@
 
     cmpl-float p0, v0, p0
 
-    if-ltz p0, :cond_2
+    if-ltz p0, :cond_38
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_38
 
     return v2
 
-    :cond_2
+    :cond_38
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public canScrollHorizontallyFroyo(I)Z
-    .locals 0
+    .registers 2
 
     .line 794
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->canScrollHorizontally(I)Z
@@ -1744,7 +1744,7 @@
 .end method
 
 .method public getCurrentScale()F
-    .locals 1
+    .registers 2
 
     .line 184
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
@@ -1757,7 +1757,7 @@
 .end method
 
 .method public getCurrentZoom()F
-    .locals 0
+    .registers 1
 
     .line 382
     sget p0, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
@@ -1766,7 +1766,7 @@
 .end method
 
 .method public getMatrixScale(Landroid/graphics/Matrix;)F
-    .locals 5
+    .registers 7
     .param p1    # Landroid/graphics/Matrix;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1813,7 +1813,7 @@
 .end method
 
 .method protected getMatrixValue(Landroid/graphics/Matrix;I)F
-    .locals 1
+    .registers 4
     .param p1    # Landroid/graphics/Matrix;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1839,7 +1839,7 @@
 .end method
 
 .method public getMaxZoom()F
-    .locals 0
+    .registers 1
 
     .line 353
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->maxScale:F
@@ -1848,7 +1848,7 @@
 .end method
 
 .method public getMinZoom()F
-    .locals 0
+    .registers 1
 
     .line 372
     iget p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->minScale:F
@@ -1857,7 +1857,7 @@
 .end method
 
 .method public getScaleType()Landroid/widget/ImageView$ScaleType;
-    .locals 0
+    .registers 1
 
     .line 251
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
@@ -1866,21 +1866,21 @@
 .end method
 
 .method public getScrollPosition()Landroid/graphics/PointF;
-    .locals 5
+    .registers 6
 
     .line 481
     invoke-virtual {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 485
-    :cond_0
+    :cond_8
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v1
@@ -1931,14 +1931,14 @@
 .end method
 
 .method public getZoomedRect()Landroid/graphics/RectF;
-    .locals 6
+    .registers 7
 
     .line 269
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
     sget-object v1, Landroid/widget/ImageView$ScaleType;->FIT_XY:Landroid/widget/ImageView$ScaleType;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_3a
 
     const/4 v0, 0x1
 
@@ -2008,7 +2008,7 @@
     return-object v3
 
     .line 270
-    :cond_0
+    :cond_3a
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string v0, "getZoomedRect() not supported with FIT_XY"
@@ -2019,7 +2019,7 @@
 .end method
 
 .method public isZoomed()Z
-    .locals 1
+    .registers 2
 
     .line 260
     sget p0, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
@@ -2028,21 +2028,21 @@
 
     cmpl-float p0, p0, v0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 2
 
     .line 343
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -2054,7 +2054,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
@@ -2067,7 +2067,7 @@
     .line 333
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->delayedZoomVariables:Lopenlight/co/camera/view/customviews/TouchImageView$ZoomVariables;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 334
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->delayedZoomVariables:Lopenlight/co/camera/view/customviews/TouchImageView$ZoomVariables;
@@ -2094,39 +2094,39 @@
     iput-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->delayedZoomVariables:Lopenlight/co/camera/view/customviews/TouchImageView$ZoomVariables;
 
     .line 338
-    :cond_0
+    :cond_1f
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->onDraw(Landroid/graphics/Canvas;)V
 
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 4
+    .registers 7
 
     .line 578
     invoke-virtual {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_42
 
     .line 579
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_42
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto :goto_42
 
     .line 584
-    :cond_0
+    :cond_13
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v1
@@ -2182,8 +2182,8 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_42
+    :goto_42
     const/4 p1, 0x0
 
     .line 580
@@ -2193,12 +2193,12 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 2
+    .registers 4
 
     .line 312
     instance-of v0, p1, Landroid/os/Bundle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4f
 
     .line 313
     check-cast p1, Landroid/os/Bundle;
@@ -2285,14 +2285,14 @@
     return-void
 
     .line 326
-    :cond_0
+    :cond_4f
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->onRestoreInstanceState(Landroid/os/Parcelable;)V
 
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 3
+    .registers 4
 
     .line 297
     new-instance v0, Landroid/os/Bundle;
@@ -2368,7 +2368,7 @@
 .end method
 
 .method public resetZoom()V
-    .locals 1
+    .registers 2
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -2382,7 +2382,7 @@
 .end method
 
 .method public setImageBitmap(Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 2
 
     .line 210
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
@@ -2397,7 +2397,7 @@
 .end method
 
 .method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 217
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -2412,7 +2412,7 @@
 .end method
 
 .method public setImageResource(I)V
-    .locals 0
+    .registers 2
 
     .line 203
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->setImageResource(I)V
@@ -2427,7 +2427,7 @@
 .end method
 
 .method public setImageURI(Landroid/net/Uri;)V
-    .locals 0
+    .registers 2
 
     .line 224
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->setImageURI(Landroid/net/Uri;)V
@@ -2442,7 +2442,7 @@
 .end method
 
 .method public setMaxZoom(F)V
-    .locals 1
+    .registers 3
 
     .line 362
     iput p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->maxScale:F
@@ -2460,7 +2460,7 @@
 .end method
 
 .method public setMinZoom(F)V
-    .locals 1
+    .registers 3
 
     .line 391
     iput p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->minScale:F
@@ -2478,7 +2478,7 @@
 .end method
 
 .method public setOnDoubleTapListener(Landroid/view/GestureDetector$OnDoubleTapListener;)V
-    .locals 0
+    .registers 2
 
     .line 180
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->doubleTapListener:Landroid/view/GestureDetector$OnDoubleTapListener;
@@ -2487,7 +2487,7 @@
 .end method
 
 .method public setOnSwipeOutListener(Lopenlight/co/camera/view/grid/CustomViewPager$OnSwipeOutListener;)V
-    .locals 0
+    .registers 2
 
     .line 129
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->onSwipeOutListener:Lopenlight/co/camera/view/grid/CustomViewPager$OnSwipeOutListener;
@@ -2496,7 +2496,7 @@
 .end method
 
 .method public setOnTouchImageViewListener(Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;)V
-    .locals 0
+    .registers 2
 
     .line 176
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->touchImageViewListener:Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
@@ -2505,7 +2505,7 @@
 .end method
 
 .method public setOnTouchListener(Landroid/view/View$OnTouchListener;)V
-    .locals 0
+    .registers 2
 
     .line 172
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->userTouchListener:Landroid/view/View$OnTouchListener;
@@ -2514,47 +2514,47 @@
 .end method
 
 .method public setScaleType(Landroid/widget/ImageView$ScaleType;)V
-    .locals 1
+    .registers 3
 
     .line 231
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_START:Landroid/widget/ImageView$ScaleType;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_1c
 
     sget-object v0, Landroid/widget/ImageView$ScaleType;->FIT_END:Landroid/widget/ImageView$ScaleType;
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_1c
 
     .line 234
     sget-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_12
 
     .line 235
     sget-object p1, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 238
-    :cond_0
+    :cond_12
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
     .line 239
     iget-boolean p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->onDrawReady:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1b
 
     .line 244
     invoke-virtual {p0, p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->setZoom(Lopenlight/co/camera/view/customviews/TouchImageView;)V
 
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     return-void
 
     .line 232
-    :cond_2
+    :cond_1c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "TouchImageView does not support FIT_START or FIT_END"
@@ -2565,7 +2565,7 @@
 .end method
 
 .method public setScrollPosition(FF)V
-    .locals 1
+    .registers 4
 
     .line 502
     sget v0, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
@@ -2576,7 +2576,7 @@
 .end method
 
 .method public setZoom(F)V
-    .locals 1
+    .registers 3
 
     const/high16 v0, 0x3f000000    # 0.5f
 
@@ -2587,7 +2587,7 @@
 .end method
 
 .method public setZoom(FFF)V
-    .locals 1
+    .registers 5
 
     .line 423
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
@@ -2598,12 +2598,12 @@
 .end method
 
 .method public setZoom(FFFLandroid/widget/ImageView$ScaleType;)V
-    .locals 7
+    .registers 12
 
     .line 443
     iget-boolean v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->onDrawReady:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 444
     new-instance v0, Lopenlight/co/camera/view/customviews/TouchImageView$ZoomVariables;
@@ -2627,16 +2627,16 @@
     return-void
 
     .line 448
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView;->mScaleType:Landroid/widget/ImageView$ScaleType;
 
-    if-eq p4, v0, :cond_1
+    if-eq p4, v0, :cond_19
 
     .line 449
     invoke-virtual {p0, p4}, Lopenlight/co/camera/view/customviews/TouchImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 451
-    :cond_1
+    :cond_19
     invoke-virtual {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->resetZoom()V
 
     float-to-double v2, p1
@@ -2734,7 +2734,7 @@
 .end method
 
 .method public setZoom(Lopenlight/co/camera/view/customviews/TouchImageView;)V
-    .locals 3
+    .registers 5
 
     .line 468
     invoke-virtual {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->getScrollPosition()Landroid/graphics/PointF;

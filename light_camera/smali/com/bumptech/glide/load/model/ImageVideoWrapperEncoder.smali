@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/Encoder;Lcom/bumptech/glide/load/Encoder;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,14 +71,14 @@
 
 # virtual methods
 .method public encode(Lcom/bumptech/glide/load/model/ImageVideoWrapper;Ljava/io/OutputStream;)Z
-    .locals 1
+    .registers 4
 
     .line 28
     invoke-virtual {p1}, Lcom/bumptech/glide/load/model/ImageVideoWrapper;->getStream()Ljava/io/InputStream;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 29
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapperEncoder;->streamEncoder:Lcom/bumptech/glide/load/Encoder;
@@ -94,7 +94,7 @@
     return p0
 
     .line 31
-    :cond_0
+    :cond_11
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapperEncoder;->fileDescriptorEncoder:Lcom/bumptech/glide/load/Encoder;
 
     invoke-virtual {p1}, Lcom/bumptech/glide/load/model/ImageVideoWrapper;->getFileDescriptor()Landroid/os/ParcelFileDescriptor;
@@ -109,7 +109,7 @@
 .end method
 
 .method public bridge synthetic encode(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
 
     .line 15
     check-cast p1, Lcom/bumptech/glide/load/model/ImageVideoWrapper;
@@ -122,12 +122,12 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 37
     iget-object v0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapperEncoder;->id:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 38
     new-instance v0, Ljava/lang/StringBuilder;
@@ -157,7 +157,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapperEncoder;->id:Ljava/lang/String;
 
     .line 40
-    :cond_0
+    :cond_21
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapperEncoder;->id:Ljava/lang/String;
 
     return-object p0

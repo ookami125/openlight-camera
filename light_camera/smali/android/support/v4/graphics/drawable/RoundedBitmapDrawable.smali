@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-    .locals 2
+    .registers 5
 
     .line 379
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -93,7 +93,7 @@
     .line 59
     iput-boolean v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_35
 
     .line 381
     invoke-virtual {p1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
@@ -105,13 +105,13 @@
     iput p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mTargetDensity:I
 
     .line 384
-    :cond_0
+    :cond_35
     iput-object p2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
     .line 385
     iget-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_4c
 
     .line 386
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->computeBitmapSize()V
@@ -129,9 +129,9 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    goto :goto_0
+    goto :goto_54
 
-    :cond_1
+    :cond_4c
     const/4 p1, -0x1
 
     .line 389
@@ -144,12 +144,12 @@
     .line 390
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    :goto_0
+    :goto_54
     return-void
 .end method
 
 .method private computeBitmapSize()V
-    .locals 2
+    .registers 3
 
     .line 81
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -177,27 +177,27 @@
 .end method
 
 .method private static isGreaterThanZero(F)Z
-    .locals 1
+    .registers 2
 
     const v0, 0x3d4ccccd    # 0.05f
 
     cmpl-float p0, p0, v0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_9
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return p0
 .end method
 
 .method private updateCircularCornerRadius()V
-    .locals 2
+    .registers 3
 
     .line 312
     iget v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapHeight:I
@@ -221,17 +221,17 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 3
+    .registers 5
 
     .line 257
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 262
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->updateDstRect()V
 
     .line 263
@@ -241,7 +241,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_19
 
     const/4 v1, 0x0
 
@@ -252,10 +252,10 @@
 
     invoke-virtual {p1, v0, v1, v2, p0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 266
-    :cond_1
+    :cond_19
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
 
     iget v1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
@@ -266,12 +266,12 @@
 
     invoke-virtual {p1, v0, v1, v2, p0}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public getAlpha()I
-    .locals 0
+    .registers 1
 
     .line 281
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -284,7 +284,7 @@
 .end method
 
 .method public final getBitmap()Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 1
 
     .line 77
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -293,7 +293,7 @@
 .end method
 
 .method public getColorFilter()Landroid/graphics/ColorFilter;
-    .locals 0
+    .registers 1
 
     .line 292
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -306,7 +306,7 @@
 .end method
 
 .method public getCornerRadius()F
-    .locals 0
+    .registers 1
 
     .line 353
     iget p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
@@ -315,7 +315,7 @@
 .end method
 
 .method public getGravity()I
-    .locals 0
+    .registers 1
 
     .line 137
     iget p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
@@ -324,7 +324,7 @@
 .end method
 
 .method public getIntrinsicHeight()I
-    .locals 0
+    .registers 1
 
     .line 363
     iget p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapHeight:I
@@ -333,7 +333,7 @@
 .end method
 
 .method public getIntrinsicWidth()I
-    .locals 0
+    .registers 1
 
     .line 358
     iget p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapWidth:I
@@ -342,7 +342,7 @@
 .end method
 
 .method public getOpacity()I
-    .locals 3
+    .registers 4
 
     .line 368
     iget v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
@@ -351,26 +351,26 @@
 
     const/16 v2, 0x77
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_2b
 
     iget-boolean v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mIsCircular:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 371
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2a
 
     .line 373
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->hasAlpha()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2a
 
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
@@ -381,7 +381,7 @@
 
     const/16 v2, 0xff
 
-    if-lt v0, v2, :cond_2
+    if-lt v0, v2, :cond_2a
 
     iget p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
 
@@ -390,24 +390,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_29
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     const/4 v1, -0x1
 
-    :cond_2
-    :goto_0
+    :cond_2a
+    :goto_2a
     return v1
 
-    :cond_3
-    :goto_1
+    :cond_2b
+    :goto_2b
     return v1
 .end method
 
 .method public final getPaint()Landroid/graphics/Paint;
-    .locals 0
+    .registers 1
 
     .line 70
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -416,7 +416,7 @@
 .end method
 
 .method gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 6
 
     .line 220
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -427,7 +427,7 @@
 .end method
 
 .method public hasAntiAlias()Z
-    .locals 0
+    .registers 1
 
     .line 203
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -440,7 +440,7 @@
 .end method
 
 .method public hasMipMap()Z
-    .locals 0
+    .registers 1
 
     .line 179
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -451,7 +451,7 @@
 .end method
 
 .method public isCircular()Z
-    .locals 0
+    .registers 1
 
     .line 320
     iget-boolean p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mIsCircular:Z
@@ -460,7 +460,7 @@
 .end method
 
 .method protected onBoundsChange(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
 
     .line 342
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
@@ -468,12 +468,12 @@
     .line 343
     iget-boolean p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mIsCircular:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 344
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->updateCircularCornerRadius()V
 
-    :cond_0
+    :cond_a
     const/4 p1, 0x1
 
     .line 346
@@ -483,7 +483,7 @@
 .end method
 
 .method public setAlpha(I)V
-    .locals 1
+    .registers 3
 
     .line 272
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -492,7 +492,7 @@
 
     move-result v0
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_10
 
     .line 274
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -502,12 +502,12 @@
     .line 275
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->invalidateSelf()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public setAntiAlias(Z)V
-    .locals 1
+    .registers 3
 
     .line 191
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -521,7 +521,7 @@
 .end method
 
 .method public setCircular(Z)V
-    .locals 1
+    .registers 3
 
     .line 300
     iput-boolean p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mIsCircular:Z
@@ -531,7 +531,7 @@
     .line 301
     iput-boolean v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 303
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->updateCircularCornerRadius()V
@@ -546,20 +546,20 @@
     .line 305
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->invalidateSelf()V
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_15
     const/4 p1, 0x0
 
     .line 307
     invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->setCornerRadius(F)V
 
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 1
+    .registers 3
 
     .line 286
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -573,18 +573,18 @@
 .end method
 
 .method public setCornerRadius(F)V
-    .locals 2
+    .registers 4
 
     .line 327
     iget v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-void
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 329
@@ -595,7 +595,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 331
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -604,10 +604,10 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 333
-    :cond_1
+    :cond_18
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
 
     const/4 v1, 0x0
@@ -615,7 +615,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 336
-    :goto_0
+    :goto_1e
     iput p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
 
     .line 337
@@ -625,7 +625,7 @@
 .end method
 
 .method public setDither(Z)V
-    .locals 1
+    .registers 3
 
     .line 214
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -639,7 +639,7 @@
 .end method
 
 .method public setFilterBitmap(Z)V
-    .locals 1
+    .registers 3
 
     .line 208
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -653,12 +653,12 @@
 .end method
 
 .method public setGravity(I)V
-    .locals 1
+    .registers 3
 
     .line 148
     iget v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_c
 
     .line 149
     iput p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
@@ -671,12 +671,12 @@
     .line 151
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->invalidateSelf()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setMipMap(Z)V
-    .locals 0
+    .registers 2
 
     .line 167
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -687,39 +687,39 @@
 .end method
 
 .method public setTargetDensity(I)V
-    .locals 1
+    .registers 3
 
     .line 120
     iget v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mTargetDensity:I
 
-    if-eq v0, p1, :cond_2
+    if-eq v0, p1, :cond_14
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     const/16 p1, 0xa0
 
     .line 121
-    :cond_0
+    :cond_8
     iput p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mTargetDensity:I
 
     .line 122
     iget-object p1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_11
 
     .line 123
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->computeBitmapSize()V
 
     .line 125
-    :cond_1
+    :cond_11
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->invalidateSelf()V
 
-    :cond_2
+    :cond_14
     return-void
 .end method
 
 .method public setTargetDensity(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
 
     .line 96
     invoke-virtual {p1}, Landroid/graphics/Canvas;->getDensity()I
@@ -732,7 +732,7 @@
 .end method
 
 .method public setTargetDensity(Landroid/util/DisplayMetrics;)V
-    .locals 0
+    .registers 2
 
     .line 108
     iget p1, p1, Landroid/util/DisplayMetrics;->densityDpi:I
@@ -743,19 +743,19 @@
 .end method
 
 .method updateDstRect()V
-    .locals 9
+    .registers 10
 
     .line 224
     iget-boolean v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_ad
 
     .line 225
     iget-boolean v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mIsCircular:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     .line 226
     iget v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapWidth:I
@@ -842,10 +842,10 @@
     .line 235
     iput v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
 
-    goto :goto_0
+    goto :goto_64
 
     .line 237
-    :cond_0
+    :cond_54
     iget v3, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mGravity:I
 
     iget v4, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapWidth:I
@@ -863,7 +863,7 @@
     invoke-virtual/range {v2 .. v7}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
     .line 239
-    :goto_0
+    :goto_64
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRectF:Landroid/graphics/RectF;
 
     iget-object v2, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
@@ -873,7 +873,7 @@
     .line 241
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_ab
 
     .line 243
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mShaderMatrix:Landroid/graphics/Matrix;
@@ -943,9 +943,9 @@
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
 
     .line 251
-    :cond_1
+    :cond_ab
     iput-boolean v1, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
 
-    :cond_2
+    :cond_ad
     return-void
 .end method

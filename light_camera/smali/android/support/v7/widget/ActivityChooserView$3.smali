@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActivityChooserView;)V
-    .locals 0
+    .registers 2
 
     .line 248
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserView$3;->this$0:Landroid/support/v7/widget/ActivityChooserView;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 0
+    .registers 3
 
     .line 251
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V

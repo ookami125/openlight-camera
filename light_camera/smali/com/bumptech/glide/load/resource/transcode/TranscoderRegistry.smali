@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 13
     new-instance v0, Lcom/bumptech/glide/util/MultiClassKey;
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 45
     invoke-static {}, Lcom/bumptech/glide/load/resource/transcode/UnitTranscoder;->get()Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
@@ -85,13 +85,13 @@
     return-object p0
 
     .line 48
-    :cond_0
+    :cond_b
     sget-object v0, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;->GET_KEY:Lcom/bumptech/glide/util/MultiClassKey;
 
     monitor-enter v0
 
     .line 49
-    :try_start_0
+    :try_start_e
     sget-object v1, Lcom/bumptech/glide/load/resource/transcode/TranscoderRegistry;->GET_KEY:Lcom/bumptech/glide/util/MultiClassKey;
 
     invoke-virtual {v1, p1, p2}, Lcom/bumptech/glide/util/MultiClassKey;->set(Ljava/lang/Class;Ljava/lang/Class;)V
@@ -109,15 +109,15 @@
 
     .line 51
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_e .. :try_end_1e} :catchall_40
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_21
 
     return-object p0
 
     .line 53
-    :cond_1
+    :cond_21
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -144,20 +144,20 @@
 
     throw p0
 
-    :catchall_0
+    :catchall_40
     move-exception p0
 
     .line 51
-    :try_start_1
+    :try_start_41
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_42
+    .catchall {:try_start_41 .. :try_end_42} :catchall_40
 
     throw p0
 .end method
 
 .method public register(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",

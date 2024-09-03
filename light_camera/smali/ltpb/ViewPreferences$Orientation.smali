@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 728
     new-instance v0, Lltpb/ViewPreferences$Orientation;
@@ -208,7 +208,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -225,79 +225,79 @@
 .end method
 
 .method public static fromValue(I)Lltpb/ViewPreferences$Orientation;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_1e
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 764
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT180:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 763
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_HFLIP:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 762
-    :pswitch_2
+    :pswitch_b
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_VFLIP:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 761
-    :pswitch_3
+    :pswitch_e
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT90_CCW_VFLIP:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 760
-    :pswitch_4
+    :pswitch_11
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT90_CW_VFLIP:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 759
-    :pswitch_5
+    :pswitch_14
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT90_CCW:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 758
-    :pswitch_6
+    :pswitch_17
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT90_CW:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     .line 757
-    :pswitch_7
+    :pswitch_1a
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_NORMAL:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x0
-        :pswitch_7
-        :pswitch_6
+        :pswitch_1a
+        :pswitch_17
+        :pswitch_14
+        :pswitch_11
+        :pswitch_e
+        :pswitch_b
+        :pswitch_8
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/ViewPreferences$Orientation;
-    .locals 1
+    .registers 2
 
     .line 727
     const-class v0, Lltpb/ViewPreferences$Orientation;
@@ -312,7 +312,7 @@
 .end method
 
 .method public static values()[Lltpb/ViewPreferences$Orientation;
-    .locals 1
+    .registers 1
 
     .line 727
     sget-object v0, Lltpb/ViewPreferences$Orientation;->$VALUES:[Lltpb/ViewPreferences$Orientation;
@@ -329,7 +329,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 771
     iget p0, p0, Lltpb/ViewPreferences$Orientation;->value:I

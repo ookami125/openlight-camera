@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 7
 
     .line 440
     iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$enterTransition:Ljava/lang/Object;
@@ -56,38 +56,38 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onTransitionEnd(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onTransitionPause(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onTransitionResume(Landroid/transition/Transition;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onTransitionStart(Landroid/transition/Transition;)V
-    .locals 2
+    .registers 4
 
     .line 443
     iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$enterTransition:Ljava/lang/Object;
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 444
     iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$enterTransition:Ljava/lang/Object;
@@ -97,10 +97,10 @@
     invoke-static {p1, v1, v0}, Landroid/support/v4/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 446
-    :cond_0
+    :cond_c
     iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$exitTransition:Ljava/lang/Object;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_17
 
     .line 447
     iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$exitTransition:Ljava/lang/Object;
@@ -110,10 +110,10 @@
     invoke-static {p1, v1, v0}, Landroid/support/v4/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     .line 449
-    :cond_1
+    :cond_17
     iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$sharedElementTransition:Ljava/lang/Object;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_22
 
     .line 450
     iget-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$5;->val$sharedElementTransition:Ljava/lang/Object;
@@ -122,6 +122,6 @@
 
     invoke-static {p1, p0, v0}, Landroid/support/v4/app/FragmentTransitionCompat21;->replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
-    :cond_2
+    :cond_22
     return-void
 .end method

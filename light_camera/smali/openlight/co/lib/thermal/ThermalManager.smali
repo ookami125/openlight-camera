@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     new-instance v0, Lopenlight/co/lib/thermal/ThermalManager;
@@ -54,7 +54,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 189
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 29
     sget-object v0, Lopenlight/co/lib/thermal/ThermalManager;->TAG:Ljava/lang/String;
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/lib/thermal/ThermalManager;)Lopenlight/co/thermalmonitor/ThermalIntent$Level;
-    .locals 0
+    .registers 1
 
     .line 29
     iget-object p0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/lib/thermal/ThermalManager;Lopenlight/co/thermalmonitor/ThermalIntent$Level;)Lopenlight/co/thermalmonitor/ThermalIntent$Level;
-    .locals 0
+    .registers 2
 
     .line 29
     iput-object p1, p0, Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/lib/thermal/ThermalManager;)V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Lopenlight/co/lib/thermal/ThermalManager;->notifyListeners()V
@@ -125,7 +125,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/lib/thermal/ThermalManager;)Lopenlight/co/thermalmonitor/IThermalMonitorService;
-    .locals 0
+    .registers 1
 
     .line 29
     iget-object p0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mThermalMonitorService:Lopenlight/co/thermalmonitor/IThermalMonitorService;
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic access$302(Lopenlight/co/lib/thermal/ThermalManager;Lopenlight/co/thermalmonitor/IThermalMonitorService;)Lopenlight/co/thermalmonitor/IThermalMonitorService;
-    .locals 0
+    .registers 2
 
     .line 29
     iput-object p1, p0, Lopenlight/co/lib/thermal/ThermalManager;->mThermalMonitorService:Lopenlight/co/thermalmonitor/IThermalMonitorService;
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/lib/thermal/ThermalManager;)Z
-    .locals 0
+    .registers 1
 
     .line 29
     iget-boolean p0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mServiceBound:Z
@@ -152,7 +152,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/lib/thermal/ThermalManager;Z)Z
-    .locals 0
+    .registers 2
 
     .line 29
     iput-boolean p1, p0, Lopenlight/co/lib/thermal/ThermalManager;->mServiceBound:Z
@@ -161,7 +161,7 @@
 .end method
 
 .method public static get()Lopenlight/co/lib/thermal/ThermalManager;
-    .locals 1
+    .registers 1
 
     .line 109
     sget-object v0, Lopenlight/co/lib/thermal/ThermalManager;->sInstance:Lopenlight/co/lib/thermal/ThermalManager;
@@ -170,15 +170,15 @@
 .end method
 
 .method private declared-synchronized init()V
-    .locals 4
+    .registers 5
 
     monitor-enter p0
 
     .line 117
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mServiceBound:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     .line 118
     sget-object v0, Lopenlight/co/lib/thermal/ThermalManager;->TAG:Ljava/lang/String;
@@ -209,16 +209,16 @@
     const/4 v3, 0x1
 
     invoke-virtual {v1, v0, v2, v3}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_1 .. :try_end_22} :catchall_24
 
     .line 123
-    :cond_0
+    :cond_22
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_24
     move-exception v0
 
     .line 116
@@ -228,12 +228,12 @@
 .end method
 
 .method private declared-synchronized notifyListeners()V
-    .locals 3
+    .registers 4
 
     monitor-enter p0
 
     .line 182
-    :try_start_0
+    :try_start_1
     sget-object v0, Lopenlight/co/lib/thermal/ThermalManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -275,12 +275,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_2d
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -292,18 +292,18 @@
     iget-object v2, p0, Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
     invoke-interface {v1, v2}, Lopenlight/co/lib/thermal/ThermalManager$ThermalStateListener;->onTemperatureChange(Lopenlight/co/thermalmonitor/ThermalIntent$Level;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3e
+    .catchall {:try_start_1 .. :try_end_3e} :catchall_41
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 187
-    :cond_0
+    :cond_3f
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_41
     move-exception v0
 
     .line 181
@@ -313,12 +313,12 @@
 .end method
 
 .method private release()V
-    .locals 2
+    .registers 3
 
     .line 129
     iget-boolean v0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mServiceBound:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 130
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->getApp()Landroid/content/Context;
@@ -341,24 +341,24 @@
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 134
-    :cond_0
+    :cond_18
     sget-object p0, Lopenlight/co/lib/thermal/ThermalManager;->TAG:Ljava/lang/String;
 
     const-string v0, "ThermalMonitorService not bound to release"
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_1f
     return-void
 .end method
 
 
 # virtual methods
 .method public getCurrentLevel()Lopenlight/co/thermalmonitor/ThermalIntent$Level;
-    .locals 0
+    .registers 1
 
     .line 144
     iget-object p0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
@@ -367,12 +367,12 @@
 .end method
 
 .method public declared-synchronized registerThermalStateListener(Lopenlight/co/lib/thermal/ThermalManager$ThermalStateListener;)V
-    .locals 4
+    .registers 6
 
     monitor-enter p0
 
     .line 151
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mThermalStateListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -389,7 +389,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_22
 
     .line 159
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->getApp()Landroid/content/Context;
@@ -407,19 +407,19 @@
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
     .line 164
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
     invoke-interface {p1, v0}, Lopenlight/co/lib/thermal/ThermalManager$ThermalStateListener;->onTemperatureChange(Lopenlight/co/thermalmonitor/ThermalIntent$Level;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_1 .. :try_end_27} :catchall_29
 
     .line 165
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_29
     move-exception p1
 
     .line 150
@@ -429,12 +429,12 @@
 .end method
 
 .method public declared-synchronized unregisterThermalStateListener(Lopenlight/co/lib/thermal/ThermalManager$ThermalStateListener;)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     .line 169
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lopenlight/co/lib/thermal/ThermalManager;->mThermalStateListeners:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
@@ -446,7 +446,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1a
 
     .line 171
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->getApp()Landroid/content/Context;
@@ -459,16 +459,16 @@
 
     .line 174
     invoke-direct {p0}, Lopenlight/co/lib/thermal/ThermalManager;->release()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_1 .. :try_end_1a} :catchall_1c
 
     .line 176
-    :cond_0
+    :cond_1a
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_1c
     move-exception p1
 
     .line 168

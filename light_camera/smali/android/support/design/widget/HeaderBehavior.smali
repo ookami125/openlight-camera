@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 47
     invoke-direct {p0}, Landroid/support/design/widget/ViewOffsetBehavior;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 50
     invoke-direct {p0, p1, p2}, Landroid/support/design/widget/ViewOffsetBehavior;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -77,12 +77,12 @@
 .end method
 
 .method private ensureVelocityTracker()V
-    .locals 1
+    .registers 2
 
     .line 280
     iget-object v0, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 281
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -91,14 +91,14 @@
 
     iput-object v0, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 
 # virtual methods
 .method canDragView(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
@@ -111,7 +111,7 @@
 .end method
 
 .method final fling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;IIF)Z
-    .locals 13
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
     .line 228
     iget-object v2, v0, Landroid/support/design/widget/HeaderBehavior;->mFlingRunnable:Ljava/lang/Runnable;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 229
     iget-object v2, v0, Landroid/support/design/widget/HeaderBehavior;->mFlingRunnable:Ljava/lang/Runnable;
@@ -140,10 +140,10 @@
     iput-object v2, v0, Landroid/support/design/widget/HeaderBehavior;->mFlingRunnable:Ljava/lang/Runnable;
 
     .line 233
-    :cond_0
+    :cond_e
     iget-object v2, v0, Landroid/support/design/widget/HeaderBehavior;->mScroller:Landroid/widget/OverScroller;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1d
 
     .line 234
     new-instance v2, Landroid/widget/OverScroller;
@@ -157,7 +157,7 @@
     iput-object v2, v0, Landroid/support/design/widget/HeaderBehavior;->mScroller:Landroid/widget/OverScroller;
 
     .line 237
-    :cond_1
+    :cond_1d
     iget-object v4, v0, Landroid/support/design/widget/HeaderBehavior;->mScroller:Landroid/widget/OverScroller;
 
     const/4 v5, 0x0
@@ -192,7 +192,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_49
 
     .line 244
     new-instance v2, Landroid/support/design/widget/HeaderBehavior$FlingRunnable;
@@ -212,7 +212,7 @@
 
     return v0
 
-    :cond_2
+    :cond_49
     move-object v3, p1
 
     .line 248
@@ -224,7 +224,7 @@
 .end method
 
 .method getMaxDragOffset(Landroid/view/View;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)I"
@@ -242,7 +242,7 @@
 .end method
 
 .method getScrollRangeForDragFling(Landroid/view/View;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)I"
@@ -258,7 +258,7 @@
 .end method
 
 .method getTopBottomOffsetForScrollingSibling()I
-    .locals 0
+    .registers 1
 
     .line 217
     invoke-virtual {p0}, Landroid/support/design/widget/HeaderBehavior;->getTopAndBottomOffset()I
@@ -269,7 +269,7 @@
 .end method
 
 .method onFlingFinished(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -282,7 +282,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -296,7 +296,7 @@
     .line 55
     iget v0, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_12
 
     .line 56
     invoke-virtual {p1}, Landroid/support/design/widget/CoordinatorLayout;->getContext()Landroid/content/Context;
@@ -314,7 +314,7 @@
     iput v0, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
     .line 59
-    :cond_0
+    :cond_12
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
@@ -323,17 +323,17 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1f
 
     .line 62
     iget-boolean v0, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     return v2
 
     .line 66
-    :cond_1
+    :cond_1f
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
@@ -342,30 +342,30 @@
 
     const/4 v3, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_8c
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 80
-    :pswitch_0
+    :pswitch_29
     iget p1, p0, Landroid/support/design/widget/HeaderBehavior;->mActivePointerId:I
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_2e
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 85
-    :cond_2
+    :cond_2e
     invoke-virtual {p3, p1}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result p1
 
-    if-ne p1, v1, :cond_3
+    if-ne p1, v1, :cond_35
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 90
-    :cond_3
+    :cond_35
     invoke-virtual {p3, p1}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result p1
@@ -384,7 +384,7 @@
     .line 92
     iget v0, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
-    if-le p2, v0, :cond_4
+    if-le p2, v0, :cond_7f
 
     .line 93
     iput-boolean v2, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
@@ -392,10 +392,10 @@
     .line 94
     iput p1, p0, Landroid/support/design/widget/HeaderBehavior;->mLastMotionY:I
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 101
-    :pswitch_1
+    :pswitch_4b
     iput-boolean v3, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
     .line 102
@@ -404,7 +404,7 @@
     .line 103
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_7f
 
     .line 104
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -416,10 +416,10 @@
     .line 105
     iput-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 68
-    :pswitch_2
+    :pswitch_5c
     iput-boolean v3, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
     .line 69
@@ -441,13 +441,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7f
 
     invoke-virtual {p1, p2, v0, v1}, Landroid/support/design/widget/CoordinatorLayout;->isPointInChildBounds(Landroid/view/View;II)Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_7f
 
     .line 72
     iput v1, p0, Landroid/support/design/widget/HeaderBehavior;->mLastMotionY:I
@@ -463,11 +463,11 @@
     invoke-direct {p0}, Landroid/support/design/widget/HeaderBehavior;->ensureVelocityTracker()V
 
     .line 111
-    :cond_4
-    :goto_0
+    :cond_7f
+    :goto_7f
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_88
 
     .line 112
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -475,24 +475,24 @@
     invoke-virtual {p1, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
     .line 115
-    :cond_5
+    :cond_88
     iget-boolean p0, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_8c
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_5c
+        :pswitch_4b
+        :pswitch_29
+        :pswitch_4b
     .end packed-switch
 .end method
 
 .method public onTouchEvent(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 11
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -506,7 +506,7 @@
     .line 120
     iget v0, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_12
 
     .line 121
     invoke-virtual {p1}, Landroid/support/design/widget/CoordinatorLayout;->getContext()Landroid/content/Context;
@@ -524,7 +524,7 @@
     iput v0, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
     .line 124
-    :cond_0
+    :cond_12
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
@@ -535,24 +535,24 @@
 
     const/4 v3, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_bc
 
-    goto/16 :goto_1
+    goto/16 :goto_b1
 
     .line 140
-    :pswitch_0
+    :pswitch_1e
     iget v0, p0, Landroid/support/design/widget/HeaderBehavior;->mActivePointerId:I
 
     invoke-virtual {p3, v0}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_27
 
     return v3
 
     .line 145
-    :cond_1
+    :cond_27
     invoke-virtual {p3, v0}, Landroid/view/MotionEvent;->getY(I)F
 
     move-result v0
@@ -567,7 +567,7 @@
     .line 148
     iget-boolean v3, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_46
 
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
@@ -575,34 +575,34 @@
 
     iget v4, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
-    if-le v3, v4, :cond_3
+    if-le v3, v4, :cond_46
 
     .line 149
     iput-boolean v1, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
-    if-lez v2, :cond_2
+    if-lez v2, :cond_43
 
     .line 151
     iget v3, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
     sub-int/2addr v2, v3
 
-    goto :goto_0
+    goto :goto_46
 
     .line 153
-    :cond_2
+    :cond_43
     iget v3, p0, Landroid/support/design/widget/HeaderBehavior;->mTouchSlop:I
 
     add-int/2addr v2, v3
 
-    :cond_3
-    :goto_0
+    :cond_46
+    :goto_46
     move v6, v2
 
     .line 157
     iget-boolean v2, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_b1
 
     .line 158
     iput v0, p0, Landroid/support/design/widget/HeaderBehavior;->mLastMotionY:I
@@ -622,13 +622,13 @@
 
     invoke-virtual/range {v3 .. v8}, Landroid/support/design/widget/HeaderBehavior;->scroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;III)I
 
-    goto :goto_1
+    goto :goto_b1
 
     .line 166
-    :pswitch_1
+    :pswitch_59
     iget-object v0, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7d
 
     .line 167
     iget-object v0, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -669,8 +669,8 @@
     invoke-virtual/range {v5 .. v10}, Landroid/support/design/widget/HeaderBehavior;->fling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;IIF)Z
 
     .line 174
-    :cond_4
-    :pswitch_2
+    :cond_7d
+    :pswitch_7d
     iput-boolean v3, p0, Landroid/support/design/widget/HeaderBehavior;->mIsBeingDragged:Z
 
     .line 175
@@ -679,7 +679,7 @@
     .line 176
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_b1
 
     .line 177
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -691,10 +691,10 @@
     .line 178
     iput-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    goto :goto_1
+    goto :goto_b1
 
     .line 126
-    :pswitch_3
+    :pswitch_8e
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
@@ -713,13 +713,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_b0
 
     invoke-virtual {p0, p2}, Landroid/support/design/widget/HeaderBehavior;->canDragView(Landroid/view/View;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_b0
 
     .line 130
     iput v2, p0, Landroid/support/design/widget/HeaderBehavior;->mLastMotionY:I
@@ -734,39 +734,39 @@
     .line 132
     invoke-direct {p0}, Landroid/support/design/widget/HeaderBehavior;->ensureVelocityTracker()V
 
-    goto :goto_1
+    goto :goto_b1
 
-    :cond_5
+    :cond_b0
     return v3
 
     .line 184
-    :cond_6
-    :goto_1
+    :cond_b1
+    :goto_b1
     iget-object p1, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_ba
 
     .line 185
     iget-object p0, p0, Landroid/support/design/widget/HeaderBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {p0, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
-    :cond_7
+    :cond_ba
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_bc
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_1
-        :pswitch_0
-        :pswitch_2
+        :pswitch_8e
+        :pswitch_59
+        :pswitch_1e
+        :pswitch_7d
     .end packed-switch
 .end method
 
 .method final scroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;III)I
-    .locals 7
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -801,7 +801,7 @@
 .end method
 
 .method setHeaderTopBottomOffset(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)I
-    .locals 6
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -831,7 +831,7 @@
 .end method
 
 .method setHeaderTopBottomOffset(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;III)I
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -845,29 +845,29 @@
 
     move-result p1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_15
 
-    if-lt p1, p4, :cond_0
+    if-lt p1, p4, :cond_15
 
-    if-gt p1, p5, :cond_0
+    if-gt p1, p5, :cond_15
 
     .line 204
     invoke-static {p3, p4, p5}, Landroid/support/v4/math/MathUtils;->clamp(III)I
 
     move-result p2
 
-    if-eq p1, p2, :cond_0
+    if-eq p1, p2, :cond_15
 
     .line 207
     invoke-virtual {p0, p2}, Landroid/support/design/widget/HeaderBehavior;->setTopAndBottomOffset(I)Z
 
     sub-int/2addr p1, p2
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_16
     return p1
 .end method

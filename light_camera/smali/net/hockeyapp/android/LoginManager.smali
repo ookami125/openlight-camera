@@ -46,13 +46,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/Context;)V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-static {p0}, Lnet/hockeyapp/android/LoginManager;->startLoginActivity(Landroid/content/Context;)V
@@ -70,37 +70,37 @@
 .end method
 
 .method private static getURLString(I)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     const-string v0, ""
 
     const/4 v1, 0x2
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_8
 
     const-string v0, "authorize"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_8
     const/4 v1, 0x1
 
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_e
 
     const-string v0, "check"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_e
     const/4 v1, 0x3
 
-    if-ne p0, v1, :cond_2
+    if-ne p0, v1, :cond_13
 
     const-string v0, "validate"
 
     .line 250
-    :cond_2
-    :goto_0
+    :cond_13
+    :goto_13
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -131,7 +131,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;I)V
-    .locals 2
+    .registers 5
 
     .line 97
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->getAppIdentifier(Landroid/content/Context;)Ljava/lang/String;
@@ -143,7 +143,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_11
 
     const/4 v1, 0x0
 
@@ -155,7 +155,7 @@
     return-void
 
     .line 99
-    :cond_0
+    :cond_11
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "HockeyApp app identifier was not configured correctly in manifest or build configuration."
@@ -166,7 +166,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Class;)V
-    .locals 6
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,7 +198,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ILnet/hockeyapp/android/LoginManagerListener;)V
-    .locals 0
+    .registers 5
 
     .line 114
     sput-object p4, Lnet/hockeyapp/android/LoginManager;->listener:Lnet/hockeyapp/android/LoginManagerListener;
@@ -214,7 +214,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Class;)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -228,7 +228,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1e
 
     .line 143
     invoke-static {p1}, Lnet/hockeyapp/android/utils/Util;->sanitizeAppIdentifier(Ljava/lang/String;)Ljava/lang/String;
@@ -252,7 +252,7 @@
     .line 149
     sget-object p1, Lnet/hockeyapp/android/LoginManager;->validateHandler:Landroid/os/Handler;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1b
 
     .line 150
     new-instance p1, Lnet/hockeyapp/android/LoginManager$LoginHandler;
@@ -262,15 +262,15 @@
     sput-object p1, Lnet/hockeyapp/android/LoginManager;->validateHandler:Landroid/os/Handler;
 
     .line 153
-    :cond_0
+    :cond_1b
     invoke-static {p0}, Lnet/hockeyapp/android/Constants;->loadFromContext(Landroid/content/Context;)V
 
-    :cond_1
+    :cond_1e
     return-void
 .end method
 
 .method private static startLoginActivity(Landroid/content/Context;)V
-    .locals 4
+    .registers 5
 
     .line 227
     new-instance v0, Landroid/content/Intent;
@@ -282,16 +282,16 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_c
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_d
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -301,16 +301,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     const/4 v1, 0x2
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_19
     sget v1, Lnet/hockeyapp/android/LoginManager;->mode:I
 
-    :goto_1
+    :goto_1b
     const/high16 v2, 0x50000000
 
     .line 232
@@ -349,11 +349,11 @@
 .end method
 
 .method public static verifyLogin(Landroid/app/Activity;Landroid/content/Intent;)V
-    .locals 11
+    .registers 13
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     const-string v1, "net.hockeyapp.android.EXIT"
 
@@ -362,24 +362,24 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 170
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
     return-void
 
-    :cond_0
-    if-eqz p0, :cond_c
+    :cond_f
+    if-eqz p0, :cond_ca
 
     .line 176
     sget p1, Lnet/hockeyapp/android/LoginManager;->mode:I
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_17
 
-    goto/16 :goto_5
+    goto/16 :goto_ca
 
-    :cond_1
+    :cond_17
     const-string p1, "net.hockeyapp.android.login"
 
     .line 182
@@ -399,7 +399,7 @@
     .line 184
     sget v2, Lnet/hockeyapp/android/LoginManager;->mode:I
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4a
 
     const-string v1, "HockeyAuth"
 
@@ -439,7 +439,7 @@
     .line 190
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_2
+    :cond_4a
     const-string v1, "auid"
 
     const/4 v2, 0x0
@@ -458,68 +458,68 @@
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5e
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_5e
 
     move v3, v2
 
-    goto :goto_0
+    goto :goto_5f
 
-    :cond_3
+    :cond_5e
     move v3, v0
 
-    :goto_0
+    :goto_5f
     const/4 v4, 0x3
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_6d
 
     .line 198
     sget v5, Lnet/hockeyapp/android/LoginManager;->mode:I
 
     const/4 v6, 0x2
 
-    if-eq v5, v6, :cond_4
+    if-eq v5, v6, :cond_6b
 
     sget v5, Lnet/hockeyapp/android/LoginManager;->mode:I
 
-    if-ne v5, v4, :cond_5
+    if-ne v5, v4, :cond_6d
 
-    :cond_4
+    :cond_6b
     move v5, v2
 
-    goto :goto_1
+    goto :goto_6e
 
-    :cond_5
+    :cond_6d
     move v5, v0
 
-    :goto_1
-    if-nez p1, :cond_6
+    :goto_6e
+    if-nez p1, :cond_75
 
     .line 199
     sget v6, Lnet/hockeyapp/android/LoginManager;->mode:I
 
-    if-ne v6, v2, :cond_6
+    if-ne v6, v2, :cond_75
 
-    goto :goto_2
+    goto :goto_76
 
-    :cond_6
+    :cond_75
     move v2, v0
 
-    :goto_2
-    if-nez v3, :cond_b
+    :goto_76
+    if-nez v3, :cond_bf
 
-    if-nez v5, :cond_b
+    if-nez v5, :cond_bf
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_7d
 
-    goto :goto_4
+    goto :goto_bf
 
     .line 208
-    :cond_7
+    :cond_7d
     sget v2, Lnet/hockeyapp/android/LoginManager;->mode:I
 
-    if-ne v2, v4, :cond_a
+    if-ne v2, v4, :cond_be
 
     const-string v2, "HockeyAuth"
 
@@ -533,7 +533,7 @@
 
     invoke-direct {v10}, Ljava/util/HashMap;-><init>()V
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9c
 
     const-string p1, "type"
 
@@ -547,10 +547,10 @@
     .line 214
     invoke-interface {v10, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_aa
 
-    :cond_8
-    if-eqz p1, :cond_9
+    :cond_9c
+    if-eqz p1, :cond_aa
 
     const-string v1, "type"
 
@@ -565,8 +565,8 @@
     invoke-interface {v10, v1, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 220
-    :cond_9
-    :goto_3
+    :cond_aa
+    :goto_aa
     new-instance p1, Lnet/hockeyapp/android/tasks/LoginTask;
 
     sget-object v7, Lnet/hockeyapp/android/LoginManager;->validateHandler:Landroid/os/Handler;
@@ -589,11 +589,11 @@
     .line 222
     invoke-static {p1}, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->execute(Landroid/os/AsyncTask;)V
 
-    :cond_a
+    :cond_be
     return-void
 
-    :cond_b
-    :goto_4
+    :cond_bf
+    :goto_bf
     const-string p1, "HockeyAuth"
 
     const-string v0, "Not authenticated or correct ID missing, re-authenticate."
@@ -606,7 +606,7 @@
 
     return-void
 
-    :cond_c
-    :goto_5
+    :cond_ca
+    :goto_ca
     return-void
 .end method

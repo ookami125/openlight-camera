@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
 
     .line 22
     new-instance v0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory$ResourceAnimationFactory;
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/animation/Animation;)V
-    .locals 1
+    .registers 3
 
     .line 18
     new-instance v0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory$ConcreteAnimationFactory;
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/request/animation/ViewAnimation$AnimationFactory;)V
-    .locals 0
+    .registers 2
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public build(ZZ)Lcom/bumptech/glide/request/animation/GlideAnimation;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ)",
@@ -90,17 +90,17 @@
         }
     .end annotation
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_15
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_5
 
-    goto :goto_0
+    goto :goto_15
 
     .line 44
-    :cond_0
+    :cond_5
     iget-object p1, p0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory;->glideAnimation:Lcom/bumptech/glide/request/animation/GlideAnimation;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_12
 
     .line 45
     new-instance p1, Lcom/bumptech/glide/request/animation/ViewAnimation;
@@ -112,14 +112,14 @@
     iput-object p1, p0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory;->glideAnimation:Lcom/bumptech/glide/request/animation/GlideAnimation;
 
     .line 48
-    :cond_1
+    :cond_12
     iget-object p0, p0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory;->glideAnimation:Lcom/bumptech/glide/request/animation/GlideAnimation;
 
     return-object p0
 
     .line 41
-    :cond_2
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-static {}, Lcom/bumptech/glide/request/animation/NoAnimation;->get()Lcom/bumptech/glide/request/animation/GlideAnimation;
 
     move-result-object p0

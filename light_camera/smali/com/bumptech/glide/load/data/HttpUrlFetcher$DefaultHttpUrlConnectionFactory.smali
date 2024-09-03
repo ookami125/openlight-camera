@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/load/data/HttpUrlFetcher$1;)V
-    .locals 0
+    .registers 2
 
     .line 138
     invoke-direct {p0}, Lcom/bumptech/glide/load/data/HttpUrlFetcher$DefaultHttpUrlConnectionFactory;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public build(Ljava/net/URL;)Ljava/net/HttpURLConnection;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

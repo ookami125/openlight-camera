@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 15
     const-class v0, Lopenlight/co/camera/listener/OnSwipeTouchListener;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/listener/OnSwipeTouchListener;Z)Z
-    .locals 0
+    .registers 2
 
     .line 14
     iput-boolean p1, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->isLongPress:Z
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$200()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 14
     sget-object v0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->TAG:Ljava/lang/String;
@@ -97,67 +97,67 @@
 
 # virtual methods
 .method public onLongPressAndSlide()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onLongPressRelease()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onLongPressing()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onScrollBottom()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onScrollTop()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onSingleTap()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onSwipeBottom()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onSwipeLeft()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onSwipeRight()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onSwipeTop()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 5
+    .registers 8
 
     .line 30
     :try_start_0
@@ -173,12 +173,12 @@
 
     const/4 v0, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_4a
 
-    goto :goto_0
+    goto :goto_43
 
     .line 37
-    :pswitch_0
+    :pswitch_e
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
@@ -194,12 +194,12 @@
 
     cmp-long p1, v1, v3
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_43
 
     .line 39
     iget-boolean p1, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->isLongPress:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_43
 
     .line 40
     iput-boolean v0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->isCallBackOnRelease:Z
@@ -207,13 +207,13 @@
     .line 41
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onLongPressAndSlide()V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 45
-    :pswitch_1
+    :pswitch_26
     iget-boolean p1, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->isCallBackOnRelease:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_31
 
     .line 46
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onLongPressRelease()V
@@ -224,15 +224,15 @@
     .line 48
     iput-boolean v0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->isCallBackOnRelease:Z
 
-    :cond_0
+    :cond_31
     const/4 p1, 0x0
 
     .line 50
     iput p1, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->yPoint:F
 
-    goto :goto_0
+    goto :goto_43
 
-    :pswitch_2
+    :pswitch_35
     const/4 p1, 0x1
 
     .line 32
@@ -244,20 +244,20 @@
     move-result p1
 
     iput p1, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->yPoint:F
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_3e} :catch_3f
 
-    goto :goto_0
+    goto :goto_43
 
-    :catch_0
+    :catch_3f
     move-exception p1
 
     .line 54
     invoke-virtual {p1}, Ljava/lang/IllegalArgumentException;->printStackTrace()V
 
     .line 56
-    :cond_1
-    :goto_0
+    :cond_43
+    :goto_43
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener;->gestureDetector:Landroid/view/GestureDetector;
 
     invoke-virtual {p0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -266,16 +266,16 @@
 
     return p0
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_26
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public onZoomEnd()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

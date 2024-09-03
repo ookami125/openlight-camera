@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 110
     new-instance v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
@@ -75,7 +75,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -89,7 +89,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
-    .locals 1
+    .registers 2
 
     .line 109
     const-class v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
@@ -104,7 +104,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
-    .locals 1
+    .registers 1
 
     .line 109
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;->$VALUES:[Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 662
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getPaddingBottom()I
-    .locals 0
+    .registers 1
 
     .line 672
     iget p0, p0, Landroid/support/design/internal/NavigationMenuPresenter$NavigationMenuSeparatorItem;->mPaddingBottom:I
@@ -51,7 +51,7 @@
 .end method
 
 .method public getPaddingTop()I
-    .locals 0
+    .registers 1
 
     .line 668
     iget p0, p0, Landroid/support/design/internal/NavigationMenuPresenter$NavigationMenuSeparatorItem;->mPaddingTop:I

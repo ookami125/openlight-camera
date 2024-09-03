@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/ActionBarContainer;)V
-    .locals 0
+    .registers 2
 
     .line 29
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -29,21 +29,21 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
 
     .line 35
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-boolean v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mIsSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 36
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mSplitBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 37
     iget-object p0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
@@ -52,15 +52,15 @@
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_0
+    goto :goto_34
 
     .line 40
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 41
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
@@ -70,18 +70,18 @@
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 43
-    :cond_1
+    :cond_21
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mStackedBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-boolean v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mIsStacked:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 44
     iget-object p0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawable;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
@@ -90,13 +90,13 @@
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    :cond_2
-    :goto_0
+    :cond_34
+    :goto_34
     return-void
 .end method
 
 .method public getOpacity()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -104,13 +104,13 @@
 .end method
 
 .method public setAlpha(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

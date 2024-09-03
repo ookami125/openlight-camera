@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 17
     new-instance v0, Ljava/util/concurrent/ConcurrentHashMap;
@@ -31,7 +31,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method public static obtain(Landroid/content/Context;)Lcom/bumptech/glide/load/Key;
-    .locals 2
+    .registers 3
 
     .line 24
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
@@ -56,7 +56,7 @@
 
     check-cast v1, Lcom/bumptech/glide/load/Key;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1e
 
     .line 27
     invoke-static {p0}, Lcom/bumptech/glide/signature/ApplicationVersionSignature;->obtainVersionSignature(Landroid/content/Context;)Lcom/bumptech/glide/load/Key;
@@ -72,20 +72,20 @@
 
     check-cast p0, Lcom/bumptech/glide/load/Key;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-object v1, p0
 
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-object v1
 .end method
 
 .method private static obtainVersionSignature(Landroid/content/Context;)Lcom/bumptech/glide/load/Key;
-    .locals 2
+    .registers 3
 
     .line 46
     :try_start_0
@@ -102,12 +102,12 @@
     invoke-virtual {v0, p0, v1}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object p0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_d} :catch_e
 
-    goto :goto_0
+    goto :goto_13
 
-    :catch_0
+    :catch_e
     move-exception p0
 
     .line 49
@@ -115,8 +115,8 @@
 
     const/4 p0, 0x0
 
-    :goto_0
-    if-eqz p0, :cond_0
+    :goto_13
+    if-eqz p0, :cond_1c
 
     .line 53
     iget p0, p0, Landroid/content/pm/PackageInfo;->versionCode:I
@@ -125,10 +125,10 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_24
 
     .line 55
-    :cond_0
+    :cond_1c
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
     move-result-object p0
@@ -138,7 +138,7 @@
     move-result-object p0
 
     .line 57
-    :goto_1
+    :goto_24
     new-instance v0, Lcom/bumptech/glide/signature/StringSignature;
 
     invoke-direct {v0, p0}, Lcom/bumptech/glide/signature/StringSignature;-><init>(Ljava/lang/String;)V
@@ -147,7 +147,7 @@
 .end method
 
 .method static reset()V
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lcom/bumptech/glide/signature/ApplicationVersionSignature;->PACKAGE_NAME_TO_KEY:Ljava/util/concurrent/ConcurrentHashMap;

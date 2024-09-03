@@ -16,7 +16,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/view/ftu/ImageFtuController;Lopenlight/co/camera/view/ftu/BaseFtuLayout;Lopenlight/co/camera/view/ftu/BaseFtuLayout;)V
-    .locals 0
+    .registers 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,7 +32,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
+    .registers 3
 
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/-$$Lambda$ImageFtuController$wC_ggiayw37wvBW6h_oPei_k1pQ;->f$0:Lopenlight/co/camera/view/ftu/ImageFtuController;
 

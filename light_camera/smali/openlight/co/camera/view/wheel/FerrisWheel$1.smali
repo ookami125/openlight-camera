@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/wheel/FerrisWheel;)V
-    .locals 0
+    .registers 2
 
     .line 173
     iput-object p1, p0, Lopenlight/co/camera/view/wheel/FerrisWheel$1;->this$0:Lopenlight/co/camera/view/wheel/FerrisWheel;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 176
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel$1;->this$0:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     iget-object p0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel$1;->this$0:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
+    # getter for: Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
     invoke-static {p0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->access$100(Lopenlight/co/camera/view/wheel/FerrisWheel;)Lopenlight/co/camera/view/dragger/DraggerModel;
 
     move-result-object p0
@@ -51,6 +52,7 @@
 
     move-result p0
 
+    # setter for: Lopenlight/co/camera/view/wheel/FerrisWheel;->mPrevIndex:I
     invoke-static {v0, p0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->access$002(Lopenlight/co/camera/view/wheel/FerrisWheel;I)I
 
     return-void

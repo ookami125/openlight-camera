@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public build(Landroid/content/Context;Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;)Lcom/bumptech/glide/manager/ConnectivityMonitor;
-    .locals 0
+    .registers 3
 
     const-string p0, "android.permission.ACCESS_NETWORK_STATE"
 
@@ -25,17 +25,17 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
-    if-eqz p0, :cond_1
+    :goto_b
+    if-eqz p0, :cond_13
 
     .line 16
     new-instance p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;
@@ -45,7 +45,7 @@
     return-object p0
 
     .line 18
-    :cond_1
+    :cond_13
     new-instance p0, Lcom/bumptech/glide/manager/NullConnectivityMonitor;
 
     invoke-direct {p0}, Lcom/bumptech/glide/manager/NullConnectivityMonitor;-><init>()V

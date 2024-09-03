@@ -102,7 +102,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 42
     new-instance v0, Lcom/google/gson/internal/LinkedHashTreeMap$1;
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 61
     sget-object v0, Lcom/google/gson/internal/LinkedHashTreeMap;->NATURAL_ORDER:Ljava/util/Comparator;
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Comparator;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -146,15 +146,15 @@
     .line 52
     iput v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->modCount:I
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
     .line 73
-    :cond_0
+    :cond_b
     sget-object p1, Lcom/google/gson/internal/LinkedHashTreeMap;->NATURAL_ORDER:Ljava/util/Comparator;
 
-    :goto_0
+    :goto_d
     iput-object p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->comparator:Ljava/util/Comparator;
 
     .line 76
@@ -192,7 +192,7 @@
 .end method
 
 .method private doubleCapacity()V
-    .locals 2
+    .registers 3
 
     .line 558
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->table:[Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -224,7 +224,7 @@
 .end method
 
 .method static doubleCapacity([Lcom/google/gson/internal/LinkedHashTreeMap$Node;)[Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -266,18 +266,18 @@
 
     move v6, v5
 
-    :goto_0
-    if-ge v6, v0, :cond_7
+    :goto_16
+    if-ge v6, v0, :cond_67
 
     .line 577
     aget-object v7, p0, v6
 
-    if-nez v7, :cond_0
+    if-nez v7, :cond_1d
 
-    goto :goto_4
+    goto :goto_64
 
     .line 583
-    :cond_0
+    :cond_1d
     invoke-virtual {v2, v7}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlIterator;->reset(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     move v8, v5
@@ -285,31 +285,31 @@
     move v9, v8
 
     .line 586
-    :goto_1
+    :goto_22
     invoke-virtual {v2}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlIterator;->next()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object v10
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_33
 
     .line 587
     iget v10, v10, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->hash:I
 
     and-int/2addr v10, v0
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_30
 
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_30
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 595
-    :cond_2
+    :cond_33
     invoke-virtual {v3, v8}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->reset(I)V
 
     .line 596
@@ -319,101 +319,101 @@
     invoke-virtual {v2, v7}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlIterator;->reset(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     .line 598
-    :goto_2
+    :goto_3c
     invoke-virtual {v2}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlIterator;->next()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object v7
 
-    if-eqz v7, :cond_4
+    if-eqz v7, :cond_4f
 
     .line 599
     iget v10, v7, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->hash:I
 
     and-int/2addr v10, v0
 
-    if-nez v10, :cond_3
+    if-nez v10, :cond_4b
 
     .line 600
     invoke-virtual {v3, v7}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->add(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 602
-    :cond_3
+    :cond_4b
     invoke-virtual {v4, v7}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->add(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    goto :goto_2
+    goto :goto_3c
 
-    :cond_4
+    :cond_4f
     const/4 v7, 0x0
 
-    if-lez v8, :cond_5
+    if-lez v8, :cond_57
 
     .line 607
     invoke-virtual {v3}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->root()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object v8
 
-    goto :goto_3
+    goto :goto_58
 
-    :cond_5
+    :cond_57
     move-object v8, v7
 
-    :goto_3
+    :goto_58
     aput-object v8, v1, v6
 
     add-int v8, v6, v0
 
-    if-lez v9, :cond_6
+    if-lez v9, :cond_62
 
     .line 608
     invoke-virtual {v4}, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->root()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object v7
 
-    :cond_6
+    :cond_62
     aput-object v7, v1, v8
 
-    :goto_4
+    :goto_64
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_7
+    :cond_67
     return-object v1
 .end method
 
 .method private equal(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
-    if-eq p1, p2, :cond_1
+    if-eq p1, p2, :cond_d
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 224
     invoke-virtual {p1, p2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_e
     return p0
 .end method
 
 .method private rebalance(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Z)V
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -423,7 +423,7 @@
     .end annotation
 
     :goto_0
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_79
 
     .line 340
     iget-object v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -433,33 +433,33 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 342
     iget v3, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_1
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move v3, v2
 
-    :goto_1
-    if-eqz v1, :cond_1
+    :goto_d
+    if-eqz v1, :cond_12
 
     .line 343
     iget v4, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_2
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     move v4, v2
 
-    :goto_2
+    :goto_13
     sub-int v5, v3, v4
 
     const/4 v6, -0x2
 
-    if-ne v5, v6, :cond_6
+    if-ne v5, v6, :cond_3c
 
     .line 347
     iget-object v0, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -467,60 +467,60 @@
     .line 348
     iget-object v3, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_21
 
     .line 349
     iget v3, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_3
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     move v3, v2
 
-    :goto_3
-    if-eqz v0, :cond_3
+    :goto_22
+    if-eqz v0, :cond_26
 
     .line 350
     iget v2, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    :cond_3
+    :cond_26
     sub-int/2addr v2, v3
 
     const/4 v0, -0x1
 
-    if-eq v2, v0, :cond_5
+    if-eq v2, v0, :cond_36
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_2f
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_2f
 
-    goto :goto_4
+    goto :goto_36
 
     .line 357
-    :cond_4
+    :cond_2f
     invoke-direct {p0, v1}, Lcom/google/gson/internal/LinkedHashTreeMap;->rotateRight(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     .line 358
     invoke-direct {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->rotateLeft(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    goto :goto_5
+    goto :goto_39
 
     .line 354
-    :cond_5
-    :goto_4
+    :cond_36
+    :goto_36
     invoke-direct {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->rotateLeft(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    :goto_5
-    if-eqz p2, :cond_d
+    :goto_39
+    if-eqz p2, :cond_76
 
-    goto :goto_9
+    goto :goto_79
 
-    :cond_6
+    :cond_3c
     const/4 v1, 0x2
 
     const/4 v6, 0x1
 
-    if-ne v5, v1, :cond_b
+    if-ne v5, v1, :cond_63
 
     .line 365
     iget-object v1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -528,66 +528,66 @@
     .line 366
     iget-object v3, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_49
 
     .line 367
     iget v3, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_6
+    goto :goto_4a
 
-    :cond_7
+    :cond_49
     move v3, v2
 
-    :goto_6
-    if-eqz v1, :cond_8
+    :goto_4a
+    if-eqz v1, :cond_4e
 
     .line 368
     iget v2, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    :cond_8
+    :cond_4e
     sub-int/2addr v2, v3
 
-    if-eq v2, v6, :cond_a
+    if-eq v2, v6, :cond_5d
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_56
 
-    if-nez p2, :cond_9
+    if-nez p2, :cond_56
 
-    goto :goto_7
+    goto :goto_5d
 
     .line 375
-    :cond_9
+    :cond_56
     invoke-direct {p0, v0}, Lcom/google/gson/internal/LinkedHashTreeMap;->rotateLeft(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     .line 376
     invoke-direct {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->rotateRight(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    goto :goto_8
+    goto :goto_60
 
     .line 372
-    :cond_a
-    :goto_7
+    :cond_5d
+    :goto_5d
     invoke-direct {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->rotateRight(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    :goto_8
-    if-eqz p2, :cond_d
+    :goto_60
+    if-eqz p2, :cond_76
 
-    goto :goto_9
+    goto :goto_79
 
-    :cond_b
-    if-nez v5, :cond_c
+    :cond_63
+    if-nez v5, :cond_6c
 
     add-int/lit8 v3, v3, 0x1
 
     .line 383
     iput v3, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_76
 
-    goto :goto_9
+    goto :goto_79
 
     .line 390
-    :cond_c
+    :cond_6c
     invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
 
     move-result v0
@@ -596,23 +596,23 @@
 
     iput v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_76
 
-    goto :goto_9
+    goto :goto_79
 
     .line 339
-    :cond_d
+    :cond_76
     iget-object p1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     goto :goto_0
 
-    :cond_e
-    :goto_9
+    :cond_79
+    :goto_79
     return-void
 .end method
 
 .method private replaceInParent(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -631,32 +631,32 @@
     .line 313
     iput-object v1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_9
 
     .line 315
     iput-object v0, p2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    :cond_0
-    if-eqz v0, :cond_2
+    :cond_9
+    if-eqz v0, :cond_15
 
     .line 319
     iget-object p0, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-ne p0, p1, :cond_1
+    if-ne p0, p1, :cond_12
 
     .line 320
     iput-object p2, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_0
+    goto :goto_21
 
     .line 323
-    :cond_1
+    :cond_12
     iput-object p2, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_0
+    goto :goto_21
 
     .line 326
-    :cond_2
+    :cond_15
     iget p1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->hash:I
 
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->table:[Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -672,12 +672,12 @@
 
     aput-object p2, p0, p1
 
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method private rotateLeft(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -701,13 +701,13 @@
     .line 408
     iput-object v2, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 410
     iput-object p1, v2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 413
-    :cond_0
+    :cond_e
     invoke-direct {p0, p1, v1}, Lcom/google/gson/internal/LinkedHashTreeMap;->replaceInParent(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     .line 416
@@ -718,27 +718,27 @@
 
     const/4 p0, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 420
     iget v0, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     move v0, p0
 
-    :goto_0
-    if-eqz v2, :cond_2
+    :goto_1c
+    if-eqz v2, :cond_21
 
     iget v2, v2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     move v2, p0
 
-    :goto_1
+    :goto_22
     invoke-static {v0, v2}, Ljava/lang/Math;->max(II)I
 
     move-result v0
@@ -750,11 +750,11 @@
     .line 422
     iget p1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_30
 
     iget p0, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    :cond_3
+    :cond_30
     invoke-static {p1, p0}, Ljava/lang/Math;->max(II)I
 
     move-result p0
@@ -767,7 +767,7 @@
 .end method
 
 .method private rotateRight(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -791,13 +791,13 @@
     .line 436
     iput-object v3, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_e
 
     .line 438
     iput-object p1, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 441
-    :cond_0
+    :cond_e
     invoke-direct {p0, p1, v0}, Lcom/google/gson/internal/LinkedHashTreeMap;->replaceInParent(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     .line 444
@@ -808,27 +808,27 @@
 
     const/4 p0, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1b
 
     .line 448
     iget v1, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     move v1, p0
 
-    :goto_0
-    if-eqz v3, :cond_2
+    :goto_1c
+    if-eqz v3, :cond_21
 
     iget v3, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_2
+    :cond_21
     move v3, p0
 
-    :goto_1
+    :goto_22
     invoke-static {v1, v3}, Ljava/lang/Math;->max(II)I
 
     move-result v1
@@ -840,11 +840,11 @@
     .line 450
     iget p1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_30
 
     iget p0, v2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    :cond_3
+    :cond_30
     invoke-static {p1, p0}, Ljava/lang/Math;->max(II)I
 
     move-result p0
@@ -857,7 +857,7 @@
 .end method
 
 .method private static secondaryHash(I)I
-    .locals 2
+    .registers 3
 
     ushr-int/lit8 v0, p0, 0x14
 
@@ -879,7 +879,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -897,7 +897,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 3
+    .registers 4
 
     .line 105
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->table:[Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -924,8 +924,8 @@
     .line 111
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->next:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    :goto_0
-    if-eq v0, p0, :cond_0
+    :goto_13
+    if-eq v0, p0, :cond_1d
 
     .line 112
     iget-object v2, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->next:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -937,10 +937,10 @@
 
     move-object v0, v2
 
-    goto :goto_0
+    goto :goto_13
 
     .line 117
-    :cond_0
+    :cond_1d
     iput-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->prev:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     iput-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->next:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -949,28 +949,28 @@
 .end method
 
 .method public containsKey(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 91
     invoke-virtual {p0, p1}, Lcom/google/gson/internal/LinkedHashTreeMap;->findByObject(Ljava/lang/Object;)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -983,24 +983,24 @@
     .line 458
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->entrySet:Lcom/google/gson/internal/LinkedHashTreeMap$EntrySet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_c
 
     .line 459
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/internal/LinkedHashTreeMap$EntrySet;
 
     invoke-direct {v0, p0}, Lcom/google/gson/internal/LinkedHashTreeMap$EntrySet;-><init>(Lcom/google/gson/internal/LinkedHashTreeMap;)V
 
     iput-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->entrySet:Lcom/google/gson/internal/LinkedHashTreeMap$EntrySet;
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method find(Ljava/lang/Object;Z)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 12
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;Z)",
@@ -1038,24 +1038,24 @@
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_3c
 
     .line 142
     sget-object v5, Lcom/google/gson/internal/LinkedHashTreeMap;->NATURAL_ORDER:Ljava/util/Comparator;
 
-    if-ne v0, v5, :cond_0
+    if-ne v0, v5, :cond_1d
 
     move-object v5, p1
 
     check-cast v5, Ljava/lang/Comparable;
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move-object v5, v4
 
-    :goto_0
-    if-eqz v5, :cond_1
+    :goto_1e
+    if-eqz v5, :cond_27
 
     .line 147
     iget-object v7, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->key:Ljava/lang/Object;
@@ -1065,9 +1065,9 @@
 
     move-result v7
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_1
+    :cond_27
     iget-object v7, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->key:Ljava/lang/Object;
 
     .line 149
@@ -1075,63 +1075,63 @@
 
     move-result v7
 
-    :goto_1
-    if-nez v7, :cond_2
+    :goto_2d
+    if-nez v7, :cond_30
 
     return-object v3
 
-    :cond_2
-    if-gez v7, :cond_3
+    :cond_30
+    if-gez v7, :cond_35
 
     .line 157
     iget-object v8, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_2
+    goto :goto_37
 
-    :cond_3
+    :cond_35
     iget-object v8, v3, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    :goto_2
-    if-nez v8, :cond_4
+    :goto_37
+    if-nez v8, :cond_3a
 
-    goto :goto_3
+    goto :goto_3d
 
-    :cond_4
+    :cond_3a
     move-object v3, v8
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_5
+    :cond_3c
     const/4 v7, 0x0
 
-    :goto_3
+    :goto_3d
     move-object v10, v3
 
     move v11, v7
 
-    if-nez p2, :cond_6
+    if-nez p2, :cond_42
 
     return-object v4
 
     .line 172
-    :cond_6
+    :cond_42
     iget-object v7, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->header:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-nez v10, :cond_9
+    if-nez v10, :cond_7b
 
     .line 176
     sget-object p2, Lcom/google/gson/internal/LinkedHashTreeMap;->NATURAL_ORDER:Ljava/util/Comparator;
 
-    if-ne v0, p2, :cond_8
+    if-ne v0, p2, :cond_6e
 
     instance-of p2, p1, Ljava/lang/Comparable;
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_4f
 
-    goto :goto_4
+    goto :goto_6e
 
     .line 177
-    :cond_7
+    :cond_4f
     new-instance p0, Ljava/lang/ClassCastException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -1161,8 +1161,8 @@
     throw p0
 
     .line 179
-    :cond_8
-    :goto_4
+    :cond_6e
+    :goto_6e
     new-instance p2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     iget-object v8, v7, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->prev:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -1178,10 +1178,10 @@
     .line 180
     aput-object p2, v1, v2
 
-    goto :goto_6
+    goto :goto_8f
 
     .line 182
-    :cond_9
+    :cond_7b
     new-instance p2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     iget-object v8, v7, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->prev:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -1194,23 +1194,23 @@
 
     invoke-direct/range {v3 .. v8}, Lcom/google/gson/internal/LinkedHashTreeMap$Node;-><init>(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Ljava/lang/Object;ILcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
-    if-gez v11, :cond_a
+    if-gez v11, :cond_8a
 
     .line 184
     iput-object p2, v10, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_5
+    goto :goto_8c
 
     .line 186
-    :cond_a
+    :cond_8a
     iput-object p2, v10, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 188
-    :goto_5
+    :goto_8c
     invoke-direct {p0, v10, v9}, Lcom/google/gson/internal/LinkedHashTreeMap;->rebalance(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Z)V
 
     .line 191
-    :goto_6
+    :goto_8f
     iget p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->size:I
 
     add-int/lit8 v0, p1, 0x1
@@ -1219,13 +1219,13 @@
 
     iget v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->threshold:I
 
-    if-le p1, v0, :cond_b
+    if-le p1, v0, :cond_9c
 
     .line 192
     invoke-direct {p0}, Lcom/google/gson/internal/LinkedHashTreeMap;->doubleCapacity()V
 
     .line 194
-    :cond_b
+    :cond_9c
     iget p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->modCount:I
 
     add-int/2addr p1, v9
@@ -1236,7 +1236,7 @@
 .end method
 
 .method findByEntry(Ljava/util/Map$Entry;)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1256,7 +1256,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 219
     iget-object v1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->value:Ljava/lang/Object;
@@ -1269,29 +1269,29 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 p0, 0x0
 
-    :goto_0
-    if-eqz p0, :cond_1
+    :goto_19
+    if-eqz p0, :cond_1c
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     const/4 v0, 0x0
 
-    :goto_1
+    :goto_1d
     return-object v0
 .end method
 
 .method findByObject(Ljava/lang/Object;)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1304,32 +1304,32 @@
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     const/4 v1, 0x0
 
     .line 202
-    :try_start_0
+    :try_start_4
     invoke-virtual {p0, p1, v1}, Lcom/google/gson/internal/LinkedHashTreeMap;->find(Ljava/lang/Object;Z)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/ClassCastException; {:try_start_4 .. :try_end_8} :catch_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :catch_0
+    :catch_9
     return-object v0
 
-    :cond_0
+    :cond_a
     move-object p0, v0
 
-    :goto_0
+    :goto_b
     return-object p0
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1343,22 +1343,22 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 87
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->value:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return-object p0
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1370,31 +1370,31 @@
     .line 463
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->keySet:Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_c
 
     .line 464
-    :cond_0
+    :cond_5
     new-instance v0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;
 
     invoke-direct {v0, p0}, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;-><init>(Lcom/google/gson/internal/LinkedHashTreeMap;)V
 
     iput-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->keySet:Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;
 
-    :goto_0
+    :goto_c
     return-object v0
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TK;TV;)TV;"
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     const/4 v0, 0x1
 
@@ -1412,7 +1412,7 @@
     return-object p1
 
     .line 96
-    :cond_0
+    :cond_c
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "key == null"
@@ -1423,7 +1423,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1437,22 +1437,22 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 122
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->value:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return-object p0
 .end method
 
 .method removeInternal(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Z)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1463,7 +1463,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     .line 247
     iget-object p2, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->prev:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -1485,7 +1485,7 @@
     iput-object v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->next:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 252
-    :cond_0
+    :cond_13
     iget-object p2, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 253
@@ -1496,36 +1496,36 @@
 
     const/4 v3, 0x0
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_56
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_56
 
     .line 266
     iget v2, p2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
     iget v4, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
 
-    if-le v2, v4, :cond_1
+    if-le v2, v4, :cond_29
 
     invoke-virtual {p2}, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->last()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object p2
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_29
     invoke-virtual {v1}, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->first()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     move-result-object p2
 
     .line 267
-    :goto_0
+    :goto_2d
     invoke-virtual {p0, p2, v3}, Lcom/google/gson/internal/LinkedHashTreeMap;->removeInternal(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Z)V
 
     .line 270
     iget-object v1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3d
 
     .line 272
     iget v2, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
@@ -1539,16 +1539,16 @@
     .line 275
     iput-object v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_2
+    :cond_3d
     move v2, v3
 
     .line 278
-    :goto_1
+    :goto_3e
     iget-object v1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4a
 
     .line 280
     iget v3, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->height:I
@@ -1563,7 +1563,7 @@
     iput-object v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 285
-    :cond_3
+    :cond_4a
     invoke-static {v2, v3}, Ljava/lang/Math;->max(II)I
 
     move-result v0
@@ -1577,8 +1577,8 @@
 
     return-void
 
-    :cond_4
-    if-eqz p2, :cond_5
+    :cond_56
+    if-eqz p2, :cond_5e
 
     .line 289
     invoke-direct {p0, p1, p2}, Lcom/google/gson/internal/LinkedHashTreeMap;->replaceInParent(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
@@ -1586,10 +1586,10 @@
     .line 290
     iput-object v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_2
+    goto :goto_69
 
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_5e
+    if-eqz v1, :cond_66
 
     .line 292
     invoke-direct {p0, p1, v1}, Lcom/google/gson/internal/LinkedHashTreeMap;->replaceInParent(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
@@ -1597,14 +1597,14 @@
     .line 293
     iput-object v0, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_2
+    goto :goto_69
 
     .line 295
-    :cond_6
+    :cond_66
     invoke-direct {p0, p1, v0}, Lcom/google/gson/internal/LinkedHashTreeMap;->replaceInParent(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
 
     .line 298
-    :goto_2
+    :goto_69
     invoke-direct {p0, v2, v3}, Lcom/google/gson/internal/LinkedHashTreeMap;->rebalance(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Z)V
 
     .line 299
@@ -1625,7 +1625,7 @@
 .end method
 
 .method removeInternalByKey(Ljava/lang/Object;)Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1641,19 +1641,19 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     const/4 v0, 0x1
 
     .line 306
     invoke-virtual {p0, p1, v0}, Lcom/google/gson/internal/LinkedHashTreeMap;->removeInternal(Lcom/google/gson/internal/LinkedHashTreeMap$Node;Z)V
 
-    :cond_0
+    :cond_a
     return-object p1
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 82
     iget p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->size:I

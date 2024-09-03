@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;)V
-    .locals 0
+    .registers 2
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -54,14 +54,14 @@
 
     check-cast v0, Lcom/google/gson/annotations/JsonAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 49
-    :cond_0
+    :cond_10
     iget-object v1, p0, Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;->constructorConstructor:Lcom/google/gson/internal/ConstructorConstructor;
 
     invoke-virtual {p0, v1, p1, p2, v0}, Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;->getTypeAdapter(Lcom/google/gson/internal/ConstructorConstructor;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/annotations/JsonAdapter;)Lcom/google/gson/TypeAdapter;
@@ -72,7 +72,7 @@
 .end method
 
 .method getTypeAdapter(Lcom/google/gson/internal/ConstructorConstructor;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/annotations/JsonAdapter;)Lcom/google/gson/TypeAdapter;
-    .locals 7
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,18 +107,18 @@
     .line 58
     instance-of p1, p0, Lcom/google/gson/TypeAdapter;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_17
 
     .line 59
     check-cast p0, Lcom/google/gson/TypeAdapter;
 
-    goto :goto_2
+    goto :goto_75
 
     .line 60
-    :cond_0
+    :cond_17
     instance-of p1, p0, Lcom/google/gson/TypeAdapterFactory;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_22
 
     .line 61
     check-cast p0, Lcom/google/gson/TypeAdapterFactory;
@@ -127,22 +127,22 @@
 
     move-result-object p0
 
-    goto :goto_2
+    goto :goto_75
 
     .line 62
-    :cond_1
+    :cond_22
     instance-of p1, p0, Lcom/google/gson/JsonSerializer;
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_5b
 
     instance-of v0, p0, Lcom/google/gson/JsonDeserializer;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 71
-    :cond_2
+    :cond_2b
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -186,11 +186,11 @@
 
     throw p1
 
-    :cond_3
-    :goto_0
+    :cond_5b
+    :goto_5b
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_63
 
     .line 63
     move-object p1, p0
@@ -199,22 +199,22 @@
 
     move-object v2, p1
 
-    goto :goto_1
+    goto :goto_64
 
-    :cond_4
+    :cond_63
     move-object v2, v0
 
     .line 66
-    :goto_1
+    :goto_64
     instance-of p1, p0, Lcom/google/gson/JsonDeserializer;
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6b
 
     move-object v0, p0
 
     check-cast v0, Lcom/google/gson/JsonDeserializer;
 
-    :cond_5
+    :cond_6b
     move-object v3, v0
 
     .line 69
@@ -230,21 +230,21 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/google/gson/internal/bind/TreeTypeAdapter;-><init>(Lcom/google/gson/JsonSerializer;Lcom/google/gson/JsonDeserializer;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/TypeAdapterFactory;)V
 
-    :goto_2
-    if-eqz p0, :cond_6
+    :goto_75
+    if-eqz p0, :cond_81
 
     .line 77
     invoke-interface {p4}, Lcom/google/gson/annotations/JsonAdapter;->nullSafe()Z
 
     move-result p1
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_81
 
     .line 78
     invoke-virtual {p0}, Lcom/google/gson/TypeAdapter;->nullSafe()Lcom/google/gson/TypeAdapter;
 
     move-result-object p0
 
-    :cond_6
+    :cond_81
     return-object p0
 .end method

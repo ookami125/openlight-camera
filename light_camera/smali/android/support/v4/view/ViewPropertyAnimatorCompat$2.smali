@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/ViewPropertyAnimatorCompat;Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;Landroid/view/View;)V
-    .locals 0
+    .registers 4
 
     .line 778
     iput-object p1, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->this$0:Landroid/support/v4/view/ViewPropertyAnimatorCompat;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 0
+    .registers 2
 
     .line 781
     iget-object p1, p0, Landroid/support/v4/view/ViewPropertyAnimatorCompat$2;->val$listener:Landroid/support/v4/view/ViewPropertyAnimatorUpdateListener;

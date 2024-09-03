@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public addPauseListener(Landroid/animation/Animator;Landroid/animation/AnimatorListenerAdapter;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/animation/Animator;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -45,7 +45,7 @@
 .end method
 
 .method public pause(Landroid/animation/Animator;)V
-    .locals 4
+    .registers 6
     .param p1    # Landroid/animation/Animator;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -56,7 +56,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1f
 
     const/4 v0, 0x0
 
@@ -65,8 +65,8 @@
 
     move-result v1
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_b
+    if-ge v0, v1, :cond_1f
 
     .line 40
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -78,24 +78,24 @@
     .line 41
     instance-of v3, v2, Landroid/support/transition/AnimatorUtilsApi14$AnimatorPauseListenerCompat;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 42
     check-cast v2, Landroid/support/transition/AnimatorUtilsApi14$AnimatorPauseListenerCompat;
 
     invoke-interface {v2, p1}, Landroid/support/transition/AnimatorUtilsApi14$AnimatorPauseListenerCompat;->onAnimationPause(Landroid/animation/Animator;)V
 
-    :cond_0
+    :cond_1c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method public resume(Landroid/animation/Animator;)V
-    .locals 4
+    .registers 6
     .param p1    # Landroid/animation/Animator;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -106,7 +106,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1f
 
     const/4 v0, 0x0
 
@@ -115,8 +115,8 @@
 
     move-result v1
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_b
+    if-ge v0, v1, :cond_1f
 
     .line 53
     invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -128,18 +128,18 @@
     .line 54
     instance-of v3, v2, Landroid/support/transition/AnimatorUtilsApi14$AnimatorPauseListenerCompat;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 55
     check-cast v2, Landroid/support/transition/AnimatorUtilsApi14$AnimatorPauseListenerCompat;
 
     invoke-interface {v2, p1}, Landroid/support/transition/AnimatorUtilsApi14$AnimatorPauseListenerCompat;->onAnimationResume(Landroid/animation/Animator;)V
 
-    :cond_0
+    :cond_1c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_1
+    :cond_1f
     return-void
 .end method

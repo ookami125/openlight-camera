@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;Lcom/bumptech/glide/load/engine/EngineJobListener;)V
-    .locals 0
+    .registers 4
 
     .line 373
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public build(Lcom/bumptech/glide/load/Key;Z)Lcom/bumptech/glide/load/engine/EngineJob;
-    .locals 7
+    .registers 10
 
     .line 380
     new-instance v6, Lcom/bumptech/glide/load/engine/EngineJob;

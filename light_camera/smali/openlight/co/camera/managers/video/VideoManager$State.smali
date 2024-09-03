@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 62
     new-instance v0, Lopenlight/co/camera/managers/video/VideoManager$State;
@@ -109,7 +109,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -123,7 +123,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILopenlight/co/camera/managers/video/VideoManager$1;)V
-    .locals 0
+    .registers 4
 
     .line 61
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/managers/video/VideoManager$State;-><init>(Ljava/lang/String;I)V
@@ -132,7 +132,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/managers/video/VideoManager$State;
-    .locals 1
+    .registers 2
 
     .line 61
     const-class v0, Lopenlight/co/camera/managers/video/VideoManager$State;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/managers/video/VideoManager$State;
-    .locals 1
+    .registers 1
 
     .line 61
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$State;->$VALUES:[Lopenlight/co/camera/managers/video/VideoManager$State;
@@ -164,7 +164,7 @@
 
 # virtual methods
 .method public isRecording()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

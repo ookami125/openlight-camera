@@ -38,13 +38,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 213
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public static create(Landroid/app/Activity;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-    .locals 1
+    .registers 3
 
     .line 183
     invoke-virtual {p0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -68,7 +68,7 @@
 .end method
 
 .method public static create(Landroid/app/Dialog;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-    .locals 1
+    .registers 3
 
     .line 192
     invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
@@ -87,14 +87,14 @@
 .end method
 
 .method private static create(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
-    .locals 2
+    .registers 5
 
     .line 197
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     .line 198
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplN;
@@ -104,12 +104,12 @@
     return-object v0
 
     .line 199
-    :cond_0
+    :cond_c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_18
 
     .line 200
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV23;
@@ -119,12 +119,12 @@
     return-object v0
 
     .line 201
-    :cond_1
+    :cond_18
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xe
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_24
 
     .line 202
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV14;
@@ -134,12 +134,12 @@
     return-object v0
 
     .line 203
-    :cond_2
+    :cond_24
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xb
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_30
 
     .line 204
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV11;
@@ -149,7 +149,7 @@
     return-object v0
 
     .line 206
-    :cond_3
+    :cond_30
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV9;
 
     invoke-direct {v0, p0, p1, p2}, Landroid/support/v7/app/AppCompatDelegateImplV9;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
@@ -158,7 +158,7 @@
 .end method
 
 .method public static getDefaultNightMode()I
-    .locals 1
+    .registers 1
 
     .line 491
     sget v0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
@@ -167,7 +167,7 @@
 .end method
 
 .method public static isCompatVectorFromResourcesEnabled()Z
-    .locals 1
+    .registers 1
 
     .line 538
     sget-boolean v0, Landroid/support/v7/app/AppCompatDelegate;->sCompatVectorFromResourcesEnabled:Z
@@ -176,7 +176,7 @@
 .end method
 
 .method public static setCompatVectorFromResourcesEnabled(Z)V
-    .locals 0
+    .registers 1
 
     .line 528
     sput-boolean p0, Landroid/support/v7/app/AppCompatDelegate;->sCompatVectorFromResourcesEnabled:Z
@@ -185,9 +185,9 @@
 .end method
 
 .method public static setDefaultNightMode(I)V
-    .locals 1
+    .registers 2
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_e
 
     const-string p0, "AppCompatDelegate"
 
@@ -196,21 +196,21 @@
     .line 479
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_d
 
     .line 476
-    :pswitch_0
+    :pswitch_b
     sput p0, Landroid/support/v7/app/AppCompatDelegate;->sDefaultNightMode:I
 
-    :goto_0
+    :goto_d
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_e
     .packed-switch -0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_b
+        :pswitch_b
+        :pswitch_b
+        :pswitch_b
     .end packed-switch
 .end method
 

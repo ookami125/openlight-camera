@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
 
     .line 216
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$4;->this$0:Landroid/support/design/widget/BottomSheetDialog;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onSlide(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -43,7 +43,7 @@
 .end method
 
 .method public onStateChanged(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -51,13 +51,13 @@
 
     const/4 p1, 0x5
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_8
 
     .line 221
     iget-object p0, p0, Landroid/support/design/widget/BottomSheetDialog$4;->this$0:Landroid/support/design/widget/BottomSheetDialog;
 
     invoke-virtual {p0}, Landroid/support/design/widget/BottomSheetDialog;->cancel()V
 
-    :cond_0
+    :cond_8
     return-void
 .end method

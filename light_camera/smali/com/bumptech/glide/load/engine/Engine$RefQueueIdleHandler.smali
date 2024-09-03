@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map;Ljava/lang/ref/ReferenceQueue;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public queueIdle()Z
-    .locals 1
+    .registers 2
 
     .line 357
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$RefQueueIdleHandler;->queue:Ljava/lang/ref/ReferenceQueue;
@@ -84,18 +84,19 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/Engine$ResourceWeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 359
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine$RefQueueIdleHandler;->activeResources:Ljava/util/Map;
 
+    # getter for: Lcom/bumptech/glide/load/engine/Engine$ResourceWeakReference;->key:Lcom/bumptech/glide/load/Key;
     invoke-static {v0}, Lcom/bumptech/glide/load/engine/Engine$ResourceWeakReference;->access$000(Lcom/bumptech/glide/load/engine/Engine$ResourceWeakReference;)Lcom/bumptech/glide/load/Key;
 
     move-result-object v0
 
     invoke-interface {p0, v0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x1
 
     return p0

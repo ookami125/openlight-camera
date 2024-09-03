@@ -87,7 +87,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/io/File;IIJ)V
-    .locals 15
+    .registers 21
 
     move-object v0, p0
 
@@ -194,7 +194,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/bumptech/glide/disklrucache/DiskLruCache;)Ljava/io/Writer;
-    .locals 0
+    .registers 1
 
     .line 85
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
@@ -203,7 +203,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/bumptech/glide/disklrucache/DiskLruCache;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -217,7 +217,7 @@
 .end method
 
 .method static synthetic access$1600(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;J)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -233,7 +233,7 @@
 .end method
 
 .method static synthetic access$1700(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,7 +249,7 @@
 .end method
 
 .method static synthetic access$1800(Lcom/bumptech/glide/disklrucache/DiskLruCache;)I
-    .locals 0
+    .registers 1
 
     .line 85
     iget p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
@@ -258,7 +258,7 @@
 .end method
 
 .method static synthetic access$1900(Lcom/bumptech/glide/disklrucache/DiskLruCache;)Ljava/io/File;
-    .locals 0
+    .registers 1
 
     .line 85
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->directory:Ljava/io/File;
@@ -267,7 +267,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/bumptech/glide/disklrucache/DiskLruCache;)Z
-    .locals 0
+    .registers 1
 
     .line 85
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalRebuildRequired()Z
@@ -278,7 +278,7 @@
 .end method
 
 .method static synthetic access$2000(Lcom/bumptech/glide/disklrucache/DiskLruCache;Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;Z)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/bumptech/glide/disklrucache/DiskLruCache;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -306,7 +306,7 @@
 .end method
 
 .method static synthetic access$402(Lcom/bumptech/glide/disklrucache/DiskLruCache;I)I
-    .locals 0
+    .registers 2
 
     .line 85
     iput p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->redundantOpCount:I
@@ -315,17 +315,17 @@
 .end method
 
 .method private checkNotClosed()V
-    .locals 1
+    .registers 2
 
     .line 617
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     return-void
 
     .line 618
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "cache is closed"
@@ -336,7 +336,7 @@
 .end method
 
 .method private declared-synchronized completeEdit(Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;Z)V
-    .locals 9
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -346,45 +346,49 @@
     monitor-enter p0
 
     .line 502
-    :try_start_0
+    :try_start_1
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->entry:Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
     invoke-static {p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->access$1400(Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
 
     move-result-object v0
 
     .line 503
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object v1
 
-    if-ne v1, p1, :cond_a
+    if-ne v1, p1, :cond_109
 
     const/4 v1, 0x0
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_4d
 
     .line 508
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->readable:Z
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$600(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_4d
 
     move v2, v1
 
     .line 509
-    :goto_0
+    :goto_15
     iget v3, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
 
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_4d
 
     .line 510
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->written:[Z
     invoke-static {p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->access$1500(Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)[Z
 
     move-result-object v3
 
     aget-boolean v3, v3, v2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     .line 514
     invoke-virtual {v0, v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->getDirtyFile(I)Ljava/io/File;
@@ -395,26 +399,26 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_30
 
     .line 515
     invoke-virtual {p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->abort()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_1 .. :try_end_2e} :catchall_10f
 
     .line 516
     monitor-exit p0
 
     return-void
 
-    :cond_0
+    :cond_30
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 511
-    :cond_1
-    :try_start_1
+    :cond_33
+    :try_start_33
     invoke-virtual {p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->abort()V
 
     .line 512
@@ -439,25 +443,25 @@
     throw p1
 
     .line 521
-    :cond_2
-    :goto_1
+    :cond_4d
+    :goto_4d
     iget p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
 
-    if-ge v1, p1, :cond_5
+    if-ge v1, p1, :cond_82
 
     .line 522
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->getDirtyFile(I)Ljava/io/File;
 
     move-result-object p1
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_7c
 
     .line 524
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7f
 
     .line 525
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->getCleanFile(I)Ljava/io/File;
@@ -468,6 +472,7 @@
     invoke-virtual {p1, v2}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     .line 527
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->lengths:[J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1000(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)[J
 
     move-result-object p1
@@ -480,6 +485,7 @@
     move-result-wide v5
 
     .line 529
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->lengths:[J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1000(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)[J
 
     move-result-object p1
@@ -497,20 +503,20 @@
 
     iput-wide v7, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->size:J
 
-    goto :goto_2
+    goto :goto_7f
 
     .line 533
-    :cond_3
+    :cond_7c
     invoke-static {p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->deleteIfExists(Ljava/io/File;)V
 
-    :cond_4
-    :goto_2
+    :cond_7f
+    :goto_7f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 537
-    :cond_5
+    :cond_82
     iget p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->redundantOpCount:I
 
     const/4 v1, 0x1
@@ -522,9 +528,11 @@
     const/4 p1, 0x0
 
     .line 538
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v0, p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$702(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     .line 539
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->readable:Z
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$600(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Z
 
     move-result p1
@@ -535,9 +543,10 @@
 
     const/16 v3, 0x20
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_ca
 
     .line 540
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->readable:Z
     invoke-static {v0, v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$602(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Z)Z
 
     .line 541
@@ -555,6 +564,7 @@
     .line 543
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->key:Ljava/lang/String;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1100(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Ljava/lang/String;
 
     move-result-object v1
@@ -575,7 +585,7 @@
 
     invoke-virtual {p1, v2}, Ljava/io/Writer;->append(C)Ljava/io/Writer;
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_ed
 
     .line 548
     iget-wide p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->nextSequenceNumber:J
@@ -586,14 +596,16 @@
 
     iput-wide v1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->nextSequenceNumber:J
 
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->sequenceNumber:J
     invoke-static {v0, p1, p2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1202(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;J)J
 
-    goto :goto_3
+    goto :goto_ed
 
     .line 551
-    :cond_6
+    :cond_ca
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->key:Ljava/lang/String;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1100(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Ljava/lang/String;
 
     move-result-object p2
@@ -615,6 +627,7 @@
     .line 554
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->key:Ljava/lang/String;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1100(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Ljava/lang/String;
 
     move-result-object p2
@@ -627,8 +640,8 @@
     invoke-virtual {p1, v2}, Ljava/io/Writer;->append(C)Ljava/io/Writer;
 
     .line 557
-    :cond_7
-    :goto_3
+    :cond_ed
+    :goto_ed
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
     invoke-virtual {p1}, Ljava/io/Writer;->flush()V
@@ -640,42 +653,42 @@
 
     cmp-long p1, p1, v0
 
-    if-gtz p1, :cond_8
+    if-gtz p1, :cond_100
 
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalRebuildRequired()Z
 
     move-result p1
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_107
 
     .line 560
-    :cond_8
+    :cond_100
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->executorService:Ljava/util/concurrent/ThreadPoolExecutor;
 
     iget-object p2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->cleanupCallable:Ljava/util/concurrent/Callable;
 
     invoke-virtual {p1, p2}, Ljava/util/concurrent/ThreadPoolExecutor;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_107
+    .catchall {:try_start_33 .. :try_end_107} :catchall_10f
 
     .line 562
-    :cond_9
+    :cond_107
     monitor-exit p0
 
     return-void
 
     .line 504
-    :cond_a
-    :try_start_2
+    :cond_109
+    :try_start_109
     new-instance p1, Ljava/lang/IllegalStateException;
 
     invoke-direct {p1}, Ljava/lang/IllegalStateException;-><init>()V
 
     throw p1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_10f
+    .catchall {:try_start_109 .. :try_end_10f} :catchall_10f
 
-    :catchall_0
+    :catchall_10f
     move-exception p1
 
     .line 501
@@ -685,7 +698,7 @@
 .end method
 
 .method private static deleteIfExists(Ljava/io/File;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -697,31 +710,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_13
 
     .line 388
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/io/IOException;
 
     invoke-direct {p0}, Ljava/io/IOException;-><init>()V
 
     throw p0
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     return-void
 .end method
 
 .method private declared-synchronized edit(Ljava/lang/String;J)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -731,7 +744,7 @@
     monitor-enter p0
 
     .line 445
-    :try_start_0
+    :try_start_1
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->checkNotClosed()V
 
     .line 446
@@ -749,32 +762,33 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 447
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->sequenceNumber:J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1200(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)J
 
     move-result-wide v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_1 .. :try_end_19} :catchall_5d
 
     cmp-long p2, v3, p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1f
 
     .line 449
-    :cond_0
+    :cond_1d
     monitor-exit p0
 
     return-object v2
 
-    :cond_1
-    if-nez v0, :cond_2
+    :cond_1f
+    if-nez v0, :cond_2c
 
     .line 452
-    :try_start_1
+    :try_start_21
     new-instance v0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
 
     invoke-direct {v0, p0, p1, v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;-><init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;Lcom/bumptech/glide/disklrucache/DiskLruCache$1;)V
@@ -784,17 +798,18 @@
 
     invoke-virtual {p2, p1, v0}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 454
-    :cond_2
+    :cond_2c
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object p2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catchall {:try_start_21 .. :try_end_30} :catchall_5d
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_34
 
     .line 455
     monitor-exit p0
@@ -802,14 +817,15 @@
     return-object v2
 
     .line 458
-    :cond_3
-    :goto_0
-    :try_start_2
+    :cond_34
+    :goto_34
+    :try_start_34
     new-instance p2, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     invoke-direct {p2, p0, v0, v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;-><init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$1;)V
 
     .line 459
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v0, p2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$702(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     .line 462
@@ -842,15 +858,15 @@
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
     invoke-virtual {p1}, Ljava/io/Writer;->flush()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_5b
+    .catchall {:try_start_34 .. :try_end_5b} :catchall_5d
 
     .line 467
     monitor-exit p0
 
     return-object p2
 
-    :catchall_0
+    :catchall_5d
     move-exception p1
 
     .line 444
@@ -860,7 +876,7 @@
 .end method
 
 .method private static inputStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -882,14 +898,14 @@
 .end method
 
 .method private journalRebuildRequired()Z
-    .locals 2
+    .registers 3
 
     .line 570
     iget v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->redundantOpCount:I
 
     const/16 v1, 0x7d0
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_12
 
     iget v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->redundantOpCount:I
 
@@ -899,21 +915,21 @@
 
     move-result p0
 
-    if-lt v0, p0, :cond_0
+    if-lt v0, p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method public static open(Ljava/io/File;IIJ)Lcom/bumptech/glide/disklrucache/DiskLruCache;
-    .locals 9
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -924,9 +940,9 @@
 
     cmp-long v0, p3, v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_87
 
-    if-lez p2, :cond_3
+    if-lez p2, :cond_7f
 
     .line 205
     new-instance v0, Ljava/io/File;
@@ -940,7 +956,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     .line 207
     new-instance v1, Ljava/io/File;
@@ -954,22 +970,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 210
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_26
     const/4 v2, 0x0
 
     .line 212
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->renameTo(Ljava/io/File;Ljava/io/File;Z)V
 
     .line 217
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     new-instance v0, Lcom/bumptech/glide/disklrucache/DiskLruCache;
 
     move-object v3, v0
@@ -991,20 +1007,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6e
 
     .line 220
-    :try_start_0
+    :try_start_3c
     invoke-direct {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->readJournal()V
 
     .line 221
     invoke-direct {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->processJournal()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_42
+    .catch Ljava/io/IOException; {:try_start_3c .. :try_end_42} :catch_43
 
     return-object v0
 
-    :catch_0
+    :catch_43
     move-exception v1
 
     .line 224
@@ -1044,7 +1060,7 @@
     invoke-virtual {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->delete()V
 
     .line 235
-    :cond_2
+    :cond_6e
     invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
 
     .line 236
@@ -1068,7 +1084,7 @@
     return-object v0
 
     .line 201
-    :cond_3
+    :cond_7f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "valueCount <= 0"
@@ -1078,7 +1094,7 @@
     throw p0
 
     .line 198
-    :cond_4
+    :cond_87
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "maxSize <= 0"
@@ -1089,7 +1105,7 @@
 .end method
 
 .method private processJournal()V
-    .locals 8
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1112,13 +1128,13 @@
 
     move-result-object v0
 
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_51
 
     .line 327
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1128,23 +1144,25 @@
     check-cast v1, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
 
     .line 328
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object v2
 
     const/4 v3, 0x0
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_34
 
     .line 329
-    :goto_1
+    :goto_22
     iget v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
 
-    if-ge v3, v2, :cond_0
+    if-ge v3, v2, :cond_f
 
     .line 330
     iget-wide v4, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->size:J
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->lengths:[J
     invoke-static {v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1000(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)[J
 
     move-result-object v2
@@ -1157,19 +1175,20 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
-    :cond_1
+    :cond_34
     const/4 v2, 0x0
 
     .line 333
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v1, v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$702(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     .line 334
-    :goto_2
+    :goto_38
     iget v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
 
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_4d
 
     .line 335
     invoke-virtual {v1, v3}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->getCleanFile(I)Ljava/io/File;
@@ -1187,20 +1206,20 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_38
 
     .line 338
-    :cond_2
+    :cond_4d
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_3
+    :cond_51
     return-void
 .end method
 
 .method private readJournal()V
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1221,7 +1240,7 @@
     invoke-direct {v0, v1, v2}, Lcom/bumptech/glide/disklrucache/StrictLineReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
     .line 244
-    :try_start_0
+    :try_start_e
     invoke-virtual {v0}, Lcom/bumptech/glide/disklrucache/StrictLineReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
@@ -1253,7 +1272,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_8a
 
     const-string v6, "1"
 
@@ -1261,7 +1280,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_8a
 
     iget v6, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->appVersion:I
 
@@ -1273,7 +1292,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_8a
 
     iget v3, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
 
@@ -1285,39 +1304,39 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_8a
 
     const-string v3, ""
 
     invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_50
+    .catchall {:try_start_e .. :try_end_50} :catchall_be
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_8a
 
     const/4 v1, 0x0
 
     .line 261
-    :goto_0
-    :try_start_1
+    :goto_53
+    :try_start_53
     invoke-virtual {v0}, Lcom/bumptech/glide/disklrucache/StrictLineReader;->readLine()Ljava/lang/String;
 
     move-result-object v2
 
     invoke-direct {p0, v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->readJournalLine(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/io/EOFException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5a
+    .catch Ljava/io/EOFException; {:try_start_53 .. :try_end_5a} :catch_5d
+    .catchall {:try_start_53 .. :try_end_5a} :catchall_be
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_53
 
     .line 267
-    :catch_0
-    :try_start_2
+    :catch_5d
+    :try_start_5d
     iget-object v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v2}, Ljava/util/LinkedHashMap;->size()I
@@ -1333,15 +1352,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_70
 
     .line 271
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->rebuildJournal()V
 
-    goto :goto_1
+    goto :goto_86
 
     .line 273
-    :cond_0
+    :cond_70
     new-instance v1, Ljava/io/BufferedWriter;
 
     new-instance v2, Ljava/io/OutputStreamWriter;
@@ -1361,18 +1380,18 @@
     invoke-direct {v1, v2}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
 
     iput-object v1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_86
+    .catchall {:try_start_5d .. :try_end_86} :catchall_be
 
     .line 277
-    :goto_1
+    :goto_86
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/Util;->closeQuietly(Ljava/io/Closeable;)V
 
     return-void
 
     .line 254
-    :cond_1
-    :try_start_3
+    :cond_8a
+    :try_start_8a
     new-instance p0, Ljava/io/IOException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1414,10 +1433,10 @@
     invoke-direct {p0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_be
+    .catchall {:try_start_8a .. :try_end_be} :catchall_be
 
-    :catchall_0
+    :catchall_be
     move-exception p0
 
     .line 277
@@ -1427,7 +1446,7 @@
 .end method
 
 .method private readJournalLine(Ljava/lang/String;)V
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1443,7 +1462,7 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_6
+    if-eq v1, v2, :cond_b1
 
     add-int/lit8 v3, v1, 0x1
 
@@ -1452,7 +1471,7 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_2b
 
     .line 291
     invoke-virtual {p1, v3}, Ljava/lang/String;->substring(I)Ljava/lang/String;
@@ -1466,7 +1485,7 @@
 
     move-result v4
 
-    if-ne v1, v4, :cond_1
+    if-ne v1, v4, :cond_2f
 
     const-string v4, "REMOVE"
 
@@ -1474,7 +1493,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2f
 
     .line 293
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
@@ -1484,13 +1503,13 @@
     return-void
 
     .line 297
-    :cond_0
+    :cond_2b
     invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
     .line 300
-    :cond_1
+    :cond_2f
     iget-object v4, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v4, v3}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1501,7 +1520,7 @@
 
     const/4 v5, 0x0
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_44
 
     .line 302
     new-instance v4, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
@@ -1513,8 +1532,8 @@
 
     invoke-virtual {v6, v3, v4}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
-    if-eq v0, v2, :cond_3
+    :cond_44
+    if-eq v0, v2, :cond_6c
 
     const-string v3, "CLEAN"
 
@@ -1523,7 +1542,7 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v3, :cond_6c
 
     const-string v3, "CLEAN"
 
@@ -1531,7 +1550,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_6c
 
     const/4 p0, 0x1
 
@@ -1549,18 +1568,21 @@
     move-result-object p1
 
     .line 308
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->readable:Z
     invoke-static {v4, p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$602(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Z)Z
 
     .line 309
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v4, v5}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$702(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     .line 310
+    # invokes: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->setLengths([Ljava/lang/String;)V
     invoke-static {v4, p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$800(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;[Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_99
 
-    :cond_3
-    if-ne v0, v2, :cond_4
+    :cond_6c
+    if-ne v0, v2, :cond_87
 
     const-string v3, "DIRTY"
 
@@ -1569,7 +1591,7 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v3, :cond_87
 
     const-string v3, "DIRTY"
 
@@ -1577,19 +1599,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_87
 
     .line 312
     new-instance p1, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     invoke-direct {p1, p0, v4, v5}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;-><init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$1;)V
 
+    # setter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v4, p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$702(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
-    goto :goto_0
+    goto :goto_99
 
-    :cond_4
-    if-ne v0, v2, :cond_5
+    :cond_87
+    if-ne v0, v2, :cond_9a
 
     const-string p0, "READ"
 
@@ -1598,7 +1621,7 @@
 
     move-result p0
 
-    if-ne v1, p0, :cond_5
+    if-ne v1, p0, :cond_9a
 
     const-string p0, "READ"
 
@@ -1606,13 +1629,13 @@
 
     move-result p0
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_9a
 
-    :goto_0
+    :goto_99
     return-void
 
     .line 316
-    :cond_5
+    :cond_9a
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1634,7 +1657,7 @@
     throw p0
 
     .line 284
-    :cond_6
+    :cond_b1
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1657,7 +1680,7 @@
 .end method
 
 .method private declared-synchronized rebuildJournal()V
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1667,10 +1690,10 @@
     monitor-enter p0
 
     .line 348
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 349
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
@@ -1678,7 +1701,7 @@
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
 
     .line 352
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/io/BufferedWriter;
 
     new-instance v1, Ljava/io/OutputStreamWriter;
@@ -1694,10 +1717,10 @@
     invoke-direct {v1, v2, v3}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
 
     invoke-direct {v0, v1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_1d
+    .catchall {:try_start_1 .. :try_end_1d} :catchall_eb
 
-    :try_start_1
+    :try_start_1d
     const-string v1, "libcore.io.DiskLruCache"
 
     .line 355
@@ -1762,12 +1785,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_af
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1776,13 +1799,14 @@
     check-cast v2, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
 
     .line 366
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object v3
 
     const/16 v4, 0xa
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_8c
 
     .line 367
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1793,6 +1817,7 @@
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->key:Ljava/lang/String;
     invoke-static {v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1100(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Ljava/lang/String;
 
     move-result-object v2
@@ -1807,10 +1832,10 @@
 
     invoke-virtual {v0, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 369
-    :cond_1
+    :cond_8c
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1819,6 +1844,7 @@
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->key:Ljava/lang/String;
     invoke-static {v2}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1100(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Ljava/lang/String;
 
     move-result-object v5
@@ -1838,14 +1864,14 @@
     move-result-object v2
 
     invoke-virtual {v0, v2}, Ljava/io/Writer;->write(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_ae
+    .catchall {:try_start_1d .. :try_end_ae} :catchall_e6
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 373
-    :cond_2
-    :try_start_2
+    :cond_af
+    :try_start_af
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
 
     .line 376
@@ -1857,7 +1883,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_c2
 
     .line 377
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalFile:Ljava/io/File;
@@ -1867,7 +1893,7 @@
     invoke-static {v0, v2, v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->renameTo(Ljava/io/File;Ljava/io/File;Z)V
 
     .line 379
-    :cond_3
+    :cond_c2
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalFileTmp:Ljava/io/File;
 
     iget-object v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalFile:Ljava/io/File;
@@ -1899,26 +1925,26 @@
     invoke-direct {v0, v2}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
 
     iput-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_e4
+    .catchall {:try_start_af .. :try_end_e4} :catchall_eb
 
     .line 384
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_e6
     move-exception v1
 
     .line 373
-    :try_start_3
+    :try_start_e7
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
 
     throw v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_eb
+    .catchall {:try_start_e7 .. :try_end_eb} :catchall_eb
 
-    :catchall_1
+    :catchall_eb
     move-exception v0
 
     .line 347
@@ -1928,30 +1954,30 @@
 .end method
 
 .method private static renameTo(Ljava/io/File;Ljava/io/File;Z)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5
 
     .line 394
     invoke-static {p1}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->deleteIfExists(Ljava/io/File;)V
 
     .line 396
-    :cond_0
+    :cond_5
     invoke-virtual {p0, p1}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_c
 
     return-void
 
     .line 397
-    :cond_1
+    :cond_c
     new-instance p0, Ljava/io/IOException;
 
     invoke-direct {p0}, Ljava/io/IOException;-><init>()V
@@ -1960,7 +1986,7 @@
 .end method
 
 .method private trimToSize()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1975,7 +2001,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_22
 
     .line 646
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
@@ -2005,14 +2031,14 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 
 # virtual methods
 .method public declared-synchronized close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2022,12 +2048,12 @@
     monitor-enter p0
 
     .line 631
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_3d
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 632
     monitor-exit p0
@@ -2035,8 +2061,8 @@
     return-void
 
     .line 634
-    :cond_0
-    :try_start_1
+    :cond_7
+    :try_start_7
     new-instance v0, Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->lruEntries:Ljava/util/LinkedHashMap;
@@ -2051,13 +2077,13 @@
 
     move-result-object v0
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_30
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2066,23 +2092,25 @@
     check-cast v1, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
 
     .line 635
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     .line 636
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;->abort()V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 639
-    :cond_2
+    :cond_30
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->trimToSize()V
 
     .line 640
@@ -2094,15 +2122,15 @@
 
     .line 641
     iput-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_7 .. :try_end_3b} :catchall_3d
 
     .line 642
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_3d
     move-exception v0
 
     .line 630
@@ -2112,7 +2140,7 @@
 .end method
 
 .method public delete()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2131,7 +2159,7 @@
 .end method
 
 .method public edit(Ljava/lang/String;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2149,7 +2177,7 @@
 .end method
 
 .method public declared-synchronized flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2159,7 +2187,7 @@
     monitor-enter p0
 
     .line 624
-    :try_start_0
+    :try_start_1
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->checkNotClosed()V
 
     .line 625
@@ -2169,15 +2197,15 @@
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
 
     invoke-virtual {v0}, Ljava/io/Writer;->flush()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_e
 
     .line 627
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_e
     move-exception v0
 
     .line 623
@@ -2187,7 +2215,7 @@
 .end method
 
 .method public declared-synchronized get(Ljava/lang/String;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2197,7 +2225,7 @@
     monitor-enter p0
 
     .line 407
-    :try_start_0
+    :try_start_1
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->checkNotClosed()V
 
     .line 408
@@ -2208,12 +2236,12 @@
     move-result-object v0
 
     check-cast v0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_6e
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 410
     monitor-exit p0
@@ -2221,15 +2249,16 @@
     return-object v1
 
     .line 413
-    :cond_0
-    :try_start_1
+    :cond_11
+    :try_start_11
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->readable:Z
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$600(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Z
 
     move-result v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_15
+    .catchall {:try_start_11 .. :try_end_15} :catchall_6e
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_19
 
     .line 414
     monitor-exit p0
@@ -2237,16 +2266,16 @@
     return-object v1
 
     .line 417
-    :cond_1
-    :try_start_2
+    :cond_19
+    :try_start_19
     iget-object v2, v0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->cleanFiles:[Ljava/io/File;
 
     array-length v3, v2
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_3
+    :goto_1d
+    if-ge v4, v3, :cond_2c
 
     aget-object v5, v2, v4
 
@@ -2254,24 +2283,24 @@
     invoke-virtual {v5}, Ljava/io/File;->exists()Z
 
     move-result v5
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_25
+    .catchall {:try_start_19 .. :try_end_25} :catchall_6e
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_29
 
     .line 420
     monitor-exit p0
 
     return-object v1
 
-    :cond_2
+    :cond_29
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 424
-    :cond_3
-    :try_start_3
+    :cond_2c
+    :try_start_2c
     iget v1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->redundantOpCount:I
 
     add-int/lit8 v1, v1, 0x1
@@ -2309,7 +2338,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_59
 
     .line 430
     iget-object v1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->executorService:Ljava/util/concurrent/ThreadPoolExecutor;
@@ -2319,15 +2348,17 @@
     invoke-virtual {v1, v2}, Ljava/util/concurrent/ThreadPoolExecutor;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
 
     .line 433
-    :cond_4
+    :cond_59
     new-instance v8, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->sequenceNumber:J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1200(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)J
 
     move-result-wide v3
 
     iget-object v5, v0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->cleanFiles:[Ljava/io/File;
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->lengths:[J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1000(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)[J
 
     move-result-object v6
@@ -2341,14 +2372,14 @@
     move-object v2, p1
 
     invoke-direct/range {v0 .. v7}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;-><init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[JLcom/bumptech/glide/disklrucache/DiskLruCache$1;)V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_6c
+    .catchall {:try_start_2c .. :try_end_6c} :catchall_6e
 
     monitor-exit p0
 
     return-object v8
 
-    :catchall_0
+    :catchall_6e
     move-exception p1
 
     .line 406
@@ -2358,7 +2389,7 @@
 .end method
 
 .method public getDirectory()Ljava/io/File;
-    .locals 0
+    .registers 1
 
     .line 472
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->directory:Ljava/io/File;
@@ -2367,21 +2398,21 @@
 .end method
 
 .method public declared-synchronized getMaxSize()J
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 480
-    :try_start_0
+    :try_start_1
     iget-wide v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->maxSize:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
     return-wide v0
 
-    :catchall_0
+    :catchall_5
     move-exception v0
 
     monitor-exit p0
@@ -2390,31 +2421,31 @@
 .end method
 
 .method public declared-synchronized isClosed()Z
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 613
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->journalWriter:Ljava/io/Writer;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_a
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     monitor-exit p0
 
     return v0
 
-    :catchall_0
+    :catchall_a
     move-exception v0
 
     monitor-exit p0
@@ -2423,7 +2454,7 @@
 .end method
 
 .method public declared-synchronized remove(Ljava/lang/String;)Z
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2433,7 +2464,7 @@
     monitor-enter p0
 
     .line 581
-    :try_start_0
+    :try_start_1
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->checkNotClosed()V
 
     .line 582
@@ -2447,23 +2478,24 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8e
 
     .line 583
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->currentEditor:Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$700(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
-    goto/16 :goto_2
+    goto/16 :goto_8e
 
     .line 587
-    :cond_0
-    :goto_0
+    :cond_17
+    :goto_17
     iget v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->valueCount:I
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_5a
 
     .line 588
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->getCleanFile(I)Ljava/io/File;
@@ -2475,18 +2507,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_43
 
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2c
 
-    goto :goto_1
+    goto :goto_43
 
     .line 590
-    :cond_1
+    :cond_2c
     new-instance p1, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2508,10 +2540,11 @@
     throw p1
 
     .line 592
-    :cond_2
-    :goto_1
+    :cond_43
+    :goto_43
     iget-wide v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->size:J
 
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->lengths:[J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1000(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)[J
 
     move-result-object v4
@@ -2525,6 +2558,7 @@
     iput-wide v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->size:J
 
     .line 593
+    # getter for: Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->lengths:[J
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;->access$1000(Lcom/bumptech/glide/disklrucache/DiskLruCache$Entry;)[J
 
     move-result-object v2
@@ -2535,10 +2569,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
     .line 596
-    :cond_3
+    :cond_5a
     iget v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->redundantOpCount:I
 
     const/4 v1, 0x1
@@ -2583,7 +2617,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_8c
 
     .line 605
     iget-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->executorService:Ljava/util/concurrent/ThreadPoolExecutor;
@@ -2591,23 +2625,23 @@
     iget-object v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->cleanupCallable:Ljava/util/concurrent/Callable;
 
     invoke-virtual {p1, v0}, Ljava/util/concurrent/ThreadPoolExecutor;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8c
+    .catchall {:try_start_1 .. :try_end_8c} :catchall_90
 
     .line 608
-    :cond_4
+    :cond_8c
     monitor-exit p0
 
     return v1
 
     .line 584
-    :cond_5
-    :goto_2
+    :cond_8e
+    :goto_8e
     monitor-exit p0
 
     return v1
 
-    :catchall_0
+    :catchall_90
     move-exception p1
 
     .line 580
@@ -2617,12 +2651,12 @@
 .end method
 
 .method public declared-synchronized setMaxSize(J)V
-    .locals 0
+    .registers 3
 
     monitor-enter p0
 
     .line 488
-    :try_start_0
+    :try_start_1
     iput-wide p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->maxSize:J
 
     .line 489
@@ -2631,15 +2665,15 @@
     iget-object p2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->cleanupCallable:Ljava/util/concurrent/Callable;
 
     invoke-virtual {p1, p2}, Ljava/util/concurrent/ThreadPoolExecutor;->submit(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_c
 
     .line 490
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_c
     move-exception p1
 
     .line 487
@@ -2649,21 +2683,21 @@
 .end method
 
 .method public declared-synchronized size()J
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 498
-    :try_start_0
+    :try_start_1
     iget-wide v0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache;->size:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
     return-wide v0
 
-    :catchall_0
+    :catchall_5
     move-exception v0
 
     monitor-exit p0

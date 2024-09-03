@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/support/v4/internal/view/SupportSubMenu;)V
-    .locals 0
+    .registers 3
 
     .line 39
     invoke-direct {p0, p1, p2}, Landroid/support/v7/view/menu/MenuWrapperICS;-><init>(Landroid/content/Context;Landroid/support/v4/internal/view/SupportMenu;)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public clearHeader()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -44,7 +44,7 @@
 .end method
 
 .method public getItem()Landroid/view/MenuItem;
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -63,7 +63,7 @@
 .end method
 
 .method public getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
-    .locals 0
+    .registers 1
 
     .line 44
     iget-object p0, p0, Landroid/support/v7/view/menu/SubMenuWrapperICS;->mWrappedObject:Ljava/lang/Object;
@@ -74,7 +74,7 @@
 .end method
 
 .method public bridge synthetic getWrappedObject()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -85,7 +85,7 @@
 .end method
 
 .method public setHeaderIcon(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 61
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -98,7 +98,7 @@
 .end method
 
 .method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 67
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -111,7 +111,7 @@
 .end method
 
 .method public setHeaderTitle(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 49
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -124,7 +124,7 @@
 .end method
 
 .method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 55
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -137,7 +137,7 @@
 .end method
 
 .method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 73
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -150,7 +150,7 @@
 .end method
 
 .method public setIcon(I)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 84
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;
@@ -163,7 +163,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 90
     invoke-virtual {p0}, Landroid/support/v7/view/menu/SubMenuWrapperICS;->getWrappedObject()Landroid/support/v4/internal/view/SupportSubMenu;

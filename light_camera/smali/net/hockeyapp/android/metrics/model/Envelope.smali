@@ -60,7 +60,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,13 +84,13 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getAppId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 245
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->appId:Ljava/lang/String;
@@ -99,7 +99,7 @@
 .end method
 
 .method public getAppVer()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 259
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->appVer:Ljava/lang/String;
@@ -108,7 +108,7 @@
 .end method
 
 .method public getCV()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 273
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->cV:Ljava/lang/String;
@@ -117,7 +117,7 @@
 .end method
 
 .method public getData()Lnet/hockeyapp/android/metrics/model/Base;
-    .locals 0
+    .registers 1
 
     .line 321
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->data:Lnet/hockeyapp/android/metrics/model/Base;
@@ -126,7 +126,7 @@
 .end method
 
 .method public getEpoch()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 161
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->epoch:Ljava/lang/String;
@@ -135,7 +135,7 @@
 .end method
 
 .method public getExt()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -149,7 +149,7 @@
     .line 304
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->ext:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 305
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -159,14 +159,14 @@
     iput-object v0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->ext:Ljava/util/Map;
 
     .line 307
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->ext:Ljava/util/Map;
 
     return-object p0
 .end method
 
 .method public getFlags()J
-    .locals 2
+    .registers 3
 
     .line 203
     iget-wide v0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->flags:J
@@ -175,7 +175,7 @@
 .end method
 
 .method public getIKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 189
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->iKey:Ljava/lang/String;
@@ -184,7 +184,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 119
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->name:Ljava/lang/String;
@@ -193,7 +193,7 @@
 .end method
 
 .method public getOs()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 217
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->os:Ljava/lang/String;
@@ -202,7 +202,7 @@
 .end method
 
 .method public getOsVer()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 231
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->osVer:Ljava/lang/String;
@@ -211,7 +211,7 @@
 .end method
 
 .method public getSampleRate()I
-    .locals 0
+    .registers 1
 
     .line 147
     iget p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->sampleRate:I
@@ -220,7 +220,7 @@
 .end method
 
 .method public getSeqNum()J
-    .locals 2
+    .registers 3
 
     .line 175
     iget-wide v0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->seqNum:J
@@ -229,7 +229,7 @@
 .end method
 
 .method public getTags()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -243,7 +243,7 @@
     .line 287
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->tags:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 288
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -253,14 +253,14 @@
     iput-object v0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->tags:Ljava/util/Map;
 
     .line 290
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->tags:Ljava/util/Map;
 
     return-object p0
 .end method
 
 .method public getTime()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 133
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->time:Ljava/lang/String;
@@ -269,7 +269,7 @@
 .end method
 
 .method public getVer()I
-    .locals 0
+    .registers 1
 
     .line 105
     iget p0, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->ver:I
@@ -278,14 +278,14 @@
 .end method
 
 .method public serialize(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const/16 v0, 0x7b
 
@@ -303,7 +303,7 @@
     return-void
 
     .line 340
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "writer"
@@ -314,7 +314,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -420,7 +420,7 @@
 
     cmpl-double v1, v1, v3
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_8f
 
     .line 368
     new-instance v1, Ljava/lang/StringBuilder;
@@ -455,10 +455,10 @@
     const-string v0, ","
 
     .line 373
-    :cond_0
+    :cond_8f
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->epoch:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_b2
 
     .line 374
     new-instance v1, Ljava/lang/StringBuilder;
@@ -489,14 +489,14 @@
     const-string v0, ","
 
     .line 379
-    :cond_1
+    :cond_b2
     iget-wide v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->seqNum:J
 
     const-wide/16 v3, 0x0
 
     cmp-long v1, v1, v3
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_dd
 
     .line 380
     new-instance v1, Ljava/lang/StringBuilder;
@@ -531,10 +531,10 @@
     const-string v0, ","
 
     .line 385
-    :cond_2
+    :cond_dd
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->iKey:Ljava/lang/String;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_100
 
     .line 386
     new-instance v1, Ljava/lang/StringBuilder;
@@ -565,12 +565,12 @@
     const-string v0, ","
 
     .line 391
-    :cond_3
+    :cond_100
     iget-wide v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->flags:J
 
     cmp-long v1, v1, v3
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_129
 
     .line 392
     new-instance v1, Ljava/lang/StringBuilder;
@@ -605,10 +605,10 @@
     const-string v0, ","
 
     .line 397
-    :cond_4
+    :cond_129
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->os:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_14c
 
     .line 398
     new-instance v1, Ljava/lang/StringBuilder;
@@ -639,10 +639,10 @@
     const-string v0, ","
 
     .line 403
-    :cond_5
+    :cond_14c
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->osVer:Ljava/lang/String;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_16f
 
     .line 404
     new-instance v1, Ljava/lang/StringBuilder;
@@ -673,10 +673,10 @@
     const-string v0, ","
 
     .line 409
-    :cond_6
+    :cond_16f
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->appId:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_192
 
     .line 410
     new-instance v1, Ljava/lang/StringBuilder;
@@ -707,10 +707,10 @@
     const-string v0, ","
 
     .line 415
-    :cond_7
+    :cond_192
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->appVer:Ljava/lang/String;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_1b5
 
     .line 416
     new-instance v1, Ljava/lang/StringBuilder;
@@ -741,10 +741,10 @@
     const-string v0, ","
 
     .line 421
-    :cond_8
+    :cond_1b5
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->cV:Ljava/lang/String;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_1d8
 
     .line 422
     new-instance v1, Ljava/lang/StringBuilder;
@@ -775,10 +775,10 @@
     const-string v0, ","
 
     .line 427
-    :cond_9
+    :cond_1d8
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->tags:Ljava/util/Map;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_1f7
 
     .line 428
     new-instance v1, Ljava/lang/StringBuilder;
@@ -805,10 +805,10 @@
     const-string v0, ","
 
     .line 433
-    :cond_a
+    :cond_1f7
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->ext:Ljava/util/Map;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_216
 
     .line 434
     new-instance v1, Ljava/lang/StringBuilder;
@@ -835,10 +835,10 @@
     const-string v0, ","
 
     .line 439
-    :cond_b
+    :cond_216
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->data:Lnet/hockeyapp/android/metrics/model/Base;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_235
 
     .line 440
     new-instance v1, Ljava/lang/StringBuilder;
@@ -864,12 +864,12 @@
 
     const-string v0, ","
 
-    :cond_c
+    :cond_235
     return-object v0
 .end method
 
 .method public setAppId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 252
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->appId:Ljava/lang/String;
@@ -878,7 +878,7 @@
 .end method
 
 .method public setAppVer(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 266
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->appVer:Ljava/lang/String;
@@ -887,7 +887,7 @@
 .end method
 
 .method public setCV(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 280
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->cV:Ljava/lang/String;
@@ -896,7 +896,7 @@
 .end method
 
 .method public setData(Lnet/hockeyapp/android/metrics/model/Base;)V
-    .locals 0
+    .registers 2
 
     .line 328
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->data:Lnet/hockeyapp/android/metrics/model/Base;
@@ -905,7 +905,7 @@
 .end method
 
 .method public setEpoch(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 168
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->epoch:Ljava/lang/String;
@@ -914,7 +914,7 @@
 .end method
 
 .method public setExt(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -932,7 +932,7 @@
 .end method
 
 .method public setFlags(J)V
-    .locals 0
+    .registers 3
 
     .line 210
     iput-wide p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->flags:J
@@ -941,7 +941,7 @@
 .end method
 
 .method public setIKey(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 196
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->iKey:Ljava/lang/String;
@@ -950,7 +950,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 126
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->name:Ljava/lang/String;
@@ -959,7 +959,7 @@
 .end method
 
 .method public setOs(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 224
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->os:Ljava/lang/String;
@@ -968,7 +968,7 @@
 .end method
 
 .method public setOsVer(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 238
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->osVer:Ljava/lang/String;
@@ -977,7 +977,7 @@
 .end method
 
 .method public setSampleRate(I)V
-    .locals 0
+    .registers 2
 
     .line 154
     iput p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->sampleRate:I
@@ -986,7 +986,7 @@
 .end method
 
 .method public setSeqNum(J)V
-    .locals 0
+    .registers 3
 
     .line 182
     iput-wide p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->seqNum:J
@@ -995,7 +995,7 @@
 .end method
 
 .method public setTags(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public setTime(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 140
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->time:Ljava/lang/String;
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public setVer(I)V
-    .locals 0
+    .registers 2
 
     .line 112
     iput p1, p0, Lnet/hockeyapp/android/metrics/model/Envelope;->ver:I

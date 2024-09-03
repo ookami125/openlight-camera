@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/bumptech/glide/load/Key;IILcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/ResourceEncoder;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Lcom/bumptech/glide/load/Encoder;)V
-    .locals 0
+    .registers 11
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,18 +81,18 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_1e
+    if-eqz p1, :cond_130
 
     .line 58
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -103,12 +103,12 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_13
 
-    goto/16 :goto_c
+    goto/16 :goto_130
 
     .line 62
-    :cond_1
+    :cond_13
     check-cast p1, Lcom/bumptech/glide/load/engine/EngineKey;
 
     .line 64
@@ -120,12 +120,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_20
 
     return v1
 
     .line 66
-    :cond_2
+    :cond_20
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->signature:Lcom/bumptech/glide/load/Key;
 
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->signature:Lcom/bumptech/glide/load/Key;
@@ -134,67 +134,67 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2b
 
     return v1
 
     .line 68
-    :cond_3
+    :cond_2b
     iget v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->height:I
 
     iget v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->height:I
 
-    if-eq v2, v3, :cond_4
+    if-eq v2, v3, :cond_32
 
     return v1
 
     .line 70
-    :cond_4
+    :cond_32
     iget v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->width:I
 
     iget v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->width:I
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_39
 
     return v1
 
     .line 72
-    :cond_5
+    :cond_39
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_3f
 
     move v2, v0
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_6
+    :cond_3f
     move v2, v1
 
-    :goto_0
+    :goto_40
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_46
 
     move v3, v0
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_7
+    :cond_46
     move v3, v1
 
-    :goto_1
+    :goto_47
     xor-int/2addr v2, v3
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_4b
 
     return v1
 
     .line 74
-    :cond_8
+    :cond_4b
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_62
 
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
@@ -212,47 +212,47 @@
 
     move-result v2
 
-    if-nez v2, :cond_9
+    if-nez v2, :cond_62
 
     return v1
 
     .line 76
-    :cond_9
+    :cond_62
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_68
 
     move v2, v0
 
-    goto :goto_2
+    goto :goto_69
 
-    :cond_a
+    :cond_68
     move v2, v1
 
-    :goto_2
+    :goto_69
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_6f
 
     move v3, v0
 
-    goto :goto_3
+    goto :goto_70
 
-    :cond_b
+    :cond_6f
     move v3, v1
 
-    :goto_3
+    :goto_70
     xor-int/2addr v2, v3
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_74
 
     return v1
 
     .line 78
-    :cond_c
+    :cond_74
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_8b
 
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -270,47 +270,47 @@
 
     move-result v2
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_8b
 
     return v1
 
     .line 80
-    :cond_d
+    :cond_8b
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-nez v2, :cond_e
+    if-nez v2, :cond_91
 
     move v2, v0
 
-    goto :goto_4
+    goto :goto_92
 
-    :cond_e
+    :cond_91
     move v2, v1
 
-    :goto_4
+    :goto_92
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_98
 
     move v3, v0
 
-    goto :goto_5
+    goto :goto_99
 
-    :cond_f
+    :cond_98
     move v3, v1
 
-    :goto_5
+    :goto_99
     xor-int/2addr v2, v3
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_9d
 
     return v1
 
     .line 82
-    :cond_10
+    :cond_9d
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_b4
 
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -328,47 +328,47 @@
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_b4
 
     return v1
 
     .line 84
-    :cond_11
+    :cond_b4
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_ba
 
     move v2, v0
 
-    goto :goto_6
+    goto :goto_bb
 
-    :cond_12
+    :cond_ba
     move v2, v1
 
-    :goto_6
+    :goto_bb
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-nez v3, :cond_13
+    if-nez v3, :cond_c1
 
     move v3, v0
 
-    goto :goto_7
+    goto :goto_c2
 
-    :cond_13
+    :cond_c1
     move v3, v1
 
-    :goto_7
+    :goto_c2
     xor-int/2addr v2, v3
 
-    if-eqz v2, :cond_14
+    if-eqz v2, :cond_c6
 
     return v1
 
     .line 86
-    :cond_14
+    :cond_c6
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_dd
 
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
@@ -386,47 +386,47 @@
 
     move-result v2
 
-    if-nez v2, :cond_15
+    if-nez v2, :cond_dd
 
     return v1
 
     .line 88
-    :cond_15
+    :cond_dd
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_e3
 
     move v2, v0
 
-    goto :goto_8
+    goto :goto_e4
 
-    :cond_16
+    :cond_e3
     move v2, v1
 
-    :goto_8
+    :goto_e4
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-nez v3, :cond_17
+    if-nez v3, :cond_ea
 
     move v3, v0
 
-    goto :goto_9
+    goto :goto_eb
 
-    :cond_17
+    :cond_ea
     move v3, v1
 
-    :goto_9
+    :goto_eb
     xor-int/2addr v2, v3
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_ef
 
     return v1
 
     .line 90
-    :cond_18
+    :cond_ef
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-eqz v2, :cond_19
+    if-eqz v2, :cond_106
 
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
@@ -444,47 +444,47 @@
 
     move-result v2
 
-    if-nez v2, :cond_19
+    if-nez v2, :cond_106
 
     return v1
 
     .line 92
-    :cond_19
+    :cond_106
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_10c
 
     move v2, v0
 
-    goto :goto_a
+    goto :goto_10d
 
-    :cond_1a
+    :cond_10c
     move v2, v1
 
-    :goto_a
+    :goto_10d
     iget-object v3, p1, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-nez v3, :cond_1b
+    if-nez v3, :cond_113
 
     move v3, v0
 
-    goto :goto_b
+    goto :goto_114
 
-    :cond_1b
+    :cond_113
     move v3, v1
 
-    :goto_b
+    :goto_114
     xor-int/2addr v2, v3
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_118
 
     return v1
 
     .line 94
-    :cond_1c
+    :cond_118
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-eqz v2, :cond_1d
+    if-eqz v2, :cond_12f
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
@@ -502,25 +502,25 @@
 
     move-result p0
 
-    if-nez p0, :cond_1d
+    if-nez p0, :cond_12f
 
     return v1
 
-    :cond_1d
+    :cond_12f
     return v0
 
-    :cond_1e
-    :goto_c
+    :cond_130
+    :goto_130
     return v1
 .end method
 
 .method public getOriginalKey()Lcom/bumptech/glide/load/Key;
-    .locals 3
+    .registers 4
 
     .line 47
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->originalKey:Lcom/bumptech/glide/load/Key;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 48
     new-instance v0, Lcom/bumptech/glide/load/engine/OriginalKey;
@@ -534,19 +534,19 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->originalKey:Lcom/bumptech/glide/load/Key;
 
     .line 50
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->originalKey:Lcom/bumptech/glide/load/Key;
 
     return-object p0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 102
     iget v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_b4
 
     .line 103
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->id:Ljava/lang/String;
@@ -603,7 +603,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3f
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -615,12 +615,12 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_3f
     move v1, v2
 
-    :goto_0
+    :goto_40
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
@@ -632,7 +632,7 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_56
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -644,12 +644,12 @@
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_57
 
-    :cond_1
+    :cond_56
     move v1, v2
 
-    :goto_1
+    :goto_57
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
@@ -661,7 +661,7 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6d
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
@@ -673,12 +673,12 @@
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_6e
 
-    :cond_2
+    :cond_6d
     move v1, v2
 
-    :goto_2
+    :goto_6e
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
@@ -690,7 +690,7 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_84
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
@@ -702,12 +702,12 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_85
 
-    :cond_3
+    :cond_84
     move v1, v2
 
-    :goto_3
+    :goto_85
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
@@ -719,7 +719,7 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_9b
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
@@ -731,12 +731,12 @@
 
     move-result v1
 
-    goto :goto_4
+    goto :goto_9c
 
-    :cond_4
+    :cond_9b
     move v1, v2
 
-    :goto_4
+    :goto_9c
     add-int/2addr v0, v1
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
@@ -748,7 +748,7 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_b1
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
@@ -760,25 +760,25 @@
 
     move-result v2
 
-    :cond_5
+    :cond_b1
     add-int/2addr v0, v2
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
 
     .line 114
-    :cond_6
+    :cond_b4
     iget p0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->hashCode:I
 
     return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 119
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->stringKey:Ljava/lang/String;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_d6
 
     .line 120
     new-instance v0, Ljava/lang/StringBuilder;
@@ -827,7 +827,7 @@
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_46
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -835,12 +835,12 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_48
 
-    :cond_0
+    :cond_46
     const-string v3, ""
 
-    :goto_0
+    :goto_48
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -851,7 +851,7 @@
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_5f
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -859,12 +859,12 @@
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_61
 
-    :cond_1
+    :cond_5f
     const-string v3, ""
 
-    :goto_1
+    :goto_61
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -875,7 +875,7 @@
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_78
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
@@ -883,12 +883,12 @@
 
     move-result-object v3
 
-    goto :goto_2
+    goto :goto_7a
 
-    :cond_2
+    :cond_78
     const-string v3, ""
 
-    :goto_2
+    :goto_7a
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -899,7 +899,7 @@
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_91
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
@@ -907,12 +907,12 @@
 
     move-result-object v3
 
-    goto :goto_3
+    goto :goto_93
 
-    :cond_3
+    :cond_91
     const-string v3, ""
 
-    :goto_3
+    :goto_93
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -923,7 +923,7 @@
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_aa
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
@@ -931,12 +931,12 @@
 
     move-result-object v3
 
-    goto :goto_4
+    goto :goto_ac
 
-    :cond_4
+    :cond_aa
     const-string v3, ""
 
-    :goto_4
+    :goto_ac
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -947,7 +947,7 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_c3
 
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
@@ -955,12 +955,12 @@
 
     move-result-object v1
 
-    goto :goto_5
+    goto :goto_c5
 
-    :cond_5
+    :cond_c3
     const-string v1, ""
 
-    :goto_5
+    :goto_c5
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -976,14 +976,14 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->stringKey:Ljava/lang/String;
 
     .line 156
-    :cond_6
+    :cond_d6
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->stringKey:Ljava/lang/String;
 
     return-object p0
 .end method
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;
@@ -1035,7 +1035,7 @@
     .line 168
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -1043,12 +1043,12 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_34
     const-string v0, ""
 
-    :goto_0
+    :goto_36
     const-string v1, "UTF-8"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -1060,7 +1060,7 @@
     .line 169
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4a
 
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->decoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
@@ -1068,12 +1068,12 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_1
+    :cond_4a
     const-string v0, ""
 
-    :goto_1
+    :goto_4c
     const-string v1, "UTF-8"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -1085,7 +1085,7 @@
     .line 170
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_60
 
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->transformation:Lcom/bumptech/glide/load/Transformation;
 
@@ -1093,12 +1093,12 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_62
 
-    :cond_2
+    :cond_60
     const-string v0, ""
 
-    :goto_2
+    :goto_62
     const-string v1, "UTF-8"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -1110,7 +1110,7 @@
     .line 171
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_76
 
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
@@ -1118,12 +1118,12 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_78
 
-    :cond_3
+    :cond_76
     const-string v0, ""
 
-    :goto_3
+    :goto_78
     const-string v1, "UTF-8"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
@@ -1135,7 +1135,7 @@
     .line 173
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_8c
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineKey;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
@@ -1143,12 +1143,12 @@
 
     move-result-object p0
 
-    goto :goto_4
+    goto :goto_8e
 
-    :cond_4
+    :cond_8c
     const-string p0, ""
 
-    :goto_4
+    :goto_8e
     const-string v0, "UTF-8"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;)V
-    .locals 1
+    .registers 4
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;)Z
-    .locals 0
+    .registers 1
 
     .line 10
     iget-boolean p0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$002(Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;Z)Z
-    .locals 0
+    .registers 2
 
     .line 10
     iput-boolean p1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected:Z
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;Landroid/content/Context;)Z
-    .locals 0
+    .registers 2
 
     .line 10
     invoke-direct {p0, p1}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected(Landroid/content/Context;)Z
@@ -75,7 +75,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;)Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
-    .locals 0
+    .registers 1
 
     .line 10
     iget-object p0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->listener:Lcom/bumptech/glide/manager/ConnectivityMonitor$ConnectivityListener;
@@ -84,7 +84,7 @@
 .end method
 
 .method private isConnected(Landroid/content/Context;)Z
-    .locals 0
+    .registers 2
 
     const-string p0, "connectivity"
 
@@ -100,38 +100,38 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     .line 56
     invoke-virtual {p0}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_17
     return p0
 .end method
 
 .method private register()V
-    .locals 4
+    .registers 5
 
     .line 34
     iget-boolean v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isRegistered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 38
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->context:Landroid/content/Context;
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isConnected(Landroid/content/Context;)Z
@@ -162,17 +162,17 @@
 .end method
 
 .method private unregister()V
-    .locals 2
+    .registers 3
 
     .line 44
     iget-boolean v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->isRegistered:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 48
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->context:Landroid/content/Context;
 
     iget-object v1, p0, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->connectivityReceiver:Landroid/content/BroadcastReceiver;
@@ -190,13 +190,13 @@
 
 # virtual methods
 .method public onDestroy()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onStart()V
-    .locals 0
+    .registers 1
 
     .line 61
     invoke-direct {p0}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->register()V
@@ -205,7 +205,7 @@
 .end method
 
 .method public onStop()V
-    .locals 0
+    .registers 1
 
     .line 66
     invoke-direct {p0}, Lcom/bumptech/glide/manager/DefaultConnectivityMonitor;->unregister()V

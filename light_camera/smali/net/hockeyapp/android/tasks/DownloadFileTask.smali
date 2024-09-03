@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/listeners/DownloadFileListener;)V
-    .locals 0
+    .registers 4
 
     .line 47
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -108,7 +108,7 @@
 
 # virtual methods
 .method public attach(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 57
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mContext:Landroid/content/Context;
@@ -117,7 +117,7 @@
 .end method
 
 .method protected createConnection(Ljava/net/URL;I)Ljava/net/URLConnection;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -141,23 +141,23 @@
 
     const/16 v2, 0x12d
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_19
 
     const/16 v2, 0x12e
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_19
 
     const/16 v2, 0x12f
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3f
 
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_19
+    if-nez p2, :cond_1c
 
     return-object v0
 
     .line 155
-    :cond_1
+    :cond_1c
     new-instance v1, Ljava/net/URL;
 
     const-string v2, "Location"
@@ -181,7 +181,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3f
 
     .line 159
     invoke-virtual {v0}, Ljava/net/HttpURLConnection;->disconnect()V
@@ -195,12 +195,12 @@
 
     return-object p0
 
-    :cond_2
+    :cond_3f
     return-object v0
 .end method
 
 .method public detach()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -214,14 +214,14 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Long;
-    .locals 11
+    .registers 13
 
     const/4 p1, 0x0
 
     const-wide/16 v0, 0x0
 
     .line 71
-    :try_start_0
+    :try_start_3
     new-instance v2, Ljava/net/URL;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/tasks/DownloadFileTask;->getURLString()Ljava/lang/String;
@@ -250,7 +250,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     const-string v5, "text"
 
@@ -259,7 +259,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_2f
 
     const-string v2, "The requested download does not appear to be a file."
 
@@ -274,7 +274,7 @@
     return-object p0
 
     .line 84
-    :cond_0
+    :cond_2f
     new-instance v4, Ljava/io/File;
 
     iget-object v5, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mFilePath:Ljava/lang/String;
@@ -286,19 +286,19 @@
 
     move-result v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_5e
 
     .line 86
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_43
 
-    goto :goto_0
+    goto :goto_5e
 
     .line 87
-    :cond_1
+    :cond_43
     new-instance p0, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -324,8 +324,8 @@
     throw p0
 
     .line 89
-    :cond_2
-    :goto_0
+    :cond_5e
+    :goto_5e
     new-instance v5, Ljava/io/File;
 
     iget-object v6, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mFilename:Ljava/lang/String;
@@ -340,36 +340,36 @@
     move-result-object v2
 
     invoke-direct {v4, v2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_6e
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_6e} :catch_ba
+    .catchall {:try_start_3 .. :try_end_6e} :catchall_b7
 
     .line 92
-    :try_start_1
+    :try_start_6e
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-direct {v2, v5}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_73
+    .catch Ljava/io/IOException; {:try_start_6e .. :try_end_73} :catch_b5
+    .catchall {:try_start_6e .. :try_end_73} :catchall_d5
 
     const/16 p1, 0x400
 
     .line 94
-    :try_start_2
+    :try_start_75
     new-array p1, p1, [B
 
     move-wide v5, v0
 
     .line 97
-    :goto_1
+    :goto_78
     invoke-virtual {v4, p1}, Ljava/io/InputStream;->read([B)I
 
     move-result v7
 
     const/4 v8, -0x1
 
-    if-eq v7, v8, :cond_3
+    if-eq v7, v8, :cond_9c
 
     int-to-long v8, v7
 
@@ -407,155 +407,155 @@
     .line 100
     invoke-virtual {v2, p1, v10, v7}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_1
+    goto :goto_78
 
     .line 103
-    :cond_3
+    :cond_9c
     invoke-virtual {v2}, Ljava/io/OutputStream;->flush()V
 
     .line 105
     invoke-static {v5, v6}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p0
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_a3
+    .catch Ljava/io/IOException; {:try_start_75 .. :try_end_a3} :catch_b2
+    .catchall {:try_start_75 .. :try_end_a3} :catchall_af
 
     .line 112
-    :try_start_3
+    :try_start_a3
     invoke-virtual {v2}, Ljava/io/OutputStream;->close()V
 
     .line 115
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_a9
+    .catch Ljava/io/IOException; {:try_start_a3 .. :try_end_a9} :catch_aa
 
-    goto :goto_2
+    goto :goto_ae
 
-    :catch_0
+    :catch_aa
     move-exception p1
 
     .line 118
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    :goto_2
+    :goto_ae
     return-object p0
 
-    :catchall_0
+    :catchall_af
     move-exception p0
 
     move-object p1, v2
 
-    goto :goto_7
+    goto :goto_d6
 
-    :catch_1
+    :catch_b2
     move-exception p0
 
     move-object p1, v2
 
-    goto :goto_3
+    goto :goto_bc
 
-    :catch_2
+    :catch_b5
     move-exception p0
 
-    goto :goto_3
+    goto :goto_bc
 
-    :catchall_1
+    :catchall_b7
     move-exception p0
 
     move-object v4, p1
 
-    goto :goto_7
+    goto :goto_d6
 
-    :catch_3
+    :catch_ba
     move-exception p0
 
     move-object v4, p1
 
     .line 107
-    :goto_3
-    :try_start_4
+    :goto_bc
+    :try_start_bc
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 108
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    :try_end_c3
+    .catchall {:try_start_bc .. :try_end_c3} :catchall_d5
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_cb
 
     .line 112
-    :try_start_5
+    :try_start_c5
     invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
 
-    goto :goto_4
+    goto :goto_cb
 
-    :catch_4
+    :catch_c9
     move-exception p1
 
-    goto :goto_5
+    goto :goto_d1
 
-    :cond_4
-    :goto_4
-    if-eqz v4, :cond_5
+    :cond_cb
+    :goto_cb
+    if-eqz v4, :cond_d4
 
     .line 115
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
+    :try_end_d0
+    .catch Ljava/io/IOException; {:try_start_c5 .. :try_end_d0} :catch_c9
 
-    goto :goto_6
+    goto :goto_d4
 
     .line 118
-    :goto_5
+    :goto_d1
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
-    :cond_5
-    :goto_6
+    :cond_d4
+    :goto_d4
     return-object p0
 
-    :catchall_2
+    :catchall_d5
     move-exception p0
 
-    :goto_7
-    if-eqz p1, :cond_6
+    :goto_d6
+    if-eqz p1, :cond_de
 
     .line 112
-    :try_start_6
+    :try_start_d8
     invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
 
-    goto :goto_8
+    goto :goto_de
 
-    :catch_5
+    :catch_dc
     move-exception p1
 
-    goto :goto_9
+    goto :goto_e4
 
-    :cond_6
-    :goto_8
-    if-eqz v4, :cond_7
+    :cond_de
+    :goto_de
+    if-eqz v4, :cond_e7
 
     .line 115
     invoke-virtual {v4}, Ljava/io/InputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_5
+    :try_end_e3
+    .catch Ljava/io/IOException; {:try_start_d8 .. :try_end_e3} :catch_dc
 
-    goto :goto_a
+    goto :goto_e7
 
     .line 118
-    :goto_9
+    :goto_e4
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
     .line 119
-    :cond_7
-    :goto_a
+    :cond_e7
+    :goto_e7
     throw p0
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 36
     check-cast p1, [Ljava/lang/Void;
@@ -568,7 +568,7 @@
 .end method
 
 .method protected getURLString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 253
     new-instance v0, Ljava/lang/StringBuilder;
@@ -591,24 +591,24 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Long;)V
-    .locals 4
+    .registers 6
 
     .line 184
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mProgressDialog:Landroid/app/ProgressDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 186
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mProgressDialog:Landroid/app/ProgressDialog;
 
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_9} :catch_9
 
     .line 192
-    :catch_0
-    :cond_0
+    :catch_9
+    :cond_9
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
@@ -617,7 +617,7 @@
 
     cmp-long p1, v0, v2
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_5c
 
     .line 193
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mNotifier:Lnet/hockeyapp/android/listeners/DownloadFileListener;
@@ -660,7 +660,7 @@
 
     const/16 v2, 0x18
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_51
 
     .line 203
     invoke-static {}, Landroid/os/StrictMode;->getVmPolicy()Landroid/os/StrictMode$VmPolicy;
@@ -686,21 +686,21 @@
     invoke-static {v1}, Landroid/os/StrictMode;->setVmPolicy(Landroid/os/StrictMode$VmPolicy;)V
 
     .line 212
-    :cond_1
+    :cond_51
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_95
 
     .line 215
     invoke-static {v0}, Landroid/os/StrictMode;->setVmPolicy(Landroid/os/StrictMode$VmPolicy;)V
 
-    goto :goto_1
+    goto :goto_95
 
     .line 220
-    :cond_2
-    :try_start_1
+    :cond_5c
+    :try_start_5c
     new-instance p1, Landroid/app/AlertDialog$Builder;
 
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mContext:Landroid/content/Context;
@@ -715,7 +715,7 @@
     .line 224
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mDownloadErrorMessage:Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_75
 
     .line 225
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mContext:Landroid/content/Context;
@@ -726,14 +726,14 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_77
 
     .line 227
-    :cond_3
+    :cond_75
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mDownloadErrorMessage:Ljava/lang/String;
 
     .line 229
-    :goto_0
+    :goto_77
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
     .line 231
@@ -760,17 +760,17 @@
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_95
+    .catch Ljava/lang/Exception; {:try_start_5c .. :try_end_95} :catch_95
 
-    :catch_1
-    :cond_4
-    :goto_1
+    :catch_95
+    :cond_95
+    :goto_95
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 36
     check-cast p1, Ljava/lang/Long;
@@ -781,7 +781,7 @@
 .end method
 
 .method protected varargs onProgressUpdate([Ljava/lang/Integer;)V
-    .locals 3
+    .registers 5
 
     .line 169
     :try_start_0
@@ -789,7 +789,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 170
     new-instance v0, Landroid/app/ProgressDialog;
@@ -825,7 +825,7 @@
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->show()V
 
     .line 176
-    :cond_0
+    :cond_25
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask;->mProgressDialog:Landroid/app/ProgressDialog;
 
     aget-object p1, p1, v1
@@ -835,15 +835,15 @@
     move-result p1
 
     invoke-virtual {p0, p1}, Landroid/app/ProgressDialog;->setProgress(I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_30
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_30} :catch_30
 
-    :catch_0
+    :catch_30
     return-void
 .end method
 
 .method protected bridge synthetic onProgressUpdate([Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 36
     check-cast p1, [Ljava/lang/Integer;
@@ -854,7 +854,7 @@
 .end method
 
 .method protected setConnectionProperties(Ljava/net/HttpURLConnection;)V
-    .locals 1
+    .registers 3
 
     const-string p0, "User-Agent"
 
@@ -873,7 +873,7 @@
 
     const/16 v0, 0x9
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_18
 
     const-string p0, "connection"
 
@@ -882,6 +882,6 @@
     .line 129
     invoke-virtual {p1, p0, v0}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method

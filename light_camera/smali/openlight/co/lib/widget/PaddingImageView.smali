@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 19
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -87,7 +87,7 @@
 
 # virtual methods
 .method protected drawableStateChanged()V
-    .locals 4
+    .registers 5
 
     .line 36
     invoke-super {p0}, Landroid/widget/ImageView;->drawableStateChanged()V
@@ -97,7 +97,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 39
     iget-object v1, p0, Lopenlight/co/lib/widget/PaddingImageView;->mPadding:Landroid/graphics/Rect;
@@ -123,6 +123,6 @@
 
     invoke-virtual {p0, v0, v1, v2, v3}, Lopenlight/co/lib/widget/PaddingImageView;->setPadding(IIII)V
 
-    :cond_0
+    :cond_21
     return-void
 .end method

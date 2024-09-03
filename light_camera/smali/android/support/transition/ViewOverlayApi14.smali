@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 1
+    .registers 5
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,14 +40,14 @@
 .end method
 
 .method static createFrom(Landroid/view/View;)Landroid/support/transition/ViewOverlayApi14;
-    .locals 5
+    .registers 6
 
     .line 66
     invoke-static {p0}, Landroid/support/transition/ViewOverlayApi14;->getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 68
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
@@ -56,8 +56,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_b
+    if-ge v2, v1, :cond_1d
 
     .line 70
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -67,7 +67,7 @@
     .line 71
     instance-of v4, v3, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1a
 
     .line 72
     check-cast v3, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;
@@ -76,13 +76,13 @@
 
     return-object p0
 
-    :cond_0
+    :cond_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 75
-    :cond_1
+    :cond_1d
     new-instance v1, Landroid/support/transition/ViewGroupOverlayApi14;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -93,18 +93,18 @@
 
     return-object v1
 
-    :cond_2
+    :cond_27
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method static getContentView(Landroid/view/View;)Landroid/view/ViewGroup;
-    .locals 2
+    .registers 3
 
     :cond_0
     :goto_0
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_21
 
     .line 55
     invoke-virtual {p0}, Landroid/view/View;->getId()I
@@ -113,11 +113,11 @@
 
     const v1, 0x1020002
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_12
 
     instance-of v0, p0, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 56
     check-cast p0, Landroid/view/ViewGroup;
@@ -125,7 +125,7 @@
     return-object p0
 
     .line 58
-    :cond_1
+    :cond_12
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
@@ -143,7 +143,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_21
     const/4 p0, 0x0
 
     return-object p0
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -167,7 +167,7 @@
 .end method
 
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 95
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi14;->mOverlayViewGroup:Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;
@@ -178,7 +178,7 @@
 .end method
 
 .method getOverlayView()Landroid/view/ViewGroup;
-    .locals 0
+    .registers 1
 
     .line 85
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi14;->mOverlayViewGroup:Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;
@@ -187,7 +187,7 @@
 .end method
 
 .method isEmpty()Z
-    .locals 0
+    .registers 1
 
     .line 104
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi14;->mOverlayViewGroup:Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;
@@ -200,7 +200,7 @@
 .end method
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

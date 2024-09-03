@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIFFFF)V
-    .locals 1
+    .registers 9
 
     .line 2319
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
     .line 2327
     new-array p2, p2, [F
 
-    fill-array-data p2, :array_0
+    fill-array-data p2, :array_3e
 
     invoke-static {p2}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
@@ -126,7 +126,7 @@
 
     nop
 
-    :array_0
+    :array_3e
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 0
+    .registers 1
 
     .line 2350
     iget-object p0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mValueAnimator:Landroid/animation/ValueAnimator;
@@ -147,7 +147,7 @@
 .end method
 
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     const/high16 p1, 0x3f800000    # 1.0f
 
@@ -158,14 +158,14 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 2381
     iget-boolean p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mEnded:Z
 
     const/4 v0, 0x1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     .line 2382
     iget-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
@@ -173,26 +173,26 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->setIsRecyclable(Z)V
 
     .line 2384
-    :cond_0
+    :cond_a
     iput-boolean v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mEnded:Z
 
     return-void
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public setDuration(J)V
-    .locals 0
+    .registers 3
 
     .line 2341
     iget-object p0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mValueAnimator:Landroid/animation/ValueAnimator;
@@ -203,7 +203,7 @@
 .end method
 
 .method public setFraction(F)V
-    .locals 0
+    .registers 2
 
     .line 2354
     iput p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mFraction:F
@@ -212,7 +212,7 @@
 .end method
 
 .method public start()V
-    .locals 2
+    .registers 3
 
     .line 2345
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
@@ -230,7 +230,7 @@
 .end method
 
 .method public update()V
-    .locals 4
+    .registers 5
 
     .line 2362
     iget v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mStartDx:F
@@ -239,7 +239,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 2363
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
@@ -252,10 +252,10 @@
 
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mX:F
 
-    goto :goto_0
+    goto :goto_20
 
     .line 2365
-    :cond_0
+    :cond_13
     iget v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mStartDx:F
 
     iget v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mFraction:F
@@ -273,14 +273,14 @@
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mX:F
 
     .line 2367
-    :goto_0
+    :goto_20
     iget v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mStartDy:F
 
     iget v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mTargetY:F
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_33
 
     .line 2368
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroid/support/v7/widget/RecyclerView$ViewHolder;
@@ -293,10 +293,10 @@
 
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mY:F
 
-    goto :goto_1
+    goto :goto_40
 
     .line 2370
-    :cond_1
+    :cond_33
     iget v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mStartDy:F
 
     iget v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mFraction:F
@@ -313,6 +313,6 @@
 
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$RecoverAnimation;->mY:F
 
-    :goto_1
+    :goto_40
     return-void
 .end method

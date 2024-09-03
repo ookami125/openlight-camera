@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 49
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
     .line 60
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_d
 
     .line 62
     new-instance p1, Ljava/util/ArrayList;
@@ -63,29 +63,29 @@
 
     iput-object p1, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 64
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
     iput-object v0, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
 
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public constructor <init>(Lorg/apache/commons/io/filefilter/IOFileFilter;Lorg/apache/commons/io/filefilter/IOFileFilter;)V
-    .locals 2
+    .registers 5
 
     .line 75
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_16
 
     .line 79
     new-instance v0, Ljava/util/ArrayList;
@@ -105,7 +105,7 @@
     return-void
 
     .line 77
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The filters must not be null"
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 1
+    .registers 3
 
     .line 118
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
@@ -127,12 +127,12 @@
 
     move-result-object p0
 
-    :cond_0
+    :cond_6
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -145,20 +145,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_1a
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .registers 4
 
     .line 131
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
@@ -167,12 +167,12 @@
 
     move-result-object p0
 
-    :cond_0
+    :cond_6
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -185,20 +185,20 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_1a
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public addFileFilter(Lorg/apache/commons/io/filefilter/IOFileFilter;)V
-    .locals 0
+    .registers 2
 
     .line 88
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
@@ -209,7 +209,7 @@
 .end method
 
 .method public getFileFilters()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -230,7 +230,7 @@
 .end method
 
 .method public removeFileFilter(Lorg/apache/commons/io/filefilter/IOFileFilter;)Z
-    .locals 0
+    .registers 2
 
     .line 102
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
@@ -243,7 +243,7 @@
 .end method
 
 .method public setFileFilters(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -267,7 +267,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 146
     new-instance v0, Ljava/lang/StringBuilder;
@@ -289,21 +289,21 @@
     .line 149
     iget-object v1, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3a
 
     const/4 v1, 0x0
 
     .line 150
-    :goto_0
+    :goto_16
     iget-object v2, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
 
     invoke-interface {v2}, Ljava/util/List;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_3a
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_25
 
     const-string v2, ","
 
@@ -311,33 +311,33 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 154
-    :cond_0
+    :cond_25
     iget-object v2, p0, Lorg/apache/commons/io/filefilter/OrFileFilter;->fileFilters:Ljava/util/List;
 
     invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_30
 
     const-string v2, "null"
 
-    goto :goto_1
+    goto :goto_34
 
     .line 155
-    :cond_1
+    :cond_30
     invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    :goto_1
+    :goto_34
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_2
+    :cond_3a
     const-string p0, ")"
 
     .line 158

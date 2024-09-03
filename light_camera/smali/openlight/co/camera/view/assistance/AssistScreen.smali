@@ -40,13 +40,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -120,7 +120,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -158,7 +158,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lopenlight/co/camera/view/assistance/AssistScreen;->TAG:Ljava/lang/String;
@@ -167,7 +167,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/assistance/AssistScreen;)Landroid/widget/TextView;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistText:Landroid/widget/TextView;
@@ -176,7 +176,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/assistance/AssistScreen;Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
 
     .line 27
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/assistance/AssistScreen;->setVisibility(Landroid/view/View;Z)V
@@ -185,13 +185,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_31
 
     .line 153
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -209,7 +209,7 @@
     const/4 p2, 0x1
 
     .line 156
-    :try_start_0
+    :try_start_e
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object p2
@@ -240,15 +240,15 @@
     move-result-object p2
 
     iput-object p2, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistPrefsKey:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_e .. :try_end_28} :catchall_2c
 
     .line 161
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_31
 
-    :catchall_0
+    :catchall_2c
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -257,28 +257,28 @@
     throw p0
 
     .line 165
-    :cond_0
-    :goto_0
+    :cond_31
+    :goto_31
     invoke-virtual {p0, p0}, Lopenlight/co/camera/view/assistance/AssistScreen;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
 
 .method private setFtuMessage()V
-    .locals 2
+    .registers 3
 
     .line 174
     iget-boolean v0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mFtuAssistTextShown:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 177
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistPrefsKey:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 178
     iget-object v0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -294,7 +294,7 @@
     .line 180
     iget-boolean v0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mFtuAssistTextShown:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 181
     iget-object v0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mWarningFtuLayout:Landroid/view/ViewGroup;
@@ -306,24 +306,24 @@
     .line 182
     iput-boolean v1, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mFtuAssistTextShown:Z
 
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method private setVisibility(Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     const/16 p0, 0x8
 
     .line 194
-    :goto_0
+    :goto_6
     invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
 
     return-void
@@ -332,7 +332,7 @@
 
 # virtual methods
 .method public displayAssist()V
-    .locals 2
+    .registers 3
 
     .line 90
     iget-object v0, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistImage:Landroid/widget/ImageView;
@@ -348,7 +348,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 4
+    .registers 6
 
     .line 103
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -361,12 +361,12 @@
 
     const v3, 0x7f090190
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_1c
 
     .line 104
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistPrefsKey:Ljava/lang/String;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_49
 
     .line 105
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -380,17 +380,17 @@
 
     invoke-direct {p0, p1, v1}, Lopenlight/co/camera/view/assistance/AssistScreen;->setVisibility(Landroid/view/View;Z)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 108
-    :cond_0
+    :cond_1c
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
     move-result p1
 
     const v0, 0x7f090192
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_49
 
     .line 109
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistText:Landroid/widget/TextView;
@@ -399,17 +399,17 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2f
 
     move p1, v2
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     move p1, v1
 
-    :goto_0
-    if-eqz p1, :cond_2
+    :goto_30
+    if-eqz p1, :cond_3d
 
     .line 111
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistText:Landroid/widget/TextView;
@@ -421,10 +421,10 @@
 
     invoke-virtual {p0, v2}, Landroid/os/Handler;->removeMessages(I)V
 
-    goto :goto_1
+    goto :goto_49
 
     .line 114
-    :cond_2
+    :cond_3d
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistScreen;->mAssistText:Landroid/widget/TextView;
 
     invoke-direct {p0, p1, v2}, Lopenlight/co/camera/view/assistance/AssistScreen;->setVisibility(Landroid/view/View;Z)V
@@ -436,13 +436,13 @@
 
     invoke-virtual {p0, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_3
-    :goto_1
+    :cond_49
+    :goto_49
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 123
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V

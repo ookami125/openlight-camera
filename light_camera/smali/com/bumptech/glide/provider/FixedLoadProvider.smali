@@ -56,7 +56,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Lcom/bumptech/glide/provider/DataLoadProvider;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,17 +72,17 @@
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_20
 
     .line 30
     iput-object p1, p0, Lcom/bumptech/glide/provider/FixedLoadProvider;->modelLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_18
 
     .line 35
     iput-object p2, p0, Lcom/bumptech/glide/provider/FixedLoadProvider;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_10
 
     .line 40
     iput-object p3, p0, Lcom/bumptech/glide/provider/FixedLoadProvider;->dataLoadProvider:Lcom/bumptech/glide/provider/DataLoadProvider;
@@ -90,7 +90,7 @@
     return-void
 
     .line 38
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "DataLoadProvider must not be null"
@@ -100,7 +100,7 @@
     throw p0
 
     .line 33
-    :cond_1
+    :cond_18
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Transcoder must not be null"
@@ -110,7 +110,7 @@
     throw p0
 
     .line 28
-    :cond_2
+    :cond_20
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "ModelLoader must not be null"
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public getCacheDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -144,7 +144,7 @@
 .end method
 
 .method public getEncoder()Lcom/bumptech/glide/load/ResourceEncoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -164,7 +164,7 @@
 .end method
 
 .method public getModelLoader()Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -180,7 +180,7 @@
 .end method
 
 .method public getSourceDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -200,7 +200,7 @@
 .end method
 
 .method public getSourceEncoder()Lcom/bumptech/glide/load/Encoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -220,7 +220,7 @@
 .end method
 
 .method public getTranscoder()Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

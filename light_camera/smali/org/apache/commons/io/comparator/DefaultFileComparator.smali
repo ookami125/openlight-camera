@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 52
     new-instance v0, Lorg/apache/commons/io/comparator/DefaultFileComparator;
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 0
+    .registers 3
 
     .line 66
     invoke-virtual {p1, p2}, Ljava/io/File;->compareTo(Ljava/io/File;)I
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 47
     check-cast p1, Ljava/io/File;
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic sort(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
 
     .line 47
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort(Ljava/util/List;)Ljava/util/List;
@@ -102,7 +102,7 @@
 .end method
 
 .method public bridge synthetic sort([Ljava/io/File;)[Ljava/io/File;
-    .locals 0
+    .registers 2
 
     .line 47
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort([Ljava/io/File;)[Ljava/io/File;
@@ -113,7 +113,7 @@
 .end method
 
 .method public bridge synthetic toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-super {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->toString()Ljava/lang/String;

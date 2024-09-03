@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;

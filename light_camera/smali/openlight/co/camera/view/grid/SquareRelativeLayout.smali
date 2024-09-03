@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 10
     invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
@@ -14,7 +14,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 14
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 18
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
 
     .line 29
     invoke-super/range {p0 .. p5}, Landroid/widget/RelativeLayout;->onLayout(ZIIII)V
@@ -43,7 +43,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 0
+    .registers 3
 
     .line 23
     invoke-super {p0, p1, p2}, Landroid/widget/RelativeLayout;->onMeasure(II)V

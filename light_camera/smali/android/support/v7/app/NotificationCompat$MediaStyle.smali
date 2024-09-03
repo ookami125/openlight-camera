@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>(Landroid/support/v4/app/NotificationCompat$Builder;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic setCancelButtonIntent(Landroid/app/PendingIntent;)Landroid/support/v4/media/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public setCancelButtonIntent(Landroid/app/PendingIntent;)Landroid/support/v7/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public bridge synthetic setMediaSession(Landroid/support/v4/media/session/MediaSessionCompat$Token;)Landroid/support/v4/media/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public setMediaSession(Landroid/support/v4/media/session/MediaSessionCompat$Token;)Landroid/support/v7/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public bridge synthetic setShowActionsInCompactView([I)Landroid/support/v4/media/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public varargs setShowActionsInCompactView([I)Landroid/support/v7/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic setShowCancelButton(Z)Landroid/support/v4/media/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -140,7 +140,7 @@
 .end method
 
 .method public setShowCancelButton(Z)Landroid/support/v7/app/NotificationCompat$MediaStyle;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

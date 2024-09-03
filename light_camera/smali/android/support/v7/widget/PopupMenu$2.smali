@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/PopupMenu;)V
-    .locals 0
+    .registers 2
 
     .line 120
     iput-object p1, p0, Landroid/support/v7/widget/PopupMenu$2;->this$0:Landroid/support/v7/widget/PopupMenu;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onDismiss()V
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$2;->this$0:Landroid/support/v7/widget/PopupMenu;
 
     iget-object v0, v0, Landroid/support/v7/widget/PopupMenu;->mOnDismissListener:Landroid/support/v7/widget/PopupMenu$OnDismissListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 124
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu$2;->this$0:Landroid/support/v7/widget/PopupMenu;
@@ -54,6 +54,6 @@
 
     invoke-interface {v0, p0}, Landroid/support/v7/widget/PopupMenu$OnDismissListener;->onDismiss(Landroid/support/v7/widget/PopupMenu;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method

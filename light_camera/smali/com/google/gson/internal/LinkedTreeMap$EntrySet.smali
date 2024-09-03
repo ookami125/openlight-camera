@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedTreeMap;)V
-    .locals 0
+    .registers 2
 
     .line 560
     iput-object p1, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 591
     iget-object p0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
@@ -52,12 +52,12 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 574
     instance-of v0, p1, Ljava/util/Map$Entry;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object p0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
@@ -67,21 +67,21 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_11
     return p0
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -100,19 +100,19 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
     .line 578
     instance-of v0, p1, Ljava/util/Map$Entry;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 582
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
     check-cast p1, Ljava/util/Map$Entry;
@@ -121,12 +121,12 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_11
 
     return v1
 
     .line 586
-    :cond_1
+    :cond_11
     iget-object p0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;
 
     const/4 v0, 0x1
@@ -137,7 +137,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 562
     iget-object p0, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet;->this$0:Lcom/google/gson/internal/LinkedTreeMap;

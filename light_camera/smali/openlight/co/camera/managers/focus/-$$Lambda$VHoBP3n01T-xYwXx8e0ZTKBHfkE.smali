@@ -12,7 +12,7 @@
 
 # direct methods
 .method static synthetic constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lopenlight/co/camera/managers/focus/-$$Lambda$VHoBP3n01T-xYwXx8e0ZTKBHfkE;
 
@@ -24,7 +24,7 @@
 .end method
 
 .method private synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
 

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/JobIntentService;)V
-    .locals 0
+    .registers 2
 
     .line 377
     iput-object p1, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 377
     check-cast p1, [Ljava/lang/Void;
@@ -56,7 +56,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 2
+    .registers 4
 
     .line 384
     :goto_0
@@ -66,7 +66,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 386
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
@@ -82,14 +82,14 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_15
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 377
     check-cast p1, Ljava/lang/Void;
@@ -100,7 +100,7 @@
 .end method
 
 .method protected onCancelled(Ljava/lang/Void;)V
-    .locals 0
+    .registers 2
 
     .line 398
     iget-object p0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
@@ -111,7 +111,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 377
     check-cast p1, Ljava/lang/Void;
@@ -122,7 +122,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 0
+    .registers 2
 
     .line 403
     iget-object p0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;

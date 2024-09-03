@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method static createAnimation(Landroid/view/View;Landroid/support/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;)Landroid/animation/Animator;
-    .locals 16
+    .registers 25
 
     move-object/from16 v1, p0
 
@@ -53,7 +53,7 @@
 
     const/4 v10, 0x0
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_27
 
     .line 55
     aget v11, v8, v10
@@ -73,14 +73,14 @@
 
     add-float/2addr v8, v7
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_27
     move/from16 v11, p4
 
     move/from16 v8, p5
 
-    :goto_0
+    :goto_2b
     sub-float v12, v11, v6
 
     .line 59
@@ -107,17 +107,17 @@
 
     cmpl-float v2, v11, p6
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4b
 
     cmpl-float v2, v8, p7
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_4b
 
     const/4 v0, 0x0
 
     return-object v0
 
-    :cond_1
+    :cond_4b
     const/4 v2, 0x2
 
     .line 67

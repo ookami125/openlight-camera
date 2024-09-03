@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 14
+    .registers 14
 
     .line 87
     invoke-static {}, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->values()[Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -37,7 +37,7 @@
 
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_a
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v2, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->HARD_KEY_PRESS_START:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -47,13 +47,13 @@
     move-result v2
 
     aput v0, v1, v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_14} :catch_14
 
-    :catch_0
+    :catch_14
     const/4 v1, 0x2
 
-    :try_start_1
+    :try_start_15
     sget-object v2, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v3, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->SOFT_ROI_TAP:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -63,13 +63,13 @@
     move-result v3
 
     aput v1, v2, v3
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_1f} :catch_1f
 
-    :catch_1
+    :catch_1f
     const/4 v2, 0x3
 
-    :try_start_2
+    :try_start_20
     sget-object v3, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v4, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->SIGNIFICANT_MOTION:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -79,13 +79,13 @@
     move-result v4
 
     aput v2, v3, v4
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_2a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_20 .. :try_end_2a} :catch_2a
 
-    :catch_2
+    :catch_2a
     const/4 v3, 0x4
 
-    :try_start_3
+    :try_start_2b
     sget-object v4, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v5, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->FACE_DETECTED:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -95,13 +95,13 @@
     move-result v5
 
     aput v3, v4, v5
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_35
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2b .. :try_end_35} :catch_35
 
-    :catch_3
+    :catch_35
     const/4 v4, 0x5
 
-    :try_start_4
+    :try_start_36
     sget-object v5, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v6, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->FOCUS_LOCKED:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -111,13 +111,13 @@
     move-result v6
 
     aput v4, v5, v6
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_40
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_36 .. :try_end_40} :catch_40
 
-    :catch_4
+    :catch_40
     const/4 v5, 0x6
 
-    :try_start_5
+    :try_start_41
     sget-object v6, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v7, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->INTERNAL_TRIGGER:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -127,13 +127,13 @@
     move-result v7
 
     aput v5, v6, v7
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_4b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_41 .. :try_end_4b} :catch_4b
 
-    :catch_5
+    :catch_4b
     const/4 v6, 0x7
 
-    :try_start_6
+    :try_start_4c
     sget-object v7, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v8, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->TEST:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -143,13 +143,13 @@
     move-result v8
 
     aput v6, v7, v8
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+    :try_end_56
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4c .. :try_end_56} :catch_56
 
-    :catch_6
+    :catch_56
     const/16 v7, 0x8
 
-    :try_start_7
+    :try_start_58
     sget-object v8, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v9, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->HARD_KEY_PRESS_PROCESS:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -159,13 +159,13 @@
     move-result v9
 
     aput v7, v8, v9
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+    :try_end_62
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_58 .. :try_end_62} :catch_62
 
-    :catch_7
+    :catch_62
     const/16 v8, 0x9
 
-    :try_start_8
+    :try_start_64
     sget-object v9, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v10, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->START_AE_METERING:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -175,13 +175,13 @@
     move-result v10
 
     aput v8, v9, v10
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    :try_end_6e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_64 .. :try_end_6e} :catch_6e
 
-    :catch_8
+    :catch_6e
     const/16 v9, 0xa
 
-    :try_start_9
+    :try_start_70
     sget-object v10, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v11, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->START_FOCUS:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -191,13 +191,13 @@
     move-result v11
 
     aput v9, v10, v11
-    :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_9
+    :try_end_7a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_70 .. :try_end_7a} :catch_7a
 
-    :catch_9
+    :catch_7a
     const/16 v10, 0xb
 
-    :try_start_a
+    :try_start_7c
     sget-object v11, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v12, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->ISSUE_FOCUS_REQUEST_TO_PLATFORM:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -207,11 +207,11 @@
     move-result v12
 
     aput v10, v11, v12
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_a
+    :try_end_86
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7c .. :try_end_86} :catch_86
 
-    :catch_a
-    :try_start_b
+    :catch_86
+    :try_start_86
     sget-object v11, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToAutoFocusSplits:[I
 
     sget-object v12, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->FOCUS_ACHIEVED:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -223,11 +223,11 @@
     const/16 v13, 0xc
 
     aput v13, v11, v12
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_b
+    :try_end_92
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_86 .. :try_end_92} :catch_92
 
     .line 57
-    :catch_b
+    :catch_92
     invoke-static {}, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->values()[Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
 
     move-result-object v11
@@ -238,7 +238,7 @@
 
     sput-object v11, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
-    :try_start_c
+    :try_start_9b
     sget-object v11, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v12, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->HARD_KEY_PRESS_PROCESS:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -248,11 +248,11 @@
     move-result v12
 
     aput v0, v11, v12
-    :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_c
+    :try_end_a5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9b .. :try_end_a5} :catch_a5
 
-    :catch_c
-    :try_start_d
+    :catch_a5
+    :try_start_a5
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v11, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->SOFT_BUTTON_PRESS:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -262,11 +262,11 @@
     move-result v11
 
     aput v1, v0, v11
-    :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_d
+    :try_end_af
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a5 .. :try_end_af} :catch_af
 
-    :catch_d
-    :try_start_e
+    :catch_af
+    :try_start_af
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->TEST_TRIGGER:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -276,11 +276,11 @@
     move-result v1
 
     aput v2, v0, v1
-    :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_e
+    :try_end_b9
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_af .. :try_end_b9} :catch_b9
 
-    :catch_e
-    :try_start_f
+    :catch_b9
+    :try_start_b9
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->AE_PRE_CAPTURE_TRIGGER:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -290,11 +290,11 @@
     move-result v1
 
     aput v3, v0, v1
-    :try_end_f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_f
+    :try_end_c3
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b9 .. :try_end_c3} :catch_c3
 
-    :catch_f
-    :try_start_10
+    :catch_c3
+    :try_start_c3
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->IN_STATE_STILL_CAPTURE:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -304,11 +304,11 @@
     move-result v1
 
     aput v4, v0, v1
-    :try_end_10
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_10
+    :try_end_cd
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c3 .. :try_end_cd} :catch_cd
 
-    :catch_10
-    :try_start_11
+    :catch_cd
+    :try_start_cd
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->ISSUE_CAPTURE_REQUEST_TO_PLATFORM:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -318,11 +318,11 @@
     move-result v1
 
     aput v5, v0, v1
-    :try_end_11
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_11
+    :try_end_d7
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_cd .. :try_end_d7} :catch_d7
 
-    :catch_11
-    :try_start_12
+    :catch_d7
+    :try_start_d7
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->RAW_AVAILABLE:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -332,11 +332,11 @@
     move-result v1
 
     aput v6, v0, v1
-    :try_end_12
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_12
+    :try_end_e1
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d7 .. :try_end_e1} :catch_e1
 
-    :catch_12
-    :try_start_13
+    :catch_e1
+    :try_start_e1
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->JPEG_AVAILABLE:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -346,11 +346,11 @@
     move-result v1
 
     aput v7, v0, v1
-    :try_end_13
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_13
+    :try_end_eb
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e1 .. :try_end_eb} :catch_eb
 
-    :catch_13
-    :try_start_14
+    :catch_eb
+    :try_start_eb
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->RAW_SAVED:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -360,11 +360,11 @@
     move-result v1
 
     aput v8, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_14} :catch_14
+    :try_end_f5
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_eb .. :try_end_f5} :catch_f5
 
-    :catch_14
-    :try_start_15
+    :catch_f5
+    :try_start_f5
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->CAPTURE_COMPLETE:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -374,11 +374,11 @@
     move-result v1
 
     aput v9, v0, v1
-    :try_end_15
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_15} :catch_15
+    :try_end_ff
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_f5 .. :try_end_ff} :catch_ff
 
-    :catch_15
-    :try_start_16
+    :catch_ff
+    :try_start_ff
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$1;->$SwitchMap$light$co$camera$utils$TimingLoggerUtil$TimeToCaptureSplits:[I
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->JPEG_SAVED:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -388,9 +388,9 @@
     move-result v1
 
     aput v10, v0, v1
-    :try_end_16
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_16 .. :try_end_16} :catch_16
+    :try_end_109
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_ff .. :try_end_109} :catch_109
 
-    :catch_16
+    :catch_109
     return-void
 .end method

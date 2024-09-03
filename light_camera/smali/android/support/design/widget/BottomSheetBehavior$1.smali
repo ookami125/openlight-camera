@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BottomSheetBehavior;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
 
     .line 545
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior$1;->this$0:Landroid/support/design/widget/BottomSheetBehavior;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 548
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior$1;->this$0:Landroid/support/design/widget/BottomSheetBehavior;

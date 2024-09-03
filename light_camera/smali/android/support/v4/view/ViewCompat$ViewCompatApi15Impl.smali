@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 997
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public hasOnClickListeners(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
 
     .line 1000
     invoke-virtual {p1}, Landroid/view/View;->hasOnClickListeners()Z

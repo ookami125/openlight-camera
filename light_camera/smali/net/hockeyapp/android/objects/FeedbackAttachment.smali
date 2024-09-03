@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getCacheId()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 80
     new-instance v0, Ljava/lang/StringBuilder;
@@ -64,7 +64,7 @@
 .end method
 
 .method public getCreatedAt()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 59
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mCreatedAt:Ljava/lang/String;
@@ -73,7 +73,7 @@
 .end method
 
 .method public getFilename()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mFilename:Ljava/lang/String;
@@ -82,7 +82,7 @@
 .end method
 
 .method public getId()I
-    .locals 0
+    .registers 1
 
     .line 27
     iget p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mId:I
@@ -91,7 +91,7 @@
 .end method
 
 .method public getMessageId()I
-    .locals 0
+    .registers 1
 
     .line 35
     iget p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mMessageId:I
@@ -100,7 +100,7 @@
 .end method
 
 .method public getUpdatedAt()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 67
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mUpdatedAt:Ljava/lang/String;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getUrl()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 51
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mUrl:Ljava/lang/String;
@@ -118,7 +118,7 @@
 .end method
 
 .method public isAvailableInCache()Z
-    .locals 3
+    .registers 4
 
     .line 89
     invoke-static {}, Lnet/hockeyapp/android/Constants;->getHockeyAppStorageDir()Ljava/io/File;
@@ -132,13 +132,13 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_23
 
     .line 91
     new-instance v1, Lnet/hockeyapp/android/objects/FeedbackAttachment$1;
@@ -151,27 +151,27 @@
 
     const/4 v0, 0x1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_21
 
     .line 98
     array-length p0, p0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_21
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     move v0, v2
 
-    :goto_0
+    :goto_22
     return v0
 
-    :cond_1
+    :cond_23
     return v2
 .end method
 
 .method public setCreatedAt(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 63
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mCreatedAt:Ljava/lang/String;
@@ -180,7 +180,7 @@
 .end method
 
 .method public setFilename(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 47
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mFilename:Ljava/lang/String;
@@ -189,7 +189,7 @@
 .end method
 
 .method public setId(I)V
-    .locals 0
+    .registers 2
 
     .line 31
     iput p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mId:I
@@ -198,7 +198,7 @@
 .end method
 
 .method public setMessageId(I)V
-    .locals 0
+    .registers 2
 
     .line 39
     iput p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mMessageId:I
@@ -207,7 +207,7 @@
 .end method
 
 .method public setUpdatedAt(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 71
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mUpdatedAt:Ljava/lang/String;
@@ -216,7 +216,7 @@
 .end method
 
 .method public setUrl(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 55
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment;->mUrl:Ljava/lang/String;
@@ -225,7 +225,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 105
     new-instance v0, Ljava/lang/StringBuilder;

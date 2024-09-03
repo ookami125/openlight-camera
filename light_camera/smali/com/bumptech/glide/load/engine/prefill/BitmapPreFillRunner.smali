@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 33
     new-instance v0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;)V
-    .locals 6
+    .registers 10
 
     .line 67
     sget-object v4, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->DEFAULT_CLOCK:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
@@ -108,7 +108,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;Landroid/os/Handler;)V
-    .locals 2
+    .registers 8
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -144,7 +144,7 @@
 .end method
 
 .method private addToBitmapPool(Lcom/bumptech/glide/load/engine/prefill/PreFillType;Landroid/graphics/Bitmap;)V
-    .locals 3
+    .registers 6
 
     .line 123
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->seenTypes:Ljava/util/Set;
@@ -153,7 +153,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     .line 124
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
@@ -174,7 +174,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     .line 127
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
@@ -182,7 +182,7 @@
     invoke-interface {v0, p1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)Z
 
     .line 131
-    :cond_0
+    :cond_21
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     invoke-interface {p0, p2}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)Z
@@ -191,7 +191,7 @@
 .end method
 
 .method private allocate()Z
-    .locals 7
+    .registers 8
 
     .line 89
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->clock:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
@@ -201,21 +201,21 @@
     move-result-wide v0
 
     .line 90
-    :cond_0
-    :goto_0
+    :cond_6
+    :goto_6
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->toPrefill:Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_92
 
     invoke-direct {p0, v0, v1}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->isGcDetected(J)Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_92
 
     .line 91
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->toPrefill:Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
@@ -250,7 +250,7 @@
 
     move-result v5
 
-    if-lt v4, v5, :cond_1
+    if-lt v4, v5, :cond_46
 
     .line 98
     iget-object v4, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
@@ -269,13 +269,13 @@
 
     invoke-interface {v4, v5, v6}, Lcom/bumptech/glide/load/engine/cache/MemoryCache;->put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    goto :goto_1
+    goto :goto_49
 
     .line 100
-    :cond_1
+    :cond_46
     invoke-direct {p0, v2, v3}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->addToBitmapPool(Lcom/bumptech/glide/load/engine/prefill/PreFillType;Landroid/graphics/Bitmap;)V
 
-    :goto_1
+    :goto_49
     const-string v4, "PreFillRunner"
 
     const/4 v5, 0x3
@@ -285,7 +285,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_6
 
     const-string v4, "PreFillRunner"
 
@@ -340,13 +340,13 @@
 
     invoke-static {v4, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_0
+    goto/16 :goto_6
 
     .line 109
-    :cond_2
+    :cond_92
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->isCancelled:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_a0
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->toPrefill:Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
@@ -354,21 +354,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_a0
 
     const/4 p0, 0x1
 
-    goto :goto_2
+    goto :goto_a1
 
-    :cond_3
+    :cond_a0
     const/4 p0, 0x0
 
-    :goto_2
+    :goto_a1
     return p0
 .end method
 
 .method private getFreeMemoryCacheBytes()I
-    .locals 1
+    .registers 2
 
     .line 117
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
@@ -389,7 +389,7 @@
 .end method
 
 .method private getNextDelay()J
-    .locals 6
+    .registers 7
 
     .line 142
     iget-wide v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->currentDelay:J
@@ -413,7 +413,7 @@
 .end method
 
 .method private isGcDetected(J)Z
-    .locals 2
+    .registers 5
 
     .line 113
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->clock:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$Clock;
@@ -428,23 +428,23 @@
 
     cmp-long p0, v0, p0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_f
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_10
     return p0
 .end method
 
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -455,14 +455,14 @@
 .end method
 
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 136
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->allocate()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 137
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->handler:Landroid/os/Handler;
@@ -473,6 +473,6 @@
 
     invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_0
+    :cond_f
     return-void
 .end method

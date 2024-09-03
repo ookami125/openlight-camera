@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;)V
-    .locals 1
+    .registers 3
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getAlpha()F
-    .locals 0
+    .registers 1
 
     .line 32
     iget p0, p0, Lopenlight/co/camera/view/statusbar/StatusModel;->mAlpha:F
@@ -66,7 +66,7 @@
 .end method
 
 .method public getIconId()I
-    .locals 0
+    .registers 1
 
     .line 28
     iget p0, p0, Lopenlight/co/camera/view/statusbar/StatusModel;->mIconId:I
@@ -75,7 +75,7 @@
 .end method
 
 .method getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 24
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusModel;->mPreferenceKey:Ljava/lang/String;
@@ -84,7 +84,7 @@
 .end method
 
 .method public getType()I
-    .locals 0
+    .registers 1
 
     .line 20
     iget p0, p0, Lopenlight/co/camera/view/statusbar/StatusModel;->mType:I
@@ -93,7 +93,7 @@
 .end method
 
 .method public setAlpha(F)V
-    .locals 0
+    .registers 2
 
     .line 36
     iput p1, p0, Lopenlight/co/camera/view/statusbar/StatusModel;->mAlpha:F

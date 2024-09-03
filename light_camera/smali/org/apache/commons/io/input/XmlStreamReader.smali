@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     const/4 v0, 0x5
 
@@ -103,7 +103,7 @@
 
     new-array v9, v7, [I
 
-    fill-array-data v9, :array_0
+    fill-array-data v9, :array_8c
 
     invoke-direct {v2, v8, v9}, Lorg/apache/commons/io/ByteOrderMark;-><init>(Ljava/lang/String;[I)V
 
@@ -115,7 +115,7 @@
 
     new-array v8, v7, [I
 
-    fill-array-data v8, :array_1
+    fill-array-data v8, :array_98
 
     invoke-direct {v2, v3, v8}, Lorg/apache/commons/io/ByteOrderMark;-><init>(Ljava/lang/String;[I)V
 
@@ -127,7 +127,7 @@
 
     new-array v4, v7, [I
 
-    fill-array-data v4, :array_2
+    fill-array-data v4, :array_a4
 
     invoke-direct {v2, v3, v4}, Lorg/apache/commons/io/ByteOrderMark;-><init>(Ljava/lang/String;[I)V
 
@@ -141,7 +141,7 @@
 
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_3
+    fill-array-data v5, :array_b0
 
     invoke-direct {v2, v3, v5}, Lorg/apache/commons/io/ByteOrderMark;-><init>(Ljava/lang/String;[I)V
 
@@ -153,7 +153,7 @@
 
     new-array v4, v4, [I
 
-    fill-array-data v4, :array_4
+    fill-array-data v4, :array_d4
 
     invoke-direct {v2, v3, v4}, Lorg/apache/commons/io/ByteOrderMark;-><init>(Ljava/lang/String;[I)V
 
@@ -165,7 +165,7 @@
 
     new-array v4, v7, [I
 
-    fill-array-data v4, :array_5
+    fill-array-data v4, :array_f8
 
     invoke-direct {v2, v3, v4}, Lorg/apache/commons/io/ByteOrderMark;-><init>(Ljava/lang/String;[I)V
 
@@ -195,7 +195,7 @@
 
     return-void
 
-    :array_0
+    :array_8c
     .array-data 4
         0x3c
         0x3f
@@ -203,7 +203,7 @@
         0x6d
     .end array-data
 
-    :array_1
+    :array_98
     .array-data 4
         0x0
         0x3c
@@ -211,7 +211,7 @@
         0x3f
     .end array-data
 
-    :array_2
+    :array_a4
     .array-data 4
         0x3c
         0x0
@@ -219,28 +219,11 @@
         0x0
     .end array-data
 
-    :array_3
+    :array_b0
     .array-data 4
         0x0
         0x0
         0x0
-        0x3c
-        0x0
-        0x0
-        0x0
-        0x3f
-        0x0
-        0x0
-        0x0
-        0x78
-        0x0
-        0x0
-        0x0
-        0x6d
-    .end array-data
-
-    :array_4
-    .array-data 4
         0x3c
         0x0
         0x0
@@ -254,12 +237,29 @@
         0x0
         0x0
         0x6d
+    .end array-data
+
+    :array_d4
+    .array-data 4
+        0x3c
+        0x0
+        0x0
+        0x0
+        0x3f
+        0x0
+        0x0
+        0x0
+        0x78
+        0x0
+        0x0
+        0x0
+        0x6d
         0x0
         0x0
         0x0
     .end array-data
 
-    :array_5
+    :array_f8
     .array-data 4
         0x4c
         0x6f
@@ -269,7 +269,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -287,7 +287,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -303,7 +303,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -319,7 +319,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/lang/String;Z)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -335,7 +335,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/lang/String;ZLjava/lang/String;)V
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -392,7 +392,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Z)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -408,7 +408,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;ZLjava/lang/String;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -465,7 +465,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -485,7 +485,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URLConnection;Ljava/lang/String;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -535,25 +535,25 @@
     .line 271
     instance-of p1, p1, Ljava/net/HttpURLConnection;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_32
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2b
 
-    goto :goto_0
+    goto :goto_32
 
     .line 274
-    :cond_0
+    :cond_2b
     invoke-direct {p0, v1, v0, v3}, Lorg/apache/commons/io/input/XmlStreamReader;->doRawStream(Lorg/apache/commons/io/input/BOMInputStream;Lorg/apache/commons/io/input/BOMInputStream;Z)Ljava/lang/String;
 
     move-result-object p1
 
     iput-object p1, p0, Lorg/apache/commons/io/input/XmlStreamReader;->encoding:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_38
 
     .line 272
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     invoke-direct {p0, v1, v0, p2, v3}, Lorg/apache/commons/io/input/XmlStreamReader;->doHttpStream(Lorg/apache/commons/io/input/BOMInputStream;Lorg/apache/commons/io/input/BOMInputStream;Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object p1
@@ -561,7 +561,7 @@
     iput-object p1, p0, Lorg/apache/commons/io/input/XmlStreamReader;->encoding:Ljava/lang/String;
 
     .line 276
-    :goto_1
+    :goto_38
     new-instance p1, Ljava/io/InputStreamReader;
 
     iget-object p2, p0, Lorg/apache/commons/io/input/XmlStreamReader;->encoding:Ljava/lang/String;
@@ -574,7 +574,7 @@
 .end method
 
 .method private doHttpStream(Lorg/apache/commons/io/input/BOMInputStream;Lorg/apache/commons/io/input/BOMInputStream;Ljava/lang/String;Z)Ljava/lang/String;
-    .locals 6
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -603,19 +603,19 @@
     move v5, p4
 
     .line 457
-    :try_start_0
+    :try_start_f
     invoke-virtual/range {v0 .. v5}, Lorg/apache/commons/io/input/XmlStreamReader;->calculateHttpEncoding(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catch Lorg/apache/commons/io/input/XmlStreamReaderException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Lorg/apache/commons/io/input/XmlStreamReaderException; {:try_start_f .. :try_end_13} :catch_14
 
     return-object p1
 
-    :catch_0
+    :catch_14
     move-exception p1
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_1c
 
     .line 461
     invoke-direct {p0, p3, p1}, Lorg/apache/commons/io/input/XmlStreamReader;->doLenientDetection(Ljava/lang/String;Lorg/apache/commons/io/input/XmlStreamReaderException;)Ljava/lang/String;
@@ -625,19 +625,19 @@
     return-object p0
 
     .line 463
-    :cond_0
+    :cond_1c
     throw p1
 .end method
 
 .method private doLenientDetection(Ljava/lang/String;Lorg/apache/commons/io/input/XmlStreamReaderException;)Ljava/lang/String;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3a
 
     const-string v0, "text/html"
 
@@ -646,7 +646,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3a
 
     const-string v0, "text/html"
 
@@ -675,7 +675,7 @@
     move-result-object v3
 
     .line 483
-    :try_start_0
+    :try_start_25
     invoke-virtual {p2}, Lorg/apache/commons/io/input/XmlStreamReaderException;->getBomEncoding()Ljava/lang/String;
 
     move-result-object v4
@@ -695,56 +695,56 @@
     invoke-virtual/range {v2 .. v7}, Lorg/apache/commons/io/input/XmlStreamReader;->calculateHttpEncoding(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catch Lorg/apache/commons/io/input/XmlStreamReaderException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Lorg/apache/commons/io/input/XmlStreamReaderException; {:try_start_25 .. :try_end_37} :catch_38
 
     return-object p1
 
-    :catch_0
+    :catch_38
     move-exception p1
 
     move-object p2, p1
 
     .line 489
-    :cond_0
+    :cond_3a
     invoke-virtual {p2}, Lorg/apache/commons/io/input/XmlStreamReaderException;->getXmlEncoding()Ljava/lang/String;
 
     move-result-object p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_44
 
     .line 491
     invoke-virtual {p2}, Lorg/apache/commons/io/input/XmlStreamReaderException;->getContentTypeEncoding()Ljava/lang/String;
 
     move-result-object p1
 
-    :cond_1
-    if-nez p1, :cond_3
+    :cond_44
+    if-nez p1, :cond_51
 
     .line 494
     iget-object p1, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_4e
 
     const-string p0, "UTF-8"
 
-    :goto_0
+    :goto_4c
     move-object p1, p0
 
-    goto :goto_1
+    goto :goto_51
 
-    :cond_2
+    :cond_4e
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_4c
 
-    :cond_3
-    :goto_1
+    :cond_51
+    :goto_51
     return-object p1
 .end method
 
 .method private doRawStream(Lorg/apache/commons/io/input/BOMInputStream;Lorg/apache/commons/io/input/BOMInputStream;Z)Ljava/lang/String;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -767,19 +767,19 @@
     move-result-object p2
 
     .line 430
-    :try_start_0
+    :try_start_c
     invoke-virtual {p0, p1, v0, p2}, Lorg/apache/commons/io/input/XmlStreamReader;->calculateRawEncoding(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catch Lorg/apache/commons/io/input/XmlStreamReaderException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Lorg/apache/commons/io/input/XmlStreamReaderException; {:try_start_c .. :try_end_10} :catch_11
 
     return-object p1
 
-    :catch_0
+    :catch_11
     move-exception p1
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1a
 
     const/4 p2, 0x0
 
@@ -791,16 +791,16 @@
     return-object p0
 
     .line 435
-    :cond_0
+    :cond_1a
     throw p1
 .end method
 
 .method static getContentTypeEncoding(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2d
 
     const-string v1, ";"
 
@@ -811,7 +811,7 @@
 
     const/4 v2, -0x1
 
-    if-le v1, v2, :cond_1
+    if-le v1, v2, :cond_2d
 
     const/4 v2, 0x1
 
@@ -834,19 +834,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     invoke-virtual {p0, v2}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_23
     move-object p0, v0
 
-    :goto_0
-    if-eqz p0, :cond_1
+    :goto_24
+    if-eqz p0, :cond_2d
 
     .line 687
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -857,14 +857,14 @@
 
     move-object v0, p0
 
-    :cond_1
+    :cond_2d
     return-object v0
 .end method
 
 .method static getContentTypeMime(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_14
 
     const-string v0, ";"
 
@@ -873,7 +873,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_f
 
     const/4 v1, 0x0
 
@@ -883,29 +883,29 @@
     move-result-object p0
 
     .line 664
-    :cond_0
+    :cond_f
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return-object p0
 .end method
 
 .method private static getXmlProlog(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_9b
 
     const/16 v0, 0x1000
 
@@ -934,12 +934,12 @@
 
     move v4, v5
 
-    :goto_0
-    if-eq v3, v5, :cond_0
+    :goto_15
+    if-eq v3, v5, :cond_2d
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_2d
 
-    if-ge v6, v0, :cond_0
+    if-ge v6, v0, :cond_2d
 
     add-int/2addr v6, v3
 
@@ -962,12 +962,12 @@
 
     move-result v4
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
-    if-ne v4, v5, :cond_2
+    :cond_2d
+    if-ne v4, v5, :cond_55
 
-    if-ne v3, v5, :cond_1
+    if-ne v3, v5, :cond_39
 
     .line 725
     new-instance p0, Ljava/io/IOException;
@@ -979,7 +979,7 @@
     throw p0
 
     .line 727
-    :cond_1
+    :cond_39
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -1004,8 +1004,8 @@
 
     throw p0
 
-    :cond_2
-    if-lez v6, :cond_4
+    :cond_55
+    if-lez v6, :cond_9b
 
     .line 734
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
@@ -1037,8 +1037,8 @@
 
     move-result-object v1
 
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_73
+    if-eqz v1, :cond_7d
 
     .line 740
     invoke-virtual {p1, v1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
@@ -1048,10 +1048,10 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_73
 
     .line 743
-    :cond_3
+    :cond_7d
     sget-object p0, Lorg/apache/commons/io/input/XmlStreamReader;->ENCODING_PATTERN:Ljava/util/regex/Pattern;
 
     invoke-virtual {p0, p1}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
@@ -1063,7 +1063,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_9b
 
     .line 745
     invoke-virtual {p0, v0}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
@@ -1085,19 +1085,19 @@
 
     move-result-object p0
 
-    goto :goto_2
+    goto :goto_9c
 
-    :cond_4
+    :cond_9b
     const/4 p0, 0x0
 
-    :goto_2
+    :goto_9c
     return-object p0
 .end method
 
 .method static isAppXml(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2c
 
     const-string v0, "application/xml"
 
@@ -1106,7 +1106,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     const-string v0, "application/xml-dtd"
 
@@ -1114,7 +1114,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     const-string v0, "application/xml-external-parsed-entity"
 
@@ -1122,7 +1122,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2a
 
     const-string v0, "application/"
 
@@ -1130,7 +1130,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     const-string v0, "+xml"
 
@@ -1138,24 +1138,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2c
 
-    :cond_0
+    :cond_2a
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_1
+    :cond_2c
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_2d
     return p0
 .end method
 
 .method static isTextXml(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_24
 
     const-string v0, "text/xml"
 
@@ -1164,7 +1164,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     const-string v0, "text/xml-external-parsed-entity"
 
@@ -1172,7 +1172,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     const-string v0, "text/"
 
@@ -1180,7 +1180,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     const-string v0, "+xml"
 
@@ -1188,38 +1188,38 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_24
 
-    :cond_0
+    :cond_22
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_24
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_25
     return p0
 .end method
 
 
 # virtual methods
 .method calculateHttpEncoding(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;
-    .locals 8
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_5
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_5
 
     return-object p4
 
     .line 590
-    :cond_0
+    :cond_5
     invoke-static {p1}, Lorg/apache/commons/io/input/XmlStreamReader;->getContentTypeMime(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
@@ -1251,14 +1251,14 @@
 
     const/4 v7, 0x5
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3c
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_20
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 597
-    :cond_1
+    :cond_20
     new-array p0, v7, [Ljava/lang/Object;
 
     aput-object v2, p0, v6
@@ -1292,11 +1292,11 @@
 
     throw p0
 
-    :cond_2
-    :goto_0
-    if-nez v3, :cond_5
+    :cond_3c
+    :goto_3c
+    if-nez v3, :cond_4f
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_45
 
     .line 604
     invoke-virtual {p0, p2, p3, p4}, Lorg/apache/commons/io/input/XmlStreamReader;->calculateRawEncoding(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -1306,22 +1306,22 @@
     return-object p0
 
     .line 606
-    :cond_3
+    :cond_45
     iget-object p1, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_4c
 
     const-string p0, "US-ASCII"
 
-    goto :goto_1
+    goto :goto_4e
 
-    :cond_4
+    :cond_4c
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
 
-    :goto_1
+    :goto_4e
     return-object p0
 
-    :cond_5
+    :cond_4f
     const-string p0, "UTF-16BE"
 
     .line 611
@@ -1329,7 +1329,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_e
+    if-nez p0, :cond_f0
 
     const-string p0, "UTF-16LE"
 
@@ -1337,11 +1337,11 @@
 
     move-result p0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_61
 
-    goto/16 :goto_3
+    goto/16 :goto_f0
 
-    :cond_6
+    :cond_61
     const-string p0, "UTF-16"
 
     .line 620
@@ -1349,9 +1349,9 @@
 
     move-result p0
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_90
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_74
 
     const-string p0, "UTF-16"
 
@@ -1360,12 +1360,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_74
 
     return-object p2
 
     .line 624
-    :cond_7
+    :cond_74
     new-array p0, v7, [Ljava/lang/Object;
 
     aput-object v2, p0, v6
@@ -1399,7 +1399,7 @@
 
     throw p0
 
-    :cond_8
+    :cond_90
     const-string p0, "UTF-32BE"
 
     .line 629
@@ -1407,7 +1407,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_c
+    if-nez p0, :cond_d1
 
     const-string p0, "UTF-32LE"
 
@@ -1415,11 +1415,11 @@
 
     move-result p0
 
-    if-eqz p0, :cond_9
+    if-eqz p0, :cond_a1
 
-    goto :goto_2
+    goto :goto_d1
 
-    :cond_9
+    :cond_a1
     const-string p0, "UTF-32"
 
     .line 638
@@ -1427,9 +1427,9 @@
 
     move-result p0
 
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_d0
 
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_b4
 
     const-string p0, "UTF-32"
 
@@ -1438,12 +1438,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_a
+    if-eqz p0, :cond_b4
 
     return-object p2
 
     .line 642
-    :cond_a
+    :cond_b4
     new-array p0, v7, [Ljava/lang/Object;
 
     aput-object v2, p0, v6
@@ -1477,17 +1477,17 @@
 
     throw p0
 
-    :cond_b
+    :cond_d0
     return-object v3
 
-    :cond_c
-    :goto_2
-    if-nez p2, :cond_d
+    :cond_d1
+    :goto_d1
+    if-nez p2, :cond_d4
 
     return-object v3
 
     .line 631
-    :cond_d
+    :cond_d4
     new-array p0, v7, [Ljava/lang/Object;
 
     aput-object v2, p0, v6
@@ -1521,14 +1521,14 @@
 
     throw p0
 
-    :cond_e
-    :goto_3
-    if-nez p2, :cond_f
+    :cond_f0
+    :goto_f0
+    if-nez p2, :cond_f3
 
     return-object v3
 
     .line 613
-    :cond_f
+    :cond_f3
     new-array p0, v7, [Ljava/lang/Object;
 
     aput-object v2, p0, v6
@@ -1564,22 +1564,22 @@
 .end method
 
 .method calculateRawEncoding(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_2b
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_21
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_7
     const-string p0, "UTF-16"
 
     .line 516
@@ -1587,7 +1587,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_20
 
     const-string p0, "UTF-16BE"
 
@@ -1595,7 +1595,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_1f
 
     const-string p0, "UTF-16LE"
 
@@ -1603,32 +1603,32 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_20
 
-    :cond_1
+    :cond_1f
     return-object p2
 
-    :cond_2
+    :cond_20
     return-object p3
 
     .line 514
-    :cond_3
-    :goto_0
+    :cond_21
+    :goto_21
     iget-object p1, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_28
 
     const-string p0, "UTF-8"
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_4
+    :cond_28
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
 
-    :goto_1
+    :goto_2a
     return-object p0
 
-    :cond_5
+    :cond_2b
     const-string p0, "UTF-8"
 
     .line 524
@@ -1644,9 +1644,9 @@
 
     const/4 v3, 0x3
 
-    if-eqz p0, :cond_a
+    if-eqz p0, :cond_76
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_56
 
     const-string p0, "UTF-8"
 
@@ -1655,12 +1655,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_42
 
-    goto :goto_2
+    goto :goto_56
 
     .line 526
-    :cond_6
+    :cond_42
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1682,9 +1682,9 @@
 
     throw v0
 
-    :cond_7
-    :goto_2
-    if-eqz p3, :cond_9
+    :cond_56
+    :goto_56
+    if-eqz p3, :cond_75
 
     const-string p0, "UTF-8"
 
@@ -1693,12 +1693,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_61
 
-    goto :goto_3
+    goto :goto_75
 
     .line 530
-    :cond_8
+    :cond_61
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1720,11 +1720,11 @@
 
     throw v0
 
-    :cond_9
-    :goto_3
+    :cond_75
+    :goto_75
     return-object p1
 
-    :cond_a
+    :cond_76
     const-string p0, "UTF-16BE"
 
     .line 537
@@ -1732,7 +1732,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_12
+    if-nez p0, :cond_ef
 
     const-string p0, "UTF-16LE"
 
@@ -1740,11 +1740,11 @@
 
     move-result p0
 
-    if-eqz p0, :cond_b
+    if-eqz p0, :cond_87
 
-    goto :goto_7
+    goto :goto_ef
 
-    :cond_b
+    :cond_87
     const-string p0, "UTF-32BE"
 
     .line 550
@@ -1752,7 +1752,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_d
+    if-nez p0, :cond_ac
 
     const-string p0, "UTF-32LE"
 
@@ -1760,12 +1760,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_c
+    if-eqz p0, :cond_98
 
-    goto :goto_4
+    goto :goto_ac
 
     .line 563
-    :cond_c
+    :cond_98
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1787,21 +1787,21 @@
 
     throw v0
 
-    :cond_d
-    :goto_4
-    if-eqz p2, :cond_f
+    :cond_ac
+    :goto_ac
+    if-eqz p2, :cond_c9
 
     .line 551
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_e
+    if-eqz p0, :cond_b5
 
-    goto :goto_5
+    goto :goto_c9
 
     .line 552
-    :cond_e
+    :cond_b5
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1823,9 +1823,9 @@
 
     throw v0
 
-    :cond_f
-    :goto_5
-    if-eqz p3, :cond_11
+    :cond_c9
+    :goto_c9
+    if-eqz p3, :cond_ee
 
     const-string p0, "UTF-32"
 
@@ -1834,18 +1834,18 @@
 
     move-result p0
 
-    if-nez p0, :cond_11
+    if-nez p0, :cond_ee
 
     invoke-virtual {p3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_10
+    if-eqz p0, :cond_da
 
-    goto :goto_6
+    goto :goto_ee
 
     .line 556
-    :cond_10
+    :cond_da
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1867,25 +1867,25 @@
 
     throw v0
 
-    :cond_11
-    :goto_6
+    :cond_ee
+    :goto_ee
     return-object p1
 
-    :cond_12
-    :goto_7
-    if-eqz p2, :cond_14
+    :cond_ef
+    :goto_ef
+    if-eqz p2, :cond_10c
 
     .line 538
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_13
+    if-eqz p0, :cond_f8
 
-    goto :goto_8
+    goto :goto_10c
 
     .line 539
-    :cond_13
+    :cond_f8
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1907,9 +1907,9 @@
 
     throw v0
 
-    :cond_14
-    :goto_8
-    if-eqz p3, :cond_16
+    :cond_10c
+    :goto_10c
+    if-eqz p3, :cond_131
 
     const-string p0, "UTF-16"
 
@@ -1918,18 +1918,18 @@
 
     move-result p0
 
-    if-nez p0, :cond_16
+    if-nez p0, :cond_131
 
     invoke-virtual {p3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_15
+    if-eqz p0, :cond_11d
 
-    goto :goto_9
+    goto :goto_131
 
     .line 543
-    :cond_15
+    :cond_11d
     new-array p0, v3, [Ljava/lang/Object;
 
     aput-object p1, p0, v2
@@ -1951,13 +1951,13 @@
 
     throw v0
 
-    :cond_16
-    :goto_9
+    :cond_131
+    :goto_131
     return-object p1
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1973,7 +1973,7 @@
 .end method
 
 .method public getDefaultEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 122
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReader;->defaultEncoding:Ljava/lang/String;
@@ -1982,7 +1982,7 @@
 .end method
 
 .method public getEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 388
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReader;->encoding:Ljava/lang/String;
@@ -1991,7 +1991,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

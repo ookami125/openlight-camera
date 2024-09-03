@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 80
     new-instance v0, Lopenlight/co/camera/managers/video/VideoManager;
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 471
     invoke-direct {p0}, Lopenlight/co/camera/managers/CameraManager;-><init>()V
@@ -129,7 +129,7 @@
 .end method
 
 .method private createVideoThumbnail(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 10
+    .registers 13
 
     .line 407
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -163,7 +163,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3c
 
     .line 416
     sget-object p0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -192,7 +192,7 @@
     invoke-virtual {v2}, Ljava/io/File;->delete()Z
 
     .line 420
-    :cond_0
+    :cond_3c
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
@@ -213,7 +213,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_ef
 
     .line 428
     sget-object p2, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
@@ -250,15 +250,15 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_105
 
     .line 434
-    :try_start_0
+    :try_start_6e
     invoke-interface {p2}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_d0
 
     .line 435
     invoke-interface {p2, v9}, Landroid/database/Cursor;->getLong(I)J
@@ -279,13 +279,13 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_b9
 
     invoke-virtual {v5, v2}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_b9
 
     .line 440
     sget-object p1, Landroid/provider/MediaStore$Video$Thumbnails;->EXTERNAL_CONTENT_URI:Landroid/net/Uri;
@@ -334,10 +334,10 @@
     .line 449
     invoke-static {v0, p0, p1, v1}, Landroid/media/MediaScannerConnection;->scanFile(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
 
-    goto :goto_0
+    goto :goto_e6
 
     .line 455
-    :cond_1
+    :cond_b9
     sget-object p0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -356,10 +356,10 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_e6
 
     .line 459
-    :cond_2
+    :cond_d0
     sget-object p0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -377,16 +377,16 @@
     move-result-object p1
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e6
+    .catchall {:try_start_6e .. :try_end_e6} :catchall_ea
 
     .line 462
-    :goto_0
+    :goto_e6
     invoke-interface {p2}, Landroid/database/Cursor;->close()V
 
-    goto :goto_1
+    goto :goto_105
 
-    :catchall_0
+    :catchall_ea
     move-exception p0
 
     invoke-interface {p2}, Landroid/database/Cursor;->close()V
@@ -395,7 +395,7 @@
     throw p0
 
     .line 466
-    :cond_3
+    :cond_ef
     sget-object p0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -414,13 +414,13 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_4
-    :goto_1
+    :cond_105
+    :goto_105
     return-void
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/video/VideoManager;
-    .locals 1
+    .registers 1
 
     .line 132
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager;->sVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
@@ -429,14 +429,14 @@
 .end method
 
 .method private getVideoFileAbsolutePath()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 341
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mCurrentState:Lopenlight/co/camera/managers/video/VideoManager$State;
 
     sget-object v1, Lopenlight/co/camera/managers/video/VideoManager$State;->RECORDING:Lopenlight/co/camera/managers/video/VideoManager$State;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_22
 
     .line 344
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaFileMgr:Lopenlight/co/camera/utils/MediaFileManager;
@@ -446,7 +446,7 @@
     .line 345
     iget-boolean v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mUseSuffixFileName:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 346
     iget-object p0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaFileMgr:Lopenlight/co/camera/utils/MediaFileManager;
@@ -458,7 +458,7 @@
     return-object p0
 
     .line 348
-    :cond_0
+    :cond_16
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaFileMgr:Lopenlight/co/camera/utils/MediaFileManager;
 
     invoke-virtual {v0}, Lopenlight/co/camera/utils/MediaFileManager;->resetVideoSuffixNumber()V
@@ -473,7 +473,7 @@
     return-object p0
 
     .line 352
-    :cond_1
+    :cond_22
     iget-object p0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaFileMgr:Lopenlight/co/camera/utils/MediaFileManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getVideoTempFilePath()Ljava/lang/String;
@@ -484,7 +484,7 @@
 .end method
 
 .method public static synthetic lambda$cgDNzZMOkluBaZDozvoiYEQNpEM(Lopenlight/co/camera/managers/video/VideoManager;Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/managers/video/VideoManager;->createVideoThumbnail(Ljava/lang/String;Landroid/net/Uri;)V
 
@@ -492,7 +492,7 @@
 .end method
 
 .method static synthetic lambda$createVideoThumbnail$2(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 2
+    .registers 4
 
     .line 452
     sget-object p1, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -517,7 +517,7 @@
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/camera/managers/video/VideoManager;Landroid/media/MediaRecorder;II)V
-    .locals 2
+    .registers 6
 
     .line 105
     sget-object p1, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -564,7 +564,7 @@
 .end method
 
 .method public static synthetic lambda$new$1(Lopenlight/co/camera/managers/video/VideoManager;Landroid/media/MediaRecorder;II)V
-    .locals 2
+    .registers 6
 
     .line 113
     sget-object p1, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -593,14 +593,14 @@
 
     const/16 p1, 0x320
 
-    if-eq p2, p1, :cond_0
+    if-eq p2, p1, :cond_26
 
     const/16 p1, 0x321
 
-    if-ne p2, p1, :cond_1
+    if-ne p2, p1, :cond_35
 
     .line 116
-    :cond_0
+    :cond_26
     sget-object p1, Lopenlight/co/camera/managers/video/VideoManager$State;->PREVIEW:Lopenlight/co/camera/managers/video/VideoManager$State;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/managers/video/VideoManager;->setCurrentState(Lopenlight/co/camera/managers/video/VideoManager$State;)V
@@ -616,7 +616,7 @@
     invoke-interface {p1, v0}, Lopenlight/co/camera/managers/video/VideoManager$OnStatusListener;->onError(Lopenlight/co/camera/managers/video/VideoManager$ErrorType;)V
 
     .line 120
-    :cond_1
+    :cond_35
     iget-object p0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
 
     const-string p1, "event_media_recorder_info"
@@ -633,7 +633,7 @@
 .end method
 
 .method private prepareMediaRecorder()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -764,12 +764,12 @@
 .end method
 
 .method private releaseMediaRecorder()V
-    .locals 1
+    .registers 2
 
     .line 389
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 391
     invoke-direct {p0}, Lopenlight/co/camera/managers/video/VideoManager;->resetMediaRecorder()V
@@ -792,17 +792,17 @@
     .line 395
     iput-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method private resetMediaRecorder()V
-    .locals 2
+    .registers 3
 
     .line 376
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 379
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
@@ -821,12 +821,12 @@
 
     invoke-virtual {p0}, Landroid/media/MediaRecorder;->reset()V
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method private restartCamera()V
-    .locals 2
+    .registers 3
 
     .line 360
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -840,7 +840,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 363
     invoke-virtual {p0}, Lopenlight/co/camera/managers/video/VideoManager;->closeCamera()Z
@@ -860,12 +860,12 @@
 
     invoke-interface {p0}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->updateVideoPreview()V
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private setupMediaRecorderAndSurface()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -882,7 +882,7 @@
     .line 324
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 325
     new-instance v0, Landroid/media/MediaRecorder;
@@ -892,10 +892,10 @@
     iput-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     .line 327
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mRecordingSurface:Landroid/view/Surface;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 330
     invoke-static {}, Landroid/media/MediaCodec;->createPersistentInputSurface()Landroid/view/Surface;
@@ -905,7 +905,7 @@
     iput-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mRecordingSurface:Landroid/view/Surface;
 
     .line 332
-    :cond_1
+    :cond_1c
     invoke-direct {p0}, Lopenlight/co/camera/managers/video/VideoManager;->prepareMediaRecorder()V
 
     return-void
@@ -914,28 +914,28 @@
 
 # virtual methods
 .method public canGotoGallery()Z
-    .locals 1
+    .registers 2
 
     .line 141
     iget-object p0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mCurrentState:Lopenlight/co/camera/managers/video/VideoManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$State;->PREVIEW:Lopenlight/co/camera/managers/video/VideoManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public closeCamera()Z
-    .locals 2
+    .registers 3
 
     .line 146
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -956,22 +956,22 @@
 .end method
 
 .method public continueRecording()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
     .line 211
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0, v0}, Lopenlight/co/camera/managers/video/VideoManager;->setUseSuffixFileName(Z)V
 
     .line 213
     invoke-virtual {p0}, Lopenlight/co/camera/managers/video/VideoManager;->startRecording()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_7} :catch_8
 
-    goto :goto_0
+    goto :goto_23
 
-    :catch_0
+    :catch_8
     move-exception v0
 
     .line 215
@@ -1000,12 +1000,12 @@
     .line 218
     invoke-direct {p0}, Lopenlight/co/camera/managers/video/VideoManager;->restartCamera()V
 
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method public createCameraSession(Landroid/graphics/SurfaceTexture;Landroid/util/Size;)V
-    .locals 2
+    .registers 5
 
     .line 160
     :try_start_0
@@ -1049,13 +1049,13 @@
 
     .line 174
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/managers/video/VideoManager;->createCameraPreviewSessionLocked(Landroid/graphics/SurfaceTexture;Landroid/util/Size;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_27} :catch_28
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_27} :catch_28
 
-    goto :goto_0
+    goto :goto_3c
 
-    :catch_0
+    :catch_28
     move-exception p1
 
     .line 176
@@ -1077,12 +1077,12 @@
     .line 178
     invoke-direct {p0}, Lopenlight/co/camera/managers/video/VideoManager;->restartCamera()V
 
-    :goto_0
+    :goto_3c
     return-void
 .end method
 
 .method public getBackgroundThreadName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "VideoBackground"
 
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public isRecording()Z
-    .locals 0
+    .registers 1
 
     .line 260
     iget-object p0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mCurrentState:Lopenlight/co/camera/managers/video/VideoManager$State;
@@ -1103,12 +1103,12 @@
 .end method
 
 .method public setCurrentState(Lopenlight/co/camera/managers/video/VideoManager$State;)V
-    .locals 1
+    .registers 3
 
     .line 282
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mCurrentState:Lopenlight/co/camera/managers/video/VideoManager$State;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_13
 
     .line 283
     iput-object p1, p0, Lopenlight/co/camera/managers/video/VideoManager;->mCurrentState:Lopenlight/co/camera/managers/video/VideoManager$State;
@@ -1116,24 +1116,24 @@
     .line 284
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$State;->PREVIEW:Lopenlight/co/camera/managers/video/VideoManager$State;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_e
 
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$State;->RECORDING:Lopenlight/co/camera/managers/video/VideoManager$State;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_13
 
     .line 285
-    :cond_0
+    :cond_e
     iget-object p0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mStatusListener:Lopenlight/co/camera/managers/video/VideoManager$OnStatusListener;
 
     invoke-interface {p0, p1}, Lopenlight/co/camera/managers/video/VideoManager$OnStatusListener;->onRecordStatusChange(Lopenlight/co/camera/managers/video/VideoManager$State;)V
 
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method public setStatusListener(Lopenlight/co/camera/managers/video/VideoManager$OnStatusListener;)V
-    .locals 0
+    .registers 2
 
     .line 264
     iput-object p1, p0, Lopenlight/co/camera/managers/video/VideoManager;->mStatusListener:Lopenlight/co/camera/managers/video/VideoManager$OnStatusListener;
@@ -1142,7 +1142,7 @@
 .end method
 
 .method public setUseSuffixFileName(Z)V
-    .locals 0
+    .registers 2
 
     .line 273
     iput-boolean p1, p0, Lopenlight/co/camera/managers/video/VideoManager;->mUseSuffixFileName:Z
@@ -1151,15 +1151,15 @@
 .end method
 
 .method public startRecording()V
-    .locals 3
+    .registers 4
 
     .line 186
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     .line 188
-    :try_start_0
+    :try_start_4
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Start recording"
@@ -1181,13 +1181,13 @@
     iget-object v0, p0, Lopenlight/co/camera/managers/video/VideoManager;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     invoke-virtual {v0}, Landroid/media/MediaRecorder;->start()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_1b} :catch_1c
+    .catch Ljava/lang/IllegalStateException; {:try_start_4 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_37
 
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 196
@@ -1216,13 +1216,13 @@
     .line 199
     invoke-direct {p0}, Lopenlight/co/camera/managers/video/VideoManager;->restartCamera()V
 
-    :cond_0
-    :goto_0
+    :cond_37
+    :goto_37
     return-void
 .end method
 
 .method public stopRecording()V
-    .locals 5
+    .registers 6
 
     .line 227
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
@@ -1232,7 +1232,7 @@
     invoke-static {v0, v1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 229
-    :try_start_0
+    :try_start_7
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$State;->PREVIEW:Lopenlight/co/camera/managers/video/VideoManager$State;
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/managers/video/VideoManager;->setCurrentState(Lopenlight/co/camera/managers/video/VideoManager$State;)V
@@ -1268,7 +1268,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4f
 
     invoke-virtual {v0}, Ljava/io/File;->length()J
 
@@ -1278,7 +1278,7 @@
 
     cmp-long v0, v0, v3
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_4f
 
     .line 237
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -1305,10 +1305,10 @@
 
     invoke-static {v0, v1, v3, v4}, Landroid/media/MediaScannerConnection;->scanFile(Landroid/content/Context;[Ljava/lang/String;[Ljava/lang/String;Landroid/media/MediaScannerConnection$OnScanCompletedListener;)V
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 242
-    :cond_0
+    :cond_4f
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Invalid MP4, file not found or size less than minimum"
@@ -1325,14 +1325,14 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
     .line 246
-    :goto_0
+    :goto_5f
     invoke-virtual {p0, v2}, Lopenlight/co/camera/managers/video/VideoManager;->setUseSuffixFileName(Z)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_62
+    .catch Ljava/lang/RuntimeException; {:try_start_7 .. :try_end_62} :catch_63
 
-    goto :goto_1
+    goto :goto_7e
 
-    :catch_0
+    :catch_63
     move-exception v0
 
     .line 248
@@ -1361,6 +1361,6 @@
     .line 251
     invoke-direct {p0}, Lopenlight/co/camera/managers/video/VideoManager;->restartCamera()V
 
-    :goto_1
+    :goto_7e
     return-void
 .end method

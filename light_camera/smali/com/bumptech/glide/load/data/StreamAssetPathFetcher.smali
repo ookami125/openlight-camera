@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 13
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/load/data/AssetPathFetcher;-><init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method protected close(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -40,7 +40,7 @@
 .end method
 
 .method protected bridge synthetic close(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -56,7 +56,7 @@
 .end method
 
 .method protected loadResource(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,7 +72,7 @@
 .end method
 
 .method protected bridge synthetic loadResource(Landroid/content/res/AssetManager;Ljava/lang/String;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

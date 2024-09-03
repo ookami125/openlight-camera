@@ -21,14 +21,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 336
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 337
     new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi23Impl;
@@ -37,15 +37,15 @@
 
     sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 338
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 339
     new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi21Impl;
@@ -54,15 +54,15 @@
 
     sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 340
-    :cond_1
+    :cond_1c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2a
 
     .line 341
     new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi19Impl;
@@ -71,15 +71,15 @@
 
     sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 342
-    :cond_2
+    :cond_2a
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_38
 
     .line 343
     new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi17Impl;
@@ -88,22 +88,22 @@
 
     sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 345
-    :cond_3
+    :cond_38
     new-instance v0, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/graphics/drawable/DrawableCompat;->IMPL:Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatBaseImpl;
 
-    :goto_0
+    :goto_3f
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 582
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -112,7 +112,7 @@
 .end method
 
 .method public static applyTheme(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources$Theme;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -131,7 +131,7 @@
 .end method
 
 .method public static canApplyTheme(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -148,7 +148,7 @@
 .end method
 
 .method public static clearColorFilter(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -163,7 +163,7 @@
 .end method
 
 .method public static getAlpha(Landroid/graphics/drawable/Drawable;)I
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -180,7 +180,7 @@
 .end method
 
 .method public static getColorFilter(Landroid/graphics/drawable/Drawable;)Landroid/graphics/ColorFilter;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -197,7 +197,7 @@
 .end method
 
 .method public static getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -214,7 +214,7 @@
 .end method
 
 .method public static inflate(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 6
+    .registers 11
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -261,7 +261,7 @@
 .end method
 
 .method public static isAutoMirrored(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -278,7 +278,7 @@
 .end method
 
 .method public static jumpToCurrentState(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -293,7 +293,7 @@
 .end method
 
 .method public static setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -308,7 +308,7 @@
 .end method
 
 .method public static setHotspot(Landroid/graphics/drawable/Drawable;FF)V
-    .locals 1
+    .registers 4
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -323,7 +323,7 @@
 .end method
 
 .method public static setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
-    .locals 6
+    .registers 11
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -348,7 +348,7 @@
 .end method
 
 .method public static setLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
-    .locals 1
+    .registers 3
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -365,7 +365,7 @@
 .end method
 
 .method public static setTint(Landroid/graphics/drawable/Drawable;I)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -384,7 +384,7 @@
 .end method
 
 .method public static setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -403,7 +403,7 @@
 .end method
 
 .method public static setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -422,7 +422,7 @@
 .end method
 
 .method public static unwrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -440,7 +440,7 @@
     .line 548
     instance-of v0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 549
     check-cast p0, Landroid/support/v4/graphics/drawable/DrawableWrapper;
@@ -451,12 +451,12 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     return-object p0
 .end method
 
 .method public static wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

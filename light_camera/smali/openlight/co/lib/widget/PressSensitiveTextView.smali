@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 22
     invoke-direct {p0, p1}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -88,7 +88,7 @@
 .end method
 
 .method private init(Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 5
 
     .line 63
     invoke-virtual {p0}, Lopenlight/co/lib/widget/PressSensitiveTextView;->getContext()Landroid/content/Context;
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public getTextSizeRatio()F
-    .locals 0
+    .registers 1
 
     .line 41
     iget p0, p0, Lopenlight/co/lib/widget/PressSensitiveTextView;->mTextSizeRatio:F
@@ -132,7 +132,7 @@
 .end method
 
 .method public setPressed(Z)V
-    .locals 2
+    .registers 4
 
     .line 50
     invoke-virtual {p0}, Lopenlight/co/lib/widget/PressSensitiveTextView;->isPressed()Z
@@ -142,7 +142,7 @@
     .line 51
     invoke-super {p0, p1}, Landroid/widget/TextView;->setPressed(Z)V
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_2c
 
     .line 52
     iget v0, p0, Lopenlight/co/lib/widget/PressSensitiveTextView;->mTextSizeRatio:F
@@ -151,11 +151,11 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_25
 
     .line 54
     invoke-virtual {p0}, Lopenlight/co/lib/widget/PressSensitiveTextView;->getTextSize()F
@@ -177,10 +177,10 @@
 
     invoke-virtual {p0, v0, p1}, Lopenlight/co/lib/widget/PressSensitiveTextView;->setTextSize(IF)V
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 57
-    :cond_0
+    :cond_25
     iget p1, p0, Lopenlight/co/lib/widget/PressSensitiveTextView;->mOriginalTextSize:F
 
     float-to-int p1, p1
@@ -189,13 +189,13 @@
 
     invoke-virtual {p0, v0, p1}, Lopenlight/co/lib/widget/PressSensitiveTextView;->setTextSize(IF)V
 
-    :cond_1
-    :goto_0
+    :cond_2c
+    :goto_2c
     return-void
 .end method
 
 .method public setTextSizeRatio(F)V
-    .locals 0
+    .registers 2
 
     .line 45
     iput p1, p0, Lopenlight/co/lib/widget/PressSensitiveTextView;->mTextSizeRatio:F

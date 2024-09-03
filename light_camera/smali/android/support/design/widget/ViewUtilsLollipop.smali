@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -34,7 +34,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method static setBoundsViewOutlineProvider(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 36
     sget-object v0, Landroid/view/ViewOutlineProvider;->BOUNDS:Landroid/view/ViewOutlineProvider;
@@ -54,7 +54,7 @@
 .end method
 
 .method static setDefaultAppBarLayoutStateListAnimator(Landroid/view/View;F)V
-    .locals 11
+    .registers 13
 
     .line 59
     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
@@ -172,7 +172,7 @@
 .end method
 
 .method static setStateListAnimatorFromAttrs(Landroid/view/View;Landroid/util/AttributeSet;II)V
-    .locals 2
+    .registers 6
 
     .line 41
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -189,12 +189,12 @@
     const/4 p2, 0x0
 
     .line 45
-    :try_start_0
+    :try_start_b
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result p3
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1c
 
     .line 47
     invoke-virtual {p1, p2, p2}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -208,16 +208,16 @@
 
     .line 48
     invoke-virtual {p0, p2}, Landroid/view/View;->setStateListAnimator(Landroid/animation/StateListAnimator;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_b .. :try_end_1c} :catchall_20
 
     .line 51
-    :cond_0
+    :cond_1c
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
 
-    :catchall_0
+    :catchall_20
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V

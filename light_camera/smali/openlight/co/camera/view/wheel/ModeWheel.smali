@@ -60,13 +60,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
 
     .line 141
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -135,7 +135,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lopenlight/co/camera/view/dragger/DraggerModel;Landroid/graphics/Typeface;)V
-    .locals 3
+    .registers 7
 
     .line 117
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -213,7 +213,7 @@
 .end method
 
 .method private drawMode(Landroid/graphics/Canvas;I)V
-    .locals 12
+    .registers 15
 
     .line 312
     iget-wide v2, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mAngleOfFirstItem:D
@@ -234,7 +234,7 @@
 
     add-int/2addr v4, p2
 
-    if-ltz v4, :cond_4
+    if-ltz v4, :cond_68
 
     .line 317
     iget-object v5, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -243,7 +243,7 @@
 
     array-length v5, v5
 
-    if-ge v4, v5, :cond_4
+    if-ge v4, v5, :cond_68
 
     .line 318
     iget-wide v5, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mAngleBetweenItemsInRadians:D
@@ -276,13 +276,13 @@
 
     mul-float/2addr v4, v8
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_31
 
     const/high16 v9, 0x3f400000    # 0.75f
 
     mul-float/2addr v4, v9
 
-    :cond_0
+    :cond_31
     move v9, v4
 
     .line 337
@@ -290,17 +290,17 @@
 
     sget-object v11, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-eq v10, v11, :cond_3
+    if-eq v10, v11, :cond_5d
 
     iget-object v10, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
 
     sget-object v11, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne v10, v11, :cond_1
+    if-ne v10, v11, :cond_3f
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_1
+    :cond_3f
     const-wide/high16 v10, 0x4014000000000000L    # 5.0
 
     .line 348
@@ -310,7 +310,7 @@
 
     double-to-float v8, v10
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_50
 
     const/16 v10, 0x34
 
@@ -321,12 +321,12 @@
 
     div-int/2addr v10, v1
 
-    goto :goto_0
+    goto :goto_52
 
-    :cond_2
+    :cond_50
     const/16 v10, 0x1a
 
-    :goto_0
+    :goto_52
     int-to-double v10, v10
 
     .line 355
@@ -343,14 +343,14 @@
 
     double-to-float v1, v1
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 340
-    :cond_3
-    :goto_1
+    :cond_5d
+    :goto_5d
     iget v1, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mTextSizePortrait:F
 
-    :goto_2
+    :goto_5f
     move-object v0, p0
 
     move v2, v4
@@ -366,12 +366,12 @@
     .line 364
     invoke-direct/range {v0 .. v8}, Lopenlight/co/camera/view/wheel/ModeWheel;->drawPositionOnCanvas(FFFDFLjava/lang/String;Landroid/graphics/Canvas;)V
 
-    :cond_4
+    :cond_68
     return-void
 .end method
 
 .method private drawOnCanvas(Ljava/lang/String;FFFFLandroid/graphics/Rect;Landroid/graphics/Canvas;)V
-    .locals 7
+    .registers 15
 
     .line 435
     sget-object v4, Landroid/graphics/Paint$Style;->STROKE:Landroid/graphics/Paint$Style;
@@ -408,12 +408,12 @@
 .end method
 
 .method private drawPositionIndicator(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
 
     .line 294
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mRect:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 295
     new-instance v0, Landroid/graphics/Rect;
@@ -449,7 +449,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mRect:Landroid/graphics/Rect;
 
     .line 300
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mPaint:Landroid/graphics/Paint;
 
     const/4 v1, -0x1
@@ -474,7 +474,7 @@
 .end method
 
 .method private drawPositionOnCanvas(FFFDFLjava/lang/String;Landroid/graphics/Canvas;)V
-    .locals 11
+    .registers 20
 
     move-object v0, p0
 
@@ -552,12 +552,12 @@
 
     aget v2, v2, v3
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_c6
 
-    goto/16 :goto_0
+    goto/16 :goto_c5
 
     .line 416
-    :pswitch_0
+    :pswitch_43
     iget-object v2, v0, Lopenlight/co/camera/view/wheel/ModeWheel;->mTextBounds:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->exactCenterY()F
@@ -604,10 +604,10 @@
 
     invoke-direct/range {v0 .. v7}, Lopenlight/co/camera/view/wheel/ModeWheel;->drawOnCanvas(Ljava/lang/String;FFFFLandroid/graphics/Rect;Landroid/graphics/Canvas;)V
 
-    goto :goto_0
+    goto :goto_c5
 
     .line 405
-    :pswitch_1
+    :pswitch_68
     invoke-virtual/range {p8 .. p8}, Landroid/graphics/Canvas;->save()I
 
     .line 406
@@ -665,10 +665,10 @@
     .line 412
     invoke-virtual/range {p8 .. p8}, Landroid/graphics/Canvas;->restore()V
 
-    goto :goto_0
+    goto :goto_c5
 
     .line 395
-    :pswitch_2
+    :pswitch_97
     invoke-virtual/range {p8 .. p8}, Landroid/graphics/Canvas;->save()I
 
     .line 396
@@ -726,20 +726,20 @@
     .line 402
     invoke-virtual/range {p8 .. p8}, Landroid/graphics/Canvas;->restore()V
 
-    :goto_0
+    :goto_c5
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_c6
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_97
+        :pswitch_68
+        :pswitch_43
+        :pswitch_43
     .end packed-switch
 .end method
 
 .method private drawTextOnCanvas(Ljava/lang/String;FFLandroid/graphics/Paint$Style;ILandroid/graphics/Canvas;)V
-    .locals 1
+    .registers 8
 
     .line 281
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mPaint:Landroid/graphics/Paint;
@@ -758,7 +758,7 @@
 
     move-result p4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_19
 
     .line 284
     iget-object p4, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mPaint:Landroid/graphics/Paint;
@@ -768,7 +768,7 @@
     invoke-virtual {p4, p5}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     .line 286
-    :cond_0
+    :cond_19
     iget-object p0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p6, p1, p2, p3, p0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
@@ -777,7 +777,7 @@
 .end method
 
 .method private fillColor(F)I
-    .locals 0
+    .registers 2
 
     const/high16 p0, 0x437f0000    # 255.0f
 
@@ -796,7 +796,7 @@
 .end method
 
 .method private getItemTouched(Landroid/view/MotionEvent;)Lopenlight/co/camera/CameraMode;
-    .locals 6
+    .registers 8
 
     .line 497
     iget-object p0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mModeBoundaries:[Lopenlight/co/camera/view/dragger/ModeBoundary;
@@ -805,12 +805,12 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_4
+    if-ge v1, v0, :cond_24
 
     aget-object v2, p0, v1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_21
 
     .line 498
     invoke-virtual {v2}, Lopenlight/co/camera/view/dragger/ModeBoundary;->getBoundedRectangle()Landroid/graphics/RectF;
@@ -831,7 +831,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_21
 
     .line 500
     invoke-virtual {v2}, Lopenlight/co/camera/view/dragger/ModeBoundary;->getMode()Lopenlight/co/camera/CameraMode;
@@ -840,19 +840,19 @@
 
     return-object p0
 
-    :cond_0
+    :cond_21
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_1
+    :cond_24
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private init(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     .line 225
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mPaint:Landroid/graphics/Paint;
@@ -996,25 +996,25 @@
 .end method
 
 .method private initAngleDegree()V
-    .locals 2
+    .registers 3
 
     .line 251
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
 
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_15
 
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
 
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_15
 
     .line 254
-    :cond_0
+    :cond_d
     iget v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mLandscapeAngleBetweenItem:F
 
     float-to-double v0, v0
@@ -1024,11 +1024,11 @@
 
     move-result-wide v0
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 251
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     iget v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mPortraitAngleBetweenItem:F
 
     float-to-double v0, v0
@@ -1039,7 +1039,7 @@
     move-result-wide v0
 
     .line 255
-    :goto_1
+    :goto_1c
     iput-wide v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mAngleBetweenItemsInRadians:D
 
     .line 256
@@ -1049,7 +1049,7 @@
 .end method
 
 .method private saveRectSize(Ljava/lang/String;FFF)V
-    .locals 4
+    .registers 9
 
     .line 484
     invoke-static {p1}, Lopenlight/co/camera/CameraMode;->getModeByLabel(Ljava/lang/String;)Lopenlight/co/camera/CameraMode;
@@ -1079,7 +1079,7 @@
 .end method
 
 .method private setItemSize(Ljava/lang/String;FLandroid/graphics/Rect;)V
-    .locals 3
+    .registers 7
 
     .line 450
     sget-object v0, Lopenlight/co/camera/view/wheel/ModeWheel$1;->$SwitchMap$light$co$camera$enums$OrientationConfig:[I
@@ -1094,12 +1094,12 @@
 
     const/high16 v1, 0x3f000000    # 0.5f
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_6a
 
-    goto :goto_0
+    goto :goto_69
 
     .line 468
-    :pswitch_0
+    :pswitch_10
     invoke-virtual {p3}, Landroid/graphics/Rect;->height()I
 
     move-result v0
@@ -1117,10 +1117,10 @@
 
     invoke-direct {p0, p1, p2, v0, p3}, Lopenlight/co/camera/view/wheel/ModeWheel;->saveRectSize(Ljava/lang/String;FFF)V
 
-    goto :goto_0
+    goto :goto_69
 
     .line 460
-    :pswitch_1
+    :pswitch_1f
     invoke-virtual {p3}, Landroid/graphics/Rect;->height()I
 
     move-result v0
@@ -1174,10 +1174,10 @@
     .line 463
     invoke-direct {p0, p1, v0, p2, p3}, Lopenlight/co/camera/view/wheel/ModeWheel;->saveRectSize(Ljava/lang/String;FFF)V
 
-    goto :goto_0
+    goto :goto_69
 
     .line 453
-    :pswitch_2
+    :pswitch_45
     invoke-virtual {p3}, Landroid/graphics/Rect;->height()I
 
     move-result v0
@@ -1228,20 +1228,20 @@
 
     invoke-direct {p0, p1, v0, p2, p3}, Lopenlight/co/camera/view/wheel/ModeWheel;->saveRectSize(Ljava/lang/String;FFF)V
 
-    :goto_0
+    :goto_69
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_6a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_45
+        :pswitch_1f
+        :pswitch_10
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method private strokeColor(F)I
-    .locals 0
+    .registers 2
 
     const/high16 p0, 0x437f0000    # 255.0f
 
@@ -1260,7 +1260,7 @@
 .end method
 
 .method private updateAngleOfFirstItem()V
-    .locals 4
+    .registers 5
 
     .line 264
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -1297,7 +1297,7 @@
 
 # virtual methods
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 152
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1312,7 +1312,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
 
     .line 206
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -1320,16 +1320,16 @@
     .line 207
     iget v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mCenterX:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     iget v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mCenterY:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 210
-    :cond_0
+    :cond_c
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/wheel/ModeWheel;->drawPositionIndicator(Landroid/graphics/Canvas;)V
 
     .line 211
@@ -1357,26 +1357,26 @@
 
     neg-int v1, v0
 
-    :goto_0
-    if-gt v1, v0, :cond_1
+    :goto_25
+    if-gt v1, v0, :cond_2d
 
     .line 215
     invoke-direct {p0, p1, v1}, Lopenlight/co/camera/view/wheel/ModeWheel;->drawMode(Landroid/graphics/Canvas;I)V
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_2d
     return-void
 
-    :cond_2
-    :goto_1
+    :cond_2e
+    :goto_2e
     return-void
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 0
+    .registers 2
 
     .line 146
     iput-object p1, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
@@ -1388,7 +1388,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 199
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -1407,7 +1407,7 @@
 .end method
 
 .method public setDragComplete()V
-    .locals 1
+    .registers 2
 
     .line 173
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -1424,7 +1424,7 @@
 .end method
 
 .method public updateDragPosition(F)V
-    .locals 3
+    .registers 5
 
     .line 162
     sget-object v0, Lopenlight/co/camera/view/wheel/ModeWheel;->TAG:Ljava/lang/String;
@@ -1451,22 +1451,22 @@
 
     const/4 v2, 0x0
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1f
 
     move p1, v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_1f
     cmpg-float v0, p1, v2
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_24
 
     move p1, v2
 
     .line 164
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/ModeWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
     invoke-virtual {v0, p1}, Lopenlight/co/camera/view/dragger/DraggerModel;->updateSubject(F)V
@@ -1478,7 +1478,7 @@
 .end method
 
 .method public updateModeOnTap(Landroid/view/MotionEvent;)V
-    .locals 3
+    .registers 5
 
     .line 186
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/wheel/ModeWheel;->getItemTouched(Landroid/view/MotionEvent;)Lopenlight/co/camera/CameraMode;
@@ -1494,7 +1494,7 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_32
 
     .line 189
     invoke-static {p1}, Lopenlight/co/camera/CameraMode;->indexForMode(Lopenlight/co/camera/CameraMode;)I
@@ -1534,6 +1534,6 @@
     .line 192
     invoke-direct {p0}, Lopenlight/co/camera/view/wheel/ModeWheel;->updateAngleOfFirstItem()V
 
-    :cond_0
+    :cond_32
     return-void
 .end method

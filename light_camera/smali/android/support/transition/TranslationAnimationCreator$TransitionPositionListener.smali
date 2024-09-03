@@ -36,7 +36,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/View;Landroid/view/View;IIFF)V
-    .locals 0
+    .registers 7
 
     .line 92
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -99,7 +99,7 @@
     .line 100
     iget-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3d
 
     .line 101
     iget-object p0, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mViewInHierarchy:Landroid/view/View;
@@ -110,12 +110,12 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 .method synthetic constructor <init>(Landroid/view/View;Landroid/view/View;IIFFLandroid/support/transition/TranslationAnimationCreator$1;)V
-    .locals 0
+    .registers 8
 
     .line 79
     invoke-direct/range {p0 .. p6}, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;-><init>(Landroid/view/View;Landroid/view/View;IIFF)V
@@ -126,12 +126,12 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
 
     .line 107
     iget-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     const/4 p1, 0x2
 
@@ -141,7 +141,7 @@
     iput-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
     .line 110
-    :cond_0
+    :cond_9
     iget-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
     const/4 v0, 0x0
@@ -200,7 +200,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 117
     iget-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mMovingView:Landroid/view/View;
@@ -220,7 +220,7 @@
 .end method
 
 .method public onAnimationPause(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 123
     iget-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mMovingView:Landroid/view/View;
@@ -258,7 +258,7 @@
 .end method
 
 .method public onAnimationResume(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 131
     iget-object p1, p0, Landroid/support/transition/TranslationAnimationCreator$TransitionPositionListener;->mMovingView:Landroid/view/View;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -41,7 +41,7 @@
 
     const/16 v2, 0x19
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_14
 
     .line 124
     new-instance v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatApi25Impl;
@@ -50,22 +50,22 @@
 
     sput-object v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->IMPL:Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatImpl;
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 126
-    :cond_0
+    :cond_14
     new-instance v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatBaseImpl;
 
     invoke-direct {v0, v1}, Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatBaseImpl;-><init>(Landroid/support/v13/view/inputmethod/EditorInfoCompat$1;)V
 
     sput-object v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->IMPL:Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatImpl;
 
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,7 @@
 .end method
 
 .method static synthetic access$000()[Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 30
     sget-object v0, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
@@ -83,7 +83,7 @@
 .end method
 
 .method public static getContentMimeTypes(Landroid/view/inputmethod/EditorInfo;)[Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public static setContentMimeTypes(Landroid/view/inputmethod/EditorInfo;[Ljava/lang/String;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/inputmethod/EditorInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

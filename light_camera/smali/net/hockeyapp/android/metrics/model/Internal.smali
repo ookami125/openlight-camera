@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,13 +55,13 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public addToHashMap(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
     .line 313
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->sdkVersion:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const-string v0, "ai.internal.sdkVersion"
 
@@ -85,10 +85,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 316
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->agentVersion:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     const-string v0, "ai.internal.agentVersion"
 
@@ -98,10 +98,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 319
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->dataCollectorReceivedTime:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     const-string v0, "ai.internal.dataCollectorReceivedTime"
 
@@ -111,10 +111,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 322
-    :cond_2
+    :cond_21
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileId:Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     const-string v0, "ai.internal.profileId"
 
@@ -124,10 +124,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 325
-    :cond_3
+    :cond_2c
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileClassId:Ljava/lang/String;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     const-string v0, "ai.internal.profileClassId"
 
@@ -137,10 +137,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 328
-    :cond_4
+    :cond_37
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->accountId:Ljava/lang/String;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_42
 
     const-string v0, "ai.internal.accountId"
 
@@ -150,10 +150,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 331
-    :cond_5
+    :cond_42
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationName:Ljava/lang/String;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4d
 
     const-string v0, "ai.internal.applicationName"
 
@@ -163,10 +163,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 334
-    :cond_6
+    :cond_4d
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->instrumentationKey:Ljava/lang/String;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_58
 
     const-string v0, "ai.internal.instrumentationKey"
 
@@ -176,10 +176,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 337
-    :cond_7
+    :cond_58
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->telemetryItemId:Ljava/lang/String;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_63
 
     const-string v0, "ai.internal.telemetryItemId"
 
@@ -189,10 +189,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 340
-    :cond_8
+    :cond_63
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationType:Ljava/lang/String;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_6e
 
     const-string v0, "ai.internal.applicationType"
 
@@ -202,10 +202,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 343
-    :cond_9
+    :cond_6e
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->requestSource:Ljava/lang/String;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_79
 
     const-string v0, "ai.internal.requestSource"
 
@@ -215,10 +215,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 346
-    :cond_a
+    :cond_79
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->flowType:Ljava/lang/String;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_84
 
     const-string v0, "ai.internal.flowType"
 
@@ -228,10 +228,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 349
-    :cond_b
+    :cond_84
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->isAudit:Ljava/lang/String;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_8f
 
     const-string v0, "ai.internal.isAudit"
 
@@ -241,10 +241,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 352
-    :cond_c
+    :cond_8f
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingSourceId:Ljava/lang/String;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_9a
 
     const-string v0, "ai.internal.trackingSourceId"
 
@@ -254,10 +254,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 355
-    :cond_d
+    :cond_9a
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingType:Ljava/lang/String;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_a5
 
     const-string v0, "ai.internal.trackingType"
 
@@ -266,12 +266,12 @@
 
     invoke-interface {p1, v0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_e
+    :cond_a5
     return-void
 .end method
 
 .method public getAccountId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 170
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->accountId:Ljava/lang/String;
@@ -280,7 +280,7 @@
 .end method
 
 .method public getAgentVersion()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 114
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->agentVersion:Ljava/lang/String;
@@ -289,7 +289,7 @@
 .end method
 
 .method public getApplicationName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 184
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationName:Ljava/lang/String;
@@ -298,7 +298,7 @@
 .end method
 
 .method public getApplicationType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 226
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationType:Ljava/lang/String;
@@ -307,7 +307,7 @@
 .end method
 
 .method public getDataCollectorReceivedTime()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 128
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->dataCollectorReceivedTime:Ljava/lang/String;
@@ -316,7 +316,7 @@
 .end method
 
 .method public getFlowType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 254
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->flowType:Ljava/lang/String;
@@ -325,7 +325,7 @@
 .end method
 
 .method public getInstrumentationKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 198
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->instrumentationKey:Ljava/lang/String;
@@ -334,7 +334,7 @@
 .end method
 
 .method public getIsAudit()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 268
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->isAudit:Ljava/lang/String;
@@ -343,7 +343,7 @@
 .end method
 
 .method public getProfileClassId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 156
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileClassId:Ljava/lang/String;
@@ -352,7 +352,7 @@
 .end method
 
 .method public getProfileId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 142
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileId:Ljava/lang/String;
@@ -361,7 +361,7 @@
 .end method
 
 .method public getRequestSource()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 240
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->requestSource:Ljava/lang/String;
@@ -370,7 +370,7 @@
 .end method
 
 .method public getSdkVersion()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 100
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->sdkVersion:Ljava/lang/String;
@@ -379,7 +379,7 @@
 .end method
 
 .method public getTelemetryItemId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 212
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->telemetryItemId:Ljava/lang/String;
@@ -388,7 +388,7 @@
 .end method
 
 .method public getTrackingSourceId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 282
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingSourceId:Ljava/lang/String;
@@ -397,7 +397,7 @@
 .end method
 
 .method public getTrackingType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 296
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingType:Ljava/lang/String;
@@ -406,14 +406,14 @@
 .end method
 
 .method public serialize(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const/16 v0, 0x7b
 
@@ -431,7 +431,7 @@
     return-void
 
     .line 369
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "writer"
@@ -442,7 +442,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -454,7 +454,7 @@
     .line 384
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->sdkVersion:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 385
     new-instance v1, Ljava/lang/StringBuilder;
@@ -485,10 +485,10 @@
     const-string v0, ","
 
     .line 390
-    :cond_0
+    :cond_25
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->agentVersion:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_48
 
     .line 391
     new-instance v1, Ljava/lang/StringBuilder;
@@ -519,10 +519,10 @@
     const-string v0, ","
 
     .line 396
-    :cond_1
+    :cond_48
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->dataCollectorReceivedTime:Ljava/lang/String;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6b
 
     .line 397
     new-instance v1, Ljava/lang/StringBuilder;
@@ -553,10 +553,10 @@
     const-string v0, ","
 
     .line 402
-    :cond_2
+    :cond_6b
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileId:Ljava/lang/String;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_8e
 
     .line 403
     new-instance v1, Ljava/lang/StringBuilder;
@@ -587,10 +587,10 @@
     const-string v0, ","
 
     .line 408
-    :cond_3
+    :cond_8e
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileClassId:Ljava/lang/String;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_b1
 
     .line 409
     new-instance v1, Ljava/lang/StringBuilder;
@@ -621,10 +621,10 @@
     const-string v0, ","
 
     .line 414
-    :cond_4
+    :cond_b1
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->accountId:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_d4
 
     .line 415
     new-instance v1, Ljava/lang/StringBuilder;
@@ -655,10 +655,10 @@
     const-string v0, ","
 
     .line 420
-    :cond_5
+    :cond_d4
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationName:Ljava/lang/String;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_f7
 
     .line 421
     new-instance v1, Ljava/lang/StringBuilder;
@@ -689,10 +689,10 @@
     const-string v0, ","
 
     .line 426
-    :cond_6
+    :cond_f7
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->instrumentationKey:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_11a
 
     .line 427
     new-instance v1, Ljava/lang/StringBuilder;
@@ -723,10 +723,10 @@
     const-string v0, ","
 
     .line 432
-    :cond_7
+    :cond_11a
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->telemetryItemId:Ljava/lang/String;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_13d
 
     .line 433
     new-instance v1, Ljava/lang/StringBuilder;
@@ -757,10 +757,10 @@
     const-string v0, ","
 
     .line 438
-    :cond_8
+    :cond_13d
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationType:Ljava/lang/String;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_160
 
     .line 439
     new-instance v1, Ljava/lang/StringBuilder;
@@ -791,10 +791,10 @@
     const-string v0, ","
 
     .line 444
-    :cond_9
+    :cond_160
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->requestSource:Ljava/lang/String;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_183
 
     .line 445
     new-instance v1, Ljava/lang/StringBuilder;
@@ -825,10 +825,10 @@
     const-string v0, ","
 
     .line 450
-    :cond_a
+    :cond_183
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->flowType:Ljava/lang/String;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_1a6
 
     .line 451
     new-instance v1, Ljava/lang/StringBuilder;
@@ -859,10 +859,10 @@
     const-string v0, ","
 
     .line 456
-    :cond_b
+    :cond_1a6
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->isAudit:Ljava/lang/String;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1c9
 
     .line 457
     new-instance v1, Ljava/lang/StringBuilder;
@@ -893,10 +893,10 @@
     const-string v0, ","
 
     .line 462
-    :cond_c
+    :cond_1c9
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingSourceId:Ljava/lang/String;
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1ec
 
     .line 463
     new-instance v1, Ljava/lang/StringBuilder;
@@ -927,10 +927,10 @@
     const-string v0, ","
 
     .line 468
-    :cond_d
+    :cond_1ec
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingType:Ljava/lang/String;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_20f
 
     .line 469
     new-instance v1, Ljava/lang/StringBuilder;
@@ -960,12 +960,12 @@
 
     const-string v0, ","
 
-    :cond_e
+    :cond_20f
     return-object v0
 .end method
 
 .method public setAccountId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 177
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->accountId:Ljava/lang/String;
@@ -974,7 +974,7 @@
 .end method
 
 .method public setAgentVersion(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 121
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->agentVersion:Ljava/lang/String;
@@ -983,7 +983,7 @@
 .end method
 
 .method public setApplicationName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 191
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationName:Ljava/lang/String;
@@ -992,7 +992,7 @@
 .end method
 
 .method public setApplicationType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 233
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->applicationType:Ljava/lang/String;
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public setDataCollectorReceivedTime(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 135
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->dataCollectorReceivedTime:Ljava/lang/String;
@@ -1010,7 +1010,7 @@
 .end method
 
 .method public setFlowType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 261
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->flowType:Ljava/lang/String;
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public setInstrumentationKey(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 205
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->instrumentationKey:Ljava/lang/String;
@@ -1028,7 +1028,7 @@
 .end method
 
 .method public setIsAudit(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 275
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->isAudit:Ljava/lang/String;
@@ -1037,7 +1037,7 @@
 .end method
 
 .method public setProfileClassId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 163
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileClassId:Ljava/lang/String;
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public setProfileId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 149
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->profileId:Ljava/lang/String;
@@ -1055,7 +1055,7 @@
 .end method
 
 .method public setRequestSource(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 247
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->requestSource:Ljava/lang/String;
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public setSdkVersion(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 107
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->sdkVersion:Ljava/lang/String;
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public setTelemetryItemId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 219
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->telemetryItemId:Ljava/lang/String;
@@ -1082,7 +1082,7 @@
 .end method
 
 .method public setTrackingSourceId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 289
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingSourceId:Ljava/lang/String;
@@ -1091,7 +1091,7 @@
 .end method
 
 .method public setTrackingType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 303
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Internal;->trackingType:Ljava/lang/String;

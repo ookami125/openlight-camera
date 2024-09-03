@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -25,7 +25,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;Z)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/nio/charset/Charset;Z)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/nio/charset/CharsetEncoder;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/nio/charset/CharsetEncoder;Z)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -120,7 +120,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -140,7 +140,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Z)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -158,7 +158,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -178,7 +178,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/nio/charset/Charset;Z)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -196,7 +196,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/nio/charset/CharsetEncoder;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -216,7 +216,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/nio/charset/CharsetEncoder;Z)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -234,16 +234,16 @@
 .end method
 
 .method private static initWriter(Ljava/io/File;Ljava/lang/Object;Z)Ljava/io/Writer;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_56
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_4e
 
     .line 233
     invoke-virtual {p0}, Ljava/io/File;->exists()Z
@@ -253,19 +253,19 @@
     const/4 v1, 0x0
 
     .line 237
-    :try_start_0
+    :try_start_9
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-direct {v2, p0, p2}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_e
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_e} :catch_40
+    .catch Ljava/lang/RuntimeException; {:try_start_9 .. :try_end_e} :catch_32
 
     .line 238
-    :try_start_1
+    :try_start_e
     instance-of p2, p1, Ljava/nio/charset/Charset;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1a
 
     .line 239
     new-instance p2, Ljava/io/OutputStreamWriter;
@@ -274,13 +274,13 @@
 
     invoke-direct {p2, v2, p1}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 240
-    :cond_0
+    :cond_1a
     instance-of p2, p1, Ljava/nio/charset/CharsetEncoder;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_26
 
     .line 241
     new-instance p2, Ljava/io/OutputStreamWriter;
@@ -289,76 +289,76 @@
 
     invoke-direct {p2, v2, p1}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/CharsetEncoder;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 243
-    :cond_1
+    :cond_26
     new-instance p2, Ljava/io/OutputStreamWriter;
 
     check-cast p1, Ljava/lang/String;
 
     invoke-direct {p2, v2, p1}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2d
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_2d} :catch_30
+    .catch Ljava/lang/RuntimeException; {:try_start_e .. :try_end_2d} :catch_2e
 
-    :goto_0
+    :goto_2d
     return-object p2
 
-    :catch_0
+    :catch_2e
     move-exception p1
 
-    goto :goto_1
+    goto :goto_34
 
-    :catch_1
+    :catch_30
     move-exception p1
 
-    goto :goto_2
+    goto :goto_42
 
-    :catch_2
+    :catch_32
     move-exception p1
 
     move-object v2, v1
 
     .line 253
-    :goto_1
+    :goto_34
     invoke-static {v1}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Writer;)V
 
     .line 254
     invoke-static {v2}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/OutputStream;)V
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3f
 
     .line 256
     invoke-static {p0}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
     .line 258
-    :cond_2
+    :cond_3f
     throw p1
 
-    :catch_3
+    :catch_40
     move-exception p1
 
     move-object v2, v1
 
     .line 246
-    :goto_2
+    :goto_42
     invoke-static {v1}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Writer;)V
 
     .line 247
     invoke-static {v2}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/OutputStream;)V
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4d
 
     .line 249
     invoke-static {p0}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
     .line 251
-    :cond_3
+    :cond_4d
     throw p1
 
     .line 231
-    :cond_4
+    :cond_4e
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Encoding is missing"
@@ -368,7 +368,7 @@
     throw p0
 
     .line 228
-    :cond_5
+    :cond_56
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "File is missing"
@@ -381,7 +381,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -397,7 +397,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -413,7 +413,7 @@
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -429,7 +429,7 @@
 .end method
 
 .method public write(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -445,7 +445,7 @@
 .end method
 
 .method public write(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -461,7 +461,7 @@
 .end method
 
 .method public write([C)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -477,7 +477,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

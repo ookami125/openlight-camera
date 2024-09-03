@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;)V
-    .locals 0
+    .registers 2
 
     .line 77
     iput-object p1, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback$1;->this$0:Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 85
     iget-object p0, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback$1;->this$0:Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;
@@ -44,7 +44,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 80
     iget-object p0, p0, Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback$1;->this$0:Landroid/support/graphics/drawable/Animatable2Compat$AnimationCallback;

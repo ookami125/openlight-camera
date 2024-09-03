@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/lib/thermal/ThermalManager;)V
-    .locals 0
+    .registers 2
 
     .line 48
     iput-object p1, p0, Lopenlight/co/lib/thermal/ThermalManager$1;->this$0:Lopenlight/co/lib/thermal/ThermalManager;
@@ -33,9 +33,10 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .registers 5
 
     .line 52
+    # getter for: Lopenlight/co/lib/thermal/ThermalManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/lib/thermal/ThermalManager;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -69,9 +70,11 @@
     check-cast p2, Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
     .line 53
+    # setter for: Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
     invoke-static {p1, p2}, Lopenlight/co/lib/thermal/ThermalManager;->access$102(Lopenlight/co/lib/thermal/ThermalManager;Lopenlight/co/thermalmonitor/ThermalIntent$Level;)Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
     .line 55
+    # getter for: Lopenlight/co/lib/thermal/ThermalManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/lib/thermal/ThermalManager;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -86,6 +89,7 @@
 
     iget-object v0, p0, Lopenlight/co/lib/thermal/ThermalManager$1;->this$0:Lopenlight/co/lib/thermal/ThermalManager;
 
+    # getter for: Lopenlight/co/lib/thermal/ThermalManager;->mCurrentTemperature:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
     invoke-static {v0}, Lopenlight/co/lib/thermal/ThermalManager;->access$100(Lopenlight/co/lib/thermal/ThermalManager;)Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
     move-result-object v0
@@ -101,6 +105,7 @@
     .line 56
     iget-object p0, p0, Lopenlight/co/lib/thermal/ThermalManager$1;->this$0:Lopenlight/co/lib/thermal/ThermalManager;
 
+    # invokes: Lopenlight/co/lib/thermal/ThermalManager;->notifyListeners()V
     invoke-static {p0}, Lopenlight/co/lib/thermal/ThermalManager;->access$200(Lopenlight/co/lib/thermal/ThermalManager;)V
 
     return-void

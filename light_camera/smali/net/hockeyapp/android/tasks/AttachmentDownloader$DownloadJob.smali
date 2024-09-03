@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lnet/hockeyapp/android/objects/FeedbackAttachment;Lnet/hockeyapp/android/views/AttachmentView;)V
-    .locals 0
+    .registers 3
 
     .line 101
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(Lnet/hockeyapp/android/objects/FeedbackAttachment;Lnet/hockeyapp/android/views/AttachmentView;Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;)V
-    .locals 0
+    .registers 4
 
     .line 94
     invoke-direct {p0, p1, p2}, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;-><init>(Lnet/hockeyapp/android/objects/FeedbackAttachment;Lnet/hockeyapp/android/views/AttachmentView;)V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public consumeRetry()Z
-    .locals 2
+    .registers 3
 
     .line 129
     iget v0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->remainingRetries:I
@@ -73,16 +73,16 @@
 
     iput v0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->remainingRetries:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_9
     return v1
 .end method
 
 .method public getAttachmentView()Lnet/hockeyapp/android/views/AttachmentView;
-    .locals 0
+    .registers 1
 
     .line 113
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->attachmentView:Lnet/hockeyapp/android/views/AttachmentView;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getFeedbackAttachment()Lnet/hockeyapp/android/objects/FeedbackAttachment;
-    .locals 0
+    .registers 1
 
     .line 109
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->feedbackAttachment:Lnet/hockeyapp/android/objects/FeedbackAttachment;
@@ -100,26 +100,26 @@
 .end method
 
 .method public hasRetry()Z
-    .locals 0
+    .registers 1
 
     .line 125
     iget p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->remainingRetries:I
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method public isSuccess()Z
-    .locals 0
+    .registers 1
 
     .line 117
     iget-boolean p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->success:Z
@@ -128,7 +128,7 @@
 .end method
 
 .method public setSuccess(Z)V
-    .locals 0
+    .registers 2
 
     .line 121
     iput-boolean p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->success:Z

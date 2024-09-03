@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
-    .locals 0
+    .registers 3
 
     .line 190
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .registers 7
 
     .line 193
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;
@@ -58,12 +58,12 @@
     move-result-object v0
 
     .line 194
-    :goto_0
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4f
 
     .line 195
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -73,7 +73,7 @@
     check-cast v1, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
     .line 197
-    :try_start_0
+    :try_start_1a
     iget-object v2, v1, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->callbacks:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
 
     iget-object v3, v1, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->root:Landroid/support/v4/media/MediaBrowserServiceCompat$BrowserRoot;
@@ -93,12 +93,12 @@
 
     .line 197
     invoke-interface {v2, v3, v4, v5}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;->onConnect(Ljava/lang/String;Landroid/support/v4/media/session/MediaSessionCompat$Token;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Landroid/os/RemoteException; {:try_start_1a .. :try_end_2d} :catch_2e
 
-    goto :goto_0
+    goto :goto_e
 
-    :catch_0
+    :catch_2e
     const-string v2, "MBServiceCompat"
 
     .line 200
@@ -127,8 +127,8 @@
     .line 201
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_4f
     return-void
 .end method

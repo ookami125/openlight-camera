@@ -49,7 +49,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/squareup/wire/ProtoAdapter;Lokio/ByteString;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,9 +71,9 @@
     .line 40
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_19
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
     .line 45
     iput-object p1, p0, Lcom/squareup/wire/Message;->adapter:Lcom/squareup/wire/ProtoAdapter;
@@ -84,7 +84,7 @@
     return-void
 
     .line 44
-    :cond_0
+    :cond_11
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "unknownFields == null"
@@ -94,7 +94,7 @@
     throw p0
 
     .line 43
-    :cond_1
+    :cond_19
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "adapter == null"
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public final adapter()Lcom/squareup/wire/ProtoAdapter;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,7 +123,7 @@
 .end method
 
 .method public final encode(Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -139,7 +139,7 @@
 .end method
 
 .method public final encode(Lokio/BufferedSink;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -155,7 +155,7 @@
 .end method
 
 .method public final encode()[B
-    .locals 1
+    .registers 2
 
     .line 92
     iget-object v0, p0, Lcom/squareup/wire/Message;->adapter:Lcom/squareup/wire/ProtoAdapter;
@@ -178,7 +178,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object v0, p0, Lcom/squareup/wire/Message;->adapter:Lcom/squareup/wire/ProtoAdapter;
@@ -191,25 +191,25 @@
 .end method
 
 .method public final unknownFields()Lokio/ByteString;
-    .locals 0
+    .registers 1
 
     .line 54
     iget-object p0, p0, Lcom/squareup/wire/Message;->unknownFields:Lokio/ByteString;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
-    goto :goto_0
+    goto :goto_7
 
     .line 55
-    :cond_0
+    :cond_5
     sget-object p0, Lokio/ByteString;->EMPTY:Lokio/ByteString;
 
-    :goto_0
+    :goto_7
     return-object p0
 .end method
 
 .method public final withoutUnknownFields()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TM;"
@@ -233,7 +233,7 @@
 .end method
 
 .method protected final writeReplace()Ljava/lang/Object;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;

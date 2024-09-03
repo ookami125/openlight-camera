@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 7
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
 
     const-string p1, "openlight.co.intent.CITEST_INTENT"
 
@@ -44,7 +44,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 16
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentReceiver;->mTestIntentManager:Lopenlight/co/camera/testintent/TestIntentManager;
@@ -55,6 +55,6 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/testintent/TestIntentManager;->startTest(Landroid/os/Bundle;)V
 
-    :cond_0
+    :cond_15
     return-void
 .end method

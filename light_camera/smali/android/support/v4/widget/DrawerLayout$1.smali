@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/DrawerLayout;)V
-    .locals 0
+    .registers 2
 
     .line 337
     iput-object p1, p0, Landroid/support/v4/widget/DrawerLayout$1;->this$0:Landroid/support/v4/widget/DrawerLayout;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 0
+    .registers 3
     .annotation build Landroid/annotation/TargetApi;
         value = 0x15
     .end annotation
@@ -49,16 +49,16 @@
 
     move-result p0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     invoke-virtual {p1, p2, p0}, Landroid/support/v4/widget/DrawerLayout;->setChildInsets(Ljava/lang/Object;Z)V
 
     .line 343

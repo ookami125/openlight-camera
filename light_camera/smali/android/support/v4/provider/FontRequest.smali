@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 0
+    .registers 5
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -80,17 +80,17 @@
     .line 81
     iput-object p1, p0, Landroid/support/v4/provider/FontRequest;->mCertificates:Ljava/util/List;
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_22
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 p1, 0x0
 
     .line 82
-    :goto_0
+    :goto_23
     invoke-static {p1}, Landroid/support/v4/util/Preconditions;->checkArgument(Z)V
 
     .line 83
@@ -130,7 +130,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
-    .locals 0
+    .registers 5
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -239,7 +239,7 @@
 
 # virtual methods
 .method public getCertificates()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -259,7 +259,7 @@
 .end method
 
 .method public getCertificatesArrayResId()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/ArrayRes;
     .end annotation
 
@@ -270,7 +270,7 @@
 .end method
 
 .method public getIdentifier()Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -284,7 +284,7 @@
 .end method
 
 .method public getProviderAuthority()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 93
     iget-object p0, p0, Landroid/support/v4/provider/FontRequest;->mProviderAuthority:Ljava/lang/String;
@@ -293,7 +293,7 @@
 .end method
 
 .method public getProviderPackage()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 101
     iget-object p0, p0, Landroid/support/v4/provider/FontRequest;->mProviderPackage:Ljava/lang/String;
@@ -302,7 +302,7 @@
 .end method
 
 .method public getQuery()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 109
     iget-object p0, p0, Landroid/support/v4/provider/FontRequest;->mQuery:Ljava/lang/String;
@@ -311,7 +311,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 144
     new-instance v0, Ljava/lang/StringBuilder;
@@ -362,14 +362,14 @@
     move v2, v1
 
     .line 150
-    :goto_0
+    :goto_36
     iget-object v3, p0, Landroid/support/v4/provider/FontRequest;->mCertificates:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_74
 
     const-string v3, " ["
 
@@ -388,12 +388,12 @@
     move v4, v1
 
     .line 153
-    :goto_1
+    :goto_4c
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_0
+    if-ge v4, v5, :cond_6c
 
     const-string v5, " \""
 
@@ -421,9 +421,9 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_0
+    :cond_6c
     const-string v3, " ]"
 
     .line 159
@@ -431,9 +431,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_74
     const-string v1, "}"
 
     .line 161

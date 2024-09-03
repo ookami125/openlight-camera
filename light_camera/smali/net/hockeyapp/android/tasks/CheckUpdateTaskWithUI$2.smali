@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;)V
-    .locals 0
+    .registers 2
 
     .line 99
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$2;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onCancel(Landroid/content/DialogInterface;)V
-    .locals 0
+    .registers 2
 
     .line 102
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$2;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
@@ -48,7 +48,7 @@
 
     iget-object p1, p1, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 104
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$2;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
@@ -57,6 +57,6 @@
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateManagerListener;->onCancel()V
 
-    :cond_0
+    :cond_12
     return-void
 .end method

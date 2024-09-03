@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 517
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public extendRangeInto([I[II)V
-    .locals 5
+    .registers 9
     .annotation build Landroid/support/annotation/UiThread;
     .end annotation
 
@@ -58,16 +58,16 @@
     .line 575
     aget v3, p1, v1
 
-    if-ne p3, p0, :cond_0
+    if-ne p3, p0, :cond_10
 
     move v4, v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     move v4, v2
 
-    :goto_0
+    :goto_11
     sub-int/2addr v3, v4
 
     aput v3, p2, v1
@@ -77,14 +77,14 @@
 
     const/4 v1, 0x2
 
-    if-ne p3, v1, :cond_1
+    if-ne p3, v1, :cond_1a
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     move v0, v2
 
-    :goto_1
+    :goto_1b
     add-int/2addr p1, v0
 
     aput p1, p2, p0

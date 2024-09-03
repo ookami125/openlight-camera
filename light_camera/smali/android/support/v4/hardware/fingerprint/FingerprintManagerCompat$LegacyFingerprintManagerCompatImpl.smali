@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 212
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,13 +30,13 @@
 
 # virtual methods
 .method public authenticate(Landroid/content/Context;Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$CryptoObject;ILandroid/support/v4/os/CancellationSignal;Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompat$AuthenticationCallback;Landroid/os/Handler;)V
-    .locals 0
+    .registers 7
 
     return-void
 .end method
 
 .method public hasEnrolledFingerprints(Landroid/content/Context;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public isHardwareDetected(Landroid/content/Context;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 

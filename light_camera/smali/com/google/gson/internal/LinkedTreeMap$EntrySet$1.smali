@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedTreeMap$EntrySet;)V
-    .locals 0
+    .registers 2
 
     .line 566
     iput-object p1, p0, Lcom/google/gson/internal/LinkedTreeMap$EntrySet$1;->this$1:Lcom/google/gson/internal/LinkedTreeMap$EntrySet;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic next()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 566
     invoke-virtual {p0}, Lcom/google/gson/internal/LinkedTreeMap$EntrySet$1;->next()Ljava/util/Map$Entry;
@@ -56,7 +56,7 @@
 .end method
 
 .method public next()Ljava/util/Map$Entry;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

@@ -63,13 +63,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 505
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -177,7 +177,7 @@
 .end method
 
 .method private calculateDigitalLevelBasedOnZoomLevel()V
-    .locals 6
+    .registers 7
 
     .line 443
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -186,7 +186,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 444
     iget v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
@@ -194,7 +194,7 @@
     iput v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mRelativeToPrimeZoomLevel:F
 
     .line 446
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
 
     invoke-virtual {v0}, Lopenlight/co/camera/CameraInfo;->getLensesFocalLengths()[F
@@ -233,10 +233,10 @@
 
     move v3, v2
 
-    :goto_0
+    :goto_31
     add-int/lit8 v4, v1, -0x1
 
-    if-ge v3, v4, :cond_2
+    if-ge v3, v4, :cond_4b
 
     .line 452
     aget v4, v0, v3
@@ -250,26 +250,26 @@
 
     cmpl-float v5, v5, v4
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_44
 
     iget v5, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
     div-float/2addr v5, v4
 
-    goto :goto_1
+    goto :goto_46
 
-    :cond_1
+    :cond_44
     iget v5, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
-    :goto_1
+    :goto_46
     iput v5, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mRelativeToPrimeZoomLevel:F
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_31
 
     .line 457
-    :cond_2
+    :cond_4b
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -310,7 +310,7 @@
 .end method
 
 .method private calculateFocalLength()F
-    .locals 9
+    .registers 10
 
     .line 467
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -338,16 +338,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_30
 
     move v4, v3
 
     move v3, v2
 
-    :goto_0
+    :goto_19
     add-int/lit8 v5, v1, -0x1
 
-    if-gt v3, v5, :cond_1
+    if-gt v3, v5, :cond_2f
 
     .line 475
     iget v6, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
@@ -360,22 +360,22 @@
 
     cmpl-float v6, v6, v7
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_2c
 
-    if-ge v3, v5, :cond_0
+    if-ge v3, v5, :cond_2c
 
     aget v4, v0, v3
 
-    :cond_0
+    :cond_2c
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_2f
     move v3, v4
 
     .line 480
-    :cond_2
+    :cond_30
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -406,17 +406,17 @@
 .end method
 
 .method public static declared-synchronized get()Lopenlight/co/camera/managers/zoom/ZoomManager;
-    .locals 2
+    .registers 2
 
     const-class v0, Lopenlight/co/camera/managers/zoom/ZoomManager;
 
     monitor-enter v0
 
     .line 121
-    :try_start_0
+    :try_start_3
     sget-object v1, Lopenlight/co/camera/managers/zoom/ZoomManager;->sInstance:Lopenlight/co/camera/managers/zoom/ZoomManager;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 122
     new-instance v1, Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -426,16 +426,16 @@
     sput-object v1, Lopenlight/co/camera/managers/zoom/ZoomManager;->sInstance:Lopenlight/co/camera/managers/zoom/ZoomManager;
 
     .line 124
-    :cond_0
+    :cond_e
     sget-object v1, Lopenlight/co/camera/managers/zoom/ZoomManager;->sInstance:Lopenlight/co/camera/managers/zoom/ZoomManager;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_3 .. :try_end_10} :catchall_12
 
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     .line 120
@@ -445,7 +445,7 @@
 .end method
 
 .method private getPrevZoomLevel()F
-    .locals 0
+    .registers 1
 
     .line 502
     iget p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mPrevZoomLevel:F
@@ -454,7 +454,7 @@
 .end method
 
 .method private getZoomRect(F)Landroid/graphics/Rect;
-    .locals 5
+    .registers 7
 
     .line 428
     invoke-static {}, Lopenlight/co/camera/CameraInfo;->get()Lopenlight/co/camera/CameraInfo;
@@ -520,7 +520,7 @@
 .end method
 
 .method private storeZoomValue(Lopenlight/co/camera/view/zoom/ZoomWheel;)V
-    .locals 2
+    .registers 4
 
     .line 491
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -550,7 +550,7 @@
 
 # virtual methods
 .method public calculatePrimeLevel(Z)F
-    .locals 5
+    .registers 7
 
     .line 223
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mLensRatios:Ljava/util/List;
@@ -568,12 +568,12 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_27
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-gt v3, v0, :cond_3
+    :goto_11
+    if-gt v3, v0, :cond_3d
 
     .line 228
     iget-object v2, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mLensRatios:Ljava/util/List;
@@ -590,18 +590,18 @@
 
     cmpl-float v4, v2, v1
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_24
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_0
+    :cond_24
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
-    :goto_1
-    if-ltz v0, :cond_3
+    :cond_27
+    :goto_27
+    if-ltz v0, :cond_3d
 
     .line 235
     iget-object v2, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mLensRatios:Ljava/util/List;
@@ -618,18 +618,18 @@
 
     cmpg-float v3, v2, v1
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_3a
 
-    goto :goto_2
+    goto :goto_3d
 
-    :cond_2
+    :cond_3a
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_27
 
     .line 241
-    :cond_3
-    :goto_2
+    :cond_3d
+    :goto_3d
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -666,7 +666,7 @@
 .end method
 
 .method public calculateZoomLevelFromPreference()V
-    .locals 3
+    .registers 4
 
     .line 396
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -687,14 +687,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     const/high16 v0, 0x41e00000    # 28.0f
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 397
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v1, "zoom_value"
@@ -704,7 +704,7 @@
     move-result v0
 
     .line 398
-    :goto_0
+    :goto_1f
     iget-object v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
 
     invoke-virtual {v1}, Lopenlight/co/camera/CameraInfo;->getMinFocalLengthLens()F
@@ -726,7 +726,7 @@
 .end method
 
 .method public enumContains(F)Z
-    .locals 4
+    .registers 6
 
     .line 286
     invoke-static {}, Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;->values()[Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;
@@ -740,8 +740,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_7
+    if-ge v2, v0, :cond_18
 
     aget-object v3, p0, v2
 
@@ -752,23 +752,23 @@
 
     cmpl-float v3, v3, p1
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_15
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_15
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_1
+    :cond_18
     return v1
 .end method
 
 .method public getFocalLength()F
-    .locals 0
+    .registers 1
 
     .line 336
     iget p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mFocalLength:F
@@ -777,7 +777,7 @@
 .end method
 
 .method public getTempZoomLevel()F
-    .locals 0
+    .registers 1
 
     .line 327
     iget p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mRelativeToPrimeZoomLevel:F
@@ -786,12 +786,12 @@
 .end method
 
 .method public getZoomCroppedView()Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 354
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomCroppedView:Landroid/graphics/Rect;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 355
     iget v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mRelativeToPrimeZoomLevel:F
@@ -803,14 +803,14 @@
     iput-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomCroppedView:Landroid/graphics/Rect;
 
     .line 357
-    :cond_0
+    :cond_c
     iget-object p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomCroppedView:Landroid/graphics/Rect;
 
     return-object p0
 .end method
 
 .method public getZoomLevel()F
-    .locals 0
+    .registers 1
 
     .line 317
     iget p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
@@ -819,7 +819,7 @@
 .end method
 
 .method public getZoomType()Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomType;
-    .locals 0
+    .registers 1
 
     .line 345
     iget-object p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomType:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomType;
@@ -828,7 +828,7 @@
 .end method
 
 .method public initZoomValue(Lopenlight/co/camera/view/zoom/ZoomWheel;)V
-    .locals 2
+    .registers 4
 
     .line 267
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomUpdateOnUiListener:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomUpdateOnUi;
@@ -844,7 +844,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 271
     invoke-virtual {p0}, Lopenlight/co/camera/managers/zoom/ZoomManager;->calculateZoomLevelFromPreference()V
@@ -852,12 +852,12 @@
     .line 272
     invoke-virtual {p1}, Lopenlight/co/camera/view/zoom/ZoomWheel;->setZoomLevel()V
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public isCurrentlyZooming()Z
-    .locals 1
+    .registers 2
 
     .line 366
     iget-object p0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomState:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
@@ -872,7 +872,7 @@
 .end method
 
 .method public isInBCFocalLength()Z
-    .locals 1
+    .registers 2
 
     .line 416
     iget v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
@@ -881,21 +881,21 @@
 
     cmpl-float p0, v0, p0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public performZoom(Lopenlight/co/camera/view/zoom/ZoomWheel;)V
-    .locals 4
+    .registers 6
 
     .line 182
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -914,7 +914,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_a5
 
     .line 185
     sget-object v1, Lopenlight/co/camera/managers/zoom/ZoomManager;->TAG:Ljava/lang/String;
@@ -945,7 +945,7 @@
 
     invoke-static {v1, v2}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_9a
 
     .line 188
     invoke-direct {p0}, Lopenlight/co/camera/managers/zoom/ZoomManager;->calculateFocalLength()F
@@ -990,7 +990,7 @@
 
     cmpl-float v1, v1, v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_6a
 
     .line 192
     iget-object v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomUpdateOnUiListener:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomUpdateOnUi;
@@ -998,7 +998,7 @@
     invoke-interface {v1}, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomUpdateOnUi;->triggerFocusPostZoom()V
 
     .line 194
-    :cond_0
+    :cond_6a
     invoke-direct {p0}, Lopenlight/co/camera/managers/zoom/ZoomManager;->calculateDigitalLevelBasedOnZoomLevel()V
 
     .line 195
@@ -1050,7 +1050,7 @@
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/zoom/ZoomManager;->storeZoomValue(Lopenlight/co/camera/view/zoom/ZoomWheel;)V
 
     .line 207
-    :cond_1
+    :cond_9a
     iget p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mFocalLength:F
 
     iput p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mPrevFocalLength:F
@@ -1063,12 +1063,12 @@
 
     iput p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mPrevZoomLevel:F
 
-    :cond_2
+    :cond_a5
     return-void
 .end method
 
 .method public resetTempZoomLevel()V
-    .locals 2
+    .registers 3
 
     .line 383
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -1091,16 +1091,16 @@
 
     const/high16 v1, 0x41e00000    # 28.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_18
     const/high16 v0, 0x420c0000    # 35.0f
 
-    :goto_0
+    :goto_1a
     div-float/2addr v0, v1
 
     .line 385
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public resetZoom()V
-    .locals 1
+    .registers 2
 
     .line 140
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;->IDLE:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
@@ -1136,7 +1136,7 @@
 .end method
 
 .method public resetZoomAtStart()V
-    .locals 2
+    .registers 3
 
     .line 371
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -1170,7 +1170,7 @@
 .end method
 
 .method public setPinchZoomType()V
-    .locals 1
+    .registers 2
 
     .line 299
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomType;->PINCH:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomType;
@@ -1181,7 +1181,7 @@
 .end method
 
 .method public setZoom(F)V
-    .locals 4
+    .registers 6
 
     .line 151
     iget-object v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -1196,58 +1196,58 @@
 
     const/4 v1, 0x1
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_e
 
     move p1, v1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p1, -0x1
 
     .line 156
-    :goto_0
+    :goto_f
     iget v2, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
     iget v3, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mBAFocalLengthRatio:F
 
     cmpl-float v2, v2, v3
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_1a
 
     .line 157
     iget v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mBCZoomStepSize:F
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 158
-    :cond_1
+    :cond_1a
     iget v2, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
     iget v3, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mBAFocalLengthRatio:F
 
     cmpl-float v2, v2, v3
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_2a
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_27
 
     .line 159
     iget v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mBCZoomStepSize:F
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_2
+    :cond_27
     iget v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mABZoomStepSize:F
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 161
-    :cond_3
+    :cond_2a
     iget v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mABZoomStepSize:F
 
     .line 164
-    :goto_1
+    :goto_2c
     iget v2, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
     int-to-float p1, p1
@@ -1265,28 +1265,28 @@
 
     cmpg-float p1, p1, v1
 
-    if-gez p1, :cond_4
+    if-gez p1, :cond_3d
 
     .line 166
     iput v1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
     .line 168
-    :cond_4
+    :cond_3d
     iget p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
     cmpl-float p1, p1, v0
 
-    if-lez p1, :cond_5
+    if-lez p1, :cond_45
 
     .line 169
     iput v0, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
 
-    :cond_5
+    :cond_45
     return-void
 .end method
 
 .method public setZoomForTest(F)V
-    .locals 0
+    .registers 2
 
     .line 391
     iput p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F
@@ -1295,7 +1295,7 @@
 .end method
 
 .method public setZoomToDefault()V
-    .locals 1
+    .registers 2
 
     .line 406
     invoke-virtual {p0}, Lopenlight/co/camera/managers/zoom/ZoomManager;->resetZoomAtStart()V
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public setZoomUpdateOnUi(Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomUpdateOnUi;)V
-    .locals 0
+    .registers 2
 
     .line 308
     iput-object p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomUpdateOnUiListener:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomUpdateOnUi;
@@ -1325,7 +1325,7 @@
 .end method
 
 .method public startZoom()V
-    .locals 1
+    .registers 2
 
     .line 132
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;->ZOOMING:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
@@ -1336,7 +1336,7 @@
 .end method
 
 .method public zoomToNextPrime(FLopenlight/co/camera/view/zoom/ZoomWheel;)V
-    .locals 0
+    .registers 3
 
     .line 255
     iput p1, p0, Lopenlight/co/camera/managers/zoom/ZoomManager;->mZoomLevel:F

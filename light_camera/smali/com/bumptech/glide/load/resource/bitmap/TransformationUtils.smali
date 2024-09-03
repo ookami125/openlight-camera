@@ -11,7 +11,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,32 +20,32 @@
 .end method
 
 .method public static centerCrop(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
-    .locals 7
+    .registers 11
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 41
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result v0
 
-    if-ne v0, p2, :cond_1
+    if-ne v0, p2, :cond_11
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
 
-    if-ne v0, p3, :cond_1
+    if-ne v0, p3, :cond_11
 
     return-object p1
 
     .line 47
-    :cond_1
+    :cond_11
     new-instance v0, Landroid/graphics/Matrix;
 
     invoke-direct {v0}, Landroid/graphics/Matrix;-><init>()V
@@ -67,7 +67,7 @@
 
     const/high16 v4, 0x3f000000    # 0.5f
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_36
 
     int-to-float v1, p3
 
@@ -95,9 +95,9 @@
 
     mul-float/2addr v2, v4
 
-    goto :goto_0
+    goto :goto_49
 
-    :cond_2
+    :cond_36
     int-to-float v1, p2
 
     .line 52
@@ -131,7 +131,7 @@
     move v2, v6
 
     .line 56
-    :goto_0
+    :goto_49
     invoke-virtual {v0, v1, v1}, Landroid/graphics/Matrix;->setScale(FF)V
 
     add-float/2addr v2, v4
@@ -149,12 +149,12 @@
     .line 57
     invoke-virtual {v0, v1, v2}, Landroid/graphics/Matrix;->postTranslate(FF)Z
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_58
 
-    goto :goto_1
+    goto :goto_60
 
     .line 62
-    :cond_3
+    :cond_58
     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getSafeConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
 
     move-result-object p0
@@ -164,7 +164,7 @@
     move-result-object p0
 
     .line 66
-    :goto_1
+    :goto_60
     invoke-static {p1, p0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->setAlpha(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
 
     .line 68
@@ -186,7 +186,7 @@
 .end method
 
 .method public static fitCenter(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;II)Landroid/graphics/Bitmap;
-    .locals 5
+    .registers 9
 
     .line 86
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -195,13 +195,13 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, p2, :cond_1
+    if-ne v0, p2, :cond_1d
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
 
-    if-ne v0, p3, :cond_1
+    if-ne v0, p3, :cond_1d
 
     const-string p1, "TransformationUtils"
 
@@ -210,7 +210,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
     const-string p1, "TransformationUtils"
 
@@ -219,10 +219,10 @@
     .line 88
     invoke-static {p1, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_1c
     return-object p0
 
-    :cond_1
+    :cond_1d
     int-to-float v0, p2
 
     .line 92
@@ -277,13 +277,13 @@
 
     move-result v4
 
-    if-ne v4, v2, :cond_3
+    if-ne v4, v2, :cond_59
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v4
 
-    if-ne v4, v3, :cond_3
+    if-ne v4, v3, :cond_59
 
     const-string p1, "TransformationUtils"
 
@@ -292,7 +292,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_58
 
     const-string p1, "TransformationUtils"
 
@@ -301,11 +301,11 @@
     .line 104
     invoke-static {p1, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_58
     return-object p0
 
     .line 109
-    :cond_3
+    :cond_59
     invoke-static {p0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getSafeConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
 
     move-result-object v4
@@ -315,7 +315,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_67
 
     .line 112
     invoke-static {v2, v3, v4}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -323,7 +323,7 @@
     move-result-object p1
 
     .line 115
-    :cond_4
+    :cond_67
     invoke-static {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->setAlpha(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
 
     const-string v2, "TransformationUtils"
@@ -333,7 +333,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_f2
 
     const-string v1, "TransformationUtils"
 
@@ -446,7 +446,7 @@
     invoke-static {p2, p3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 124
-    :cond_5
+    :cond_f2
     new-instance p2, Landroid/graphics/Canvas;
 
     invoke-direct {p2, p1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
@@ -473,43 +473,43 @@
 .end method
 
 .method public static getExifOrientationDegrees(I)I
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_e
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :pswitch_0
+    :pswitch_5
     const/16 p0, 0x10e
 
-    goto :goto_0
+    goto :goto_d
 
-    :pswitch_1
+    :pswitch_8
     const/16 p0, 0x5a
 
-    goto :goto_0
+    goto :goto_d
 
-    :pswitch_2
+    :pswitch_b
     const/16 p0, 0xb4
 
-    :goto_0
+    :goto_d
     return p0
 
-    :pswitch_data_0
+    :pswitch_data_e
     .packed-switch 0x3
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_b
+        :pswitch_b
+        :pswitch_8
+        :pswitch_8
+        :pswitch_5
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public static getOrientation(Ljava/lang/String;)I
-    .locals 5
+    .registers 6
     .annotation build Landroid/annotation/TargetApi;
         value = 0x5
     .end annotation
@@ -520,7 +520,7 @@
     const/4 v0, 0x0
 
     .line 161
-    :try_start_0
+    :try_start_1
     new-instance v1, Landroid/media/ExifInterface;
 
     invoke-direct {v1, p0}, Landroid/media/ExifInterface;-><init>(Ljava/lang/String;)V
@@ -536,12 +536,12 @@
     invoke-static {v1}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->getExifOrientationDegrees(I)I
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_10} :catch_11
 
     return v1
 
-    :catch_0
+    :catch_11
     move-exception v1
 
     const-string v2, "TransformationUtils"
@@ -553,7 +553,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_31
 
     const-string v2, "TransformationUtils"
 
@@ -574,35 +574,35 @@
 
     invoke-static {v2, p0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_31
     return v0
 .end method
 
 .method private static getSafeConfig(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap$Config;
-    .locals 1
+    .registers 2
 
     .line 285
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method static initializeMatrixForRotation(ILandroid/graphics/Matrix;)V
-    .locals 5
+    .registers 7
 
     const/high16 v0, -0x3d4c0000    # -90.0f
 
@@ -614,78 +614,78 @@
 
     const/high16 v4, -0x40800000    # -1.0f
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_34
 
-    goto :goto_0
+    goto :goto_32
 
     .line 313
-    :pswitch_0
+    :pswitch_e
     invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->setRotate(F)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 309
-    :pswitch_1
+    :pswitch_12
     invoke-virtual {p1, v0}, Landroid/graphics/Matrix;->setRotate(F)V
 
     .line 310
     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
 
-    goto :goto_0
+    goto :goto_32
 
     .line 306
-    :pswitch_2
+    :pswitch_19
     invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->setRotate(F)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 302
-    :pswitch_3
+    :pswitch_1d
     invoke-virtual {p1, v1}, Landroid/graphics/Matrix;->setRotate(F)V
 
     .line 303
     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
 
-    goto :goto_0
+    goto :goto_32
 
     .line 298
-    :pswitch_4
+    :pswitch_24
     invoke-virtual {p1, v2}, Landroid/graphics/Matrix;->setRotate(F)V
 
     .line 299
     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->postScale(FF)Z
 
-    goto :goto_0
+    goto :goto_32
 
     .line 295
-    :pswitch_5
+    :pswitch_2b
     invoke-virtual {p1, v2}, Landroid/graphics/Matrix;->setRotate(F)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 292
-    :pswitch_6
+    :pswitch_2f
     invoke-virtual {p1, v4, v3}, Landroid/graphics/Matrix;->setScale(FF)V
 
-    :goto_0
+    :goto_32
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x2
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2f
+        :pswitch_2b
+        :pswitch_24
+        :pswitch_1d
+        :pswitch_19
+        :pswitch_12
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public static orientImage(Ljava/lang/String;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -703,12 +703,12 @@
 .end method
 
 .method public static rotateImage(Landroid/graphics/Bitmap;I)Landroid/graphics/Bitmap;
-    .locals 7
+    .registers 9
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2e
 
     .line 200
-    :try_start_0
+    :try_start_2
     new-instance v5, Landroid/graphics/Matrix;
 
     invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
@@ -738,14 +738,14 @@
     invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
 
     move-result-object p1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_1b} :catch_1d
 
     move-object p0, p1
 
-    goto :goto_0
+    goto :goto_2e
 
-    :catch_0
+    :catch_1d
     move-exception p1
 
     const-string v0, "TransformationUtils"
@@ -757,7 +757,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     const-string v0, "TransformationUtils"
 
@@ -766,13 +766,13 @@
     .line 213
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
-    :goto_0
+    :cond_2e
+    :goto_2e
     return-object p0
 .end method
 
 .method public static rotateImageExif(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;I)Landroid/graphics/Bitmap;
-    .locals 4
+    .registers 7
 
     .line 256
     new-instance v0, Landroid/graphics/Matrix;
@@ -787,12 +787,12 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     return-object p0
 
     .line 263
-    :cond_0
+    :cond_f
     new-instance p2, Landroid/graphics/RectF;
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getWidth()I
@@ -842,7 +842,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_40
 
     .line 272
     invoke-static {v1, v2, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
@@ -850,7 +850,7 @@
     move-result-object p1
 
     .line 275
-    :cond_1
+    :cond_40
     iget v1, p2, Landroid/graphics/RectF;->left:F
 
     neg-float v1, v1
@@ -880,7 +880,7 @@
 .end method
 
 .method public static setAlpha(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;)V
-    .locals 2
+    .registers 4
     .annotation build Landroid/annotation/TargetApi;
         value = 0xc
     .end annotation
@@ -890,9 +890,9 @@
 
     const/16 v1, 0xc
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 144
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->hasAlpha()Z
@@ -901,6 +901,6 @@
 
     invoke-virtual {p1, p0}, Landroid/graphics/Bitmap;->setHasAlpha(Z)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method

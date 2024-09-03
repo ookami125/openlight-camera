@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 2
+    .registers 5
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_21
 
     .line 48
     iput-wide p1, p0, Lokio/Pipe;->maxBufferSize:J
@@ -66,7 +66,7 @@
     return-void
 
     .line 46
-    :cond_0
+    :cond_21
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public sink()Lokio/Sink;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lokio/Pipe;->sink:Lokio/Sink;
@@ -100,7 +100,7 @@
 .end method
 
 .method public source()Lokio/Source;
-    .locals 0
+    .registers 1
 
     .line 52
     iget-object p0, p0, Lokio/Pipe;->source:Lokio/Source;

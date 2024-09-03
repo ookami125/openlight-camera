@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ShareActionProvider;)V
-    .locals 0
+    .registers 2
 
     .line 396
     iput-object p1, p0, Landroid/support/v7/widget/ShareActionProvider$ShareActivityChooserModelPolicy;->this$0:Landroid/support/v7/widget/ShareActionProvider;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onChooseActivity(Landroid/support/v7/widget/ActivityChooserModel;Landroid/content/Intent;)Z
-    .locals 0
+    .registers 3
 
     .line 401
     iget-object p1, p0, Landroid/support/v7/widget/ShareActionProvider$ShareActivityChooserModelPolicy;->this$0:Landroid/support/v7/widget/ShareActionProvider;
 
     iget-object p1, p1, Landroid/support/v7/widget/ShareActionProvider;->mOnShareTargetSelectedListener:Landroid/support/v7/widget/ShareActionProvider$OnShareTargetSelectedListener;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 402
     iget-object p1, p0, Landroid/support/v7/widget/ShareActionProvider$ShareActivityChooserModelPolicy;->this$0:Landroid/support/v7/widget/ShareActionProvider;
@@ -54,7 +54,7 @@
 
     invoke-interface {p1, p0, p2}, Landroid/support/v7/widget/ShareActionProvider$OnShareTargetSelectedListener;->onShareTargetSelected(Landroid/support/v7/widget/ShareActionProvider;Landroid/content/Intent;)Z
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
     return p0

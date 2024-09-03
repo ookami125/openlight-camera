@@ -27,16 +27,16 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViews;IIILandroid/app/Notification;I)V
-    .locals 0
+    .registers 8
 
     .line 59
     invoke-direct {p0, p4, p5}, Lcom/bumptech/glide/request/target/SimpleTarget;-><init>(II)V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_24
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_1c
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_14
 
     .line 69
     iput-object p1, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->context:Landroid/content/Context;
@@ -56,7 +56,7 @@
     return-void
 
     .line 67
-    :cond_0
+    :cond_14
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "RemoteViews object can not be null!"
@@ -66,7 +66,7 @@
     throw p0
 
     .line 64
-    :cond_1
+    :cond_1c
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Notification object can not be null!"
@@ -76,7 +76,7 @@
     throw p0
 
     .line 61
-    :cond_2
+    :cond_24
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Context must not be null!"
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViews;ILandroid/app/Notification;I)V
-    .locals 8
+    .registers 14
 
     const/high16 v4, -0x80000000
 
@@ -112,7 +112,7 @@
 .end method
 
 .method private update()V
-    .locals 2
+    .registers 3
 
     .line 80
     iget-object v0, p0, Lcom/bumptech/glide/request/target/NotificationTarget;->context:Landroid/content/Context;
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public onResourceReady(Landroid/graphics/Bitmap;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,7 +164,7 @@
 .end method
 
 .method public bridge synthetic onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
 
     .line 20
     check-cast p1, Landroid/graphics/Bitmap;

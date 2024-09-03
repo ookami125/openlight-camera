@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;)V
-    .locals 0
+    .registers 2
 
     .line 135
     iput-object p1, p0, Landroid/support/v4/widget/SearchViewCompat$1;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onQueryTextChange(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     .line 143
     iget-object p0, p0, Landroid/support/v4/widget/SearchViewCompat$1;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;
@@ -49,7 +49,7 @@
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     .line 138
     iget-object p0, p0, Landroid/support/v4/widget/SearchViewCompat$1;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnQueryTextListener;

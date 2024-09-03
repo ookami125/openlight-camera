@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 49
     new-instance v0, Lorg/apache/commons/io/FileSystemUtils;
@@ -34,7 +34,7 @@
 
     const-string v0, "df"
 
-    :try_start_0
+    :try_start_9
     const-string v1, "os.name"
 
     .line 72
@@ -42,7 +42,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8e
 
     .line 76
     sget-object v2, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
@@ -60,13 +60,13 @@
 
     const/4 v3, 0x3
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     const/4 v3, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_97
 
-    :cond_0
+    :cond_23
     const-string v2, "linux"
 
     .line 80
@@ -74,7 +74,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8c
 
     const-string v2, "mpe/ix"
 
@@ -82,7 +82,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8c
 
     const-string v2, "freebsd"
 
@@ -90,7 +90,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8c
 
     const-string v2, "irix"
 
@@ -98,7 +98,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8c
 
     const-string v2, "digital unix"
 
@@ -106,7 +106,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8c
 
     const-string v2, "unix"
 
@@ -114,7 +114,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_8c
 
     const-string v2, "mac os x"
 
@@ -122,11 +122,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_5c
 
-    goto :goto_1
+    goto :goto_8c
 
-    :cond_1
+    :cond_5c
     const-string v2, "sun os"
 
     .line 88
@@ -134,7 +134,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_88
 
     const-string v2, "sunos"
 
@@ -142,7 +142,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_88
 
     const-string v2, "solaris"
 
@@ -150,11 +150,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_75
 
-    goto :goto_0
+    goto :goto_88
 
-    :cond_2
+    :cond_75
     const-string v2, "hp-ux"
 
     .line 93
@@ -162,7 +162,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_97
 
     const-string v2, "aix"
 
@@ -170,31 +170,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_86
 
-    goto :goto_2
+    goto :goto_97
 
-    :cond_3
+    :cond_86
     const/4 v3, 0x0
 
-    goto :goto_2
+    goto :goto_97
 
-    :cond_4
-    :goto_0
+    :cond_88
+    :goto_88
     const-string v1, "/usr/xpg4/bin/df"
 
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_97
 
-    :cond_5
-    :goto_1
+    :cond_8c
+    :goto_8c
     const/4 v3, 0x2
 
-    goto :goto_2
+    goto :goto_97
 
     .line 74
-    :cond_6
+    :cond_8e
     new-instance v1, Ljava/io/IOException;
 
     const-string v2, "os.name not found"
@@ -202,15 +202,15 @@
     invoke-direct {v1, v2}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_96
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_96} :catch_96
 
-    :catch_0
+    :catch_96
     const/4 v3, -0x1
 
     .line 103
-    :cond_7
-    :goto_2
+    :cond_97
+    :goto_97
     sput v3, Lorg/apache/commons/io/FileSystemUtils;->OS:I
 
     .line 104
@@ -220,7 +220,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -229,7 +229,7 @@
 .end method
 
 .method public static freeSpace(Ljava/lang/String;)J
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -258,7 +258,7 @@
 .end method
 
 .method public static freeSpaceKb()J
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -276,7 +276,7 @@
 .end method
 
 .method public static freeSpaceKb(J)J
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -302,7 +302,7 @@
 .end method
 
 .method public static freeSpaceKb(Ljava/lang/String;)J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -320,7 +320,7 @@
 .end method
 
 .method public static freeSpaceKb(Ljava/lang/String;J)J
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -348,16 +348,16 @@
 
 # virtual methods
 .method freeSpaceOS(Ljava/lang/String;IZJ)J
-    .locals 6
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_38
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_40
 
     .line 273
     new-instance p0, Ljava/lang/IllegalStateException;
@@ -368,7 +368,7 @@
 
     throw p0
 
-    :pswitch_0
+    :pswitch_d
     const/4 v3, 0x1
 
     move-object v0, p0
@@ -386,7 +386,7 @@
 
     return-wide p0
 
-    :pswitch_1
+    :pswitch_17
     const/4 v3, 0x0
 
     move-object v0, p0
@@ -404,8 +404,8 @@
 
     return-wide p0
 
-    :pswitch_2
-    if-eqz p3, :cond_0
+    :pswitch_21
+    if-eqz p3, :cond_2b
 
     .line 265
     invoke-virtual {p0, p1, p4, p5}, Lorg/apache/commons/io/FileSystemUtils;->freeSpaceWindows(Ljava/lang/String;J)J
@@ -416,18 +416,18 @@
 
     div-long/2addr p0, p2
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_2b
     invoke-virtual {p0, p1, p4, p5}, Lorg/apache/commons/io/FileSystemUtils;->freeSpaceWindows(Ljava/lang/String;J)J
 
     move-result-wide p0
 
-    :goto_0
+    :goto_2f
     return-wide p0
 
     .line 271
-    :pswitch_3
+    :pswitch_30
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Unsupported operating system"
@@ -437,7 +437,7 @@
     throw p0
 
     .line 261
-    :cond_1
+    :cond_38
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Path must not be null"
@@ -446,17 +446,17 @@
 
     throw p0
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_30
+        :pswitch_21
+        :pswitch_17
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method freeSpaceUnix(Ljava/lang/String;ZZJ)J
-    .locals 5
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -468,11 +468,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_ee
 
     const-string v0, "-"
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1b
 
     .line 389
     new-instance p2, Ljava/lang/StringBuilder;
@@ -489,8 +489,8 @@
 
     move-result-object v0
 
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_1b
+    if-eqz p3, :cond_2e
 
     .line 392
     new-instance p2, Ljava/lang/StringBuilder;
@@ -508,7 +508,7 @@
     move-result-object v0
 
     .line 394
-    :cond_1
+    :cond_2e
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result p2
@@ -521,7 +521,7 @@
 
     const/4 v3, 0x1
 
-    if-le p2, v3, :cond_2
+    if-le p2, v3, :cond_43
 
     new-array p2, v1, [Ljava/lang/String;
 
@@ -533,9 +533,9 @@
 
     aput-object p1, p2, v2
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_2
+    :cond_43
     new-array p2, v2, [Ljava/lang/String;
 
     sget-object v0, Lorg/apache/commons/io/FileSystemUtils;->DF:Ljava/lang/String;
@@ -545,7 +545,7 @@
     aput-object p1, p2, v3
 
     .line 398
-    :goto_0
+    :goto_4b
     invoke-virtual {p0, p2, v1, p4, p5}, Lorg/apache/commons/io/FileSystemUtils;->performCommand([Ljava/lang/String;IJ)Ljava/util/List;
 
     move-result-object p2
@@ -555,7 +555,7 @@
 
     move-result p3
 
-    if-lt p3, v2, :cond_5
+    if-lt p3, v2, :cond_c0
 
     .line 405
     invoke-interface {p2, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -578,20 +578,20 @@
 
     const/4 p5, 0x4
 
-    if-ge p3, p5, :cond_4
+    if-ge p3, p5, :cond_ae
 
     .line 411
     invoke-virtual {p4}, Ljava/util/StringTokenizer;->countTokens()I
 
     move-result p3
 
-    if-ne p3, v3, :cond_3
+    if-ne p3, v3, :cond_83
 
     invoke-interface {p2}, Ljava/util/List;->size()I
 
     move-result p3
 
-    if-lt p3, v1, :cond_3
+    if-lt p3, v1, :cond_83
 
     .line 412
     invoke-interface {p2, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -607,10 +607,10 @@
 
     invoke-direct {p4, p2, p3}, Ljava/util/StringTokenizer;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_b1
 
     .line 415
-    :cond_3
+    :cond_83
     new-instance p0, Ljava/io/IOException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -648,11 +648,11 @@
     throw p0
 
     .line 420
-    :cond_4
+    :cond_ae
     invoke-virtual {p4}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     .line 422
-    :goto_1
+    :goto_b1
     invoke-virtual {p4}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     .line 423
@@ -671,7 +671,7 @@
     return-wide p0
 
     .line 401
-    :cond_5
+    :cond_c0
     new-instance p0, Ljava/io/IOException;
 
     new-instance p3, Ljava/lang/StringBuilder;
@@ -711,7 +711,7 @@
     throw p0
 
     .line 383
-    :cond_6
+    :cond_ee
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Path must not be empty"
@@ -722,7 +722,7 @@
 .end method
 
 .method freeSpaceWindows(Ljava/lang/String;J)J
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -741,7 +741,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_29
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
 
@@ -749,7 +749,7 @@
 
     const/16 v2, 0x22
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_29
 
     .line 291
     new-instance v1, Ljava/lang/StringBuilder;
@@ -770,7 +770,7 @@
 
     move-result-object p1
 
-    :cond_0
+    :cond_29
     const/4 v1, 0x3
 
     .line 295
@@ -818,8 +818,8 @@
 
     sub-int/2addr p3, v2
 
-    :goto_0
-    if-ltz p3, :cond_2
+    :goto_55
+    if-ltz p3, :cond_6b
 
     .line 305
     invoke-interface {p2, p3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -833,7 +833,7 @@
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_68
 
     .line 307
     invoke-virtual {p0, v0, p1}, Lorg/apache/commons/io/FileSystemUtils;->parseDir(Ljava/lang/String;Ljava/lang/String;)J
@@ -842,13 +842,13 @@
 
     return-wide p0
 
-    :cond_1
+    :cond_68
     add-int/lit8 p3, p3, -0x1
 
-    goto :goto_0
+    goto :goto_55
 
     .line 311
-    :cond_2
+    :cond_6b
     new-instance p0, Ljava/io/IOException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -875,7 +875,7 @@
 .end method
 
 .method openProcess([Ljava/lang/String;)Ljava/lang/Process;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -895,7 +895,7 @@
 .end method
 
 .method parseBytes(Ljava/lang/String;Ljava/lang/String;)J
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -912,12 +912,12 @@
 
     cmp-long v0, p0, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_b
 
     return-wide p0
 
     .line 441
-    :cond_0
+    :cond_b
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -953,10 +953,10 @@
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_36
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_36} :catch_36
 
-    :catch_0
+    :catch_36
     move-exception p0
 
     .line 448
@@ -998,7 +998,7 @@
 .end method
 
 .method parseDir(Ljava/lang/String;Ljava/lang/String;)J
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1012,10 +1012,10 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
+    :goto_6
     const/4 v1, 0x0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_19
 
     .line 333
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -1027,26 +1027,26 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     add-int/lit8 v2, v0, 0x1
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_0
+    :cond_16
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_1
+    :cond_19
     move v2, v1
 
-    :goto_1
+    :goto_1a
     const/16 v3, 0x2e
 
     const/16 v4, 0x2c
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_34
 
     .line 343
     invoke-virtual {p1, v0}, Ljava/lang/String;->charAt(I)C
@@ -1058,26 +1058,26 @@
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_31
 
-    if-eq v5, v4, :cond_2
+    if-eq v5, v4, :cond_31
 
-    if-eq v5, v3, :cond_2
+    if-eq v5, v3, :cond_31
 
     add-int/lit8 v5, v0, 0x1
 
-    goto :goto_2
+    goto :goto_35
 
-    :cond_2
+    :cond_31
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_3
+    :cond_34
     move v5, v1
 
-    :goto_2
-    if-ltz v0, :cond_7
+    :goto_35
+    if-ltz v0, :cond_66
 
     .line 359
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1089,47 +1089,47 @@
     invoke-direct {v0, p1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     .line 360
-    :goto_3
+    :goto_40
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result p1
 
-    if-ge v1, p1, :cond_6
+    if-ge v1, p1, :cond_5d
 
     .line 361
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->charAt(I)C
 
     move-result p1
 
-    if-eq p1, v4, :cond_5
+    if-eq p1, v4, :cond_55
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->charAt(I)C
 
     move-result p1
 
-    if-ne p1, v3, :cond_4
+    if-ne p1, v3, :cond_53
 
-    goto :goto_4
+    goto :goto_55
 
-    :cond_4
+    :cond_53
     move p1, v1
 
-    goto :goto_5
+    goto :goto_5a
 
-    :cond_5
-    :goto_4
+    :cond_55
+    :goto_55
     add-int/lit8 p1, v1, -0x1
 
     .line 362
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->deleteCharAt(I)Ljava/lang/StringBuilder;
 
-    :goto_5
+    :goto_5a
     add-int/lit8 v1, p1, 0x1
 
-    goto :goto_3
+    goto :goto_40
 
     .line 365
-    :cond_6
+    :cond_5d
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
@@ -1141,7 +1141,7 @@
     return-wide p0
 
     .line 353
-    :cond_7
+    :cond_66
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -1168,7 +1168,7 @@
 .end method
 
 .method performCommand([Ljava/lang/String;IJ)Ljava/util/List;
-    .locals 9
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1196,7 +1196,7 @@
     const/4 v1, 0x0
 
     .line 482
-    :try_start_0
+    :try_start_8
     invoke-static {p3, p4}, Lorg/apache/commons/io/ThreadMonitor;->start(J)Ljava/lang/Thread;
 
     move-result-object v2
@@ -1205,39 +1205,39 @@
     invoke-virtual {p0, p1}, Lorg/apache/commons/io/FileSystemUtils;->openProcess([Ljava/lang/String;)Ljava/lang/Process;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_5
-    .catchall {:try_start_0 .. :try_end_0} :catchall_5
+    :try_end_10
+    .catch Ljava/lang/InterruptedException; {:try_start_8 .. :try_end_10} :catch_d7
+    .catchall {:try_start_8 .. :try_end_10} :catchall_d0
 
     .line 485
-    :try_start_1
+    :try_start_10
     invoke-virtual {p0}, Ljava/lang/Process;->getInputStream()Ljava/io/InputStream;
 
     move-result-object v3
-    :try_end_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_4
-    .catchall {:try_start_1 .. :try_end_1} :catchall_4
+    :try_end_14
+    .catch Ljava/lang/InterruptedException; {:try_start_10 .. :try_end_14} :catch_c9
+    .catchall {:try_start_10 .. :try_end_14} :catchall_c6
 
     .line 486
-    :try_start_2
+    :try_start_14
     invoke-virtual {p0}, Ljava/lang/Process;->getOutputStream()Ljava/io/OutputStream;
 
     move-result-object v4
-    :try_end_2
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_3
-    .catchall {:try_start_2 .. :try_end_2} :catchall_3
+    :try_end_18
+    .catch Ljava/lang/InterruptedException; {:try_start_14 .. :try_end_18} :catch_c3
+    .catchall {:try_start_14 .. :try_end_18} :catchall_c0
 
     .line 487
-    :try_start_3
+    :try_start_18
     invoke-virtual {p0}, Ljava/lang/Process;->getErrorStream()Ljava/io/InputStream;
 
     move-result-object v5
-    :try_end_3
-    .catch Ljava/lang/InterruptedException; {:try_start_3 .. :try_end_3} :catch_2
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_1c
+    .catch Ljava/lang/InterruptedException; {:try_start_18 .. :try_end_1c} :catch_bd
+    .catchall {:try_start_18 .. :try_end_1c} :catchall_ba
 
     .line 489
-    :try_start_4
+    :try_start_1c
     new-instance v6, Ljava/io/BufferedReader;
 
     new-instance v7, Ljava/io/InputStreamReader;
@@ -1249,25 +1249,25 @@
     invoke-direct {v7, v3, v8}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
 
     invoke-direct {v6, v7}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-    :try_end_4
-    .catch Ljava/lang/InterruptedException; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_2a
+    .catch Ljava/lang/InterruptedException; {:try_start_1c .. :try_end_2a} :catch_b7
+    .catchall {:try_start_1c .. :try_end_2a} :catchall_b3
 
     .line 490
-    :try_start_5
+    :try_start_2a
     invoke-virtual {v6}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_2e
+    if-eqz v1, :cond_48
 
     .line 491
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v7
 
-    if-ge v7, p2, :cond_0
+    if-ge v7, p2, :cond_48
 
     .line 492
     sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
@@ -1288,10 +1288,10 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 497
-    :cond_0
+    :cond_48
     invoke-virtual {p0}, Ljava/lang/Process;->waitFor()I
 
     .line 499
@@ -1302,17 +1302,17 @@
 
     move-result p2
 
-    if-nez p2, :cond_3
+    if-nez p2, :cond_87
 
     .line 507
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result p2
-    :try_end_5
-    .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_0
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_58
+    .catch Ljava/lang/InterruptedException; {:try_start_2a .. :try_end_58} :catch_b1
+    .catchall {:try_start_2a .. :try_end_58} :catchall_ae
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_6c
 
     .line 520
     invoke-static {v3}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
@@ -1326,17 +1326,17 @@
     .line 523
     invoke-static {v6}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Reader;)V
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_6b
 
     .line 525
     invoke-virtual {p0}, Ljava/lang/Process;->destroy()V
 
-    :cond_1
+    :cond_6b
     return-object v0
 
     .line 509
-    :cond_2
-    :try_start_6
+    :cond_6c
+    :try_start_6c
     new-instance p2, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1362,7 +1362,7 @@
     throw p2
 
     .line 503
-    :cond_3
+    :cond_87
     new-instance p2, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1396,106 +1396,106 @@
     invoke-direct {p2, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw p2
-    :try_end_6
-    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_6} :catch_0
-    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+    :try_end_ae
+    .catch Ljava/lang/InterruptedException; {:try_start_6c .. :try_end_ae} :catch_b1
+    .catchall {:try_start_6c .. :try_end_ae} :catchall_ae
 
-    :catchall_0
+    :catchall_ae
     move-exception p1
 
-    goto/16 :goto_8
+    goto/16 :goto_101
 
-    :catch_0
+    :catch_b1
     move-exception p2
 
-    goto :goto_3
+    goto :goto_ce
 
-    :catchall_1
+    :catchall_b3
     move-exception p1
 
     move-object v6, v1
 
-    goto/16 :goto_8
+    goto/16 :goto_101
 
-    :catch_1
+    :catch_b7
     move-exception p2
 
     move-object v6, v1
 
-    goto :goto_3
+    goto :goto_ce
 
-    :catchall_2
+    :catchall_ba
     move-exception p1
 
     move-object v5, v1
 
-    goto :goto_6
+    goto :goto_d5
 
-    :catch_2
+    :catch_bd
     move-exception p2
 
     move-object v5, v1
 
-    goto :goto_2
+    goto :goto_cd
 
-    :catchall_3
+    :catchall_c0
     move-exception p1
 
     move-object v4, v1
 
-    goto :goto_5
+    goto :goto_d4
 
-    :catch_3
+    :catch_c3
     move-exception p2
 
     move-object v4, v1
 
-    goto :goto_1
+    goto :goto_cc
 
-    :catchall_4
+    :catchall_c6
     move-exception p1
 
     move-object v3, v1
 
-    goto :goto_4
+    goto :goto_d3
 
-    :catch_4
+    :catch_c9
     move-exception p2
 
     move-object v3, v1
 
     move-object v4, v3
 
-    :goto_1
+    :goto_cc
     move-object v5, v4
 
-    :goto_2
+    :goto_cd
     move-object v6, v5
 
-    :goto_3
+    :goto_ce
     move-object v1, p0
 
-    goto :goto_7
+    goto :goto_dc
 
-    :catchall_5
+    :catchall_d0
     move-exception p1
 
     move-object p0, v1
 
     move-object v3, p0
 
-    :goto_4
+    :goto_d3
     move-object v4, v3
 
-    :goto_5
+    :goto_d4
     move-object v5, v4
 
-    :goto_6
+    :goto_d5
     move-object v6, v5
 
-    goto :goto_8
+    goto :goto_101
 
-    :catch_5
+    :catch_d7
     move-exception p2
 
     move-object v3, v1
@@ -1507,8 +1507,8 @@
     move-object v6, v5
 
     .line 516
-    :goto_7
-    :try_start_7
+    :goto_dc
+    :try_start_dc
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1538,16 +1538,16 @@
     invoke-direct {p0, p1, p2}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
 
     throw p0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_6
+    :try_end_ff
+    .catchall {:try_start_dc .. :try_end_ff} :catchall_ff
 
-    :catchall_6
+    :catchall_ff
     move-exception p1
 
     move-object p0, v1
 
     .line 520
-    :goto_8
+    :goto_101
     invoke-static {v3}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
 
     .line 521
@@ -1559,11 +1559,11 @@
     .line 523
     invoke-static {v6}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Reader;)V
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_112
 
     .line 525
     invoke-virtual {p0}, Ljava/lang/Process;->destroy()V
 
-    :cond_4
+    :cond_112
     throw p1
 .end method

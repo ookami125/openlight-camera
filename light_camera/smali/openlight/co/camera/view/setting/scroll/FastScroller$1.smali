@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/setting/scroll/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 112
     iput-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
@@ -36,29 +36,32 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 115
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mIsDragging:Z
     invoke-static {v0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$000(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_6a
 
     .line 116
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$100(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 117
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$100(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -66,7 +69,7 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     .line 119
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
     iget-object v1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
@@ -81,6 +84,7 @@
 
     iget-object v5, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
     invoke-static {v5}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$200(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
 
     move-result-object v5
@@ -93,18 +97,19 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_36
 
     const/16 v5, -0x14
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_1
+    :cond_36
     const/16 v5, 0x14
 
-    :goto_0
+    :goto_38
     iget-object v6, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mWidth:I
     invoke-static {v6}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$300(Lopenlight/co/camera/view/setting/scroll/FastScroller;)I
 
     move-result v6
@@ -117,11 +122,13 @@
 
     move-result-object v1
 
+    # setter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0, v1}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$102(Lopenlight/co/camera/view/setting/scroll/FastScroller;Landroid/animation/Animator;)Landroid/animation/Animator;
 
     .line 120
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$100(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -135,6 +142,7 @@
     .line 121
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {v0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$100(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Landroid/animation/Animator;
 
     move-result-object v0
@@ -146,12 +154,13 @@
     .line 122
     iget-object p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$1;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
     invoke-static {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$100(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Landroid/animation/Animator;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/animation/Animator;->start()V
 
-    :cond_2
+    :cond_6a
     return-void
 .end method

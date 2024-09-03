@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/TransitionSet;Landroid/support/transition/Transition;)V
-    .locals 0
+    .registers 3
 
     .line 448
     iput-object p1, p0, Landroid/support/transition/TransitionSet$1;->this$0:Landroid/support/transition/TransitionSet;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroid/support/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

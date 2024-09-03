@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public buildDecoder(Lcom/bumptech/glide/gifdecoder/GifDecoder$BitmapProvider;)Lcom/bumptech/glide/gifdecoder/GifDecoder;
-    .locals 0
+    .registers 2
 
     .line 133
     new-instance p0, Lcom/bumptech/glide/gifdecoder/GifDecoder;
@@ -38,7 +38,7 @@
 .end method
 
 .method public buildEncoder()Lcom/bumptech/glide/gifencoder/AnimatedGifEncoder;
-    .locals 0
+    .registers 1
 
     .line 141
     new-instance p0, Lcom/bumptech/glide/gifencoder/AnimatedGifEncoder;
@@ -49,7 +49,7 @@
 .end method
 
 .method public buildFrameResource(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 .end method
 
 .method public buildParser()Lcom/bumptech/glide/gifdecoder/GifHeaderParser;
-    .locals 0
+    .registers 1
 
     .line 137
     new-instance p0, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;

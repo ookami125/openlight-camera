@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 33
     new-instance v0, Lopenlight/co/camera/view/face/FaceViewHelper;
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 209
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$000()J
-    .locals 2
+    .registers 2
 
     .line 23
     sget-wide v0, Lopenlight/co/camera/view/face/FaceViewHelper;->FACE_UI_UPDATE_REFRESH_PERIOD:J
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/face/FaceViewHelper;)V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Lopenlight/co/camera/view/face/FaceViewHelper;->updateFaces()V
@@ -151,7 +151,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/view/face/FaceViewHelper;Z)Z
-    .locals 0
+    .registers 2
 
     .line 23
     iput-boolean p1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mProcessAndDrawFace:Z
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/face/FaceViewHelper;)Lopenlight/co/camera/view/face/FaceView;
-    .locals 0
+    .registers 1
 
     .line 23
     iget-object p0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceView:Lopenlight/co/camera/view/face/FaceView;
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$302(Lopenlight/co/camera/view/face/FaceViewHelper;Lopenlight/co/camera/view/face/FaceView;)Lopenlight/co/camera/view/face/FaceView;
-    .locals 0
+    .registers 2
 
     .line 23
     iput-object p1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceView:Lopenlight/co/camera/view/face/FaceView;
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/face/FaceViewHelper;)Landroid/view/ViewGroup;
-    .locals 0
+    .registers 1
 
     .line 23
     iget-object p0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mContainerLayout:Landroid/view/ViewGroup;
@@ -187,7 +187,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/view/face/FaceViewHelper;
-    .locals 1
+    .registers 1
 
     .line 36
     sget-object v0, Lopenlight/co/camera/view/face/FaceViewHelper;->sInstance:Lopenlight/co/camera/view/face/FaceViewHelper;
@@ -196,16 +196,16 @@
 .end method
 
 .method private updateFaces()V
-    .locals 1
+    .registers 2
 
     .line 191
     sget-boolean v0, Lopenlight/co/camera/view/face/FaceView;->DISPLAY_FACE_RECTANGLES:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceView:Lopenlight/co/camera/view/face/FaceView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 192
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceView:Lopenlight/co/camera/view/face/FaceView;
@@ -214,23 +214,23 @@
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/face/FaceView;->clearAndDrawAllRectangles(Ljava/util/List;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 
 # virtual methods
 .method public init(Landroid/view/ViewGroup;Landroid/util/Size;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2a
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2a
 
     .line 171
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceDetector:Lopenlight/co/camera/utils/FaceDetector;
@@ -239,7 +239,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 172
     iput-object p2, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mPreviewSize:Landroid/util/Size;
@@ -260,7 +260,7 @@
     .line 179
     sget-boolean p1, Lopenlight/co/camera/view/face/FaceView;->DISPLAY_FACE_RECTANGLES:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     .line 180
     iget-object p1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mMainLooperHandler:Landroid/os/Handler;
@@ -275,11 +275,11 @@
 
     invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_0
+    :cond_29
     return-void
 
     .line 168
-    :cond_1
+    :cond_2a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Cannot call init with null parameters"
@@ -290,7 +290,7 @@
 .end method
 
 .method public onFaceDetected(Ljava/util/List;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -303,7 +303,7 @@
     .line 99
     iget-boolean v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mProcessAndDrawFace:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_85
 
     const/4 v0, 0x0
 
@@ -315,17 +315,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 103
     iget-object p1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mCurrentFaces:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->clear()V
 
-    goto :goto_3
+    goto :goto_71
 
     .line 105
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mSmartAFTriggerMgr:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
 
     .line 106
@@ -340,13 +340,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     const/high16 v0, -0x80000000
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_1
+    :cond_24
     iget-object v2, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mCurrentFaces:Ljava/util/List;
 
     .line 109
@@ -360,19 +360,19 @@
 
     move-result v0
 
-    :goto_0
-    if-nez v1, :cond_2
+    :goto_30
+    if-nez v1, :cond_33
 
-    goto :goto_1
+    goto :goto_37
 
     .line 113
-    :cond_2
+    :cond_33
     invoke-virtual {v1}, Landroid/hardware/camera2/params/Face;->getId()I
 
     move-result v0
 
     .line 114
-    :goto_1
+    :goto_37
     iget-object v1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mCurrentFaces:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->clear()V
@@ -389,12 +389,12 @@
 
     move-result-object p1
 
-    :goto_2
+    :goto_48
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_71
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -434,11 +434,11 @@
 
     invoke-interface {v1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_48
 
     .line 153
-    :cond_3
-    :goto_3
+    :cond_71
+    :goto_71
     iget-object p1, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mSmartAFTriggerMgr:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
 
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mCurrentFaces:Ljava/util/List;
@@ -458,12 +458,12 @@
 
     invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_4
+    :cond_85
     return-void
 .end method
 
 .method public release()V
-    .locals 2
+    .registers 3
 
     .line 200
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceDetector:Lopenlight/co/camera/utils/FaceDetector;
@@ -472,7 +472,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 201
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mFaceDetector:Lopenlight/co/camera/utils/FaceDetector;
@@ -505,6 +505,6 @@
     .line 205
     iput-boolean v0, p0, Lopenlight/co/camera/view/face/FaceViewHelper;->mProcessAndDrawFace:Z
 
-    :cond_0
+    :cond_25
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
-    .locals 0
+    .registers 2
 
     .line 803
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi24;->this$0:Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onChildrenLoaded(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -71,7 +71,7 @@
 .end method
 
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

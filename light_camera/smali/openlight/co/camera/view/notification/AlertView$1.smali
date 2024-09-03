@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/notification/AlertView;)V
-    .locals 0
+    .registers 2
 
     .line 42
     iput-object p1, p0, Lopenlight/co/camera/view/notification/AlertView$1;->this$0:Lopenlight/co/camera/view/notification/AlertView;
@@ -36,12 +36,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 45
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView$1;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
     .line 46
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
     invoke-static {v0}, Lopenlight/co/camera/view/notification/AlertView;->access$000(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/View;
 
     move-result-object v1
@@ -63,6 +64,7 @@
     .line 47
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView$1;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
     invoke-static {p0}, Lopenlight/co/camera/view/notification/AlertView;->access$000(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/View;
 
     move-result-object p0

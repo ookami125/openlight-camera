@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const-string v0, ""
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public bridge synthetic getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
 
     .line 17
     check-cast p1, [B
@@ -68,7 +68,7 @@
 .end method
 
 .method public getResourceFetcher([BII)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([BII)",

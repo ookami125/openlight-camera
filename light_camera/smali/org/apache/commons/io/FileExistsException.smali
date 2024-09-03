@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/io/IOException;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 2
+    .registers 4
 
     .line 57
     new-instance v0, Ljava/lang/StringBuilder;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 48
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)V
-    .locals 2
+    .registers 5
 
     .line 319
     sget v0, Landroid/support/design/R$layout;->design_navigation_item_separator:I

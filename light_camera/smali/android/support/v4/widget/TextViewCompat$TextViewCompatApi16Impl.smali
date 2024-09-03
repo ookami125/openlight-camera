@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 224
     invoke-direct {p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getMaxLines(Landroid/widget/TextView;)I
-    .locals 0
+    .registers 2
 
     .line 227
     invoke-virtual {p1}, Landroid/widget/TextView;->getMaxLines()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public getMinLines(Landroid/widget/TextView;)I
-    .locals 0
+    .registers 2
 
     .line 232
     invoke-virtual {p1}, Landroid/widget/TextView;->getMinLines()I

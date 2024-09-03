@@ -55,7 +55,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -92,7 +92,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/v4/provider/SelfDestructiveThread;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
 
     .line 42
     invoke-direct {p0, p1}, Landroid/support/v4/provider/SelfDestructiveThread;->onInvokeRunnable(Ljava/lang/Runnable;)V
@@ -101,7 +101,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/v4/provider/SelfDestructiveThread;)V
-    .locals 0
+    .registers 1
 
     .line 42
     invoke-direct {p0}, Landroid/support/v4/provider/SelfDestructiveThread;->onDestruction()V
@@ -110,7 +110,7 @@
 .end method
 
 .method private onDestruction()V
-    .locals 3
+    .registers 4
 
     .line 222
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mLock:Ljava/lang/Object;
@@ -118,7 +118,7 @@
     monitor-enter v0
 
     .line 223
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
 
     const/4 v2, 0x1
@@ -127,7 +127,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_e
 
     .line 226
     monitor-exit v0
@@ -135,7 +135,7 @@
     return-void
 
     .line 228
-    :cond_0
+    :cond_e
     iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v1}, Landroid/os/HandlerThread;->quit()Z
@@ -153,18 +153,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_1a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_3 .. :try_end_1c} :catchall_1a
 
     throw p0
 .end method
 
 .method private onInvokeRunnable(Ljava/lang/Runnable;)V
-    .locals 4
+    .registers 6
 
     .line 213
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
@@ -175,7 +175,7 @@
     monitor-enter p1
 
     .line 215
-    :try_start_0
+    :try_start_6
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
 
     const/4 v1, 0x0
@@ -202,18 +202,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_1c
     move-exception p0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_6 .. :try_end_1e} :catchall_1c
 
     throw p0
 .end method
 
 .method private post(Ljava/lang/Runnable;)V
-    .locals 5
+    .registers 7
 
     .line 106
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mLock:Ljava/lang/Object;
@@ -221,12 +221,12 @@
     monitor-enter v0
 
     .line 107
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mThread:Landroid/os/HandlerThread;
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2c
 
     .line 108
     new-instance v1, Landroid/os/HandlerThread;
@@ -267,7 +267,7 @@
     iput v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mGeneration:I
 
     .line 113
-    :cond_0
+    :cond_2c
     iget-object v1, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mHandler:Landroid/os/Handler;
 
     const/4 v3, 0x0
@@ -290,12 +290,12 @@
 
     return-void
 
-    :catchall_0
+    :catchall_3f
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_41
+    .catchall {:try_start_3 .. :try_end_41} :catchall_3f
 
     throw p0
 .end method
@@ -303,7 +303,7 @@
 
 # virtual methods
 .method public getGeneration()I
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -313,26 +313,26 @@
     monitor-enter v0
 
     .line 101
-    :try_start_0
+    :try_start_3
     iget p0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mGeneration:I
 
     monitor-exit v0
 
     return p0
 
-    :catchall_0
+    :catchall_7
     move-exception p0
 
     .line 102
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw p0
 .end method
 
 .method public isRunning()Z
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -342,36 +342,36 @@
     monitor-enter v0
 
     .line 91
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Landroid/support/v4/provider/SelfDestructiveThread;->mThread:Landroid/os/HandlerThread;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     monitor-exit v0
 
     return p0
 
-    :catchall_0
+    :catchall_c
     move-exception p0
 
     .line 92
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_e
+    .catchall {:try_start_3 .. :try_end_e} :catchall_c
 
     throw p0
 .end method
 
 .method public postAndReply(Ljava/util/concurrent/Callable;Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -400,7 +400,7 @@
 .end method
 
 .method public postAndWait(Ljava/util/concurrent/Callable;I)Ljava/lang/Object;
-    .locals 12
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -464,19 +464,19 @@
     invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 190
-    :try_start_0
+    :try_start_26
     invoke-virtual {v10}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_34
 
     .line 191
     invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_26 .. :try_end_30} :catchall_5d
 
     .line 208
     invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
@@ -484,8 +484,8 @@
     return-object p0
 
     .line 193
-    :cond_0
-    :try_start_1
+    :cond_34
+    :try_start_34
     sget-object p0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
     int-to-long p1, p2
@@ -493,54 +493,54 @@
     invoke-virtual {p0, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
 
     move-result-wide p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_34 .. :try_end_3b} :catchall_5d
 
     .line 196
-    :goto_0
-    :try_start_2
+    :goto_3b
+    :try_start_3b
     invoke-interface {v8, p0, p1}, Ljava/util/concurrent/locks/Condition;->awaitNanos(J)J
 
     move-result-wide v0
-    :try_end_2
-    .catch Ljava/lang/InterruptedException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3f
+    .catch Ljava/lang/InterruptedException; {:try_start_3b .. :try_end_3f} :catch_40
+    .catchall {:try_start_3b .. :try_end_3f} :catchall_5d
 
     move-wide p0, v0
 
     .line 200
-    :catch_0
-    :try_start_3
+    :catch_40
+    :try_start_40
     invoke-virtual {v10}, Ljava/util/concurrent/atomic/AtomicBoolean;->get()Z
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_4e
 
     .line 201
     invoke-virtual {v9}, Ljava/util/concurrent/atomic/AtomicReference;->get()Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_40 .. :try_end_4a} :catchall_5d
 
     .line 208
     invoke-virtual {v7}, Ljava/util/concurrent/locks/ReentrantLock;->unlock()V
 
     return-object p0
 
-    :cond_1
+    :cond_4e
     const-wide/16 v0, 0x0
 
     cmp-long p2, p0, v0
 
-    if-lez p2, :cond_2
+    if-lez p2, :cond_55
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 204
-    :cond_2
-    :try_start_4
+    :cond_55
+    :try_start_55
     new-instance p0, Ljava/lang/InterruptedException;
 
     const-string p1, "timeout"
@@ -548,10 +548,10 @@
     invoke-direct {p0, p1}, Ljava/lang/InterruptedException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_55 .. :try_end_5d} :catchall_5d
 
-    :catchall_0
+    :catchall_5d
     move-exception p0
 
     .line 208

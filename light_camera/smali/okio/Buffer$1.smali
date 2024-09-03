@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Buffer;)V
-    .locals 0
+    .registers 2
 
     .line 71
     iput-object p1, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
@@ -33,19 +33,19 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 87
     new-instance v0, Ljava/lang/StringBuilder;
@@ -68,7 +68,7 @@
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
 
     .line 73
     iget-object p0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;
@@ -81,7 +81,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 0
+    .registers 4
 
     .line 77
     iget-object p0, p0, Lokio/Buffer$1;->this$0:Lokio/Buffer;

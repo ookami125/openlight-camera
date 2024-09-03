@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
 
     .line 576
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBarDrawerToggle$HoneycombDelegate;-><init>(Landroid/app/Activity;)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 581
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$IcsDelegate;->mActivity:Landroid/app/Activity;
@@ -40,19 +40,19 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 584
     invoke-virtual {v0}, Landroid/app/ActionBar;->getThemedContext()Landroid/content/Context;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 586
-    :cond_0
+    :cond_d
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$IcsDelegate;->mActivity:Landroid/app/Activity;
 
-    :goto_0
+    :goto_f
     return-object p0
 .end method

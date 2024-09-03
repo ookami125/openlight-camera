@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 28
     const-class v0, Lopenlight/co/camera/view/alerts/ThermalShutdownFragment;
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Lopenlight/co/lib/view/LightFragment;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 0
+    .registers 4
 
     const p0, 0x7f0b0034
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-super {p0}, Lopenlight/co/lib/view/LightFragment;->onPause()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 39
     invoke-super {p0}, Lopenlight/co/lib/view/LightFragment;->onResume()V
@@ -85,25 +85,25 @@
 .end method
 
 .method public onTemperatureChange(Lopenlight/co/thermalmonitor/ThermalIntent$Level;)V
-    .locals 1
+    .registers 3
 
     .line 53
     sget-object v0, Lopenlight/co/thermalmonitor/ThermalIntent$Level;->SAFE:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_8
 
     sget-object v0, Lopenlight/co/thermalmonitor/ThermalIntent$Level;->COOLING:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_f
 
     .line 54
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/ThermalShutdownFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :cond_1
+    :cond_f
     return-void
 .end method

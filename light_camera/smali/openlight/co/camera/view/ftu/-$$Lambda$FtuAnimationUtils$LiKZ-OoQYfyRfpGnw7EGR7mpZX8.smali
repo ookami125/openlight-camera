@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/-$$Lambda$FtuAnimationUtils$LiKZ-OoQYfyRfpGnw7EGR7mpZX8;->f$0:Landroid/view/ViewPropertyAnimator;
 

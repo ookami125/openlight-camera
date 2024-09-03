@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,34 +14,34 @@
 .end method
 
 .method public static query(Landroid/content/ContentResolver;Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/support/v4/os/CancellationSignal;)Landroid/database/Cursor;
-    .locals 7
+    .registers 14
 
     .line 73
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2b
 
-    if-eqz p6, :cond_0
+    if-eqz p6, :cond_f
 
     .line 78
-    :try_start_0
+    :try_start_8
     invoke-virtual {p6}, Landroid/support/v4/os/CancellationSignal;->getCancellationSignalObject()Ljava/lang/Object;
 
     move-result-object p6
 
-    goto :goto_0
+    goto :goto_10
 
-    :catch_0
+    :catch_d
     move-exception p0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_0
+    :cond_f
     const/4 p6, 0x0
 
-    :goto_0
+    :goto_10
     check-cast p6, Landroid/os/CancellationSignal;
 
     move-object v6, p6
@@ -64,16 +64,16 @@
     invoke-virtual/range {v0 .. v6}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/database/Cursor;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_1f} :catch_d
 
     return-object p0
 
     .line 83
-    :goto_1
+    :goto_20
     instance-of p1, p0, Landroid/os/OperationCanceledException;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2a
 
     .line 86
     new-instance p0, Landroid/support/v4/os/OperationCanceledException;
@@ -83,17 +83,17 @@
     throw p0
 
     .line 89
-    :cond_1
+    :cond_2a
     throw p0
 
-    :cond_2
-    if-eqz p6, :cond_3
+    :cond_2b
+    if-eqz p6, :cond_30
 
     .line 96
     invoke-virtual {p6}, Landroid/support/v4/os/CancellationSignal;->throwIfCanceled()V
 
     .line 98
-    :cond_3
+    :cond_30
     invoke-virtual/range {p0 .. p5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object p0

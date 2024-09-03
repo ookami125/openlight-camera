@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
 
     .line 44
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/widget/RecyclerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getWindowAnimations()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public initialize(Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

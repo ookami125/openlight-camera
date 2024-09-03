@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 38
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -51,7 +51,7 @@
 
     const-class p2, Ljava/lang/Object;
 
-    if-ne p0, p2, :cond_0
+    if-ne p0, p2, :cond_e
 
     .line 42
     new-instance p0, Lcom/google/gson/internal/bind/ObjectTypeAdapter;
@@ -60,7 +60,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
     return-object p0

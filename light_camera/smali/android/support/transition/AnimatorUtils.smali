@@ -9,14 +9,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 29
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 30
     new-instance v0, Landroid/support/transition/AnimatorUtilsApi19;
@@ -25,22 +25,22 @@
 
     sput-object v0, Landroid/support/transition/AnimatorUtils;->IMPL:Landroid/support/transition/AnimatorUtilsImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 32
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/transition/AnimatorUtilsApi14;
 
     invoke-direct {v0}, Landroid/support/transition/AnimatorUtilsApi14;-><init>()V
 
     sput-object v0, Landroid/support/transition/AnimatorUtils;->IMPL:Landroid/support/transition/AnimatorUtilsImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method static addPauseListener(Landroid/animation/Animator;Landroid/animation/AnimatorListenerAdapter;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/animation/Animator;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -68,7 +68,7 @@
 .end method
 
 .method static pause(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/animation/Animator;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -83,7 +83,7 @@
 .end method
 
 .method static resume(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/animation/Animator;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

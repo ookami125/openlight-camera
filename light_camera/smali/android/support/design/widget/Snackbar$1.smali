@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/Snackbar;Landroid/view/View$OnClickListener;)V
-    .locals 0
+    .registers 3
 
     .line 252
     iput-object p1, p0, Landroid/support/design/widget/Snackbar$1;->this$0:Landroid/support/design/widget/Snackbar;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 255
     iget-object v0, p0, Landroid/support/design/widget/Snackbar$1;->val$listener:Landroid/view/View$OnClickListener;

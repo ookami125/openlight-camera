@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 828
     new-instance v0, Lltpb/ViewPreferences$Crop$ProtoAdapter_Crop;
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Lltpb/Point2F;Lltpb/Point2F;)V
-    .locals 1
+    .registers 4
 
     .line 853
     sget-object v0, Lokio/ByteString;->EMPTY:Lokio/ByteString;
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Lltpb/Point2F;Lltpb/Point2F;Lokio/ByteString;)V
-    .locals 1
+    .registers 5
 
     .line 857
     sget-object v0, Lltpb/ViewPreferences$Crop;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
@@ -107,26 +107,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 874
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/ViewPreferences$Crop;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 875
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/ViewPreferences$Crop;
 
     .line 876
@@ -142,7 +142,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object v1, p0, Lltpb/ViewPreferences$Crop;->start:Lltpb/Point2F;
 
@@ -153,7 +153,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object p0, p0, Lltpb/ViewPreferences$Crop;->size:Lltpb/Point2F;
 
@@ -164,24 +164,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     move v0, v2
 
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 883
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 885
     invoke-virtual {p0}, Lltpb/ViewPreferences$Crop;->unknownFields()Lokio/ByteString;
@@ -217,12 +217,12 @@
     .line 888
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_0
+    :cond_20
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 827
     invoke-virtual {p0}, Lltpb/ViewPreferences$Crop;->newBuilder()Lltpb/ViewPreferences$Crop$Builder;
@@ -233,7 +233,7 @@
 .end method
 
 .method public newBuilder()Lltpb/ViewPreferences$Crop$Builder;
-    .locals 2
+    .registers 3
 
     .line 864
     new-instance v0, Lltpb/ViewPreferences$Crop$Builder;
@@ -261,7 +261,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 895
     new-instance v0, Ljava/lang/StringBuilder;

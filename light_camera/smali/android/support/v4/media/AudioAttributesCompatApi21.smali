@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public static toLegacyStreamType(Landroid/support/v4/media/AudioAttributesCompatApi21$Wrapper;)I
-    .locals 6
+    .registers 7
 
     .line 36
     invoke-virtual {p0}, Landroid/support/v4/media/AudioAttributesCompatApi21$Wrapper;->unwrap()Landroid/media/AudioAttributes;
@@ -40,14 +40,14 @@
     move-result-object p0
 
     .line 38
-    :try_start_0
+    :try_start_4
     sget-object v0, Landroid/support/v4/media/AudioAttributesCompatApi21;->sAudioAttributesToLegacyStreamType:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 39
     const-class v0, Landroid/media/AudioAttributes;
@@ -67,7 +67,7 @@
     sput-object v0, Landroid/support/v4/media/AudioAttributesCompatApi21;->sAudioAttributesToLegacyStreamType:Ljava/lang/reflect/Method;
 
     .line 42
-    :cond_0
+    :cond_1a
     sget-object v0, Landroid/support/v4/media/AudioAttributesCompatApi21;->sAudioAttributesToLegacyStreamType:Ljava/lang/reflect/Method;
 
     const/4 v3, 0x0
@@ -86,15 +86,15 @@
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_4 .. :try_end_2b} :catch_2c
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_4 .. :try_end_2b} :catch_2c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_4 .. :try_end_2b} :catch_2c
+    .catch Ljava/lang/ClassCastException; {:try_start_4 .. :try_end_2b} :catch_2c
 
     return p0
 
-    :catch_0
+    :catch_2c
     move-exception p0
 
     const-string v0, "AudioAttributesCompat"

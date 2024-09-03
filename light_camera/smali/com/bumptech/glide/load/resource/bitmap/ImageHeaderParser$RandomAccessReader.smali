@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .locals 0
+    .registers 2
 
     .line 303
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getInt16(I)S
-    .locals 0
+    .registers 2
 
     .line 321
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
@@ -58,7 +58,7 @@
 .end method
 
 .method public getInt32(I)I
-    .locals 0
+    .registers 2
 
     .line 317
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
@@ -71,7 +71,7 @@
 .end method
 
 .method public length()I
-    .locals 0
+    .registers 1
 
     .line 313
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;
@@ -86,7 +86,7 @@
 .end method
 
 .method public order(Ljava/nio/ByteOrder;)V
-    .locals 0
+    .registers 2
 
     .line 309
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->data:Ljava/nio/ByteBuffer;

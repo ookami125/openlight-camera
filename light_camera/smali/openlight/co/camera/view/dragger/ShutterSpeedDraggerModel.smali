@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 24
     const-class v0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;Landroid/content/Context;)V
-    .locals 2
+    .registers 5
 
     .line 43
     invoke-direct {p0}, Lopenlight/co/camera/view/dragger/DraggerModel;-><init>()V
@@ -79,7 +79,7 @@
     .line 47
     iget-boolean p1, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_28
 
     .line 48
     iget-object p1, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mItemsLabel:[Ljava/lang/String;
@@ -90,7 +90,7 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mItemsLabel:[Ljava/lang/String;
 
-    :cond_0
+    :cond_28
     const p1, 0x7f0e0124
 
     .line 50
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method public indexOfSelectedItem()I
-    .locals 0
+    .registers 1
 
     .line 92
     iget-object p0, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
@@ -141,7 +141,7 @@
 .end method
 
 .method public initialPositionFromSubject()F
-    .locals 2
+    .registers 3
 
     .line 64
     sget v0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->LAST_INDEX:I
@@ -167,7 +167,7 @@
 .end method
 
 .method public positionFromSubject()F
-    .locals 2
+    .registers 3
 
     .line 59
     iget-wide v0, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mPositionFromDragging:D
@@ -178,13 +178,13 @@
 .end method
 
 .method public release()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public updateHudInfoInPreview()V
-    .locals 5
+    .registers 6
 
     .line 100
     invoke-static {}, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;->maxIndex()I
@@ -194,7 +194,7 @@
     .line 101
     iget-boolean v1, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     iget-object v1, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
 
@@ -205,9 +205,9 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
 
     invoke-virtual {v0}, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;->ordinal()I
@@ -215,7 +215,7 @@
     move-result v0
 
     .line 103
-    :goto_0
+    :goto_16
     sget-object v1, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
 
     aget-wide v0, v1, v0
@@ -253,7 +253,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4f
 
     .line 108
     invoke-static {v2, v0, v1}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestBuilder;->setExposureTime(Landroid/hardware/camera2/CaptureRequest$Builder;J)V
@@ -272,12 +272,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
-    :cond_1
+    :cond_4f
     return-void
 .end method
 
 .method public updateSubject(F)V
-    .locals 4
+    .registers 6
 
     .line 75
     sget v0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->LAST_INDEX:I
@@ -307,16 +307,16 @@
     .line 78
     iget-boolean v2, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     sub-int/2addr v1, v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move v1, v0
 
-    :goto_0
+    :goto_1b
     float-to-double v2, p1
 
     .line 80
@@ -328,13 +328,13 @@
     .line 85
     iget p1, p0, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->mPreviousCalculatedIndex:I
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_29
 
     const/4 p1, 0x2
 
     .line 86
     invoke-virtual {p0, v1, p1}, Lopenlight/co/camera/view/dragger/ShutterSpeedDraggerModel;->sendMessageDelayed(II)V
 
-    :cond_1
+    :cond_29
     return-void
 .end method

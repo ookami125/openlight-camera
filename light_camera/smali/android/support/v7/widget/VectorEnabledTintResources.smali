@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/res/Resources;)V
-    .locals 2
+    .registers 5
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -65,36 +65,36 @@
 .end method
 
 .method public static shouldBeUsed()Z
-    .locals 2
+    .registers 2
 
     .line 41
     invoke-static {}, Landroid/support/v7/app/AppCompatDelegate;->isCompatVectorFromResourcesEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x14
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return v0
 .end method
 
 
 # virtual methods
 .method public getDrawable(I)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/content/res/Resources$NotFoundException;
@@ -110,7 +110,7 @@
 
     check-cast v0, Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 67
     invoke-static {}, Landroid/support/v7/widget/AppCompatDrawableManager;->get()Landroid/support/v7/widget/AppCompatDrawableManager;
@@ -124,7 +124,7 @@
     return-object p0
 
     .line 69
-    :cond_0
+    :cond_13
     invoke-super {p0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
@@ -133,7 +133,7 @@
 .end method
 
 .method final superGetDrawable(I)Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 2
 
     .line 74
     invoke-super {p0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;

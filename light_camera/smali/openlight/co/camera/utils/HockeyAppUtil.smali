@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 32
     const-class v0, Lopenlight/co/camera/utils/HockeyAppUtil;
@@ -37,23 +37,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 39
     invoke-static {}, Lopenlight/co/camera/utils/HockeyAppUtil;->hasUserApprovedDiagnosticsFeedback()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     sput-boolean v0, Lopenlight/co/camera/utils/HockeyAppUtil;->IS_HOCKEYAPP_ENABLED:Z
 
     .line 40
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -76,12 +76,12 @@
 .end method
 
 .method private static checkForCrashes(Landroid/app/Activity;Landroid/os/Handler;Landroid/app/PendingIntent;)V
-    .locals 2
+    .registers 5
 
     .line 67
     sget-boolean v0, Lopenlight/co/camera/utils/Util;->APP_RESTART_ON_ERROR:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const-string v0, "af0466d78eb544dba985c8452daa66aa"
 
@@ -92,12 +92,12 @@
 
     invoke-static {p0, v0, v1}, Lnet/hockeyapp/android/CrashManager;->register(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/CrashManagerListener;)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method private static createHandler()Landroid/os/Handler;
-    .locals 2
+    .registers 2
 
     .line 74
     new-instance v0, Lopenlight/co/camera/utils/HockeyAppUtil$1;
@@ -112,7 +112,7 @@
 .end method
 
 .method private static hasUserApprovedDiagnosticsFeedback()Z
-    .locals 1
+    .registers 1
 
     .line 93
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -138,12 +138,12 @@
 .end method
 
 .method public static init(Landroid/app/Activity;Landroid/content/Intent;)V
-    .locals 2
+    .registers 4
 
     .line 45
     sget-boolean v0, Lopenlight/co/camera/utils/HockeyAppUtil;->IS_HOCKEYAPP_ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 46
     sget-object v0, Lopenlight/co/camera/utils/HockeyAppUtil;->TAG:Ljava/lang/String;
@@ -181,10 +181,10 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/metrics/Metrics;->register()V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 54
-    :cond_0
+    :cond_27
     sget-object p0, Lopenlight/co/camera/utils/HockeyAppUtil;->TAG:Ljava/lang/String;
 
     const-string p1, "Diagnostics not enabled"
@@ -198,21 +198,21 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/metrics/Metrics;->unregister()V
 
-    :goto_0
+    :goto_35
     return-void
 .end method
 
 .method public static tearDown(Landroid/app/Activity;)V
-    .locals 1
+    .registers 2
 
     .line 60
     sget-boolean v0, Lopenlight/co/camera/utils/HockeyAppUtil;->IS_HOCKEYAPP_ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 61
     invoke-static {p0}, Lnet/hockeyapp/android/Tracking;->stopUsage(Landroid/app/Activity;)V
 
-    :cond_0
+    :cond_7
     return-void
 .end method

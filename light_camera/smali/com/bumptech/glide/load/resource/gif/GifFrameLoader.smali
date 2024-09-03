@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameCallback;Lcom/bumptech/glide/gifdecoder/GifDecoder;II)V
-    .locals 1
+    .registers 7
 
     .line 43
     invoke-static {p1}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
@@ -68,7 +68,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameCallback;Lcom/bumptech/glide/gifdecoder/GifDecoder;Landroid/os/Handler;Lcom/bumptech/glide/GenericRequestBuilder;)V
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
     .line 33
     iput-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->isLoadPending:Z
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_19
 
     .line 50
     new-instance p3, Landroid/os/Handler;
@@ -113,7 +113,7 @@
     invoke-direct {p3, v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;Landroid/os/Handler$Callback;)V
 
     .line 52
-    :cond_0
+    :cond_19
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->callback:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameCallback;
 
     .line 53
@@ -129,7 +129,7 @@
 .end method
 
 .method private static getRequestBuilder(Landroid/content/Context;Lcom/bumptech/glide/gifdecoder/GifDecoder;IILcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -211,20 +211,20 @@
 .end method
 
 .method private loadNextFrame()V
-    .locals 5
+    .registers 6
 
     .line 95
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->isRunning:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->isLoadPending:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x1
 
     .line 98
@@ -278,15 +278,15 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_39
+    :goto_39
     return-void
 .end method
 
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 81
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->stop()V
@@ -294,7 +294,7 @@
     .line 82
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->current:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 83
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->current:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
@@ -306,7 +306,7 @@
     .line 84
     iput-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->current:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
-    :cond_0
+    :cond_f
     const/4 v0, 0x1
 
     .line 86
@@ -316,12 +316,12 @@
 .end method
 
 .method public getCurrentFrame()Landroid/graphics/Bitmap;
-    .locals 1
+    .registers 2
 
     .line 91
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->current:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->current:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
@@ -329,24 +329,24 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return-object p0
 .end method
 
 .method onFrameReady(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;)V
-    .locals 3
+    .registers 5
 
     .line 110
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->isCleared:Z
 
     const/4 v1, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 111
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->handler:Landroid/os/Handler;
@@ -360,7 +360,7 @@
     return-void
 
     .line 115
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->current:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;
 
     .line 116
@@ -369,13 +369,14 @@
     .line 117
     iget-object v2, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->callback:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameCallback;
 
+    # getter for: Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->index:I
     invoke-static {p1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->access$100(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;)I
 
     move-result p1
 
     invoke-interface {v2, p1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameCallback;->onFrameReady(I)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 120
     iget-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->handler:Landroid/os/Handler;
@@ -386,7 +387,7 @@
 
     invoke-virtual {p1}, Landroid/os/Message;->sendToTarget()V
 
-    :cond_1
+    :cond_27
     const/4 p1, 0x0
 
     .line 123
@@ -399,7 +400,7 @@
 .end method
 
 .method public setFrameTransformation(Lcom/bumptech/glide/load/Transformation;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -409,7 +410,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 63
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->requestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
@@ -431,7 +432,7 @@
     return-void
 
     .line 61
-    :cond_0
+    :cond_11
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Transformation must not be null"
@@ -442,16 +443,16 @@
 .end method
 
 .method public start()V
-    .locals 1
+    .registers 2
 
     .line 67
     iget-boolean v0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;->isRunning:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     .line 70
@@ -469,7 +470,7 @@
 .end method
 
 .method public stop()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 

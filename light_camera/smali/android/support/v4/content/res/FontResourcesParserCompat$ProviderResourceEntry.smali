@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/provider/FontRequest;II)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/support/v4/provider/FontRequest;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getFetchStrategy()I
-    .locals 0
+    .registers 1
 
     .line 90
     iget p0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mStrategy:I
@@ -63,7 +63,7 @@
 .end method
 
 .method public getRequest()Landroid/support/v4/provider/FontRequest;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public getTimeout()I
-    .locals 0
+    .registers 1
 
     .line 94
     iget p0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mTimeoutMs:I

@@ -140,7 +140,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 79
     new-instance v0, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
@@ -1113,7 +1113,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -1130,7 +1130,7 @@
 .end method
 
 .method public static exposureTimeForIndex(I)J
-    .locals 3
+    .registers 4
 
     .line 165
     sget-object v0, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
@@ -1141,7 +1141,7 @@
 .end method
 
 .method public static forIndex(I)Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
-    .locals 1
+    .registers 2
 
     .line 154
     sget-object v0, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;->sVals:[Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
@@ -1152,7 +1152,7 @@
 .end method
 
 .method public static maxIndex()I
-    .locals 1
+    .registers 1
 
     .line 175
     sget-object v0, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
-    .locals 1
+    .registers 2
 
     .line 78
     const-class v0, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
@@ -1180,7 +1180,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
-    .locals 1
+    .registers 1
 
     .line 78
     sget-object v0, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;->$VALUES:[Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;
@@ -1197,7 +1197,7 @@
 
 # virtual methods
 .method public getShutterSpeedIndex()I
-    .locals 0
+    .registers 1
 
     .line 143
     iget p0, p0, Lopenlight/co/camera/utils/Constants$ShutterSpeedValues;->shutterSpeedIndex:I

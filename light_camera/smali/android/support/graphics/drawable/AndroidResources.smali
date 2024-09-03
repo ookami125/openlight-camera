@@ -169,14 +169,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     const/16 v0, 0x9
 
     .line 22
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_64
 
     sput-object v1, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_TYPE_ARRAY:[I
 
@@ -185,7 +185,7 @@
     .line 36
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_7a
 
     sput-object v1, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_GROUP:[I
 
@@ -194,7 +194,7 @@
     .line 49
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_2
+    fill-array-data v1, :array_8e
 
     sput-object v1, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_PATH:[I
 
@@ -203,7 +203,7 @@
     .line 70
     new-array v2, v1, [I
 
-    fill-array-data v2, :array_3
+    fill-array-data v2, :array_ae
 
     sput-object v2, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_VECTOR_DRAWABLE_CLIP_PATH:[I
 
@@ -223,14 +223,14 @@
     .line 80
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_4
+    fill-array-data v1, :array_b6
 
     sput-object v1, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_ANIMATED_VECTOR_DRAWABLE_TARGET:[I
 
     .line 90
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_5
+    fill-array-data v0, :array_be
 
     sput-object v0, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_ANIMATOR:[I
 
@@ -248,21 +248,21 @@
     .line 110
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_6
+    fill-array-data v1, :array_d4
 
     sput-object v1, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_PROPERTY_VALUES_HOLDER:[I
 
     .line 118
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_7
+    fill-array-data v1, :array_e0
 
     sput-object v1, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_KEYFRAME:[I
 
     .line 126
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_8
+    fill-array-data v0, :array_ec
 
     sput-object v0, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_PROPERTY_ANIMATOR:[I
 
@@ -271,13 +271,13 @@
     .line 135
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_9
+    fill-array-data v0, :array_f8
 
     sput-object v0, Landroid/support/graphics/drawable/AndroidResources;->STYLEABLE_PATH_INTERPOLATOR:[I
 
     return-void
 
-    :array_0
+    :array_64
     .array-data 4
         0x1010003
         0x1010121
@@ -290,7 +290,7 @@
         0x1010403
     .end array-data
 
-    :array_1
+    :array_7a
     .array-data 4
         0x1010003
         0x10101b5
@@ -302,7 +302,7 @@
         0x101045b
     .end array-data
 
-    :array_2
+    :array_8e
     .array-data 4
         0x1010003
         0x1010404
@@ -320,19 +320,19 @@
         0x101051e
     .end array-data
 
-    :array_3
+    :array_ae
     .array-data 4
         0x1010003
         0x1010405
     .end array-data
 
-    :array_4
+    :array_b6
     .array-data 4
         0x1010003
         0x10101cd
     .end array-data
 
-    :array_5
+    :array_be
     .array-data 4
         0x1010141
         0x1010198
@@ -345,7 +345,7 @@
         0x111009c
     .end array-data
 
-    :array_6
+    :array_d4
     .array-data 4
         0x10102de
         0x10102df
@@ -353,7 +353,7 @@
         0x10102e1
     .end array-data
 
-    :array_7
+    :array_e0
     .array-data 4
         0x1010024
         0x1010141
@@ -361,7 +361,7 @@
         0x10104d8
     .end array-data
 
-    :array_8
+    :array_ec
     .array-data 4
         0x10102e1
         0x1010405
@@ -369,7 +369,7 @@
         0x1010475
     .end array-data
 
-    :array_9
+    :array_f8
     .array-data 4
         0x10103fc
         0x10103fd
@@ -380,7 +380,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

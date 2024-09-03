@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x800
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/String;I)V
-    .locals 0
+    .registers 4
 
     .line 88
     invoke-static {p2}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x800
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/nio/charset/Charset;I)V
-    .locals 1
+    .registers 5
 
     .line 62
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -93,7 +93,7 @@
 
     cmpg-float v0, v0, p2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_37
 
     .line 72
     invoke-static {p3}, Ljava/nio/ByteBuffer;->allocate(I)Ljava/nio/ByteBuffer;
@@ -125,7 +125,7 @@
     return-void
 
     .line 69
-    :cond_0
+    :cond_37
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -154,7 +154,7 @@
 .end method
 
 .method private fillBuffer()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/nio/charset/CharacterCodingException;
@@ -184,13 +184,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 125
     invoke-virtual {v0}, Ljava/nio/charset/CoderResult;->throwException()V
 
     .line 127
-    :cond_0
+    :cond_19
     iget-object p0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
 
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
@@ -201,7 +201,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -227,7 +227,7 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -238,12 +238,12 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 0
+    .registers 2
 
     monitor-enter p0
 
     .line 220
-    :try_start_0
+    :try_start_1
     iget-object p1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
 
     invoke-virtual {p1}, Ljava/nio/CharBuffer;->position()I
@@ -270,15 +270,15 @@
     iget-object p1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
 
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->mark()Ljava/nio/Buffer;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_1 .. :try_end_1b} :catchall_1d
 
     .line 226
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_1d
     move-exception p1
 
     .line 219
@@ -288,7 +288,7 @@
 .end method
 
 .method public markSupported()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -296,7 +296,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -311,7 +311,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 167
     iget-object p0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
@@ -325,7 +325,7 @@
     return p0
 
     .line 169
-    :cond_1
+    :cond_11
     invoke-direct {p0}, Lorg/apache/commons/io/input/CharSequenceInputStream;->fillBuffer()V
 
     .line 170
@@ -351,7 +351,7 @@
 .end method
 
 .method public read([B)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -371,32 +371,32 @@
 .end method
 
 .method public read([BII)I
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_83
 
-    if-ltz p3, :cond_5
+    if-ltz p3, :cond_5b
 
     add-int v0, p2, p3
 
     .line 135
     array-length v1, p1
 
-    if-gt v0, v1, :cond_5
+    if-gt v0, v1, :cond_5b
 
     const/4 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_d
 
     return v0
 
     .line 142
-    :cond_0
+    :cond_d
     iget-object v1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->hasRemaining()Z
@@ -405,7 +405,7 @@
 
     const/4 v2, -0x1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1f
 
     iget-object v1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
 
@@ -413,13 +413,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1f
 
     return v2
 
-    :cond_1
-    :goto_0
-    if-lez p3, :cond_3
+    :cond_1f
+    :goto_1f
+    if-lez p3, :cond_4f
 
     .line 147
     iget-object v1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
@@ -428,7 +428,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3c
 
     .line 148
     iget-object v1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
@@ -452,10 +452,10 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 154
-    :cond_2
+    :cond_3c
     invoke-direct {p0}, Lorg/apache/commons/io/input/CharSequenceInputStream;->fillBuffer()V
 
     .line 155
@@ -465,7 +465,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1f
 
     iget-object v1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
 
@@ -473,10 +473,10 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_1f
 
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_4f
+    if-nez v0, :cond_5a
 
     .line 160
     iget-object p0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
@@ -485,15 +485,15 @@
 
     move-result p0
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_5a
 
     move v0, v2
 
-    :cond_4
+    :cond_5a
     return v0
 
     .line 136
-    :cond_5
+    :cond_5b
     new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -529,7 +529,7 @@
     throw p0
 
     .line 133
-    :cond_6
+    :cond_83
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Byte array is null"
@@ -540,7 +540,7 @@
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -550,12 +550,12 @@
     monitor-enter p0
 
     .line 241
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->mark_cbuf:I
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_7d
 
     .line 243
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
@@ -564,7 +564,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     .line 244
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->encoder:Ljava/nio/charset/CharsetEncoder;
@@ -589,7 +589,7 @@
     invoke-virtual {v0, v2}, Ljava/nio/ByteBuffer;->limit(I)Ljava/nio/Buffer;
 
     .line 248
-    :goto_0
+    :goto_23
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->position()I
@@ -598,7 +598,7 @@
 
     iget v3, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->mark_cbuf:I
 
-    if-ge v0, v3, :cond_0
+    if-ge v0, v3, :cond_3b
 
     .line 249
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
@@ -613,10 +613,10 @@
     .line 251
     invoke-direct {p0}, Lorg/apache/commons/io/input/CharSequenceInputStream;->fillBuffer()V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 254
-    :cond_0
+    :cond_3b
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->cbuf:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->position()I
@@ -625,7 +625,7 @@
 
     iget v2, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->mark_cbuf:I
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_51
 
     .line 258
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->bbuf:Ljava/nio/ByteBuffer;
@@ -640,10 +640,10 @@
     .line 260
     iput v1, p0, Lorg/apache/commons/io/input/CharSequenceInputStream;->mark_bbuf:I
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 255
-    :cond_1
+    :cond_51
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -681,17 +681,17 @@
     invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7d
+    .catchall {:try_start_1 .. :try_end_7d} :catchall_7f
 
     .line 262
-    :cond_2
-    :goto_1
+    :cond_7d
+    :goto_7d
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_7f
     move-exception v0
 
     .line 240
@@ -701,7 +701,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -712,17 +712,17 @@
 
     move-wide v2, v0
 
-    :goto_0
+    :goto_3
     cmp-long v4, p1, v0
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_15
 
     .line 187
     invoke-virtual {p0}, Lorg/apache/commons/io/input/CharSequenceInputStream;->available()I
 
     move-result v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_15
 
     .line 188
     invoke-virtual {p0}, Lorg/apache/commons/io/input/CharSequenceInputStream;->read()I
@@ -733,8 +733,8 @@
 
     add-long/2addr v2, v4
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_0
+    :cond_15
     return-wide v2
 .end method

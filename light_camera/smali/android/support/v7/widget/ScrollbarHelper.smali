@@ -5,7 +5,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,29 +14,29 @@
 .end method
 
 .method static computeScrollExtent(Landroid/support/v7/widget/RecyclerView$State;Landroid/support/v7/widget/OrientationHelper;Landroid/view/View;Landroid/view/View;Landroid/support/v7/widget/RecyclerView$LayoutManager;Z)I
-    .locals 1
+    .registers 7
 
     .line 63
     invoke-virtual {p4}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->getChildCount()I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_35
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_35
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_35
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_11
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
-    if-nez p5, :cond_1
+    :cond_11
+    if-nez p5, :cond_23
 
     .line 68
     invoke-virtual {p4, p2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
@@ -58,7 +58,7 @@
     return p0
 
     .line 70
-    :cond_1
+    :cond_23
     invoke-virtual {p1, p3}, Landroid/support/v7/widget/OrientationHelper;->getDecoratedEnd(Landroid/view/View;)I
 
     move-result p0
@@ -81,15 +81,15 @@
 
     return p0
 
-    :cond_2
-    :goto_0
+    :cond_35
+    :goto_35
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method static computeScrollOffset(Landroid/support/v7/widget/RecyclerView$State;Landroid/support/v7/widget/OrientationHelper;Landroid/view/View;Landroid/view/View;Landroid/support/v7/widget/RecyclerView$LayoutManager;ZZ)I
-    .locals 4
+    .registers 11
 
     .line 32
     invoke-virtual {p4}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->getChildCount()I
@@ -98,22 +98,22 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_70
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_70
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_70
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_12
 
-    goto :goto_1
+    goto :goto_70
 
     .line 36
-    :cond_0
+    :cond_12
     invoke-virtual {p4, p2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
 
     move-result v0
@@ -143,7 +143,7 @@
 
     move-result v2
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_38
 
     .line 41
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
@@ -158,21 +158,21 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 42
-    :cond_1
+    :cond_38
     invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
 
     move-result p0
 
-    :goto_0
-    if-nez p5, :cond_2
+    :goto_3c
+    if-nez p5, :cond_3f
 
     return p0
 
     .line 46
-    :cond_2
+    :cond_3f
     invoke-virtual {p1, p3}, Landroid/support/v7/widget/OrientationHelper;->getDecoratedEnd(Landroid/view/View;)I
 
     move-result p5
@@ -241,35 +241,35 @@
 
     return p0
 
-    :cond_3
-    :goto_1
+    :cond_70
+    :goto_70
     return v1
 .end method
 
 .method static computeScrollRange(Landroid/support/v7/widget/RecyclerView$State;Landroid/support/v7/widget/OrientationHelper;Landroid/view/View;Landroid/view/View;Landroid/support/v7/widget/RecyclerView$LayoutManager;Z)I
-    .locals 1
+    .registers 7
 
     .line 82
     invoke-virtual {p4}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->getChildCount()I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3b
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_11
 
-    goto :goto_0
+    goto :goto_3b
 
-    :cond_0
-    if-nez p5, :cond_1
+    :cond_11
+    if-nez p5, :cond_18
 
     .line 87
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$State;->getItemCount()I
@@ -279,7 +279,7 @@
     return p0
 
     .line 90
-    :cond_1
+    :cond_18
     invoke-virtual {p1, p3}, Landroid/support/v7/widget/OrientationHelper;->getDecoratedEnd(Landroid/view/View;)I
 
     move-result p5
@@ -329,8 +329,8 @@
 
     return p0
 
-    :cond_2
-    :goto_0
+    :cond_3b
+    :goto_3b
     const/4 p0, 0x0
 
     return p0

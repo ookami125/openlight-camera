@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 241
     new-instance v0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -289,7 +289,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)V"
@@ -309,7 +309,7 @@
 .end method
 
 .method public static forIndex(I)Lopenlight/co/camera/utils/Constants$ExposureCompValues;
-    .locals 1
+    .registers 2
 
     .line 287
     sget-object v0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->sVals:[Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -320,7 +320,7 @@
 .end method
 
 .method public static maxIndex()I
-    .locals 1
+    .registers 1
 
     .line 282
     sget-object v0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->sVals:[Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -333,7 +333,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/utils/Constants$ExposureCompValues;
-    .locals 1
+    .registers 2
 
     .line 240
     const-class v0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -348,7 +348,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/utils/Constants$ExposureCompValues;
-    .locals 1
+    .registers 1
 
     .line 240
     sget-object v0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->$VALUES:[Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -365,7 +365,7 @@
 
 # virtual methods
 .method public getExposureCompensationIndex()I
-    .locals 0
+    .registers 1
 
     .line 272
     iget p0, p0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->exposureIndex:I
@@ -374,7 +374,7 @@
 .end method
 
 .method public getExposureCompensationVal()I
-    .locals 0
+    .registers 1
 
     .line 268
     iget p0, p0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->exposureCompensationVal:I

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
-    .locals 0
+    .registers 2
 
     .line 160
     iput-object p1, p0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$SupportFragmentRequestManagerTreeNode;->this$0:Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;Lcom/bumptech/glide/manager/SupportRequestManagerFragment$1;)V
-    .locals 0
+    .registers 3
 
     .line 160
     invoke-direct {p0, p1}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment$SupportFragmentRequestManagerTreeNode;-><init>(Lcom/bumptech/glide/manager/SupportRequestManagerFragment;)V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getDescendants()Ljava/util/Set;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -76,13 +76,13 @@
 
     move-result-object p0
 
-    :cond_0
-    :goto_0
+    :cond_13
+    :goto_13
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2d
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -95,7 +95,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_13
 
     .line 167
     invoke-virtual {v1}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->getRequestManager()Lcom/bumptech/glide/RequestManager;
@@ -104,8 +104,8 @@
 
     invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_2d
     return-object v0
 .end method

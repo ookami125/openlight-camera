@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/managers/capture/CaptureManager;)V
-    .locals 0
+    .registers 2
 
     .line 409
     iput-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 3
+    .registers 7
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -48,6 +48,7 @@
     .end param
 
     .line 464
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -87,6 +88,7 @@
     .line 467
     iget-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
     invoke-static {p1}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$600(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/utils/TimingLoggerUtil;
 
     move-result-object p1
@@ -100,9 +102,10 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_43
 
     .line 470
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p0
@@ -114,7 +117,7 @@
     return-void
 
     .line 474
-    :cond_0
+    :cond_43
     invoke-virtual {p2}, Landroid/hardware/camera2/CaptureRequest;->getTag()Ljava/lang/Object;
 
     move-result-object p1
@@ -128,15 +131,17 @@
     .line 475
     iget-object p2, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
     invoke-static {p2}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$700(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
     move-result-object p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_5e
 
     .line 476
     iget-object p2, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
     invoke-static {p2}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$700(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
     move-result-object p2
@@ -144,9 +149,10 @@
     invoke-interface {p2}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onCaptureComplete()V
 
     .line 478
-    :cond_1
+    :cond_5e
     iget-object p2, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p2}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$200(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p2
@@ -165,9 +171,10 @@
     monitor-enter p3
 
     .line 481
-    :try_start_0
+    :try_start_6f
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v0
@@ -175,6 +182,7 @@
     iget-object v1, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
     .line 482
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v1}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v1
@@ -186,6 +194,7 @@
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
     .line 483
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v2}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v2
@@ -201,6 +210,7 @@
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
     .line 485
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v0
@@ -209,11 +219,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_ab
 
     .line 487
     iget-object v1, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v1}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v1
@@ -221,6 +232,7 @@
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
     .line 488
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object p0
@@ -233,7 +245,7 @@
     invoke-virtual {v1, p1, v0, p0}, Lopenlight/co/camera/ImageReaderManager;->handleCompletionLocked(ILopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;Ljava/util/TreeMap;)V
 
     .line 490
-    :cond_2
+    :cond_ab
     invoke-virtual {p2}, Lopenlight/co/camera/managers/CameraManager;->captureComplete()V
 
     .line 491
@@ -241,18 +253,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_b0
     move-exception p0
 
     monitor-exit p3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b2
+    .catchall {:try_start_6f .. :try_end_b2} :catchall_b0
 
     throw p0
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
-    .locals 3
+    .registers 7
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -278,6 +290,7 @@
     move-result p1
 
     .line 499
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p2
@@ -328,6 +341,7 @@
     .line 502
     iget-object p2, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p2}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$200(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p2
@@ -342,6 +356,7 @@
     invoke-virtual {p2}, Lopenlight/co/camera/managers/CameraManager;->decrementCapturesInFlight()V
 
     .line 504
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p3
@@ -374,9 +389,10 @@
     monitor-enter p3
 
     .line 506
-    :try_start_0
+    :try_start_6e
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v0
@@ -386,6 +402,7 @@
     .line 507
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {v0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object v0
@@ -397,44 +414,46 @@
 
     .line 509
     monitor-exit p3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_84
+    .catchall {:try_start_6e .. :try_end_84} :catchall_96
 
     .line 510
     iget-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
     invoke-static {p1}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$700(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_95
 
     .line 511
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
     invoke-static {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$700(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
     move-result-object p0
 
     invoke-interface {p0}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onCaptureFailure()V
 
-    :cond_0
+    :cond_95
     return-void
 
-    :catchall_0
+    :catchall_96
     move-exception p0
 
     .line 509
-    :try_start_1
+    :try_start_97
     monitor-exit p3
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_98
+    .catchall {:try_start_97 .. :try_end_98} :catchall_96
 
     throw p0
 .end method
 
 .method public onCaptureStarted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;JJ)V
-    .locals 2
+    .registers 9
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -445,6 +464,7 @@
     .end param
 
     .line 415
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -476,9 +496,10 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_30
 
     .line 418
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p0
@@ -490,7 +511,7 @@
     return-void
 
     .line 422
-    :cond_0
+    :cond_30
     invoke-static {}, Lopenlight/co/camera/utils/MediaFileManager;->get()Lopenlight/co/camera/utils/MediaFileManager;
 
     move-result-object p1
@@ -505,9 +526,10 @@
 
     move-result p4
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_57
 
     .line 425
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p0
@@ -531,7 +553,7 @@
     return-void
 
     .line 430
-    :cond_1
+    :cond_57
     invoke-virtual {p1}, Lopenlight/co/camera/utils/MediaFileManager;->getNextProcessedAndRawFileNames()Landroid/util/Pair;
 
     move-result-object p1
@@ -542,6 +564,7 @@
     check-cast p3, Ljava/io/File;
 
     .line 432
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p4
@@ -568,6 +591,7 @@
     check-cast p1, Ljava/io/File;
 
     .line 436
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$000()Ljava/lang/String;
 
     move-result-object p4
@@ -591,6 +615,7 @@
     .line 437
     iget-object p4, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # invokes: Lopenlight/co/camera/managers/capture/CaptureManager;->setViewPrefHeader(Landroid/hardware/camera2/CaptureRequest;)V
     invoke-static {p4, p2}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$100(Lopenlight/co/camera/managers/capture/CaptureManager;Landroid/hardware/camera2/CaptureRequest;)V
 
     .line 442
@@ -607,6 +632,7 @@
     .line 443
     iget-object p4, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p4}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$200(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p4
@@ -624,9 +650,10 @@
     monitor-enter p4
 
     .line 444
-    :try_start_0
+    :try_start_b3
     iget-object p5, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {p5}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object p5
@@ -638,6 +665,7 @@
     .line 445
     iget-object p6, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
     invoke-static {p6}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
 
     move-result-object p6
@@ -648,13 +676,14 @@
 
     .line 446
     monitor-exit p4
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c8
+    .catchall {:try_start_b3 .. :try_end_c8} :catchall_ec
 
     .line 447
     iget-object p4, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
     .line 448
+    # getter for: Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureInfo:Lopenlight/co/camera/proto/CameraCaptureRequestInfo;
     invoke-static {p4}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$400(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/proto/CameraCaptureRequestInfo;
 
     move-result-object p4
@@ -663,7 +692,7 @@
 
     move-result-object p4
 
-    if-eqz p5, :cond_2
+    if-eqz p5, :cond_e3
 
     .line 450
     invoke-virtual {p5, p3}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;->setFile(Ljava/io/File;)Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;
@@ -674,14 +703,15 @@
     .line 452
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager$1;->this$0:Lopenlight/co/camera/managers/capture/CaptureManager;
 
+    # invokes: Lopenlight/co/camera/managers/capture/CaptureManager;->createExifData()Lopenlight/co/lib/exif/ExifInformation;
     invoke-static {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->access$500(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/lib/exif/ExifInformation;
 
     move-result-object p0
 
     invoke-virtual {p5, p0}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;->setExifInfo(Lopenlight/co/lib/exif/ExifInformation;)Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;
 
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_e3
+    if-eqz p2, :cond_eb
 
     .line 455
     invoke-virtual {p2, p1}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;->setFile(Ljava/io/File;)Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;
@@ -689,17 +719,17 @@
     .line 456
     invoke-virtual {p2, p4}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;->setViewPrefs(Lltpb/ViewPreferences;)Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;
 
-    :cond_3
+    :cond_eb
     return-void
 
-    :catchall_0
+    :catchall_ec
     move-exception p0
 
     .line 446
-    :try_start_1
+    :try_start_ed
     monitor-exit p4
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_ee
+    .catchall {:try_start_ed .. :try_end_ee} :catchall_ec
 
     throw p0
 .end method

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/AsyncTimeout;Lokio/Source;)V
-    .locals 0
+    .registers 3
 
     .line 231
     iput-object p1, p0, Lokio/AsyncTimeout$2;->this$0:Lokio/AsyncTimeout;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -52,9 +52,9 @@
     iget-object v0, p0, Lokio/AsyncTimeout$2;->val$source:Lokio/Source;
 
     invoke-interface {v0}, Lokio/Source;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_5} :catch_e
+    .catchall {:try_start_0 .. :try_end_5} :catchall_c
 
     const/4 v0, 0x1
 
@@ -65,16 +65,16 @@
 
     return-void
 
-    :catchall_0
+    :catchall_c
     move-exception v0
 
-    goto :goto_0
+    goto :goto_16
 
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 252
-    :try_start_1
+    :try_start_f
     iget-object v1, p0, Lokio/AsyncTimeout$2;->this$0:Lokio/AsyncTimeout;
 
     invoke-virtual {v1, v0}, Lokio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
@@ -82,11 +82,11 @@
     move-result-object v0
 
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_16
+    .catchall {:try_start_f .. :try_end_16} :catchall_c
 
     .line 254
-    :goto_0
+    :goto_16
     iget-object p0, p0, Lokio/AsyncTimeout$2;->this$0:Lokio/AsyncTimeout;
 
     const/4 v1, 0x0
@@ -97,7 +97,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -110,15 +110,15 @@
     invoke-virtual {v0}, Lokio/AsyncTimeout;->enter()V
 
     .line 236
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lokio/AsyncTimeout$2;->val$source:Lokio/Source;
 
     invoke-interface {v0, p1, p2, p3}, Lokio/Source;->read(Lokio/Buffer;J)J
 
     move-result-wide p1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_b} :catch_14
+    .catchall {:try_start_5 .. :try_end_b} :catchall_12
 
     const/4 p3, 0x1
 
@@ -129,16 +129,16 @@
 
     return-wide p1
 
-    :catchall_0
+    :catchall_12
     move-exception p1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :catch_0
+    :catch_14
     move-exception p1
 
     .line 240
-    :try_start_1
+    :try_start_15
     iget-object p2, p0, Lokio/AsyncTimeout$2;->this$0:Lokio/AsyncTimeout;
 
     invoke-virtual {p2, p1}, Lokio/AsyncTimeout;->exit(Ljava/io/IOException;)Ljava/io/IOException;
@@ -146,11 +146,11 @@
     move-result-object p1
 
     throw p1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_15 .. :try_end_1c} :catchall_12
 
     .line 242
-    :goto_0
+    :goto_1c
     iget-object p0, p0, Lokio/AsyncTimeout$2;->this$0:Lokio/AsyncTimeout;
 
     const/4 p2, 0x0
@@ -161,7 +161,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 259
     iget-object p0, p0, Lokio/AsyncTimeout$2;->this$0:Lokio/AsyncTimeout;
@@ -170,7 +170,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 263
     new-instance v0, Ljava/lang/StringBuilder;

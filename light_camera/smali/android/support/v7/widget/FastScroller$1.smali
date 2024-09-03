@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 120
     iput-object p1, p0, Landroid/support/v7/widget/FastScroller$1;->this$0:Landroid/support/v7/widget/FastScroller;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object p0, p0, Landroid/support/v7/widget/FastScroller$1;->this$0:Landroid/support/v7/widget/FastScroller;

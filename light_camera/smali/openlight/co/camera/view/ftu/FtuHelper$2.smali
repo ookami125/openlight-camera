@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 2
 
     .line 208
     iput-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper$2;->this$0:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public aboutToShowScreen(II)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x1
 
@@ -44,11 +44,12 @@
 .end method
 
 .method public done()V
-    .locals 0
+    .registers 1
 
     .line 217
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper$2;->this$0:Lopenlight/co/camera/view/ftu/FtuHelper;
 
+    # invokes: Lopenlight/co/camera/view/ftu/FtuHelper;->closeQualityFtu()V
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->access$800(Lopenlight/co/camera/view/ftu/FtuHelper;)V
 
     return-void

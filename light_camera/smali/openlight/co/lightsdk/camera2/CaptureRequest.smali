@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 344
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static isStackedCaptureEnabled(Landroid/hardware/camera2/CaptureRequest;)Z
-    .locals 2
+    .registers 3
 
     .line 280
     invoke-static {}, Lopenlight/co/lightsdk/camera2/KeyMapperInternal;->get()Lopenlight/co/lightsdk/camera2/KeyMapperInternal;
@@ -49,13 +49,13 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_18
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_19
     return v0
 .end method

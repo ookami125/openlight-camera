@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/ResourceDecoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public decode(Ljava/io/InputStream;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 29
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperStreamResourceDecoder;->gifBitmapDecoder:Lcom/bumptech/glide/load/ResourceDecoder;

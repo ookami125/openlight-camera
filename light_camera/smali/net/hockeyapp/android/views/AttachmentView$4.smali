@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/views/AttachmentView;Z)V
-    .locals 0
+    .registers 3
 
     .line 283
     iput-object p1, p0, Lnet/hockeyapp/android/views/AttachmentView$4;->this$0:Lnet/hockeyapp/android/views/AttachmentView;
@@ -40,17 +40,17 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 286
     iget-boolean p1, p0, Lnet/hockeyapp/android/views/AttachmentView$4;->val$openOnClick:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     return-void
 
     .line 290
-    :cond_0
+    :cond_5
     new-instance p1, Landroid/content/Intent;
 
     invoke-direct {p1}, Landroid/content/Intent;-><init>()V
@@ -63,6 +63,7 @@
     .line 292
     iget-object v0, p0, Lnet/hockeyapp/android/views/AttachmentView$4;->this$0:Lnet/hockeyapp/android/views/AttachmentView;
 
+    # getter for: Lnet/hockeyapp/android/views/AttachmentView;->mAttachmentUri:Landroid/net/Uri;
     invoke-static {v0}, Lnet/hockeyapp/android/views/AttachmentView;->access$300(Lnet/hockeyapp/android/views/AttachmentView;)Landroid/net/Uri;
 
     move-result-object v0
@@ -74,6 +75,7 @@
     .line 293
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView$4;->this$0:Lnet/hockeyapp/android/views/AttachmentView;
 
+    # getter for: Lnet/hockeyapp/android/views/AttachmentView;->mContext:Landroid/content/Context;
     invoke-static {p0}, Lnet/hockeyapp/android/views/AttachmentView;->access$400(Lnet/hockeyapp/android/views/AttachmentView;)Landroid/content/Context;
 
     move-result-object p0

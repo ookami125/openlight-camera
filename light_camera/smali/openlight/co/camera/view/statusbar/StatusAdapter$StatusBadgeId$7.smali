@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZLjava/lang/String;IFI)V
-    .locals 9
+    .registers 17
 
     const/4 v8, 0x0
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getIconId()I
-    .locals 0
+    .registers 1
 
     .line 114
     invoke-static {}, Lopenlight/co/camera/utils/CipherManager;->get()Lopenlight/co/camera/utils/CipherManager;
@@ -56,15 +56,15 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const p0, 0x7f08013f
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method

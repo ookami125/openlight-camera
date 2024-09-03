@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bindStream(Ljava/io/OutputStream;)Ljava/io/OutputStream;
-    .locals 1
+    .registers 3
 
     .line 38
     iget-object v0, p0, Lorg/apache/commons/io/output/DemuxOutputStream;->outputStreamThreadLocal:Ljava/lang/InheritableThreadLocal;
@@ -55,7 +55,7 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,17 +71,17 @@
 
     check-cast p0, Ljava/io/OutputStream;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     .line 53
     invoke-virtual {p0}, Ljava/io/OutputStream;->close()V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,17 +97,17 @@
 
     check-cast p0, Ljava/io/OutputStream;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     .line 68
     invoke-virtual {p0}, Ljava/io/OutputStream;->flush()V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,11 +123,11 @@
 
     check-cast p0, Ljava/io/OutputStream;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     .line 85
     invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write(I)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method

@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 215
     invoke-direct {p0}, Lcom/squareup/wire/Message$Builder;-><init>()V
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public altitude(Lltpb/GPSData$Altitude;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 258
     iput-object p1, p0, Lltpb/GPSData$Builder;->altitude:Lltpb/GPSData$Altitude;
@@ -65,7 +65,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
 
     .line 196
     invoke-virtual {p0}, Lltpb/GPSData$Builder;->build()Lltpb/GPSData;
@@ -76,7 +76,7 @@
 .end method
 
 .method public build()Lltpb/GPSData;
-    .locals 12
+    .registers 13
 
     .line 280
     new-instance v11, Lltpb/GPSData;
@@ -111,7 +111,7 @@
 .end method
 
 .method public dop(Ljava/lang/Double;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 243
     iput-object p1, p0, Lltpb/GPSData$Builder;->dop:Ljava/lang/Double;
@@ -120,7 +120,7 @@
 .end method
 
 .method public heading(Lltpb/GPSData$Heading;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 253
     iput-object p1, p0, Lltpb/GPSData$Builder;->heading:Lltpb/GPSData$Heading;
@@ -129,7 +129,7 @@
 .end method
 
 .method public latitude(Ljava/lang/Double;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 222
     iput-object p1, p0, Lltpb/GPSData$Builder;->latitude:Ljava/lang/Double;
@@ -138,7 +138,7 @@
 .end method
 
 .method public longitude(Ljava/lang/Double;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 227
     iput-object p1, p0, Lltpb/GPSData$Builder;->longitude:Ljava/lang/Double;
@@ -147,7 +147,7 @@
 .end method
 
 .method public processing_method(Lltpb/GPSData$ProcessingMethod;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 274
     iput-object p1, p0, Lltpb/GPSData$Builder;->processing_method:Lltpb/GPSData$ProcessingMethod;
@@ -156,7 +156,7 @@
 .end method
 
 .method public speed(Ljava/lang/Double;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 266
     iput-object p1, p0, Lltpb/GPSData$Builder;->speed:Ljava/lang/Double;
@@ -165,7 +165,7 @@
 .end method
 
 .method public timestamp(Ljava/lang/Long;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 235
     iput-object p1, p0, Lltpb/GPSData$Builder;->timestamp:Ljava/lang/Long;
@@ -174,7 +174,7 @@
 .end method
 
 .method public track(Lltpb/GPSData$Track;)Lltpb/GPSData$Builder;
-    .locals 0
+    .registers 2
 
     .line 248
     iput-object p1, p0, Lltpb/GPSData$Builder;->track:Lltpb/GPSData$Track;

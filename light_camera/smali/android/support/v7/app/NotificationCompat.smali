@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public static getMediaSession(Landroid/app/Notification;)Landroid/support/v4/media/session/MediaSessionCompat$Token;
-    .locals 2
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -39,14 +39,14 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_38
 
     .line 58
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_19
 
     const-string v0, "android.mediaSession"
 
@@ -55,7 +55,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_38
 
     .line 61
     invoke-static {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Token;->fromToken(Ljava/lang/Object;)Landroid/support/v4/media/session/MediaSessionCompat$Token;
@@ -64,7 +64,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_19
     const-string v0, "android.mediaSession"
 
     .line 64
@@ -72,7 +72,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_38
 
     .line 66
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
@@ -102,7 +102,7 @@
 
     return-object p0
 
-    :cond_1
+    :cond_38
     const/4 p0, 0x0
 
     return-object p0

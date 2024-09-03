@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;)V
-    .locals 0
+    .registers 2
 
     .line 172
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -38,14 +38,14 @@
 
 # virtual methods
 .method public getBrowserRootHints()Landroid/os/Bundle;
-    .locals 1
+    .registers 2
 
     .line 232
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
     iget-object v0, v0, Landroid/support/v4/media/MediaBrowserServiceCompat;->mCurConnection:Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 236
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -54,13 +54,13 @@
 
     iget-object v0, v0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->rootHints:Landroid/os/Bundle;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_10
     new-instance v0, Landroid/os/Bundle;
 
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -73,11 +73,11 @@
 
     move-object p0, v0
 
-    :goto_0
+    :goto_1c
     return-object p0
 
     .line 233
-    :cond_1
+    :cond_1d
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "This should be called inside of onLoadChildren, onLoadItem or onSearch methods"
@@ -88,7 +88,7 @@
 .end method
 
 .method public notifyChildrenChanged(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -109,7 +109,7 @@
 .end method
 
 .method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
-    .locals 1
+    .registers 3
 
     const-string v0, "android.media.browse.MediaBrowserService"
 
@@ -122,7 +122,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 183
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->mMessenger:Landroid/os/Messenger;
@@ -133,14 +133,14 @@
 
     return-object p0
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public onCreate()V
-    .locals 2
+    .registers 3
 
     .line 177
     new-instance v0, Landroid/os/Messenger;
@@ -157,7 +157,7 @@
 .end method
 
 .method public setSessionToken(Landroid/support/v4/media/session/MediaSessionCompat$Token;)V
-    .locals 2
+    .registers 4
 
     .line 190
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;

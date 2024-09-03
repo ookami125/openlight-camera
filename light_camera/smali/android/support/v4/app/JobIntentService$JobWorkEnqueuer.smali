@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;I)V
-    .locals 2
+    .registers 6
 
     .line 326
     invoke-direct {p0, p1, p2}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method enqueueWork(Landroid/content/Intent;)V
-    .locals 2
+    .registers 4
 
     .line 337
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->mJobScheduler:Landroid/app/job/JobScheduler;

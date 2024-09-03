@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/design/widget/TabLayout;)V
-    .locals 1
+    .registers 3
 
     .line 2110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 1
+    .registers 3
 
     .line 2116
     iget v0, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mScrollState:I
@@ -67,7 +67,7 @@
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 5
+    .registers 9
 
     .line 2123
     iget-object p3, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mTabLayoutRef:Ljava/lang/ref/WeakReference;
@@ -78,7 +78,7 @@
 
     check-cast p3, Landroid/support/design/widget/TabLayout;
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_25
 
     .line 2127
     iget v0, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mScrollState:I
@@ -89,46 +89,46 @@
 
     const/4 v3, 0x1
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_18
 
     iget v0, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mPreviousScrollState:I
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_16
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_16
     move v0, v1
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     move v0, v3
 
     .line 2132
-    :goto_1
+    :goto_19
     iget v4, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mScrollState:I
 
-    if-ne v4, v2, :cond_2
+    if-ne v4, v2, :cond_21
 
     iget p0, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mPreviousScrollState:I
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_22
 
-    :cond_2
+    :cond_21
     move v1, v3
 
     .line 2134
-    :cond_3
+    :cond_22
     invoke-virtual {p3, p1, p2, v0, v1}, Landroid/support/design/widget/TabLayout;->setScrollPosition(IFZZ)V
 
-    :cond_4
+    :cond_25
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 3
+    .registers 5
 
     .line 2140
     iget-object v0, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mTabLayoutRef:Ljava/lang/ref/WeakReference;
@@ -139,62 +139,62 @@
 
     check-cast v0, Landroid/support/design/widget/TabLayout;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     .line 2141
     invoke-virtual {v0}, Landroid/support/design/widget/TabLayout;->getSelectedTabPosition()I
 
     move-result v1
 
-    if-eq v1, p1, :cond_2
+    if-eq v1, p1, :cond_2e
 
     .line 2142
     invoke-virtual {v0}, Landroid/support/design/widget/TabLayout;->getTabCount()I
 
     move-result v1
 
-    if-ge p1, v1, :cond_2
+    if-ge p1, v1, :cond_2e
 
     .line 2145
     iget v1, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mScrollState:I
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_26
 
     iget v1, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mScrollState:I
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_24
 
     iget p0, p0, Landroid/support/design/widget/TabLayout$TabLayoutOnPageChangeListener;->mPreviousScrollState:I
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_24
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_24
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_1
-    :goto_0
+    :cond_26
+    :goto_26
     const/4 p0, 0x1
 
     .line 2148
-    :goto_1
+    :goto_27
     invoke-virtual {v0, p1}, Landroid/support/design/widget/TabLayout;->getTabAt(I)Landroid/support/design/widget/TabLayout$Tab;
 
     move-result-object p1
 
     invoke-virtual {v0, p1, p0}, Landroid/support/design/widget/TabLayout;->selectTab(Landroid/support/design/widget/TabLayout$Tab;Z)V
 
-    :cond_2
+    :cond_2e
     return-void
 .end method
 
 .method reset()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 

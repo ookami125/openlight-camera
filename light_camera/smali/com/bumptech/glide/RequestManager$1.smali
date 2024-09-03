@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/RequestManager;Lcom/bumptech/glide/manager/Lifecycle;)V
-    .locals 0
+    .registers 3
 
     .line 72
     iput-object p1, p0, Lcom/bumptech/glide/RequestManager$1;->this$0:Lcom/bumptech/glide/RequestManager;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Lcom/bumptech/glide/RequestManager$1;->val$lifecycle:Lcom/bumptech/glide/manager/Lifecycle;

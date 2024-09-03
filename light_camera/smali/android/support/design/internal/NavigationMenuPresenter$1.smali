@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/internal/NavigationMenuPresenter;)V
-    .locals 0
+    .registers 2
 
     .line 335
     iput-object p1, p0, Landroid/support/design/internal/NavigationMenuPresenter$1;->this$0:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
 
     .line 339
     check-cast p1, Landroid/support/design/internal/NavigationMenuItemView;
@@ -66,16 +66,16 @@
 
     move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_28
 
     .line 343
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->isCheckable()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 344
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuPresenter$1;->this$0:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -85,7 +85,7 @@
     invoke-virtual {v0, p1}, Landroid/support/design/internal/NavigationMenuPresenter$NavigationMenuAdapter;->setCheckedItem(Landroid/support/v7/view/menu/MenuItemImpl;)V
 
     .line 346
-    :cond_0
+    :cond_28
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuPresenter$1;->this$0:Landroid/support/design/internal/NavigationMenuPresenter;
 
     invoke-virtual {p1, v2}, Landroid/support/design/internal/NavigationMenuPresenter;->setUpdateSuspended(Z)V

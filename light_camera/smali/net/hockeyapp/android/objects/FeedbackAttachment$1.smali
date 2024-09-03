@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/objects/FeedbackAttachment;)V
-    .locals 0
+    .registers 2
 
     .line 91
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment$1;->this$0:Lnet/hockeyapp/android/objects/FeedbackAttachment;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 0
+    .registers 3
 
     .line 94
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackAttachment$1;->this$0:Lnet/hockeyapp/android/objects/FeedbackAttachment;

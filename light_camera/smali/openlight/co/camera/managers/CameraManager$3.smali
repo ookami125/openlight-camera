@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/managers/CameraManager;)V
-    .locals 2
+    .registers 4
 
     .line 445
     iput-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -38,7 +38,7 @@
 .end method
 
 .method private process(Landroid/hardware/camera2/CaptureResult;)V
-    .locals 12
+    .registers 14
     .param p1    # Landroid/hardware/camera2/CaptureResult;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -51,9 +51,10 @@
 
     sget-object v1, Lopenlight/co/camera/managers/CameraManager$State;->OPEN:Lopenlight/co/camera/managers/CameraManager$State;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_25
 
     .line 450
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -81,9 +82,10 @@
     return-void
 
     .line 454
-    :cond_0
+    :cond_25
     iget-object v0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraStateLock:Ljava/lang/Object;
     invoke-static {v0}, Lopenlight/co/camera/managers/CameraManager;->access$800(Lopenlight/co/camera/managers/CameraManager;)Ljava/lang/Object;
 
     move-result-object v0
@@ -91,9 +93,10 @@
     monitor-enter v0
 
     .line 455
-    :try_start_0
+    :try_start_2c
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # setter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureResult:Landroid/hardware/camera2/CaptureResult;
     invoke-static {v1, p1}, Lopenlight/co/camera/managers/CameraManager;->access$1102(Lopenlight/co/camera/managers/CameraManager;Landroid/hardware/camera2/CaptureResult;)Landroid/hardware/camera2/CaptureResult;
 
     .line 457
@@ -101,6 +104,7 @@
 
     iget-object v2, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {v2}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object v2
@@ -123,14 +127,15 @@
 
     const/4 v5, 0x4
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_3fc
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 577
-    :pswitch_0
+    :pswitch_4c
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -144,6 +149,7 @@
     .line 578
     iget-object v6, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mAutoExposureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {v6}, Lopenlight/co/camera/managers/CameraManager;->access$400(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v6
@@ -159,6 +165,7 @@
     move-result v6
 
     .line 579
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v7
@@ -184,6 +191,7 @@
     invoke-static {v7, v8}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 580
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v7
@@ -207,6 +215,7 @@
     .line 585
     iget-object v6, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
     invoke-static {v6}, Lopenlight/co/camera/managers/CameraManager;->access$1800(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/CameraInfo;
 
     move-result-object v6
@@ -215,7 +224,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_c2
 
     .line 586
     sget-object v6, Landroid/hardware/camera2/CaptureResult;->CONTROL_AF_STATE:Landroid/hardware/camera2/CaptureResult$Key;
@@ -226,35 +235,35 @@
 
     check-cast v6, Ljava/lang/Integer;
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_b4
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 592
-    :cond_1
+    :cond_b4
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result v7
 
-    if-eq v7, v5, :cond_2
+    if-eq v7, v5, :cond_c0
 
     .line 593
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
 
-    if-ne v6, v2, :cond_3
+    if-ne v6, v2, :cond_c2
 
-    :cond_2
+    :cond_c0
     move v2, v3
 
-    goto :goto_0
+    goto :goto_c3
 
-    :cond_3
+    :cond_c2
     move v2, v4
 
     .line 597
-    :goto_0
+    :goto_c3
     sget-object v6, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_STATE:Landroid/hardware/camera2/CaptureResult$Key;
 
     invoke-virtual {p1, v6}, Landroid/hardware/camera2/CaptureResult;->get(Landroid/hardware/camera2/CaptureResult$Key;)Ljava/lang/Object;
@@ -273,6 +282,7 @@
     check-cast p1, Ljava/lang/Integer;
 
     .line 599
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v7
@@ -294,6 +304,7 @@
     invoke-static {v7, v8}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 600
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v7
@@ -314,28 +325,28 @@
 
     invoke-static {v7, v8}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_19c
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_109
 
-    goto/16 :goto_1
+    goto/16 :goto_19c
 
     .line 607
-    :cond_4
+    :cond_109
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result p1
 
     const/4 v7, 0x2
 
-    if-eq p1, v7, :cond_5
+    if-eq p1, v7, :cond_11d
 
     .line 608
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result p1
 
-    if-eq p1, v5, :cond_5
+    if-eq p1, v5, :cond_11d
 
     .line 609
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
@@ -344,22 +355,23 @@
 
     const/4 v7, 0x3
 
-    if-ne p1, v7, :cond_7
+    if-ne p1, v7, :cond_138
 
     .line 611
-    :cond_5
+    :cond_11d
     invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result p1
 
-    if-ne p1, v5, :cond_6
+    if-ne p1, v5, :cond_124
 
     move v4, v3
 
     .line 617
-    :cond_6
+    :cond_124
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mAutoExposureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$400(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p1
@@ -380,7 +392,8 @@
     move v2, v3
 
     .line 621
-    :cond_7
+    :cond_138
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -408,6 +421,7 @@
     invoke-static {p1, v3}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 624
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -428,33 +442,34 @@
 
     invoke-static {p1, v3}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_17b
 
     .line 625
     invoke-virtual {v1}, Lopenlight/co/camera/managers/capture/CaptureManager;->getPendingUserCaptures()I
 
     move-result p1
 
-    if-lez p1, :cond_8
+    if-lez p1, :cond_17b
 
     .line 626
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->triggerCaptureToHal()V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
-    :cond_8
-    if-eqz v2, :cond_16
+    :cond_17b
+    if-eqz v2, :cond_3f7
 
     .line 628
     invoke-virtual {v1}, Lopenlight/co/camera/managers/capture/CaptureManager;->getPendingUserCaptures()I
 
     move-result p1
 
-    if-nez p1, :cond_16
+    if-nez p1, :cond_3f7
 
     .line 629
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -463,31 +478,32 @@
 
     invoke-static {p1, v1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v4, :cond_9
+    if-eqz v4, :cond_195
 
     .line 631
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     invoke-virtual {p0, v5}, Lopenlight/co/camera/managers/CameraManager;->startFocus(I)V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 633
-    :cond_9
+    :cond_195
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->startFocus()V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 602
-    :cond_a
-    :goto_1
+    :cond_19c
+    :goto_19c
     invoke-virtual {v1}, Lopenlight/co/camera/managers/capture/CaptureManager;->resetCapture()V
 
     .line 603
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p0
@@ -496,10 +512,11 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/utils/CameraState;->setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 569
-    :pswitch_1
+    :pswitch_1ac
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -529,6 +546,7 @@
     .line 572
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p1
@@ -542,6 +560,7 @@
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     .line 573
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -562,6 +581,7 @@
     .line 574
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p0
@@ -570,12 +590,13 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/utils/CameraState;->setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 558
-    :pswitch_2
+    :pswitch_1f4
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mAutoExposureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$400(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -593,6 +614,7 @@
     invoke-virtual {v1, v2}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->resetPreCaptureTrigger(Landroid/hardware/camera2/CaptureRequest$Builder;)V
 
     .line 559
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -622,6 +644,7 @@
     .line 562
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$300(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/TimingLoggerUtil;
 
     move-result-object p1
@@ -633,6 +656,7 @@
     .line 564
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p1
@@ -648,6 +672,7 @@
     .line 566
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p0
@@ -656,10 +681,10 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/utils/CameraState;->setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 523
-    :pswitch_3
+    :pswitch_24a
     sget-object v1, Landroid/hardware/camera2/CaptureResult;->CONTROL_AF_STATE:Landroid/hardware/camera2/CaptureResult$Key;
 
     invoke-virtual {p1, v1}, Landroid/hardware/camera2/CaptureResult;->get(Landroid/hardware/camera2/CaptureResult$Key;)Ljava/lang/Object;
@@ -668,12 +693,12 @@
 
     check-cast v1, Ljava/lang/Integer;
 
-    if-nez v1, :cond_b
+    if-nez v1, :cond_256
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 527
-    :cond_b
+    :cond_256
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
@@ -687,9 +712,10 @@
 
     move-result v3
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_27b
 
     .line 529
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -715,10 +741,11 @@
 
     return-void
 
-    :cond_c
-    if-ne v1, v5, :cond_d
+    :cond_27b
+    if-ne v1, v5, :cond_2bc
 
     .line 535
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -748,6 +775,7 @@
     .line 537
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$300(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/TimingLoggerUtil;
 
     move-result-object p1
@@ -771,6 +799,7 @@
     .line 540
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p1
@@ -779,12 +808,13 @@
 
     invoke-virtual {p1, v1}, Lopenlight/co/camera/utils/CameraState;->setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
 
-    goto :goto_2
+    goto :goto_2f7
 
-    :cond_d
-    if-ne v1, v2, :cond_f
+    :cond_2bc
+    if-ne v1, v2, :cond_2f7
 
     .line 543
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -814,7 +844,7 @@
 
     iget-object p1, p1, Lopenlight/co/camera/managers/CameraManager;->mUpdatePreviewListener:Lopenlight/co/camera/managers/CameraManager$UpdatePreview;
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_2e7
 
     .line 545
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -824,7 +854,7 @@
     invoke-interface {p1}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->focusFailedUpdateUi()V
 
     .line 547
-    :cond_e
+    :cond_2e7
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     invoke-virtual {p1}, Lopenlight/co/camera/managers/CameraManager;->focusComplete()V
@@ -832,6 +862,7 @@
     .line 548
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p1
@@ -841,17 +872,19 @@
     invoke-virtual {p1, v1}, Lopenlight/co/camera/utils/CameraState;->setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
 
     .line 550
-    :cond_f
-    :goto_2
+    :cond_2f7
+    :goto_2f7
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # invokes: Lopenlight/co/camera/managers/CameraManager;->hasTimeToFocusThresholdPassed()Z
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$1700(Lopenlight/co/camera/managers/CameraManager;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_16
+    if-eqz p1, :cond_3f7
 
     .line 551
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -872,10 +905,10 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->focusComplete()V
 
-    goto/16 :goto_5
+    goto/16 :goto_3f7
 
     .line 469
-    :pswitch_4
+    :pswitch_316
     invoke-virtual {p1}, Landroid/hardware/camera2/CaptureResult;->getFrameNumber()J
 
     move-result-wide v1
@@ -884,7 +917,7 @@
 
     cmp-long v1, v1, v5
 
-    if-gez v1, :cond_10
+    if-gez v1, :cond_34d
 
     .line 470
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -897,6 +930,7 @@
 
     check-cast v2, Landroid/util/Range;
 
+    # setter for: Lopenlight/co/camera/managers/CameraManager;->mFpsRange:Landroid/util/Range;
     invoke-static {v1, v2}, Lopenlight/co/camera/managers/CameraManager;->access$1202(Lopenlight/co/camera/managers/CameraManager;Landroid/util/Range;)Landroid/util/Range;
 
     .line 471
@@ -912,6 +946,7 @@
     .line 473
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureReqManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$700(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -934,9 +969,10 @@
     invoke-virtual {v1}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
     .line 478
-    :cond_10
+    :cond_34d
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mFocusManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$600(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -952,9 +988,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_377
 
     .line 482
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -966,6 +1003,7 @@
     .line 483
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mSmartAFTriggerMgrProvider:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$1300(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -979,7 +1017,7 @@
     invoke-virtual {v1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->processSystemTrigger()V
 
     .line 487
-    :cond_11
+    :cond_377
     invoke-static {}, Lopenlight/co/camera/utils/FaceDetector;->get()Lopenlight/co/camera/utils/FaceDetector;
 
     move-result-object v1
@@ -988,19 +1026,20 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_387
 
     .line 488
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
     move-result v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_39b
 
-    :cond_12
+    :cond_387
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     .line 489
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mSmartAFTriggerMgrProvider:Lopenlight/co/camera/utils/Provider;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$1300(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object v1
@@ -1015,24 +1054,24 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_39b
 
     move v1, v3
 
-    goto :goto_3
+    goto :goto_39c
 
-    :cond_13
+    :cond_39b
     move v1, v4
 
     .line 491
-    :goto_3
+    :goto_39c
     iget-object v2, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     iget-object v2, v2, Lopenlight/co/camera/managers/CameraManager;->mCurrentState:Lopenlight/co/camera/managers/CameraManager$State;
 
     sget-object v5, Lopenlight/co/camera/managers/CameraManager$State;->OPEN:Lopenlight/co/camera/managers/CameraManager$State;
 
-    if-ne v2, v5, :cond_16
+    if-ne v2, v5, :cond_3f7
 
     .line 492
     iget-object v2, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -1041,6 +1080,7 @@
 
     iget-object v5, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # invokes: Lopenlight/co/camera/managers/CameraManager;->getISO(Landroid/hardware/camera2/CaptureResult;)I
     invoke-static {v5, p1}, Lopenlight/co/camera/managers/CameraManager;->access$1400(Lopenlight/co/camera/managers/CameraManager;Landroid/hardware/camera2/CaptureResult;)I
 
     move-result v5
@@ -1048,6 +1088,7 @@
     iget-object v6, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     .line 493
+    # invokes: Lopenlight/co/camera/managers/CameraManager;->getShutterSpeed(Landroid/hardware/camera2/CaptureResult;)J
     invoke-static {v6, p1}, Lopenlight/co/camera/managers/CameraManager;->access$1500(Lopenlight/co/camera/managers/CameraManager;Landroid/hardware/camera2/CaptureResult;)J
 
     move-result-wide v6
@@ -1060,18 +1101,18 @@
 
     cmp-long v8, v8, v10
 
-    if-gez v8, :cond_14
+    if-gez v8, :cond_3bf
 
-    goto :goto_4
+    goto :goto_3c0
 
-    :cond_14
+    :cond_3bf
     move v3, v4
 
     .line 492
-    :goto_4
+    :goto_3c0
     invoke-interface {v2, v5, v6, v7, v3}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->updateHudInfo(IJZ)V
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_3cc
 
     .line 500
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -1081,7 +1122,7 @@
     invoke-interface {v1}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->onNoFacesInPreview()V
 
     .line 503
-    :cond_15
+    :cond_3cc
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     iget-object v1, v1, Lopenlight/co/camera/managers/CameraManager;->mUpdatePreviewListener:Lopenlight/co/camera/managers/CameraManager$UpdatePreview;
@@ -1125,6 +1166,7 @@
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$3;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     .line 511
+    # invokes: Lopenlight/co/camera/managers/CameraManager;->showHandshakeAssist(Landroid/hardware/camera2/CaptureResult;)Z
     invoke-static {p0, p1}, Lopenlight/co/camera/managers/CameraManager;->access$1600(Lopenlight/co/camera/managers/CameraManager;Landroid/hardware/camera2/CaptureResult;)Z
 
     move-result p0
@@ -1133,37 +1175,37 @@
     invoke-interface {v1, p0}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->updateHandshakeAssist(Z)V
 
     .line 638
-    :cond_16
-    :goto_5
-    :pswitch_5
+    :cond_3f7
+    :goto_3f7
+    :pswitch_3f7
     monitor-exit v0
 
     return-void
 
-    :catchall_0
+    :catchall_3f9
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3fb
+    .catchall {:try_start_2c .. :try_end_3fb} :catchall_3f9
 
     throw p0
 
-    :pswitch_data_0
+    :pswitch_data_3fc
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_5
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_316
+        :pswitch_3f7
+        :pswitch_24a
+        :pswitch_1f4
+        :pswitch_1ac
+        :pswitch_4c
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1184,7 +1226,7 @@
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
-    .locals 2
+    .registers 6
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1199,6 +1241,7 @@
     .end param
 
     .line 659
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -1255,7 +1298,7 @@
 .end method
 
 .method public onCaptureProgressed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

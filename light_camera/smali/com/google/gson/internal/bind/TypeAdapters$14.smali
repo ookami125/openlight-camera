@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 344
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Number;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -58,9 +58,9 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_2e
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_38
 
     .line 356
     new-instance p1, Lcom/google/gson/JsonSyntaxException;
@@ -84,7 +84,7 @@
     throw p1
 
     .line 350
-    :pswitch_0
+    :pswitch_29
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
 
     const/4 p0, 0x0
@@ -92,8 +92,8 @@
     return-object p0
 
     .line 354
-    :cond_0
-    :pswitch_1
+    :cond_2e
+    :pswitch_2e
     new-instance p0, Lcom/google/gson/internal/LazilyParsedNumber;
 
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
@@ -104,15 +104,15 @@
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x3
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2e
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -128,7 +128,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Number;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -142,7 +142,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public canUpdateInMarket()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -24,7 +24,7 @@
 .end method
 
 .method public getExpiryDate()Ljava/util/Date;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -32,7 +32,7 @@
 .end method
 
 .method public getUpdateActivityClass()Ljava/lang/Class;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -50,7 +50,7 @@
 .end method
 
 .method public getUpdateFragmentClass()Ljava/lang/Class;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -68,7 +68,7 @@
 .end method
 
 .method public onBuildExpired()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -76,25 +76,25 @@
 .end method
 
 .method public onCancel()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onNoUpdateAvailable()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onUpdateAvailable()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onUpdateAvailable(Lorg/json/JSONArray;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 60
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateManagerListener;->onUpdateAvailable()V
@@ -103,7 +103,7 @@
 .end method
 
 .method public onUpdatePermissionsNotGranted()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

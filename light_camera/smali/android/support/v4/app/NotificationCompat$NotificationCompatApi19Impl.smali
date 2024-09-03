@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 771
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$NotificationCompatApi16Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public build(Landroid/support/v4/app/NotificationCompat$Builder;Landroid/support/v4/app/NotificationCompat$BuilderExtender;)Landroid/app/Notification;
-    .locals 30
+    .registers 33
 
     move-object/from16 v0, p1
 
@@ -132,14 +132,14 @@
     .line 782
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_68
 
     .line 783
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
     invoke-virtual {v1, v2}, Landroid/support/v4/app/NotificationCompat$Style;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
 
-    :cond_0
+    :cond_68
     move-object/from16 v1, p2
 
     .line 785
@@ -151,7 +151,7 @@
 .end method
 
 .method public getAction(Landroid/app/Notification;I)Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 1
+    .registers 4
 
     .line 790
     sget-object p0, Landroid/support/v4/app/NotificationCompat$Action;->FACTORY:Landroid/support/v4/app/NotificationCompatBase$Action$Factory;

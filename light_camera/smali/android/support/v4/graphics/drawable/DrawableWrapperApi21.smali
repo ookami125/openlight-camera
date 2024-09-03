@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 46
     invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -35,7 +35,7 @@
 .end method
 
 .method constructor <init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
-    .locals 0
+    .registers 3
 
     .line 51
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;-><init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
@@ -47,15 +47,15 @@
 .end method
 
 .method private findAndCacheIsProjectedDrawableMethod()V
-    .locals 2
+    .registers 3
 
     .line 160
     sget-object p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_1a
 
     .line 162
-    :try_start_0
+    :try_start_4
     const-class p0, Landroid/graphics/drawable/Drawable;
 
     const-string v0, "isProjected"
@@ -69,12 +69,12 @@
     move-result-object p0
 
     sput-object p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_11} :catch_12
 
-    goto :goto_0
+    goto :goto_1a
 
-    :catch_0
+    :catch_12
     move-exception p0
 
     const-string v0, "DrawableWrapperApi21"
@@ -84,15 +84,15 @@
     .line 164
     invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
-    :goto_0
+    :cond_1a
+    :goto_1a
     return-void
 .end method
 
 
 # virtual methods
 .method public getDirtyBounds()Landroid/graphics/Rect;
-    .locals 0
+    .registers 1
 
     .line 72
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -105,7 +105,7 @@
 .end method
 
 .method public getOutline(Landroid/graphics/Outline;)V
-    .locals 0
+    .registers 2
 
     .line 67
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -116,7 +116,7 @@
 .end method
 
 .method protected isCompatTintEnabled()Z
-    .locals 3
+    .registers 4
 
     .line 115
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -125,7 +125,7 @@
 
     const/16 v2, 0x15
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1b
 
     .line 116
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -133,32 +133,32 @@
     .line 117
     instance-of v0, p0, Landroid/graphics/drawable/GradientDrawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     instance-of v0, p0, Landroid/graphics/drawable/DrawableContainer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     instance-of v0, p0, Landroid/graphics/drawable/InsetDrawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     instance-of p0, p0, Landroid/graphics/drawable/RippleDrawable;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1a
 
-    :cond_0
+    :cond_19
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_1a
     return v1
 
-    :cond_2
+    :cond_1b
     return v1
 .end method
 
 .method public isProjected()Z
-    .locals 3
+    .registers 4
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -170,14 +170,14 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     sget-object v0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 132
-    :try_start_0
+    :try_start_9
     sget-object v0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
 
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -193,12 +193,12 @@
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_9 .. :try_end_19} :catch_1a
 
     return p0
 
-    :catch_0
+    :catch_1a
     move-exception p0
 
     const-string v0, "DrawableWrapperApi21"
@@ -208,12 +208,12 @@
     .line 134
     invoke-static {v0, v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_22
     return v1
 .end method
 
 .method mutateConstantState()Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;
-    .locals 2
+    .registers 3
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -230,7 +230,7 @@
 .end method
 
 .method public setHotspot(FF)V
-    .locals 0
+    .registers 3
 
     .line 57
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -241,7 +241,7 @@
 .end method
 
 .method public setHotspotBounds(IIII)V
-    .locals 0
+    .registers 5
 
     .line 62
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -252,14 +252,14 @@
 .end method
 
 .method public setState([I)Z
-    .locals 0
+    .registers 2
 
     .line 104
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;->setState([I)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 107
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->invalidateSelf()V
@@ -268,83 +268,83 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public setTint(I)V
-    .locals 1
+    .registers 3
 
     .line 86
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->isCompatTintEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 87
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;->setTint(I)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 89
-    :cond_0
+    :cond_a
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public setTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
 
     .line 77
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->isCompatTintEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 78
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 80
-    :cond_0
+    :cond_a
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public setTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
 
     .line 95
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->isCompatTintEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 96
     invoke-super {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 98
-    :cond_0
+    :cond_a
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method

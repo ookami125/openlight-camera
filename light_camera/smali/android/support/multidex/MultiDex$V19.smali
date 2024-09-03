@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 369
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static synthetic access$000(Ljava/lang/ClassLoader;Ljava/util/List;Ljava/io/File;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -43,7 +43,7 @@
 .end method
 
 .method private static install(Ljava/lang/ClassLoader;Ljava/util/List;Ljava/io/File;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,6 +69,7 @@
     const-string v0, "pathList"
 
     .line 380
+    # invokes: Landroid/support/multidex/MultiDex;->findField(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/reflect/Field;
     invoke-static {p0, v0}, Landroid/support/multidex/MultiDex;->access$300(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v0
@@ -94,6 +95,7 @@
 
     move-result-object p1
 
+    # invokes: Landroid/support/multidex/MultiDex;->expandFieldArray(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-static {v0, v2, p1}, Landroid/support/multidex/MultiDex;->access$400(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     .line 386
@@ -101,19 +103,19 @@
 
     move-result p1
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_6e
 
     .line 387
     invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
-    :goto_0
+    :goto_27
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_3b
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -128,12 +130,13 @@
     .line 388
     invoke-static {v0, v2, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_3b
     const-string p1, "dexElementsSuppressedExceptions"
 
     .line 390
+    # invokes: Landroid/support/multidex/MultiDex;->findField(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/reflect/Field;
     invoke-static {p0, p1}, Landroid/support/multidex/MultiDex;->access$300(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object p1
@@ -145,7 +148,7 @@
 
     check-cast p2, [Ljava/io/IOException;
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_56
 
     .line 396
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -160,10 +163,10 @@
 
     check-cast p2, [Ljava/io/IOException;
 
-    goto :goto_1
+    goto :goto_6b
 
     .line 400
-    :cond_1
+    :cond_56
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v0
@@ -191,15 +194,15 @@
     move-object p2, v0
 
     .line 409
-    :goto_1
+    :goto_6b
     invoke-virtual {p1, p0, p2}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :cond_2
+    :cond_6e
     return-void
 .end method
 
 .method private static makeDexElements(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/io/File;Ljava/util/ArrayList;)[Ljava/lang/Object;
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -248,6 +251,7 @@
 
     aput-object v3, v2, v6
 
+    # invokes: Landroid/support/multidex/MultiDex;->findMethod(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
     invoke-static {p0, v0, v2}, Landroid/support/multidex/MultiDex;->access$500(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
     move-result-object v0

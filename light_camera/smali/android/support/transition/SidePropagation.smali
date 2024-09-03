@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Landroid/support/transition/VisibilityPropagation;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method private distance(Landroid/view/View;IIIIIIII)I
-    .locals 6
+    .registers 16
 
     .line 124
     iget v0, p0, Landroid/support/transition/SidePropagation;->mSide:I
@@ -45,79 +45,79 @@
 
     const v5, 0x800003
 
-    if-ne v0, v5, :cond_3
+    if-ne v0, v5, :cond_19
 
     .line 125
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result p0
 
-    if-ne p0, v4, :cond_0
+    if-ne p0, v4, :cond_12
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move v4, v3
 
-    :goto_0
-    if-eqz v4, :cond_2
+    :goto_13
+    if-eqz v4, :cond_17
 
-    :cond_1
+    :cond_15
     move p0, v1
 
-    goto :goto_3
+    goto :goto_2d
 
-    :cond_2
-    :goto_1
+    :cond_17
+    :goto_17
     move p0, v2
 
-    goto :goto_3
+    goto :goto_2d
 
     .line 128
-    :cond_3
+    :cond_19
     iget v0, p0, Landroid/support/transition/SidePropagation;->mSide:I
 
     const v5, 0x800005
 
-    if-ne v0, v5, :cond_5
+    if-ne v0, v5, :cond_2b
 
     .line 129
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result p0
 
-    if-ne p0, v4, :cond_4
+    if-ne p0, v4, :cond_27
 
-    goto :goto_2
+    goto :goto_28
 
-    :cond_4
+    :cond_27
     move v4, v3
 
-    :goto_2
-    if-eqz v4, :cond_1
+    :goto_28
+    if-eqz v4, :cond_15
 
-    goto :goto_1
+    goto :goto_17
 
     .line 133
-    :cond_5
+    :cond_2b
     iget p0, p0, Landroid/support/transition/SidePropagation;->mSide:I
 
-    :goto_3
-    if-eq p0, v2, :cond_9
+    :goto_2d
+    if-eq p0, v2, :cond_55
 
-    if-eq p0, v1, :cond_8
+    if-eq p0, v1, :cond_4c
 
     const/16 p1, 0x30
 
-    if-eq p0, p1, :cond_7
+    if-eq p0, p1, :cond_43
 
     const/16 p1, 0x50
 
-    if-eq p0, p1, :cond_6
+    if-eq p0, p1, :cond_3a
 
-    goto :goto_4
+    goto :goto_5d
 
-    :cond_6
+    :cond_3a
     sub-int/2addr p3, p7
 
     sub-int/2addr p4, p2
@@ -129,9 +129,9 @@
 
     add-int v3, p3, p0
 
-    goto :goto_4
+    goto :goto_5d
 
-    :cond_7
+    :cond_43
     sub-int/2addr p9, p3
 
     sub-int/2addr p4, p2
@@ -143,9 +143,9 @@
 
     add-int v3, p9, p0
 
-    goto :goto_4
+    goto :goto_5d
 
-    :cond_8
+    :cond_4c
     sub-int/2addr p2, p6
 
     sub-int/2addr p5, p3
@@ -157,9 +157,9 @@
 
     add-int v3, p2, p0
 
-    goto :goto_4
+    goto :goto_5d
 
-    :cond_9
+    :cond_55
     sub-int/2addr p8, p2
 
     sub-int/2addr p5, p3
@@ -171,31 +171,31 @@
 
     add-int v3, p8, p0
 
-    :goto_4
+    :goto_5d
     return v3
 .end method
 
 .method private getMaxDistance(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 3
 
     .line 154
     iget p0, p0, Landroid/support/transition/SidePropagation;->mSide:I
 
     const/4 v0, 0x3
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_17
 
     const/4 v0, 0x5
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_17
 
     const v0, 0x800003
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_17
 
     const v0, 0x800005
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_17
 
     .line 161
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getHeight()I
@@ -205,7 +205,7 @@
     return p0
 
     .line 159
-    :cond_0
+    :cond_17
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
 
     move-result p0
@@ -216,7 +216,7 @@
 
 # virtual methods
 .method public getStartDelay(Landroid/view/ViewGroup;Landroid/support/transition/Transition;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)J
-    .locals 17
+    .registers 22
 
     move-object/from16 v10, p0
 
@@ -224,46 +224,46 @@
 
     const-wide/16 v11, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_b
 
     return-wide v11
 
     .line 79
-    :cond_0
+    :cond_b
     invoke-virtual/range {p2 .. p2}, Landroid/support/transition/Transition;->getEpicenter()Landroid/graphics/Rect;
 
     move-result-object v2
 
     const/4 v3, 0x1
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_1d
 
     .line 81
     invoke-virtual {v10, v0}, Landroid/support/transition/SidePropagation;->getViewVisibility(Landroid/support/transition/TransitionValues;)I
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_19
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_19
     move-object/from16 v0, p4
 
     move v13, v3
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 v1, -0x1
 
     move v13, v1
 
     .line 88
-    :goto_1
+    :goto_1f
     invoke-virtual {v10, v0}, Landroid/support/transition/SidePropagation;->getViewX(Landroid/support/transition/TransitionValues;)I
 
     move-result v4
@@ -325,7 +325,7 @@
 
     add-int v9, v7, v1
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_61
 
     .line 101
     invoke-virtual {v2}, Landroid/graphics/Rect;->centerX()I
@@ -341,9 +341,9 @@
 
     move/from16 v16, v1
 
-    goto :goto_2
+    goto :goto_6a
 
-    :cond_3
+    :cond_61
     add-int v1, v6, v8
 
     .line 104
@@ -358,7 +358,7 @@
 
     move/from16 v16, v2
 
-    :goto_2
+    :goto_6a
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -394,11 +394,11 @@
 
     cmp-long v3, v1, v11
 
-    if-gez v3, :cond_4
+    if-gez v3, :cond_88
 
     const-wide/16 v1, 0x12c
 
-    :cond_4
+    :cond_88
     int-to-long v3, v13
 
     mul-long/2addr v1, v3
@@ -422,13 +422,13 @@
 .end method
 
 .method public setPropagationSpeed(F)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 69
     iput p1, p0, Landroid/support/transition/SidePropagation;->mPropagationSpeed:F
@@ -436,7 +436,7 @@
     return-void
 
     .line 67
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "propagationSpeed may not be 0"
@@ -447,7 +447,7 @@
 .end method
 
 .method public setSide(I)V
-    .locals 0
+    .registers 2
 
     .line 50
     iput p1, p0, Landroid/support/transition/SidePropagation;->mSide:I

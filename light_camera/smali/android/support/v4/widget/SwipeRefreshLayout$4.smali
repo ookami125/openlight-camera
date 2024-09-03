@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/SwipeRefreshLayout;II)V
-    .locals 0
+    .registers 4
 
     .line 484
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 2
+    .registers 5
 
     .line 487
     iget-object p2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$4;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;

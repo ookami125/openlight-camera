@@ -53,13 +53,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/support/constraint/solver/SolverVariable$Type;)V
-    .locals 2
+    .registers 4
 
     .line 102
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Landroid/support/constraint/solver/SolverVariable$Type;)V
-    .locals 2
+    .registers 5
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -146,7 +146,7 @@
 .end method
 
 .method private static getUniqueName(Landroid/support/constraint/solver/SolverVariable$Type;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 80
     sget v0, Landroid/support/constraint/solver/SolverVariable;->uniqueId:I
@@ -164,7 +164,7 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_76
 
     .line 89
     new-instance p0, Ljava/lang/StringBuilder;
@@ -186,7 +186,7 @@
     return-object p0
 
     .line 86
-    :pswitch_0
+    :pswitch_25
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -206,7 +206,7 @@
     return-object p0
 
     .line 84
-    :pswitch_1
+    :pswitch_39
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -226,7 +226,7 @@
     return-object p0
 
     .line 83
-    :pswitch_2
+    :pswitch_4d
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -246,7 +246,7 @@
     return-object p0
 
     .line 82
-    :pswitch_3
+    :pswitch_61
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -267,51 +267,51 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_61
+        :pswitch_4d
+        :pswitch_39
+        :pswitch_25
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method addClientEquation(Landroid/support/constraint/solver/ArrayRow;)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 129
-    :goto_0
+    :goto_1
     iget v1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquationsCount:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_f
 
     .line 130
     iget-object v1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     aget-object v1, v1, v0
 
-    if-ne v1, p1, :cond_0
+    if-ne v1, p1, :cond_c
 
     return-void
 
-    :cond_0
+    :cond_c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 134
-    :cond_1
+    :cond_f
     iget v0, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquationsCount:I
 
     iget-object v1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_25
 
     .line 135
     iget-object v0, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
@@ -331,7 +331,7 @@
     iput-object v0, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     .line 137
-    :cond_2
+    :cond_25
     iget-object v0, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     iget v1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquationsCount:I
@@ -349,14 +349,14 @@
 .end method
 
 .method clearStrengths()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     const/4 v1, 0x6
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_c
 
     .line 111
     iget-object v1, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
@@ -367,14 +367,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 174
     iget-object p0, p0, Landroid/support/constraint/solver/SolverVariable;->mName:Ljava/lang/String;
@@ -383,34 +383,34 @@
 .end method
 
 .method removeClientEquation(Landroid/support/constraint/solver/ArrayRow;)V
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 147
-    :goto_0
+    :goto_2
     iget v2, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquationsCount:I
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_2c
 
     .line 148
     iget-object v2, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
 
     aget-object v2, v2, v1
 
-    if-ne v2, p1, :cond_1
+    if-ne v2, p1, :cond_29
 
     .line 149
-    :goto_1
+    :goto_c
     iget p1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquationsCount:I
 
     sub-int/2addr p1, v1
 
     add-int/lit8 p1, p1, -0x1
 
-    if-ge v0, p1, :cond_0
+    if-ge v0, p1, :cond_22
 
     .line 150
     iget-object p1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquations:[Landroid/support/constraint/solver/ArrayRow;
@@ -427,10 +427,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_c
 
     .line 152
-    :cond_0
+    :cond_22
     iget p1, p0, Landroid/support/constraint/solver/SolverVariable;->mClientEquationsCount:I
 
     add-int/lit8 p1, p1, -0x1
@@ -439,17 +439,17 @@
 
     return-void
 
-    :cond_1
+    :cond_29
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method public reset()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -486,7 +486,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 177
     iput-object p1, p0, Landroid/support/constraint/solver/SolverVariable;->mName:Ljava/lang/String;
@@ -495,7 +495,7 @@
 .end method
 
 .method public setType(Landroid/support/constraint/solver/SolverVariable$Type;)V
-    .locals 0
+    .registers 2
 
     .line 179
     iput-object p1, p0, Landroid/support/constraint/solver/SolverVariable;->mType:Landroid/support/constraint/solver/SolverVariable$Type;
@@ -504,7 +504,7 @@
 .end method
 
 .method strengthsToString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 116
     new-instance v0, Ljava/lang/StringBuilder;
@@ -524,12 +524,12 @@
     const/4 v1, 0x0
 
     .line 117
-    :goto_0
+    :goto_12
     iget-object v2, p0, Landroid/support/constraint/solver/SolverVariable;->strengthVector:[F
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_57
 
     .line 118
     new-instance v2, Ljava/lang/StringBuilder;
@@ -555,7 +555,7 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_43
 
     .line 120
     new-instance v2, Ljava/lang/StringBuilder;
@@ -572,10 +572,10 @@
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_54
 
     .line 122
-    :cond_0
+    :cond_43
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -590,17 +590,17 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_54
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_57
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     const-string v0, ""
 

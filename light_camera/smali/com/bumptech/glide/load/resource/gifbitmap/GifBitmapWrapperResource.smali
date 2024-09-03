@@ -23,12 +23,12 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;)V
-    .locals 0
+    .registers 2
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 18
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;->data:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -36,7 +36,7 @@
     return-void
 
     .line 16
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Data must not be null"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public get()Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
-    .locals 0
+    .registers 1
 
     .line 23
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;->data:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -58,7 +58,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;->get()Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -69,7 +69,7 @@
 .end method
 
 .method public getSize()I
-    .locals 0
+    .registers 1
 
     .line 28
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;->data:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -82,7 +82,7 @@
 .end method
 
 .method public recycle()V
-    .locals 1
+    .registers 2
 
     .line 33
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;->data:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -91,24 +91,24 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 35
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
     .line 37
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;->data:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
 
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;->getGifResource()Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_16
 
     .line 39
     invoke-interface {p0}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    :cond_1
+    :cond_16
     return-void
 .end method

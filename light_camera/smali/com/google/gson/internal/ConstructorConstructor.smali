@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -39,7 +39,7 @@
 .end method
 
 .method private newDefaultConstructor(Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -55,7 +55,7 @@
     const/4 v0, 0x0
 
     .line 99
-    :try_start_0
+    :try_start_1
     new-array v0, v0, [Ljava/lang/Class;
 
     invoke-virtual {p1, v0}, Ljava/lang/Class;->getDeclaredConstructor([Ljava/lang/Class;)Ljava/lang/reflect/Constructor;
@@ -67,7 +67,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
@@ -75,23 +75,23 @@
     invoke-virtual {p1, v0}, Ljava/lang/reflect/Constructor;->setAccessible(Z)V
 
     .line 103
-    :cond_0
+    :cond_11
     new-instance v0, Lcom/google/gson/internal/ConstructorConstructor$3;
 
     invoke-direct {v0, p0, p1}, Lcom/google/gson/internal/ConstructorConstructor$3;-><init>(Lcom/google/gson/internal/ConstructorConstructor;Ljava/lang/reflect/Constructor;)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_16} :catch_17
 
     return-object v0
 
-    :catch_0
+    :catch_17
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private newDefaultImplementationConstructor(Ljava/lang/reflect/Type;Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -112,7 +112,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_46
 
     .line 135
     const-class v0, Ljava/util/SortedSet;
@@ -121,7 +121,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 136
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$4;
@@ -131,14 +131,14 @@
     return-object p1
 
     .line 141
-    :cond_0
+    :cond_16
     const-class v0, Ljava/util/EnumSet;
 
     invoke-virtual {v0, p2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
     .line 142
     new-instance p2, Lcom/google/gson/internal/ConstructorConstructor$5;
@@ -148,14 +148,14 @@
     return-object p2
 
     .line 157
-    :cond_1
+    :cond_24
     const-class p1, Ljava/util/Set;
 
     invoke-virtual {p1, p2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_32
 
     .line 158
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$6;
@@ -165,14 +165,14 @@
     return-object p1
 
     .line 163
-    :cond_2
+    :cond_32
     const-class p1, Ljava/util/Queue;
 
     invoke-virtual {p1, p2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_40
 
     .line 164
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$7;
@@ -182,7 +182,7 @@
     return-object p1
 
     .line 170
-    :cond_3
+    :cond_40
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$8;
 
     invoke-direct {p1, p0}, Lcom/google/gson/internal/ConstructorConstructor$8;-><init>(Lcom/google/gson/internal/ConstructorConstructor;)V
@@ -190,14 +190,14 @@
     return-object p1
 
     .line 178
-    :cond_4
+    :cond_46
     const-class v0, Ljava/util/Map;
 
     invoke-virtual {v0, p2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a1
 
     .line 179
     const-class v0, Ljava/util/concurrent/ConcurrentNavigableMap;
@@ -206,7 +206,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_5c
 
     .line 180
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$9;
@@ -216,14 +216,14 @@
     return-object p1
 
     .line 185
-    :cond_5
+    :cond_5c
     const-class v0, Ljava/util/concurrent/ConcurrentMap;
 
     invoke-virtual {v0, p2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_6a
 
     .line 186
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$10;
@@ -233,14 +233,14 @@
     return-object p1
 
     .line 191
-    :cond_6
+    :cond_6a
     const-class v0, Ljava/util/SortedMap;
 
     invoke-virtual {v0, p2}, Ljava/lang/Class;->isAssignableFrom(Ljava/lang/Class;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_78
 
     .line 192
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$11;
@@ -250,10 +250,10 @@
     return-object p1
 
     .line 197
-    :cond_7
+    :cond_78
     instance-of p2, p1, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_9b
 
     const-class p2, Ljava/lang/String;
 
@@ -281,7 +281,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_9b
 
     .line 199
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$12;
@@ -291,21 +291,21 @@
     return-object p1
 
     .line 205
-    :cond_8
+    :cond_9b
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$13;
 
     invoke-direct {p1, p0}, Lcom/google/gson/internal/ConstructorConstructor$13;-><init>(Lcom/google/gson/internal/ConstructorConstructor;)V
 
     return-object p1
 
-    :cond_9
+    :cond_a1
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private newUnsafeAllocator(Ljava/lang/reflect/Type;Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -330,7 +330,7 @@
 
 # virtual methods
 .method public get(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/internal/ObjectConstructor;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -362,7 +362,7 @@
 
     check-cast v1, Lcom/google/gson/InstanceCreator;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 64
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$1;
@@ -372,7 +372,7 @@
     return-object p1
 
     .line 73
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lcom/google/gson/internal/ConstructorConstructor;->instanceCreators:Ljava/util/Map;
 
     .line 74
@@ -382,7 +382,7 @@
 
     check-cast v1, Lcom/google/gson/InstanceCreator;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_28
 
     .line 76
     new-instance p1, Lcom/google/gson/internal/ConstructorConstructor$2;
@@ -392,27 +392,27 @@
     return-object p1
 
     .line 83
-    :cond_1
+    :cond_28
     invoke-direct {p0, p1}, Lcom/google/gson/internal/ConstructorConstructor;->newDefaultConstructor(Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     return-object v1
 
     .line 88
-    :cond_2
+    :cond_2f
     invoke-direct {p0, v0, p1}, Lcom/google/gson/internal/ConstructorConstructor;->newDefaultImplementationConstructor(Ljava/lang/reflect/Type;Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_36
 
     return-object v1
 
     .line 94
-    :cond_3
+    :cond_36
     invoke-direct {p0, v0, p1}, Lcom/google/gson/internal/ConstructorConstructor;->newUnsafeAllocator(Ljava/lang/reflect/Type;Ljava/lang/Class;)Lcom/google/gson/internal/ObjectConstructor;
 
     move-result-object p0
@@ -421,7 +421,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 234
     iget-object p0, p0, Lcom/google/gson/internal/ConstructorConstructor;->instanceCreators:Ljava/util/Map;

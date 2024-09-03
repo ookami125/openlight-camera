@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 .end method
 
 .method private generateHeaders()Ljava/util/Map;
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -95,12 +95,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_f
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_56
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -123,12 +123,12 @@
     const/4 v4, 0x0
 
     .line 47
-    :goto_1
+    :goto_27
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v5
 
-    if-ge v4, v5, :cond_1
+    if-ge v4, v5, :cond_4a
 
     .line 48
     invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -151,20 +151,20 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_47
 
     const/16 v5, 0x2c
 
     .line 51
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_0
+    :cond_47
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_27
 
     .line 54
-    :cond_1
+    :cond_4a
     invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
 
     move-result-object v1
@@ -175,21 +175,21 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_56
     return-object v0
 .end method
 
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 69
     instance-of v0, p1, Lcom/bumptech/glide/load/model/LazyHeaders;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 70
     check-cast p1, Lcom/bumptech/glide/load/model/LazyHeaders;
@@ -205,14 +205,14 @@
 
     return p0
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public getHeaders()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -226,16 +226,16 @@
     .line 30
     iget-object v0, p0, Lcom/bumptech/glide/load/model/LazyHeaders;->combinedHeaders:Ljava/util/Map;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 31
     monitor-enter p0
 
     .line 32
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lcom/bumptech/glide/load/model/LazyHeaders;->combinedHeaders:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 33
     invoke-direct {p0}, Lcom/bumptech/glide/load/model/LazyHeaders;->generateHeaders()Ljava/util/Map;
@@ -249,30 +249,30 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/model/LazyHeaders;->combinedHeaders:Ljava/util/Map;
 
     .line 35
-    :cond_0
+    :cond_13
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_18
 
-    :catchall_0
+    :catchall_15
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_5 .. :try_end_17} :catchall_15
 
     throw v0
 
     .line 38
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     iget-object p0, p0, Lcom/bumptech/glide/load/model/LazyHeaders;->combinedHeaders:Ljava/util/Map;
 
     return-object p0
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 78
     iget-object p0, p0, Lcom/bumptech/glide/load/model/LazyHeaders;->headers:Ljava/util/Map;
@@ -285,7 +285,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 62
     new-instance v0, Ljava/lang/StringBuilder;

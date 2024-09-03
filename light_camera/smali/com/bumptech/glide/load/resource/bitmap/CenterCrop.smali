@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 17
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;-><init>(Landroid/content/Context;)V
@@ -14,7 +14,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 0
+    .registers 2
 
     .line 21
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;-><init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "CenterCrop.com.bumptech.glide.load.resource.bitmap"
 
@@ -33,25 +33,25 @@
 .end method
 
 .method protected transform(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 5
 
     .line 28
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getConfig()Landroid/graphics/Bitmap$Config;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    :goto_0
+    :goto_d
     invoke-interface {p1, p3, p4, p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object p0
@@ -61,20 +61,20 @@
 
     move-result-object p2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_22
 
-    if-eq p0, p2, :cond_1
+    if-eq p0, p2, :cond_22
 
     .line 31
     invoke-interface {p1, p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_22
 
     .line 32
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_1
+    :cond_22
     return-object p2
 .end method

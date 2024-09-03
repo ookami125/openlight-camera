@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(ILandroid/support/design/widget/SnackbarManager$Callback;)V
-    .locals 1
+    .registers 4
 
     .line 175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,9 +53,9 @@
 
 # virtual methods
 .method isSnackbar(Landroid/support/design/widget/SnackbarManager$Callback;)Z
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 181
     iget-object p0, p0, Landroid/support/design/widget/SnackbarManager$SnackbarRecord;->callback:Ljava/lang/ref/WeakReference;
@@ -64,15 +64,15 @@
 
     move-result-object p0
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_c
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_d
     return p0
 .end method

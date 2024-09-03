@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 122
     sget-char v0, Ljava/io/File;->separatorChar:C
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 176
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,31 +74,31 @@
 .end method
 
 .method public static buffer(Ljava/io/InputStream;)Ljava/io/BufferedInputStream;
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     .line 682
     instance-of v0, p0, Ljava/io/BufferedInputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     check-cast p0, Ljava/io/BufferedInputStream;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/io/BufferedInputStream;
 
     invoke-direct {v0, p0}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_f
     return-object p0
 
     .line 680
-    :cond_1
+    :cond_10
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
@@ -107,31 +107,31 @@
 .end method
 
 .method public static buffer(Ljava/io/InputStream;I)Ljava/io/BufferedInputStream;
-    .locals 1
+    .registers 3
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     .line 701
     instance-of v0, p0, Ljava/io/BufferedInputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     check-cast p0, Ljava/io/BufferedInputStream;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/io/BufferedInputStream;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_f
     return-object p0
 
     .line 699
-    :cond_1
+    :cond_10
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
@@ -140,31 +140,31 @@
 .end method
 
 .method public static buffer(Ljava/io/OutputStream;)Ljava/io/BufferedOutputStream;
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     .line 645
     instance-of v0, p0, Ljava/io/BufferedOutputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     check-cast p0, Ljava/io/BufferedOutputStream;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/io/BufferedOutputStream;
 
     invoke-direct {v0, p0}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_f
     return-object p0
 
     .line 643
-    :cond_1
+    :cond_10
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
@@ -173,31 +173,31 @@
 .end method
 
 .method public static buffer(Ljava/io/OutputStream;I)Ljava/io/BufferedOutputStream;
-    .locals 1
+    .registers 3
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     .line 664
     instance-of v0, p0, Ljava/io/BufferedOutputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     check-cast p0, Ljava/io/BufferedOutputStream;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/io/BufferedOutputStream;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;I)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_f
     return-object p0
 
     .line 662
-    :cond_1
+    :cond_10
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
@@ -206,132 +206,132 @@
 .end method
 
 .method public static buffer(Ljava/io/Reader;)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 2
 
     .line 587
     instance-of v0, p0, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     check-cast p0, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, p0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public static buffer(Ljava/io/Reader;I)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 3
 
     .line 601
     instance-of v0, p0, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     check-cast p0, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public static buffer(Ljava/io/Writer;)Ljava/io/BufferedWriter;
-    .locals 1
+    .registers 2
 
     .line 614
     instance-of v0, p0, Ljava/io/BufferedWriter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     check-cast p0, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/BufferedWriter;
 
     invoke-direct {v0, p0}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public static buffer(Ljava/io/Writer;I)Ljava/io/BufferedWriter;
-    .locals 1
+    .registers 3
 
     .line 628
     instance-of v0, p0, Ljava/io/BufferedWriter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     check-cast p0, Ljava/io/BufferedWriter;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/BufferedWriter;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;I)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public static close(Ljava/net/URLConnection;)V
-    .locals 1
+    .registers 2
 
     .line 188
     instance-of v0, p0, Ljava/net/HttpURLConnection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 189
     check-cast p0, Ljava/net/HttpURLConnection;
 
     invoke-virtual {p0}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/io/Closeable;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 339
-    :try_start_0
+    :try_start_2
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_5} :catch_5
 
-    :catch_0
-    :cond_0
+    :catch_5
+    :cond_5
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 1
 
     .line 270
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
@@ -340,7 +340,7 @@
 .end method
 
 .method public static closeQuietly(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 1
 
     .line 298
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
@@ -349,7 +349,7 @@
 .end method
 
 .method public static closeQuietly(Ljava/io/Reader;)V
-    .locals 0
+    .registers 1
 
     .line 217
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
@@ -358,7 +358,7 @@
 .end method
 
 .method public static closeQuietly(Ljava/io/Writer;)V
-    .locals 0
+    .registers 1
 
     .line 243
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Closeable;)V
@@ -367,68 +367,68 @@
 .end method
 
 .method public static closeQuietly(Ljava/net/ServerSocket;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 490
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Ljava/net/ServerSocket;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_5} :catch_5
 
-    :catch_0
-    :cond_0
+    :catch_5
+    :cond_5
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/net/Socket;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 424
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Ljava/net/Socket;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_5} :catch_5
 
-    :catch_0
-    :cond_0
+    :catch_5
+    :cond_5
     return-void
 .end method
 
 .method public static closeQuietly(Ljava/nio/channels/Selector;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 457
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Ljava/nio/channels/Selector;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_5} :catch_5
 
-    :catch_0
-    :cond_0
+    :catch_5
+    :cond_5
     return-void
 .end method
 
 .method public static varargs closeQuietly([Ljava/io/Closeable;)V
-    .locals 3
+    .registers 4
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     return-void
 
     .line 393
-    :cond_0
+    :cond_3
     array-length v0, p0
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_f
 
     aget-object v2, p0, v1
 
@@ -437,14 +437,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
+    :cond_f
     return-void
 .end method
 
 .method public static contentEquals(Ljava/io/InputStream;Ljava/io/InputStream;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -453,15 +453,15 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 2556
-    :cond_0
+    :cond_4
     instance-of v1, p0, Ljava/io/BufferedInputStream;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_e
 
     .line 2557
     new-instance v1, Ljava/io/BufferedInputStream;
@@ -471,10 +471,10 @@
     move-object p0, v1
 
     .line 2559
-    :cond_1
+    :cond_e
     instance-of v1, p1, Ljava/io/BufferedInputStream;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_18
 
     .line 2560
     new-instance v1, Ljava/io/BufferedInputStream;
@@ -484,54 +484,54 @@
     move-object p1, v1
 
     .line 2563
-    :cond_2
+    :cond_18
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v1
 
-    :goto_0
+    :goto_1c
     const/4 v2, 0x0
 
     const/4 v3, -0x1
 
-    if-eq v3, v1, :cond_4
+    if-eq v3, v1, :cond_2c
 
     .line 2565
     invoke-virtual {p1}, Ljava/io/InputStream;->read()I
 
     move-result v3
 
-    if-eq v1, v3, :cond_3
+    if-eq v1, v3, :cond_27
 
     return v2
 
     .line 2569
-    :cond_3
+    :cond_27
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 2572
-    :cond_4
+    :cond_2c
     invoke-virtual {p1}, Ljava/io/InputStream;->read()I
 
     move-result p0
 
-    if-ne p0, v3, :cond_5
+    if-ne p0, v3, :cond_33
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_5
+    :cond_33
     move v0, v2
 
-    :goto_1
+    :goto_34
     return v0
 .end method
 
 .method public static contentEquals(Ljava/io/Reader;Ljava/io/Reader;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -540,12 +540,12 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 2597
-    :cond_0
+    :cond_4
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->toBufferedReader(Ljava/io/Reader;)Ljava/io/BufferedReader;
 
     move-result-object p0
@@ -560,49 +560,49 @@
 
     move-result v1
 
-    :goto_0
+    :goto_10
     const/4 v2, 0x0
 
     const/4 v3, -0x1
 
-    if-eq v3, v1, :cond_2
+    if-eq v3, v1, :cond_20
 
     .line 2602
     invoke-virtual {p1}, Ljava/io/Reader;->read()I
 
     move-result v3
 
-    if-eq v1, v3, :cond_1
+    if-eq v1, v3, :cond_1b
 
     return v2
 
     .line 2606
-    :cond_1
+    :cond_1b
     invoke-virtual {p0}, Ljava/io/Reader;->read()I
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 2609
-    :cond_2
+    :cond_20
     invoke-virtual {p1}, Ljava/io/Reader;->read()I
 
     move-result p0
 
-    if-ne p0, v3, :cond_3
+    if-ne p0, v3, :cond_27
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_3
+    :cond_27
     move v0, v2
 
-    :goto_1
+    :goto_28
     return v0
 .end method
 
 .method public static contentEqualsIgnoreEOL(Ljava/io/Reader;Ljava/io/Reader;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -611,12 +611,12 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 2632
-    :cond_0
+    :cond_4
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->toBufferedReader(Ljava/io/Reader;)Ljava/io/BufferedReader;
 
     move-result-object p0
@@ -636,17 +636,17 @@
 
     move-result-object v2
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_14
+    if-eqz v1, :cond_27
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     .line 2637
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     .line 2638
     invoke-virtual {p0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
@@ -658,32 +658,32 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
-    if-nez v1, :cond_3
+    :cond_27
+    if-nez v1, :cond_2e
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_2c
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_2
+    :cond_2c
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_32
 
     .line 2641
-    :cond_3
+    :cond_2e
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    :goto_1
+    :goto_32
     return v0
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/OutputStream;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -699,20 +699,20 @@
 
     cmp-long v0, p0, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_d
 
     const/4 p0, -0x1
 
     return p0
 
-    :cond_0
+    :cond_d
     long-to-int p0, p0
 
     return p0
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/Writer;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -728,20 +728,20 @@
 
     cmp-long v0, p0, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_d
 
     const/4 p0, -0x1
 
     return p0
 
-    :cond_0
+    :cond_d
     long-to-int p0, p0
 
     return p0
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/OutputStream;I)J
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -759,7 +759,7 @@
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -780,7 +780,7 @@
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/Writer;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -798,7 +798,7 @@
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/Writer;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -821,7 +821,7 @@
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -842,7 +842,7 @@
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -860,7 +860,7 @@
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -886,7 +886,7 @@
 .end method
 
 .method public static copyLarge(Ljava/io/InputStream;Ljava/io/OutputStream;)J
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -904,7 +904,7 @@
 .end method
 
 .method public static copyLarge(Ljava/io/InputStream;Ljava/io/OutputStream;JJ)J
-    .locals 8
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -932,7 +932,7 @@
 .end method
 
 .method public static copyLarge(Ljava/io/InputStream;Ljava/io/OutputStream;JJ[B)J
-    .locals 6
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -943,40 +943,40 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_9
 
     .line 2209
     invoke-static {p0, p2, p3}, Lorg/apache/commons/io/IOUtils;->skipFully(Ljava/io/InputStream;J)V
 
-    :cond_0
+    :cond_9
     cmp-long p2, p4, v0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_e
 
     return-wide v0
 
     .line 2214
-    :cond_1
+    :cond_e
     array-length p3, p6
 
-    if-lez p2, :cond_2
+    if-lez p2, :cond_18
 
     int-to-long v2, p3
 
     cmp-long v2, p4, v2
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_18
 
     long-to-int v2, p4
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_2
+    :cond_18
     move v2, p3
 
-    :cond_3
-    :goto_0
-    if-lez v2, :cond_4
+    :cond_19
+    :goto_19
+    if-lez v2, :cond_33
 
     const/4 v3, -0x1
 
@@ -987,7 +987,7 @@
 
     move-result v5
 
-    if-eq v3, v5, :cond_4
+    if-eq v3, v5, :cond_33
 
     .line 2222
     invoke-virtual {p1, p6, v4, v5}, Ljava/io/OutputStream;->write([BII)V
@@ -996,7 +996,7 @@
 
     add-long/2addr v0, v3
 
-    if-lez p2, :cond_3
+    if-lez p2, :cond_19
 
     sub-long v2, p4, v0
 
@@ -1009,14 +1009,14 @@
 
     long-to-int v2, v2
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_4
+    :cond_33
     return-wide v0
 .end method
 
 .method public static copyLarge(Ljava/io/InputStream;Ljava/io/OutputStream;[B)J
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1025,7 +1025,7 @@
 
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_2
     const/4 v2, -0x1
 
     .line 2146
@@ -1033,7 +1033,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_10
 
     const/4 v2, 0x0
 
@@ -1044,14 +1044,14 @@
 
     add-long/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
+    :cond_10
     return-wide v0
 .end method
 
 .method public static copyLarge(Ljava/io/Reader;Ljava/io/Writer;)J
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public static copyLarge(Ljava/io/Reader;Ljava/io/Writer;JJ)J
-    .locals 8
+    .registers 14
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1099,7 +1099,7 @@
 .end method
 
 .method public static copyLarge(Ljava/io/Reader;Ljava/io/Writer;JJ[C)J
-    .locals 6
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1110,23 +1110,23 @@
 
     cmp-long v2, p2, v0
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_9
 
     .line 2423
     invoke-static {p0, p2, p3}, Lorg/apache/commons/io/IOUtils;->skipFully(Ljava/io/Reader;J)V
 
-    :cond_0
+    :cond_9
     cmp-long p2, p4, v0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_e
 
     return-wide v0
 
     .line 2428
-    :cond_1
+    :cond_e
     array-length p3, p6
 
-    if-lez p2, :cond_2
+    if-lez p2, :cond_18
 
     .line 2429
     array-length v2, p6
@@ -1135,13 +1135,13 @@
 
     cmp-long v2, p4, v2
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_18
 
     long-to-int p3, p4
 
-    :cond_2
-    :goto_0
-    if-lez p3, :cond_3
+    :cond_18
+    :goto_18
+    if-lez p3, :cond_33
 
     const/4 v2, -0x1
 
@@ -1152,7 +1152,7 @@
 
     move-result v4
 
-    if-eq v2, v4, :cond_3
+    if-eq v2, v4, :cond_33
 
     .line 2435
     invoke-virtual {p1, p6, v3, v4}, Ljava/io/Writer;->write([CII)V
@@ -1161,7 +1161,7 @@
 
     add-long/2addr v0, v2
 
-    if-lez p2, :cond_2
+    if-lez p2, :cond_18
 
     sub-long v2, p4, v0
 
@@ -1176,14 +1176,14 @@
 
     long-to-int p3, v2
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_3
+    :cond_33
     return-wide v0
 .end method
 
 .method public static copyLarge(Ljava/io/Reader;Ljava/io/Writer;[C)J
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1192,7 +1192,7 @@
 
     const-wide/16 v0, 0x0
 
-    :goto_0
+    :goto_2
     const/4 v2, -0x1
 
     .line 2369
@@ -1200,7 +1200,7 @@
 
     move-result v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_10
 
     const/4 v2, 0x0
 
@@ -1211,14 +1211,14 @@
 
     add-long/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
+    :cond_10
     return-wide v0
 .end method
 
 .method public static lineIterator(Ljava/io/InputStream;Ljava/lang/String;)Lorg/apache/commons/io/LineIterator;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1238,7 +1238,7 @@
 .end method
 
 .method public static lineIterator(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Lorg/apache/commons/io/LineIterator;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1262,7 +1262,7 @@
 .end method
 
 .method public static lineIterator(Ljava/io/Reader;)Lorg/apache/commons/io/LineIterator;
-    .locals 1
+    .registers 2
 
     .line 1330
     new-instance v0, Lorg/apache/commons/io/LineIterator;
@@ -1273,7 +1273,7 @@
 .end method
 
 .method public static read(Ljava/io/InputStream;[B)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1293,19 +1293,19 @@
 .end method
 
 .method public static read(Ljava/io/InputStream;[BII)I
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-ltz p3, :cond_2
+    if-ltz p3, :cond_14
 
     move v0, p3
 
-    :goto_0
-    if-lez v0, :cond_1
+    :goto_3
+    if-lez v0, :cond_12
 
     sub-int v1, p3, v0
 
@@ -1318,23 +1318,23 @@
 
     const/4 v2, -0x1
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_10
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
-    :goto_1
+    :cond_12
+    :goto_12
     sub-int/2addr p3, v0
 
     return p3
 
     .line 2904
-    :cond_2
+    :cond_14
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -1357,7 +1357,7 @@
 .end method
 
 .method public static read(Ljava/io/Reader;[C)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1377,19 +1377,19 @@
 .end method
 
 .method public static read(Ljava/io/Reader;[CII)I
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-ltz p3, :cond_2
+    if-ltz p3, :cond_14
 
     move v0, p3
 
-    :goto_0
-    if-lez v0, :cond_1
+    :goto_3
+    if-lez v0, :cond_12
 
     sub-int v1, p3, v0
 
@@ -1402,23 +1402,23 @@
 
     const/4 v2, -0x1
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_10
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
-    :goto_1
+    :cond_12
+    :goto_12
     sub-int/2addr p3, v0
 
     return p3
 
     .line 2857
-    :cond_2
+    :cond_14
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -1441,7 +1441,7 @@
 .end method
 
 .method public static read(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;)I
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1454,12 +1454,12 @@
     move-result v0
 
     .line 2949
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v1
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_11
 
     .line 2950
     invoke-interface {p0, p1}, Ljava/nio/channels/ReadableByteChannel;->read(Ljava/nio/ByteBuffer;)I
@@ -1468,10 +1468,10 @@
 
     const/4 v2, -0x1
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_4
 
     .line 2955
-    :cond_1
+    :cond_11
     invoke-virtual {p1}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result p0
@@ -1482,7 +1482,7 @@
 .end method
 
 .method public static readFully(Ljava/io/InputStream;[B)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1500,7 +1500,7 @@
 .end method
 
 .method public static readFully(Ljava/io/InputStream;[BII)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1512,12 +1512,12 @@
 
     move-result p0
 
-    if-ne p0, p3, :cond_0
+    if-ne p0, p3, :cond_7
 
     return-void
 
     .line 3017
-    :cond_0
+    :cond_7
     new-instance p1, Ljava/io/EOFException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -1546,7 +1546,7 @@
 .end method
 
 .method public static readFully(Ljava/io/Reader;[C)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1564,7 +1564,7 @@
 .end method
 
 .method public static readFully(Ljava/io/Reader;[CII)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1576,12 +1576,12 @@
 
     move-result p0
 
-    if-ne p0, p3, :cond_0
+    if-ne p0, p3, :cond_7
 
     return-void
 
     .line 2977
-    :cond_0
+    :cond_7
     new-instance p1, Ljava/io/EOFException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -1610,7 +1610,7 @@
 .end method
 
 .method public static readFully(Ljava/nio/channels/ReadableByteChannel;Ljava/nio/ByteBuffer;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1627,12 +1627,12 @@
 
     move-result p0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_b
 
     return-void
 
     .line 3074
-    :cond_0
+    :cond_b
     new-instance p1, Ljava/io/EOFException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1661,7 +1661,7 @@
 .end method
 
 .method public static readFully(Ljava/io/InputStream;I)[B
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1682,7 +1682,7 @@
 .end method
 
 .method public static readLines(Ljava/io/InputStream;)Ljava/util/List;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1716,7 +1716,7 @@
 .end method
 
 .method public static readLines(Ljava/io/InputStream;Ljava/lang/String;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1748,7 +1748,7 @@
 .end method
 
 .method public static readLines(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1785,7 +1785,7 @@
 .end method
 
 .method public static readLines(Ljava/io/Reader;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1818,8 +1818,8 @@
 
     move-result-object v1
 
-    :goto_0
-    if-eqz v1, :cond_0
+    :goto_d
+    if-eqz v1, :cond_17
 
     .line 1293
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -1829,14 +1829,14 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_17
     return-object v0
 .end method
 
 .method public static skip(Ljava/io/InputStream;J)J
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1847,12 +1847,12 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_2f
 
     .line 2674
     sget-object v2, Lorg/apache/commons/io/IOUtils;->SKIP_BYTE_BUFFER:[B
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     const/16 v2, 0x800
 
@@ -1861,13 +1861,13 @@
 
     sput-object v2, Lorg/apache/commons/io/IOUtils;->SKIP_BYTE_BUFFER:[B
 
-    :cond_0
+    :cond_10
     move-wide v2, p1
 
-    :goto_0
+    :goto_11
     cmp-long v4, v2, v0
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_2c
 
     .line 2680
     sget-object v4, Lorg/apache/commons/io/IOUtils;->SKIP_BYTE_BUFFER:[B
@@ -1890,19 +1890,19 @@
 
     cmp-long v6, v4, v0
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_29
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_1
+    :cond_29
     const/4 v6, 0x0
 
     sub-long/2addr v2, v4
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_2
-    :goto_1
+    :cond_2c
+    :goto_2c
     const/4 p0, 0x0
 
     sub-long/2addr p1, v2
@@ -1910,7 +1910,7 @@
     return-wide p1
 
     .line 2667
-    :cond_3
+    :cond_2f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1933,7 +1933,7 @@
 .end method
 
 .method public static skip(Ljava/io/Reader;J)J
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1944,12 +1944,12 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_2f
 
     .line 2749
     sget-object v2, Lorg/apache/commons/io/IOUtils;->SKIP_CHAR_BUFFER:[C
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     const/16 v2, 0x800
 
@@ -1958,13 +1958,13 @@
 
     sput-object v2, Lorg/apache/commons/io/IOUtils;->SKIP_CHAR_BUFFER:[C
 
-    :cond_0
+    :cond_10
     move-wide v2, p1
 
-    :goto_0
+    :goto_11
     cmp-long v4, v2, v0
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_2c
 
     .line 2755
     sget-object v4, Lorg/apache/commons/io/IOUtils;->SKIP_CHAR_BUFFER:[C
@@ -1987,19 +1987,19 @@
 
     cmp-long v6, v4, v0
 
-    if-gez v6, :cond_1
+    if-gez v6, :cond_29
 
-    goto :goto_1
+    goto :goto_2c
 
-    :cond_1
+    :cond_29
     const/4 v6, 0x0
 
     sub-long/2addr v2, v4
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_2
-    :goto_1
+    :cond_2c
+    :goto_2c
     const/4 p0, 0x0
 
     sub-long/2addr p1, v2
@@ -2007,7 +2007,7 @@
     return-wide p1
 
     .line 2742
-    :cond_3
+    :cond_2f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2030,7 +2030,7 @@
 .end method
 
 .method public static skip(Ljava/nio/channels/ReadableByteChannel;J)J
-    .locals 9
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2041,7 +2041,7 @@
 
     cmp-long v2, p1, v0
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_30
 
     const-wide/16 v2, 0x800
 
@@ -2058,10 +2058,10 @@
 
     move-wide v5, p1
 
-    :goto_0
+    :goto_12
     cmp-long v7, v5, v0
 
-    if-lez v7, :cond_1
+    if-lez v7, :cond_2d
 
     const/4 v7, 0x0
 
@@ -2084,19 +2084,19 @@
 
     const/4 v8, -0x1
 
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_2a
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_0
+    :cond_2a
     int-to-long v7, v7
 
     sub-long/2addr v5, v7
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
-    :goto_1
+    :cond_2d
+    :goto_2d
     const/4 p0, 0x0
 
     sub-long/2addr p1, v5
@@ -2104,7 +2104,7 @@
     return-wide p1
 
     .line 2703
-    :cond_2
+    :cond_30
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2127,7 +2127,7 @@
 .end method
 
 .method public static skipFully(Ljava/io/InputStream;J)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2138,7 +2138,7 @@
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2e
 
     .line 2787
     invoke-static {p0, p1, p2}, Lorg/apache/commons/io/IOUtils;->skip(Ljava/io/InputStream;J)J
@@ -2147,12 +2147,12 @@
 
     cmp-long p0, v0, p1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_f
 
     return-void
 
     .line 2789
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/io/EOFException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2180,7 +2180,7 @@
     throw p0
 
     .line 2785
-    :cond_1
+    :cond_2e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2203,7 +2203,7 @@
 .end method
 
 .method public static skipFully(Ljava/io/Reader;J)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2217,12 +2217,12 @@
 
     cmp-long p0, v0, p1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_9
 
     return-void
 
     .line 2835
-    :cond_0
+    :cond_9
     new-instance p0, Ljava/io/EOFException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2251,7 +2251,7 @@
 .end method
 
 .method public static skipFully(Ljava/nio/channels/ReadableByteChannel;J)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2262,7 +2262,7 @@
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2e
 
     .line 2807
     invoke-static {p0, p1, p2}, Lorg/apache/commons/io/IOUtils;->skip(Ljava/nio/channels/ReadableByteChannel;J)J
@@ -2271,12 +2271,12 @@
 
     cmp-long p0, v0, p1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_f
 
     return-void
 
     .line 2809
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/io/EOFException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2304,7 +2304,7 @@
     throw p0
 
     .line 2805
-    :cond_1
+    :cond_2e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2327,7 +2327,7 @@
 .end method
 
 .method public static toBufferedInputStream(Ljava/io/InputStream;)Ljava/io/InputStream;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2343,7 +2343,7 @@
 .end method
 
 .method public static toBufferedInputStream(Ljava/io/InputStream;I)Ljava/io/InputStream;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2359,53 +2359,53 @@
 .end method
 
 .method public static toBufferedReader(Ljava/io/Reader;)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 2
 
     .line 559
     instance-of v0, p0, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     check-cast p0, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, p0}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public static toBufferedReader(Ljava/io/Reader;I)Ljava/io/BufferedReader;
-    .locals 1
+    .registers 3
 
     .line 574
     instance-of v0, p0, Ljava/io/BufferedReader;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     check-cast p0, Ljava/io/BufferedReader;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/io/BufferedReader;
 
     invoke-direct {v0, p0, p1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;I)V
 
     move-object p0, v0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public static toByteArray(Ljava/io/InputStream;)[B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2429,18 +2429,18 @@
 .end method
 
 .method public static toByteArray(Ljava/io/InputStream;I)[B
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-ltz p1, :cond_3
+    if-ltz p1, :cond_39
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 771
     new-array p0, v0, [B
@@ -2448,11 +2448,11 @@
     return-object p0
 
     .line 774
-    :cond_0
+    :cond_8
     new-array v1, p1, [B
 
-    :goto_0
-    if-ge v0, p1, :cond_1
+    :goto_a
+    if-ge v0, p1, :cond_17
 
     sub-int v2, p1, v0
 
@@ -2463,19 +2463,19 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_17
 
     add-int/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
-    if-ne v0, p1, :cond_2
+    :cond_17
+    if-ne v0, p1, :cond_1a
 
     return-object v1
 
     .line 783
-    :cond_2
+    :cond_1a
     new-instance p0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2503,7 +2503,7 @@
     throw p0
 
     .line 767
-    :cond_3
+    :cond_39
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2526,7 +2526,7 @@
 .end method
 
 .method public static toByteArray(Ljava/io/InputStream;J)[B
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2537,7 +2537,7 @@
 
     cmp-long v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_d
 
     long-to-int p1, p1
 
@@ -2549,7 +2549,7 @@
     return-object p0
 
     .line 745
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2572,7 +2572,7 @@
 .end method
 
 .method public static toByteArray(Ljava/io/Reader;)[B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2595,7 +2595,7 @@
 .end method
 
 .method public static toByteArray(Ljava/io/Reader;Ljava/lang/String;)[B
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2615,7 +2615,7 @@
 .end method
 
 .method public static toByteArray(Ljava/io/Reader;Ljava/nio/charset/Charset;)[B
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2639,7 +2639,7 @@
 .end method
 
 .method public static toByteArray(Ljava/lang/String;)[B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2662,7 +2662,7 @@
 .end method
 
 .method public static toByteArray(Ljava/net/URI;)[B
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2682,7 +2682,7 @@
 .end method
 
 .method public static toByteArray(Ljava/net/URL;)[B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2695,19 +2695,19 @@
     move-result-object p0
 
     .line 894
-    :try_start_0
+    :try_start_4
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->toByteArray(Ljava/net/URLConnection;)[B
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_4 .. :try_end_8} :catchall_c
 
     .line 896
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->close(Ljava/net/URLConnection;)V
 
     return-object v0
 
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->close(Ljava/net/URLConnection;)V
@@ -2716,7 +2716,7 @@
 .end method
 
 .method public static toByteArray(Ljava/net/URLConnection;)[B
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2729,19 +2729,19 @@
     move-result-object p0
 
     .line 912
-    :try_start_0
+    :try_start_4
     invoke-static {p0}, Lorg/apache/commons/io/IOUtils;->toByteArray(Ljava/io/InputStream;)[B
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_4 .. :try_end_8} :catchall_c
 
     .line 914
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
     return-object v0
 
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
@@ -2750,7 +2750,7 @@
 .end method
 
 .method public static toCharArray(Ljava/io/InputStream;)[C
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2773,7 +2773,7 @@
 .end method
 
 .method public static toCharArray(Ljava/io/InputStream;Ljava/lang/String;)[C
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2793,7 +2793,7 @@
 .end method
 
 .method public static toCharArray(Ljava/io/InputStream;Ljava/nio/charset/Charset;)[C
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2817,7 +2817,7 @@
 .end method
 
 .method public static toCharArray(Ljava/io/Reader;)[C
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2841,7 +2841,7 @@
 .end method
 
 .method public static toInputStream(Ljava/lang/CharSequence;)Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2858,7 +2858,7 @@
 .end method
 
 .method public static toInputStream(Ljava/lang/CharSequence;Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2878,7 +2878,7 @@
 .end method
 
 .method public static toInputStream(Ljava/lang/CharSequence;Ljava/nio/charset/Charset;)Ljava/io/InputStream;
-    .locals 0
+    .registers 2
 
     .line 1430
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -2893,7 +2893,7 @@
 .end method
 
 .method public static toInputStream(Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2910,7 +2910,7 @@
 .end method
 
 .method public static toInputStream(Ljava/lang/String;Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2935,7 +2935,7 @@
 .end method
 
 .method public static toInputStream(Ljava/lang/String;Ljava/nio/charset/Charset;)Ljava/io/InputStream;
-    .locals 1
+    .registers 3
 
     .line 1479
     new-instance v0, Ljava/io/ByteArrayInputStream;
@@ -2954,7 +2954,7 @@
 .end method
 
 .method public static toString(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2977,7 +2977,7 @@
 .end method
 
 .method public static toString(Ljava/io/InputStream;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -2997,7 +2997,7 @@
 .end method
 
 .method public static toString(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3021,7 +3021,7 @@
 .end method
 
 .method public static toString(Ljava/io/Reader;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3045,7 +3045,7 @@
 .end method
 
 .method public static toString(Ljava/net/URI;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3068,7 +3068,7 @@
 .end method
 
 .method public static toString(Ljava/net/URI;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3088,7 +3088,7 @@
 .end method
 
 .method public static toString(Ljava/net/URI;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3112,7 +3112,7 @@
 .end method
 
 .method public static toString(Ljava/net/URL;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3135,7 +3135,7 @@
 .end method
 
 .method public static toString(Ljava/net/URL;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3155,7 +3155,7 @@
 .end method
 
 .method public static toString(Ljava/net/URL;Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3168,19 +3168,19 @@
     move-result-object p0
 
     .line 1155
-    :try_start_0
+    :try_start_4
     invoke-static {p0, p1}, Lorg/apache/commons/io/IOUtils;->toString(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_4 .. :try_end_8} :catchall_c
 
     .line 1157
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
     return-object p1
 
-    :catchall_0
+    :catchall_c
     move-exception p1
 
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
@@ -3189,7 +3189,7 @@
 .end method
 
 .method public static toString([B)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3212,7 +3212,7 @@
 .end method
 
 .method public static toString([BLjava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3232,7 +3232,7 @@
 .end method
 
 .method public static write(Ljava/lang/CharSequence;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3253,7 +3253,7 @@
 .end method
 
 .method public static write(Ljava/lang/CharSequence;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3271,14 +3271,14 @@
 .end method
 
 .method public static write(Ljava/lang/CharSequence;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 1777
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -3287,19 +3287,19 @@
 
     invoke-static {p0, p1, p2}, Lorg/apache/commons/io/IOUtils;->write(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static write(Ljava/lang/CharSequence;Ljava/io/Writer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 1737
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
@@ -3308,12 +3308,12 @@
 
     invoke-static {p0, p1}, Lorg/apache/commons/io/IOUtils;->write(Ljava/lang/String;Ljava/io/Writer;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static write(Ljava/lang/String;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3334,7 +3334,7 @@
 .end method
 
 .method public static write(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3352,14 +3352,14 @@
 .end method
 
 .method public static write(Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     .line 1857
     invoke-static {p2}, Lorg/apache/commons/io/Charsets;->toCharset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
@@ -3372,29 +3372,29 @@
 
     invoke-virtual {p1, p0}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public static write(Ljava/lang/String;Ljava/io/Writer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 1818
     invoke-virtual {p1, p0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public static write(Ljava/lang/StringBuffer;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3415,7 +3415,7 @@
 .end method
 
 .method public static write(Ljava/lang/StringBuffer;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3425,7 +3425,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
     .line 1948
     invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -3442,12 +3442,12 @@
 
     invoke-virtual {p1, p0}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static write(Ljava/lang/StringBuffer;Ljava/io/Writer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3457,7 +3457,7 @@
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 1901
     invoke-virtual {p0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
@@ -3466,29 +3466,29 @@
 
     invoke-virtual {p1, p0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static write([BLjava/io/OutputStream;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 1519
     invoke-virtual {p1, p0}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public static write([BLjava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3509,7 +3509,7 @@
 .end method
 
 .method public static write([BLjava/io/Writer;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3527,14 +3527,14 @@
 .end method
 
 .method public static write([BLjava/io/Writer;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 1584
     new-instance v0, Ljava/lang/String;
@@ -3547,12 +3547,12 @@
 
     invoke-virtual {p1, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static write([CLjava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3573,7 +3573,7 @@
 .end method
 
 .method public static write([CLjava/io/OutputStream;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3591,14 +3591,14 @@
 .end method
 
 .method public static write([CLjava/io/OutputStream;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 1694
     new-instance v0, Ljava/lang/String;
@@ -3615,44 +3615,44 @@
 
     invoke-virtual {p1, p0}, Ljava/io/OutputStream;->write([B)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public static write([CLjava/io/Writer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 1627
     invoke-virtual {p1, p0}, Ljava/io/Writer;->write([C)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public static writeChunked([BLjava/io/OutputStream;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 1538
     array-length v0, p0
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_4
+    if-lez v0, :cond_12
 
     const/16 v2, 0x1000
 
@@ -3668,29 +3668,29 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public static writeChunked([CLjava/io/Writer;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 1645
     array-length v0, p0
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-lez v0, :cond_0
+    :goto_4
+    if-lez v0, :cond_12
 
     const/16 v2, 0x1000
 
@@ -3706,14 +3706,14 @@
 
     add-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public static writeLines(Ljava/util/Collection;Ljava/lang/String;Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3745,7 +3745,7 @@
 .end method
 
 .method public static writeLines(Ljava/util/Collection;Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3775,7 +3775,7 @@
 .end method
 
 .method public static writeLines(Ljava/util/Collection;Ljava/lang/String;Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3794,18 +3794,18 @@
         }
     .end annotation
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     return-void
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_3
+    if-nez p1, :cond_7
 
     .line 1993
     sget-object p1, Lorg/apache/commons/io/IOUtils;->LINE_SEPARATOR:Ljava/lang/String;
 
     .line 1995
-    :cond_1
+    :cond_7
     invoke-static {p3}, Lorg/apache/commons/io/Charsets;->toCharset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
 
     move-result-object p3
@@ -3815,18 +3815,18 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_f
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2e
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     .line 1998
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -3840,21 +3840,21 @@
     invoke-virtual {p2, v0}, Ljava/io/OutputStream;->write([B)V
 
     .line 2000
-    :cond_2
+    :cond_26
     invoke-virtual {p1, p3}, Ljava/lang/String;->getBytes(Ljava/nio/charset/Charset;)[B
 
     move-result-object v0
 
     invoke-virtual {p2, v0}, Ljava/io/OutputStream;->write([B)V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_3
+    :cond_2e
     return-void
 .end method
 
 .method public static writeLines(Ljava/util/Collection;Ljava/lang/String;Ljava/io/Writer;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -3872,34 +3872,34 @@
         }
     .end annotation
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     return-void
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_3
+    if-nez p1, :cond_7
 
     .line 2045
     sget-object p1, Lorg/apache/commons/io/IOUtils;->LINE_SEPARATOR:Ljava/lang/String;
 
     .line 2047
-    :cond_1
+    :cond_7
     invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    :goto_0
+    :goto_b
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_22
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
     .line 2049
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -3909,11 +3909,11 @@
     invoke-virtual {p2, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 2051
-    :cond_2
+    :cond_1e
     invoke-virtual {p2, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_3
+    :cond_22
     return-void
 .end method

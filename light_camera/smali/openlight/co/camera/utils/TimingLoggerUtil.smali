@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 10
     const-class v0, Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -56,7 +56,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/TimingLoggerUtil;
-    .locals 1
+    .registers 1
 
     .line 52
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil;->sInstance:Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public captureTiming(Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;)V
-    .locals 3
+    .registers 5
 
     .line 86
     iget-object v0, p0, Lopenlight/co/camera/utils/TimingLoggerUtil;->mFeatureToTimingLoggerMap:Ljava/util/EnumMap;
@@ -107,12 +107,12 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4e
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 109
-    :pswitch_0
+    :pswitch_16
     invoke-virtual {p1}, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -125,20 +125,20 @@
     .line 111
     invoke-virtual {v0}, Landroid/util/TimingLogger;->reset()V
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 106
-    :pswitch_1
+    :pswitch_24
     invoke-virtual {p1}, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     invoke-virtual {v0, p0}, Landroid/util/TimingLogger;->addSplit(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_4c
 
-    :pswitch_2
-    if-nez v0, :cond_0
+    :pswitch_2c
+    if-nez v0, :cond_42
 
     .line 96
     new-instance v0, Landroid/util/TimingLogger;
@@ -161,7 +161,7 @@
     invoke-virtual {p0, v1, v0}, Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 99
-    :cond_0
+    :cond_42
     invoke-virtual {v0}, Landroid/util/TimingLogger;->reset()V
 
     .line 100
@@ -171,30 +171,30 @@
 
     invoke-virtual {v0, p0}, Landroid/util/TimingLogger;->addSplit(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_4c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method public captureTiming(Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;)V
-    .locals 3
+    .registers 5
 
     .line 56
     iget-object v0, p0, Lopenlight/co/camera/utils/TimingLoggerUtil;->mFeatureToTimingLoggerMap:Ljava/util/EnumMap;
@@ -216,12 +216,12 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4e
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 78
-    :pswitch_0
+    :pswitch_16
     invoke-virtual {p1}, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -234,20 +234,20 @@
     .line 80
     invoke-virtual {v0}, Landroid/util/TimingLogger;->reset()V
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 75
-    :pswitch_1
+    :pswitch_24
     invoke-virtual {p1}, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     invoke-virtual {v0, p0}, Landroid/util/TimingLogger;->addSplit(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_4c
 
-    :pswitch_2
-    if-nez v0, :cond_0
+    :pswitch_2c
+    if-nez v0, :cond_42
 
     .line 62
     new-instance v0, Landroid/util/TimingLogger;
@@ -270,7 +270,7 @@
     invoke-virtual {p0, v1, v0}, Ljava/util/EnumMap;->put(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 65
-    :cond_0
+    :cond_42
     invoke-virtual {v0}, Landroid/util/TimingLogger;->reset()V
 
     .line 66
@@ -280,23 +280,23 @@
 
     invoke-virtual {v0, p0}, Landroid/util/TimingLogger;->addSplit(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_4c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_2c
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_24
+        :pswitch_16
     .end packed-switch
 .end method

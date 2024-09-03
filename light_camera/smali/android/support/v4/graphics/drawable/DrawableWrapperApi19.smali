@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 29
     invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -26,7 +26,7 @@
 .end method
 
 .method constructor <init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
-    .locals 0
+    .registers 3
 
     .line 33
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14;-><init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public isAutoMirrored()Z
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -50,7 +50,7 @@
 .end method
 
 .method mutateConstantState()Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;
-    .locals 2
+    .registers 3
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public setAutoMirrored(Z)V
-    .locals 0
+    .registers 2
 
     .line 38
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;->mDrawable:Landroid/graphics/drawable/Drawable;

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/IOException;Ljava/io/Serializable;)V
-    .locals 1
+    .registers 4
 
     .line 112
     invoke-virtual {p1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
@@ -29,14 +29,14 @@
 .end method
 
 .method public static isTaggedWith(Ljava/lang/Throwable;Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 66
     instance-of v0, p0, Lorg/apache/commons/io/TaggedIOException;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     check-cast p0, Lorg/apache/commons/io/TaggedIOException;
 
@@ -46,21 +46,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method public static throwCauseIfTaggedWith(Ljava/lang/Throwable;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,12 +72,12 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     return-void
 
     .line 96
-    :cond_0
+    :cond_7
     check-cast p0, Lorg/apache/commons/io/TaggedIOException;
 
     invoke-virtual {p0}, Lorg/apache/commons/io/TaggedIOException;->getCause()Ljava/io/IOException;
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public getCause()Ljava/io/IOException;
-    .locals 0
+    .registers 1
 
     .line 133
     invoke-super {p0}, Lorg/apache/commons/io/IOExceptionWithCause;->getCause()Ljava/lang/Throwable;
@@ -103,7 +103,7 @@
 .end method
 
 .method public bridge synthetic getCause()Ljava/lang/Throwable;
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-virtual {p0}, Lorg/apache/commons/io/TaggedIOException;->getCause()Ljava/io/IOException;
@@ -114,7 +114,7 @@
 .end method
 
 .method public getTag()Ljava/io/Serializable;
-    .locals 0
+    .registers 1
 
     .line 122
     iget-object p0, p0, Lorg/apache/commons/io/TaggedIOException;->tag:Ljava/io/Serializable;

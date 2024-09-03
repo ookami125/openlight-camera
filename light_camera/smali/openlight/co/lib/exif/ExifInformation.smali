@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 19
     const-class v0, Lopenlight/co/lib/exif/ExifInformation;
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(FI)V
-    .locals 3
+    .registers 6
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -159,7 +159,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -227,7 +227,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_191
 
     .line 122
     new-instance v3, Lopenlight/co/lib/exif/ExifInterface;
@@ -298,22 +298,22 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_9f
 
     .line 133
-    :try_start_0
+    :try_start_83
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v5
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_87
+    .catch Ljava/lang/NumberFormatException; {:try_start_83 .. :try_end_87} :catch_89
 
     move v4, v5
 
-    goto :goto_0
+    goto :goto_9f
 
     .line 135
-    :catch_0
+    :catch_89
     sget-object v5, Lopenlight/co/lib/exif/ExifInformation;->TAG:Ljava/lang/String;
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -333,8 +333,8 @@
     invoke-static {v5, p1}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 138
-    :cond_0
-    :goto_0
+    :cond_9f
+    :goto_9f
     invoke-direct {p0, v4}, Lopenlight/co/lib/exif/ExifInformation;->setIso(I)V
 
     const-string p1, "Flash"
@@ -409,7 +409,7 @@
 
     cmpl-double p1, v4, v1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_108
 
     .line 154
     sget-object p1, Lopenlight/co/lib/exif/ExifInformation;->TAG:Ljava/lang/String;
@@ -433,7 +433,7 @@
     .line 155
     invoke-direct {p0, v4, v5}, Lopenlight/co/lib/exif/ExifInformation;->setExposureTime(D)V
 
-    :cond_1
+    :cond_108
     const-string p1, "ExposureBiasValue"
 
     .line 158
@@ -441,7 +441,7 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_134
 
     const-string p1, "SubSecTimeDigitized"
 
@@ -450,14 +450,14 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_11a
 
     move p1, v0
 
-    goto :goto_1
+    goto :goto_11f
 
     .line 162
-    :cond_2
+    :cond_11a
     invoke-static {p1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result p1
@@ -465,7 +465,7 @@
     float-to-int p1, p1
 
     .line 163
-    :goto_1
+    :goto_11f
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -485,7 +485,7 @@
     move-result-object p1
 
     .line 165
-    :cond_3
+    :cond_134
     sget-object v1, Lopenlight/co/lib/exif/ExifInformation;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -563,7 +563,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_1a7
 
     .line 178
     aget-wide v0, p1, v0
@@ -577,10 +577,10 @@
 
     invoke-direct {p0, v0, v1}, Lopenlight/co/lib/exif/ExifInformation;->setLongitude(D)V
 
-    goto :goto_2
+    goto :goto_1a7
 
     .line 187
-    :cond_4
+    :cond_191
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -604,13 +604,13 @@
 
     invoke-direct {p0, v0, v1}, Lopenlight/co/lib/exif/ExifInformation;->setCreationDate(J)V
 
-    :cond_5
-    :goto_2
+    :cond_1a7
+    :goto_1a7
     return-void
 .end method
 
 .method public static asRational(DI)Ljava/lang/String;
-    .locals 3
+    .registers 6
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -645,13 +645,13 @@
 .end method
 
 .method public static displayableExposureTime(D)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     const-wide v0, 0x3fd3333333333333L    # 0.3
 
     cmpl-double v0, p0, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_17
 
     .line 306
     sget-object v0, Lopenlight/co/lib/exif/ExifInformation;->s2dpFormat:Ljava/text/DecimalFormat;
@@ -659,7 +659,7 @@
     monitor-enter v0
 
     .line 307
-    :try_start_0
+    :try_start_c
     sget-object v1, Lopenlight/co/lib/exif/ExifInformation;->s2dpFormat:Ljava/text/DecimalFormat;
 
     invoke-virtual {v1, p0, p1}, Ljava/text/DecimalFormat;->format(D)Ljava/lang/String;
@@ -670,18 +670,18 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_14
     move-exception p0
 
     .line 308
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_c .. :try_end_16} :catchall_14
 
     throw p0
 
     .line 310
-    :cond_0
+    :cond_17
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -714,7 +714,7 @@
 .end method
 
 .method private static parseRational(Ljava/lang/String;)F
-    .locals 4
+    .registers 5
 
     const-string v0, "/"
 
@@ -730,7 +730,7 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_24
 
     const-string v0, "1"
 
@@ -740,12 +740,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
-    goto :goto_0
+    goto :goto_24
 
     .line 392
-    :cond_0
+    :cond_16
     aget-object v0, p0, v1
 
     invoke-static {v0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -763,8 +763,8 @@
     return v0
 
     .line 390
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     aget-object p0, p0, v1
 
     invoke-static {p0}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
@@ -775,7 +775,7 @@
 .end method
 
 .method private setBokeh(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 347
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mBokeh:Ljava/lang/String;
@@ -784,7 +784,7 @@
 .end method
 
 .method private setCreationDate(J)V
-    .locals 0
+    .registers 3
 
     .line 314
     iput-wide p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mCreationDate:J
@@ -793,7 +793,7 @@
 .end method
 
 .method private setDenoise(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 351
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mDenoise:Ljava/lang/String;
@@ -802,7 +802,7 @@
 .end method
 
 .method private setEv(F)V
-    .locals 0
+    .registers 2
 
     .line 322
     iput p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mEv:F
@@ -811,7 +811,7 @@
 .end method
 
 .method private setEvFromExif(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 331
     invoke-static {p1}, Lopenlight/co/lib/exif/ExifInformation;->parseRational(Ljava/lang/String;)F
@@ -824,7 +824,7 @@
 .end method
 
 .method private setExposureTime(D)V
-    .locals 0
+    .registers 3
 
     .line 371
     iput-wide p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mExposureTime:D
@@ -833,7 +833,7 @@
 .end method
 
 .method private setFileSize(J)V
-    .locals 0
+    .registers 3
 
     .line 318
     iput-wide p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mFileSize:J
@@ -842,7 +842,7 @@
 .end method
 
 .method private setFlash(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 355
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mFlash:Ljava/lang/String;
@@ -851,7 +851,7 @@
 .end method
 
 .method private setFocalLength(I)V
-    .locals 0
+    .registers 2
 
     .line 363
     iput p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mFocalLength:I
@@ -860,7 +860,7 @@
 .end method
 
 .method private setHdr(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 343
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mHdr:Ljava/lang/String;
@@ -869,7 +869,7 @@
 .end method
 
 .method private setImagePath(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 367
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mImagePath:Ljava/lang/String;
@@ -878,7 +878,7 @@
 .end method
 
 .method private setIso(I)V
-    .locals 0
+    .registers 2
 
     .line 335
     iput p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mIso:I
@@ -887,7 +887,7 @@
 .end method
 
 .method private setLatitude(D)V
-    .locals 0
+    .registers 3
 
     .line 375
     iput-wide p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mLatitude:D
@@ -896,7 +896,7 @@
 .end method
 
 .method private setLongitude(D)V
-    .locals 0
+    .registers 3
 
     .line 379
     iput-wide p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mLongitude:D
@@ -905,7 +905,7 @@
 .end method
 
 .method private setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 359
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mName:Ljava/lang/String;
@@ -914,7 +914,7 @@
 .end method
 
 .method private setWb(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 339
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mWb:Ljava/lang/String;
@@ -923,22 +923,22 @@
 .end method
 
 .method public static toDMS(D)[F
-    .locals 7
+    .registers 9
 
     const-wide/16 v0, 0x0
 
     cmpl-double v2, p0, v0
 
-    if-ltz v2, :cond_0
+    if-ltz v2, :cond_8
 
     move-wide v2, p0
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     neg-double v2, p0
 
-    :goto_0
+    :goto_9
     double-to-int v4, v2
 
     int-to-double v5, v4
@@ -951,11 +951,11 @@
 
     cmpg-double p0, p0, v0
 
-    if-gez p0, :cond_1
+    if-gez p0, :cond_14
 
     neg-int v4, v4
 
-    :cond_1
+    :cond_14
     double-to-int p0, v2
 
     int-to-double v0, p0
@@ -993,7 +993,7 @@
 .end method
 
 .method public static toExifSexagesimal(D)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 70
     invoke-static {p0, p1}, Lopenlight/co/lib/exif/ExifInformation;->toDMS(D)[F
@@ -1059,7 +1059,7 @@
 
 # virtual methods
 .method public getBokeh()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 256
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mBokeh:Ljava/lang/String;
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public getCreationDate()J
-    .locals 2
+    .registers 3
 
     .line 199
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mCreationDate:J
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public getDenoise()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 260
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mDenoise:Ljava/lang/String;
@@ -1086,7 +1086,7 @@
 .end method
 
 .method public getDimension()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 244
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mDimension:Ljava/lang/String;
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public getDisplayableExposureTime()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 297
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mExposureTime:D
@@ -1108,7 +1108,7 @@
 .end method
 
 .method public getEv()F
-    .locals 0
+    .registers 1
 
     .line 207
     iget p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mEv:F
@@ -1117,7 +1117,7 @@
 .end method
 
 .method public getExifEv()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 216
     iget p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mEv:F
@@ -1134,7 +1134,7 @@
 .end method
 
 .method public getExifShutterSpeedValue()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 224
     iget v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mShutterSpeedValue:F
@@ -1143,13 +1143,13 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_9
     const/high16 v0, 0x3f800000    # 1.0f
 
     .line 227
@@ -1178,7 +1178,7 @@
 .end method
 
 .method public getExposureTime()D
-    .locals 2
+    .registers 3
 
     .line 280
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mExposureTime:D
@@ -1187,7 +1187,7 @@
 .end method
 
 .method public getFileSize()J
-    .locals 2
+    .registers 3
 
     .line 203
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mFileSize:J
@@ -1196,7 +1196,7 @@
 .end method
 
 .method public getFlash()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 264
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mFlash:Ljava/lang/String;
@@ -1205,7 +1205,7 @@
 .end method
 
 .method public getFocalLength()I
-    .locals 0
+    .registers 1
 
     .line 272
     iget p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mFocalLength:I
@@ -1214,7 +1214,7 @@
 .end method
 
 .method public getHdr()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 252
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mHdr:Ljava/lang/String;
@@ -1223,7 +1223,7 @@
 .end method
 
 .method public getImagePath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 276
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mImagePath:Ljava/lang/String;
@@ -1232,7 +1232,7 @@
 .end method
 
 .method public getIso()I
-    .locals 0
+    .registers 1
 
     .line 220
     iget p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mIso:I
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public getLatitude()D
-    .locals 2
+    .registers 3
 
     .line 284
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mLatitude:D
@@ -1250,7 +1250,7 @@
 .end method
 
 .method public getLongitude()D
-    .locals 2
+    .registers 3
 
     .line 288
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInformation;->mLongitude:D
@@ -1259,7 +1259,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 268
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mName:Ljava/lang/String;
@@ -1268,7 +1268,7 @@
 .end method
 
 .method public getWb()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 240
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInformation;->mWb:Ljava/lang/String;
@@ -1277,7 +1277,7 @@
 .end method
 
 .method public setDimension(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 248
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mDimension:Ljava/lang/String;
@@ -1286,7 +1286,7 @@
 .end method
 
 .method public setShutterSpeedValue(F)V
-    .locals 0
+    .registers 2
 
     .line 236
     iput p1, p0, Lopenlight/co/lib/exif/ExifInformation;->mShutterSpeedValue:F

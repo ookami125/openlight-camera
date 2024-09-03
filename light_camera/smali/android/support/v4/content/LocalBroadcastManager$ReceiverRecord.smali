@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
-    .locals 0
+    .registers 3
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 60
     new-instance v0, Ljava/lang/StringBuilder;
@@ -75,14 +75,14 @@
     .line 65
     iget-boolean p0, p0, Landroid/support/v4/content/LocalBroadcastManager$ReceiverRecord;->dead:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_24
 
     const-string p0, " DEAD"
 
     .line 66
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_0
+    :cond_24
     const-string p0, "}"
 
     .line 68

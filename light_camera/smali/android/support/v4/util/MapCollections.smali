@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 .end method
 
 .method public static containsAllHelper(Ljava/util/Map;Ljava/util/Collection;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -87,12 +87,12 @@
     move-result-object p1
 
     .line 458
-    :cond_0
+    :cond_4
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 459
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -103,20 +103,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_1
+    :cond_16
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public static equalsSetHelper(Ljava/util/Set;Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -131,23 +131,23 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 516
-    :cond_0
+    :cond_4
     instance-of v1, p1, Ljava/util/Set;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_20
 
     .line 517
     check-cast p1, Ljava/util/Set;
 
     .line 520
-    :try_start_0
+    :try_start_b
     invoke-interface {p0}, Ljava/util/Set;->size()I
 
     move-result v1
@@ -156,37 +156,37 @@
 
     move-result v3
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_1c
 
     invoke-interface {p0, p1}, Ljava/util/Set;->containsAll(Ljava/util/Collection;)Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/NullPointerException; {:try_start_b .. :try_end_19} :catch_1f
+    .catch Ljava/lang/ClassCastException; {:try_start_b .. :try_end_19} :catch_1e
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1c
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     move v0, v2
 
-    :goto_0
+    :goto_1d
     return v0
 
-    :catch_0
+    :catch_1e
     return v2
 
-    :catch_1
+    :catch_1f
     return v2
 
-    :cond_2
+    :cond_20
     return v2
 .end method
 
 .method public static removeAllHelper(Ljava/util/Map;Ljava/util/Collection;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -212,12 +212,12 @@
     move-result-object p1
 
     .line 469
-    :goto_0
+    :goto_8
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 470
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -226,29 +226,29 @@
 
     invoke-interface {p0, v1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_8
 
     .line 472
-    :cond_0
+    :cond_16
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result p0
 
-    if-eq v0, p0, :cond_1
+    if-eq v0, p0, :cond_1e
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_1
+    :cond_1e
     const/4 p0, 0x0
 
-    :goto_1
+    :goto_1f
     return p0
 .end method
 
 .method public static retainAllHelper(Ljava/util/Map;Ljava/util/Collection;)Z
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -278,13 +278,13 @@
     move-result-object v1
 
     .line 478
-    :cond_0
-    :goto_0
+    :cond_c
+    :goto_c
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_20
 
     .line 479
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -295,29 +295,29 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_c
 
     .line 480
     invoke-interface {v1}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_0
+    goto :goto_c
 
     .line 483
-    :cond_1
+    :cond_20
     invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result p0
 
-    if-eq v0, p0, :cond_2
+    if-eq v0, p0, :cond_28
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_29
 
-    :cond_2
+    :cond_28
     const/4 p0, 0x0
 
-    :goto_1
+    :goto_29
     return p0
 .end method
 
@@ -368,7 +368,7 @@
 .end method
 
 .method public getEntrySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -381,7 +381,7 @@
     .line 531
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 532
     new-instance v0, Landroid/support/v4/util/MapCollections$EntrySet;
@@ -391,14 +391,14 @@
     iput-object v0, p0, Landroid/support/v4/util/MapCollections;->mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
 
     .line 534
-    :cond_0
+    :cond_b
     iget-object p0, p0, Landroid/support/v4/util/MapCollections;->mEntrySet:Landroid/support/v4/util/MapCollections$EntrySet;
 
     return-object p0
 .end method
 
 .method public getKeySet()Ljava/util/Set;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -410,7 +410,7 @@
     .line 538
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 539
     new-instance v0, Landroid/support/v4/util/MapCollections$KeySet;
@@ -420,14 +420,14 @@
     iput-object v0, p0, Landroid/support/v4/util/MapCollections;->mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
 
     .line 541
-    :cond_0
+    :cond_b
     iget-object p0, p0, Landroid/support/v4/util/MapCollections;->mKeySet:Landroid/support/v4/util/MapCollections$KeySet;
 
     return-object p0
 .end method
 
 .method public getValues()Ljava/util/Collection;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -439,7 +439,7 @@
     .line 545
     iget-object v0, p0, Landroid/support/v4/util/MapCollections;->mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 546
     new-instance v0, Landroid/support/v4/util/MapCollections$ValuesCollection;
@@ -449,14 +449,14 @@
     iput-object v0, p0, Landroid/support/v4/util/MapCollections;->mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
 
     .line 548
-    :cond_0
+    :cond_b
     iget-object p0, p0, Landroid/support/v4/util/MapCollections;->mValues:Landroid/support/v4/util/MapCollections$ValuesCollection;
 
     return-object p0
 .end method
 
 .method public toArrayHelper(I)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
 
     .line 488
     invoke-virtual {p0}, Landroid/support/v4/util/MapCollections;->colGetSize()I
@@ -468,8 +468,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_7
+    if-ge v2, v0, :cond_12
 
     .line 491
     invoke-virtual {p0, v2, p1}, Landroid/support/v4/util/MapCollections;->colGetEntry(II)Ljava/lang/Object;
@@ -480,14 +480,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_12
     return-object v1
 .end method
 
 .method public toArrayHelper([Ljava/lang/Object;I)[Ljava/lang/Object;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -504,7 +504,7 @@
     .line 498
     array-length v1, p1
 
-    if-ge v1, v0, :cond_0
+    if-ge v1, v0, :cond_15
 
     .line 500
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -521,11 +521,11 @@
 
     check-cast p1, [Ljava/lang/Object;
 
-    :cond_0
+    :cond_15
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_16
+    if-ge v1, v0, :cond_21
 
     .line 504
     invoke-virtual {p0, v1, p2}, Landroid/support/v4/util/MapCollections;->colGetEntry(II)Ljava/lang/Object;
@@ -536,19 +536,19 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 506
-    :cond_1
+    :cond_21
     array-length p0, p1
 
-    if-le p0, v0, :cond_2
+    if-le p0, v0, :cond_27
 
     const/4 p0, 0x0
 
     .line 507
     aput-object p0, p1, v0
 
-    :cond_2
+    :cond_27
     return-object p1
 .end method

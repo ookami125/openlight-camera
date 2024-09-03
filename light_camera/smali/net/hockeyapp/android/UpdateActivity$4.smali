@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/UpdateActivity;)V
-    .locals 0
+    .registers 2
 
     .line 285
     iput-object p1, p0, Lnet/hockeyapp/android/UpdateActivity$4;->this$0:Lnet/hockeyapp/android/UpdateActivity;
@@ -33,34 +33,34 @@
 
 # virtual methods
 .method public downloadFailed(Lnet/hockeyapp/android/tasks/DownloadFileTask;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 3
 
     .line 287
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 288
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity$4;->this$0:Lnet/hockeyapp/android/UpdateActivity;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->startDownloadTask()V
 
-    goto :goto_0
+    goto :goto_11
 
     .line 290
-    :cond_0
+    :cond_c
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity$4;->this$0:Lnet/hockeyapp/android/UpdateActivity;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->enableUpdateButton()V
 
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public downloadSuccessful(Lnet/hockeyapp/android/tasks/DownloadFileTask;)V
-    .locals 0
+    .registers 2
 
     .line 295
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity$4;->this$0:Lnet/hockeyapp/android/UpdateActivity;

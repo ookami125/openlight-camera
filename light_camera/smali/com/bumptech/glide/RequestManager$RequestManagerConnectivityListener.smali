@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/manager/RequestTracker;)V
-    .locals 0
+    .registers 2
 
     .line 792
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,15 +37,15 @@
 
 # virtual methods
 .method public onConnectivityChanged(Z)V
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 799
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager$RequestManagerConnectivityListener;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
 
     invoke-virtual {p0}, Lcom/bumptech/glide/manager/RequestTracker;->restartRequests()V
 
-    :cond_0
+    :cond_7
     return-void
 .end method

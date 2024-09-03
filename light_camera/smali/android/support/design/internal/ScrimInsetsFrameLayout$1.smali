@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/internal/ScrimInsetsFrameLayout;)V
-    .locals 0
+    .registers 2
 
     .line 66
     iput-object p1, p0, Landroid/support/design/internal/ScrimInsetsFrameLayout$1;->this$0:Landroid/support/design/internal/ScrimInsetsFrameLayout;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
-    .locals 4
+    .registers 7
 
     .line 70
     iget-object p1, p0, Landroid/support/design/internal/ScrimInsetsFrameLayout$1;->this$0:Landroid/support/design/internal/ScrimInsetsFrameLayout;
 
     iget-object p1, p1, Landroid/support/design/internal/ScrimInsetsFrameLayout;->mInsets:Landroid/graphics/Rect;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_f
 
     .line 71
     iget-object p1, p0, Landroid/support/design/internal/ScrimInsetsFrameLayout$1;->this$0:Landroid/support/design/internal/ScrimInsetsFrameLayout;
@@ -55,7 +55,7 @@
     iput-object v0, p1, Landroid/support/design/internal/ScrimInsetsFrameLayout;->mInsets:Landroid/graphics/Rect;
 
     .line 73
-    :cond_0
+    :cond_f
     iget-object p1, p0, Landroid/support/design/internal/ScrimInsetsFrameLayout$1;->this$0:Landroid/support/design/internal/ScrimInsetsFrameLayout;
 
     iget-object p1, p1, Landroid/support/design/internal/ScrimInsetsFrameLayout;->mInsets:Landroid/graphics/Rect;
@@ -94,26 +94,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3c
 
     iget-object v0, p0, Landroid/support/design/internal/ScrimInsetsFrameLayout$1;->this$0:Landroid/support/design/internal/ScrimInsetsFrameLayout;
 
     iget-object v0, v0, Landroid/support/design/internal/ScrimInsetsFrameLayout;->mInsetForeground:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3a
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_1
+    :cond_3a
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_2
-    :goto_0
+    :cond_3c
+    :goto_3c
     const/4 v0, 0x1
 
-    :goto_1
+    :goto_3d
     invoke-virtual {p1, v0}, Landroid/support/design/internal/ScrimInsetsFrameLayout;->setWillNotDraw(Z)V
 
     .line 79

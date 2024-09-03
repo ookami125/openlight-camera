@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static createShortcutResultIntent(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;)Landroid/content/Intent;
-    .locals 2
+    .registers 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -43,7 +43,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_17
 
     .line 135
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -63,13 +63,13 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 p0, 0x0
 
-    :goto_0
-    if-nez p0, :cond_1
+    :goto_18
+    if-nez p0, :cond_1f
 
     .line 139
     new-instance p0, Landroid/content/Intent;
@@ -77,7 +77,7 @@
     invoke-direct {p0}, Landroid/content/Intent;-><init>()V
 
     .line 141
-    :cond_1
+    :cond_1f
     invoke-virtual {p1, p0}, Landroid/support/v4/content/pm/ShortcutInfoCompat;->addToIntent(Landroid/content/Intent;)Landroid/content/Intent;
 
     move-result-object p0
@@ -86,7 +86,7 @@
 .end method
 
 .method public static isRequestPinShortcutSupported(Landroid/content/Context;)Z
-    .locals 3
+    .registers 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -97,7 +97,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_13
 
     .line 54
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -114,7 +114,7 @@
 
     return p0
 
-    :cond_0
+    :cond_13
     const-string v0, "com.android.launcher.permission.INSTALL_SHORTCUT"
 
     .line 57
@@ -124,12 +124,12 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     return v1
 
     .line 61
-    :cond_1
+    :cond_1d
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object p0
@@ -148,12 +148,12 @@
 
     move-result-object p0
 
-    :cond_2
+    :cond_30
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_50
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -171,7 +171,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_4e
 
     const-string v2, "com.android.launcher.permission.INSTALL_SHORTCUT"
 
@@ -179,19 +179,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_30
 
-    :cond_3
+    :cond_4e
     const/4 p0, 0x1
 
     return p0
 
-    :cond_4
+    :cond_50
     return v1
 .end method
 
 .method public static requestPinShortcut(Landroid/content/Context;Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/IntentSender;)Z
-    .locals 10
+    .registers 13
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -210,7 +210,7 @@
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_17
 
     .line 91
     const-class v0, Landroid/content/pm/ShortcutManager;
@@ -234,19 +234,19 @@
     return p0
 
     .line 95
-    :cond_0
+    :cond_17
     invoke-static {p0}, Landroid/support/v4/content/pm/ShortcutManagerCompat;->isRequestPinShortcutSupported(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     const/4 p0, 0x0
 
     return p0
 
     .line 98
-    :cond_1
+    :cond_1f
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.launcher.action.INSTALL_SHORTCUT"
@@ -259,14 +259,14 @@
 
     const/4 p1, 0x1
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_31
 
     .line 102
     invoke-virtual {p0, v3}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
 
     return p1
 
-    :cond_2
+    :cond_31
     const/4 v4, 0x0
 
     .line 107

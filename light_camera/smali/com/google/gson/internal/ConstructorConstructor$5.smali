@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Ljava/lang/reflect/Type;)V
-    .locals 0
+    .registers 3
 
     .line 142
     iput-object p1, p0, Lcom/google/gson/internal/ConstructorConstructor$5;->this$0:Lcom/google/gson/internal/ConstructorConstructor;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public construct()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -60,7 +60,7 @@
 
     instance-of v0, v0, Ljava/lang/reflect/ParameterizedType;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_39
 
     .line 146
     iget-object v0, p0, Lcom/google/gson/internal/ConstructorConstructor$5;->val$type:Ljava/lang/reflect/Type;
@@ -78,7 +78,7 @@
     .line 147
     instance-of v1, v0, Ljava/lang/Class;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     .line 148
     check-cast v0, Ljava/lang/Class;
@@ -90,7 +90,7 @@
     return-object p0
 
     .line 150
-    :cond_0
+    :cond_1c
     new-instance v0, Lcom/google/gson/JsonIOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -118,7 +118,7 @@
     throw v0
 
     .line 153
-    :cond_1
+    :cond_39
     new-instance v0, Lcom/google/gson/JsonIOException;
 
     new-instance v1, Ljava/lang/StringBuilder;

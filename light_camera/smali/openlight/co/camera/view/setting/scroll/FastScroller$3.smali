@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/setting/scroll/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 280
     iput-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$3;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 283
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationCancel(Landroid/animation/Animator;)V
@@ -43,13 +43,14 @@
 
     const/4 p1, 0x0
 
+    # setter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAnimatingShow:Z
     invoke-static {p0, p1}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$402(Lopenlight/co/camera/view/setting/scroll/FastScroller;Z)Z
 
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 289
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
@@ -59,6 +60,7 @@
 
     const/4 p1, 0x0
 
+    # setter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAnimatingShow:Z
     invoke-static {p0, p1}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$402(Lopenlight/co/camera/view/setting/scroll/FastScroller;Z)Z
 
     return-void

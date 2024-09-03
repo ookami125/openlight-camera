@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Landroid/support/v7/widget/CardViewBaseImpl;-><init>()V
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public initStatic()V
-    .locals 1
+    .registers 2
 
     .line 28
     new-instance v0, Landroid/support/v7/widget/CardViewApi17Impl$1;

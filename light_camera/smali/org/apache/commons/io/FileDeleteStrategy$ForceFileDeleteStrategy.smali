@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const-string v0, "Force"
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method protected doDelete(Ljava/io/File;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

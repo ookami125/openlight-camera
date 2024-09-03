@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method private static read(Ljava/io/InputStream;)I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -28,12 +28,12 @@
 
     const/4 v0, -0x1
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_8
 
     return p0
 
     .line 477
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/io/EOFException;
 
     const-string v0, "Unexpected EOF reached"
@@ -44,7 +44,7 @@
 .end method
 
 .method public static readSwappedDouble(Ljava/io/InputStream;)D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -64,7 +64,7 @@
 .end method
 
 .method public static readSwappedDouble([BI)D
-    .locals 0
+    .registers 2
 
     .line 267
     invoke-static {p0, p1}, Lorg/apache/commons/io/EndianUtils;->readSwappedLong([BI)J
@@ -79,7 +79,7 @@
 .end method
 
 .method public static readSwappedFloat(Ljava/io/InputStream;)F
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -99,7 +99,7 @@
 .end method
 
 .method public static readSwappedFloat([BI)F
-    .locals 0
+    .registers 2
 
     .line 245
     invoke-static {p0, p1}, Lorg/apache/commons/io/EndianUtils;->readSwappedInteger([BI)I
@@ -114,7 +114,7 @@
 .end method
 
 .method public static readSwappedInteger(Ljava/io/InputStream;)I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -167,7 +167,7 @@
 .end method
 
 .method public static readSwappedInteger([BI)I
-    .locals 2
+    .registers 4
 
     add-int/lit8 v0, p1, 0x0
 
@@ -212,7 +212,7 @@
 .end method
 
 .method public static readSwappedLong(Ljava/io/InputStream;)J
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -228,8 +228,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v3, v0, :cond_0
+    :goto_6
+    if-ge v3, v0, :cond_12
 
     .line 408
     invoke-static {p0}, Lorg/apache/commons/io/EndianUtils;->read(Ljava/io/InputStream;)I
@@ -242,10 +242,10 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 410
-    :cond_0
+    :cond_12
     invoke-static {v1, v2}, Lorg/apache/commons/io/EndianUtils;->readSwappedLong([BI)J
 
     move-result-wide v0
@@ -254,7 +254,7 @@
 .end method
 
 .method public static readSwappedLong([BI)J
-    .locals 4
+    .registers 6
 
     .line 221
     invoke-static {p0, p1}, Lorg/apache/commons/io/EndianUtils;->readSwappedInteger([BI)I
@@ -286,7 +286,7 @@
 .end method
 
 .method public static readSwappedShort(Ljava/io/InputStream;)S
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -318,7 +318,7 @@
 .end method
 
 .method public static readSwappedShort([BI)S
-    .locals 1
+    .registers 3
 
     add-int/lit8 v0, p1, 0x0
 
@@ -345,7 +345,7 @@
 .end method
 
 .method public static readSwappedUnsignedInteger(Ljava/io/InputStream;)J
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -408,7 +408,7 @@
 .end method
 
 .method public static readSwappedUnsignedInteger([BI)J
-    .locals 4
+    .registers 6
 
     add-int/lit8 v0, p1, 0x0
 
@@ -464,7 +464,7 @@
 .end method
 
 .method public static readSwappedUnsignedShort(Ljava/io/InputStream;)I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -495,7 +495,7 @@
 .end method
 
 .method public static readSwappedUnsignedShort([BI)I
-    .locals 1
+    .registers 3
 
     add-int/lit8 v0, p1, 0x0
 
@@ -520,7 +520,7 @@
 .end method
 
 .method public static swapDouble(D)D
-    .locals 0
+    .registers 2
 
     .line 107
     invoke-static {p0, p1}, Ljava/lang/Double;->doubleToLongBits(D)J
@@ -539,7 +539,7 @@
 .end method
 
 .method public static swapFloat(F)F
-    .locals 0
+    .registers 1
 
     .line 98
     invoke-static {p0}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -558,7 +558,7 @@
 .end method
 
 .method public static swapInteger(I)I
-    .locals 2
+    .registers 3
 
     shr-int/lit8 v0, p0, 0x0
 
@@ -594,7 +594,7 @@
 .end method
 
 .method public static swapLong(J)J
-    .locals 14
+    .registers 16
 
     const/4 v0, 0x0
 
@@ -680,7 +680,7 @@
 .end method
 
 .method public static swapShort(S)S
-    .locals 1
+    .registers 2
 
     shr-int/lit8 v0, p0, 0x0
 
@@ -702,7 +702,7 @@
 .end method
 
 .method public static writeSwappedDouble(Ljava/io/OutputStream;D)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -720,7 +720,7 @@
 .end method
 
 .method public static writeSwappedDouble([BID)V
-    .locals 0
+    .registers 4
 
     .line 256
     invoke-static {p2, p3}, Ljava/lang/Double;->doubleToLongBits(D)J
@@ -733,7 +733,7 @@
 .end method
 
 .method public static writeSwappedFloat(Ljava/io/OutputStream;F)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -751,7 +751,7 @@
 .end method
 
 .method public static writeSwappedFloat([BIF)V
-    .locals 0
+    .registers 3
 
     .line 234
     invoke-static {p2}, Ljava/lang/Float;->floatToIntBits(F)I
@@ -764,7 +764,7 @@
 .end method
 
 .method public static writeSwappedInteger(Ljava/io/OutputStream;I)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -811,7 +811,7 @@
 .end method
 
 .method public static writeSwappedInteger([BII)V
-    .locals 2
+    .registers 5
 
     add-int/lit8 v0, p1, 0x0
 
@@ -861,7 +861,7 @@
 .end method
 
 .method public static writeSwappedLong(Ljava/io/OutputStream;J)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -978,7 +978,7 @@
 .end method
 
 .method public static writeSwappedLong([BIJ)V
-    .locals 5
+    .registers 9
 
     add-int/lit8 v0, p1, 0x0
 
@@ -1106,7 +1106,7 @@
 .end method
 
 .method public static writeSwappedShort(Ljava/io/OutputStream;S)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1135,7 +1135,7 @@
 .end method
 
 .method public static writeSwappedShort([BIS)V
-    .locals 2
+    .registers 5
 
     add-int/lit8 v0, p1, 0x0
 

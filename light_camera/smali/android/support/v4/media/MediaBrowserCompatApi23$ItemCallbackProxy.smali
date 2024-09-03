@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onError(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -69,9 +69,9 @@
 .end method
 
 .method public onItemLoaded(Landroid/media/browse/MediaBrowser$MediaItem;)V
-    .locals 2
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 50
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallbackProxy;->mItemCallback:Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;
@@ -80,10 +80,10 @@
 
     invoke-interface {p0, p1}, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;->onItemLoaded(Landroid/os/Parcel;)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 52
-    :cond_0
+    :cond_9
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
@@ -98,6 +98,6 @@
 
     invoke-interface {p0, v0}, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;->onItemLoaded(Landroid/os/Parcel;)V
 
-    :goto_0
+    :goto_16
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
 
     const/16 v0, 0x1000
 
@@ -24,12 +24,12 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;I)V
-    .locals 0
+    .registers 3
 
     .line 50
     invoke-direct {p0, p1}, Ljava/io/FilterWriter;-><init>(Ljava/io/Writer;)V
 
-    if-lez p2, :cond_0
+    if-lez p2, :cond_8
 
     .line 54
     iput p2, p0, Lorg/apache/commons/io/output/ChunkedWriter;->chunkSize:I
@@ -37,7 +37,7 @@
     return-void
 
     .line 52
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public write([CII)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -56,7 +56,7 @@
     .end annotation
 
     :goto_0
-    if-lez p3, :cond_0
+    if-lez p3, :cond_10
 
     .line 78
     iget v0, p0, Lorg/apache/commons/io/output/ChunkedWriter;->chunkSize:I
@@ -76,6 +76,6 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_10
     return-void
 .end method

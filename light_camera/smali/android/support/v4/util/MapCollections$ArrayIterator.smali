@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/util/MapCollections;I)V
-    .locals 1
+    .registers 4
 
     .line 41
     iput-object p1, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->this$0:Landroid/support/v4/util/MapCollections;
@@ -70,28 +70,28 @@
 
 # virtual methods
 .method public hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 48
     iget v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mIndex:I
 
     iget p0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mSize:I
 
-    if-ge v0, p0, :cond_0
+    if-ge v0, p0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public next()Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -103,7 +103,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 54
     iget-object v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->this$0:Landroid/support/v4/util/MapCollections;
@@ -131,7 +131,7 @@
     return-object v0
 
     .line 53
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/util/NoSuchElementException;
 
     invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -140,12 +140,12 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 62
     iget-boolean v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mCanRemove:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 65
     iget v0, p0, Landroid/support/v4/util/MapCollections$ArrayIterator;->mIndex:I
@@ -176,7 +176,7 @@
     return-void
 
     .line 63
-    :cond_0
+    :cond_1b
     new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V

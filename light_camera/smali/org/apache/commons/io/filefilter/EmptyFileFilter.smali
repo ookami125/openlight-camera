@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 59
     new-instance v0, Lorg/apache/commons/io/filefilter/EmptyFileFilter;
@@ -38,7 +38,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 67
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 4
+    .registers 6
 
     .line 79
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
@@ -60,28 +60,28 @@
 
     const/4 v1, 0x1
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_13
 
     .line 80
     invoke-virtual {p1}, Ljava/io/File;->listFiles()[Ljava/io/File;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
     .line 81
     array-length p0, p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_12
 
-    :cond_0
+    :cond_11
     move v0, v1
 
-    :cond_1
+    :cond_12
     return v0
 
     .line 83
-    :cond_2
+    :cond_13
     invoke-virtual {p1}, Ljava/io/File;->length()J
 
     move-result-wide p0
@@ -90,10 +90,10 @@
 
     cmp-long p0, p0, v2
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_1e
 
     move v0, v1
 
-    :cond_3
+    :cond_1e
     return v0
 .end method

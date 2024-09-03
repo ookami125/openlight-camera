@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/content/ComponentName;Landroid/app/PendingIntent;)V
-    .locals 0
+    .registers 5
 
     .line 3132
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/content/ComponentName;Landroid/app/PendingIntent;)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method buildRccMetadata(Landroid/os/Bundle;)Landroid/media/RemoteControlClient$MetadataEditor;
-    .locals 8
+    .registers 10
 
     .line 3167
     invoke-super {p0, p1}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;->buildRccMetadata(Landroid/os/Bundle;)Landroid/media/RemoteControlClient$MetadataEditor;
@@ -43,20 +43,20 @@
 
     const-wide/16 v2, 0x0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     move-wide v4, v2
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_c
     iget-object p0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;->mState:Landroid/support/v4/media/session/PlaybackStateCompat;
 
     invoke-virtual {p0}, Landroid/support/v4/media/session/PlaybackStateCompat;->getActions()J
 
     move-result-wide v4
 
-    :goto_0
+    :goto_12
     const-wide/16 v6, 0x80
 
     and-long/2addr v4, v6
@@ -65,17 +65,17 @@
 
     const v1, 0x10000001
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1f
 
     .line 3170
     invoke-virtual {v0, v1}, Landroid/media/RemoteControlClient$MetadataEditor;->addEditableKey(I)V
 
-    :cond_1
-    if-nez p1, :cond_2
+    :cond_1f
+    if-nez p1, :cond_22
 
     return-object v0
 
-    :cond_2
+    :cond_22
     const-string p0, "android.media.metadata.YEAR"
 
     .line 3176
@@ -83,7 +83,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_35
 
     const/16 p0, 0x8
 
@@ -97,7 +97,7 @@
     .line 3177
     invoke-virtual {v0, p0, v2, v3}, Landroid/media/RemoteControlClient$MetadataEditor;->putLong(IJ)Landroid/media/RemoteControlClient$MetadataEditor;
 
-    :cond_3
+    :cond_35
     const-string p0, "android.media.metadata.RATING"
 
     .line 3180
@@ -105,7 +105,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_48
 
     const/16 p0, 0x65
 
@@ -119,7 +119,7 @@
     .line 3182
     invoke-virtual {v0, p0, v2}, Landroid/media/MediaMetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/MediaMetadataEditor;
 
-    :cond_4
+    :cond_48
     const-string p0, "android.media.metadata.USER_RATING"
 
     .line 3185
@@ -127,7 +127,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_59
 
     const-string p0, "android.media.metadata.USER_RATING"
 
@@ -139,12 +139,12 @@
     .line 3187
     invoke-virtual {v0, v1, p0}, Landroid/media/MediaMetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/MediaMetadataEditor;
 
-    :cond_5
+    :cond_59
     return-object v0
 .end method
 
 .method getRccTransportControlFlagsFromActions(J)I
-    .locals 2
+    .registers 5
 
     .line 3158
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;->getRccTransportControlFlagsFromActions(J)I
@@ -159,21 +159,21 @@
 
     cmp-long p1, p1, v0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     or-int/lit16 p0, p0, 0x200
 
-    :cond_0
+    :cond_f
     return p0
 .end method
 
 .method public setCallback(Landroid/support/v4/media/session/MediaSessionCompat$Callback;Landroid/os/Handler;)V
-    .locals 0
+    .registers 3
 
     .line 3137
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi18;->setCallback(Landroid/support/v4/media/session/MediaSessionCompat$Callback;Landroid/os/Handler;)V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 3139
     iget-object p0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;->mRcc:Landroid/media/RemoteControlClient;
@@ -182,10 +182,10 @@
 
     invoke-virtual {p0, p1}, Landroid/media/RemoteControlClient;->setMetadataUpdateListener(Landroid/media/RemoteControlClient$OnMetadataUpdateListener;)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 3141
-    :cond_0
+    :cond_c
     new-instance p1, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19$1;
 
     invoke-direct {p1, p0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19$1;-><init>(Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplApi19;)V
@@ -195,6 +195,6 @@
 
     invoke-virtual {p0, p1}, Landroid/media/RemoteControlClient;->setMetadataUpdateListener(Landroid/media/RemoteControlClient$OnMetadataUpdateListener;)V
 
-    :goto_0
+    :goto_16
     return-void
 .end method

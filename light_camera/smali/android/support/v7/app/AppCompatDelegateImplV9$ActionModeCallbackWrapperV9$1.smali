@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;)V
-    .locals 0
+    .registers 2
 
     .line 1816
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 1819
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;
@@ -53,7 +53,7 @@
 
     iget-object p1, p1, Landroid/support/v7/app/AppCompatDelegateImplV9;->mActionModePopup:Landroid/widget/PopupWindow;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 1821
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;
@@ -64,10 +64,10 @@
 
     invoke-virtual {p1}, Landroid/widget/PopupWindow;->dismiss()V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 1822
-    :cond_0
+    :cond_1d
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;
 
     iget-object p1, p1, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -80,7 +80,7 @@
 
     instance-of p1, p1, Landroid/view/View;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3a
 
     .line 1823
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;
@@ -98,8 +98,8 @@
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
     .line 1825
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;
 
     iget-object p1, p1, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;

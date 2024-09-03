@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Ljava/lang/Object;Landroid/support/v4/os/ResultReceiver;)V
-    .locals 0
+    .registers 4
 
     .line 1371
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$2;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
-    .locals 2
+    .registers 4
 
     .line 1374
     invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserServiceCompat$2;->getFlags()I
@@ -54,7 +54,7 @@
 
     and-int/lit8 v0, v0, 0x2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 1375
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$2;->val$receiver:Landroid/support/v4/os/ResultReceiver;
@@ -68,7 +68,7 @@
     return-void
 
     .line 1378
-    :cond_0
+    :cond_10
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method bridge synthetic onResultSent(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1371
     check-cast p1, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;

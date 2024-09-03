@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/request/RequestCoordinator;)V
-    .locals 0
+    .registers 2
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,12 +40,12 @@
 .end method
 
 .method private parentCanNotifyStatusChanged()Z
-    .locals 1
+    .registers 2
 
     .line 53
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
@@ -53,30 +53,30 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method private parentCanSetImage()Z
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
@@ -84,30 +84,30 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method private parentIsAnyResourceSet()Z
-    .locals 1
+    .registers 2
 
     .line 78
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
@@ -115,23 +115,23 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 
 # virtual methods
 .method public begin()V
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
@@ -140,7 +140,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 87
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
@@ -148,33 +148,33 @@
     invoke-interface {v0}, Lcom/bumptech/glide/request/Request;->begin()V
 
     .line 89
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
 
     invoke-interface {v0}, Lcom/bumptech/glide/request/Request;->isRunning()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 90
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
 
     invoke-interface {p0}, Lcom/bumptech/glide/request/Request;->begin()V
 
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public canNotifyStatusChanged(Lcom/bumptech/glide/request/Request;)Z
-    .locals 1
+    .registers 3
 
     .line 49
     invoke-direct {p0}, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->parentCanNotifyStatusChanged()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
 
@@ -182,34 +182,34 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     invoke-virtual {p0}, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->isAnyResourceSet()Z
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_16
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_17
     return p0
 .end method
 
 .method public canSetImage(Lcom/bumptech/glide/request/Request;)Z
-    .locals 1
+    .registers 3
 
     .line 34
     invoke-direct {p0}, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->parentCanSetImage()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
 
@@ -217,7 +217,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_16
 
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
 
@@ -225,22 +225,22 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_18
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_19
     return p0
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 105
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
@@ -256,38 +256,38 @@
 .end method
 
 .method public isAnyResourceSet()Z
-    .locals 1
+    .registers 2
 
     .line 58
     invoke-direct {p0}, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->parentIsAnyResourceSet()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     invoke-virtual {p0}, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->isResourceSet()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method public isCancelled()Z
-    .locals 0
+    .registers 1
 
     .line 137
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -300,7 +300,7 @@
 .end method
 
 .method public isComplete()Z
-    .locals 1
+    .registers 2
 
     .line 127
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -309,7 +309,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
 
@@ -317,25 +317,25 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_14
     return p0
 .end method
 
 .method public isFailed()Z
-    .locals 0
+    .registers 1
 
     .line 145
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -348,7 +348,7 @@
 .end method
 
 .method public isPaused()Z
-    .locals 0
+    .registers 1
 
     .line 111
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -361,7 +361,7 @@
 .end method
 
 .method public isResourceSet()Z
-    .locals 1
+    .registers 2
 
     .line 132
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -370,7 +370,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
 
@@ -378,25 +378,25 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_14
     return p0
 .end method
 
 .method public isRunning()Z
-    .locals 0
+    .registers 1
 
     .line 119
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -409,7 +409,7 @@
 .end method
 
 .method public onRequestSuccess(Lcom/bumptech/glide/request/Request;)V
-    .locals 1
+    .registers 3
 
     .line 63
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
@@ -418,15 +418,15 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     return-void
 
     .line 66
-    :cond_0
+    :cond_9
     iget-object p1, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     .line 67
     iget-object p1, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->coordinator:Lcom/bumptech/glide/request/RequestCoordinator;
@@ -434,26 +434,26 @@
     invoke-interface {p1, p0}, Lcom/bumptech/glide/request/RequestCoordinator;->onRequestSuccess(Lcom/bumptech/glide/request/Request;)V
 
     .line 72
-    :cond_1
+    :cond_12
     iget-object p1, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
 
     invoke-interface {p1}, Lcom/bumptech/glide/request/Request;->isComplete()Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1f
 
     .line 73
     iget-object p0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->thumb:Lcom/bumptech/glide/request/Request;
 
     invoke-interface {p0}, Lcom/bumptech/glide/request/Request;->clear()V
 
-    :cond_2
+    :cond_1f
     return-void
 .end method
 
 .method public pause()V
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -469,7 +469,7 @@
 .end method
 
 .method public recycle()V
-    .locals 1
+    .registers 2
 
     .line 153
     iget-object v0, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;
@@ -485,7 +485,7 @@
 .end method
 
 .method public setRequests(Lcom/bumptech/glide/request/Request;Lcom/bumptech/glide/request/Request;)V
-    .locals 0
+    .registers 3
 
     .line 21
     iput-object p1, p0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;->full:Lcom/bumptech/glide/request/Request;

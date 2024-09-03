@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 13
     invoke-direct {p0, p1}, Lopenlight/co/lib/widget/PressSensitiveTextView;-><init>(Landroid/content/Context;)V
@@ -14,7 +14,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 17
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/widget/PressSensitiveTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -26,7 +26,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 22
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/lib/widget/PressSensitiveTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public disableHighlight()V
-    .locals 2
+    .registers 3
 
     .line 32
     invoke-virtual {p0}, Lopenlight/co/lib/widget/TextViewCustom;->setRegularTypeFace()V
@@ -62,7 +62,7 @@
 .end method
 
 .method public enableHighlight()V
-    .locals 2
+    .registers 3
 
     .line 27
     invoke-virtual {p0}, Lopenlight/co/lib/widget/TextViewCustom;->setSemiBoldTypeFace()V
@@ -84,14 +84,14 @@
 .end method
 
 .method protected final setRegularTypeFace()V
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-virtual {p0}, Lopenlight/co/lib/widget/TextViewCustom;->isInEditMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 45
     invoke-virtual {p0}, Lopenlight/co/lib/widget/TextViewCustom;->getContext()Landroid/content/Context;
@@ -101,7 +101,7 @@
     invoke-static {v0}, Lopenlight/co/lib/view/cache/FontCache;->init(Landroid/content/Context;)V
 
     .line 47
-    :cond_0
+    :cond_d
     invoke-static {}, Lopenlight/co/lib/view/cache/FontCache;->get()Lopenlight/co/lib/view/cache/FontCache;
 
     move-result-object v0
@@ -116,14 +116,14 @@
 .end method
 
 .method protected final setSemiBoldTypeFace()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-virtual {p0}, Lopenlight/co/lib/widget/TextViewCustom;->isInEditMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 38
     invoke-virtual {p0}, Lopenlight/co/lib/widget/TextViewCustom;->getContext()Landroid/content/Context;
@@ -133,7 +133,7 @@
     invoke-static {v0}, Lopenlight/co/lib/view/cache/FontCache;->init(Landroid/content/Context;)V
 
     .line 40
-    :cond_0
+    :cond_d
     invoke-static {}, Lopenlight/co/lib/view/cache/FontCache;->get()Lopenlight/co/lib/view/cache/FontCache;
 
     move-result-object v0

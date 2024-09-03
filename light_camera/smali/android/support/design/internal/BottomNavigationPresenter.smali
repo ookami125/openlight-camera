@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public collapseItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x0
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public expandItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x0
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public flagActionItems()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public getId()I
-    .locals 0
+    .registers 1
 
     .line 100
     iget p0, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mId:I
@@ -81,7 +81,7 @@
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Landroid/support/v7/view/menu/MenuView;
-    .locals 0
+    .registers 2
 
     .line 55
     iget-object p0, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
@@ -90,7 +90,7 @@
 .end method
 
 .method public initForMenu(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 1
+    .registers 4
 
     .line 49
     iget-object p1, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
@@ -106,18 +106,18 @@
 .end method
 
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 112
     instance-of v0, p1, Landroid/support/design/internal/BottomNavigationPresenter$SavedState;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 113
     iget-object p0, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
@@ -128,12 +128,12 @@
 
     invoke-virtual {p0, p1}, Landroid/support/design/internal/BottomNavigationMenuView;->tryRestoreSelectedItemId(I)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 1
+    .registers 2
 
     .line 105
     new-instance v0, Landroid/support/design/internal/BottomNavigationPresenter$SavedState;
@@ -153,7 +153,7 @@
 .end method
 
 .method public onSubMenuSelected(Landroid/support/v7/view/menu/SubMenuBuilder;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public setBottomNavigationMenuView(Landroid/support/design/internal/BottomNavigationMenuView;)V
-    .locals 0
+    .registers 2
 
     .line 44
     iput-object p1, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
@@ -170,13 +170,13 @@
 .end method
 
 .method public setCallback(Landroid/support/v7/view/menu/MenuPresenter$Callback;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public setId(I)V
-    .locals 0
+    .registers 2
 
     .line 95
     iput p1, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mId:I
@@ -185,7 +185,7 @@
 .end method
 
 .method public setUpdateSuspended(Z)V
-    .locals 0
+    .registers 2
 
     .line 118
     iput-boolean p1, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mUpdateSuspended:Z
@@ -194,31 +194,31 @@
 .end method
 
 .method public updateMenuView(Z)V
-    .locals 1
+    .registers 3
 
     .line 60
     iget-boolean v0, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mUpdateSuspended:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_5
+    if-eqz p1, :cond_d
 
     .line 62
     iget-object p0, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
 
     invoke-virtual {p0}, Landroid/support/design/internal/BottomNavigationMenuView;->buildMenuView()V
 
-    goto :goto_0
+    goto :goto_12
 
     .line 64
-    :cond_1
+    :cond_d
     iget-object p0, p0, Landroid/support/design/internal/BottomNavigationPresenter;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
 
     invoke-virtual {p0}, Landroid/support/design/internal/BottomNavigationMenuView;->updateMenuView()V
 
-    :goto_0
+    :goto_12
     return-void
 .end method

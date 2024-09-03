@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory$CacheDirectoryGetter;I)V
-    .locals 0
+    .registers 3
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 25
     new-instance v0, Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory$1;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
 
     .line 34
     new-instance v0, Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory$2;
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public build()Lcom/bumptech/glide/load/engine/cache/DiskCache;
-    .locals 3
+    .registers 4
 
     .line 56
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory;->cacheDirectoryGetter:Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory$CacheDirectoryGetter;
@@ -76,35 +76,35 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return-object v1
 
     .line 62
-    :cond_0
+    :cond_a
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1d
 
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     invoke-virtual {v0}, Ljava/io/File;->isDirectory()Z
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1d
 
-    :cond_1
+    :cond_1c
     return-object v1
 
     .line 66
-    :cond_2
+    :cond_1d
     iget p0, p0, Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory;->diskCacheSize:I
 
     invoke-static {v0, p0}, Lcom/bumptech/glide/load/engine/cache/DiskLruCacheWrapper;->get(Ljava/io/File;I)Lcom/bumptech/glide/load/engine/cache/DiskCache;

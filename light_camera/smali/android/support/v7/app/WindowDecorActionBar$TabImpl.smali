@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/app/WindowDecorActionBar;)V
-    .locals 0
+    .registers 2
 
     .line 1161
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public getCallback()Landroid/support/v7/app/ActionBar$TabListener;
-    .locals 0
+    .registers 1
 
     .line 1182
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mCallback:Landroid/support/v7/app/ActionBar$TabListener;
@@ -67,7 +67,7 @@
 .end method
 
 .method public getContentDescription()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     .line 1279
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mContentDesc:Ljava/lang/CharSequence;
@@ -76,7 +76,7 @@
 .end method
 
 .method public getCustomView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 1193
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mCustomView:Landroid/view/View;
@@ -85,7 +85,7 @@
 .end method
 
 .method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
 
     .line 1213
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mIcon:Landroid/graphics/drawable/Drawable;
@@ -94,7 +94,7 @@
 .end method
 
 .method public getPosition()I
-    .locals 0
+    .registers 1
 
     .line 1218
     iget p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mPosition:I
@@ -103,7 +103,7 @@
 .end method
 
 .method public getTag()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 1172
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mTag:Ljava/lang/Object;
@@ -112,7 +112,7 @@
 .end method
 
 .method public getText()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     .line 1227
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mText:Ljava/lang/CharSequence;
@@ -121,7 +121,7 @@
 .end method
 
 .method public select()V
-    .locals 1
+    .registers 2
 
     .line 1260
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -132,7 +132,7 @@
 .end method
 
 .method public setContentDescription(I)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1265
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -155,7 +155,7 @@
 .end method
 
 .method public setContentDescription(Ljava/lang/CharSequence;)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1270
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mContentDesc:Ljava/lang/CharSequence;
@@ -163,7 +163,7 @@
     .line 1271
     iget p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mPosition:I
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     .line 1272
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -174,12 +174,12 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setCustomView(I)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 2
+    .registers 4
 
     .line 1207
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -208,7 +208,7 @@
 .end method
 
 .method public setCustomView(Landroid/view/View;)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1198
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mCustomView:Landroid/view/View;
@@ -216,7 +216,7 @@
     .line 1199
     iget p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mPosition:I
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     .line 1200
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -227,12 +227,12 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setIcon(I)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1241
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -251,7 +251,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1232
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mIcon:Landroid/graphics/drawable/Drawable;
@@ -259,7 +259,7 @@
     .line 1233
     iget p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mPosition:I
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     .line 1234
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -270,12 +270,12 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public setPosition(I)V
-    .locals 0
+    .registers 2
 
     .line 1222
     iput p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mPosition:I
@@ -284,7 +284,7 @@
 .end method
 
 .method public setTabListener(Landroid/support/v7/app/ActionBar$TabListener;)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 0
+    .registers 2
 
     .line 1187
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mCallback:Landroid/support/v7/app/ActionBar$TabListener;
@@ -293,7 +293,7 @@
 .end method
 
 .method public setTag(Ljava/lang/Object;)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 0
+    .registers 2
 
     .line 1177
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mTag:Ljava/lang/Object;
@@ -302,7 +302,7 @@
 .end method
 
 .method public setText(I)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1255
     iget-object v0, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -325,7 +325,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)Landroid/support/v7/app/ActionBar$Tab;
-    .locals 1
+    .registers 3
 
     .line 1246
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mText:Ljava/lang/CharSequence;
@@ -333,7 +333,7 @@
     .line 1247
     iget p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->mPosition:I
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_f
 
     .line 1248
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$TabImpl;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -344,6 +344,6 @@
 
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ScrollingTabContainerView;->updateTab(I)V
 
-    :cond_0
+    :cond_f
     return-object p0
 .end method

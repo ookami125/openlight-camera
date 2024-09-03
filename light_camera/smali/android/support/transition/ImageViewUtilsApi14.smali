@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public animateTransform(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
-    .locals 0
+    .registers 3
 
     .line 42
     invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V
@@ -34,7 +34,7 @@
 .end method
 
 .method public reserveEndAnimateTransform(Landroid/widget/ImageView;Landroid/animation/Animator;)V
-    .locals 1
+    .registers 4
 
     .line 47
     new-instance v0, Landroid/support/transition/ImageViewUtilsApi14$1;
@@ -47,7 +47,7 @@
 .end method
 
 .method public startAnimateTransform(Landroid/widget/ImageView;)V
-    .locals 1
+    .registers 3
 
     .line 30
     invoke-virtual {p1}, Landroid/widget/ImageView;->getScaleType()Landroid/widget/ImageView$ScaleType;
@@ -62,7 +62,7 @@
     .line 32
     sget-object v0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_17
 
     .line 33
     sget p0, Landroid/support/transition/R$id;->save_image_matrix:I
@@ -73,16 +73,16 @@
 
     invoke-virtual {p1, p0, v0}, Landroid/widget/ImageView;->setTag(ILjava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 35
-    :cond_0
+    :cond_17
     sget-object p0, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
     invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
     .line 37
-    :goto_0
+    :goto_1c
     sget-object p0, Landroid/support/transition/MatrixUtils;->IDENTITY_MATRIX:Landroid/graphics/Matrix;
 
     invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setImageMatrix(Landroid/graphics/Matrix;)V

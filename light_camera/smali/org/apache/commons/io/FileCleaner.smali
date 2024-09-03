@@ -14,7 +14,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 43
     new-instance v0, Lorg/apache/commons/io/FileCleaningTracker;
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public static declared-synchronized exitWhenFinished()V
-    .locals 2
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -45,19 +45,19 @@
     monitor-enter v0
 
     .line 146
-    :try_start_0
+    :try_start_3
     sget-object v1, Lorg/apache/commons/io/FileCleaner;->theInstance:Lorg/apache/commons/io/FileCleaningTracker;
 
     invoke-virtual {v1}, Lorg/apache/commons/io/FileCleaningTracker;->exitWhenFinished()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_3 .. :try_end_8} :catchall_a
 
     .line 147
     monitor-exit v0
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception v1
 
     .line 145
@@ -67,7 +67,7 @@
 .end method
 
 .method public static getInstance()Lorg/apache/commons/io/FileCleaningTracker;
-    .locals 1
+    .registers 1
 
     .line 158
     sget-object v0, Lorg/apache/commons/io/FileCleaner;->theInstance:Lorg/apache/commons/io/FileCleaningTracker;
@@ -76,7 +76,7 @@
 .end method
 
 .method public static getTrackCount()I
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public static track(Ljava/io/File;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public static track(Ljava/io/File;Ljava/lang/Object;Lorg/apache/commons/io/FileDeleteStrategy;)V
-    .locals 1
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public static track(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public static track(Ljava/lang/String;Ljava/lang/Object;Lorg/apache/commons/io/FileDeleteStrategy;)V
-    .locals 1
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

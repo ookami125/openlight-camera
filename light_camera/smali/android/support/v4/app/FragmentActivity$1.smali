@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/FragmentActivity;)V
-    .locals 0
+    .registers 2
 
     .line 79
     iput-object p1, p0, Landroid/support/v4/app/FragmentActivity$1;->this$0:Landroid/support/v4/app/FragmentActivity;
@@ -33,20 +33,20 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
 
     .line 82
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 93
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 89
-    :pswitch_0
+    :pswitch_9
     iget-object p1, p0, Landroid/support/v4/app/FragmentActivity$1;->this$0:Landroid/support/v4/app/FragmentActivity;
 
     invoke-virtual {p1}, Landroid/support/v4/app/FragmentActivity;->onResumeFragments()V
@@ -58,15 +58,15 @@
 
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentController;->execPendingActions()Z
 
-    goto :goto_0
+    goto :goto_22
 
     .line 84
-    :pswitch_1
+    :pswitch_16
     iget-object p1, p0, Landroid/support/v4/app/FragmentActivity$1;->this$0:Landroid/support/v4/app/FragmentActivity;
 
     iget-boolean p1, p1, Landroid/support/v4/app/FragmentActivity;->mStopped:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_22
 
     .line 85
     iget-object p0, p0, Landroid/support/v4/app/FragmentActivity$1;->this$0:Landroid/support/v4/app/FragmentActivity;
@@ -75,15 +75,15 @@
 
     invoke-virtual {p0, p1}, Landroid/support/v4/app/FragmentActivity;->doReallyStop(Z)V
 
-    :cond_0
-    :goto_0
+    :cond_22
+    :goto_22
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_9
     .end packed-switch
 .end method

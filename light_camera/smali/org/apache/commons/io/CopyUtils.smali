@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 123
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/OutputStream;)I
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -39,7 +39,7 @@
 
     move v2, v1
 
-    :goto_0
+    :goto_6
     const/4 v3, -0x1
 
     .line 200
@@ -47,21 +47,21 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_12
 
     .line 201
     invoke-virtual {p1, v0, v1, v4}, Ljava/io/OutputStream;->write([BII)V
 
     add-int/2addr v2, v4
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_12
     return v2
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/Writer;)I
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -77,7 +77,7 @@
 
     move v2, v1
 
-    :goto_0
+    :goto_6
     const/4 v3, -0x1
 
     .line 225
@@ -85,21 +85,21 @@
 
     move-result v4
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_12
 
     .line 226
     invoke-virtual {p1, v0, v1, v4}, Ljava/io/Writer;->write([CII)V
 
     add-int/2addr v2, v4
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_12
     return v2
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/Writer;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -125,7 +125,7 @@
 .end method
 
 .method public static copy(Ljava/io/InputStream;Ljava/io/Writer;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -144,7 +144,7 @@
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/OutputStream;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -173,7 +173,7 @@
 .end method
 
 .method public static copy(Ljava/io/Reader;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -195,7 +195,7 @@
 .end method
 
 .method public static copy(Ljava/lang/String;Ljava/io/OutputStream;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -229,7 +229,7 @@
 .end method
 
 .method public static copy(Ljava/lang/String;Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -256,7 +256,7 @@
 .end method
 
 .method public static copy(Ljava/lang/String;Ljava/io/Writer;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -270,7 +270,7 @@
 .end method
 
 .method public static copy([BLjava/io/OutputStream;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -284,7 +284,7 @@
 .end method
 
 .method public static copy([BLjava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -306,7 +306,7 @@
 .end method
 
 .method public static copy([BLjava/io/Writer;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

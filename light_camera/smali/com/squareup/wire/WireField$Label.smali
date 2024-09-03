@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 62
     new-instance v0, Lcom/squareup/wire/WireField$Label;
@@ -123,7 +123,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -137,7 +137,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/squareup/wire/WireField$Label;
-    .locals 1
+    .registers 2
 
     .line 61
     const-class v0, Lcom/squareup/wire/WireField$Label;
@@ -152,7 +152,7 @@
 .end method
 
 .method public static values()[Lcom/squareup/wire/WireField$Label;
-    .locals 1
+    .registers 1
 
     .line 61
     sget-object v0, Lcom/squareup/wire/WireField$Label;->$VALUES:[Lcom/squareup/wire/WireField$Label;
@@ -169,66 +169,66 @@
 
 # virtual methods
 .method isOneOf()Z
-    .locals 1
+    .registers 2
 
     .line 75
     sget-object v0, Lcom/squareup/wire/WireField$Label;->ONE_OF:Lcom/squareup/wire/WireField$Label;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method isPacked()Z
-    .locals 1
+    .registers 2
 
     .line 71
     sget-object v0, Lcom/squareup/wire/WireField$Label;->PACKED:Lcom/squareup/wire/WireField$Label;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method isRepeated()Z
-    .locals 1
+    .registers 2
 
     .line 67
     sget-object v0, Lcom/squareup/wire/WireField$Label;->REPEATED:Lcom/squareup/wire/WireField$Label;
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_b
 
     sget-object v0, Lcom/squareup/wire/WireField$Label;->PACKED:Lcom/squareup/wire/WireField$Label;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_c
     return p0
 .end method

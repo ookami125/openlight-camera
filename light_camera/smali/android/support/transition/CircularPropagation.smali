@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Landroid/support/transition/VisibilityPropagation;-><init>()V
@@ -23,7 +23,7 @@
 .end method
 
 .method private static distance(FFFF)F
-    .locals 0
+    .registers 4
 
     sub-float/2addr p2, p0
 
@@ -50,43 +50,43 @@
 
 # virtual methods
 .method public getStartDelay(Landroid/view/ViewGroup;Landroid/support/transition/Transition;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)J
-    .locals 8
+    .registers 13
 
     const-wide/16 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_7
 
     return-wide v0
 
-    :cond_0
+    :cond_7
     const/4 v2, 0x1
 
-    if-eqz p4, :cond_2
+    if-eqz p4, :cond_14
 
     .line 64
     invoke-virtual {p0, p3}, Landroid/support/transition/CircularPropagation;->getViewVisibility(Landroid/support/transition/TransitionValues;)I
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_11
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_11
     move-object p3, p4
 
     move p4, v2
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_2
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 p4, -0x1
 
     .line 71
-    :goto_1
+    :goto_15
     invoke-virtual {p0, p3}, Landroid/support/transition/CircularPropagation;->getViewX(Landroid/support/transition/TransitionValues;)I
 
     move-result v3
@@ -101,7 +101,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_2c
 
     .line 78
     invoke-virtual {v4}, Landroid/graphics/Rect;->centerX()I
@@ -113,9 +113,9 @@
 
     move-result v4
 
-    goto :goto_2
+    goto :goto_58
 
-    :cond_3
+    :cond_2c
     const/4 v4, 0x2
 
     .line 81
@@ -178,7 +178,7 @@
 
     move v2, v6
 
-    :goto_2
+    :goto_58
     int-to-float v3, v3
 
     int-to-float p3, p3
@@ -220,11 +220,11 @@
 
     cmp-long v0, p1, v0
 
-    if-gez v0, :cond_4
+    if-gez v0, :cond_7a
 
     const-wide/16 p1, 0x12c
 
-    :cond_4
+    :cond_7a
     int-to-long v0, p4
 
     mul-long/2addr p1, v0
@@ -248,13 +248,13 @@
 .end method
 
 .method public setPropagationSpeed(F)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 53
     iput p1, p0, Landroid/support/transition/CircularPropagation;->mPropagationSpeed:F
@@ -262,7 +262,7 @@
     return-void
 
     .line 51
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "propagationSpeed may not be 0"

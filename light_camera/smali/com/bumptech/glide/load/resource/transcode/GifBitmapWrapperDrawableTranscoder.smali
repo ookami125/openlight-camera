@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "GifBitmapWrapperDrawableTranscoder.com.bumptech.glide.load.resource.transcode"
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public transcode(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 31
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/transcode/GifBitmapWrapperDrawableTranscoder;->bitmapDrawableResourceTranscoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
@@ -98,14 +98,14 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_17
 
     .line 33
-    :cond_0
+    :cond_13
     invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;->getGifResource()Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object p0
 
-    :goto_0
+    :goto_17
     return-object p0
 .end method

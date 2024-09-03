@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;[F)V
-    .locals 1
+    .registers 4
 
     .line 552
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -77,7 +77,7 @@
 .end method
 
 .method private setAnimationMatrix()V
-    .locals 3
+    .registers 4
 
     .line 572
     iget-object v0, p0, Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;->mValues:[F
@@ -117,7 +117,7 @@
 
 # virtual methods
 .method getMatrix()Landroid/graphics/Matrix;
-    .locals 0
+    .registers 1
 
     .line 579
     iget-object p0, p0, Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;->mMatrix:Landroid/graphics/Matrix;
@@ -126,7 +126,7 @@
 .end method
 
 .method setTranslation(Landroid/graphics/PointF;)V
-    .locals 1
+    .registers 3
 
     .line 566
     iget v0, p1, Landroid/graphics/PointF;->x:F
@@ -145,7 +145,7 @@
 .end method
 
 .method setValues([F)V
-    .locals 3
+    .registers 5
 
     .line 561
     iget-object v0, p0, Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;->mValues:[F

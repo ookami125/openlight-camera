@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/FeedbackActivity;)V
-    .locals 0
+    .registers 2
 
     .line 373
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackActivity$1;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     .line 375
     iget-object p0, p0, Lnet/hockeyapp/android/FeedbackActivity$1;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
     const/4 p2, 0x0
 
+    # setter for: Lnet/hockeyapp/android/FeedbackActivity;->mError:Lnet/hockeyapp/android/objects/ErrorObject;
     invoke-static {p0, p2}, Lnet/hockeyapp/android/FeedbackActivity;->access$002(Lnet/hockeyapp/android/FeedbackActivity;Lnet/hockeyapp/android/objects/ErrorObject;)Lnet/hockeyapp/android/objects/ErrorObject;
 
     .line 376

@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 37
     sget-object v0, Lcom/bumptech/glide/load/model/Headers;->DEFAULT:Lcom/bumptech/glide/load/model/Headers;
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lcom/bumptech/glide/load/model/Headers;)V
-    .locals 1
+    .registers 4
 
     .line 52
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,9 +42,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     .line 59
     iput-object p1, p0, Lcom/bumptech/glide/load/model/GlideUrl;->stringUrl:Ljava/lang/String;
@@ -60,7 +60,7 @@
     return-void
 
     .line 57
-    :cond_0
+    :cond_13
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Headers must not be null"
@@ -70,7 +70,7 @@
     throw p0
 
     .line 54
-    :cond_1
+    :cond_1b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -93,7 +93,7 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;)V
-    .locals 1
+    .registers 3
 
     .line 33
     sget-object v0, Lcom/bumptech/glide/load/model/Headers;->DEFAULT:Lcom/bumptech/glide/load/model/Headers;
@@ -104,14 +104,14 @@
 .end method
 
 .method public constructor <init>(Ljava/net/URL;Lcom/bumptech/glide/load/model/Headers;)V
-    .locals 0
+    .registers 3
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_17
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     .line 47
     iput-object p1, p0, Lcom/bumptech/glide/load/model/GlideUrl;->url:Ljava/net/URL;
@@ -127,7 +127,7 @@
     return-void
 
     .line 45
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Headers must not be null"
@@ -137,7 +137,7 @@
     throw p0
 
     .line 42
-    :cond_1
+    :cond_17
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "URL must not be null!"
@@ -148,7 +148,7 @@
 .end method
 
 .method private getSafeStringUrl()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 96
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->safeStringUrl:Ljava/lang/String;
@@ -157,7 +157,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 97
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->stringUrl:Ljava/lang/String;
@@ -167,7 +167,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 99
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->url:Ljava/net/URL;
@@ -176,7 +176,7 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_16
     const-string v1, "@#&=*+-_.,:!?()/~\'%"
 
     .line 101
@@ -187,14 +187,14 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->safeStringUrl:Ljava/lang/String;
 
     .line 103
-    :cond_1
+    :cond_1e
     iget-object p0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->safeStringUrl:Ljava/lang/String;
 
     return-object p0
 .end method
 
 .method private getSafeUrl()Ljava/net/URL;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;
@@ -204,7 +204,7 @@
     .line 79
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->safeUrl:Ljava/net/URL;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 80
     new-instance v0, Ljava/net/URL;
@@ -218,7 +218,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->safeUrl:Ljava/net/URL;
 
     .line 82
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->safeUrl:Ljava/net/URL;
 
     return-object p0
@@ -227,14 +227,14 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
 
     .line 131
     instance-of v0, p1, Lcom/bumptech/glide/load/model/GlideUrl;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 132
     check-cast p1, Lcom/bumptech/glide/load/model/GlideUrl;
@@ -252,7 +252,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     iget-object p0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->headers:Lcom/bumptech/glide/load/model/Headers;
 
@@ -262,42 +262,42 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_20
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_20
     return v1
 
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method public getCacheKey()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 121
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->stringUrl:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object p0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->stringUrl:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lcom/bumptech/glide/load/model/GlideUrl;->url:Ljava/net/URL;
 
     invoke-virtual {p0}, Ljava/net/URL;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public getHeaders()Ljava/util/Map;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -319,7 +319,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 141
     invoke-virtual {p0}, Lcom/bumptech/glide/load/model/GlideUrl;->getCacheKey()Ljava/lang/String;
@@ -345,7 +345,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 126
     new-instance v0, Ljava/lang/StringBuilder;
@@ -378,7 +378,7 @@
 .end method
 
 .method public toStringUrl()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-direct {p0}, Lcom/bumptech/glide/load/model/GlideUrl;->getSafeStringUrl()Ljava/lang/String;
@@ -389,7 +389,7 @@
 .end method
 
 .method public toURL()Ljava/net/URL;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/MalformedURLException;

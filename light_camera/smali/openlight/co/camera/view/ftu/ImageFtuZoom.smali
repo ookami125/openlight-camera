@@ -33,13 +33,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -97,13 +97,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_3d
 
     .line 98
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -121,7 +121,7 @@
     const/4 v0, 0x4
 
     .line 101
-    :try_start_0
+    :try_start_e
     invoke-virtual {p2, v0}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -165,15 +165,15 @@
     move-result-object v0
 
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->mShowPrime:Ljava/lang/Boolean;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_e .. :try_end_34} :catchall_38
 
     .line 107
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_3d
 
-    :catchall_0
+    :catchall_38
     move-exception p0
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
@@ -182,8 +182,8 @@
     throw p0
 
     .line 110
-    :cond_0
-    :goto_0
+    :cond_3d
+    :goto_3d
     new-instance p2, Lopenlight/co/camera/view/ftu/BaseFtuLayout$FtuScreenGestureListener;
 
     invoke-direct {p2, p0, p1}, Lopenlight/co/camera/view/ftu/BaseFtuLayout$FtuScreenGestureListener;-><init>(Lopenlight/co/camera/view/ftu/BaseFtuLayout;Landroid/content/Context;)V
@@ -194,7 +194,7 @@
 .end method
 
 .method public static synthetic lambda$onFinishInflate$0(Lopenlight/co/camera/view/ftu/ImageFtuZoom;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 83
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->onButtonClick()V
@@ -205,7 +205,7 @@
 
 # virtual methods
 .method public getImageView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 66
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->mImage:Landroid/widget/ImageView;
@@ -214,22 +214,22 @@
 .end method
 
 .method public hideView(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 2
+    .registers 4
 
     .line 55
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;->SINGLE_RUN:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
     .line 56
-    :goto_0
+    :goto_7
     iget-object v1, p0, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->mNextButton:Landroid/widget/TextView;
 
     invoke-virtual {p0, v1, v0}, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->setViewVisibility(Landroid/view/View;Z)V
@@ -237,29 +237,29 @@
     .line 57
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;->PLAY_ALL:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_13
 
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->mZoomLayout:Landroid/widget/RelativeLayout;
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 p1, 0x0
 
-    :goto_1
-    if-eqz p1, :cond_2
+    :goto_14
+    if-eqz p1, :cond_1b
 
     .line 60
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->mScreenGestureListener:Lopenlight/co/camera/listener/ScreenGestureListener;
 
     invoke-virtual {p1, p0}, Landroid/widget/RelativeLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    :cond_2
+    :cond_1b
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 75
     invoke-super {p0}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->onFinishInflate()V
@@ -383,7 +383,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_88
 
     .line 91
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->mPrimeLayout:Landroid/widget/LinearLayout;
@@ -396,12 +396,12 @@
 
     invoke-virtual {p0, v0, v1}, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->setViewVisibility(Landroid/view/View;Z)V
 
-    :cond_0
+    :cond_88
     return-void
 .end method
 
 .method public setOnFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 70
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuZoom;->setFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V

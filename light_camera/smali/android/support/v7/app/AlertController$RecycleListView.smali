@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     .line 825
     invoke-direct {p0, p1, p2}, Landroid/widget/ListView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -71,52 +71,52 @@
 
 # virtual methods
 .method public setHasDecor(ZZ)V
-    .locals 2
+    .registers 5
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_4
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_21
 
     .line 837
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Landroid/support/v7/app/AlertController$RecycleListView;->getPaddingLeft()I
 
     move-result v0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_f
 
     .line 838
     invoke-virtual {p0}, Landroid/support/v7/app/AlertController$RecycleListView;->getPaddingTop()I
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_f
     iget p1, p0, Landroid/support/v7/app/AlertController$RecycleListView;->mPaddingTopNoTitle:I
 
     .line 839
-    :goto_0
+    :goto_11
     invoke-virtual {p0}, Landroid/support/v7/app/AlertController$RecycleListView;->getPaddingRight()I
 
     move-result v1
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1c
 
     .line 840
     invoke-virtual {p0}, Landroid/support/v7/app/AlertController$RecycleListView;->getPaddingBottom()I
 
     move-result p2
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_2
+    :cond_1c
     iget p2, p0, Landroid/support/v7/app/AlertController$RecycleListView;->mPaddingBottomNoButtons:I
 
     .line 841
-    :goto_1
+    :goto_1e
     invoke-virtual {p0, v0, p1, v1, p2}, Landroid/support/v7/app/AlertController$RecycleListView;->setPadding(IIII)V
 
-    :cond_3
+    :cond_21
     return-void
 .end method

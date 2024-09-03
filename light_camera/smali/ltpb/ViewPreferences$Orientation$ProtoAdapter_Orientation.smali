@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 776
     const-class v0, Lltpb/ViewPreferences$Orientation;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic fromValue(I)Lcom/squareup/wire/WireEnum;
-    .locals 0
+    .registers 2
 
     .line 774
     invoke-virtual {p0, p1}, Lltpb/ViewPreferences$Orientation$ProtoAdapter_Orientation;->fromValue(I)Lltpb/ViewPreferences$Orientation;
@@ -48,7 +48,7 @@
 .end method
 
 .method protected fromValue(I)Lltpb/ViewPreferences$Orientation;
-    .locals 0
+    .registers 2
 
     .line 781
     invoke-static {p1}, Lltpb/ViewPreferences$Orientation;->fromValue(I)Lltpb/ViewPreferences$Orientation;

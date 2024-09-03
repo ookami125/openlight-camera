@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 30
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .locals 0
+    .registers 2
 
     .line 102
     instance-of p0, p1, Landroid/view/ViewGroup$LayoutParams;
@@ -42,7 +42,7 @@
 .end method
 
 .method protected generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .locals 1
+    .registers 2
 
     .line 97
     new-instance p0, Landroid/view/ViewGroup$LayoutParams;
@@ -55,7 +55,7 @@
 .end method
 
 .method public getAttachments()Ljava/util/ArrayList;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -73,12 +73,12 @@
     const/4 v1, 0x0
 
     .line 41
-    :goto_0
+    :goto_6
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentListView;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1c
 
     .line 42
     invoke-virtual {p0, v1}, Lnet/hockeyapp/android/views/AttachmentListView;->getChildAt(I)Landroid/view/View;
@@ -96,14 +96,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_1c
     return-object v0
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 5
+    .registers 11
 
     .line 107
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentListView;->getChildCount()I
@@ -124,8 +124,8 @@
 
     const/4 p5, 0x0
 
-    :goto_0
-    if-ge p5, p1, :cond_2
+    :goto_e
+    if-ge p5, p1, :cond_4a
 
     .line 113
     invoke-virtual {p0, p5}, Lnet/hockeyapp/android/views/AttachmentListView;->getChildAt(I)Landroid/view/View;
@@ -139,7 +139,7 @@
 
     const/16 v2, 0x8
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_47
 
     .line 116
     invoke-virtual {v0}, Landroid/view/View;->invalidate()V
@@ -161,7 +161,7 @@
 
     add-int v4, p2, v1
 
-    if-le v4, p4, :cond_0
+    if-le v4, p4, :cond_36
 
     .line 122
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentListView;->getPaddingLeft()I
@@ -173,7 +173,7 @@
 
     add-int/2addr p3, v4
 
-    :cond_0
+    :cond_36
     add-int v4, p2, v1
 
     add-int/2addr v2, p3
@@ -196,24 +196,24 @@
 
     add-int/2addr p2, v1
 
-    :cond_1
+    :cond_47
     add-int/lit8 p5, p5, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_2
+    :cond_4a
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 10
+    .registers 13
 
     .line 50
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const-string v0, "AttachmentListView"
 
@@ -223,7 +223,7 @@
     invoke-static {v0, v1}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 55
-    :cond_0
+    :cond_d
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p1
@@ -253,10 +253,10 @@
 
     move v1, v5
 
-    :goto_0
+    :goto_22
     const/high16 v6, -0x80000000
 
-    if-ge v3, v0, :cond_3
+    if-ge v3, v0, :cond_6d
 
     .line 64
     invoke-virtual {p0, v3}, Lnet/hockeyapp/android/views/AttachmentListView;->getChildAt(I)Landroid/view/View;
@@ -286,7 +286,7 @@
 
     const/16 v9, 0x8
 
-    if-eq v8, v9, :cond_2
+    if-eq v8, v9, :cond_69
 
     .line 69
     invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -324,7 +324,7 @@
 
     add-int v5, v2, v6
 
-    if-le v5, p1, :cond_1
+    if-le v5, p1, :cond_65
 
     .line 76
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentListView;->getPaddingLeft()I
@@ -334,22 +334,22 @@
     add-int/2addr v4, v1
 
     .line 79
-    :cond_1
+    :cond_65
     iget v5, v8, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     add-int/2addr v6, v5
 
     add-int/2addr v2, v6
 
-    :cond_2
+    :cond_69
     add-int/lit8 v3, v3, 0x1
 
     move v5, v7
 
-    goto :goto_0
+    goto :goto_22
 
     .line 82
-    :cond_3
+    :cond_6d
     iput v1, p0, Lnet/hockeyapp/android/views/AttachmentListView;->mLineHeight:I
 
     .line 84
@@ -357,7 +357,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_7d
 
     add-int/2addr v4, v1
 
@@ -368,15 +368,15 @@
 
     add-int v5, v4, p2
 
-    goto :goto_1
+    goto :goto_91
 
     .line 87
-    :cond_4
+    :cond_7d
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result p2
 
-    if-ne p2, v6, :cond_5
+    if-ne p2, v6, :cond_91
 
     add-int/2addr v4, v1
 
@@ -387,7 +387,7 @@
 
     add-int/2addr p2, v4
 
-    if-ge p2, v5, :cond_5
+    if-ge p2, v5, :cond_91
 
     .line 89
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentListView;->getPaddingBottom()I
@@ -397,8 +397,8 @@
     add-int v5, v4, p2
 
     .line 92
-    :cond_5
-    :goto_1
+    :cond_91
+    :goto_91
     invoke-virtual {p0, p1, v5}, Lnet/hockeyapp/android/views/AttachmentListView;->setMeasuredDimension(II)V
 
     return-void

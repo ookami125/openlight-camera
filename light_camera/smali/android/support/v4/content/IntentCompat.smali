@@ -54,14 +54,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 52
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xf
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 53
     new-instance v0, Landroid/support/v4/content/IntentCompat$IntentCompatApi15Impl;
@@ -70,22 +70,22 @@
 
     sput-object v0, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 55
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -94,7 +94,7 @@
 .end method
 
 .method public static makeMainActivity(Landroid/content/ComponentName;)Landroid/content/Intent;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -107,7 +107,7 @@
 .end method
 
 .method public static makeMainSelectorActivity(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-    .locals 1
+    .registers 3
 
     .line 244
     sget-object v0, Landroid/support/v4/content/IntentCompat;->IMPL:Landroid/support/v4/content/IntentCompat$IntentCompatBaseImpl;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static makeRestartActivityTask(Landroid/content/ComponentName;)Landroid/content/Intent;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

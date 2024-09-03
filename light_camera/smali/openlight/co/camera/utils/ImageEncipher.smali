@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     const-class v0, Lopenlight/co/camera/utils/ImageEncipher;
@@ -53,16 +53,16 @@
     .line 63
     sget-boolean v0, Lopenlight/co/camera/utils/ImageEncipher;->sUseGcm:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     const-string v0, "AES/GCM/NoPadding"
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_f
     const-string v0, "AES/CBC/PKCS5Padding"
 
-    :goto_0
+    :goto_11
     sput-object v0, Lopenlight/co/camera/utils/ImageEncipher;->SECRET_KEY_XFORM:Ljava/lang/String;
 
     const/4 v0, 0x5
@@ -70,13 +70,13 @@
     .line 69
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1c
 
     sput-object v0, Lopenlight/co/camera/utils/ImageEncipher;->VALID_AUTH_TAG_LENS:[I
 
     return-void
 
-    :array_0
+    :array_1c
     .array-data 4
         0x60
         0x68
@@ -87,7 +87,7 @@
 .end method
 
 .method constructor <init>(Ljava/security/PublicKey;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 103
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -100,16 +100,16 @@
     .line 81
     sget-boolean v0, Lopenlight/co/camera/utils/ImageEncipher;->sUseGcm:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/16 v0, 0xc
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_e
     const/16 v0, 0x10
 
-    :goto_0
+    :goto_10
     iput v0, p0, Lopenlight/co/camera/utils/ImageEncipher;->mInitVectorLen:I
 
     const/16 v0, 0x80
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/utils/ImageEncipher;Ljava/io/OutputStream;Ljavax/crypto/Cipher;Ljava/nio/ByteBuffer;)I
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -143,7 +143,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/utils/ImageEncipher;Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -159,7 +159,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/utils/ImageEncipher;[B)[B
-    .locals 0
+    .registers 2
 
     .line 52
     iput-object p1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mCopyBuffer:[B
@@ -168,7 +168,7 @@
 .end method
 
 .method private static createCipher(ZLjavax/crypto/SecretKey;[BI)Ljavax/crypto/Cipher;
-    .locals 2
+    .registers 6
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -185,27 +185,27 @@
 
     move-result-object v0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 284
     new-instance v1, Ljavax/crypto/spec/GCMParameterSpec;
 
     invoke-direct {v1, p3, p2}, Ljavax/crypto/spec/GCMParameterSpec;-><init>(I[B)V
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_e
     new-instance v1, Ljavax/crypto/spec/IvParameterSpec;
 
     invoke-direct {v1, p2}, Ljavax/crypto/spec/IvParameterSpec;-><init>([B)V
 
-    :goto_0
+    :goto_13
     const/4 p2, 0x1
 
     .line 287
     invoke-virtual {v0, p2, p1, v1}, Ljavax/crypto/Cipher;->init(ILjava/security/Key;Ljava/security/spec/AlgorithmParameterSpec;)V
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_21
 
     .line 291
     new-array p0, p2, [B
@@ -216,12 +216,12 @@
 
     invoke-virtual {v0, p0}, Ljavax/crypto/Cipher;->updateAAD([B)V
 
-    :cond_1
+    :cond_21
     return-object v0
 .end method
 
 .method private createSecretKey(Ljava/security/SecureRandom;)Ljavax/crypto/SecretKey;
-    .locals 1
+    .registers 3
 
     .line 274
     iget p0, p0, Lopenlight/co/camera/utils/ImageEncipher;->mSecretKeyLen:I
@@ -242,7 +242,7 @@
 .end method
 
 .method private flush(Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -254,7 +254,7 @@
     .line 264
     iget v0, p0, Lopenlight/co/camera/utils/ImageEncipher;->mBufferPtr:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     .line 265
     iget-object v0, p0, Lopenlight/co/camera/utils/ImageEncipher;->mCopyBuffer:[B
@@ -278,12 +278,12 @@
     .line 269
     iput-object p1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mCopyBuffer:[B
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method private writeByteBuffer(Ljava/io/OutputStream;Ljavax/crypto/Cipher;Ljava/nio/ByteBuffer;)I
-    .locals 6
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -295,7 +295,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     const/high16 v0, 0x40000
 
@@ -308,7 +308,7 @@
     iput v1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mBufferPtr:I
 
     .line 241
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/utils/ImageEncipher;->mCopyBuffer:[B
 
     array-length v0, v0
@@ -316,13 +316,13 @@
     move v2, v1
 
     .line 245
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-virtual {p3}, Ljava/nio/ByteBuffer;->remaining()I
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_41
 
     .line 247
     invoke-virtual {p3}, Ljava/nio/ByteBuffer;->remaining()I
@@ -354,7 +354,7 @@
     .line 251
     iget v3, p0, Lopenlight/co/camera/utils/ImageEncipher;->mBufferPtr:I
 
-    if-ne v3, v0, :cond_1
+    if-ne v3, v0, :cond_11
 
     .line 252
     iget-object v3, p0, Lopenlight/co/camera/utils/ImageEncipher;->mCopyBuffer:[B
@@ -374,14 +374,14 @@
     .line 255
     iput v1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mBufferPtr:I
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_2
+    :cond_41
     return v2
 .end method
 
 .method private writeKeyInfoEntry(Ljava/util/zip/ZipOutputStream;Ljava/lang/String;Ljava/security/PublicKey;Ljava/lang/String;)Ljavax/crypto/Cipher;
-    .locals 6
+    .registers 11
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -535,7 +535,7 @@
 
 # virtual methods
 .method authenticationTagLen(I)Lopenlight/co/camera/utils/ImageEncipher;
-    .locals 2
+    .registers 4
 
     .line 119
     sget-object v0, Lopenlight/co/camera/utils/ImageEncipher;->VALID_AUTH_TAG_LENS:[I
@@ -544,7 +544,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_b
 
     .line 122
     iput p1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mAuthenticationTagLen:I
@@ -552,7 +552,7 @@
     return-object p0
 
     .line 120
-    :cond_0
+    :cond_b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -575,7 +575,7 @@
 .end method
 
 .method encrypt(Ljava/nio/ByteBuffer;Ljava/lang/String;Ljava/io/File;)Lopenlight/co/camera/utils/ByteBufferWriter;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -633,7 +633,7 @@
 .end method
 
 .method initVectorLen(I)Lopenlight/co/camera/utils/ImageEncipher;
-    .locals 0
+    .registers 2
 
     .line 114
     iput p1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mInitVectorLen:I
@@ -642,7 +642,7 @@
 .end method
 
 .method secretKeyLen(I)Lopenlight/co/camera/utils/ImageEncipher;
-    .locals 0
+    .registers 2
 
     .line 109
     iput p1, p0, Lopenlight/co/camera/utils/ImageEncipher;->mSecretKeyLen:I

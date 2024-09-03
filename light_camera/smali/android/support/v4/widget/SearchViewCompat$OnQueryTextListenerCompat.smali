@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 152
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onQueryTextChange(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public onQueryTextSubmit(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 

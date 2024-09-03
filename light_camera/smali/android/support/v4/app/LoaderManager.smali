@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static enableDebugLogging(Z)V
-    .locals 0
+    .registers 1
 
     .line 177
     sput-boolean p0, Landroid/support/v4/app/LoaderManagerImpl;->DEBUG:Z
@@ -51,7 +51,7 @@
 .end method
 
 .method public hasRunningLoaders()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

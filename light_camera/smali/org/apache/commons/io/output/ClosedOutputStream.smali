@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     new-instance v0, Lorg/apache/commons/io/output/ClosedOutputStream;
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public write(I)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

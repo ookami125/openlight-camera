@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Landroid/support/design/widget/CircularBorderDrawable;-><init>()V
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public getOutline(Landroid/graphics/Outline;)V
-    .locals 1
+    .registers 3
 
     .line 30
     iget-object v0, p0, Landroid/support/design/widget/CircularBorderDrawableLollipop;->mRect:Landroid/graphics/Rect;

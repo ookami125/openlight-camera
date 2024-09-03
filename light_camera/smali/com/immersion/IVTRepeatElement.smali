@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(III)V
-    .locals 1
+    .registers 5
 
     const/4 v0, 0x2
 
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public getBuffer()[I
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x4
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public getDuration()I
-    .locals 0
+    .registers 1
 
     .line 89
     iget p0, p0, Lcom/immersion/IVTRepeatElement;->duration:I
@@ -82,7 +82,7 @@
 .end method
 
 .method public getRepeatCount()I
-    .locals 0
+    .registers 1
 
     .line 67
     iget p0, p0, Lcom/immersion/IVTRepeatElement;->repeatCount:I
@@ -91,7 +91,7 @@
 .end method
 
 .method public setDuration(I)V
-    .locals 0
+    .registers 2
 
     .line 78
     iput p1, p0, Lcom/immersion/IVTRepeatElement;->duration:I
@@ -100,7 +100,7 @@
 .end method
 
 .method public setRepeatCount(I)V
-    .locals 0
+    .registers 2
 
     .line 54
     iput p1, p0, Lcom/immersion/IVTRepeatElement;->repeatCount:I

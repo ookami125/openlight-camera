@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/os/Handler;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
 
     .line 45
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method private checkForNewAnswers(Ljava/util/ArrayList;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -115,7 +115,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_37
 
     .line 98
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -139,10 +139,10 @@
     .line 101
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    goto :goto_0
+    goto :goto_70
 
     .line 102
-    :cond_0
+    :cond_37
     iget-object v2, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mRequestType:Ljava/lang/String;
 
     const-string v4, "fetch"
@@ -151,7 +151,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_70
 
     const-string v2, "idLastMessageSend"
 
@@ -169,9 +169,9 @@
 
     move-result v4
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_70
 
-    if-eq v0, v4, :cond_2
+    if-eq v0, v4, :cond_70
 
     .line 108
     invoke-interface {v1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -193,37 +193,37 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_69
 
     .line 115
     invoke-virtual {v0, p1}, Lnet/hockeyapp/android/FeedbackManagerListener;->feedbackAnswered(Lnet/hockeyapp/android/objects/FeedbackMessage;)Z
 
     move-result v3
 
-    :cond_1
-    if-nez v3, :cond_2
+    :cond_69
+    if-nez v3, :cond_70
 
     .line 119
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, p1}, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->startNotification(Landroid/content/Context;)V
 
-    :cond_2
-    :goto_0
+    :cond_70
+    :goto_70
     return-void
 .end method
 
 .method private startNotification(Landroid/content/Context;)V
-    .locals 5
+    .registers 7
 
     .line 127
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mUrlString:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const-string v0, "notification"
 
     .line 131
@@ -255,7 +255,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     .line 136
     invoke-static {}, Lnet/hockeyapp/android/FeedbackManager;->getLastListener()Lnet/hockeyapp/android/FeedbackManagerListener;
@@ -266,14 +266,14 @@
 
     move-result-object v2
 
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_2a
+    if-nez v2, :cond_2e
 
     .line 139
     const-class v2, Lnet/hockeyapp/android/FeedbackActivity;
 
     .line 142
-    :cond_2
+    :cond_2e
     new-instance v3, Landroid/content/Intent;
 
     invoke-direct {v3}, Landroid/content/Intent;-><init>()V
@@ -311,21 +311,21 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_57
 
     const/4 p1, 0x2
 
     .line 152
     invoke-virtual {v0, p1, p0}, Landroid/app/NotificationManager;->notify(ILandroid/app/Notification;)V
 
-    :cond_3
+    :cond_57
     return-void
 .end method
 
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 31
     check-cast p1, [Ljava/lang/Void;
@@ -338,16 +338,16 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Lnet/hockeyapp/android/objects/FeedbackResponse;
-    .locals 2
+    .registers 4
 
     .line 59
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mContext:Landroid/content/Context;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2e
 
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mFeedbackResponse:Ljava/lang/String;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2e
 
     .line 60
     invoke-static {}, Lnet/hockeyapp/android/utils/FeedbackParser;->getInstance()Lnet/hockeyapp/android/utils/FeedbackParser;
@@ -360,14 +360,14 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2d
 
     .line 63
     invoke-virtual {p1}, Lnet/hockeyapp/android/objects/FeedbackResponse;->getFeedback()Lnet/hockeyapp/android/objects/Feedback;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 65
     invoke-virtual {p1}, Lnet/hockeyapp/android/objects/FeedbackResponse;->getFeedback()Lnet/hockeyapp/android/objects/Feedback;
@@ -378,29 +378,29 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 66
     invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_2d
 
     .line 67
     invoke-direct {p0, v0}, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->checkForNewAnswers(Ljava/util/ArrayList;)V
 
-    :cond_0
+    :cond_2d
     return-object p1
 
-    :cond_1
+    :cond_2e
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 31
     check-cast p1, Lnet/hockeyapp/android/objects/FeedbackResponse;
@@ -411,14 +411,14 @@
 .end method
 
 .method protected onPostExecute(Lnet/hockeyapp/android/objects/FeedbackResponse;)V
-    .locals 3
+    .registers 5
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 80
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mHandler:Landroid/os/Handler;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     .line 81
     new-instance v0, Landroid/os/Message;
@@ -443,12 +443,12 @@
 
     invoke-virtual {p0, v0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method public setUrlString(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 54
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;->mUrlString:Ljava/lang/String;

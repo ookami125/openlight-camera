@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Landroid/support/v4/app/DialogFragment;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
+    .registers 3
 
     .line 39
     new-instance p1, Landroid/support/v7/app/AppCompatDialog;
@@ -35,7 +35,7 @@
 .end method
 
 .method public setupDialog(Landroid/app/Dialog;I)V
-    .locals 1
+    .registers 4
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -45,19 +45,19 @@
     .line 46
     instance-of v0, p1, Landroid/support/v7/app/AppCompatDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 48
     move-object p0, p1
 
     check-cast p0, Landroid/support/v7/app/AppCompatDialog;
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_1e
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 51
-    :pswitch_0
+    :pswitch_b
     invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
     move-result-object p1
@@ -66,27 +66,27 @@
 
     invoke-virtual {p1, p2}, Landroid/view/Window;->addFlags(I)V
 
-    :pswitch_1
+    :pswitch_14
     const/4 p1, 0x1
 
     .line 57
     invoke-virtual {p0, p1}, Landroid/support/v7/app/AppCompatDialog;->supportRequestWindowFeature(I)Z
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 61
-    :cond_0
+    :cond_19
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/DialogFragment;->setupDialog(Landroid/app/Dialog;I)V
 
-    :goto_0
+    :goto_1c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_14
+        :pswitch_14
+        :pswitch_b
     .end packed-switch
 .end method

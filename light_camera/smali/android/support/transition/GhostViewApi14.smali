@@ -46,7 +46,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 139
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -83,7 +83,7 @@
 .end method
 
 .method static getGhostView(Landroid/view/View;)Landroid/support/transition/GhostViewApi14;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -102,7 +102,7 @@
 .end method
 
 .method private static setGhostView(Landroid/view/View;Landroid/support/transition/GhostViewApi14;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -119,7 +119,7 @@
 
 # virtual methods
 .method protected onAttachedToWindow()V
-    .locals 6
+    .registers 7
 
     .line 146
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
@@ -223,7 +223,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 2
+    .registers 3
 
     .line 165
     iget-object v0, p0, Landroid/support/transition/GhostViewApi14;->mView:Landroid/view/View;
@@ -257,7 +257,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 3
+    .registers 5
 
     .line 174
     iget-object v0, p0, Landroid/support/transition/GhostViewApi14;->mMatrix:Landroid/graphics/Matrix;
@@ -293,7 +293,7 @@
 .end method
 
 .method public reserveEndViewTransition(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 189
     iput-object p1, p0, Landroid/support/transition/GhostViewApi14;->mStartParent:Landroid/view/ViewGroup;
@@ -305,7 +305,7 @@
 .end method
 
 .method public setVisibility(I)V
-    .locals 0
+    .registers 2
 
     .line 183
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
@@ -313,16 +313,16 @@
     .line 184
     iget-object p0, p0, Landroid/support/transition/GhostViewApi14;->mView:Landroid/view/View;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     const/4 p1, 0x4
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_a
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void

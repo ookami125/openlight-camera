@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/FeedbackActivity$ParseFeedbackHandler;Lnet/hockeyapp/android/FeedbackActivity;)V
-    .locals 0
+    .registers 3
 
     .line 890
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackActivity$ParseFeedbackHandler$1;->this$0:Lnet/hockeyapp/android/FeedbackActivity$ParseFeedbackHandler;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 895
     iget-object p0, p0, Lnet/hockeyapp/android/FeedbackActivity$ParseFeedbackHandler$1;->val$feedbackActivity:Lnet/hockeyapp/android/FeedbackActivity;

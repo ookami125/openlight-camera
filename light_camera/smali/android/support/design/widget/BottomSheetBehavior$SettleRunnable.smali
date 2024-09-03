@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BottomSheetBehavior;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
 
     .line 748
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior$SettleRunnable;->this$0:Landroid/support/design/widget/BottomSheetBehavior;
@@ -46,14 +46,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 755
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior$SettleRunnable;->this$0:Landroid/support/design/widget/BottomSheetBehavior;
 
     iget-object v0, v0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior$SettleRunnable;->this$0:Landroid/support/design/widget/BottomSheetBehavior;
 
@@ -65,23 +65,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 756
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior$SettleRunnable;->mView:Landroid/view/View;
 
     invoke-static {v0, p0}, Landroid/support/v4/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 758
-    :cond_0
+    :cond_17
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior$SettleRunnable;->this$0:Landroid/support/design/widget/BottomSheetBehavior;
 
     iget p0, p0, Landroid/support/design/widget/BottomSheetBehavior$SettleRunnable;->mTargetState:I
 
     invoke-virtual {v0, p0}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
-    :goto_0
+    :goto_1e
     return-void
 .end method

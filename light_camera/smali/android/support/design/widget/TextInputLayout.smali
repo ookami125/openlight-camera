@@ -106,7 +106,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -117,7 +117,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .registers 8
 
     .line 190
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -246,7 +246,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7c
 
     .line 214
     sget p2, Landroid/support/design/R$styleable;->TextInputLayout_android_textColorHint:I
@@ -261,7 +261,7 @@
     iput-object p2, p0, Landroid/support/design/widget/TextInputLayout;->mDefaultTextColor:Landroid/content/res/ColorStateList;
 
     .line 218
-    :cond_0
+    :cond_7c
     sget p2, Landroid/support/design/R$styleable;->TextInputLayout_hintTextAppearance:I
 
     const/4 p3, -0x1
@@ -270,7 +270,7 @@
 
     move-result p2
 
-    if-eq p2, p3, :cond_1
+    if-eq p2, p3, :cond_8e
 
     .line 221
     sget p2, Landroid/support/design/R$styleable;->TextInputLayout_hintTextAppearance:I
@@ -284,7 +284,7 @@
     invoke-virtual {p0, p2}, Landroid/support/design/widget/TextInputLayout;->setHintTextAppearance(I)V
 
     .line 225
-    :cond_1
+    :cond_8e
     sget p2, Landroid/support/design/R$styleable;->TextInputLayout_errorTextAppearance:I
 
     invoke-virtual {p1, p2, v1}, Landroid/support/v7/widget/TintTypedArray;->getResourceId(II)I
@@ -370,7 +370,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_e5
 
     .line 243
     iput-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasPasswordToggleTintList:Z
@@ -385,14 +385,14 @@
     iput-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleTintList:Landroid/content/res/ColorStateList;
 
     .line 247
-    :cond_2
+    :cond_e5
     sget v1, Landroid/support/design/R$styleable;->TextInputLayout_passwordToggleTintMode:I
 
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_fc
 
     .line 248
     iput-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasPasswordToggleTintMode:Z
@@ -415,7 +415,7 @@
     iput-object p3, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 253
-    :cond_3
+    :cond_fc
     invoke-virtual {p1}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     .line 255
@@ -432,13 +432,13 @@
 
     move-result p1
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_111
 
     .line 262
     invoke-static {p0, v0}, Landroid/support/v4/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
     .line 266
-    :cond_4
+    :cond_111
     new-instance p1, Landroid/support/design/widget/TextInputLayout$TextInputAccessibilityDelegate;
 
     invoke-direct {p1, p0}, Landroid/support/design/widget/TextInputLayout$TextInputAccessibilityDelegate;-><init>(Landroid/support/design/widget/TextInputLayout;)V
@@ -449,7 +449,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/design/widget/TextInputLayout;)Z
-    .locals 0
+    .registers 1
 
     .line 116
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mRestoringSavedState:Z
@@ -458,7 +458,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/design/widget/TextInputLayout;Z)V
-    .locals 0
+    .registers 2
 
     .line 116
     invoke-direct {p0, p1}, Landroid/support/design/widget/TextInputLayout;->passwordVisibilityToggleRequested(Z)V
@@ -467,14 +467,14 @@
 .end method
 
 .method private addIndicator(Landroid/widget/TextView;I)V
-    .locals 4
+    .registers 7
 
     .line 576
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_38
 
     .line 577
     new-instance v0, Landroid/widget/LinearLayout;
@@ -525,13 +525,13 @@
     .line 587
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 588
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->adjustIndicatorPadding()V
 
     .line 591
-    :cond_0
+    :cond_38
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
@@ -552,7 +552,7 @@
 .end method
 
 .method private adjustIndicatorPadding()V
-    .locals 4
+    .registers 5
 
     .line 598
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
@@ -585,23 +585,23 @@
 .end method
 
 .method private applyPasswordToggleTint()V
-    .locals 2
+    .registers 3
 
     .line 1356
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_43
 
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasPasswordToggleTintList:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasPasswordToggleTintMode:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_43
 
     .line 1358
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
@@ -617,7 +617,7 @@
     .line 1360
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasPasswordToggleTintList:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 1361
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDrawable:Landroid/graphics/drawable/Drawable;
@@ -627,10 +627,10 @@
     invoke-static {v0, v1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 1363
-    :cond_1
+    :cond_23
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasPasswordToggleTintMode:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     .line 1364
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDrawable:Landroid/graphics/drawable/Drawable;
@@ -640,10 +640,10 @@
     invoke-static {v0, v1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 1367
-    :cond_2
+    :cond_2e
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_43
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
@@ -654,7 +654,7 @@
 
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_43
 
     .line 1369
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
@@ -663,12 +663,12 @@
 
     invoke-virtual {v0, p0}, Landroid/support/design/widget/CheckableImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_3
+    :cond_43
     return-void
 .end method
 
 .method private static arrayContains([II)Z
-    .locals 4
+    .registers 6
 
     .line 1520
     array-length v0, p0
@@ -677,33 +677,33 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_3
+    if-ge v2, v0, :cond_e
 
     aget v3, p0, v2
 
-    if-ne v3, p1, :cond_0
+    if-ne v3, p1, :cond_b
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
+    :cond_e
     return v1
 .end method
 
 .method private collapseHint(Z)V
-    .locals 1
+    .registers 3
 
     .line 1399
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
@@ -711,35 +711,35 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1400
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_0
+    :cond_11
     const/high16 v0, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1d
 
     .line 1402
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mHintAnimationEnabled:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1d
 
     .line 1403
     invoke-virtual {p0, v0}, Landroid/support/design/widget/TextInputLayout;->animateToExpansionFraction(F)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 1405
-    :cond_1
+    :cond_1d
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
 
     invoke-virtual {p1, v0}, Landroid/support/design/widget/CollapsingTextHelper;->setExpansionFraction(F)V
 
-    :goto_0
+    :goto_22
     const/4 p1, 0x0
 
     .line 1407
@@ -749,38 +749,38 @@
 .end method
 
 .method private ensureBackgroundDrawableStateWorkaround()V
-    .locals 3
+    .registers 4
 
     .line 926
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
     const/16 v1, 0x16
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_b
 
     return-void
 
     .line 931
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     return-void
 
     .line 936
-    :cond_1
+    :cond_14
     iget-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mHasReconstructedEditTextBackground:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_3c
 
     .line 941
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
@@ -794,7 +794,7 @@
     .line 943
     instance-of v2, v0, Landroid/graphics/drawable/DrawableContainer;
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_30
 
     .line 946
     check-cast v0, Landroid/graphics/drawable/DrawableContainer;
@@ -812,10 +812,10 @@
     iput-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasReconstructedEditTextBackground:Z
 
     .line 951
-    :cond_2
+    :cond_30
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasReconstructedEditTextBackground:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_3c
 
     .line 956
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -827,17 +827,17 @@
     .line 957
     iput-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHasReconstructedEditTextBackground:Z
 
-    :cond_3
+    :cond_3c
     return-void
 .end method
 
 .method private expandHint(Z)V
-    .locals 1
+    .registers 3
 
     .line 1443
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
@@ -845,35 +845,35 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1444
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1c
 
     .line 1446
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mHintAnimationEnabled:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1c
 
     .line 1447
     invoke-virtual {p0, v0}, Landroid/support/design/widget/TextInputLayout;->animateToExpansionFraction(F)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 1449
-    :cond_1
+    :cond_1c
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
 
     invoke-virtual {p1, v0}, Landroid/support/design/widget/CollapsingTextHelper;->setExpansionFraction(F)V
 
-    :goto_0
+    :goto_21
     const/4 p1, 0x1
 
     .line 1451
@@ -883,12 +883,12 @@
 .end method
 
 .method private hasPasswordTransformation()Z
-    .locals 1
+    .registers 2
 
     .line 1347
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
@@ -899,26 +899,26 @@
 
     instance-of p0, p0, Landroid/text/method/PasswordTransformationMethod;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_11
     return p0
 .end method
 
 .method private passwordVisibilityToggleRequested(Z)V
-    .locals 3
+    .registers 5
 
     .line 1324
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_39
 
     .line 1326
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -932,7 +932,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 1329
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -946,10 +946,10 @@
     .line 1330
     iput-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggledVisible:Z
 
-    goto :goto_0
+    goto :goto_26
 
     .line 1332
-    :cond_0
+    :cond_1a
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-static {}, Landroid/text/method/PasswordTransformationMethod;->getInstance()Landroid/text/method/PasswordTransformationMethod;
@@ -964,14 +964,14 @@
     iput-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggledVisible:Z
 
     .line 1336
-    :goto_0
+    :goto_26
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
     iget-boolean v2, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggledVisible:Z
 
     invoke-virtual {v1, v2}, Landroid/support/design/widget/CheckableImageButton;->setChecked(Z)V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_34
 
     .line 1338
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
@@ -979,17 +979,17 @@
     invoke-virtual {p1}, Landroid/support/design/widget/CheckableImageButton;->jumpDrawablesToCurrentState()V
 
     .line 1342
-    :cond_1
+    :cond_34
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {p0, v0}, Landroid/widget/EditText;->setSelection(I)V
 
-    :cond_2
+    :cond_39
     return-void
 .end method
 
 .method private static recursiveSetEnabled(Landroid/view/ViewGroup;Z)V
-    .locals 4
+    .registers 6
 
     .line 853
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
@@ -998,8 +998,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_1a
 
     .line 854
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -1012,29 +1012,29 @@
     .line 856
     instance-of v3, v2, Landroid/view/ViewGroup;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_17
 
     .line 857
     check-cast v2, Landroid/view/ViewGroup;
 
     invoke-static {v2, p1}, Landroid/support/design/widget/TextInputLayout;->recursiveSetEnabled(Landroid/view/ViewGroup;Z)V
 
-    :cond_0
+    :cond_17
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method private removeIndicator(Landroid/widget/TextView;)V
-    .locals 1
+    .registers 3
 
     .line 603
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 604
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
@@ -1048,7 +1048,7 @@
 
     iput p1, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorsAdded:I
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_18
 
     .line 606
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
@@ -1057,22 +1057,22 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private setEditText(Landroid/widget/EditText;)V
-    .locals 2
+    .registers 4
 
     .line 338
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_97
 
     .line 342
     instance-of v0, p1, Landroid/support/design/widget/TextInputEditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const-string v0, "TextInputLayout"
 
@@ -1082,7 +1082,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 347
-    :cond_0
+    :cond_f
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     .line 349
@@ -1090,7 +1090,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_22
 
     .line 354
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -1104,7 +1104,7 @@
     invoke-virtual {p1, v0}, Landroid/support/design/widget/CollapsingTextHelper;->setTypefaces(Landroid/graphics/Typeface;)V
 
     .line 356
-    :cond_1
+    :cond_22
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1148,7 +1148,7 @@
     .line 381
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mDefaultTextColor:Landroid/content/res/ColorStateList;
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_57
 
     .line 382
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1160,10 +1160,10 @@
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mDefaultTextColor:Landroid/content/res/ColorStateList;
 
     .line 386
-    :cond_2
+    :cond_57
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_76
 
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mHint:Ljava/lang/CharSequence;
 
@@ -1171,7 +1171,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_76
 
     .line 388
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1195,10 +1195,10 @@
     invoke-virtual {p1, v0}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
     .line 394
-    :cond_3
+    :cond_76
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_87
 
     .line 395
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1214,16 +1214,16 @@
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->updateCounter(I)V
 
     .line 398
-    :cond_4
+    :cond_87
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mIndicatorArea:Landroid/widget/LinearLayout;
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_8e
 
     .line 399
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->adjustIndicatorPadding()V
 
     .line 402
-    :cond_5
+    :cond_8e
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updatePasswordToggleView()V
 
     const/4 p1, 0x0
@@ -1236,7 +1236,7 @@
     return-void
 
     .line 339
-    :cond_6
+    :cond_97
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "We already have an EditText, can only have one"
@@ -1247,7 +1247,7 @@
 .end method
 
 .method private setError(Ljava/lang/CharSequence;Z)V
-    .locals 4
+    .registers 7
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -1261,23 +1261,23 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     .line 713
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     return-void
 
     .line 718
-    :cond_0
+    :cond_e
     invoke-virtual {p0, v1}, Landroid/support/design/widget/TextInputLayout;->setErrorEnabled(Z)V
 
     .line 721
-    :cond_1
+    :cond_11
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
@@ -1302,7 +1302,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6d
 
     .line 727
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -1318,7 +1318,7 @@
 
     const/high16 p1, 0x3f800000    # 1.0f
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_67
 
     .line 731
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -1329,7 +1329,7 @@
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_46
 
     .line 733
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -1337,7 +1337,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setAlpha(F)V
 
     .line 735
-    :cond_2
+    :cond_46
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -1373,27 +1373,27 @@
     .line 744
     invoke-virtual {p1}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    goto :goto_0
+    goto :goto_a3
 
     .line 747
-    :cond_3
+    :cond_67
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_a3
 
     .line 750
-    :cond_4
+    :cond_6d
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_a3
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_98
 
     .line 752
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -1431,10 +1431,10 @@
     .line 762
     invoke-virtual {p1}, Landroid/view/ViewPropertyAnimator;->start()V
 
-    goto :goto_0
+    goto :goto_a3
 
     .line 764
-    :cond_5
+    :cond_98
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -1447,8 +1447,8 @@
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 770
-    :cond_6
-    :goto_0
+    :cond_a3
+    :goto_a3
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updateEditTextBackground()V
 
     .line 771
@@ -1458,7 +1458,7 @@
 .end method
 
 .method private setHintInternal(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 489
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mHint:Ljava/lang/CharSequence;
@@ -1472,59 +1472,59 @@
 .end method
 
 .method private shouldShowPasswordIcon()Z
-    .locals 1
+    .registers 2
 
     .line 1352
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->hasPasswordTransformation()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggledVisible:Z
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_11
     return p0
 .end method
 
 .method private updateEditTextBackground()V
-    .locals 2
+    .registers 3
 
     .line 892
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 896
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     return-void
 
     .line 901
-    :cond_1
+    :cond_e
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->ensureBackgroundDrawableStateWorkaround()V
 
     .line 903
@@ -1532,7 +1532,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1b
 
     .line 904
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
@@ -1540,14 +1540,14 @@
     move-result-object v0
 
     .line 907
-    :cond_2
+    :cond_1b
     iget-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mErrorShown:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_33
 
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_33
 
     .line 909
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -1567,17 +1567,17 @@
     .line 909
     invoke-virtual {v0, p0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    goto :goto_0
+    goto :goto_53
 
     .line 912
-    :cond_3
+    :cond_33
     iget-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4b
 
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4b
 
     .line 914
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
@@ -1597,10 +1597,10 @@
     .line 914
     invoke-virtual {v0, p0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    goto :goto_0
+    goto :goto_53
 
     .line 920
-    :cond_4
+    :cond_4b
     invoke-static {v0}, Landroid/support/v4/graphics/drawable/DrawableCompat;->clearColorFilter(Landroid/graphics/drawable/Drawable;)V
 
     .line 921
@@ -1608,12 +1608,12 @@
 
     invoke-virtual {p0}, Landroid/widget/EditText;->refreshDrawableState()V
 
-    :goto_0
+    :goto_53
     return-void
 .end method
 
 .method private updateInputLayoutMargins()V
-    .locals 3
+    .registers 4
 
     .line 411
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mInputFrame:Landroid/widget/FrameLayout;
@@ -1627,12 +1627,12 @@
     .line 414
     iget-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_36
 
     .line 415
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mTmpPaint:Landroid/graphics/Paint;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 416
     new-instance v1, Landroid/graphics/Paint;
@@ -1642,7 +1642,7 @@
     iput-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mTmpPaint:Landroid/graphics/Paint;
 
     .line 418
-    :cond_0
+    :cond_17
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mTmpPaint:Landroid/graphics/Paint;
 
     iget-object v2, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -1675,16 +1675,16 @@
 
     float-to-int v1, v1
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_1
+    :cond_36
     const/4 v1, 0x0
 
     .line 425
-    :goto_0
+    :goto_37
     iget v2, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_42
 
     .line 426
     iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
@@ -1694,22 +1694,22 @@
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->requestLayout()V
 
-    :cond_2
+    :cond_42
     return-void
 .end method
 
 .method private updatePasswordToggleView()V
-    .locals 7
+    .registers 8
 
     .line 1094
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 1099
-    :cond_0
+    :cond_5
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->shouldShowPasswordIcon()Z
 
     move-result v0
@@ -1722,12 +1722,12 @@
 
     const/4 v4, 0x0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_ba
 
     .line 1100
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_46
 
     .line 1101
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->getContext()Landroid/content/Context;
@@ -1782,10 +1782,10 @@
     invoke-virtual {v0, v5}, Landroid/support/design/widget/CheckableImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 1115
-    :cond_1
+    :cond_46
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5d
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
@@ -1793,7 +1793,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_5d
 
     .line 1119
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1807,7 +1807,7 @@
     invoke-virtual {v0, v5}, Landroid/widget/EditText;->setMinimumHeight(I)V
 
     .line 1122
-    :cond_2
+    :cond_5d
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
     invoke-virtual {v0, v4}, Landroid/support/design/widget/CheckableImageButton;->setVisibility(I)V
@@ -1822,7 +1822,7 @@
     .line 1127
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_74
 
     .line 1128
     new-instance v0, Landroid/graphics/drawable/ColorDrawable;
@@ -1832,7 +1832,7 @@
     iput-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 1130
-    :cond_3
+    :cond_74
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
     iget-object v5, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
@@ -1855,7 +1855,7 @@
 
     iget-object v6, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eq v5, v6, :cond_4
+    if-eq v5, v6, :cond_8f
 
     .line 1135
     aget-object v3, v0, v3
@@ -1863,7 +1863,7 @@
     iput-object v3, p0, Landroid/support/design/widget/TextInputLayout;->mOriginalEditTextEndDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 1137
-    :cond_4
+    :cond_8f
     iget-object v3, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     aget-object v4, v0, v4
@@ -1908,13 +1908,13 @@
     .line 1141
     invoke-virtual {v0, v1, v2, v3, p0}, Landroid/support/design/widget/CheckableImageButton;->setPadding(IIII)V
 
-    goto :goto_0
+    goto :goto_ed
 
     .line 1145
-    :cond_5
+    :cond_ba
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_cd
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
@@ -1922,7 +1922,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_cd
 
     .line 1146
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
@@ -1932,10 +1932,10 @@
     invoke-virtual {v0, v5}, Landroid/support/design/widget/CheckableImageButton;->setVisibility(I)V
 
     .line 1149
-    :cond_6
+    :cond_cd
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_ed
 
     .line 1152
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1949,7 +1949,7 @@
 
     iget-object v5, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-ne v3, v5, :cond_7
+    if-ne v3, v5, :cond_ed
 
     .line 1154
     iget-object v3, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -1969,20 +1969,20 @@
     .line 1156
     iput-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleDummyDrawable:Landroid/graphics/drawable/Drawable;
 
-    :cond_7
-    :goto_0
+    :cond_ed
+    :goto_ed
     return-void
 .end method
 
 
 # virtual methods
 .method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
+    .registers 5
 
     .line 271
     instance-of v0, p1, Landroid/widget/EditText;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 274
     new-instance p2, Landroid/widget/FrameLayout$LayoutParams;
@@ -2016,18 +2016,18 @@
 
     invoke-direct {p0, p1}, Landroid/support/design/widget/TextInputLayout;->setEditText(Landroid/widget/EditText;)V
 
-    goto :goto_0
+    goto :goto_27
 
     .line 286
-    :cond_0
+    :cond_24
     invoke-super {p0, p1, p2, p3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
-    :goto_0
+    :goto_27
     return-void
 .end method
 
 .method animateToExpansionFraction(F)V
-    .locals 4
+    .registers 6
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -2040,15 +2040,15 @@
 
     cmpl-float v0, v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return-void
 
     .line 1459
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2e
 
     .line 1460
     new-instance v0, Landroid/animation/ValueAnimator;
@@ -2081,7 +2081,7 @@
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     .line 1470
-    :cond_1
+    :cond_2e
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mAnimator:Landroid/animation/ValueAnimator;
 
     const/4 v1, 0x2
@@ -2113,21 +2113,21 @@
 .end method
 
 .method public dispatchProvideAutofillStructure(Landroid/view/ViewStructure;I)V
-    .locals 3
+    .registers 6
 
     .line 320
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mOriginalHint:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
-    goto :goto_0
+    goto :goto_26
 
     .line 327
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getHint()Ljava/lang/CharSequence;
@@ -2142,10 +2142,10 @@
     invoke-virtual {v1, v2}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
     .line 330
-    :try_start_0
+    :try_start_16
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->dispatchProvideAutofillStructure(Landroid/view/ViewStructure;I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_16 .. :try_end_19} :catchall_1f
 
     .line 332
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -2154,7 +2154,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_1f
     move-exception p1
 
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -2164,15 +2164,15 @@
     throw p1
 
     .line 321
-    :cond_1
-    :goto_0
+    :cond_26
+    :goto_26
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->dispatchProvideAutofillStructure(Landroid/view/ViewStructure;I)V
 
     return-void
 .end method
 
 .method protected dispatchRestoreInstanceState(Landroid/util/SparseArray;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2199,7 +2199,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 1
+    .registers 3
 
     .line 1080
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->draw(Landroid/graphics/Canvas;)V
@@ -2207,28 +2207,28 @@
     .line 1082
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 1083
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
 
     invoke-virtual {p0, p1}, Landroid/support/design/widget/CollapsingTextHelper;->draw(Landroid/graphics/Canvas;)V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method protected drawableStateChanged()V
-    .locals 4
+    .registers 5
 
     .line 1412
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mInDrawableStateChanged:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
     .line 1419
@@ -2249,20 +2249,20 @@
 
     const/4 v3, 0x0
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->isEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     move v0, v3
 
-    :goto_0
+    :goto_1e
     invoke-virtual {p0, v0}, Landroid/support/design/widget/TextInputLayout;->updateLabelState(Z)V
 
     .line 1429
@@ -2271,7 +2271,7 @@
     .line 1431
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_30
 
     .line 1432
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -2282,26 +2282,26 @@
 
     or-int/2addr v0, v3
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     move v0, v3
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_31
+    if-eqz v0, :cond_36
 
     .line 1436
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->invalidate()V
 
     .line 1439
-    :cond_3
+    :cond_36
     iput-boolean v3, p0, Landroid/support/design/widget/TextInputLayout;->mInDrawableStateChanged:Z
 
     return-void
 .end method
 
 .method public getCounterMaxLength()I
-    .locals 0
+    .registers 1
 
     .line 868
     iget p0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterMaxLength:I
@@ -2310,7 +2310,7 @@
 .end method
 
 .method public getEditText()Landroid/widget/EditText;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -2321,49 +2321,49 @@
 .end method
 
 .method public getError()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
     .line 1051
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mError:Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     return-object p0
 .end method
 
 .method public getHint()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
     .line 502
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mHint:Ljava/lang/CharSequence;
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     return-object p0
 .end method
 
 .method public getPasswordVisibilityToggleContentDescription()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -2374,7 +2374,7 @@
 .end method
 
 .method public getPasswordVisibilityToggleDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -2385,7 +2385,7 @@
 .end method
 
 .method public getTypeface()Landroid/graphics/Typeface;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -2396,7 +2396,7 @@
 .end method
 
 .method public isCounterEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 820
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterEnabled:Z
@@ -2405,7 +2405,7 @@
 .end method
 
 .method public isErrorEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 689
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorEnabled:Z
@@ -2414,7 +2414,7 @@
 .end method
 
 .method public isHintAnimationEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 1063
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mHintAnimationEnabled:Z
@@ -2423,7 +2423,7 @@
 .end method
 
 .method public isHintEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 556
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
@@ -2432,7 +2432,7 @@
 .end method
 
 .method final isHintExpanded()Z
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -2443,7 +2443,7 @@
 .end method
 
 .method public isPasswordVisibilityToggleEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 1260
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleEnabled:Z
@@ -2452,7 +2452,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 3
+    .registers 9
 
     .line 1376
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
@@ -2460,11 +2460,11 @@
     .line 1378
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4f
 
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4f
 
     .line 1379
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mTmpRect:Landroid/graphics/Rect;
@@ -2548,12 +2548,12 @@
 
     invoke-virtual {p0}, Landroid/support/design/widget/CollapsingTextHelper;->recalculate()V
 
-    :cond_0
+    :cond_4f
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 0
+    .registers 3
 
     .line 1089
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updatePasswordToggleView()V
@@ -2565,12 +2565,12 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 1022
     instance-of v0, p1, Landroid/support/design/widget/TextInputLayout$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 1023
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -2578,7 +2578,7 @@
     return-void
 
     .line 1026
-    :cond_0
+    :cond_8
     check-cast p1, Landroid/support/design/widget/TextInputLayout$SavedState;
 
     .line 1027
@@ -2596,7 +2596,7 @@
     .line 1029
     iget-boolean p1, p1, Landroid/support/design/widget/TextInputLayout$SavedState;->isPasswordToggledVisible:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1e
 
     const/4 p1, 0x1
 
@@ -2604,14 +2604,14 @@
     invoke-direct {p0, p1}, Landroid/support/design/widget/TextInputLayout;->passwordVisibilityToggleRequested(Z)V
 
     .line 1032
-    :cond_1
+    :cond_1e
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->requestLayout()V
 
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
 
     .line 1011
     invoke-super {p0}, Landroid/widget/LinearLayout;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -2626,7 +2626,7 @@
     .line 1013
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorShown:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 1014
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->getError()Ljava/lang/CharSequence;
@@ -2636,7 +2636,7 @@
     iput-object v0, v1, Landroid/support/design/widget/TextInputLayout$SavedState;->error:Ljava/lang/CharSequence;
 
     .line 1016
-    :cond_0
+    :cond_13
     iget-boolean p0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggledVisible:Z
 
     iput-boolean p0, v1, Landroid/support/design/widget/TextInputLayout$SavedState;->isPasswordToggledVisible:Z
@@ -2645,14 +2645,14 @@
 .end method
 
 .method public setCounterEnabled(Z)V
-    .locals 3
+    .registers 5
 
     .line 780
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterEnabled:Z
 
-    if-eq v0, p1, :cond_3
+    if-eq v0, p1, :cond_6e
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_64
 
     .line 782
     new-instance v0, Landroid/support/v7/widget/AppCompatTextView;
@@ -2675,7 +2675,7 @@
     .line 784
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mTypeface:Landroid/graphics/Typeface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 785
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
@@ -2685,7 +2685,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 787
-    :cond_0
+    :cond_23
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     const/4 v1, 0x1
@@ -2693,19 +2693,19 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMaxLines(I)V
 
     .line 789
-    :try_start_0
+    :try_start_29
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     iget v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterTextAppearance:I
 
     invoke-static {v0, v1}, Landroid/support/v4/widget/TextViewCompat;->setTextAppearance(Landroid/widget/TextView;I)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_30
+    .catch Ljava/lang/Exception; {:try_start_29 .. :try_end_30} :catch_31
 
-    goto :goto_0
+    goto :goto_47
 
     .line 793
-    :catch_0
+    :catch_31
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     sget v1, Landroid/support/v7/appcompat/R$style;->TextAppearance_AppCompat_Caption:I
@@ -2728,7 +2728,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 798
-    :goto_0
+    :goto_47
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     const/4 v1, -0x1
@@ -2738,17 +2738,17 @@
     .line 799
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_56
 
     const/4 v0, 0x0
 
     .line 800
     invoke-virtual {p0, v0}, Landroid/support/design/widget/TextInputLayout;->updateCounter(I)V
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 802
-    :cond_1
+    :cond_56
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -2761,10 +2761,10 @@
 
     invoke-virtual {p0, v0}, Landroid/support/design/widget/TextInputLayout;->updateCounter(I)V
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 805
-    :cond_2
+    :cond_64
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     invoke-direct {p0, v0}, Landroid/support/design/widget/TextInputLayout;->removeIndicator(Landroid/widget/TextView;)V
@@ -2775,50 +2775,50 @@
     iput-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     .line 808
-    :goto_1
+    :goto_6c
     iput-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterEnabled:Z
 
-    :cond_3
+    :cond_6e
     return-void
 .end method
 
 .method public setCounterMaxLength(I)V
-    .locals 1
+    .registers 3
 
     .line 831
     iget v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterMaxLength:I
 
-    if-eq v0, p1, :cond_2
+    if-eq v0, p1, :cond_23
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_9
 
     .line 833
     iput p1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterMaxLength:I
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_9
     const/4 p1, -0x1
 
     .line 835
     iput p1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterMaxLength:I
 
     .line 837
-    :goto_0
+    :goto_c
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterEnabled:Z
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_23
 
     .line 838
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_16
 
     const/4 p1, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
+    :cond_16
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {p1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
@@ -2829,15 +2829,15 @@
 
     move-result p1
 
-    :goto_1
+    :goto_20
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->updateCounter(I)V
 
-    :cond_2
+    :cond_23
     return-void
 .end method
 
 .method public setEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 848
     invoke-static {p0, p1}, Landroid/support/design/widget/TextInputLayout;->recursiveSetEnabled(Landroid/view/ViewGroup;Z)V
@@ -2849,7 +2849,7 @@
 .end method
 
 .method public setError(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -2860,17 +2860,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
@@ -2883,35 +2883,35 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_1
+    :cond_1e
     const/4 v0, 0x0
 
     .line 705
-    :goto_0
+    :goto_1f
     invoke-direct {p0, p1, v0}, Landroid/support/design/widget/TextInputLayout;->setError(Ljava/lang/CharSequence;Z)V
 
     return-void
 .end method
 
 .method public setErrorEnabled(Z)V
-    .locals 5
+    .registers 7
 
     .line 619
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorEnabled:Z
 
-    if-eq v0, p1, :cond_5
+    if-eq v0, p1, :cond_8a
 
     .line 620
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 621
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -2922,10 +2922,10 @@
 
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_7b
 
     .line 625
     new-instance v1, Landroid/support/v7/widget/AppCompatTextView;
@@ -2948,7 +2948,7 @@
     .line 627
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mTypeface:Landroid/graphics/Typeface;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     .line 628
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -2957,11 +2957,11 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    :cond_1
+    :cond_31
     const/4 v1, 0x1
 
     .line 632
-    :try_start_0
+    :try_start_32
     iget-object v2, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     iget v3, p0, Landroid/support/design/widget/TextInputLayout;->mErrorTextAppearance:I
@@ -2973,7 +2973,7 @@
 
     const/16 v3, 0x17
 
-    if-lt v2, v3, :cond_2
+    if-lt v2, v3, :cond_4f
 
     iget-object v2, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
@@ -2985,26 +2985,26 @@
     invoke-virtual {v2}, Landroid/content/res/ColorStateList;->getDefaultColor()I
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_49
+    .catch Ljava/lang/Exception; {:try_start_32 .. :try_end_49} :catch_51
 
     const v3, -0xff01
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_4f
 
-    goto :goto_0
+    goto :goto_51
 
-    :cond_2
+    :cond_4f
     move v2, v0
 
-    goto :goto_1
+    goto :goto_52
 
-    :catch_0
-    :goto_0
+    :catch_51
+    :goto_51
     move v2, v1
 
-    :goto_1
-    if-eqz v2, :cond_3
+    :goto_52
+    if-eqz v2, :cond_6a
 
     .line 649
     iget-object v2, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
@@ -3029,7 +3029,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 654
-    :cond_3
+    :cond_6a
     iget-object v2, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     const/4 v3, 0x4
@@ -3046,10 +3046,10 @@
 
     invoke-direct {p0, v1, v0}, Landroid/support/design/widget/TextInputLayout;->addIndicator(Landroid/widget/TextView;I)V
 
-    goto :goto_2
+    goto :goto_88
 
     .line 659
-    :cond_4
+    :cond_7b
     iput-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorShown:Z
 
     .line 660
@@ -3066,15 +3066,15 @@
     iput-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     .line 664
-    :goto_2
+    :goto_88
     iput-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mErrorEnabled:Z
 
-    :cond_5
+    :cond_8a
     return-void
 .end method
 
 .method public setErrorTextAppearance(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/StyleRes;
         .end annotation
@@ -3086,19 +3086,19 @@
     .line 676
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 677
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     invoke-static {p0, p1}, Landroid/support/v4/widget/TextViewCompat;->setTextAppearance(Landroid/widget/TextView;I)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setHint(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -3107,7 +3107,7 @@
     .line 482
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 483
     invoke-direct {p0, p1}, Landroid/support/design/widget/TextInputLayout;->setHintInternal(Ljava/lang/CharSequence;)V
@@ -3117,12 +3117,12 @@
     .line 484
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->sendAccessibilityEvent(I)V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setHintAnimationEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 1075
     iput-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mHintAnimationEnabled:Z
@@ -3131,12 +3131,12 @@
 .end method
 
 .method public setHintEnabled(Z)V
-    .locals 2
+    .registers 4
 
     .line 518
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_47
 
     .line 519
     iput-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mHintEnabled:Z
@@ -3153,7 +3153,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 523
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mHint:Ljava/lang/CharSequence;
@@ -3162,13 +3162,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_26
 
     .line 526
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -3178,18 +3178,18 @@
     invoke-virtual {p1, v0}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
     .line 529
-    :cond_0
+    :cond_26
     invoke-direct {p0, v1}, Landroid/support/design/widget/TextInputLayout;->setHintInternal(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_40
 
     .line 531
-    :cond_1
+    :cond_2a
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_40
 
     .line 534
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mHint:Ljava/lang/CharSequence;
@@ -3198,33 +3198,33 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3b
 
     .line 535
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->setHint(Ljava/lang/CharSequence;)V
 
     .line 537
-    :cond_2
+    :cond_3b
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
     invoke-virtual {p1, v1}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
 
     .line 542
-    :cond_3
-    :goto_0
+    :cond_40
+    :goto_40
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_47
 
     .line 543
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updateInputLayoutMargins()V
 
-    :cond_4
+    :cond_47
     return-void
 .end method
 
 .method public setHintTextAppearance(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/StyleRes;
         .end annotation
@@ -3247,7 +3247,7 @@
     .line 568
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     const/4 p1, 0x0
 
@@ -3257,18 +3257,18 @@
     .line 571
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updateInputLayoutMargins()V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public setPasswordVisibilityToggleContentDescription(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
     .end param
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 1210
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->getResources()Landroid/content/res/Resources;
@@ -3279,20 +3279,20 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p1, 0x0
 
     .line 1209
-    :goto_0
+    :goto_c
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->setPasswordVisibilityToggleContentDescription(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
 .method public setPasswordVisibilityToggleContentDescription(Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -3304,25 +3304,25 @@
     .line 1225
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1226
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
     invoke-virtual {p0, p1}, Landroid/support/design/widget/CheckableImageButton;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setPasswordVisibilityToggleDrawable(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/DrawableRes;
         .end annotation
     .end param
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 1175
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->getContext()Landroid/content/Context;
@@ -3333,20 +3333,20 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p1, 0x0
 
     .line 1174
-    :goto_0
+    :goto_c
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->setPasswordVisibilityToggleDrawable(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
 .method public setPasswordVisibilityToggleDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -3358,38 +3358,38 @@
     .line 1192
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1193
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleView:Landroid/support/design/widget/CheckableImageButton;
 
     invoke-virtual {p0, p1}, Landroid/support/design/widget/CheckableImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setPasswordVisibilityToggleEnabled(Z)V
-    .locals 1
+    .registers 3
 
     .line 1274
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleEnabled:Z
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_1f
 
     .line 1275
     iput-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggleEnabled:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_19
 
     .line 1277
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mPasswordToggledVisible:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     .line 1280
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
@@ -3400,7 +3400,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/EditText;->setTransformationMethod(Landroid/text/method/TransformationMethod;)V
 
-    :cond_0
+    :cond_19
     const/4 p1, 0x0
 
     .line 1284
@@ -3409,12 +3409,12 @@
     .line 1286
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updatePasswordToggleView()V
 
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method public setPasswordVisibilityToggleTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -3435,7 +3435,7 @@
 .end method
 
 .method public setPasswordVisibilityToggleTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/PorterDuff$Mode;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -3456,7 +3456,7 @@
 .end method
 
 .method public setTypeface(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/graphics/Typeface;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -3465,7 +3465,7 @@
     .line 296
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mTypeface:Landroid/graphics/Typeface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mTypeface:Landroid/graphics/Typeface;
 
@@ -3473,17 +3473,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
-    :cond_0
+    :cond_c
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mTypeface:Landroid/graphics/Typeface;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2b
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2b
 
     .line 298
-    :cond_1
+    :cond_12
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mTypeface:Landroid/graphics/Typeface;
 
     .line 300
@@ -3494,7 +3494,7 @@
     .line 301
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 302
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
@@ -3502,22 +3502,22 @@
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
     .line 304
-    :cond_2
+    :cond_22
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2b
 
     .line 305
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout;->mErrorView:Landroid/widget/TextView;
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;)V
 
-    :cond_3
+    :cond_2b
     return-void
 .end method
 
 .method updateCounter(I)V
-    .locals 7
+    .registers 9
 
     .line 872
     iget-boolean v0, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
@@ -3529,7 +3529,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_14
 
     .line 874
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
@@ -3543,50 +3543,50 @@
     .line 875
     iput-boolean v2, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
-    goto :goto_2
+    goto :goto_50
 
     .line 877
-    :cond_0
+    :cond_14
     iget v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterMaxLength:I
 
     const/4 v3, 0x1
 
-    if-le p1, v1, :cond_1
+    if-le p1, v1, :cond_1b
 
     move v1, v3
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1b
     move v1, v2
 
-    :goto_0
+    :goto_1c
     iput-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
     .line 878
     iget-boolean v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_30
 
     .line 879
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     iget-boolean v4, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_2b
 
     iget v4, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowTextAppearance:I
 
-    goto :goto_1
+    goto :goto_2d
 
-    :cond_2
+    :cond_2b
     iget v4, p0, Landroid/support/design/widget/TextInputLayout;->mCounterTextAppearance:I
 
-    :goto_1
+    :goto_2d
     invoke-static {v1, v4}, Landroid/support/v4/widget/TextViewCompat;->setTextAppearance(Landroid/widget/TextView;I)V
 
     .line 882
-    :cond_3
+    :cond_30
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->getContext()Landroid/content/Context;
@@ -3622,14 +3622,14 @@
     invoke-virtual {v1, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 885
-    :goto_2
+    :goto_50
     iget-object p1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_5e
 
     iget-boolean p1, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
-    if-eq v0, p1, :cond_4
+    if-eq v0, p1, :cond_5e
 
     .line 886
     invoke-virtual {p0, v2}, Landroid/support/design/widget/TextInputLayout;->updateLabelState(Z)V
@@ -3637,12 +3637,12 @@
     .line 887
     invoke-direct {p0}, Landroid/support/design/widget/TextInputLayout;->updateEditTextBackground()V
 
-    :cond_4
+    :cond_5e
     return-void
 .end method
 
 .method updateLabelState(Z)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -3653,7 +3653,7 @@
 .end method
 
 .method updateLabelState(ZZ)V
-    .locals 6
+    .registers 9
 
     .line 436
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->isEnabled()Z
@@ -3665,7 +3665,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout;->mEditText:Landroid/widget/EditText;
 
@@ -3677,17 +3677,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     move v1, v2
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v1, 0x0
 
     .line 438
-    :goto_0
+    :goto_18
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->getDrawableState()[I
 
     move-result-object v3
@@ -3712,7 +3712,7 @@
     .line 441
     iget-object v4, p0, Landroid/support/design/widget/TextInputLayout;->mDefaultTextColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_37
 
     .line 442
     iget-object v4, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -3721,17 +3721,17 @@
 
     invoke-virtual {v4, v5}, Landroid/support/design/widget/CollapsingTextHelper;->setExpandedTextColor(Landroid/content/res/ColorStateList;)V
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_37
+    if-eqz v0, :cond_4d
 
     .line 445
     iget-boolean v4, p0, Landroid/support/design/widget/TextInputLayout;->mCounterOverflowed:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4d
 
     iget-object v4, p0, Landroid/support/design/widget/TextInputLayout;->mCounterView:Landroid/widget/TextView;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_4d
 
     .line 446
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -3744,17 +3744,17 @@
 
     invoke-virtual {v0, v4}, Landroid/support/design/widget/CollapsingTextHelper;->setCollapsedTextColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_1
+    goto :goto_68
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_4d
+    if-eqz v0, :cond_5d
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_5d
 
     .line 447
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mFocusedTextColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5d
 
     .line 448
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -3763,13 +3763,13 @@
 
     invoke-virtual {v0, v4}, Landroid/support/design/widget/CollapsingTextHelper;->setCollapsedTextColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_1
+    goto :goto_68
 
     .line 449
-    :cond_3
+    :cond_5d
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mDefaultTextColor:Landroid/content/res/ColorStateList;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_68
 
     .line 450
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout;->mCollapsingTextHelper:Landroid/support/design/widget/CollapsingTextHelper;
@@ -3778,51 +3778,51 @@
 
     invoke-virtual {v0, v4}, Landroid/support/design/widget/CollapsingTextHelper;->setCollapsedTextColor(Landroid/content/res/ColorStateList;)V
 
-    :cond_4
-    :goto_1
-    if-nez v1, :cond_7
+    :cond_68
+    :goto_68
+    if-nez v1, :cond_7f
 
     .line 453
     invoke-virtual {p0}, Landroid/support/design/widget/TextInputLayout;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_75
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_7f
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_75
 
-    goto :goto_2
+    goto :goto_7f
 
-    :cond_5
-    if-nez p2, :cond_6
+    :cond_75
+    if-nez p2, :cond_7b
 
     .line 460
     iget-boolean p2, p0, Landroid/support/design/widget/TextInputLayout;->mHintExpanded:Z
 
-    if-nez p2, :cond_9
+    if-nez p2, :cond_88
 
     .line 461
-    :cond_6
+    :cond_7b
     invoke-direct {p0, p1}, Landroid/support/design/widget/TextInputLayout;->expandHint(Z)V
 
-    goto :goto_3
+    goto :goto_88
 
-    :cond_7
-    :goto_2
-    if-nez p2, :cond_8
+    :cond_7f
+    :goto_7f
+    if-nez p2, :cond_85
 
     .line 455
     iget-boolean p2, p0, Landroid/support/design/widget/TextInputLayout;->mHintExpanded:Z
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_88
 
     .line 456
-    :cond_8
+    :cond_85
     invoke-direct {p0, p1}, Landroid/support/design/widget/TextInputLayout;->collapseHint(Z)V
 
-    :cond_9
-    :goto_3
+    :cond_88
+    :goto_88
     return-void
 .end method

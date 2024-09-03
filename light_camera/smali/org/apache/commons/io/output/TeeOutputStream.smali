@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 3
 
     .line 40
     invoke-direct {p0, p1}, Lorg/apache/commons/io/output/ProxyOutputStream;-><init>(Ljava/io/OutputStream;)V
@@ -23,7 +23,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -33,8 +33,8 @@
     .line 103
     :try_start_0
     invoke-super {p0}, Lorg/apache/commons/io/output/ProxyOutputStream;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_0 .. :try_end_3} :catchall_9
 
     .line 105
     iget-object p0, p0, Lorg/apache/commons/io/output/TeeOutputStream;->branch:Ljava/io/OutputStream;
@@ -43,7 +43,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_9
     move-exception v0
 
     iget-object p0, p0, Lorg/apache/commons/io/output/TeeOutputStream;->branch:Ljava/io/OutputStream;
@@ -54,7 +54,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -73,7 +73,7 @@
 .end method
 
 .method public declared-synchronized write(I)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -83,22 +83,22 @@
     monitor-enter p0
 
     .line 75
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1}, Lorg/apache/commons/io/output/ProxyOutputStream;->write(I)V
 
     .line 76
     iget-object v0, p0, Lorg/apache/commons/io/output/TeeOutputStream;->branch:Ljava/io/OutputStream;
 
     invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
     .line 77
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     .line 74
@@ -108,7 +108,7 @@
 .end method
 
 .method public declared-synchronized write([B)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -118,22 +118,22 @@
     monitor-enter p0
 
     .line 51
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1}, Lorg/apache/commons/io/output/ProxyOutputStream;->write([B)V
 
     .line 52
     iget-object v0, p0, Lorg/apache/commons/io/output/TeeOutputStream;->branch:Ljava/io/OutputStream;
 
     invoke-virtual {v0, p1}, Ljava/io/OutputStream;->write([B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
     .line 53
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     .line 50
@@ -143,7 +143,7 @@
 .end method
 
 .method public declared-synchronized write([BII)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -153,22 +153,22 @@
     monitor-enter p0
 
     .line 64
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2, p3}, Lorg/apache/commons/io/output/ProxyOutputStream;->write([BII)V
 
     .line 65
     iget-object v0, p0, Lorg/apache/commons/io/output/TeeOutputStream;->branch:Ljava/io/OutputStream;
 
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
     .line 66
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     .line 63

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1122
     invoke-direct {p0}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getSpanIndex(II)I
-    .locals 0
+    .registers 3
 
     .line 1131
     rem-int/2addr p1, p2
@@ -36,7 +36,7 @@
 .end method
 
 .method public getSpanSize(I)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 

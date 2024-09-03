@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/util/Map;Ljava/util/Map;)V
-    .locals 0
+    .registers 4
 
     .line 479
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/MetricsManager$3;->val$eventName:Ljava/lang/String;
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 479
     check-cast p1, [Ljava/lang/Void;
@@ -64,7 +64,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 1
+    .registers 3
 
     .line 482
     new-instance p1, Lnet/hockeyapp/android/metrics/model/EventData;
@@ -79,7 +79,7 @@
     .line 484
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/MetricsManager$3;->val$properties:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 485
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/MetricsManager$3;->val$properties:Ljava/util/Map;
@@ -87,10 +87,10 @@
     invoke-virtual {p1, v0}, Lnet/hockeyapp/android/metrics/model/EventData;->setProperties(Ljava/util/Map;)V
 
     .line 487
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/MetricsManager$3;->val$measurements:Ljava/util/Map;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     .line 488
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/MetricsManager$3;->val$measurements:Ljava/util/Map;
@@ -98,12 +98,13 @@
     invoke-virtual {p1, p0}, Lnet/hockeyapp/android/metrics/model/EventData;->setMeasurements(Ljava/util/Map;)V
 
     .line 490
-    :cond_1
+    :cond_1c
     invoke-static {p1}, Lnet/hockeyapp/android/metrics/MetricsManager;->createData(Lnet/hockeyapp/android/metrics/model/TelemetryData;)Lnet/hockeyapp/android/metrics/model/Data;
 
     move-result-object p0
 
     .line 491
+    # getter for: Lnet/hockeyapp/android/metrics/MetricsManager;->sChannel:Lnet/hockeyapp/android/metrics/Channel;
     invoke-static {}, Lnet/hockeyapp/android/metrics/MetricsManager;->access$000()Lnet/hockeyapp/android/metrics/Channel;
 
     move-result-object p1

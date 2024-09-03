@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIILjava/util/List;Z)V
-    .locals 12
+    .registers 23
 
     const/4 v11, 0x0
 
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public getOptionList()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

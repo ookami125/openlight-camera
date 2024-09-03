@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 901
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -55,7 +55,7 @@
 .end method
 
 .method public decode(Lcom/squareup/wire/ProtoReader;)Lltpb/GPSData;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -73,16 +73,16 @@
     move-result-wide v0
 
     .line 936
-    :goto_0
+    :goto_9
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->nextTag()I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_9f
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_a8
 
     .line 955
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->peekFieldEncoding()Lcom/squareup/wire/FieldEncoding;
@@ -101,11 +101,11 @@
     .line 957
     invoke-virtual {p0, v2, v3, v4}, Lltpb/GPSData$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 948
-    :pswitch_0
-    :try_start_0
+    :pswitch_23
+    :try_start_23
     sget-object v3, Lltpb/GPSData$ProcessingMethod;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -115,12 +115,12 @@
     check-cast v3, Lltpb/GPSData$ProcessingMethod;
 
     invoke-virtual {p0, v3}, Lltpb/GPSData$Builder;->processing_method(Lltpb/GPSData$ProcessingMethod;)Lltpb/GPSData$Builder;
-    :try_end_0
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_23 .. :try_end_2e} :catch_2f
 
-    goto :goto_0
+    goto :goto_9
 
-    :catch_0
+    :catch_2f
     move-exception v3
 
     .line 950
@@ -136,10 +136,10 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/GPSData$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 945
-    :pswitch_1
+    :pswitch_3d
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->DOUBLE:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -150,10 +150,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->speed(Ljava/lang/Double;)Lltpb/GPSData$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 944
-    :pswitch_2
+    :pswitch_49
     sget-object v2, Lltpb/GPSData$Altitude;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -164,10 +164,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->altitude(Lltpb/GPSData$Altitude;)Lltpb/GPSData$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 943
-    :pswitch_3
+    :pswitch_55
     sget-object v2, Lltpb/GPSData$Heading;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -178,10 +178,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->heading(Lltpb/GPSData$Heading;)Lltpb/GPSData$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 942
-    :pswitch_4
+    :pswitch_61
     sget-object v2, Lltpb/GPSData$Track;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -192,10 +192,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->track(Lltpb/GPSData$Track;)Lltpb/GPSData$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 941
-    :pswitch_5
+    :pswitch_6d
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->DOUBLE:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -206,10 +206,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->dop(Ljava/lang/Double;)Lltpb/GPSData$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 940
-    :pswitch_6
+    :pswitch_79
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->UINT64:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -220,10 +220,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->timestamp(Ljava/lang/Long;)Lltpb/GPSData$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 939
-    :pswitch_7
+    :pswitch_85
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->DOUBLE:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -234,10 +234,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->longitude(Ljava/lang/Double;)Lltpb/GPSData$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 938
-    :pswitch_8
+    :pswitch_92
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->DOUBLE:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -248,10 +248,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/GPSData$Builder;->latitude(Ljava/lang/Double;)Lltpb/GPSData$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 961
-    :cond_0
+    :cond_9f
     invoke-virtual {p1, v0, v1}, Lcom/squareup/wire/ProtoReader;->endMessage(J)V
 
     .line 962
@@ -263,22 +263,22 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a8
     .packed-switch 0x1
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_92
+        :pswitch_85
+        :pswitch_79
+        :pswitch_6d
+        :pswitch_61
+        :pswitch_55
+        :pswitch_49
+        :pswitch_3d
+        :pswitch_23
     .end packed-switch
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -294,7 +294,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Lltpb/GPSData;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -393,7 +393,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 899
     check-cast p1, Lltpb/GPSData;
@@ -406,7 +406,7 @@
 .end method
 
 .method public encodedSize(Lltpb/GPSData;)I
-    .locals 3
+    .registers 5
 
     .line 906
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->DOUBLE:Lcom/squareup/wire/ProtoAdapter;
@@ -538,7 +538,7 @@
 .end method
 
 .method public bridge synthetic redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 899
     check-cast p1, Lltpb/GPSData;
@@ -551,7 +551,7 @@
 .end method
 
 .method public redact(Lltpb/GPSData;)Lltpb/GPSData;
-    .locals 1
+    .registers 3
 
     .line 967
     invoke-virtual {p1}, Lltpb/GPSData;->newBuilder()Lltpb/GPSData$Builder;
@@ -561,7 +561,7 @@
     .line 968
     iget-object p1, p0, Lltpb/GPSData$Builder;->track:Lltpb/GPSData$Track;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     sget-object p1, Lltpb/GPSData$Track;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
@@ -576,10 +576,10 @@
     iput-object p1, p0, Lltpb/GPSData$Builder;->track:Lltpb/GPSData$Track;
 
     .line 969
-    :cond_0
+    :cond_14
     iget-object p1, p0, Lltpb/GPSData$Builder;->heading:Lltpb/GPSData$Heading;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     sget-object p1, Lltpb/GPSData$Heading;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
@@ -594,10 +594,10 @@
     iput-object p1, p0, Lltpb/GPSData$Builder;->heading:Lltpb/GPSData$Heading;
 
     .line 970
-    :cond_1
+    :cond_24
     iget-object p1, p0, Lltpb/GPSData$Builder;->altitude:Lltpb/GPSData$Altitude;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_34
 
     sget-object p1, Lltpb/GPSData$Altitude;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
@@ -612,7 +612,7 @@
     iput-object p1, p0, Lltpb/GPSData$Builder;->altitude:Lltpb/GPSData$Altitude;
 
     .line 971
-    :cond_2
+    :cond_34
     invoke-virtual {p0}, Lltpb/GPSData$Builder;->clearUnknownFields()Lcom/squareup/wire/Message$Builder;
 
     .line 972

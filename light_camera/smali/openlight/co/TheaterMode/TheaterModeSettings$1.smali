@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/TheaterMode/TheaterModeSettings;)V
-    .locals 0
+    .registers 2
 
     .line 44
     iput-object p1, p0, Lopenlight/co/TheaterMode/TheaterModeSettings$1;->this$0:Lopenlight/co/TheaterMode/TheaterModeSettings;
@@ -33,9 +33,10 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .registers 3
 
     .line 47
+    # getter for: Lopenlight/co/TheaterMode/TheaterModeSettings;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/TheaterMode/TheaterModeSettings;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -47,6 +48,7 @@
     .line 48
     iget-object p0, p0, Lopenlight/co/TheaterMode/TheaterModeSettings$1;->this$0:Lopenlight/co/TheaterMode/TheaterModeSettings;
 
+    # invokes: Lopenlight/co/TheaterMode/TheaterModeSettings;->readSettings()V
     invoke-static {p0}, Lopenlight/co/TheaterMode/TheaterModeSettings;->access$100(Lopenlight/co/TheaterMode/TheaterModeSettings;)V
 
     return-void

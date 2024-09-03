@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,14 +75,14 @@
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_10
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
-    goto :goto_0
+    goto :goto_10
 
     .line 29
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "At least one of streamLoader and fileDescriptorLoader must be non null"
@@ -92,8 +92,8 @@
     throw p0
 
     .line 31
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ImageVideoModelLoader;->streamLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
     .line 32
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;II)",
@@ -120,7 +120,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 39
     iget-object v0, p0, Lcom/bumptech/glide/load/model/ImageVideoModelLoader;->streamLoader:Lcom/bumptech/glide/load/model/ModelLoader;
@@ -129,16 +129,16 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v0, v1
 
     .line 42
-    :goto_0
+    :goto_d
     iget-object v2, p0, Lcom/bumptech/glide/load/model/ImageVideoModelLoader;->fileDescriptorLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ImageVideoModelLoader;->fileDescriptorLoader:Lcom/bumptech/glide/load/model/ModelLoader;
@@ -147,24 +147,24 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_18
     move-object p0, v1
 
-    :goto_1
-    if-nez v0, :cond_3
+    :goto_19
+    if-nez v0, :cond_1f
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1e
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     return-object v1
 
     .line 47
-    :cond_3
-    :goto_2
+    :cond_1f
+    :goto_1f
     new-instance p1, Lcom/bumptech/glide/load/model/ImageVideoModelLoader$ImageVideoFetcher;
 
     invoke-direct {p1, v0, p0}, Lcom/bumptech/glide/load/model/ImageVideoModelLoader$ImageVideoFetcher;-><init>(Lcom/bumptech/glide/load/data/DataFetcher;Lcom/bumptech/glide/load/data/DataFetcher;)V

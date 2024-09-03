@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 109
     invoke-direct {p0}, Landroid/support/v4/hardware/display/DisplayManagerCompat;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public getDisplay(I)Landroid/view/Display;
-    .locals 1
+    .registers 3
 
     .line 115
     iget-object p0, p0, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi14Impl;->mWindowManager:Landroid/view/WindowManager;
@@ -56,18 +56,18 @@
 
     move-result v0
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_d
 
     return-object p0
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public getDisplays()[Landroid/view/Display;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -88,22 +88,22 @@
 .end method
 
 .method public getDisplays(Ljava/lang/String;)[Landroid/view/Display;
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 129
     invoke-virtual {p0}, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi14Impl;->getDisplays()[Landroid/view/Display;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
     new-array p0, p0, [Landroid/view/Display;
 
-    :goto_0
+    :goto_a
     return-object p0
 .end method

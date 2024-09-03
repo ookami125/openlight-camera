@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Lcom/bumptech/glide/manager/RequestManagerRetriever;
@@ -61,7 +61,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -95,7 +95,7 @@
 .end method
 
 .method private static assertNotDestroyed(Landroid/app/Activity;)V
-    .locals 2
+    .registers 3
     .annotation build Landroid/annotation/TargetApi;
         value = 0x11
     .end annotation
@@ -105,18 +105,18 @@
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_15
 
     invoke-virtual {p0}, Landroid/app/Activity;->isDestroyed()Z
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_d
 
-    goto :goto_0
+    goto :goto_15
 
     .line 134
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "You cannot start a load for a destroyed activity"
@@ -125,13 +125,13 @@
 
     throw p0
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     return-void
 .end method
 
 .method public static get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->INSTANCE:Lcom/bumptech/glide/manager/RequestManagerRetriever;
@@ -140,21 +140,21 @@
 .end method
 
 .method private getApplicationManager(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
-    .locals 3
+    .registers 5
 
     .line 67
     iget-object v0, p0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->applicationManager:Lcom/bumptech/glide/RequestManager;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 68
     monitor-enter p0
 
     .line 69
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->applicationManager:Lcom/bumptech/glide/RequestManager;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 73
     new-instance v0, Lcom/bumptech/glide/RequestManager;
@@ -176,23 +176,23 @@
     iput-object v0, p0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->applicationManager:Lcom/bumptech/glide/RequestManager;
 
     .line 76
-    :cond_0
+    :cond_1e
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_23
 
-    :catchall_0
+    :catchall_20
     move-exception p1
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_5 .. :try_end_22} :catchall_20
 
     throw p1
 
     .line 79
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     iget-object p0, p0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->applicationManager:Lcom/bumptech/glide/RequestManager;
 
     return-object p0
@@ -201,7 +201,7 @@
 
 # virtual methods
 .method fragmentGet(Landroid/content/Context;Landroid/app/FragmentManager;)Lcom/bumptech/glide/RequestManager;
-    .locals 2
+    .registers 5
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -216,7 +216,7 @@
 
     move-result-object p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1a
 
     .line 171
     new-instance p2, Lcom/bumptech/glide/RequestManager;
@@ -234,12 +234,12 @@
     .line 172
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/manager/RequestManagerFragment;->setRequestManager(Lcom/bumptech/glide/RequestManager;)V
 
-    :cond_0
+    :cond_1a
     return-object p2
 .end method
 
 .method public get(Landroid/app/Activity;)Lcom/bumptech/glide/RequestManager;
-    .locals 2
+    .registers 4
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -249,18 +249,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_19
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xb
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_19
 
     .line 125
-    :cond_0
+    :cond_d
     invoke-static {p1}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->assertNotDestroyed(Landroid/app/Activity;)V
 
     .line 126
@@ -276,8 +276,8 @@
     return-object p0
 
     .line 123
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     invoke-virtual {p1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object p1
@@ -290,7 +290,7 @@
 .end method
 
 .method public get(Landroid/app/Fragment;)Lcom/bumptech/glide/RequestManager;
-    .locals 2
+    .registers 4
     .annotation build Landroid/annotation/TargetApi;
         value = 0x11
     .end annotation
@@ -300,25 +300,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     .line 143
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnBackgroundThread()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_13
 
-    goto :goto_0
+    goto :goto_20
 
     .line 146
-    :cond_0
+    :cond_13
     invoke-virtual {p1}, Landroid/app/Fragment;->getChildFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object v0
@@ -335,8 +335,8 @@
     return-object p0
 
     .line 144
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     invoke-virtual {p1}, Landroid/app/Fragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p1
@@ -352,7 +352,7 @@
     return-object p0
 
     .line 141
-    :cond_2
+    :cond_2d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You cannot start a load on a fragment before it is attached"
@@ -363,25 +363,25 @@
 .end method
 
 .method public get(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_36
 
     .line 85
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnMainThread()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_31
 
     instance-of v0, p1, Landroid/app/Application;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_31
 
     .line 86
     instance-of v0, p1, Landroid/support/v4/app/FragmentActivity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 87
     check-cast p1, Landroid/support/v4/app/FragmentActivity;
@@ -393,10 +393,10 @@
     return-object p0
 
     .line 88
-    :cond_0
+    :cond_17
     instance-of v0, p1, Landroid/app/Activity;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 89
     check-cast p1, Landroid/app/Activity;
@@ -408,10 +408,10 @@
     return-object p0
 
     .line 90
-    :cond_1
+    :cond_22
     instance-of v0, p1, Landroid/content/ContextWrapper;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_31
 
     .line 91
     check-cast p1, Landroid/content/ContextWrapper;
@@ -427,7 +427,7 @@
     return-object p0
 
     .line 95
-    :cond_2
+    :cond_31
     invoke-direct {p0, p1}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->getApplicationManager(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
 
     move-result-object p0
@@ -435,7 +435,7 @@
     return-object p0
 
     .line 84
-    :cond_3
+    :cond_36
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You cannot start a load on a null Context"
@@ -446,21 +446,21 @@
 .end method
 
 .method public get(Landroid/support/v4/app/Fragment;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 3
 
     .line 109
     invoke-virtual {p1}, Landroid/support/v4/app/Fragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 112
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnBackgroundThread()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 113
     invoke-virtual {p1}, Landroid/support/v4/app/Fragment;->getActivity()Landroid/support/v4/app/FragmentActivity;
@@ -478,7 +478,7 @@
     return-object p0
 
     .line 115
-    :cond_0
+    :cond_19
     invoke-virtual {p1}, Landroid/support/v4/app/Fragment;->getChildFragmentManager()Landroid/support/v4/app/FragmentManager;
 
     move-result-object v0
@@ -495,7 +495,7 @@
     return-object p0
 
     .line 110
-    :cond_1
+    :cond_26
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You cannot start a load on a fragment before it is attached"
@@ -506,14 +506,14 @@
 .end method
 
 .method public get(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 3
 
     .line 99
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnBackgroundThread()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 100
     invoke-virtual {p1}, Landroid/support/v4/app/FragmentActivity;->getApplicationContext()Landroid/content/Context;
@@ -527,7 +527,7 @@
     return-object p0
 
     .line 102
-    :cond_0
+    :cond_f
     invoke-static {p1}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->assertNotDestroyed(Landroid/app/Activity;)V
 
     .line 103
@@ -544,7 +544,7 @@
 .end method
 
 .method getRequestManagerFragment(Landroid/app/FragmentManager;)Lcom/bumptech/glide/manager/RequestManagerFragment;
-    .locals 3
+    .registers 5
     .annotation build Landroid/annotation/TargetApi;
         value = 0x11
     .end annotation
@@ -558,7 +558,7 @@
 
     check-cast v0, Lcom/bumptech/glide/manager/RequestManagerFragment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_35
 
     .line 155
     iget-object v0, p0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->pendingRequestManagerFragments:Ljava/util/Map;
@@ -569,7 +569,7 @@
 
     check-cast v0, Lcom/bumptech/glide/manager/RequestManagerFragment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_35
 
     .line 157
     new-instance v0, Lcom/bumptech/glide/manager/RequestManagerFragment;
@@ -605,12 +605,12 @@
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
-    :cond_0
+    :cond_35
     return-object v0
 .end method
 
 .method getSupportRequestManagerFragment(Landroid/support/v4/app/FragmentManager;)Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
-    .locals 3
+    .registers 5
 
     const-string v0, "com.bumptech.glide.manager"
 
@@ -621,7 +621,7 @@
 
     check-cast v0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_35
 
     .line 183
     iget-object v0, p0, Lcom/bumptech/glide/manager/RequestManagerRetriever;->pendingSupportRequestManagerFragments:Ljava/util/Map;
@@ -632,7 +632,7 @@
 
     check-cast v0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_35
 
     .line 185
     new-instance v0, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
@@ -668,12 +668,12 @@
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
-    :cond_0
+    :cond_35
     return-object v0
 .end method
 
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 3
+    .registers 5
 
     .line 209
     iget v0, p1, Landroid/os/Message;->what:I
@@ -682,16 +682,16 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_46
 
     const/4 v2, 0x0
 
     move-object p0, v1
 
-    goto :goto_0
+    goto :goto_21
 
     .line 216
-    :pswitch_0
+    :pswitch_a
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     move-object v1, p1
@@ -705,10 +705,10 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_21
 
     .line 211
-    :pswitch_1
+    :pswitch_16
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     move-object v1, p1
@@ -722,10 +722,10 @@
 
     move-result-object p0
 
-    :goto_0
-    if-eqz v2, :cond_0
+    :goto_21
+    if-eqz v2, :cond_44
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_44
 
     const-string p0, "RMRetriever"
 
@@ -736,7 +736,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_44
 
     const-string p0, "RMRetriever"
 
@@ -757,20 +757,20 @@
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_44
     return v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_46
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_a
     .end packed-switch
 .end method
 
 .method supportFragmentGet(Landroid/content/Context;Landroid/support/v4/app/FragmentManager;)Lcom/bumptech/glide/RequestManager;
-    .locals 2
+    .registers 5
 
     .line 195
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->getSupportRequestManagerFragment(Landroid/support/v4/app/FragmentManager;)Lcom/bumptech/glide/manager/SupportRequestManagerFragment;
@@ -782,7 +782,7 @@
 
     move-result-object p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1a
 
     .line 198
     new-instance p2, Lcom/bumptech/glide/RequestManager;
@@ -800,6 +800,6 @@
     .line 199
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/manager/SupportRequestManagerFragment;->setRequestManager(Lcom/bumptech/glide/RequestManager;)V
 
-    :cond_0
+    :cond_1a
     return-object p2
 .end method

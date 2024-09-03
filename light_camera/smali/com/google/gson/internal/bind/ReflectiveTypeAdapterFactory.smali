@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Lcom/google/gson/FieldNamingStrategy;Lcom/google/gson/internal/Excluder;Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;)V
-    .locals 0
+    .registers 5
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method private createBoundField(Lcom/google/gson/Gson;Ljava/lang/reflect/Field;Ljava/lang/String;Lcom/google/gson/reflect/TypeToken;ZZ)Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;
-    .locals 12
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 
     check-cast v0, Lcom/google/gson/annotations/JsonAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 111
     iget-object v2, v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory;->jsonAdapterFactory:Lcom/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory;
@@ -98,35 +98,35 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_21
+    if-eqz v0, :cond_26
 
     const/4 v2, 0x1
 
-    :goto_1
+    :goto_24
     move v6, v2
 
-    goto :goto_2
+    goto :goto_28
 
-    :cond_1
+    :cond_26
     const/4 v2, 0x0
 
-    goto :goto_1
+    goto :goto_24
 
-    :goto_2
-    if-nez v0, :cond_2
+    :goto_28
+    if-nez v0, :cond_2e
 
     .line 115
     invoke-virtual {p1, v9}, Lcom/google/gson/Gson;->getAdapter(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
 
     move-result-object v0
 
-    :cond_2
+    :cond_2e
     move-object v7, v0
 
     .line 118
@@ -154,7 +154,7 @@
 .end method
 
 .method static excludeField(Ljava/lang/reflect/Field;ZLcom/google/gson/internal/Excluder;)Z
-    .locals 1
+    .registers 4
 
     .line 67
     invoke-virtual {p0}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
@@ -165,27 +165,27 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     invoke-virtual {p2, p0, p1}, Lcom/google/gson/internal/Excluder;->excludeField(Ljava/lang/reflect/Field;Z)Z
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method private getBoundFields(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Ljava/lang/Class;)Ljava/util/Map;
-    .locals 24
+    .registers 28
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -213,12 +213,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     return-object v8
 
     .line 148
-    :cond_0
+    :cond_e
     invoke-virtual/range {p2 .. p2}, Lcom/google/gson/reflect/TypeToken;->getType()Ljava/lang/reflect/Type;
 
     move-result-object v9
@@ -228,10 +228,10 @@
     move-object/from16 v10, p3
 
     .line 149
-    :goto_0
+    :goto_16
     const-class v0, Ljava/lang/Object;
 
-    if-eq v10, v0, :cond_7
+    if-eq v10, v0, :cond_d0
 
     .line 150
     invoke-virtual {v10}, Ljava/lang/Class;->getDeclaredFields()[Ljava/lang/reflect/Field;
@@ -245,8 +245,8 @@
 
     move v15, v14
 
-    :goto_1
-    if-ge v15, v13, :cond_6
+    :goto_21
+    if-ge v15, v13, :cond_ba
 
     aget-object v6, v12, v15
 
@@ -262,14 +262,14 @@
 
     move-result v16
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_34
 
-    if-nez v16, :cond_1
+    if-nez v16, :cond_34
 
-    goto/16 :goto_5
+    goto/16 :goto_9a
 
     .line 157
-    :cond_1
+    :cond_34
     invoke-virtual {v6, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
 
     .line 158
@@ -301,8 +301,8 @@
 
     move v3, v14
 
-    :goto_2
-    if-ge v3, v4, :cond_4
+    :goto_4e
+    if-ge v3, v4, :cond_97
 
     .line 162
     invoke-interface {v5, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -311,17 +311,17 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_5b
 
     move/from16 v18, v14
 
-    goto :goto_3
+    goto :goto_5d
 
-    :cond_2
+    :cond_5b
     move/from16 v18, v1
 
     .line 165
-    :goto_3
+    :goto_5d
     invoke-static/range {v17 .. v17}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
     move-result-object v19
@@ -368,16 +368,16 @@
 
     check-cast v0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;
 
-    if-nez v14, :cond_3
+    if-nez v14, :cond_8a
 
     move-object v2, v0
 
-    goto :goto_4
+    goto :goto_8b
 
-    :cond_3
+    :cond_8a
     move-object v2, v14
 
-    :goto_4
+    :goto_8b
     add-int/lit8 v3, v21, 0x1
 
     move/from16 v1, v18
@@ -390,22 +390,22 @@
 
     const/4 v14, 0x0
 
-    goto :goto_2
+    goto :goto_4e
 
-    :cond_4
+    :cond_97
     move-object v14, v2
 
-    if-nez v14, :cond_5
+    if-nez v14, :cond_9e
 
-    :goto_5
+    :goto_9a
     add-int/lit8 v15, v15, 0x1
 
     const/4 v14, 0x0
 
-    goto :goto_1
+    goto :goto_21
 
     .line 170
-    :cond_5
+    :cond_9e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -431,7 +431,7 @@
     throw v0
 
     .line 174
-    :cond_6
+    :cond_ba
     invoke-virtual {v11}, Lcom/google/gson/reflect/TypeToken;->getType()Ljava/lang/reflect/Type;
 
     move-result-object v0
@@ -453,14 +453,14 @@
 
     move-result-object v10
 
-    goto/16 :goto_0
+    goto/16 :goto_16
 
-    :cond_7
+    :cond_d0
     return-object v8
 .end method
 
 .method private getFieldNames(Ljava/lang/reflect/Field;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -481,7 +481,7 @@
 
     check-cast v0, Lcom/google/gson/annotations/SerializedName;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 74
     iget-object p0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory;->fieldNamingPolicy:Lcom/google/gson/FieldNamingStrategy;
@@ -498,7 +498,7 @@
     return-object p0
 
     .line 78
-    :cond_0
+    :cond_15
     invoke-interface {v0}, Lcom/google/gson/annotations/SerializedName;->value()Ljava/lang/String;
 
     move-result-object p0
@@ -511,7 +511,7 @@
     .line 80
     array-length v0, p1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_25
 
     .line 81
     invoke-static {p0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
@@ -521,7 +521,7 @@
     return-object p0
 
     .line 84
-    :cond_1
+    :cond_25
     new-instance v0, Ljava/util/ArrayList;
 
     array-length v1, p1
@@ -538,8 +538,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, p0, :cond_2
+    :goto_32
+    if-ge v1, p0, :cond_3c
 
     aget-object v2, p1, v1
 
@@ -548,16 +548,16 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_2
+    :cond_3c
     return-object v0
 .end method
 
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -583,14 +583,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 99
-    :cond_0
+    :cond_e
     iget-object v1, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory;->constructorConstructor:Lcom/google/gson/internal/ConstructorConstructor;
 
     invoke-virtual {v1, p2}, Lcom/google/gson/internal/ConstructorConstructor;->get(Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/internal/ObjectConstructor;
@@ -610,7 +610,7 @@
 .end method
 
 .method public excludeField(Ljava/lang/reflect/Field;Z)Z
-    .locals 0
+    .registers 3
 
     .line 63
     iget-object p0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory;->excluder:Lcom/google/gson/internal/Excluder;

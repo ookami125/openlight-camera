@@ -23,13 +23,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Lopenlight/co/camera/BasePreviewFragment;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method private clearAndRelease()V
-    .locals 0
+    .registers 1
 
     .line 239
     invoke-virtual {p0}, Lopenlight/co/camera/VideoFragment;->clear()V
@@ -64,7 +64,7 @@
 .end method
 
 .method public static synthetic lambda$-1uF3DC8GJtVDr7kqBdbqCWVrcU(Lopenlight/co/camera/VideoFragment;)V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lopenlight/co/camera/VideoFragment;->clearAndRelease()V
 
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method protected clear()V
-    .locals 2
+    .registers 3
 
     .line 185
     iget-object v0, p0, Lopenlight/co/camera/VideoFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -108,25 +108,25 @@
 .end method
 
 .method public focusCompleted()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public focusFailedUpdateUi()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public focusSuccessUpdateUi()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 116
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -141,7 +141,7 @@
 .end method
 
 .method protected getSizeForConfigureTransform(IIZLandroid/graphics/Point;)Landroid/util/Size;
-    .locals 0
+    .registers 5
 
     .line 220
     new-instance p0, Landroid/util/Size;
@@ -156,7 +156,7 @@
 .end method
 
 .method protected handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/os/Message;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -167,21 +167,21 @@
 
     const/16 v0, 0xca
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_b
 
     .line 201
     iget-object p0, p0, Lopenlight/co/camera/VideoFragment;->mVideoController:Lopenlight/co/camera/VideoController;
 
     invoke-virtual {p0}, Lopenlight/co/camera/VideoController;->addOrShowPrimaryControl()V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method protected handleSystemUIChangeListener(Z)V
-    .locals 2
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 209
     iget-object p1, p0, Lopenlight/co/camera/VideoFragment;->mVideoController:Lopenlight/co/camera/VideoController;
@@ -191,20 +191,20 @@
     .line 210
     invoke-virtual {p0}, Lopenlight/co/camera/VideoFragment;->hideSystemUIAfterADelay()V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_b
     const-wide/16 v0, 0x15e
 
     .line 213
     invoke-virtual {p0, v0, v1}, Lopenlight/co/camera/VideoFragment;->showPrimaryControlWithDelay(J)V
 
-    :goto_0
+    :goto_10
     return-void
 .end method
 
 .method protected isWithinPreview(Landroid/view/MotionEvent;Z)Z
-    .locals 0
+    .registers 3
 
     xor-int/lit8 p0, p2, 0x1
 
@@ -212,7 +212,7 @@
 .end method
 
 .method public onCaptureSessionConfigured()V
-    .locals 0
+    .registers 1
 
     .line 154
     invoke-super {p0}, Lopenlight/co/camera/BasePreviewFragment;->onCaptureSessionConfigured()V
@@ -226,7 +226,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 0
+    .registers 4
     .param p2    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -252,7 +252,7 @@
 .end method
 
 .method public onPause()V
-    .locals 2
+    .registers 3
 
     .line 100
     invoke-super {p0}, Lopenlight/co/camera/BasePreviewFragment;->onPause()V
@@ -264,7 +264,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 105
     iget-object v0, p0, Lopenlight/co/camera/VideoFragment;->mVideoController:Lopenlight/co/camera/VideoController;
@@ -280,14 +280,14 @@
 
     invoke-virtual {v0}, Lopenlight/co/camera/managers/video/VideoManager;->stopRecording()V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 108
-    :cond_0
+    :cond_1b
     invoke-direct {p0}, Lopenlight/co/camera/VideoFragment;->clearAndRelease()V
 
     .line 111
-    :goto_0
+    :goto_1e
     iget-object p0, p0, Lopenlight/co/camera/VideoFragment;->mMicManager:Lopenlight/co/camera/utils/MicManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/MicManager;->release()V
@@ -296,7 +296,7 @@
 .end method
 
 .method public onResume()V
-    .locals 3
+    .registers 4
 
     .line 84
     invoke-virtual {p0}, Lopenlight/co/camera/VideoFragment;->addTextureView()V
@@ -341,16 +341,16 @@
     .line 92
     iget-object v1, p0, Lopenlight/co/camera/VideoFragment;->mMuteMicView:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_0
+    :cond_2c
     const/16 v0, 0x8
 
-    :goto_0
+    :goto_2e
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 93
@@ -368,7 +368,7 @@
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 3
+    .registers 6
     .param p2    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -502,7 +502,7 @@
 .end method
 
 .method protected processHardKeyCapture(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 
@@ -510,7 +510,7 @@
 .end method
 
 .method protected processHardKeyFocus(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -518,7 +518,7 @@
 .end method
 
 .method public setMutePreviewStatusListener(Landroid/view/View$OnClickListener;)V
-    .locals 0
+    .registers 2
 
     .line 179
     iput-object p1, p0, Lopenlight/co/camera/VideoFragment;->mMutePreviewStatusOnClickListener:Landroid/view/View$OnClickListener;
@@ -527,7 +527,7 @@
 .end method
 
 .method public triggerFocusPostZoom()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -538,25 +538,25 @@
 .end method
 
 .method public updateHandshakeAssist(Z)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public updateLowLightAssist(Ljava/lang/Byte;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public updateTripodAssist(Ljava/lang/Byte;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public updateVideoPreview()V
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x780
 

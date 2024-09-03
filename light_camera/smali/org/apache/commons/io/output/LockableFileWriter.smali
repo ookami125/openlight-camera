@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;ZLjava/lang/String;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/nio/charset/Charset;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/nio/charset/Charset;ZLjava/lang/String;)V
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -107,7 +107,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 184
     invoke-virtual {p1}, Ljava/io/File;->getParentFile()Ljava/io/File;
@@ -117,14 +117,14 @@
     invoke-static {v0}, Lorg/apache/commons/io/FileUtils;->forceMkdir(Ljava/io/File;)V
 
     .line 186
-    :cond_0
+    :cond_14
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_53
 
-    if-nez p4, :cond_1
+    if-nez p4, :cond_22
 
     const-string p4, "java.io.tmpdir"
 
@@ -134,7 +134,7 @@
     move-result-object p4
 
     .line 194
-    :cond_1
+    :cond_22
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p4}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -183,7 +183,7 @@
     return-void
 
     .line 187
-    :cond_2
+    :cond_53
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "File specified is a directory"
@@ -194,7 +194,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Z)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -210,7 +210,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;ZLjava/lang/String;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -231,7 +231,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,7 +249,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Z)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -265,7 +265,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;ZLjava/lang/String;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -283,7 +283,7 @@
 .end method
 
 .method private createLock()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -296,14 +296,14 @@
     monitor-enter v0
 
     .line 250
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lorg/apache/commons/io/output/LockableFileWriter;->lockFile:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->createNewFile()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 254
     iget-object p0, p0, Lorg/apache/commons/io/output/LockableFileWriter;->lockFile:Ljava/io/File;
@@ -316,7 +316,7 @@
     return-void
 
     .line 251
-    :cond_0
+    :cond_12
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -347,19 +347,19 @@
 
     throw v1
 
-    :catchall_0
+    :catchall_34
     move-exception p0
 
     .line 255
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_36
+    .catchall {:try_start_3 .. :try_end_36} :catchall_34
 
     throw p0
 .end method
 
 .method private initWriter(Ljava/io/File;Ljava/nio/charset/Charset;Z)Ljava/io/Writer;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -374,7 +374,7 @@
     const/4 v1, 0x0
 
     .line 273
-    :try_start_0
+    :try_start_5
     new-instance v2, Ljava/io/FileOutputStream;
 
     invoke-virtual {p1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -382,12 +382,12 @@
     move-result-object v3
 
     invoke-direct {v2, v3, p3}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;Z)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_e
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_e} :catch_2f
+    .catch Ljava/lang/RuntimeException; {:try_start_5 .. :try_end_e} :catch_1c
 
     .line 274
-    :try_start_1
+    :try_start_e
     new-instance p3, Ljava/io/OutputStreamWriter;
 
     invoke-static {p2}, Lorg/apache/commons/io/Charsets;->toCharset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
@@ -395,29 +395,29 @@
     move-result-object p2
 
     invoke-direct {p3, v2, p2}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_17
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_17} :catch_1a
+    .catch Ljava/lang/RuntimeException; {:try_start_e .. :try_end_17} :catch_18
 
     return-object p3
 
-    :catch_0
+    :catch_18
     move-exception p2
 
-    goto :goto_0
+    goto :goto_1e
 
-    :catch_1
+    :catch_1a
     move-exception p2
 
-    goto :goto_1
+    goto :goto_31
 
-    :catch_2
+    :catch_1c
     move-exception p2
 
     move-object v2, v1
 
     .line 284
-    :goto_0
+    :goto_1e
     invoke-static {v1}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Writer;)V
 
     .line 285
@@ -428,22 +428,22 @@
 
     invoke-static {p0}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2e
 
     .line 288
     invoke-static {p1}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
     .line 290
-    :cond_0
+    :cond_2e
     throw p2
 
-    :catch_3
+    :catch_2f
     move-exception p2
 
     move-object v2, v1
 
     .line 276
-    :goto_1
+    :goto_31
     invoke-static {v1}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/Writer;)V
 
     .line 277
@@ -454,18 +454,18 @@
 
     invoke-static {p0}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_41
 
     .line 280
     invoke-static {p1}, Lorg/apache/commons/io/FileUtils;->deleteQuietly(Ljava/io/File;)Z
 
     .line 282
-    :cond_1
+    :cond_41
     throw p2
 .end method
 
 .method private testLockDir(Ljava/io/File;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -477,19 +477,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_28
 
     .line 237
     invoke-virtual {p1}, Ljava/io/File;->canWrite()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     return-void
 
     .line 238
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -515,7 +515,7 @@
     throw p0
 
     .line 234
-    :cond_1
+    :cond_28
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -544,7 +544,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -556,8 +556,8 @@
     iget-object v0, p0, Lorg/apache/commons/io/output/LockableFileWriter;->out:Ljava/io/Writer;
 
     invoke-virtual {v0}, Ljava/io/Writer;->close()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_0 .. :try_end_5} :catchall_b
 
     .line 306
     iget-object p0, p0, Lorg/apache/commons/io/output/LockableFileWriter;->lockFile:Ljava/io/File;
@@ -566,7 +566,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     iget-object p0, p0, Lorg/apache/commons/io/output/LockableFileWriter;->lockFile:Ljava/io/File;
@@ -577,7 +577,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -593,7 +593,7 @@
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -609,7 +609,7 @@
 .end method
 
 .method public write(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -625,7 +625,7 @@
 .end method
 
 .method public write(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -641,7 +641,7 @@
 .end method
 
 .method public write([C)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -657,7 +657,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -21,13 +21,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 5
+    .registers 7
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,12 +58,12 @@
 
     move-result v2
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     sub-int v1, v2, v1
 
     .line 38
-    :cond_0
+    :cond_1d
     iget-object v2, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v3, "iso_index"
@@ -77,12 +77,12 @@
 
     move-result v3
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     sub-int v2, v3, v2
 
     .line 41
-    :cond_1
+    :cond_2d
     iget-object v3, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v4, "shutter_index"
@@ -96,12 +96,12 @@
 
     move-result v4
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3d
 
     sub-int v3, v4, v3
 
     .line 44
-    :cond_2
+    :cond_3d
     iget-object v0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v4, "camera_mode_setting"
@@ -167,24 +167,24 @@
 
 # virtual methods
 .method public releaseModels()V
-    .locals 1
+    .registers 2
 
     .line 60
     iget-object v0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mModeDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 61
     iget-object p0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mModeDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/dragger/DraggerModel;->release()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public resetValues()V
-    .locals 3
+    .registers 4
 
     .line 69
     iget-object v0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mCamPref:Lopenlight/co/lib/content/Prefs;

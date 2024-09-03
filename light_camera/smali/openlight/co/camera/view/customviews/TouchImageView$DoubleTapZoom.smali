@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/customviews/TouchImageView;FFFZ)V
-    .locals 2
+    .registers 8
 
     .line 1057
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
@@ -62,6 +62,7 @@
     .line 1058
     sget-object v0, Lopenlight/co/camera/view/customviews/TouchImageView$State;->ANIMATE_ZOOM:Lopenlight/co/camera/view/customviews/TouchImageView$State;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->setState(Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
     invoke-static {p1, v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1100(Lopenlight/co/camera/view/customviews/TouchImageView;Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
 
     .line 1059
@@ -85,6 +86,7 @@
     const/4 p2, 0x0
 
     .line 1063
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->transformCoordTouchToBitmap(FFZ)Landroid/graphics/PointF;
     invoke-static {p1, p3, p4, p2}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2300(Lopenlight/co/camera/view/customviews/TouchImageView;FFZ)Landroid/graphics/PointF;
 
     move-result-object p2
@@ -104,6 +106,7 @@
 
     iget p3, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->bitmapY:F
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->transformCoordBitmapToTouch(FF)Landroid/graphics/PointF;
     invoke-static {p1, p2, p3}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2400(Lopenlight/co/camera/view/customviews/TouchImageView;FF)Landroid/graphics/PointF;
 
     move-result-object p2
@@ -113,6 +116,7 @@
     .line 1071
     new-instance p2, Landroid/graphics/PointF;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->viewWidth:I
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1200(Lopenlight/co/camera/view/customviews/TouchImageView;)I
 
     move-result p3
@@ -121,6 +125,7 @@
 
     int-to-float p3, p3
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->viewHeight:I
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1500(Lopenlight/co/camera/view/customviews/TouchImageView;)I
 
     move-result p1
@@ -137,7 +142,7 @@
 .end method
 
 .method private calculateDeltaScale(F)D
-    .locals 2
+    .registers 4
 
     .line 1139
     iget v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->startZoom:F
@@ -165,7 +170,7 @@
 .end method
 
 .method private interpolate()F
-    .locals 4
+    .registers 5
 
     .line 1125
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -201,7 +206,7 @@
 .end method
 
 .method private translateImageToCenterTouchPosition(F)V
-    .locals 4
+    .registers 6
 
     .line 1113
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->startTouch:Landroid/graphics/PointF;
@@ -248,6 +253,7 @@
 
     iget v3, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->bitmapY:F
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->transformCoordBitmapToTouch(FF)Landroid/graphics/PointF;
     invoke-static {p1, v2, v3}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2400(Lopenlight/co/camera/view/customviews/TouchImageView;FF)Landroid/graphics/PointF;
 
     move-result-object p1
@@ -255,6 +261,7 @@
     .line 1116
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
     invoke-static {p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1700(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/graphics/Matrix;
 
     move-result-object p0
@@ -275,7 +282,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 1076
     invoke-direct {p0}, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->interpolate()F
@@ -296,6 +303,7 @@
 
     iget-boolean v6, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->stretchImageToSuper:Z
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->scaleImage(DFFZ)V
     invoke-static/range {v1 .. v6}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2200(Lopenlight/co/camera/view/customviews/TouchImageView;DFFZ)V
 
     .line 1079
@@ -304,6 +312,7 @@
     .line 1080
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->fixScaleTrans()V
     invoke-static {v1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2500(Lopenlight/co/camera/view/customviews/TouchImageView;)V
 
     .line 1081
@@ -311,6 +320,7 @@
 
     iget-object v2, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
     invoke-static {v2}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1700(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/graphics/Matrix;
 
     move-result-object v2
@@ -320,43 +330,47 @@
     .line 1087
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->touchImageViewListener:Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
     invoke-static {v1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2100(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_37
 
     .line 1088
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->touchImageViewListener:Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
     invoke-static {v1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2100(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
 
     move-result-object v1
 
     invoke-interface {v1}, Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;->onMove()V
 
-    :cond_0
+    :cond_37
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_43
 
     .line 1095
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->compatPostOnAnimation(Ljava/lang/Runnable;)V
     invoke-static {v0, p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$500(Lopenlight/co/camera/view/customviews/TouchImageView;Ljava/lang/Runnable;)V
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 1101
-    :cond_1
+    :cond_43
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$DoubleTapZoom;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
     sget-object v0, Lopenlight/co/camera/view/customviews/TouchImageView$State;->NONE:Lopenlight/co/camera/view/customviews/TouchImageView$State;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->setState(Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
     invoke-static {p0, v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1100(Lopenlight/co/camera/view/customviews/TouchImageView;Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
 
-    :goto_0
+    :goto_4a
     return-void
 .end method

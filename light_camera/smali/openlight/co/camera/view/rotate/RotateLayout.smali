@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
 
     .line 47
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -126,7 +126,7 @@
 .end method
 
 .method private static fixAngle(I)I
-    .locals 0
+    .registers 1
 
     .line 162
     div-int/lit8 p0, p0, 0x5a
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 4
+    .registers 6
 
     .line 131
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -179,7 +179,7 @@
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
+    .registers 7
 
     .line 145
     iget-object v0, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mViewTouchPoint:[F
@@ -243,7 +243,7 @@
 .end method
 
 .method public getAngle()I
-    .locals 0
+    .registers 1
 
     .line 61
     iget p0, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mAngle:I
@@ -252,14 +252,14 @@
 .end method
 
 .method public getView()Landroid/view/View;
-    .locals 1
+    .registers 2
 
     .line 82
     invoke-virtual {p0}, Lopenlight/co/camera/view/rotate/RotateLayout;->getChildCount()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_c
 
     const/4 v0, 0x0
 
@@ -270,14 +270,14 @@
 
     return-object p0
 
-    :cond_0
+    :cond_c
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public invalidateChildInParent([ILandroid/graphics/Rect;)Landroid/view/ViewParent;
-    .locals 0
+    .registers 3
 
     .line 139
     invoke-virtual {p0}, Lopenlight/co/camera/view/rotate/RotateLayout;->invalidate()V
@@ -291,17 +291,17 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 1
+    .registers 7
 
     .line 112
     iget-boolean v0, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mAngleChanged:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2f
 
     .line 113
-    :cond_0
+    :cond_6
     iget-object p1, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mF1TempRect:Landroid/graphics/RectF;
 
     .line 114
@@ -353,12 +353,12 @@
     iput-boolean p1, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mAngleChanged:Z
 
     .line 122
-    :cond_1
+    :cond_2f
     invoke-virtual {p0}, Lopenlight/co/camera/view/rotate/RotateLayout;->getView()Landroid/view/View;
 
     move-result-object p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_48
 
     .line 124
     iget-object p2, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mRotationViewRect:Landroid/graphics/Rect;
@@ -379,19 +379,19 @@
 
     invoke-virtual {p1, p2, p3, p4, p0}, Landroid/view/View;->layout(IIII)V
 
-    :cond_2
+    :cond_48
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
+    .registers 6
 
     .line 91
     invoke-virtual {p0}, Lopenlight/co/camera/view/rotate/RotateLayout;->getView()Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
     .line 93
     iget v1, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mAngle:I
@@ -404,7 +404,7 @@
 
     const/16 v2, 0x5a
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_29
 
     .line 95
     invoke-virtual {p0, v0, p2, p1}, Lopenlight/co/camera/view/rotate/RotateLayout;->measureChild(Landroid/view/View;II)V
@@ -430,10 +430,10 @@
     .line 96
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/rotate/RotateLayout;->setMeasuredDimension(II)V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 100
-    :cond_0
+    :cond_29
     invoke-virtual {p0, v0, p1, p2}, Lopenlight/co/camera/view/rotate/RotateLayout;->measureChild(Landroid/view/View;II)V
 
     .line 102
@@ -457,18 +457,18 @@
     .line 101
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/rotate/RotateLayout;->setMeasuredDimension(II)V
 
-    goto :goto_0
+    goto :goto_43
 
     .line 106
-    :cond_1
+    :cond_40
     invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onMeasure(II)V
 
-    :goto_0
+    :goto_43
     return-void
 .end method
 
 .method public setAngle(I)V
-    .locals 1
+    .registers 3
 
     .line 70
     invoke-static {p1}, Lopenlight/co/camera/view/rotate/RotateLayout;->fixAngle(I)I
@@ -478,7 +478,7 @@
     .line 71
     iget v0, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mAngle:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_10
 
     .line 72
     iput p1, p0, Lopenlight/co/camera/view/rotate/RotateLayout;->mAngle:I
@@ -491,6 +491,6 @@
     .line 74
     invoke-virtual {p0}, Lopenlight/co/camera/view/rotate/RotateLayout;->requestLayout()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method

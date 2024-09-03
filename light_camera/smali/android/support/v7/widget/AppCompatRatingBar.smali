@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     .line 43
     sget v0, Landroid/support/v7/appcompat/R$attr;->ratingBarStyle:I
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 47
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RatingBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -54,12 +54,12 @@
 
 # virtual methods
 .method protected declared-synchronized onMeasure(II)V
-    .locals 1
+    .registers 4
 
     monitor-enter p0
 
     .line 55
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2}, Landroid/widget/RatingBar;->onMeasure(II)V
 
     .line 57
@@ -69,7 +69,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_21
 
     .line 59
     invoke-virtual {p2}, Landroid/graphics/Bitmap;->getWidth()I
@@ -96,16 +96,16 @@
 
     .line 60
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/AppCompatRatingBar;->setMeasuredDimension(II)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
     .line 63
-    :cond_0
+    :cond_21
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 54

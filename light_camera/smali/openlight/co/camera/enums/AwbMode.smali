@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 19
+    .registers 19
 
     .line 15
     new-instance v8, Lopenlight/co/camera/enums/AwbMode$1;
@@ -219,7 +219,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;IIII)V
-    .locals 9
+    .registers 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -253,7 +253,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;IIIII)V
-    .locals 0
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -287,7 +287,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;IIIILopenlight/co/camera/enums/AwbMode$1;)V
-    .locals 0
+    .registers 9
 
     .line 12
     invoke-direct/range {p0 .. p7}, Lopenlight/co/camera/enums/AwbMode;-><init>(Ljava/lang/String;ILjava/lang/String;IIII)V
@@ -296,7 +296,7 @@
 .end method
 
 .method public static getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/AwbMode;
-    .locals 5
+    .registers 6
 
     .line 112
     invoke-static {}, Lopenlight/co/camera/enums/AwbMode;->values()[Lopenlight/co/camera/enums/AwbMode;
@@ -307,8 +307,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_16
 
     aget-object v3, v0, v2
 
@@ -319,17 +319,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     return-object v3
 
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 117
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -352,7 +352,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/AwbMode;
-    .locals 1
+    .registers 2
 
     .line 12
     const-class v0, Lopenlight/co/camera/enums/AwbMode;
@@ -367,7 +367,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/AwbMode;
-    .locals 1
+    .registers 1
 
     .line 12
     sget-object v0, Lopenlight/co/camera/enums/AwbMode;->$VALUES:[Lopenlight/co/camera/enums/AwbMode;
@@ -384,7 +384,7 @@
 
 # virtual methods
 .method public getBadgeResId()I
-    .locals 0
+    .registers 1
 
     .line 174
     iget p0, p0, Lopenlight/co/camera/enums/AwbMode;->mBadgeResId:I
@@ -393,7 +393,7 @@
 .end method
 
 .method public getCaptureRequestModeValue()I
-    .locals 0
+    .registers 1
 
     .line 183
     iget p0, p0, Lopenlight/co/camera/enums/AwbMode;->mCaptureRequestValue:I
@@ -402,7 +402,7 @@
 .end method
 
 .method public getConfirmationResId()I
-    .locals 0
+    .registers 1
 
     .line 165
     iget p0, p0, Lopenlight/co/camera/enums/AwbMode;->mConfirmationResId:I
@@ -411,7 +411,7 @@
 .end method
 
 .method public getPrefsKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 137
     iget-object p0, p0, Lopenlight/co/camera/enums/AwbMode;->mPrefsKey:Ljava/lang/String;
@@ -420,7 +420,7 @@
 .end method
 
 .method public getResourceId()I
-    .locals 0
+    .registers 1
 
     .line 146
     iget p0, p0, Lopenlight/co/camera/enums/AwbMode;->mResId:I
@@ -429,7 +429,7 @@
 .end method
 
 .method public getSelectedResId()I
-    .locals 0
+    .registers 1
 
     .line 156
     iget p0, p0, Lopenlight/co/camera/enums/AwbMode;->mSelectedResId:I
@@ -438,7 +438,7 @@
 .end method
 
 .method public isAuto()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

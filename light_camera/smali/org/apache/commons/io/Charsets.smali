@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "ISO-8859-1"
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -106,7 +106,7 @@
 .end method
 
 .method public static requiredCharsets()Ljava/util/SortedMap;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -199,36 +199,36 @@
 .end method
 
 .method public static toCharset(Ljava/lang/String;)Ljava/nio/charset/Charset;
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     .line 107
     invoke-static {}, Ljava/nio/charset/Charset;->defaultCharset()Ljava/nio/charset/Charset;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_7
     invoke-static {p0}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
 
     move-result-object p0
 
-    :goto_0
+    :goto_b
     return-object p0
 .end method
 
 .method public static toCharset(Ljava/nio/charset/Charset;)Ljava/nio/charset/Charset;
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
     .line 94
     invoke-static {}, Ljava/nio/charset/Charset;->defaultCharset()Ljava/nio/charset/Charset;
 
     move-result-object p0
 
-    :cond_0
+    :cond_6
     return-object p0
 .end method

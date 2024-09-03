@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 875
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$NotificationCompatApi21Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public build(Landroid/support/v4/app/NotificationCompat$Builder;Landroid/support/v4/app/NotificationCompat$BuilderExtender;)Landroid/app/Notification;
-    .locals 37
+    .registers 40
 
     move-object/from16 v0, p1
 
@@ -143,6 +143,7 @@
     move-object/from16 v32, v1
 
     .line 886
+    # getter for: Landroid/support/v4/app/NotificationCompat$Builder;->mGroupAlertBehavior:I
     invoke-static/range {p1 .. p1}, Landroid/support/v4/app/NotificationCompat$Builder;->access$000(Landroid/support/v4/app/NotificationCompat$Builder;)I
 
     move-result v33
@@ -161,14 +162,14 @@
     .line 888
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_84
 
     .line 889
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
     invoke-virtual {v1, v2}, Landroid/support/v4/app/NotificationCompat$Style;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
 
-    :cond_0
+    :cond_84
     move-object/from16 v1, p2
 
     .line 891
@@ -179,7 +180,7 @@
     .line 892
     iget-object v2, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_97
 
     .line 893
     iget-object v0, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
@@ -190,12 +191,12 @@
 
     invoke-virtual {v0, v2}, Landroid/support/v4/app/NotificationCompat$Style;->addCompatExtras(Landroid/os/Bundle;)V
 
-    :cond_1
+    :cond_97
     return-object v1
 .end method
 
 .method public getAction(Landroid/app/Notification;I)Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 1
+    .registers 4
 
     .line 900
     sget-object p0, Landroid/support/v4/app/NotificationCompat$Action;->FACTORY:Landroid/support/v4/app/NotificationCompatBase$Action$Factory;
@@ -212,7 +213,7 @@
 .end method
 
 .method public getActionsFromParcelableArrayList(Ljava/util/ArrayList;)[Landroid/support/v4/app/NotificationCompat$Action;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -238,7 +239,7 @@
 .end method
 
 .method public getParcelableArrayListForActions([Landroid/support/v4/app/NotificationCompat$Action;)Ljava/util/ArrayList;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",

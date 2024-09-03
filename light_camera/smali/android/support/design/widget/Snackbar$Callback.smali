@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 86
     invoke-direct {p0}, Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;-><init>()V
@@ -47,13 +47,13 @@
 
 # virtual methods
 .method public onDismissed(Landroid/support/design/widget/Snackbar;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public bridge synthetic onDismissed(Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
 
     .line 86
     check-cast p1, Landroid/support/design/widget/Snackbar;
@@ -64,13 +64,13 @@
 .end method
 
 .method public onShown(Landroid/support/design/widget/Snackbar;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public bridge synthetic onShown(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 86
     check-cast p1, Landroid/support/design/widget/Snackbar;

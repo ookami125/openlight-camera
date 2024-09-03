@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 5
+    .registers 7
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,8 +85,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_2b
+    if-ge v1, v0, :cond_40
 
     .line 98
     invoke-virtual {p1, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -106,16 +106,16 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_40
     return-void
 .end method
 
 
 # virtual methods
 .method public applyTo(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 3
+    .registers 5
 
     .line 126
     iget v0, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mX:I
@@ -146,8 +146,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_1b
+    if-ge v1, v0, :cond_2b
 
     .line 131
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
@@ -163,14 +163,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public updateFrom(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 3
+    .registers 5
 
     .line 109
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getX()I
@@ -209,8 +209,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_1f
+    if-ge v1, v0, :cond_2f
 
     .line 115
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/Snapshot;->mConnections:Ljava/util/ArrayList;
@@ -226,8 +226,8 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_2f
     return-void
 .end method

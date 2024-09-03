@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1938
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public compare(Landroid/view/View;Landroid/view/View;)I
-    .locals 0
+    .registers 3
 
     .line 1941
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getZ(Landroid/view/View;)F
@@ -53,29 +53,29 @@
 
     cmpl-float p2, p0, p1
 
-    if-lez p2, :cond_0
+    if-lez p2, :cond_e
 
     const/4 p0, -0x1
 
     return p0
 
-    :cond_0
+    :cond_e
     cmpg-float p0, p0, p1
 
-    if-gez p0, :cond_1
+    if-gez p0, :cond_14
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_14
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 1938
     check-cast p1, Landroid/view/View;

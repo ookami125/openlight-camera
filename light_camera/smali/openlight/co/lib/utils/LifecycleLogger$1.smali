@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/lib/utils/LifecycleLogger;)V
-    .locals 0
+    .registers 2
 
     .line 55
     iput-object p1, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
     .line 58
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -49,16 +49,16 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_10
 
     const/4 p2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 p2, 0x0
 
-    :goto_0
+    :goto_11
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string p2, ")"
@@ -75,7 +75,7 @@
 .end method
 
 .method public onActivityDestroyed(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 88
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -88,7 +88,7 @@
 .end method
 
 .method public onActivityPaused(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 73
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -101,7 +101,7 @@
 .end method
 
 .method public onActivityResumed(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 68
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -114,7 +114,7 @@
 .end method
 
 .method public onActivitySaveInstanceState(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
 
     .line 83
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -127,7 +127,7 @@
 .end method
 
 .method public onActivityStarted(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 63
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -140,7 +140,7 @@
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 78
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger$1;->this$0:Lopenlight/co/lib/utils/LifecycleLogger;

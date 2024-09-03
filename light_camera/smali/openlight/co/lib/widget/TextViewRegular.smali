@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 8
     invoke-direct {p0, p1}, Lopenlight/co/lib/widget/TextViewCustom;-><init>(Landroid/content/Context;)V
@@ -14,7 +14,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 12
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/widget/TextViewCustom;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 16
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/lib/widget/TextViewCustom;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V

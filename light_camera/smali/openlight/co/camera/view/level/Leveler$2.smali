@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/level/Leveler;)V
-    .locals 0
+    .registers 2
 
     .line 131
     iput-object p1, p0, Lopenlight/co/camera/view/level/Leveler$2;->this$0:Lopenlight/co/camera/view/level/Leveler;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler$2;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
     const/4 v0, 0x1
 
+    # setter for: Lopenlight/co/camera/view/level/Leveler;->isShow:Z
     invoke-static {p0, v0}, Lopenlight/co/camera/view/level/Leveler;->access$1202(Lopenlight/co/camera/view/level/Leveler;Z)Z
 
     return-void

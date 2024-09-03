@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 7
+    .registers 12
 
     const/4 v2, 0x0
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 7
 
     .line 79
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public getBomEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 93
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReaderException;->bomEncoding:Ljava/lang/String;
@@ -79,7 +79,7 @@
 .end method
 
 .method public getContentTypeEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 134
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReaderException;->contentTypeEncoding:Ljava/lang/String;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getContentTypeMime()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 122
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReaderException;->contentTypeMime:Ljava/lang/String;
@@ -97,7 +97,7 @@
 .end method
 
 .method public getXmlEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 111
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReaderException;->xmlEncoding:Ljava/lang/String;
@@ -106,7 +106,7 @@
 .end method
 
 .method public getXmlGuessEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 102
     iget-object p0, p0, Lorg/apache/commons/io/input/XmlStreamReaderException;->xmlGuessEncoding:Ljava/lang/String;

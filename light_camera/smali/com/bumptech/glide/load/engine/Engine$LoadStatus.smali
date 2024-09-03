@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/request/ResourceCallback;Lcom/bumptech/glide/load/engine/EngineJob;)V
-    .locals 0
+    .registers 3
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     .line 57
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;->engineJob:Lcom/bumptech/glide/load/engine/EngineJob;

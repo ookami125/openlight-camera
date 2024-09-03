@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/MenuItemImpl;)V
-    .locals 0
+    .registers 2
 
     .line 786
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl$1;->this$0:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onActionProviderVisibilityChanged(Z)V
-    .locals 0
+    .registers 2
 
     .line 789
     iget-object p1, p0, Landroid/support/v7/view/menu/MenuItemImpl$1;->this$0:Landroid/support/v7/view/menu/MenuItemImpl;

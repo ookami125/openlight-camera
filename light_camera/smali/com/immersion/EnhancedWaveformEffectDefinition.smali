@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>([BIIIII)V
-    .locals 0
+    .registers 7
 
     .line 78
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getActuatorIndex()I
-    .locals 0
+    .registers 1
 
     .line 254
     iget p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->actuatorIndex:I
@@ -57,7 +57,7 @@
 .end method
 
 .method public getData()[B
-    .locals 0
+    .registers 1
 
     .line 134
     iget-object p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->data:[B
@@ -66,7 +66,7 @@
 .end method
 
 .method public getDataSize()I
-    .locals 0
+    .registers 1
 
     .line 147
     iget-object p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->data:[B
@@ -77,7 +77,7 @@
 .end method
 
 .method public getFormat()I
-    .locals 0
+    .registers 1
 
     .line 190
     iget p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->format:I
@@ -86,7 +86,7 @@
 .end method
 
 .method public getMagnitude()I
-    .locals 0
+    .registers 1
 
     .line 230
     iget p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->magnitude:I
@@ -95,7 +95,7 @@
 .end method
 
 .method public getSampleRate()I
-    .locals 0
+    .registers 1
 
     .line 169
     iget p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->sampleRate:I
@@ -104,7 +104,7 @@
 .end method
 
 .method public getSecureMode()I
-    .locals 0
+    .registers 1
 
     .line 280
     iget p0, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->secureMode:I
@@ -113,7 +113,7 @@
 .end method
 
 .method public setActuatorIndex(I)V
-    .locals 0
+    .registers 2
 
     .line 242
     iput p1, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->actuatorIndex:I
@@ -122,7 +122,7 @@
 .end method
 
 .method public setData([B)V
-    .locals 0
+    .registers 2
 
     .line 109
     iput-object p1, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->data:[B
@@ -131,7 +131,7 @@
 .end method
 
 .method public setFormat(I)V
-    .locals 0
+    .registers 2
 
     .line 180
     iput p1, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->format:I
@@ -140,7 +140,7 @@
 .end method
 
 .method public setMagnitude(I)V
-    .locals 0
+    .registers 2
 
     .line 210
     iput p1, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->magnitude:I
@@ -149,7 +149,7 @@
 .end method
 
 .method public setSampleRate(I)V
-    .locals 0
+    .registers 2
 
     .line 158
     iput p1, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->sampleRate:I
@@ -158,7 +158,7 @@
 .end method
 
 .method public setSecureMode(I)V
-    .locals 0
+    .registers 2
 
     .line 267
     iput p1, p0, Lcom/immersion/EnhancedWaveformEffectDefinition;->secureMode:I

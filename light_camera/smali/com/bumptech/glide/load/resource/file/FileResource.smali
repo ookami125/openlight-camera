@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
 
     .line 12
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/SimpleResource;-><init>(Ljava/lang/Object;)V

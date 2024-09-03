@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 192
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>(Ljava/util/UUID;)V
-    .locals 0
+    .registers 2
 
     .line 196
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,12 +50,12 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 202
     instance-of v0, p1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameSignature;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 203
     check-cast p1, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameSignature;
@@ -71,14 +71,14 @@
 
     return p0
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 211
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameSignature;->uuid:Ljava/util/UUID;
@@ -91,7 +91,7 @@
 .end method
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;

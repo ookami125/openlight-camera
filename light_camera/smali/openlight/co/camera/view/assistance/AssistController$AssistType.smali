@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 34
     new-instance v0, Lopenlight/co/camera/view/assistance/AssistController$AssistType;
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -106,7 +106,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/assistance/AssistController$AssistType;
-    .locals 1
+    .registers 2
 
     .line 33
     const-class v0, Lopenlight/co/camera/view/assistance/AssistController$AssistType;
@@ -121,7 +121,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/assistance/AssistController$AssistType;
-    .locals 1
+    .registers 1
 
     .line 33
     sget-object v0, Lopenlight/co/camera/view/assistance/AssistController$AssistType;->$VALUES:[Lopenlight/co/camera/view/assistance/AssistController$AssistType;

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 52
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -28,7 +28,7 @@
 
     const/16 v2, 0x1a
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_f
 
     .line 53
     new-instance v0, Landroid/support/v7/widget/TooltipCompat$Api26ViewCompatImpl;
@@ -37,22 +37,22 @@
 
     sput-object v0, Landroid/support/v7/widget/TooltipCompat;->IMPL:Landroid/support/v7/widget/TooltipCompat$ViewCompatImpl;
 
-    goto :goto_0
+    goto :goto_16
 
     .line 55
-    :cond_0
+    :cond_f
     new-instance v0, Landroid/support/v7/widget/TooltipCompat$BaseViewCompatImpl;
 
     invoke-direct {v0, v1}, Landroid/support/v7/widget/TooltipCompat$BaseViewCompatImpl;-><init>(Landroid/support/v7/widget/TooltipCompat$1;)V
 
     sput-object v0, Landroid/support/v7/widget/TooltipCompat;->IMPL:Landroid/support/v7/widget/TooltipCompat$ViewCompatImpl;
 
-    :goto_0
+    :goto_16
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

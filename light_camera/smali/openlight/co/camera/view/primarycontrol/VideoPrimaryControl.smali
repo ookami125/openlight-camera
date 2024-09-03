@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     const-class v0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
-    .locals 0
+    .registers 4
 
     .line 55
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/view/primarycontrol/BaseControl;-><init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->TAG:Ljava/lang/String;
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->gotoGallery()V
@@ -122,7 +122,7 @@
 .end method
 
 .method private gotoGallery()V
-    .locals 6
+    .registers 7
 
     .line 180
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
@@ -131,14 +131,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 182
     invoke-static {}, Lopenlight/co/camera/utils/Util;->getGalleryIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 184
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -147,17 +147,17 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 v2, 0x0
 
     .line 186
-    :goto_0
+    :goto_19
     iget-object v3, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
 
     const-string v4, "event_ui_gallery_open"
@@ -185,12 +185,12 @@
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    :cond_1
+    :cond_33
     return-void
 .end method
 
 .method private initThumbnailView()V
-    .locals 5
+    .registers 6
 
     .line 156
     new-instance v0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl$1;
@@ -265,22 +265,22 @@
 
 # virtual methods
 .method public declared-synchronized enableControls(Z)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/high16 v0, 0x3f000000    # 0.5f
 
     .line 120
-    :goto_0
-    :try_start_0
+    :goto_8
+    :try_start_8
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mRecordControlView:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setAlpha(F)V
@@ -310,7 +310,7 @@
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->setEnabled(Z)V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2e
 
     .line 130
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -318,16 +318,16 @@
     const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->showThumbnailLoading(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_8 .. :try_end_2e} :catchall_30
 
     .line 132
-    :cond_1
+    :cond_2e
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_30
     move-exception p1
 
     .line 117
@@ -337,7 +337,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 68
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -346,58 +346,58 @@
 
     const v1, 0x7f0900ad
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_32
 
     const v1, 0x7f090175
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_28
 
     const p1, 0x7f09018a
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_14
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 74
-    :cond_0
+    :cond_14
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
 
     invoke-virtual {p1}, Lopenlight/co/camera/managers/video/VideoManager;->isRecording()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_22
 
     .line 75
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/video/VideoManager;->stopRecording()V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 77
-    :cond_1
+    :cond_22
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/video/VideoManager;->startRecording()V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 82
-    :cond_2
+    :cond_28
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mOnClickListener:Landroid/view/View$OnClickListener;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3c
 
     .line 83
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-interface {p0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 70
-    :cond_3
+    :cond_32
     sget-object p1, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->TAG:Ljava/lang/String;
 
     const-string v0, "Go to gallery"
@@ -407,13 +407,13 @@
     .line 71
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->gotoGallery()V
 
-    :cond_4
-    :goto_0
+    :cond_3c
+    :goto_3c
     return-void
 .end method
 
 .method public onOrientationChanged(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 2
+    .registers 4
 
     .line 146
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -436,7 +436,7 @@
 .end method
 
 .method public resetThumbnailPath()V
-    .locals 0
+    .registers 1
 
     .line 101
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -447,7 +447,7 @@
 .end method
 
 .method public setThumbnailSpinnerVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 109
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -458,43 +458,43 @@
 .end method
 
 .method public updateRecordControlDrawable(Z)V
-    .locals 2
+    .registers 4
 
     .line 139
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mRecordControlView:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     const v1, 0x7f080084
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_8
     const v1, 0x7f080082
 
-    :goto_0
+    :goto_b
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 142
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_15
 
     const/high16 p1, 0x3f800000    # 1.0f
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_15
     const/high16 p1, 0x3f000000    # 0.5f
 
-    :goto_1
+    :goto_17
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setIconAlpha(F)V
 
     return-void
 .end method
 
 .method public updateThumbnailPath(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;

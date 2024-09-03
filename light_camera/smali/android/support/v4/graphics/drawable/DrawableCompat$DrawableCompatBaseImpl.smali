@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,13 +27,13 @@
 
 # virtual methods
 .method public applyTheme(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public canApplyTheme(Landroid/graphics/drawable/Drawable;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public clearColorFilter(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 116
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public getAlpha(Landroid/graphics/drawable/Drawable;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public getColorFilter(Landroid/graphics/drawable/Drawable;)Landroid/graphics/ColorFilter;
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public getLayoutDirection(Landroid/graphics/drawable/Drawable;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public inflate(Landroid/graphics/drawable/Drawable;Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -89,7 +89,7 @@
 .end method
 
 .method public isAutoMirrored(Landroid/graphics/drawable/Drawable;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -97,7 +97,7 @@
 .end method
 
 .method public jumpToCurrentState(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 50
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
@@ -106,25 +106,25 @@
 .end method
 
 .method public setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public setHotspot(Landroid/graphics/drawable/Drawable;FF)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
-    .locals 0
+    .registers 6
 
     return-void
 .end method
 
 .method public setLayoutDirection(Landroid/graphics/drawable/Drawable;I)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x0
 
@@ -132,63 +132,63 @@
 .end method
 
 .method public setTint(Landroid/graphics/drawable/Drawable;I)V
-    .locals 0
+    .registers 3
 
     .line 67
     instance-of p0, p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 68
     check-cast p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
     invoke-interface {p1, p2}, Landroid/support/v4/graphics/drawable/TintAwareDrawable;->setTint(I)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 3
 
     .line 73
     instance-of p0, p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 74
     check-cast p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
     invoke-interface {p1, p2}, Landroid/support/v4/graphics/drawable/TintAwareDrawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
+    .registers 3
 
     .line 79
     instance-of p0, p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 80
     check-cast p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
     invoke-interface {p1, p2}, Landroid/support/v4/graphics/drawable/TintAwareDrawable;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 2
 
     .line 85
     instance-of p0, p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     .line 86
     new-instance p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14;
@@ -197,6 +197,6 @@
 
     return-object p0
 
-    :cond_0
+    :cond_a
     return-object p1
 .end method

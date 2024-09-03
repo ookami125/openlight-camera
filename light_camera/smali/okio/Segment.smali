@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>(Lokio/Segment;)V
-    .locals 3
+    .registers 5
 
     .line 67
     iget-object v0, p1, Lokio/Segment;->data:[B
@@ -73,7 +73,7 @@
 .end method
 
 .method constructor <init>([BII)V
-    .locals 0
+    .registers 4
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,24 +103,24 @@
 
 # virtual methods
 .method public compact()V
-    .locals 3
+    .registers 4
 
     .line 139
     iget-object v0, p0, Lokio/Segment;->prev:Lokio/Segment;
 
-    if-eq v0, p0, :cond_3
+    if-eq v0, p0, :cond_32
 
     .line 140
     iget-object v0, p0, Lokio/Segment;->prev:Lokio/Segment;
 
     iget-boolean v0, v0, Lokio/Segment;->owner:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return-void
 
     .line 141
-    :cond_0
+    :cond_b
     iget v0, p0, Lokio/Segment;->limit:I
 
     iget v1, p0, Lokio/Segment;->pos:I
@@ -138,26 +138,26 @@
 
     iget-boolean v2, v2, Lokio/Segment;->shared:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_1e
     iget-object v2, p0, Lokio/Segment;->prev:Lokio/Segment;
 
     iget v2, v2, Lokio/Segment;->pos:I
 
-    :goto_0
+    :goto_22
     add-int/2addr v1, v2
 
-    if-le v0, v1, :cond_2
+    if-le v0, v1, :cond_26
 
     return-void
 
     .line 144
-    :cond_2
+    :cond_26
     iget-object v1, p0, Lokio/Segment;->prev:Lokio/Segment;
 
     invoke-virtual {p0, v1, v0}, Lokio/Segment;->writeTo(Lokio/Segment;I)V
@@ -171,7 +171,7 @@
     return-void
 
     .line 139
-    :cond_3
+    :cond_32
     new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -180,24 +180,24 @@
 .end method
 
 .method public pop()Lokio/Segment;
-    .locals 4
+    .registers 5
 
     .line 84
     iget-object v0, p0, Lokio/Segment;->next:Lokio/Segment;
 
     const/4 v1, 0x0
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_8
 
     iget-object v0, p0, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     move-object v0, v1
 
     .line 85
-    :goto_0
+    :goto_9
     iget-object v2, p0, Lokio/Segment;->prev:Lokio/Segment;
 
     iget-object v3, p0, Lokio/Segment;->next:Lokio/Segment;
@@ -221,7 +221,7 @@
 .end method
 
 .method public push(Lokio/Segment;)Lokio/Segment;
-    .locals 1
+    .registers 3
 
     .line 97
     iput-object p0, p1, Lokio/Segment;->prev:Lokio/Segment;
@@ -243,9 +243,9 @@
 .end method
 
 .method public split(I)Lokio/Segment;
-    .locals 5
+    .registers 7
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_31
 
     .line 113
     iget v0, p0, Lokio/Segment;->limit:I
@@ -254,21 +254,21 @@
 
     sub-int/2addr v0, v1
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v0, :cond_31
 
     const/16 v0, 0x400
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_13
 
     .line 122
     new-instance v0, Lokio/Segment;
 
     invoke-direct {v0, p0}, Lokio/Segment;-><init>(Lokio/Segment;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 124
-    :cond_0
+    :cond_13
     invoke-static {}, Lokio/SegmentPool;->take()Lokio/Segment;
 
     move-result-object v0
@@ -285,7 +285,7 @@
     invoke-static {v1, v2, v3, v4, p1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 128
-    :goto_0
+    :goto_21
     iget v1, v0, Lokio/Segment;->pos:I
 
     add-int/2addr v1, p1
@@ -307,7 +307,7 @@
     return-object v0
 
     .line 113
-    :cond_1
+    :cond_31
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -316,12 +316,12 @@
 .end method
 
 .method public writeTo(Lokio/Segment;I)V
-    .locals 5
+    .registers 8
 
     .line 151
     iget-boolean v0, p1, Lokio/Segment;->owner:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_52
 
     .line 152
     iget v0, p1, Lokio/Segment;->limit:I
@@ -330,12 +330,12 @@
 
     const/16 v1, 0x2000
 
-    if-le v0, v1, :cond_2
+    if-le v0, v1, :cond_3c
 
     .line 154
     iget-boolean v0, p1, Lokio/Segment;->shared:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_36
 
     .line 155
     iget v0, p1, Lokio/Segment;->limit:I
@@ -346,7 +346,7 @@
 
     sub-int/2addr v0, v2
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_30
 
     .line 156
     iget-object v0, p1, Lokio/Segment;->data:[B
@@ -377,10 +377,10 @@
     .line 158
     iput v4, p1, Lokio/Segment;->pos:I
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 155
-    :cond_0
+    :cond_30
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -388,7 +388,7 @@
     throw p0
 
     .line 154
-    :cond_1
+    :cond_36
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -396,8 +396,8 @@
     throw p0
 
     .line 161
-    :cond_2
-    :goto_0
+    :cond_3c
+    :goto_3c
     iget-object v0, p0, Lokio/Segment;->data:[B
 
     iget v1, p0, Lokio/Segment;->pos:I
@@ -425,7 +425,7 @@
     return-void
 
     .line 151
-    :cond_3
+    :cond_52
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V

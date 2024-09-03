@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/google/gson/internal/ConstructorConstructor;Z)V
-    .locals 0
+    .registers 3
 
     .line 110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method private getKeyAdapter(Lcom/google/gson/Gson;Ljava/lang/reflect/Type;)Lcom/google/gson/TypeAdapter;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -52,16 +52,16 @@
     .line 140
     sget-object p0, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
 
-    if-eq p2, p0, :cond_1
+    if-eq p2, p0, :cond_12
 
     const-class p0, Ljava/lang/Boolean;
 
-    if-ne p2, p0, :cond_0
+    if-ne p2, p0, :cond_9
 
-    goto :goto_0
+    goto :goto_12
 
     .line 142
-    :cond_0
+    :cond_9
     invoke-static {p2}, Lcom/google/gson/reflect/TypeToken;->get(Ljava/lang/reflect/Type;)Lcom/google/gson/reflect/TypeToken;
 
     move-result-object p0
@@ -70,21 +70,21 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_14
 
     .line 140
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     sget-object p0, Lcom/google/gson/internal/bind/TypeAdapters;->BOOLEAN_AS_STRING:Lcom/google/gson/TypeAdapter;
 
-    :goto_1
+    :goto_14
     return-object p0
 .end method
 
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 11
+    .registers 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -115,14 +115,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 123
-    :cond_0
+    :cond_12
     invoke-static {v0}, Lcom/google/gson/internal/$Gson$Types;->getRawType(Ljava/lang/reflect/Type;)Ljava/lang/Class;
 
     move-result-object v1

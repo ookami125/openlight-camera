@@ -90,7 +90,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 68
     new-instance v0, Lopenlight/co/camera/managers/capture/CaptureManager;
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -236,7 +236,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 64
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
@@ -245,7 +245,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/managers/capture/CaptureManager;Landroid/hardware/camera2/CaptureRequest;)V
-    .locals 0
+    .registers 2
 
     .line 64
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/capture/CaptureManager;->setViewPrefHeader(Landroid/hardware/camera2/CaptureRequest;)V
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/utils/Provider;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -263,7 +263,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/ImageReaderManager;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
@@ -272,7 +272,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/proto/CameraCaptureRequestInfo;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureInfo:Lopenlight/co/camera/proto/CameraCaptureRequestInfo;
@@ -281,7 +281,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/lib/exif/ExifInformation;
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->createExifData()Lopenlight/co/lib/exif/ExifInformation;
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/utils/TimingLoggerUtil;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -301,7 +301,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/managers/capture/CaptureManager;)Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -310,7 +310,7 @@
 .end method
 
 .method private createExifData()Lopenlight/co/lib/exif/ExifInformation;
-    .locals 2
+    .registers 3
 
     .line 594
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureInfo:Lopenlight/co/camera/proto/CameraCaptureRequestInfo;
@@ -339,12 +339,12 @@
 .end method
 
 .method private decrementPendingUserCapture()V
-    .locals 1
+    .registers 2
 
     .line 518
     iget v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mPendingUserCaptures:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_a
 
     .line 519
     iget v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mPendingUserCaptures:I
@@ -353,12 +353,12 @@
 
     iput v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mPendingUserCaptures:I
 
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/capture/CaptureManager;
-    .locals 1
+    .registers 1
 
     .line 156
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager;->sInstance:Lopenlight/co/camera/managers/capture/CaptureManager;
@@ -367,7 +367,7 @@
 .end method
 
 .method private getComputedExposureComp(I)F
-    .locals 0
+    .registers 2
 
     int-to-float p1, p1
 
@@ -388,7 +388,7 @@
 .end method
 
 .method private isBurstOrStillCapture()V
-    .locals 2
+    .registers 3
 
     .line 252
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
@@ -410,7 +410,7 @@
 .end method
 
 .method private resetCaptureParamsOnException()V
-    .locals 2
+    .registers 3
 
     .line 625
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mRequestCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -420,7 +420,7 @@
     .line 626
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 627
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -435,7 +435,7 @@
     invoke-interface {v0}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onCaptureComplete()V
 
     .line 630
-    :cond_0
+    :cond_15
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->IDLE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     iput-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -444,14 +444,14 @@
 .end method
 
 .method private setViewPrefHeader(Landroid/hardware/camera2/CaptureRequest;)V
-    .locals 3
+    .registers 5
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 579
-    :cond_0
+    :cond_3
     sget-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AWB_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-virtual {p1, v0}, Landroid/hardware/camera2/CaptureRequest;->get(Landroid/hardware/camera2/CaptureRequest$Key;)Ljava/lang/Object;
@@ -469,9 +469,9 @@
 
     check-cast v1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_47
 
     .line 583
     new-instance v2, Lopenlight/co/camera/proto/CameraCaptureRequestInfo;
@@ -522,12 +522,12 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/proto/CameraCaptureRequestInfo;->setAwbMode(I)V
 
-    :cond_1
+    :cond_47
     return-void
 .end method
 
 .method private takePicture()V
-    .locals 5
+    .registers 6
 
     .line 218
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -546,7 +546,7 @@
     monitor-enter v1
 
     .line 222
-    :try_start_0
+    :try_start_d
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
 
     invoke-virtual {v2}, Lopenlight/co/camera/utils/CameraState;->getSessionState()Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -555,7 +555,7 @@
 
     sget-object v3, Lopenlight/co/camera/utils/CameraState$SessionState;->PREVIEW:Lopenlight/co/camera/utils/CameraState$SessionState;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_34
 
     .line 223
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
@@ -567,7 +567,7 @@
     .line 225
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     .line 226
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -582,7 +582,7 @@
     invoke-interface {v0}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onCaptureComplete()V
 
     .line 229
-    :cond_0
+    :cond_2e
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->IDLE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     iput-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -593,7 +593,7 @@
     return-void
 
     .line 233
-    :cond_1
+    :cond_34
     invoke-virtual {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->getTotalCaptureForTypes()I
 
     move-result v2
@@ -620,11 +620,11 @@
     move-result-object v3
 
     invoke-static {v2, v3}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_52
+    .catchall {:try_start_d .. :try_end_52} :catchall_8c
 
     .line 238
-    :try_start_1
+    :try_start_52
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureReqManager:Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;
 
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->getPreviewRequestBuilder()Landroid/hardware/camera2/CaptureRequest$Builder;
@@ -635,17 +635,17 @@
 
     .line 239
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->isBurstOrStillCapture()V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5e
+    .catch Ljava/lang/Exception; {:try_start_52 .. :try_end_5e} :catch_5f
+    .catchall {:try_start_52 .. :try_end_5e} :catchall_8c
 
-    goto :goto_0
+    goto :goto_8a
 
-    :catch_0
+    :catch_5f
     move-exception v2
 
     .line 242
-    :try_start_2
+    :try_start_60
     sget-object v3, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
 
     const-string v4, "Exception in takePicture"
@@ -686,17 +686,17 @@
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 248
-    :goto_0
+    :goto_8a
     monitor-exit v1
 
     return-void
 
-    :catchall_0
+    :catchall_8c
     move-exception p0
 
     monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_8e
+    .catchall {:try_start_60 .. :try_end_8e} :catchall_8c
 
     throw p0
 .end method
@@ -704,7 +704,7 @@
 
 # virtual methods
 .method public captureBurstPictureLocked(I)V
-    .locals 6
+    .registers 8
 
     .line 342
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -716,7 +716,7 @@
     check-cast v0, Lopenlight/co/camera/managers/CameraManager;
 
     .line 346
-    :try_start_0
+    :try_start_8
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->getCameraDevice()Landroid/hardware/camera2/CameraDevice;
 
     move-result-object v1
@@ -749,7 +749,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2d
 
     .line 352
     invoke-virtual {v2}, Landroid/media/ImageReader;->getSurface()Landroid/view/Surface;
@@ -759,7 +759,7 @@
     invoke-virtual {v1, v2}, Landroid/hardware/camera2/CaptureRequest$Builder;->addTarget(Landroid/view/Surface;)V
 
     .line 354
-    :cond_0
+    :cond_2d
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureBurst:Lopenlight/co/camera/managers/capture/CaptureBurstManager;
 
     invoke-virtual {v2, v1, p1}, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->setCaptureRequestForBurst(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
@@ -842,7 +842,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_9a
 
     .line 369
     new-instance v1, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;
@@ -870,7 +870,7 @@
     invoke-virtual {v2, v3, v1}, Lopenlight/co/camera/ImageReaderManager;->addRawResultQueue(ILopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;)V
 
     .line 374
-    :cond_1
+    :cond_9a
     iget-object v1, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v2, "aspect_ratio_setting"
@@ -942,11 +942,11 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_e9
 
     iget-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_e9
 
     .line 386
     iget-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -954,7 +954,7 @@
     invoke-interface {p1}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onStartAnimationForBurstCapture()V
 
     .line 388
-    :cond_2
+    :cond_e9
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->decrementPendingUserCapture()V
 
     .line 391
@@ -962,7 +962,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_126
 
     .line 392
     iget-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mMetrics:Lopenlight/co/camera/metrics/Metrics;
@@ -1006,14 +1006,14 @@
 
     .line 392
     invoke-virtual {p1, v1, v2}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;Ljava/util/HashMap;)V
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_117
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_8 .. :try_end_117} :catch_118
+    .catch Ljava/lang/IllegalStateException; {:try_start_8 .. :try_end_117} :catch_118
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_8 .. :try_end_117} :catch_118
 
-    goto :goto_0
+    goto :goto_126
 
-    :catch_0
+    :catch_118
     move-exception p1
 
     .line 401
@@ -1029,20 +1029,20 @@
     .line 404
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->resetCaptureParamsOnException()V
 
-    :cond_3
-    :goto_0
+    :cond_126
+    :goto_126
     return-void
 .end method
 
 .method public captureStillPictureLocked()V
-    .locals 6
+    .registers 7
 
     .line 271
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v1, Lopenlight/co/camera/managers/capture/CaptureManager$State;->CAPTURING:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 272
     sget-object p0, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
@@ -1054,7 +1054,7 @@
     return-void
 
     .line 275
-    :cond_0
+    :cond_e
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->CAPTURING:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     iput-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -1069,7 +1069,7 @@
     check-cast v0, Lopenlight/co/camera/managers/CameraManager;
 
     .line 280
-    :try_start_0
+    :try_start_1a
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->getCameraDevice()Landroid/hardware/camera2/CameraDevice;
 
     move-result-object v1
@@ -1102,7 +1102,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3f
 
     .line 287
     invoke-virtual {v2}, Landroid/media/ImageReader;->getSurface()Landroid/view/Surface;
@@ -1112,7 +1112,7 @@
     invoke-virtual {v1, v2}, Landroid/hardware/camera2/CaptureRequest$Builder;->addTarget(Landroid/view/Surface;)V
 
     .line 289
-    :cond_1
+    :cond_3f
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCamReqManager:Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;
 
     invoke-virtual {v2, v1}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->createStillCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -1165,7 +1165,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_8b
 
     .line 302
     new-instance v2, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;
@@ -1193,7 +1193,7 @@
     invoke-virtual {v3, v4, v2}, Lopenlight/co/camera/ImageReaderManager;->addRawResultQueue(ILopenlight/co/camera/utils/ImageUtil$ImageSaver$ImageSaverBuilder;)V
 
     .line 306
-    :cond_2
+    :cond_8b
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v3, "aspect_ratio_setting"
@@ -1252,7 +1252,7 @@
     .line 320
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_c6
 
     .line 321
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -1260,7 +1260,7 @@
     invoke-interface {v2}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onStartAnimationForSingleCapture()V
 
     .line 323
-    :cond_3
+    :cond_c6
     sget-object v2, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1326,14 +1326,14 @@
 
     .line 327
     invoke-virtual {v1, v2, v3}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;Ljava/util/HashMap;)V
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_107
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_1a .. :try_end_107} :catch_108
+    .catch Ljava/lang/IllegalStateException; {:try_start_1a .. :try_end_107} :catch_108
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1a .. :try_end_107} :catch_108
 
-    goto :goto_0
+    goto :goto_116
 
-    :catch_0
+    :catch_108
     move-exception v1
 
     .line 333
@@ -1349,12 +1349,12 @@
     .line 336
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->resetCaptureParamsOnException()V
 
-    :goto_0
+    :goto_116
     return-void
 .end method
 
 .method public doCapture()V
-    .locals 6
+    .registers 7
 
     .line 160
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -1433,14 +1433,14 @@
 
     sget-object v4, Lopenlight/co/camera/managers/capture/CaptureManager$State;->IDLE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_64
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_58
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_64
 
     .line 168
-    :cond_0
+    :cond_58
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->QUEUED_CAPTURE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     iput-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -1452,35 +1452,35 @@
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_c3
 
     .line 170
-    :cond_1
+    :cond_64
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v3, Lopenlight/co/camera/managers/capture/CaptureManager$State;->PRE_CAPTURE_PROCESSING:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-eq v2, v3, :cond_7
+    if-eq v2, v3, :cond_bc
 
     iget-object v2, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v3, Lopenlight/co/camera/managers/capture/CaptureManager$State;->CAPTURING:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-eq v2, v3, :cond_7
+    if-eq v2, v3, :cond_bc
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_73
 
-    goto :goto_0
+    goto :goto_bc
 
     .line 176
-    :cond_2
+    :cond_73
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v2, Lopenlight/co/camera/managers/capture/CaptureManager$State;->QUEUED_CAPTURE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_83
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_83
 
     .line 177
     sget-object p0, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
@@ -1489,15 +1489,15 @@
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_c3
 
     .line 181
-    :cond_3
+    :cond_83
     invoke-static {}, Lopenlight/co/camera/utils/Util;->isAvailableSpace()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_91
 
     .line 183
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -1509,7 +1509,7 @@
     return-void
 
     .line 187
-    :cond_4
+    :cond_91
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->PRE_CAPTURE_PROCESSING:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     iput-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -1517,7 +1517,7 @@
     .line 190
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_9e
 
     .line 191
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -1525,7 +1525,7 @@
     invoke-interface {v0}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onUpdateUiForCapture()V
 
     .line 194
-    :cond_5
+    :cond_9e
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v1, "timer_setting"
@@ -1541,42 +1541,42 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_b2
 
     .line 196
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->takePicture()V
 
-    goto :goto_1
+    goto :goto_c3
 
     .line 198
-    :cond_6
+    :cond_b2
     iget-object v1, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_c3
 
     .line 199
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
 
     invoke-interface {p0, v0}, Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;->onStartTimerForCapture(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_c3
 
     .line 173
-    :cond_7
-    :goto_0
+    :cond_bc
+    :goto_bc
     sget-object p0, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
 
     const-string v0, "Ignoring Capture Request. Processing a capture request, or in capture, or currently zooming"
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_8
-    :goto_1
+    :cond_c3
+    :goto_c3
     return-void
 .end method
 
 .method public finishedCaptureLocked()V
-    .locals 2
+    .registers 3
 
     .line 540
     :try_start_0
@@ -1611,13 +1611,13 @@
     const-string v0, "Capture Completed. Resetting to Preview"
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_1f} :catch_20
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_1f} :catch_20
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_0
+    :catch_20
     move-exception p0
 
     .line 546
@@ -1627,12 +1627,12 @@
 
     invoke-static {v0, v1, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :goto_0
+    :goto_28
     return-void
 .end method
 
 .method public getCurrentState()Lopenlight/co/camera/managers/capture/CaptureManager$State;
-    .locals 0
+    .registers 1
 
     .line 639
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -1641,7 +1641,7 @@
 .end method
 
 .method public getPendingUserCaptures()I
-    .locals 0
+    .registers 1
 
     .line 551
     iget p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mPendingUserCaptures:I
@@ -1650,7 +1650,7 @@
 .end method
 
 .method public getTotalCaptureForTypes()I
-    .locals 3
+    .registers 4
 
     .line 258
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager;->TAG:Ljava/lang/String;
@@ -1690,7 +1690,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     .line 260
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureBurst:Lopenlight/co/camera/managers/capture/CaptureBurstManager;
@@ -1701,14 +1701,14 @@
 
     return p0
 
-    :cond_0
+    :cond_31
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public isBurstCapture()Z
-    .locals 0
+    .registers 1
 
     .line 559
     iget-boolean p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mIsBurstCapture:Z
@@ -1717,91 +1717,91 @@
 .end method
 
 .method public isCapturing()Z
-    .locals 1
+    .registers 2
 
     .line 610
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->CAPTURING:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isIdle()Z
-    .locals 1
+    .registers 2
 
     .line 563
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->IDLE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isPendingCapturePostFocus()Z
-    .locals 1
+    .registers 2
 
     .line 606
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->QUEUED_CAPTURE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isQueued()Z
-    .locals 1
+    .registers 2
 
     .line 567
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCurrentState:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->QUEUED_CAPTURE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public resetCapture()V
-    .locals 1
+    .registers 2
 
     .line 266
     sget-object v0, Lopenlight/co/camera/managers/capture/CaptureManager$State;->IDLE:Lopenlight/co/camera/managers/capture/CaptureManager$State;
@@ -1812,7 +1812,7 @@
 .end method
 
 .method public resetPendingUserCaptures()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -1823,7 +1823,7 @@
 .end method
 
 .method public resetRequestCounterForCapture()V
-    .locals 1
+    .registers 2
 
     .line 529
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mRequestCounter:Ljava/util/concurrent/atomic/AtomicInteger;
@@ -1836,7 +1836,7 @@
 .end method
 
 .method public setUiUpdateListener(Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;)V
-    .locals 0
+    .registers 2
 
     .line 555
     iput-object p1, p0, Lopenlight/co/camera/managers/capture/CaptureManager;->mCaptureUpdateListener:Lopenlight/co/camera/managers/capture/CaptureManager$CaptureUiUpdate;
@@ -1845,7 +1845,7 @@
 .end method
 
 .method public takePictureOnTimerComplete()V
-    .locals 0
+    .registers 1
 
     .line 206
     invoke-direct {p0}, Lopenlight/co/camera/managers/capture/CaptureManager;->takePicture()V

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Lopenlight/co/camera/view/customviews/TouchImageView;Landroid/content/Context;)V
-    .locals 1
+    .registers 4
 
     .line 1276
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
@@ -42,7 +42,7 @@
 
     const/16 v0, 0x9
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_16
 
     const/4 p1, 0x1
 
@@ -56,9 +56,9 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_0
+    :cond_16
     const/4 p1, 0x0
 
     .line 1282
@@ -71,19 +71,19 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
-    :goto_0
+    :goto_20
     return-void
 .end method
 
 
 # virtual methods
 .method public computeScrollOffset()Z
-    .locals 1
+    .registers 2
 
     .line 1312
     iget-boolean v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isPreGingerbread:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1313
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
@@ -95,7 +95,7 @@
     return p0
 
     .line 1315
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
     invoke-virtual {v0}, Landroid/widget/OverScroller;->computeScrollOffset()Z
@@ -111,14 +111,14 @@
 .end method
 
 .method public fling(IIIIIIII)V
-    .locals 12
+    .registers 21
 
     move-object v0, p0
 
     .line 1288
     iget-boolean v1, v0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isPreGingerbread:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 1289
     iget-object v2, v0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
@@ -141,10 +141,10 @@
 
     invoke-virtual/range {v2 .. v10}, Landroid/widget/Scroller;->fling(IIIIIIII)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 1291
-    :cond_0
+    :cond_18
     iget-object v3, v0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
     move v4, p1
@@ -165,42 +165,42 @@
 
     invoke-virtual/range {v3 .. v11}, Landroid/widget/OverScroller;->fling(IIIIIIII)V
 
-    :goto_0
+    :goto_2a
     return-void
 .end method
 
 .method public forceFinished(Z)V
-    .locals 1
+    .registers 3
 
     .line 1296
     iget-boolean v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isPreGingerbread:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 1297
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
 
     invoke-virtual {p0, p1}, Landroid/widget/Scroller;->forceFinished(Z)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1299
-    :cond_0
+    :cond_a
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
     invoke-virtual {p0, p1}, Landroid/widget/OverScroller;->forceFinished(Z)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public getCurrX()I
-    .locals 1
+    .registers 2
 
     .line 1321
     iget-boolean v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isPreGingerbread:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1322
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
@@ -212,7 +212,7 @@
     return p0
 
     .line 1324
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
     invoke-virtual {p0}, Landroid/widget/OverScroller;->getCurrX()I
@@ -223,12 +223,12 @@
 .end method
 
 .method public getCurrY()I
-    .locals 1
+    .registers 2
 
     .line 1329
     iget-boolean v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isPreGingerbread:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1330
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
@@ -240,7 +240,7 @@
     return p0
 
     .line 1332
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
     invoke-virtual {p0}, Landroid/widget/OverScroller;->getCurrY()I
@@ -251,12 +251,12 @@
 .end method
 
 .method public isFinished()Z
-    .locals 1
+    .registers 2
 
     .line 1304
     iget-boolean v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isPreGingerbread:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1305
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->scroller:Landroid/widget/Scroller;
@@ -268,7 +268,7 @@
     return p0
 
     .line 1307
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->overScroller:Landroid/widget/OverScroller;
 
     invoke-virtual {p0}, Landroid/widget/OverScroller;->isFinished()Z

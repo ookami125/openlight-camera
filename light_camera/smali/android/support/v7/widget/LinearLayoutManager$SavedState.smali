@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 2354
     new-instance v0, Landroid/support/v7/widget/LinearLayoutManager$SavedState$1;
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 2318
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
 
     .line 2322
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,21 +93,21 @@
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_18
     iput-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorLayoutFromEnd:Z
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/support/v7/widget/LinearLayoutManager$SavedState;)V
-    .locals 1
+    .registers 3
 
     .line 2328
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -141,26 +141,26 @@
 .end method
 
 .method hasValidAnchor()Z
-    .locals 0
+    .registers 1
 
     .line 2335
     iget p0, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method invalidateAnchor()V
-    .locals 1
+    .registers 2
 
     const/4 v0, -0x1
 
@@ -171,7 +171,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .registers 3
 
     .line 2349
     iget p2, p0, Landroid/support/v7/widget/LinearLayoutManager$SavedState;->mAnchorPosition:I

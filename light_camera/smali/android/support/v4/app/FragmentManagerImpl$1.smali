@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/FragmentManagerImpl;)V
-    .locals 0
+    .registers 2
 
     .line 697
     iput-object p1, p0, Landroid/support/v4/app/FragmentManagerImpl$1;->this$0:Landroid/support/v4/app/FragmentManagerImpl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 700
     iget-object p0, p0, Landroid/support/v4/app/FragmentManagerImpl$1;->this$0:Landroid/support/v4/app/FragmentManagerImpl;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 4
+    .registers 6
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 .end method
 
 .method private evict()V
-    .locals 1
+    .registers 2
 
     .line 167
     iget v0, p0, Lcom/bumptech/glide/util/LruCache;->maxSize:I
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public clearMemory()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -92,7 +92,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -110,7 +110,7 @@
 .end method
 
 .method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TY;"
@@ -128,7 +128,7 @@
 .end method
 
 .method public getCurrentSize()I
-    .locals 0
+    .registers 1
 
     .line 75
     iget p0, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
@@ -137,7 +137,7 @@
 .end method
 
 .method public getMaxSize()I
-    .locals 0
+    .registers 1
 
     .line 68
     iget p0, p0, Lcom/bumptech/glide/util/LruCache;->maxSize:I
@@ -146,7 +146,7 @@
 .end method
 
 .method protected getSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TY;)I"
@@ -159,7 +159,7 @@
 .end method
 
 .method protected onItemEvicted(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TY;)V"
@@ -170,7 +170,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;TY;)TY;"
@@ -185,7 +185,7 @@
     .line 111
     iget v1, p0, Lcom/bumptech/glide/util/LruCache;->maxSize:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 112
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/util/LruCache;->onItemEvicted(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -195,14 +195,14 @@
     return-object p0
 
     .line 116
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/bumptech/glide/util/LruCache;->cache:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v0, p1, p2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1e
 
     .line 118
     iget v0, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
@@ -215,8 +215,8 @@
 
     iput v0, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
 
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_1e
+    if-eqz p1, :cond_29
 
     .line 122
     iget p2, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
@@ -230,14 +230,14 @@
     iput p2, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
 
     .line 124
-    :cond_2
+    :cond_29
     invoke-direct {p0}, Lcom/bumptech/glide/util/LruCache;->evict()V
 
     return-object p1
 .end method
 
 .method public remove(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)TY;"
@@ -251,7 +251,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 137
     iget v0, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
@@ -264,18 +264,18 @@
 
     iput v0, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
 
-    :cond_0
+    :cond_11
     return-object p1
 .end method
 
 .method public setSizeMultiplier(F)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
     cmpg-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     .line 40
     iget v0, p0, Lcom/bumptech/glide/util/LruCache;->initialMaxSize:I
@@ -296,7 +296,7 @@
     return-void
 
     .line 38
-    :cond_0
+    :cond_13
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Multiplier must be >= 0"
@@ -307,13 +307,13 @@
 .end method
 
 .method protected trimToSize(I)V
-    .locals 4
+    .registers 6
 
     .line 156
     :goto_0
     iget v0, p0, Lcom/bumptech/glide/util/LruCache;->currentSize:I
 
-    if-le v0, p1, :cond_0
+    if-le v0, p1, :cond_2e
 
     .line 157
     iget-object v0, p0, Lcom/bumptech/glide/util/LruCache;->cache:Ljava/util/LinkedHashMap;
@@ -363,6 +363,6 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_2e
     return-void
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Sink;)V
-    .locals 1
+    .registers 3
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
     iput-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 30
     iput-object p1, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -36,7 +36,7 @@
     return-void
 
     .line 29
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "sink == null"
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public buffer()Lokio/Buffer;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -58,7 +58,7 @@
 .end method
 
 .method public close()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -68,15 +68,15 @@
     .line 222
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 228
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
 
     iget-wide v1, v1, Lokio/Buffer;->size:J
@@ -85,7 +85,7 @@
 
     cmp-long v1, v1, v3
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1d
 
     .line 229
     iget-object v1, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -97,51 +97,51 @@
     iget-wide v3, v3, Lokio/Buffer;->size:J
 
     invoke-interface {v1, v2, v3, v4}, Lokio/Sink;->write(Lokio/Buffer;J)V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_0
+    :catch_1c
     move-exception v0
 
     .line 236
-    :cond_1
-    :goto_0
-    :try_start_1
+    :cond_1d
+    :goto_1d
+    :try_start_1d
     iget-object v1, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
     invoke-interface {v1}, Lokio/Sink;->close()V
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_22
+    .catch Ljava/lang/Throwable; {:try_start_1d .. :try_end_22} :catch_23
 
-    goto :goto_1
+    goto :goto_27
 
-    :catch_1
+    :catch_23
     move-exception v1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_27
 
     move-object v0, v1
 
-    :cond_2
-    :goto_1
+    :cond_27
+    :goto_27
     const/4 v1, 0x1
 
     .line 240
     iput-boolean v1, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2f
 
     .line 242
     invoke-static {v0}, Lokio/Util;->sneakyRethrow(Ljava/lang/Throwable;)V
 
-    :cond_3
+    :cond_2f
     return-void
 .end method
 
 .method public emit()Lokio/BufferedSink;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -151,7 +151,7 @@
     .line 176
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 177
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -164,7 +164,7 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_17
 
     .line 178
     iget-object v2, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -173,11 +173,11 @@
 
     invoke-interface {v2, v3, v0, v1}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
-    :cond_0
+    :cond_17
     return-object p0
 
     .line 176
-    :cond_1
+    :cond_18
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "closed"
@@ -188,7 +188,7 @@
 .end method
 
 .method public emitCompleteSegments()Lokio/BufferedSink;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -198,7 +198,7 @@
     .line 169
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 170
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -211,7 +211,7 @@
 
     cmp-long v2, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_17
 
     .line 171
     iget-object v2, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -220,11 +220,11 @@
 
     invoke-interface {v2, v3, v0, v1}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
-    :cond_0
+    :cond_17
     return-object p0
 
     .line 169
-    :cond_1
+    :cond_18
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "closed"
@@ -235,7 +235,7 @@
 .end method
 
 .method public flush()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -245,7 +245,7 @@
     .line 214
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     .line 215
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -256,7 +256,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_19
 
     .line 216
     iget-object v0, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -270,7 +270,7 @@
     invoke-interface {v0, v1, v2, v3}, Lokio/Sink;->write(Lokio/Buffer;J)V
 
     .line 218
-    :cond_0
+    :cond_19
     iget-object p0, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
 
     invoke-interface {p0}, Lokio/Sink;->flush()V
@@ -278,7 +278,7 @@
     return-void
 
     .line 214
-    :cond_1
+    :cond_1f
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "closed"
@@ -289,7 +289,7 @@
 .end method
 
 .method public outputStream()Ljava/io/OutputStream;
-    .locals 1
+    .registers 2
 
     .line 183
     new-instance v0, Lokio/RealBufferedSink$1;
@@ -300,7 +300,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 246
     iget-object p0, p0, Lokio/RealBufferedSink;->sink:Lokio/Sink;
@@ -313,7 +313,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 250
     new-instance v0, Ljava/lang/StringBuilder;
@@ -340,7 +340,7 @@
 .end method
 
 .method public write(Lokio/ByteString;)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -350,7 +350,7 @@
     .line 45
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 46
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -365,7 +365,7 @@
     return-object p0
 
     .line 45
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -376,7 +376,7 @@
 .end method
 
 .method public write(Lokio/Source;J)Lokio/BufferedSink;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -388,7 +388,7 @@
 
     cmp-long v0, p2, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1d
 
     .line 106
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -401,7 +401,7 @@
 
     cmp-long v2, v0, v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     sub-long/2addr p2, v0
 
@@ -411,19 +411,19 @@
     goto :goto_0
 
     .line 107
-    :cond_0
+    :cond_17
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
 
     throw p0
 
-    :cond_1
+    :cond_1d
     return-object p0
 .end method
 
 .method public write([B)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -433,7 +433,7 @@
     .line 83
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 84
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -448,7 +448,7 @@
     return-object p0
 
     .line 83
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -459,7 +459,7 @@
 .end method
 
 .method public write([BII)Lokio/BufferedSink;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -469,7 +469,7 @@
     .line 89
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 90
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -484,7 +484,7 @@
     return-object p0
 
     .line 89
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -495,7 +495,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -505,7 +505,7 @@
     .line 39
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 40
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -518,7 +518,7 @@
     return-void
 
     .line 39
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -529,19 +529,19 @@
 .end method
 
 .method public writeAll(Lokio/Source;)J
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
     const-wide/16 v0, 0x0
 
     .line 97
-    :goto_0
+    :goto_4
     iget-object v2, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
 
     const-wide/16 v3, 0x2000
@@ -554,20 +554,20 @@
 
     cmp-long v4, v2, v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_17
 
     add-long/2addr v0, v2
 
     .line 99
     invoke-virtual {p0}, Lokio/RealBufferedSink;->emitCompleteSegments()Lokio/BufferedSink;
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_0
+    :cond_17
     return-wide v0
 
     .line 95
-    :cond_1
+    :cond_18
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "source == null"
@@ -578,7 +578,7 @@
 .end method
 
 .method public writeByte(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -588,7 +588,7 @@
     .line 115
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 116
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -603,7 +603,7 @@
     return-object p0
 
     .line 115
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -614,7 +614,7 @@
 .end method
 
 .method public writeDecimalLong(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -624,7 +624,7 @@
     .line 157
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 158
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -639,7 +639,7 @@
     return-object p0
 
     .line 157
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -650,7 +650,7 @@
 .end method
 
 .method public writeHexadecimalUnsignedLong(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -660,7 +660,7 @@
     .line 163
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 164
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -675,7 +675,7 @@
     return-object p0
 
     .line 163
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -686,7 +686,7 @@
 .end method
 
 .method public writeInt(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -696,7 +696,7 @@
     .line 133
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 134
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -711,7 +711,7 @@
     return-object p0
 
     .line 133
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -722,7 +722,7 @@
 .end method
 
 .method public writeIntLe(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -732,7 +732,7 @@
     .line 139
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 140
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -747,7 +747,7 @@
     return-object p0
 
     .line 139
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -758,7 +758,7 @@
 .end method
 
 .method public writeLong(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -768,7 +768,7 @@
     .line 145
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 146
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -783,7 +783,7 @@
     return-object p0
 
     .line 145
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -794,7 +794,7 @@
 .end method
 
 .method public writeLongLe(J)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -804,7 +804,7 @@
     .line 151
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 152
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -819,7 +819,7 @@
     return-object p0
 
     .line 151
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -830,7 +830,7 @@
 .end method
 
 .method public writeShort(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -840,7 +840,7 @@
     .line 121
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 122
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -855,7 +855,7 @@
     return-object p0
 
     .line 121
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -866,7 +866,7 @@
 .end method
 
 .method public writeShortLe(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -876,7 +876,7 @@
     .line 127
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 128
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -891,7 +891,7 @@
     return-object p0
 
     .line 127
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -902,7 +902,7 @@
 .end method
 
 .method public writeString(Ljava/lang/String;IILjava/nio/charset/Charset;)Lokio/BufferedSink;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -912,7 +912,7 @@
     .line 77
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 78
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -927,7 +927,7 @@
     return-object p0
 
     .line 77
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -938,7 +938,7 @@
 .end method
 
 .method public writeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/BufferedSink;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -948,7 +948,7 @@
     .line 70
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 71
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -963,7 +963,7 @@
     return-object p0
 
     .line 70
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -974,7 +974,7 @@
 .end method
 
 .method public writeUtf8(Ljava/lang/String;)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -984,7 +984,7 @@
     .line 51
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 52
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -999,7 +999,7 @@
     return-object p0
 
     .line 51
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -1010,7 +1010,7 @@
 .end method
 
 .method public writeUtf8(Ljava/lang/String;II)Lokio/BufferedSink;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1020,7 +1020,7 @@
     .line 58
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 59
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -1035,7 +1035,7 @@
     return-object p0
 
     .line 58
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public writeUtf8CodePoint(I)Lokio/BufferedSink;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1056,7 +1056,7 @@
     .line 64
     iget-boolean v0, p0, Lokio/RealBufferedSink;->closed:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 65
     iget-object v0, p0, Lokio/RealBufferedSink;->buffer:Lokio/Buffer;
@@ -1071,7 +1071,7 @@
     return-object p0
 
     .line 64
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,13 +19,13 @@
 
 # virtual methods
 .method public clearMemory()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public get(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 4
 
     const/4 p0, 0x0
 
@@ -33,7 +33,7 @@
 .end method
 
 .method public getDirty(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 4
 
     const/4 p0, 0x0
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public getMaxSize()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public put(Landroid/graphics/Bitmap;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -57,13 +57,13 @@
 .end method
 
 .method public setSizeMultiplier(F)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public trimMemory(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

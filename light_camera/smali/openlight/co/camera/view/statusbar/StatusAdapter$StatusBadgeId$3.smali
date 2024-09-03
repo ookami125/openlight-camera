@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZLjava/lang/String;IFI)V
-    .locals 9
+    .registers 17
 
     const/4 v8, 0x0
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getIconId()I
-    .locals 1
+    .registers 2
 
     .line 72
     invoke-static {}, Lopenlight/co/TheaterMode/TheaterModeSettings;->get()Lopenlight/co/TheaterMode/TheaterModeSettings;
@@ -56,14 +56,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const-string p0, "flash_off"
 
-    goto :goto_0
+    goto :goto_19
 
     .line 73
-    :cond_0
+    :cond_d
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
 
     move-result-object v0
@@ -77,7 +77,7 @@
     move-result-object p0
 
     .line 74
-    :goto_0
+    :goto_19
     invoke-static {p0}, Lopenlight/co/camera/enums/FlashMode;->getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/FlashMode;
 
     move-result-object p0
@@ -90,7 +90,7 @@
 .end method
 
 .method public getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -105,15 +105,15 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
     const-string p0, "flash_setting_manual"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-string p0, "flash_setting"
 
-    :goto_0
+    :goto_13
     return-object p0
 .end method

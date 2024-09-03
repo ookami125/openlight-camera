@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/AppBarLayout$Behavior;Landroid/support/design/widget/CoordinatorLayout;Landroid/support/design/widget/AppBarLayout;)V
-    .locals 0
+    .registers 4
 
     .line 925
     iput-object p1, p0, Landroid/support/design/widget/AppBarLayout$Behavior$1;->this$0:Landroid/support/design/widget/AppBarLayout$Behavior;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
 
     .line 928
     iget-object v0, p0, Landroid/support/design/widget/AppBarLayout$Behavior$1;->this$0:Landroid/support/design/widget/AppBarLayout$Behavior;

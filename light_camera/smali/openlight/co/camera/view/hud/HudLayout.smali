@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 68
     invoke-static {}, Lopenlight/co/lib/utils/FeatureManager;->get()Lopenlight/co/lib/utils/FeatureManager;
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Z)V
-    .locals 4
+    .registers 8
 
     .line 95
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -241,8 +241,8 @@
 
     array-length p3, p2
 
-    :goto_0
-    if-ge v0, p3, :cond_0
+    :goto_81
+    if-ge v0, p3, :cond_9e
 
     aget-object v1, p2, v0
 
@@ -271,14 +271,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_81
 
-    :cond_0
+    :cond_9e
     return-void
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/hud/HudLayout;)Z
-    .locals 0
+    .registers 1
 
     .line 58
     iget-boolean p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mIsAncillaryOpen:Z
@@ -287,7 +287,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/hud/HudLayout;)I
-    .locals 0
+    .registers 1
 
     .line 58
     iget p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mDiffToolBar:I
@@ -296,7 +296,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/hud/HudLayout;)V
-    .locals 0
+    .registers 1
 
     .line 58
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->setHudColor()V
@@ -305,7 +305,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/hud/HudLayout;)V
-    .locals 0
+    .registers 1
 
     .line 58
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->setBackground()V
@@ -314,7 +314,7 @@
 .end method
 
 .method private createDofValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 576
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -329,7 +329,7 @@
 .end method
 
 .method private createEvValue()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 538
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -386,7 +386,7 @@
 .end method
 
 .method private createIsoValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 517
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -415,7 +415,7 @@
 .end method
 
 .method private createResolutionValue()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 506
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -435,24 +435,24 @@
 
     const/16 v1, 0x34
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_15
 
     .line 508
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHighResolutionImageValue:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_15
     invoke-static {v0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
+    :goto_19
     return-object p0
 .end method
 
 .method private createShutterValue()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 528
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -472,7 +472,7 @@
 .end method
 
 .method private createZoomValue()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 495
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -493,7 +493,7 @@
 .end method
 
 .method private disableHudElement(Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -514,14 +514,14 @@
 
     move-result-object p1
 
-    :goto_0
+    :goto_4
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -559,20 +559,20 @@
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/rotate/RotateLayout;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_4
 
     .line 320
-    :cond_0
+    :cond_30
     invoke-virtual {p2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
-    :goto_1
+    :goto_34
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_60
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -610,20 +610,20 @@
 
     invoke-virtual {p2, v0}, Lopenlight/co/camera/view/rotate/RotateLayout;->setAlpha(F)V
 
-    goto :goto_1
+    goto :goto_34
 
     .line 324
-    :cond_1
+    :cond_60
     invoke-virtual {p3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
-    :goto_2
+    :goto_64
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_80
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -646,14 +646,14 @@
 
     invoke-virtual {p2, p3}, Lopenlight/co/camera/view/rotate/RotateLayout;->setVisibility(I)V
 
-    goto :goto_2
+    goto :goto_64
 
-    :cond_2
+    :cond_80
     return-void
 .end method
 
 .method private getExposureTime(J)Ljava/lang/String;
-    .locals 7
+    .registers 10
 
     const-wide/32 v0, 0x11e1a300
 
@@ -665,13 +665,13 @@
 
     const-wide v3, 0x41cdcd6500000000L    # 1.0E9
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_29
 
     const-wide/16 v5, 0x0
 
     cmp-long v0, p1, v5
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_29
 
     long-to-double p1, p1
 
@@ -698,7 +698,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_29
     long-to-double p1, p1
 
     div-double/2addr p1, v3
@@ -726,7 +726,7 @@
 .end method
 
 .method private getHudElementCurrentValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 553
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$view$hud$HudLayout$HudValue:[I
@@ -737,14 +737,14 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_26
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 563
-    :pswitch_0
+    :pswitch_d
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->createResolutionValue()Ljava/lang/String;
 
     move-result-object p0
@@ -752,7 +752,7 @@
     return-object p0
 
     .line 561
-    :pswitch_1
+    :pswitch_12
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->createShutterValue()Ljava/lang/String;
 
     move-result-object p0
@@ -760,7 +760,7 @@
     return-object p0
 
     .line 559
-    :pswitch_2
+    :pswitch_17
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->createZoomValue()Ljava/lang/String;
 
     move-result-object p0
@@ -768,7 +768,7 @@
     return-object p0
 
     .line 557
-    :pswitch_3
+    :pswitch_1c
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->createIsoValue()Ljava/lang/String;
 
     move-result-object p0
@@ -776,25 +776,25 @@
     return-object p0
 
     .line 555
-    :pswitch_4
+    :pswitch_21
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->createEvValue()Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_1c
+        :pswitch_17
+        :pswitch_12
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method private getPixelDiff(Landroid/content/Context;)I
-    .locals 1
+    .registers 3
 
     .line 341
     invoke-static {p1}, Lopenlight/co/camera/utils/Util;->getHeightOfScreen(Landroid/content/Context;)I
@@ -814,7 +814,7 @@
 .end method
 
 .method private initSingleHudElement(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)V
-    .locals 3
+    .registers 5
 
     .line 266
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudElementsMap:Ljava/util/EnumMap;
@@ -904,7 +904,7 @@
 .end method
 
 .method private round(D)D
-    .locals 4
+    .registers 7
 
     const-wide/high16 v0, 0x4024000000000000L    # 10.0
 
@@ -930,7 +930,7 @@
 .end method
 
 .method private setBackground()V
-    .locals 2
+    .registers 3
 
     .line 435
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudColor:Lopenlight/co/camera/view/hud/HudLayout$HudColor;
@@ -941,17 +941,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const v0, 0x7f080105
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
     .line 437
-    :goto_0
+    :goto_f
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {p0, v0}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
@@ -960,7 +960,7 @@
 .end method
 
 .method private setHudColor()V
-    .locals 2
+    .registers 3
 
     .line 444
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudColor:Lopenlight/co/camera/view/hud/HudLayout$HudColor;
@@ -971,23 +971,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$HudColor;->TRANSPARENT:Lopenlight/co/camera/view/hud/HudLayout$HudColor;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$HudColor;->COLORED:Lopenlight/co/camera/view/hud/HudLayout$HudColor;
 
-    :goto_0
+    :goto_f
     iput-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudColor:Lopenlight/co/camera/view/hud/HudLayout$HudColor;
 
     return-void
 .end method
 
 .method private setTextColor(Lopenlight/co/camera/view/hud/HudLayout$HudValue;Z)V
-    .locals 3
+    .registers 6
 
     .line 454
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -1000,7 +1000,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     const v2, 0x7f060091
 
@@ -1009,9 +1009,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_13
     const v2, 0x7f06009b
 
     .line 457
@@ -1019,18 +1019,18 @@
 
     move-result v0
 
-    :goto_0
-    if-eqz p2, :cond_1
+    :goto_1a
+    if-eqz p2, :cond_20
 
     const p2, 0x7f080106
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     const/4 p2, 0x0
 
     .line 459
-    :goto_1
+    :goto_21
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudElementsMap:Ljava/util/EnumMap;
 
     invoke-virtual {p0, p1}, Ljava/util/EnumMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -1071,7 +1071,7 @@
 .end method
 
 .method private setValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     .line 424
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudElementsMap:Ljava/util/EnumMap;
@@ -1108,7 +1108,7 @@
     .line 426
     sget-boolean p0, Lopenlight/co/camera/view/hud/HudLayout;->ENABLE_VERBOSE_LOGGING:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_42
 
     .line 427
     sget-object p0, Lopenlight/co/camera/view/hud/HudLayout;->TAG:Ljava/lang/String;
@@ -1135,12 +1135,12 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_42
     return-void
 .end method
 
 .method private setValues()V
-    .locals 7
+    .registers 8
 
     .line 157
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -1167,8 +1167,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_15
+    if-ge v3, v2, :cond_29
 
     aget-object v4, v1, v3
 
@@ -1187,17 +1187,17 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 164
-    :cond_0
+    :cond_29
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->setBackground()V
 
     return-void
 .end method
 
 .method private updateHudElementLabel(Lopenlight/co/camera/view/hud/HudLayout$HudValue;I)V
-    .locals 1
+    .registers 4
 
     .line 476
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudElementsMap:Ljava/util/EnumMap;
@@ -1212,7 +1212,7 @@
 
     const/4 v0, 0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_19
 
     .line 479
     invoke-virtual {p0}, Lopenlight/co/camera/view/hud/HudLayout$HudData;->getHudElementUnitTop()Landroid/widget/TextView;
@@ -1226,10 +1226,10 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 482
-    :cond_0
+    :cond_19
     invoke-virtual {p0}, Lopenlight/co/camera/view/hud/HudLayout$HudData;->getHudElementUnitLeft()Landroid/widget/TextView;
 
     move-result-object p2
@@ -1241,7 +1241,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :goto_0
+    :goto_24
     const/4 p1, 0x0
 
     .line 485
@@ -1258,7 +1258,7 @@
 .end method
 
 .method private updateHudIndividualValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)V
-    .locals 1
+    .registers 3
 
     .line 330
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/hud/HudLayout;->getHudElementCurrentValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)Ljava/lang/String;
@@ -1273,7 +1273,7 @@
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 2
+    .registers 3
 
     .line 117
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public checkAndUpdateMode()Z
-    .locals 5
+    .registers 6
 
     .line 282
     new-instance v0, Ljava/util/ArrayList;
@@ -1337,12 +1337,12 @@
 
     aget v3, v3, v4
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_68
 
-    goto :goto_0
+    goto :goto_62
 
     .line 287
-    :pswitch_0
+    :pswitch_23
     sget-object v3, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->EV:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
 
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1357,10 +1357,10 @@
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_62
 
     .line 302
-    :pswitch_1
+    :pswitch_33
     sget-object v3, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->EV:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1375,10 +1375,10 @@
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_62
 
     .line 297
-    :pswitch_2
+    :pswitch_43
     sget-object v3, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->EV:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1393,10 +1393,10 @@
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_62
 
     .line 292
-    :pswitch_3
+    :pswitch_53
     sget-object v3, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->EV:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -1412,7 +1412,7 @@
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 309
-    :goto_0
+    :goto_62
     invoke-direct {p0, v0, v1, v2}, Lopenlight/co/camera/view/hud/HudLayout;->disableHudElement(Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 
     const/4 p0, 0x1
@@ -1421,17 +1421,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_68
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_53
+        :pswitch_43
+        :pswitch_33
+        :pswitch_23
     .end packed-switch
 .end method
 
 .method public closeAll()V
-    .locals 0
+    .registers 1
 
     .line 237
     invoke-virtual {p0}, Lopenlight/co/camera/view/hud/HudLayout;->removeModeSelection()V
@@ -1440,7 +1440,7 @@
 .end method
 
 .method public closeLayoutAnimation()V
-    .locals 3
+    .registers 4
 
     .line 213
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudLayoutView:Landroid/view/View;
@@ -1456,7 +1456,7 @@
 
     new-array v2, v2, [F
 
-    fill-array-data v2, :array_0
+    fill-array-data v2, :array_22
 
     invoke-static {v0, v1, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -1479,7 +1479,7 @@
 
     nop
 
-    :array_0
+    :array_22
     .array-data 4
         0x0
         -0x3cb80000    # -200.0f
@@ -1487,7 +1487,7 @@
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 257
     const-class p0, Lopenlight/co/camera/view/hud/HudLayout;
@@ -1500,7 +1500,7 @@
 .end method
 
 .method public initChildView()V
-    .locals 4
+    .registers 5
 
     .line 125
     invoke-static {}, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->values()[Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -1511,8 +1511,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_6
+    if-ge v2, v1, :cond_10
 
     aget-object v3, v0, v2
 
@@ -1521,10 +1521,10 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 128
-    :cond_0
+    :cond_10
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
 
     move-result-object v0
@@ -1542,7 +1542,7 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 5
+    .registers 7
 
     .line 248
     invoke-static {}, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->values()[Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -1553,8 +1553,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_6
+    if-ge v2, v1, :cond_20
 
     aget-object v3, v0, v2
 
@@ -1580,17 +1580,17 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 252
-    :cond_0
+    :cond_20
     invoke-direct {p0}, Lopenlight/co/camera/view/hud/HudLayout;->setValues()V
 
     return-void
 .end method
 
 .method public openLayoutAnimation()V
-    .locals 2
+    .registers 3
 
     .line 202
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudLayoutView:Landroid/view/View;
@@ -1606,7 +1606,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_1c
 
     invoke-static {p0, v0, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -1622,7 +1622,7 @@
 
     return-void
 
-    :array_0
+    :array_1c
     .array-data 4
         -0x3d380000    # -100.0f
         0x0
@@ -1630,12 +1630,12 @@
 .end method
 
 .method public removeModeSelection()V
-    .locals 1
+    .registers 2
 
     .line 223
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mImageFragmentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 224
     iget-object v0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -1644,12 +1644,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public removeOrientationControllerInHud()V
-    .locals 1
+    .registers 2
 
     .line 232
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -1666,7 +1666,7 @@
 .end method
 
 .method public setAlpha(Z)V
-    .locals 1
+    .registers 3
 
     .line 149
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudLayout:Landroid/widget/RelativeLayout;
@@ -1679,28 +1679,28 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 242
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout;->mHudLayoutView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public updateHudItems(Ljava/lang/String;)V
-    .locals 7
+    .registers 9
 
     .line 190
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -1722,12 +1722,12 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v4, v2, :cond_1
+    :goto_f
+    if-ge v4, v2, :cond_2c
 
     aget-object v5, v1, v4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_25
 
     .line 193
     invoke-virtual {v5}, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->getHudElementTitle()I
@@ -1742,29 +1742,29 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_25
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_0
+    :cond_25
     move v6, v3
 
     .line 194
-    :goto_1
+    :goto_26
     invoke-direct {p0, v5, v6}, Lopenlight/co/camera/view/hud/HudLayout;->setTextColor(Lopenlight/co/camera/view/hud/HudLayout$HudValue;Z)V
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_2c
     return-void
 .end method
 
 .method public updateHudValues()V
-    .locals 2
+    .registers 3
 
     .line 171
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -1784,18 +1784,18 @@
 
     aget v0, v1, v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
-    goto :goto_0
+    goto :goto_23
 
     .line 176
-    :pswitch_0
+    :pswitch_14
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->EV:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
 
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudIndividualValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)V
 
     .line 178
-    :pswitch_1
+    :pswitch_19
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->ZOOM:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
 
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudIndividualValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)V
@@ -1805,20 +1805,20 @@
 
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudIndividualValue(Lopenlight/co/camera/view/hud/HudLayout$HudValue;)V
 
-    :goto_0
+    :goto_23
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_14
+        :pswitch_14
+        :pswitch_14
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method public updateRealTime(JI)V
-    .locals 1
+    .registers 5
 
     .line 142
     iput p3, p0, Lopenlight/co/camera/view/hud/HudLayout;->mIsoValue:I

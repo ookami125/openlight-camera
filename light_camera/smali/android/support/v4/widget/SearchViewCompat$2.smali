@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;)V
-    .locals 0
+    .registers 2
 
     .line 209
     iput-object p1, p0, Landroid/support/v4/widget/SearchViewCompat$2;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onClose()Z
-    .locals 0
+    .registers 1
 
     .line 212
     iget-object p0, p0, Landroid/support/v4/widget/SearchViewCompat$2;->val$listener:Landroid/support/v4/widget/SearchViewCompat$OnCloseListener;

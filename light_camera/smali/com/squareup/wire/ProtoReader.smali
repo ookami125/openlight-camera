@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/BufferedSource;)V
-    .locals 2
+    .registers 4
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,7 +84,7 @@
 .end method
 
 .method private afterPackableScalar(I)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -96,22 +96,22 @@
 
     const/4 v1, 0x6
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_8
 
     .line 376
     iput v1, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
-    goto :goto_0
+    goto :goto_26
 
     .line 378
-    :cond_0
+    :cond_8
     iget-wide v2, p0, Lcom/squareup/wire/ProtoReader;->pos:J
 
     iget-wide v4, p0, Lcom/squareup/wire/ProtoReader;->limit:J
 
     cmp-long p1, v2, v4
 
-    if-gtz p1, :cond_2
+    if-gtz p1, :cond_27
 
     .line 380
     iget-wide v2, p0, Lcom/squareup/wire/ProtoReader;->pos:J
@@ -120,7 +120,7 @@
 
     cmp-long p1, v2, v4
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_23
 
     .line 382
     iget-wide v2, p0, Lcom/squareup/wire/ProtoReader;->pushedLimit:J
@@ -135,19 +135,19 @@
     .line 384
     iput v1, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_1
+    :cond_23
     const/4 p1, 0x7
 
     .line 386
     iput p1, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
-    :goto_0
+    :goto_26
     return-void
 
     .line 379
-    :cond_2
+    :cond_27
     new-instance p1, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -180,7 +180,7 @@
 .end method
 
 .method private beforeLengthDelimitedScalar()J
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -192,7 +192,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1f
 
     .line 395
     iget-wide v0, p0, Lcom/squareup/wire/ProtoReader;->limit:J
@@ -229,7 +229,7 @@
     return-wide v0
 
     .line 393
-    :cond_0
+    :cond_1f
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -254,7 +254,7 @@
 .end method
 
 .method private internalReadVarint32()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -282,11 +282,11 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_15
 
     return v0
 
-    :cond_0
+    :cond_15
     and-int/lit8 v0, v0, 0x7f
 
     .line 291
@@ -308,15 +308,15 @@
 
     move-result v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_2e
 
     shl-int/lit8 p0, v3, 0x7
 
     or-int/2addr p0, v0
 
-    goto/16 :goto_1
+    goto/16 :goto_a1
 
-    :cond_1
+    :cond_2e
     and-int/lit8 v3, v3, 0x7f
 
     shl-int/lit8 v3, v3, 0x7
@@ -342,15 +342,15 @@
 
     move-result v3
 
-    if-ltz v3, :cond_2
+    if-ltz v3, :cond_49
 
     shl-int/lit8 p0, v3, 0xe
 
     or-int/2addr p0, v0
 
-    goto :goto_1
+    goto :goto_a1
 
-    :cond_2
+    :cond_49
     and-int/lit8 v3, v3, 0x7f
 
     shl-int/lit8 v3, v3, 0xe
@@ -376,15 +376,15 @@
 
     move-result v3
 
-    if-ltz v3, :cond_3
+    if-ltz v3, :cond_64
 
     shl-int/lit8 p0, v3, 0x15
 
     or-int/2addr p0, v0
 
-    goto :goto_1
+    goto :goto_a1
 
-    :cond_3
+    :cond_64
     and-int/lit8 v3, v3, 0x7f
 
     shl-int/lit8 v3, v3, 0x15
@@ -414,14 +414,14 @@
 
     or-int/2addr v0, v4
 
-    if-gez v3, :cond_6
+    if-gez v3, :cond_a0
 
     const/4 v3, 0x0
 
-    :goto_0
+    :goto_7f
     const/4 v4, 0x5
 
-    if-ge v3, v4, :cond_5
+    if-ge v3, v4, :cond_98
 
     .line 315
     iget-object v4, p0, Lcom/squareup/wire/ProtoReader;->source:Lokio/BufferedSource;
@@ -442,17 +442,17 @@
 
     move-result v4
 
-    if-ltz v4, :cond_4
+    if-ltz v4, :cond_95
 
     return v0
 
-    :cond_4
+    :cond_95
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_7f
 
     .line 321
-    :cond_5
+    :cond_98
     new-instance p0, Ljava/net/ProtocolException;
 
     const-string v0, "Malformed VARINT"
@@ -461,15 +461,15 @@
 
     throw p0
 
-    :cond_6
+    :cond_a0
     move p0, v0
 
-    :goto_1
+    :goto_a1
     return p0
 .end method
 
 .method private skipGroup(I)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -484,7 +484,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_70
 
     iget-object v0, p0, Lcom/squareup/wire/ProtoReader;->source:Lokio/BufferedSource;
 
@@ -492,20 +492,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_70
 
     .line 218
     invoke-direct {p0}, Lcom/squareup/wire/ProtoReader;->internalReadVarint32()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_68
 
     shr-int/lit8 v1, v0, 0x3
 
     and-int/lit8 v0, v0, 0x7
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_76
 
     .line 247
     new-instance p0, Ljava/net/ProtocolException;
@@ -528,7 +528,7 @@
 
     throw p0
 
-    :pswitch_0
+    :pswitch_34
     const/4 v0, 0x5
 
     .line 243
@@ -539,13 +539,13 @@
 
     goto :goto_0
 
-    :pswitch_1
-    if-ne v1, p1, :cond_0
+    :pswitch_3b
+    if-ne v1, p1, :cond_3e
 
     return-void
 
     .line 228
-    :cond_0
+    :cond_3e
     new-instance p0, Ljava/net/ProtocolException;
 
     const-string p1, "Unexpected end group"
@@ -555,13 +555,13 @@
     throw p0
 
     .line 224
-    :pswitch_2
+    :pswitch_46
     invoke-direct {p0, v1}, Lcom/squareup/wire/ProtoReader;->skipGroup(I)V
 
     goto :goto_0
 
     .line 230
-    :pswitch_3
+    :pswitch_4a
     invoke-direct {p0}, Lcom/squareup/wire/ProtoReader;->internalReadVarint32()I
 
     move-result v0
@@ -582,7 +582,7 @@
 
     goto :goto_0
 
-    :pswitch_4
+    :pswitch_5a
     const/4 v0, 0x1
 
     .line 239
@@ -593,7 +593,7 @@
 
     goto :goto_0
 
-    :pswitch_5
+    :pswitch_61
     const/4 v0, 0x0
 
     .line 235
@@ -605,7 +605,7 @@
     goto :goto_0
 
     .line 219
-    :cond_1
+    :cond_68
     new-instance p0, Ljava/net/ProtocolException;
 
     const-string p1, "Unexpected tag 0"
@@ -615,28 +615,28 @@
     throw p0
 
     .line 250
-    :cond_2
+    :cond_70
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
 
     throw p0
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_61
+        :pswitch_5a
+        :pswitch_4a
+        :pswitch_46
+        :pswitch_3b
+        :pswitch_34
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public beginMessage()J
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -648,7 +648,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_21
 
     .line 92
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->recursionDepth:I
@@ -659,7 +659,7 @@
 
     const/16 v1, 0x41
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_19
 
     .line 97
     iget-wide v0, p0, Lcom/squareup/wire/ProtoReader;->pushedLimit:J
@@ -677,7 +677,7 @@
     return-wide v0
 
     .line 93
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/io/IOException;
 
     const-string v0, "Wire recursion limit exceeded"
@@ -687,7 +687,7 @@
     throw p0
 
     .line 90
-    :cond_1
+    :cond_21
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Unexpected call to beginMessage()"
@@ -698,7 +698,7 @@
 .end method
 
 .method public endMessage(J)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -710,7 +710,7 @@
 
     const/4 v1, 0x6
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_50
 
     .line 113
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->recursionDepth:I
@@ -719,7 +719,7 @@
 
     iput v0, p0, Lcom/squareup/wire/ProtoReader;->recursionDepth:I
 
-    if-ltz v0, :cond_2
+    if-ltz v0, :cond_48
 
     iget-wide v0, p0, Lcom/squareup/wire/ProtoReader;->pushedLimit:J
 
@@ -727,7 +727,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_48
 
     .line 116
     iget-wide v0, p0, Lcom/squareup/wire/ProtoReader;->pos:J
@@ -736,16 +736,16 @@
 
     cmp-long v0, v0, v2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_45
 
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->recursionDepth:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
-    goto :goto_0
+    goto :goto_45
 
     .line 117
-    :cond_0
+    :cond_22
     new-instance p1, Ljava/io/IOException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -777,14 +777,14 @@
     throw p1
 
     .line 119
-    :cond_1
-    :goto_0
+    :cond_45
+    :goto_45
     iput-wide p1, p0, Lcom/squareup/wire/ProtoReader;->limit:J
 
     return-void
 
     .line 114
-    :cond_2
+    :cond_48
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "No corresponding call to beginMessage()"
@@ -794,7 +794,7 @@
     throw p0
 
     .line 111
-    :cond_3
+    :cond_50
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Unexpected call to endMessage()"
@@ -805,7 +805,7 @@
 .end method
 
 .method public nextTag()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -819,7 +819,7 @@
 
     const/4 v2, 0x7
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_b
 
     .line 129
     iput v1, p0, Lcom/squareup/wire/ProtoReader;->state:I
@@ -830,22 +830,22 @@
     return p0
 
     .line 131
-    :cond_0
+    :cond_b
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
     const/4 v2, 0x6
 
-    if-ne v0, v2, :cond_6
+    if-ne v0, v2, :cond_c8
 
     .line 135
-    :goto_0
+    :goto_10
     iget-wide v2, p0, Lcom/squareup/wire/ProtoReader;->pos:J
 
     iget-wide v4, p0, Lcom/squareup/wire/ProtoReader;->limit:J
 
     cmp-long v0, v2, v4
 
-    if-gez v0, :cond_5
+    if-gez v0, :cond_c6
 
     iget-object v0, p0, Lcom/squareup/wire/ProtoReader;->source:Lokio/BufferedSource;
 
@@ -853,14 +853,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_c6
 
     .line 136
     invoke-direct {p0}, Lcom/squareup/wire/ProtoReader;->internalReadVarint32()I
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_be
 
     shr-int/lit8 v2, v0, 0x3
 
@@ -869,7 +869,7 @@
 
     and-int/lit8 v0, v0, 0x7
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_d0
 
     .line 177
     new-instance p0, Ljava/net/ProtocolException;
@@ -893,7 +893,7 @@
     throw p0
 
     .line 172
-    :pswitch_0
+    :pswitch_46
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->FIXED32:Lcom/squareup/wire/FieldEncoding;
 
     iput-object v0, p0, Lcom/squareup/wire/ProtoReader;->nextFieldEncoding:Lcom/squareup/wire/FieldEncoding;
@@ -909,7 +909,7 @@
     return p0
 
     .line 147
-    :pswitch_1
+    :pswitch_50
     new-instance p0, Ljava/net/ProtocolException;
 
     const-string v0, "Unexpected end group"
@@ -919,15 +919,15 @@
     throw p0
 
     .line 143
-    :pswitch_2
+    :pswitch_58
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->tag:I
 
     invoke-direct {p0, v0}, Lcom/squareup/wire/ProtoReader;->skipGroup(I)V
 
-    goto :goto_0
+    goto :goto_10
 
     .line 150
-    :pswitch_3
+    :pswitch_5e
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
 
     iput-object v0, p0, Lcom/squareup/wire/ProtoReader;->nextFieldEncoding:Lcom/squareup/wire/FieldEncoding;
@@ -940,7 +940,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_93
 
     .line 154
     iget-wide v1, p0, Lcom/squareup/wire/ProtoReader;->pushedLimit:J
@@ -949,7 +949,7 @@
 
     cmp-long v1, v1, v3
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_8d
 
     .line 156
     iget-wide v1, p0, Lcom/squareup/wire/ProtoReader;->limit:J
@@ -972,7 +972,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_87
 
     .line 159
     iget p0, p0, Lcom/squareup/wire/ProtoReader;->tag:I
@@ -980,7 +980,7 @@
     return p0
 
     .line 158
-    :cond_1
+    :cond_87
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -988,7 +988,7 @@
     throw p0
 
     .line 154
-    :cond_2
+    :cond_8d
     new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V
@@ -996,7 +996,7 @@
     throw p0
 
     .line 153
-    :cond_3
+    :cond_93
     new-instance p0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1018,7 +1018,7 @@
     throw p0
 
     .line 167
-    :pswitch_4
+    :pswitch_aa
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->FIXED64:Lcom/squareup/wire/FieldEncoding;
 
     iput-object v0, p0, Lcom/squareup/wire/ProtoReader;->nextFieldEncoding:Lcom/squareup/wire/FieldEncoding;
@@ -1034,7 +1034,7 @@
     return p0
 
     .line 162
-    :pswitch_5
+    :pswitch_b4
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->VARINT:Lcom/squareup/wire/FieldEncoding;
 
     iput-object v0, p0, Lcom/squareup/wire/ProtoReader;->nextFieldEncoding:Lcom/squareup/wire/FieldEncoding;
@@ -1050,7 +1050,7 @@
     return p0
 
     .line 137
-    :cond_4
+    :cond_be
     new-instance p0, Ljava/net/ProtocolException;
 
     const-string v0, "Unexpected tag 0"
@@ -1059,13 +1059,13 @@
 
     throw p0
 
-    :cond_5
+    :cond_c6
     const/4 p0, -0x1
 
     return p0
 
     .line 132
-    :cond_6
+    :cond_c8
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Unexpected call to nextTag()"
@@ -1074,19 +1074,19 @@
 
     throw p0
 
-    :pswitch_data_0
+    :pswitch_data_d0
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_b4
+        :pswitch_aa
+        :pswitch_5e
+        :pswitch_58
+        :pswitch_50
+        :pswitch_46
     .end packed-switch
 .end method
 
 .method public peekFieldEncoding()Lcom/squareup/wire/FieldEncoding;
-    .locals 0
+    .registers 1
 
     .line 188
     iget-object p0, p0, Lcom/squareup/wire/ProtoReader;->nextFieldEncoding:Lcom/squareup/wire/FieldEncoding;
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public readBytes()Lokio/ByteString;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public readFixed32()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1135,18 +1135,18 @@
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_24
 
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_b
 
-    goto :goto_0
+    goto :goto_24
 
     .line 353
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1170,8 +1170,8 @@
     throw v0
 
     .line 355
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     iget-object v0, p0, Lcom/squareup/wire/ProtoReader;->source:Lokio/BufferedSource;
 
     const-wide/16 v2, 0x4
@@ -1199,7 +1199,7 @@
 .end method
 
 .method public readFixed64()J
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1211,18 +1211,18 @@
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_24
 
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_b
 
-    goto :goto_0
+    goto :goto_24
 
     .line 365
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1246,8 +1246,8 @@
     throw v0
 
     .line 367
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     iget-object v0, p0, Lcom/squareup/wire/ProtoReader;->source:Lokio/BufferedSource;
 
     const-wide/16 v2, 0x8
@@ -1275,7 +1275,7 @@
 .end method
 
 .method public readString()Ljava/lang/String;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public readVarint32()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1313,18 +1313,18 @@
     .line 275
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_23
 
     .line 276
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1348,8 +1348,8 @@
     throw v0
 
     .line 278
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     invoke-direct {p0}, Lcom/squareup/wire/ProtoReader;->internalReadVarint32()I
 
     move-result v0
@@ -1363,7 +1363,7 @@
 .end method
 
 .method public readVarint64()J
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1373,18 +1373,18 @@
     .line 331
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     iget v0, p0, Lcom/squareup/wire/ProtoReader;->state:I
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
-    goto :goto_0
+    goto :goto_23
 
     .line 332
-    :cond_0
+    :cond_a
     new-instance v0, Ljava/net/ProtocolException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1407,8 +1407,8 @@
 
     throw v0
 
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     const-wide/16 v0, 0x0
 
     const/4 v2, 0x0
@@ -1417,10 +1417,10 @@
 
     move v0, v2
 
-    :goto_1
+    :goto_28
     const/16 v1, 0x40
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_4e
 
     .line 337
     iget-object v1, p0, Lcom/squareup/wire/ProtoReader;->source:Lokio/BufferedSource;
@@ -1453,20 +1453,20 @@
 
     and-int/lit16 v1, v1, 0x80
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4b
 
     .line 342
     invoke-direct {p0, v2}, Lcom/squareup/wire/ProtoReader;->afterPackableScalar(I)V
 
     return-wide v3
 
-    :cond_2
+    :cond_4b
     add-int/lit8 v0, v0, 0x7
 
-    goto :goto_1
+    goto :goto_28
 
     .line 347
-    :cond_3
+    :cond_4e
     new-instance p0, Ljava/net/ProtocolException;
 
     const-string v0, "WireInput encountered a malformed varint"
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public skip()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1489,9 +1489,9 @@
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_22
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_26
 
     .line 211
     new-instance p0, Ljava/lang/IllegalStateException;
@@ -1503,7 +1503,7 @@
     throw p0
 
     .line 198
-    :pswitch_0
+    :pswitch_10
     invoke-direct {p0}, Lcom/squareup/wire/ProtoReader;->beforeLengthDelimitedScalar()J
 
     move-result-wide v0
@@ -1513,31 +1513,31 @@
 
     invoke-interface {p0, v0, v1}, Lokio/BufferedSource;->skip(J)V
 
-    goto :goto_0
+    goto :goto_25
 
     .line 205
-    :pswitch_1
+    :pswitch_1a
     invoke-virtual {p0}, Lcom/squareup/wire/ProtoReader;->readFixed64()J
 
-    goto :goto_0
+    goto :goto_25
 
     .line 202
-    :pswitch_2
+    :pswitch_1e
     invoke-virtual {p0}, Lcom/squareup/wire/ProtoReader;->readVarint64()J
 
-    goto :goto_0
+    goto :goto_25
 
     .line 208
-    :cond_0
+    :cond_22
     invoke-virtual {p0}, Lcom/squareup/wire/ProtoReader;->readFixed32()I
 
-    :goto_0
+    :goto_25
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_1a
+        :pswitch_10
     .end packed-switch
 .end method

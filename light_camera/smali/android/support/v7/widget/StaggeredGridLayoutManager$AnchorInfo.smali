@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/StaggeredGridLayoutManager;)V
-    .locals 0
+    .registers 2
 
     .line 3226
     iput-object p1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
@@ -48,12 +48,12 @@
 
 # virtual methods
 .method assignCoordinateFromPadding()V
-    .locals 1
+    .registers 2
 
     .line 3253
     iget-boolean v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
 
@@ -63,9 +63,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
 
     iget-object v0, v0, Landroid/support/v7/widget/StaggeredGridLayoutManager;->mPrimaryOrientation:Landroid/support/v7/widget/OrientationHelper;
@@ -75,19 +75,19 @@
 
     move-result v0
 
-    :goto_0
+    :goto_15
     iput v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
     return-void
 .end method
 
 .method assignCoordinateFromPadding(I)V
-    .locals 1
+    .registers 3
 
     .line 3258
     iget-boolean v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 3259
     iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
@@ -102,10 +102,10 @@
 
     iput v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 3261
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
 
     iget-object v0, v0, Landroid/support/v7/widget/StaggeredGridLayoutManager;->mPrimaryOrientation:Landroid/support/v7/widget/OrientationHelper;
@@ -118,12 +118,12 @@
 
     iput v0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mOffset:I
 
-    :goto_0
+    :goto_1b
     return-void
 .end method
 
 .method reset()V
-    .locals 2
+    .registers 3
 
     const/4 v0, -0x1
 
@@ -149,19 +149,19 @@
     .line 3236
     iget-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 3237
     iget-object p0, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
     invoke-static {p0, v0}, Ljava/util/Arrays;->fill([II)V
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method saveSpanReferenceLines([Landroid/support/v7/widget/StaggeredGridLayoutManager$Span;)V
-    .locals 5
+    .registers 7
 
     .line 3242
     array-length v0, p1
@@ -169,16 +169,16 @@
     .line 3243
     iget-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a
 
     iget-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
     array-length v1, v1
 
-    if-ge v1, v0, :cond_1
+    if-ge v1, v0, :cond_13
 
     .line 3244
-    :cond_0
+    :cond_a
     iget-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/StaggeredGridLayoutManager;
 
     iget-object v1, v1, Landroid/support/v7/widget/StaggeredGridLayoutManager;->mSpans:[Landroid/support/v7/widget/StaggeredGridLayoutManager$Span;
@@ -189,11 +189,11 @@
 
     iput-object v1, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
 
-    :cond_1
+    :cond_13
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_14
+    if-ge v1, v0, :cond_25
 
     .line 3248
     iget-object v2, p0, Landroid/support/v7/widget/StaggeredGridLayoutManager$AnchorInfo;->mSpanReferenceLines:[I
@@ -210,8 +210,8 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_2
+    :cond_25
     return-void
 .end method

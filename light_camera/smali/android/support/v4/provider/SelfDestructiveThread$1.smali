@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/SelfDestructiveThread;)V
-    .locals 0
+    .registers 2
 
     .line 57
     iput-object p1, p0, Landroid/support/v4/provider/SelfDestructiveThread$1;->this$0:Landroid/support/v4/provider/SelfDestructiveThread;
@@ -36,42 +36,44 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 2
+    .registers 4
 
     .line 60
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_18
 
     return v1
 
     .line 62
-    :pswitch_0
+    :pswitch_7
     iget-object p0, p0, Landroid/support/v4/provider/SelfDestructiveThread$1;->this$0:Landroid/support/v4/provider/SelfDestructiveThread;
 
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast p1, Ljava/lang/Runnable;
 
+    # invokes: Landroid/support/v4/provider/SelfDestructiveThread;->onInvokeRunnable(Ljava/lang/Runnable;)V
     invoke-static {p0, p1}, Landroid/support/v4/provider/SelfDestructiveThread;->access$000(Landroid/support/v4/provider/SelfDestructiveThread;Ljava/lang/Runnable;)V
 
     return v1
 
     .line 65
-    :pswitch_1
+    :pswitch_11
     iget-object p0, p0, Landroid/support/v4/provider/SelfDestructiveThread$1;->this$0:Landroid/support/v4/provider/SelfDestructiveThread;
 
+    # invokes: Landroid/support/v4/provider/SelfDestructiveThread;->onDestruction()V
     invoke-static {p0}, Landroid/support/v4/provider/SelfDestructiveThread;->access$100(Landroid/support/v4/provider/SelfDestructiveThread;)V
 
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_11
+        :pswitch_7
     .end packed-switch
 .end method

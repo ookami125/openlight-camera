@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityEventCompat$AccessibilityEventCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getAction(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 0
+    .registers 2
 
     .line 71
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getAction()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public getMovementGranularity(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 0
+    .registers 2
 
     .line 61
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getMovementGranularity()I
@@ -53,7 +53,7 @@
 .end method
 
 .method public setAction(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 3
 
     .line 66
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityEvent;->setAction(I)V
@@ -62,7 +62,7 @@
 .end method
 
 .method public setMovementGranularity(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 3
 
     .line 56
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityEvent;->setMovementGranularity(I)V

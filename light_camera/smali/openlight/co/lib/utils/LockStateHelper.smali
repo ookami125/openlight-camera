@@ -15,13 +15,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public static synthetic lambda$onReceive$0(Lopenlight/co/lib/utils/LockStateHelper;)V
-    .locals 2
+    .registers 3
 
     .line 51
     iget-object p0, p0, Lopenlight/co/lib/utils/LockStateHelper;->mPrefs:Lopenlight/co/lib/content/Prefs;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .registers 6
 
     .line 29
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -102,74 +102,74 @@
 
     const v1, -0x7ed8ea7f
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_52
 
     const v1, -0x56ac2893
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_48
 
     const v1, 0x311a1d6c
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_3e
 
-    goto :goto_0
+    goto :goto_5c
 
-    :cond_0
+    :cond_3e
     const-string v0, "android.intent.action.USER_PRESENT"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_5c
 
     const/4 p1, 0x2
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_1
+    :cond_48
     const-string v0, "android.intent.action.SCREEN_ON"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_5c
 
     const/4 p1, 0x1
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_2
+    :cond_52
     const-string v0, "android.intent.action.SCREEN_OFF"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_5c
 
     const/4 p1, 0x0
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_3
-    :goto_0
+    :cond_5c
+    :goto_5c
     const/4 p1, -0x1
 
-    :goto_1
-    packed-switch p1, :pswitch_data_0
+    :goto_5d
+    packed-switch p1, :pswitch_data_9e
 
-    goto :goto_3
+    goto :goto_9c
 
     .line 57
-    :pswitch_0
+    :pswitch_61
     invoke-virtual {p0}, Lopenlight/co/lib/utils/LockStateHelper;->onUserPresent()V
 
-    goto :goto_3
+    goto :goto_9c
 
-    :pswitch_1
-    if-eqz p2, :cond_5
+    :pswitch_65
+    if-eqz p2, :cond_9c
 
     .line 49
     iget-object p1, p0, Lopenlight/co/lib/utils/LockStateHelper;->mPrefs:Lopenlight/co/lib/content/Prefs;
@@ -191,7 +191,7 @@
 
     cmp-long p1, v0, p1
 
-    if-lez p1, :cond_5
+    if-lez p1, :cond_9c
 
     .line 51
     iget-object p1, p0, Lopenlight/co/lib/utils/LockStateHelper;->mPrefs:Lopenlight/co/lib/content/Prefs;
@@ -202,10 +202,10 @@
 
     invoke-interface {p1, p2}, Lopenlight/co/lib/content/Prefs;->withBroadcast(Ljava/lang/Runnable;)V
 
-    goto :goto_3
+    goto :goto_9c
 
-    :pswitch_2
-    if-eqz p2, :cond_4
+    :pswitch_85
+    if-eqz p2, :cond_93
 
     .line 37
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -219,41 +219,41 @@
 
     invoke-virtual {v0}, Lopenlight/co/lib/utils/Utils;->updateLockedState()Z
 
-    goto :goto_2
+    goto :goto_95
 
-    :cond_4
+    :cond_93
     const-wide/16 p1, 0x0
 
     .line 42
-    :goto_2
+    :goto_95
     iget-object p0, p0, Lopenlight/co/lib/utils/LockStateHelper;->mPrefs:Lopenlight/co/lib/content/Prefs;
 
     const-string v0, "screen_off_time"
 
     invoke-interface {p0, v0, p1, p2}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;J)V
 
-    :cond_5
-    :goto_3
+    :cond_9c
+    :goto_9c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_9e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_85
+        :pswitch_65
+        :pswitch_61
     .end packed-switch
 .end method
 
 .method protected onUserPresent()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public register(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     .line 70
     new-instance v0, Landroid/content/IntentFilter;
@@ -282,7 +282,7 @@
 .end method
 
 .method public unregister(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 78
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V

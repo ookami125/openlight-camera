@@ -37,14 +37,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/16 v0, 0x10
 
     .line 52
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_14
 
     sput-object v0, Lokio/ByteString;->HEX_DIGITS:[C
 
@@ -63,7 +63,7 @@
 
     nop
 
-    :array_0
+    :array_14
     .array-data 2
         0x30s
         0x31s
@@ -85,7 +85,7 @@
 .end method
 
 .method constructor <init>([B)V
-    .locals 0
+    .registers 2
 
     .line 63
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -97,7 +97,7 @@
 .end method
 
 .method static codePointIndexToCharIndex(Ljava/lang/String;I)I
-    .locals 5
+    .registers 7
 
     .line 502
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -108,15 +108,15 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_4
+    :goto_6
+    if-ge v1, v0, :cond_2c
 
-    if-ne v2, p1, :cond_0
+    if-ne v2, p1, :cond_b
 
     return v1
 
     .line 506
-    :cond_0
+    :cond_b
     invoke-virtual {p0, v1}, Ljava/lang/String;->codePointAt(I)I
 
     move-result v3
@@ -126,27 +126,27 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1d
 
     const/16 v4, 0xa
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_1d
 
     const/16 v4, 0xd
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_22
 
-    :cond_1
+    :cond_1d
     const v4, 0xfffd
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_24
 
-    :cond_2
+    :cond_22
     const/4 p0, -0x1
 
     return p0
 
-    :cond_3
+    :cond_24
     add-int/lit8 v2, v2, 0x1
 
     .line 502
@@ -156,10 +156,10 @@
 
     add-int/2addr v1, v3
 
-    goto :goto_0
+    goto :goto_6
 
     .line 513
-    :cond_4
+    :cond_2c
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result p0
@@ -168,32 +168,32 @@
 .end method
 
 .method public static decodeBase64(Ljava/lang/String;)Lokio/ByteString;
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     .line 192
     invoke-static {p0}, Lokio/Base64;->decode(Ljava/lang/String;)[B
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 193
     new-instance v0, Lokio/ByteString;
 
     invoke-direct {v0, p0}, Lokio/ByteString;-><init>([B)V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     return-object v0
 
     .line 191
-    :cond_1
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "base64 == null"
@@ -204,9 +204,9 @@
 .end method
 
 .method public static decodeHex(Ljava/lang/String;)Lokio/ByteString;
-    .locals 4
+    .registers 5
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_4f
 
     .line 210
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -215,7 +215,7 @@
 
     rem-int/lit8 v0, v0, 0x2
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_38
 
     .line 212
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -229,10 +229,10 @@
     const/4 v1, 0x0
 
     .line 213
-    :goto_0
+    :goto_13
     array-length v2, v0
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_33
 
     mul-int/lit8 v2, v1, 0x2
 
@@ -267,10 +267,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 218
-    :cond_0
+    :cond_33
     invoke-static {v0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
     move-result-object p0
@@ -278,7 +278,7 @@
     return-object p0
 
     .line 210
-    :cond_1
+    :cond_38
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -300,7 +300,7 @@
     throw v0
 
     .line 209
-    :cond_2
+    :cond_4f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "hex == null"
@@ -311,28 +311,28 @@
 .end method
 
 .method private static decodeHexDigit(C)I
-    .locals 3
+    .registers 4
 
     const/16 v0, 0x30
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_a
 
     const/16 v1, 0x39
 
-    if-gt p0, v1, :cond_0
+    if-gt p0, v1, :cond_a
 
     sub-int/2addr p0, v0
 
     return p0
 
-    :cond_0
+    :cond_a
     const/16 v0, 0x61
 
-    if-lt p0, v0, :cond_1
+    if-lt p0, v0, :cond_16
 
     const/16 v1, 0x66
 
-    if-gt p0, v1, :cond_1
+    if-gt p0, v1, :cond_16
 
     sub-int/2addr p0, v0
 
@@ -340,14 +340,14 @@
 
     return p0
 
-    :cond_1
+    :cond_16
     const/16 v0, 0x41
 
-    if-lt p0, v0, :cond_2
+    if-lt p0, v0, :cond_22
 
     const/16 v1, 0x46
 
-    if-gt p0, v1, :cond_2
+    if-gt p0, v1, :cond_22
 
     sub-int/2addr p0, v0
 
@@ -356,7 +356,7 @@
     return p0
 
     .line 225
-    :cond_2
+    :cond_22
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -379,7 +379,7 @@
 .end method
 
 .method private digest(Ljava/lang/String;)Lokio/ByteString;
-    .locals 0
+    .registers 2
 
     .line 150
     :try_start_0
@@ -396,12 +396,12 @@
     invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_e} :catch_f
 
     return-object p0
 
-    :catch_0
+    :catch_f
     move-exception p0
 
     .line 152
@@ -413,11 +413,11 @@
 .end method
 
 .method public static encodeString(Ljava/lang/String;Ljava/nio/charset/Charset;)Lokio/ByteString;
-    .locals 1
+    .registers 3
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_16
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 108
     new-instance v0, Lokio/ByteString;
@@ -431,7 +431,7 @@
     return-object v0
 
     .line 107
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "charset == null"
@@ -441,7 +441,7 @@
     throw p0
 
     .line 106
-    :cond_1
+    :cond_16
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "s == null"
@@ -452,9 +452,9 @@
 .end method
 
 .method public static encodeUtf8(Ljava/lang/String;)Lokio/ByteString;
-    .locals 2
+    .registers 3
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     .line 99
     new-instance v0, Lokio/ByteString;
@@ -473,7 +473,7 @@
     return-object v0
 
     .line 98
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "s == null"
@@ -484,7 +484,7 @@
 .end method
 
 .method private hmac(Ljava/lang/String;Lokio/ByteString;)Lokio/ByteString;
-    .locals 2
+    .registers 5
 
     .line 168
     :try_start_0
@@ -513,13 +513,13 @@
     invoke-static {p0}, Lokio/ByteString;->of([B)Lokio/ByteString;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_1a} :catch_22
+    .catch Ljava/security/InvalidKeyException; {:try_start_0 .. :try_end_1a} :catch_1b
 
     return-object p0
 
-    :catch_0
+    :catch_1b
     move-exception p0
 
     .line 174
@@ -529,7 +529,7 @@
 
     throw p1
 
-    :catch_1
+    :catch_22
     move-exception p0
 
     .line 172
@@ -541,9 +541,9 @@
 .end method
 
 .method public static of(Ljava/nio/ByteBuffer;)Lokio/ByteString;
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
     .line 91
     invoke-virtual {p0}, Ljava/nio/ByteBuffer;->remaining()I
@@ -563,7 +563,7 @@
     return-object p0
 
     .line 89
-    :cond_0
+    :cond_11
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "data == null"
@@ -574,9 +574,9 @@
 .end method
 
 .method public static varargs of([B)Lokio/ByteString;
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 72
     new-instance v0, Lokio/ByteString;
@@ -592,7 +592,7 @@
     return-object v0
 
     .line 71
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "data == null"
@@ -603,9 +603,9 @@
 .end method
 
 .method public static of([BII)Lokio/ByteString;
-    .locals 7
+    .registers 10
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_15
 
     .line 81
     array-length v0, p0
@@ -634,7 +634,7 @@
     return-object p0
 
     .line 80
-    :cond_0
+    :cond_15
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "data == null"
@@ -645,24 +645,24 @@
 .end method
 
 .method public static read(Ljava/io/InputStream;I)Lokio/ByteString;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_37
 
-    if-ltz p1, :cond_2
+    if-ltz p1, :cond_20
 
     .line 238
     new-array v0, p1, [B
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, p1, :cond_1
+    :goto_7
+    if-ge v1, p1, :cond_1a
 
     sub-int v2, p1, v1
 
@@ -673,14 +673,14 @@
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_14
 
     add-int/2addr v1, v2
 
-    goto :goto_0
+    goto :goto_7
 
     .line 241
-    :cond_0
+    :cond_14
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -688,7 +688,7 @@
     throw p0
 
     .line 243
-    :cond_1
+    :cond_1a
     new-instance p0, Lokio/ByteString;
 
     invoke-direct {p0, v0}, Lokio/ByteString;-><init>([B)V
@@ -696,7 +696,7 @@
     return-object p0
 
     .line 236
-    :cond_2
+    :cond_20
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -718,7 +718,7 @@
     throw p0
 
     .line 235
-    :cond_3
+    :cond_37
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "in == null"
@@ -729,7 +729,7 @@
 .end method
 
 .method private readObject(Ljava/io/ObjectInputStream;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -747,7 +747,7 @@
     move-result-object p1
 
     .line 520
-    :try_start_0
+    :try_start_8
     const-class v0, Lokio/ByteString;
 
     const-string v1, "data"
@@ -765,14 +765,14 @@
     iget-object p1, p1, Lokio/ByteString;->data:[B
 
     invoke-virtual {v0, p0, p1}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_8 .. :try_end_19} :catch_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_8 .. :try_end_19} :catch_1a
 
     return-void
 
     .line 526
-    :catch_0
+    :catch_1a
     new-instance p0, Ljava/lang/AssertionError;
 
     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
@@ -780,7 +780,7 @@
     throw p0
 
     .line 524
-    :catch_1
+    :catch_20
     new-instance p0, Ljava/lang/AssertionError;
 
     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
@@ -789,7 +789,7 @@
 .end method
 
 .method private writeObject(Ljava/io/ObjectOutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -814,7 +814,7 @@
 
 # virtual methods
 .method public asByteBuffer()Ljava/nio/ByteBuffer;
-    .locals 0
+    .registers 1
 
     .line 355
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -831,7 +831,7 @@
 .end method
 
 .method public base64()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 130
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -844,7 +844,7 @@
 .end method
 
 .method public base64Url()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 183
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -857,7 +857,7 @@
 .end method
 
 .method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 51
     check-cast p1, Lokio/ByteString;
@@ -870,7 +870,7 @@
 .end method
 
 .method public compareTo(Lokio/ByteString;)I
-    .locals 9
+    .registers 11
 
     .line 462
     invoke-virtual {p0}, Lokio/ByteString;->size()I
@@ -891,12 +891,12 @@
 
     move v4, v3
 
-    :goto_0
+    :goto_e
     const/4 v5, -0x1
 
     const/4 v6, 0x1
 
-    if-ge v4, v2, :cond_2
+    if-ge v4, v2, :cond_28
 
     .line 465
     invoke-virtual {p0, v4}, Lokio/ByteString;->getByte(I)B
@@ -912,42 +912,42 @@
 
     and-int/lit16 v8, v8, 0xff
 
-    if-ne v7, v8, :cond_0
+    if-ne v7, v8, :cond_23
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
-    if-ge v7, v8, :cond_1
+    :cond_23
+    if-ge v7, v8, :cond_26
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_1
+    :cond_26
     move v5, v6
 
-    :goto_1
+    :goto_27
     return v5
 
-    :cond_2
-    if-ne v0, v1, :cond_3
+    :cond_28
+    if-ne v0, v1, :cond_2b
 
     return v3
 
-    :cond_3
-    if-ge v0, v1, :cond_4
+    :cond_2b
+    if-ge v0, v1, :cond_2e
 
-    goto :goto_2
+    goto :goto_2f
 
-    :cond_4
+    :cond_2e
     move v5, v6
 
-    :goto_2
+    :goto_2f
     return v5
 .end method
 
 .method public final endsWith(Lokio/ByteString;)Z
-    .locals 3
+    .registers 5
 
     .line 398
     invoke-virtual {p0}, Lokio/ByteString;->size()I
@@ -974,7 +974,7 @@
 .end method
 
 .method public final endsWith([B)Z
-    .locals 3
+    .registers 5
 
     .line 402
     invoke-virtual {p0}, Lokio/ByteString;->size()I
@@ -997,21 +997,21 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 451
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lokio/ByteString;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_20
 
     check-cast p1, Lokio/ByteString;
 
@@ -1024,7 +1024,7 @@
 
     array-length v3, v3
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_20
 
     iget-object v1, p0, Lokio/ByteString;->data:[B
 
@@ -1037,19 +1037,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_20
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     move v0, v2
 
-    :goto_0
+    :goto_21
     return v0
 .end method
 
 .method public getByte(I)B
-    .locals 0
+    .registers 2
 
     .line 329
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -1060,17 +1060,17 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 457
     iget v0, p0, Lokio/ByteString;->hashCode:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_d
 
     .line 458
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lokio/ByteString;->data:[B
 
     invoke-static {v0}, Ljava/util/Arrays;->hashCode([B)I
@@ -1079,12 +1079,12 @@
 
     iput v0, p0, Lokio/ByteString;->hashCode:I
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public hex()Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     .line 198
     iget-object v0, p0, Lokio/ByteString;->data:[B
@@ -1104,8 +1104,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_c
+    if-ge v2, v1, :cond_29
 
     aget-byte v4, p0, v2
 
@@ -1135,10 +1135,10 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 204
-    :cond_0
+    :cond_29
     new-instance p0, Ljava/lang/String;
 
     invoke-direct {p0, v0}, Ljava/lang/String;-><init>([C)V
@@ -1147,7 +1147,7 @@
 .end method
 
 .method public hmacSha1(Lokio/ByteString;)Lokio/ByteString;
-    .locals 1
+    .registers 3
 
     const-string v0, "HmacSHA1"
 
@@ -1160,7 +1160,7 @@
 .end method
 
 .method public hmacSha256(Lokio/ByteString;)Lokio/ByteString;
-    .locals 1
+    .registers 3
 
     const-string v0, "HmacSHA256"
 
@@ -1173,7 +1173,7 @@
 .end method
 
 .method public final indexOf(Lokio/ByteString;)I
-    .locals 1
+    .registers 3
 
     .line 406
     invoke-virtual {p1}, Lokio/ByteString;->internalArray()[B
@@ -1190,7 +1190,7 @@
 .end method
 
 .method public final indexOf(Lokio/ByteString;I)I
-    .locals 0
+    .registers 3
 
     .line 410
     invoke-virtual {p1}, Lokio/ByteString;->internalArray()[B
@@ -1205,7 +1205,7 @@
 .end method
 
 .method public final indexOf([B)I
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -1218,7 +1218,7 @@
 .end method
 
 .method public indexOf([BI)I
-    .locals 4
+    .registers 7
 
     const/4 v0, 0x0
 
@@ -1236,8 +1236,8 @@
 
     sub-int/2addr v1, v2
 
-    :goto_0
-    if-gt p2, v1, :cond_1
+    :goto_a
+    if-gt p2, v1, :cond_19
 
     .line 420
     iget-object v2, p0, Lokio/ByteString;->data:[B
@@ -1248,23 +1248,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     return p2
 
-    :cond_0
+    :cond_16
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
+    :cond_19
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method internalArray()[B
-    .locals 0
+    .registers 1
 
     .line 348
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -1273,7 +1273,7 @@
 .end method
 
 .method public final lastIndexOf(Lokio/ByteString;)I
-    .locals 1
+    .registers 3
 
     .line 428
     invoke-virtual {p1}, Lokio/ByteString;->internalArray()[B
@@ -1292,7 +1292,7 @@
 .end method
 
 .method public final lastIndexOf(Lokio/ByteString;I)I
-    .locals 0
+    .registers 3
 
     .line 432
     invoke-virtual {p1}, Lokio/ByteString;->internalArray()[B
@@ -1307,7 +1307,7 @@
 .end method
 
 .method public final lastIndexOf([B)I
-    .locals 1
+    .registers 3
 
     .line 436
     invoke-virtual {p0}, Lokio/ByteString;->size()I
@@ -1322,7 +1322,7 @@
 .end method
 
 .method public lastIndexOf([BI)I
-    .locals 3
+    .registers 6
 
     .line 440
     iget-object v0, p0, Lokio/ByteString;->data:[B
@@ -1337,8 +1337,8 @@
 
     move-result p2
 
-    :goto_0
-    if-ltz p2, :cond_1
+    :goto_9
+    if-ltz p2, :cond_19
 
     .line 442
     iget-object v0, p0, Lokio/ByteString;->data:[B
@@ -1351,23 +1351,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     return p2
 
-    :cond_0
+    :cond_16
     add-int/lit8 p2, p2, -0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_1
+    :cond_19
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public md5()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     const-string v0, "MD5"
 
@@ -1380,7 +1380,7 @@
 .end method
 
 .method public rangeEquals(ILokio/ByteString;II)Z
-    .locals 0
+    .registers 5
 
     .line 375
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -1393,9 +1393,9 @@
 .end method
 
 .method public rangeEquals(I[BII)Z
-    .locals 1
+    .registers 6
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_18
 
     .line 384
     iget-object v0, p0, Lokio/ByteString;->data:[B
@@ -1404,15 +1404,15 @@
 
     sub-int/2addr v0, p4
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_18
 
-    if-ltz p3, :cond_0
+    if-ltz p3, :cond_18
 
     array-length v0, p2
 
     sub-int/2addr v0, p4
 
-    if-gt p3, v0, :cond_0
+    if-gt p3, v0, :cond_18
 
     iget-object p0, p0, Lokio/ByteString;->data:[B
 
@@ -1421,21 +1421,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_19
     return p0
 .end method
 
 .method public sha1()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     const-string v0, "SHA-1"
 
@@ -1448,7 +1448,7 @@
 .end method
 
 .method public sha256()Lokio/ByteString;
-    .locals 1
+    .registers 2
 
     const-string v0, "SHA-256"
 
@@ -1461,7 +1461,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 336
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -1472,7 +1472,7 @@
 .end method
 
 .method public final startsWith(Lokio/ByteString;)Z
-    .locals 2
+    .registers 4
 
     .line 390
     invoke-virtual {p1}, Lokio/ByteString;->size()I
@@ -1489,7 +1489,7 @@
 .end method
 
 .method public final startsWith([B)Z
-    .locals 2
+    .registers 4
 
     .line 394
     array-length v0, p1
@@ -1504,9 +1504,9 @@
 .end method
 
 .method public string(Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 121
     new-instance v0, Ljava/lang/String;
@@ -1518,7 +1518,7 @@
     return-object v0
 
     .line 120
-    :cond_0
+    :cond_a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "charset == null"
@@ -1529,7 +1529,7 @@
 .end method
 
 .method public substring(I)Lokio/ByteString;
-    .locals 1
+    .registers 3
 
     .line 301
     iget-object v0, p0, Lokio/ByteString;->data:[B
@@ -1544,34 +1544,34 @@
 .end method
 
 .method public substring(II)Lokio/ByteString;
-    .locals 2
+    .registers 5
 
-    if-ltz p1, :cond_3
+    if-ltz p1, :cond_48
 
     .line 311
     iget-object v0, p0, Lokio/ByteString;->data:[B
 
     array-length v0, v0
 
-    if-gt p2, v0, :cond_2
+    if-gt p2, v0, :cond_29
 
     sub-int v0, p2, p1
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_21
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_13
 
     .line 318
     iget-object v1, p0, Lokio/ByteString;->data:[B
 
     array-length v1, v1
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_13
 
     return-object p0
 
     .line 322
-    :cond_0
+    :cond_13
     new-array p2, v0, [B
 
     .line 323
@@ -1589,7 +1589,7 @@
     return-object p0
 
     .line 316
-    :cond_1
+    :cond_21
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "endIndex < beginIndex"
@@ -1599,7 +1599,7 @@
     throw p0
 
     .line 312
-    :cond_2
+    :cond_29
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -1629,7 +1629,7 @@
     throw p1
 
     .line 310
-    :cond_3
+    :cond_48
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "beginIndex < 0"
@@ -1640,17 +1640,17 @@
 .end method
 
 .method public toAsciiLowercase()Lokio/ByteString;
-    .locals 5
+    .registers 6
 
     const/4 v0, 0x0
 
     .line 253
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lokio/ByteString;->data:[B
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_3d
 
     .line 254
     iget-object v1, p0, Lokio/ByteString;->data:[B
@@ -1659,16 +1659,16 @@
 
     const/16 v2, 0x41
 
-    if-lt v1, v2, :cond_4
+    if-lt v1, v2, :cond_3a
 
     const/16 v3, 0x5a
 
-    if-le v1, v3, :cond_0
+    if-le v1, v3, :cond_13
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 259
-    :cond_0
+    :cond_13
     iget-object p0, p0, Lokio/ByteString;->data:[B
 
     invoke-virtual {p0}, [B->clone()Ljava/lang/Object;
@@ -1687,21 +1687,21 @@
     aput-byte v1, p0, v0
 
     .line 261
-    :goto_1
+    :goto_22
     array-length v0, p0
 
-    if-ge v4, v0, :cond_3
+    if-ge v4, v0, :cond_34
 
     .line 262
     aget-byte v0, p0, v4
 
-    if-lt v0, v2, :cond_2
+    if-lt v0, v2, :cond_31
 
-    if-le v0, v3, :cond_1
+    if-le v0, v3, :cond_2c
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_1
+    :cond_2c
     add-int/lit8 v0, v0, 0x20
 
     int-to-byte v0, v0
@@ -1709,42 +1709,42 @@
     .line 264
     aput-byte v0, p0, v4
 
-    :cond_2
-    :goto_2
+    :cond_31
+    :goto_31
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 266
-    :cond_3
+    :cond_34
     new-instance v0, Lokio/ByteString;
 
     invoke-direct {v0, p0}, Lokio/ByteString;-><init>([B)V
 
     return-object v0
 
-    :cond_4
-    :goto_3
+    :cond_3a
+    :goto_3a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_3d
     return-object p0
 .end method
 
 .method public toAsciiUppercase()Lokio/ByteString;
-    .locals 5
+    .registers 6
 
     const/4 v0, 0x0
 
     .line 278
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lokio/ByteString;->data:[B
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_5
+    if-ge v0, v1, :cond_3d
 
     .line 279
     iget-object v1, p0, Lokio/ByteString;->data:[B
@@ -1753,16 +1753,16 @@
 
     const/16 v2, 0x61
 
-    if-lt v1, v2, :cond_4
+    if-lt v1, v2, :cond_3a
 
     const/16 v3, 0x7a
 
-    if-le v1, v3, :cond_0
+    if-le v1, v3, :cond_13
 
-    goto :goto_3
+    goto :goto_3a
 
     .line 284
-    :cond_0
+    :cond_13
     iget-object p0, p0, Lokio/ByteString;->data:[B
 
     invoke-virtual {p0}, [B->clone()Ljava/lang/Object;
@@ -1781,21 +1781,21 @@
     aput-byte v1, p0, v0
 
     .line 286
-    :goto_1
+    :goto_22
     array-length v0, p0
 
-    if-ge v4, v0, :cond_3
+    if-ge v4, v0, :cond_34
 
     .line 287
     aget-byte v0, p0, v4
 
-    if-lt v0, v2, :cond_2
+    if-lt v0, v2, :cond_31
 
-    if-le v0, v3, :cond_1
+    if-le v0, v3, :cond_2c
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_1
+    :cond_2c
     add-int/lit8 v0, v0, -0x20
 
     int-to-byte v0, v0
@@ -1803,32 +1803,32 @@
     .line 289
     aput-byte v0, p0, v4
 
-    :cond_2
-    :goto_2
+    :cond_31
+    :goto_31
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_22
 
     .line 291
-    :cond_3
+    :cond_34
     new-instance v0, Lokio/ByteString;
 
     invoke-direct {v0, p0}, Lokio/ByteString;-><init>([B)V
 
     return-object v0
 
-    :cond_4
-    :goto_3
+    :cond_3a
+    :goto_3a
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_3d
     return-object p0
 .end method
 
 .method public toByteArray()[B
-    .locals 0
+    .registers 1
 
     .line 343
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -1843,21 +1843,21 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 479
     iget-object v0, p0, Lokio/ByteString;->data:[B
 
     array-length v0, v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     const-string p0, "[size=0]"
 
     return-object p0
 
     .line 483
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lokio/ByteString;->utf8()Ljava/lang/String;
 
     move-result-object v0
@@ -1873,14 +1873,14 @@
 
     const/4 v4, 0x0
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_60
 
     .line 487
     iget-object v0, p0, Lokio/ByteString;->data:[B
 
     array-length v0, v0
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_36
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1905,9 +1905,9 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_5f
 
-    :cond_1
+    :cond_36
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -1945,11 +1945,11 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_5f
     return-object p0
 
     .line 492
-    :cond_2
+    :cond_60
     invoke-virtual {v0, v4, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
@@ -1986,7 +1986,7 @@
 
     move-result v0
 
-    if-ge v2, v0, :cond_3
+    if-ge v2, v0, :cond_a4
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -2016,9 +2016,9 @@
 
     move-result-object p0
 
-    goto :goto_1
+    goto :goto_ba
 
-    :cond_3
+    :cond_a4
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2037,22 +2037,22 @@
 
     move-result-object p0
 
-    :goto_1
+    :goto_ba
     return-object p0
 .end method
 
 .method public utf8()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 113
     iget-object v0, p0, Lokio/ByteString;->utf8:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_10
 
     .line 115
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/String;
 
     iget-object v1, p0, Lokio/ByteString;->data:[B
@@ -2063,19 +2063,19 @@
 
     iput-object v0, p0, Lokio/ByteString;->utf8:Ljava/lang/String;
 
-    :goto_0
+    :goto_10
     return-object v0
 .end method
 
 .method public write(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 361
     iget-object p0, p0, Lokio/ByteString;->data:[B
@@ -2085,7 +2085,7 @@
     return-void
 
     .line 360
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "out == null"
@@ -2096,7 +2096,7 @@
 .end method
 
 .method write(Lokio/Buffer;)V
-    .locals 2
+    .registers 4
 
     .line 366
     iget-object v0, p0, Lokio/ByteString;->data:[B

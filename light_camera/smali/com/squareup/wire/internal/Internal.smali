@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static checkElementsNotNull(Ljava/util/List;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -23,7 +23,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2f
 
     const/4 v0, 0x0
 
@@ -32,22 +32,22 @@
 
     move-result v1
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_7
+    if-ge v0, v1, :cond_2e
 
     .line 123
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_12
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 125
-    :cond_0
+    :cond_12
     new-instance p0, Ljava/lang/NullPointerException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -72,11 +72,11 @@
 
     throw p0
 
-    :cond_1
+    :cond_2e
     return-void
 
     .line 121
-    :cond_2
+    :cond_2f
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string v0, "list == null"
@@ -87,7 +87,7 @@
 .end method
 
 .method public static checkElementsNotNull(Ljava/util/Map;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_4c
 
     .line 133
     invoke-interface {p0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
@@ -107,12 +107,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_a
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -125,19 +125,19 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_43
 
     .line 137
     invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
-    goto :goto_0
+    goto :goto_a
 
     .line 138
-    :cond_0
+    :cond_23
     new-instance p0, Ljava/lang/NullPointerException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -167,7 +167,7 @@
     throw p0
 
     .line 135
-    :cond_1
+    :cond_43
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string v0, "map.containsKey(null)"
@@ -176,11 +176,11 @@
 
     throw p0
 
-    :cond_2
+    :cond_4b
     return-void
 
     .line 132
-    :cond_3
+    :cond_4c
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string v0, "map == null"
@@ -191,7 +191,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -205,23 +205,23 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_19
 
     .line 40
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object p0
 
-    if-eq p1, p0, :cond_1
+    if-eq p1, p0, :cond_13
 
     instance-of p0, p1, Lcom/squareup/wire/internal/ImmutableList;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_13
 
     .line 43
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/util/ArrayList;
 
     invoke-direct {p0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
@@ -229,8 +229,8 @@
     return-object p0
 
     .line 41
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     new-instance p0, Lcom/squareup/wire/internal/MutableOnWriteList;
 
     invoke-direct {p0, p1}, Lcom/squareup/wire/internal/MutableOnWriteList;-><init>(Ljava/util/List;)V
@@ -238,7 +238,7 @@
     return-object p0
 
     .line 39
-    :cond_2
+    :cond_19
     new-instance p1, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -261,7 +261,7 @@
 .end method
 
 .method public static copyOf(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Map;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -277,7 +277,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 48
     new-instance p0, Ljava/util/LinkedHashMap;
@@ -287,7 +287,7 @@
     return-object p0
 
     .line 47
-    :cond_0
+    :cond_8
     new-instance p1, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -310,153 +310,153 @@
 .end method
 
 .method public static countNonNull(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     move p0, v1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move p0, v0
 
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_7
+    if-eqz p1, :cond_a
 
     move v0, v1
 
-    :cond_1
+    :cond_a
     add-int/2addr p0, v0
 
     return p0
 .end method
 
 .method public static countNonNull(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 2
+    .registers 5
 
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     move p0, v1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move p0, v0
 
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_7
+    if-eqz p1, :cond_b
 
     move p1, v1
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
+    :cond_b
     move p1, v0
 
-    :goto_1
+    :goto_c
     add-int/2addr p0, p1
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_10
 
     move v0, v1
 
-    :cond_2
+    :cond_10
     add-int/2addr p0, v0
 
     return p0
 .end method
 
 .method public static varargs countNonNull(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;[Ljava/lang/Object;)I
-    .locals 1
+    .registers 6
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_5
     move p0, v0
 
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_6
+    if-eqz p1, :cond_a
 
     add-int/lit8 p0, p0, 0x1
 
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_a
+    if-eqz p2, :cond_e
 
     add-int/lit8 p0, p0, 0x1
 
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_e
+    if-eqz p3, :cond_12
 
     add-int/lit8 p0, p0, 0x1
 
     .line 163
-    :cond_3
+    :cond_12
     array-length p1, p4
 
-    :goto_1
-    if-ge v0, p1, :cond_5
+    :goto_13
+    if-ge v0, p1, :cond_1e
 
     aget-object p2, p4, v0
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_1b
 
     add-int/lit8 p0, p0, 0x1
 
-    :cond_4
+    :cond_1b
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_5
+    :cond_1e
     return p0
 .end method
 
 .method public static equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_d
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 96
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_e
     return p0
 .end method
 
 .method public static immutableCopyOf(Ljava/lang/String;Ljava/util/List;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -470,12 +470,12 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3a
 
     .line 53
     instance-of v0, p1, Lcom/squareup/wire/internal/MutableOnWriteList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 54
     check-cast p1, Lcom/squareup/wire/internal/MutableOnWriteList;
@@ -483,21 +483,21 @@
     iget-object p1, p1, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     .line 56
-    :cond_0
+    :cond_a
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v0
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_39
 
     instance-of v0, p1, Lcom/squareup/wire/internal/ImmutableList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
-    goto :goto_0
+    goto :goto_39
 
     .line 59
-    :cond_1
+    :cond_15
     new-instance v0, Lcom/squareup/wire/internal/ImmutableList;
 
     invoke-direct {v0, p1}, Lcom/squareup/wire/internal/ImmutableList;-><init>(Ljava/util/List;)V
@@ -509,12 +509,12 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_22
 
     return-object v0
 
     .line 62
-    :cond_2
+    :cond_22
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -535,12 +535,12 @@
 
     throw p1
 
-    :cond_3
-    :goto_0
+    :cond_39
+    :goto_39
     return-object p1
 
     .line 52
-    :cond_4
+    :cond_3a
     new-instance p1, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -563,7 +563,7 @@
 .end method
 
 .method public static immutableCopyOf(Ljava/lang/String;Ljava/util/Map;)Ljava/util/Map;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -579,14 +579,14 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_52
 
     .line 69
     invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 70
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
@@ -596,7 +596,7 @@
     return-object p0
 
     .line 72
-    :cond_0
+    :cond_d
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0, p1}, Ljava/util/LinkedHashMap;-><init>(Ljava/util/Map;)V
@@ -608,14 +608,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3b
 
     .line 77
     invoke-interface {v0, p1}, Ljava/util/Map;->containsValue(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_24
 
     .line 80
     invoke-static {v0}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
@@ -625,7 +625,7 @@
     return-object p0
 
     .line 78
-    :cond_1
+    :cond_24
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -647,7 +647,7 @@
     throw p1
 
     .line 75
-    :cond_2
+    :cond_3b
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -669,7 +669,7 @@
     throw p1
 
     .line 68
-    :cond_3
+    :cond_52
     new-instance p1, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -692,7 +692,7 @@
 .end method
 
 .method public static varargs missingRequiredFields([Ljava/lang/Object;)Ljava/lang/IllegalStateException;
-    .locals 5
+    .registers 6
 
     .line 105
     new-instance v0, Ljava/lang/StringBuilder;
@@ -706,24 +706,24 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_2
+    :goto_9
+    if-ge v3, v2, :cond_26
 
     .line 108
     aget-object v4, p0, v3
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_23
 
     .line 109
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_17
 
     const-string v1, "s"
 
-    :cond_0
+    :cond_17
     const-string v4, "\n  "
 
     .line 112
@@ -736,13 +736,13 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_23
     add-int/lit8 v3, v3, 0x2
 
-    goto :goto_0
+    goto :goto_9
 
     .line 116
-    :cond_2
+    :cond_26
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -771,7 +771,7 @@
 .end method
 
 .method public static newMutableList()Ljava/util/List;
-    .locals 2
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -795,7 +795,7 @@
 .end method
 
 .method public static newMutableMap()Ljava/util/Map;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -817,7 +817,7 @@
 .end method
 
 .method public static redactElements(Ljava/util/List;Lcom/squareup/wire/ProtoAdapter;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -837,8 +837,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_15
 
     .line 85
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -853,14 +853,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public static redactElements(Ljava/util/Map;Lcom/squareup/wire/ProtoAdapter;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -882,12 +882,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_8
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -906,8 +906,8 @@
 
     invoke-interface {v0, v1}, Ljava/util/Map$Entry;->setValue(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_20
     return-void
 .end method

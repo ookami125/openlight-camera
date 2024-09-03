@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/SelfDestructiveThread$2;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 146
     iput-object p1, p0, Landroid/support/v4/provider/SelfDestructiveThread$2$1;->this$1:Landroid/support/v4/provider/SelfDestructiveThread$2;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 149
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread$2$1;->this$1:Landroid/support/v4/provider/SelfDestructiveThread$2;

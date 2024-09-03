@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/view/menu/ListMenuPresenter;)V
-    .locals 0
+    .registers 2
 
     .line 233
     iput-object p1, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->this$0:Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method findExpandedIndex()V
-    .locals 5
+    .registers 6
 
     .line 276
     iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->this$0:Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -54,7 +54,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 278
     iget-object v1, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->this$0:Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -72,8 +72,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_17
+    if-ge v3, v2, :cond_27
 
     .line 281
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -82,19 +82,19 @@
 
     check-cast v4, Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_24
 
     .line 283
     iput v3, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->mExpandedIndex:I
 
     return-void
 
-    :cond_0
+    :cond_24
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_27
     const/4 v0, -0x1
 
     .line 288
@@ -104,7 +104,7 @@
 .end method
 
 .method public getCount()I
-    .locals 2
+    .registers 3
 
     .line 239
     iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->this$0:Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -129,18 +129,18 @@
     .line 241
     iget p0, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->mExpandedIndex:I
 
-    if-gez p0, :cond_0
+    if-gez p0, :cond_16
 
     return v0
 
-    :cond_0
+    :cond_16
     add-int/lit8 v0, v0, -0x1
 
     return v0
 .end method
 
 .method public getItem(I)Landroid/support/v7/view/menu/MenuItemImpl;
-    .locals 2
+    .registers 4
 
     .line 249
     iget-object v0, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->this$0:Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -161,16 +161,16 @@
     .line 251
     iget v1, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->mExpandedIndex:I
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_17
 
     iget p0, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->mExpandedIndex:I
 
-    if-lt p1, p0, :cond_0
+    if-lt p1, p0, :cond_17
 
     add-int/lit8 p1, p1, 0x1
 
     .line 254
-    :cond_0
+    :cond_17
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
@@ -181,7 +181,7 @@
 .end method
 
 .method public bridge synthetic getItem(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 230
     invoke-virtual {p0, p1}, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->getItem(I)Landroid/support/v7/view/menu/MenuItemImpl;
@@ -192,7 +192,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 0
+    .registers 2
 
     int-to-long p0, p1
 
@@ -200,11 +200,11 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 2
+    .registers 6
 
     const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_f
 
     .line 267
     iget-object p2, p0, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->this$0:Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -220,7 +220,7 @@
     move-result-object p2
 
     .line 270
-    :cond_0
+    :cond_f
     move-object p3, p2
 
     check-cast p3, Landroid/support/v7/view/menu/MenuView$ItemView;
@@ -236,7 +236,7 @@
 .end method
 
 .method public notifyDataSetChanged()V
-    .locals 0
+    .registers 1
 
     .line 293
     invoke-virtual {p0}, Landroid/support/v7/view/menu/ListMenuPresenter$MenuAdapter;->findExpandedIndex()V

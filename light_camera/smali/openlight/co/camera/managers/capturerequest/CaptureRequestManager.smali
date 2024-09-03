@@ -58,7 +58,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 38
     const-class v0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 174
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -130,7 +130,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;
-    .locals 1
+    .registers 1
 
     .line 55
     sget-object v0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->sInstance:Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;
@@ -139,7 +139,7 @@
 .end method
 
 .method private getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
-    .locals 3
+    .registers 4
 
     .line 147
     iget-object v0, p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -163,7 +163,7 @@
 
     aget v1, v1, v2
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_2c
 
     .line 158
     iget-object p0, p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->mModeMap:Ljava/util/EnumMap;
@@ -176,10 +176,10 @@
 
     check-cast p0, Lopenlight/co/camera/managers/mode/ModeReqMgr;
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 155
-    :pswitch_0
+    :pswitch_22
     iget-object p0, p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->mModeMap:Ljava/util/EnumMap;
 
     invoke-virtual {p0, v0}, Ljava/util/EnumMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -188,23 +188,23 @@
 
     check-cast p0, Lopenlight/co/camera/managers/mode/ModeReqMgr;
 
-    :goto_0
+    :goto_2a
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_22
+        :pswitch_22
+        :pswitch_22
+        :pswitch_22
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method private initModes()V
-    .locals 3
+    .registers 4
 
     .line 167
     iget-object v0, p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->mModeMap:Ljava/util/EnumMap;
@@ -267,7 +267,7 @@
 
 # virtual methods
 .method public createBurstCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 86
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
@@ -280,7 +280,7 @@
 .end method
 
 .method public createPreviewRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 3
+    .registers 5
 
     .line 65
     sget-object v0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->TAG:Ljava/lang/String;
@@ -316,7 +316,7 @@
 .end method
 
 .method public createStillCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 75
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
@@ -345,7 +345,7 @@
 .end method
 
 .method public resetPostCapture(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 95
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
@@ -358,7 +358,7 @@
 .end method
 
 .method public resetZoom(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 108
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
@@ -371,7 +371,7 @@
 .end method
 
 .method public setFocusCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 99
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
@@ -384,7 +384,7 @@
 .end method
 
 .method public startAeFocus(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 7
+    .registers 9
 
     .line 129
     iget-object v0, p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -459,16 +459,16 @@
 
     invoke-static {v4, v5}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_5b
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_5b
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_53
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 143
-    :cond_0
+    :cond_53
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;
 
     move-result-object p0
@@ -477,9 +477,9 @@
 
     return-void
 
-    :cond_1
-    :goto_0
-    if-eqz v1, :cond_2
+    :cond_5b
+    :goto_5b
+    if-eqz v1, :cond_71
 
     .line 137
     iget-object p0, p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
@@ -490,7 +490,7 @@
 
     sget-object p1, Lopenlight/co/camera/utils/CameraState$SessionState;->WAITING_FOR_3A_CONVERGENCE:Lopenlight/co/camera/utils/CameraState$SessionState;
 
-    if-ne p0, p1, :cond_2
+    if-ne p0, p1, :cond_71
 
     .line 138
     sget-object p0, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->TAG:Ljava/lang/String;
@@ -502,12 +502,12 @@
     .line 139
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->focusComplete()V
 
-    :cond_2
+    :cond_71
     return-void
 .end method
 
 .method public startCapture(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 118
     invoke-direct {p0}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestManager;->getModeManager()Lopenlight/co/camera/managers/mode/ModeReqMgr;

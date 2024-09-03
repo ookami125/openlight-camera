@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 41
     new-instance v0, Lopenlight/co/camera/utils/CameraState;
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/CameraState;
-    .locals 1
+    .registers 1
 
     .line 84
     sget-object v0, Lopenlight/co/camera/utils/CameraState;->sInstance:Lopenlight/co/camera/utils/CameraState;
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method public checkAndUpdateCaptureMode()V
-    .locals 2
+    .registers 3
 
     .line 107
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -101,23 +101,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     sget-object v0, Lopenlight/co/camera/utils/CameraState$StillCaptureMode;->SINGLE:Lopenlight/co/camera/utils/CameraState$StillCaptureMode;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     sget-object v0, Lopenlight/co/camera/utils/CameraState$StillCaptureMode;->BURST:Lopenlight/co/camera/utils/CameraState$StillCaptureMode;
 
-    :goto_0
+    :goto_17
     iput-object v0, p0, Lopenlight/co/camera/utils/CameraState;->mStillCaptureMode:Lopenlight/co/camera/utils/CameraState$StillCaptureMode;
 
     return-void
 .end method
 
 .method public getAutoFitTextureView()Lopenlight/co/camera/AutoFitTextureView;
-    .locals 0
+    .registers 1
 
     .line 46
     iget-object p0, p0, Lopenlight/co/camera/utils/CameraState;->mAutoFitTextureView:Lopenlight/co/camera/AutoFitTextureView;
@@ -126,7 +126,7 @@
 .end method
 
 .method public getDeviceState()Lopenlight/co/camera/utils/CameraState$DeviceState;
-    .locals 0
+    .registers 1
 
     .line 92
     iget-object p0, p0, Lopenlight/co/camera/utils/CameraState;->mCurrentDeviceState:Lopenlight/co/camera/utils/CameraState$DeviceState;
@@ -135,7 +135,7 @@
 .end method
 
 .method public getSessionState()Lopenlight/co/camera/utils/CameraState$SessionState;
-    .locals 0
+    .registers 1
 
     .line 113
     iget-object p0, p0, Lopenlight/co/camera/utils/CameraState;->mCurrentSessionState:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -144,7 +144,7 @@
 .end method
 
 .method public getStillCaptureMode()Lopenlight/co/camera/utils/CameraState$StillCaptureMode;
-    .locals 0
+    .registers 1
 
     .line 100
     iget-object p0, p0, Lopenlight/co/camera/utils/CameraState;->mStillCaptureMode:Lopenlight/co/camera/utils/CameraState$StillCaptureMode;
@@ -153,7 +153,7 @@
 .end method
 
 .method public getSurface()Landroid/view/Surface;
-    .locals 0
+    .registers 1
 
     .line 54
     iget-object p0, p0, Lopenlight/co/camera/utils/CameraState;->mSurface:Landroid/view/Surface;
@@ -162,33 +162,33 @@
 .end method
 
 .method public isCameraOpen()Z
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object p0, p0, Lopenlight/co/camera/utils/CameraState;->mCurrentDeviceState:Lopenlight/co/camera/utils/CameraState$DeviceState;
 
     sget-object v0, Lopenlight/co/camera/utils/CameraState$DeviceState;->OPEN:Lopenlight/co/camera/utils/CameraState$DeviceState;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public releaseSurface()V
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Lopenlight/co/camera/utils/CameraState;->mSurface:Landroid/view/Surface;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 63
     iget-object v0, p0, Lopenlight/co/camera/utils/CameraState;->mSurface:Landroid/view/Surface;
@@ -200,12 +200,12 @@
     .line 64
     iput-object v0, p0, Lopenlight/co/camera/utils/CameraState;->mSurface:Landroid/view/Surface;
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setDeviceState(Lopenlight/co/camera/utils/CameraState$DeviceState;)V
-    .locals 0
+    .registers 2
 
     .line 88
     iput-object p1, p0, Lopenlight/co/camera/utils/CameraState;->mCurrentDeviceState:Lopenlight/co/camera/utils/CameraState$DeviceState;
@@ -214,7 +214,7 @@
 .end method
 
 .method public setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
-    .locals 0
+    .registers 2
 
     .line 117
     iput-object p1, p0, Lopenlight/co/camera/utils/CameraState;->mCurrentSessionState:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -223,7 +223,7 @@
 .end method
 
 .method public setSurface(Landroid/view/Surface;)V
-    .locals 0
+    .registers 2
 
     .line 58
     iput-object p1, p0, Lopenlight/co/camera/utils/CameraState;->mSurface:Landroid/view/Surface;
@@ -232,7 +232,7 @@
 .end method
 
 .method public setTextureView(Lopenlight/co/camera/AutoFitTextureView;)V
-    .locals 0
+    .registers 2
 
     .line 50
     iput-object p1, p0, Lopenlight/co/camera/utils/CameraState;->mAutoFitTextureView:Lopenlight/co/camera/AutoFitTextureView;

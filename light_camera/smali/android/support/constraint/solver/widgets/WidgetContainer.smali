@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 35
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 57
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;-><init>(II)V
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .locals 0
+    .registers 5
 
     .line 47
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;-><init>(IIII)V
@@ -65,7 +65,7 @@
 .end method
 
 .method public static getBounds(Ljava/util/ArrayList;)Landroid/support/constraint/solver/widgets/Rectangle;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,12 +86,12 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_c
 
     return-object v0
 
     .line 201
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
@@ -106,8 +106,8 @@
 
     move v6, v5
 
-    :goto_0
-    if-ge v3, v1, :cond_5
+    :goto_17
+    if-ge v3, v1, :cond_4a
 
     .line 202
     invoke-virtual {p0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -121,7 +121,7 @@
 
     move-result v8
 
-    if-ge v8, v2, :cond_1
+    if-ge v8, v2, :cond_29
 
     .line 204
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getX()I
@@ -129,12 +129,12 @@
     move-result v2
 
     .line 206
-    :cond_1
+    :cond_29
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getY()I
 
     move-result v8
 
-    if-ge v8, v4, :cond_2
+    if-ge v8, v4, :cond_33
 
     .line 207
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getY()I
@@ -142,12 +142,12 @@
     move-result v4
 
     .line 209
-    :cond_2
+    :cond_33
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getRight()I
 
     move-result v8
 
-    if-le v8, v5, :cond_3
+    if-le v8, v5, :cond_3d
 
     .line 210
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getRight()I
@@ -155,24 +155,24 @@
     move-result v5
 
     .line 212
-    :cond_3
+    :cond_3d
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getBottom()I
 
     move-result v8
 
-    if-le v8, v6, :cond_4
+    if-le v8, v6, :cond_47
 
     .line 213
     invoke-virtual {v7}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getBottom()I
 
     move-result v6
 
-    :cond_4
+    :cond_47
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_5
+    :cond_4a
     sub-int/2addr v5, v2
 
     sub-int/2addr v6, v4
@@ -186,7 +186,7 @@
 
 # virtual methods
 .method public add(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 1
+    .registers 3
 
     .line 72
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -198,7 +198,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 74
     invoke-virtual {p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getParent()Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -211,14 +211,14 @@
     invoke-virtual {v0, p1}, Landroid/support/constraint/solver/widgets/WidgetContainer;->remove(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
 
     .line 77
-    :cond_0
+    :cond_14
     invoke-virtual {p1, p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setParent(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
 
     return-void
 .end method
 
 .method public findWidget(FF)Landroid/support/constraint/solver/widgets/ConstraintWidget;
-    .locals 8
+    .registers 11
 
     .line 134
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/WidgetContainer;->getDrawX()I
@@ -248,34 +248,34 @@
 
     cmpl-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_28
 
     int-to-float v0, v2
 
     cmpg-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_28
 
     int-to-float v0, v1
 
     cmpl-float v0, p2, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_28
 
     int-to-float v0, v3
 
     cmpg-float v0, p2, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_28
 
     move-object v0, p0
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_28
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_29
     const/4 v1, 0x0
 
     .line 141
@@ -285,8 +285,8 @@
 
     move-result v2
 
-    :goto_1
-    if-ge v1, v2, :cond_3
+    :goto_30
+    if-ge v1, v2, :cond_71
 
     .line 142
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -300,7 +300,7 @@
     .line 143
     instance-of v4, v3, Landroid/support/constraint/solver/widgets/WidgetContainer;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_47
 
     .line 144
     check-cast v3, Landroid/support/constraint/solver/widgets/WidgetContainer;
@@ -309,12 +309,12 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_6e
 
-    goto :goto_2
+    goto :goto_6d
 
     .line 149
-    :cond_1
+    :cond_47
     invoke-virtual {v3}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getDrawX()I
 
     move-result v4
@@ -342,40 +342,40 @@
 
     cmpl-float v4, p1, v4
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_6e
 
     int-to-float v4, v6
 
     cmpg-float v4, p1, v4
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_6e
 
     int-to-float v4, v5
 
     cmpl-float v4, p2, v4
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_6e
 
     int-to-float v4, v7
 
     cmpg-float v4, p2, v4
 
-    if-gtz v4, :cond_2
+    if-gtz v4, :cond_6e
 
-    :goto_2
+    :goto_6d
     move-object v0, v3
 
-    :cond_2
+    :cond_6e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_3
+    :cond_71
     return-object v0
 .end method
 
 .method public findWidgets(IIII)Ljava/util/ArrayList;
-    .locals 6
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIII)",
@@ -407,8 +407,8 @@
 
     const/4 p2, 0x0
 
-    :goto_0
-    if-ge p2, p1, :cond_1
+    :goto_14
+    if-ge p2, p1, :cond_42
 
     .line 175
     iget-object p3, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -450,22 +450,22 @@
 
     move-result p4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_3f
 
     .line 180
     invoke-virtual {v0, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_3f
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_42
     return-object v0
 .end method
 
 .method public getChildren()Ljava/util/ArrayList;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -482,7 +482,7 @@
 .end method
 
 .method public getRootConstraintContainer()Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
-    .locals 3
+    .registers 4
 
     .line 106
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getParent()Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -492,18 +492,18 @@
     .line 108
     instance-of v1, p0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 109
     check-cast p0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_c
+    if-eqz v0, :cond_1b
 
     .line 113
     invoke-virtual {v0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getParent()Landroid/support/constraint/solver/widgets/ConstraintWidget;
@@ -513,24 +513,24 @@
     .line 114
     instance-of v2, v0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_19
 
     .line 115
     move-object p0, v0
 
     check-cast p0, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    :cond_1
+    :cond_19
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_2
+    :cond_1b
     return-object p0
 .end method
 
 .method public layout()V
-    .locals 4
+    .registers 5
 
     .line 265
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/WidgetContainer;->updateDrawPosition()V
@@ -538,12 +538,12 @@
     .line 266
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return-void
 
     .line 269
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -552,8 +552,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_f
+    if-ge v1, v0, :cond_25
 
     .line 271
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -567,24 +567,24 @@
     .line 272
     instance-of v3, v2, Landroid/support/constraint/solver/widgets/WidgetContainer;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_22
 
     .line 273
     check-cast v2, Landroid/support/constraint/solver/widgets/WidgetContainer;
 
     invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/WidgetContainer;->layout()V
 
-    :cond_1
+    :cond_22
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_25
     return-void
 .end method
 
 .method public remove(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 0
+    .registers 2
 
     .line 86
     iget-object p0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -600,7 +600,7 @@
 .end method
 
 .method public removeAllChildren()V
-    .locals 0
+    .registers 1
 
     .line 299
     iget-object p0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -611,7 +611,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 62
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -625,7 +625,7 @@
 .end method
 
 .method public resetGroups()V
-    .locals 3
+    .registers 4
 
     .line 290
     invoke-super {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->resetGroups()V
@@ -639,8 +639,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_a
+    if-ge v1, v0, :cond_1a
 
     .line 293
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -656,14 +656,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public resetSolverVariables(Landroid/support/constraint/solver/Cache;)V
-    .locals 3
+    .registers 5
 
     .line 280
     invoke-super {p0, p1}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->resetSolverVariables(Landroid/support/constraint/solver/Cache;)V
@@ -677,8 +677,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_a
+    if-ge v1, v0, :cond_1a
 
     .line 283
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -694,14 +694,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public setOffset(II)V
-    .locals 3
+    .registers 6
 
     .line 233
     invoke-super {p0, p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setOffset(II)V
@@ -715,8 +715,8 @@
 
     const/4 p2, 0x0
 
-    :goto_0
-    if-ge p2, p1, :cond_0
+    :goto_a
+    if-ge p2, p1, :cond_22
 
     .line 236
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -740,14 +740,14 @@
 
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public updateDrawPosition()V
-    .locals 5
+    .registers 6
 
     .line 247
     invoke-super {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->updateDrawPosition()V
@@ -755,12 +755,12 @@
     .line 248
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return-void
 
     .line 251
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -769,8 +769,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_f
+    if-ge v1, v0, :cond_2e
 
     .line 253
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
@@ -795,16 +795,16 @@
     .line 255
     instance-of v3, v2, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2b
 
     .line 256
     invoke-virtual {v2}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->updateDrawPosition()V
 
-    :cond_1
+    :cond_2b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_2e
     return-void
 .end method

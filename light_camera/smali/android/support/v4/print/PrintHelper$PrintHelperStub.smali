@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 148
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v4/print/PrintHelper$1;)V
-    .locals 0
+    .registers 2
 
     .line 148
     invoke-direct {p0}, Landroid/support/v4/print/PrintHelper$PrintHelperStub;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getColorMode()I
-    .locals 0
+    .registers 1
 
     .line 167
     iget p0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;->mColorMode:I
@@ -69,7 +69,7 @@
 .end method
 
 .method public getOrientation()I
-    .locals 0
+    .registers 1
 
     .line 183
     iget p0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;->mOrientation:I
@@ -78,7 +78,7 @@
 .end method
 
 .method public getScaleMode()I
-    .locals 0
+    .registers 1
 
     .line 161
     iget p0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;->mScaleMode:I
@@ -87,19 +87,19 @@
 .end method
 
 .method public printBitmap(Ljava/lang/String;Landroid/graphics/Bitmap;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public printBitmap(Ljava/lang/String;Landroid/net/Uri;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public setColorMode(I)V
-    .locals 0
+    .registers 2
 
     .line 172
     iput p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;->mColorMode:I
@@ -108,7 +108,7 @@
 .end method
 
 .method public setOrientation(I)V
-    .locals 0
+    .registers 2
 
     .line 177
     iput p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;->mOrientation:I
@@ -117,7 +117,7 @@
 .end method
 
 .method public setScaleMode(I)V
-    .locals 0
+    .registers 2
 
     .line 155
     iput p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;->mScaleMode:I

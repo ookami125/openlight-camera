@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedHashTreeMap;)V
-    .locals 0
+    .registers 2
 
     .line 829
     iput-object p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 851
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -51,7 +51,7 @@
 .end method
 
 .method public contains(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 843
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -64,7 +64,7 @@
 .end method
 
 .method public iterator()Ljava/util/Iterator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -82,7 +82,7 @@
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 847
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -91,21 +91,21 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 831
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;

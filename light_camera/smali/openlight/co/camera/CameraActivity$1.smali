@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/CameraActivity;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
 
     .line 56
     iput-object p1, p0, Lopenlight/co/camera/CameraActivity$1;->this$0:Lopenlight/co/camera/CameraActivity;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onOrientationChanged(I)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;

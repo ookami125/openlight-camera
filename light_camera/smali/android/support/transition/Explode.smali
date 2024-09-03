@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 43
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 49
     invoke-direct {p0}, Landroid/support/transition/Visibility;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 54
     invoke-direct {p0, p1, p2}, Landroid/support/transition/Visibility;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -83,7 +83,7 @@
 .end method
 
 .method private static calculateDistance(FF)F
-    .locals 0
+    .registers 2
 
     mul-float/2addr p0, p0
 
@@ -104,7 +104,7 @@
 .end method
 
 .method private static calculateMaxDistance(Landroid/view/View;II)F
-    .locals 1
+    .registers 4
 
     .line 166
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
@@ -141,7 +141,7 @@
 .end method
 
 .method private calculateOut(Landroid/view/View;Landroid/graphics/Rect;[I)V
-    .locals 12
+    .registers 16
 
     .line 127
     iget-object v0, p0, Landroid/support/transition/Explode;->mTempLoc:[I
@@ -167,7 +167,7 @@
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_36
 
     .line 135
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -209,10 +209,10 @@
 
     add-int/2addr v4, v5
 
-    goto :goto_0
+    goto :goto_41
 
     .line 140
-    :cond_0
+    :cond_36
     invoke-virtual {p0}, Landroid/graphics/Rect;->centerX()I
 
     move-result v4
@@ -229,7 +229,7 @@
     move p0, v11
 
     .line 144
-    :goto_0
+    :goto_41
     invoke-virtual {p2}, Landroid/graphics/Rect;->centerX()I
 
     move-result v5
@@ -251,11 +251,11 @@
 
     cmpl-float v7, v5, v6
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_6a
 
     cmpl-float v6, p2, v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_6a
 
     .line 151
     invoke-static {}, Ljava/lang/Math;->random()D
@@ -283,9 +283,9 @@
 
     sub-float v5, v6, v5
 
-    goto :goto_1
+    goto :goto_6d
 
-    :cond_1
+    :cond_6a
     move v11, v5
 
     move v5, p2
@@ -293,7 +293,7 @@
     move p2, v11
 
     .line 154
-    :goto_1
+    :goto_6d
     invoke-static {p2, v5}, Landroid/support/transition/Explode;->calculateDistance(FF)F
 
     move-result v6
@@ -333,7 +333,7 @@
 .end method
 
 .method private captureValues(Landroid/support/transition/TransitionValues;)V
-    .locals 5
+    .registers 7
 
     .line 59
     iget-object v0, p1, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
@@ -388,7 +388,7 @@
 
 # virtual methods
 .method public captureEndValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -404,7 +404,7 @@
 .end method
 
 .method public captureStartValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -420,16 +420,16 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 9
+    .registers 14
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 86
-    :cond_0
+    :cond_4
     iget-object p3, p4, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v0, "android:explode:screenBounds"
@@ -496,16 +496,16 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 10
+    .registers 15
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 103
-    :cond_0
+    :cond_4
     iget-object p4, p3, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v0, "android:explode:screenBounds"
@@ -547,7 +547,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3e
 
     .line 114
     aget v7, v0, v6
@@ -578,15 +578,15 @@
 
     invoke-virtual {p4, v9, v0}, Landroid/graphics/Rect;->offsetTo(II)V
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_1
+    :cond_3e
     move v7, v4
 
     move v8, v5
 
     .line 118
-    :goto_0
+    :goto_40
     iget-object v0, p0, Landroid/support/transition/Explode;->mTempLoc:[I
 
     invoke-direct {p0, p1, p4, v0}, Landroid/support/transition/Explode;->calculateOut(Landroid/view/View;Landroid/graphics/Rect;[I)V

@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/wire/ProtoAdapter;Lcom/squareup/wire/ProtoAdapter;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -87,7 +87,7 @@
 .end method
 
 .method public decode(Lcom/squareup/wire/ProtoReader;)Ljava/util/Map;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,21 +114,21 @@
     move-object v3, v2
 
     .line 552
-    :goto_0
+    :goto_6
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->nextTag()I
 
     move-result v4
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_23
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_40
 
-    goto :goto_0
+    goto :goto_6
 
     .line 555
-    :pswitch_0
+    :pswitch_11
     iget-object v3, p0, Lcom/squareup/wire/ProtoAdapter$MapProtoAdapter;->entryAdapter:Lcom/squareup/wire/ProtoAdapter$MapEntryProtoAdapter;
 
     iget-object v3, v3, Lcom/squareup/wire/ProtoAdapter$MapEntryProtoAdapter;->valueAdapter:Lcom/squareup/wire/ProtoAdapter;
@@ -137,10 +137,10 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_6
 
     .line 554
-    :pswitch_1
+    :pswitch_1a
     iget-object v2, p0, Lcom/squareup/wire/ProtoAdapter$MapProtoAdapter;->entryAdapter:Lcom/squareup/wire/ProtoAdapter$MapEntryProtoAdapter;
 
     iget-object v2, v2, Lcom/squareup/wire/ProtoAdapter$MapEntryProtoAdapter;->keyAdapter:Lcom/squareup/wire/ProtoAdapter;
@@ -149,15 +149,15 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_6
 
     .line 559
-    :cond_0
+    :cond_23
     invoke-virtual {p1, v0, v1}, Lcom/squareup/wire/ProtoReader;->endMessage(J)V
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_37
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2f
 
     .line 563
     invoke-static {v2, v3}, Ljava/util/Collections;->singletonMap(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;
@@ -167,7 +167,7 @@
     return-object p0
 
     .line 562
-    :cond_1
+    :cond_2f
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Map entry with null value"
@@ -177,7 +177,7 @@
     throw p0
 
     .line 561
-    :cond_2
+    :cond_37
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Map entry with null key"
@@ -188,15 +188,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -212,7 +212,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -233,7 +233,7 @@
 .end method
 
 .method public bridge synthetic encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,7 +249,7 @@
 .end method
 
 .method public encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/util/Map;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -275,12 +275,12 @@
 
     move-result-object p3
 
-    :goto_0
+    :goto_8
     invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -293,14 +293,14 @@
 
     invoke-virtual {v1, p1, p2, v0}, Lcom/squareup/wire/ProtoAdapter$MapEntryProtoAdapter;->encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 516
     check-cast p1, Ljava/util/Map;
@@ -313,7 +313,7 @@
 .end method
 
 .method public encodedSize(Ljava/util/Map;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -333,7 +333,7 @@
 .end method
 
 .method public bridge synthetic encodedSizeWithTag(ILjava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 516
     check-cast p2, Ljava/util/Map;
@@ -346,7 +346,7 @@
 .end method
 
 .method public encodedSizeWithTag(ILjava/util/Map;)I
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -366,12 +366,12 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -388,14 +388,14 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_1d
     return v0
 .end method
 
 .method public bridge synthetic redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 516
     check-cast p1, Ljava/util/Map;
@@ -408,7 +408,7 @@
 .end method
 
 .method public redact(Ljava/util/Map;)Ljava/util/Map;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/CollapsingToolbarLayout;)V
-    .locals 0
+    .registers 2
 
     .line 614
     iput-object p1, p0, Landroid/support/design/widget/CollapsingToolbarLayout$2;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 0
+    .registers 2
 
     .line 617
     iget-object p0, p0, Landroid/support/design/widget/CollapsingToolbarLayout$2;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;

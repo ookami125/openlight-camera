@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/content/Loader;)V
-    .locals 0
+    .registers 2
 
     .line 53
     iput-object p1, p0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;->this$0:Landroid/support/v4/content/Loader;
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public deliverSelfNotifications()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public onChange(Z)V
-    .locals 0
+    .registers 2
 
     .line 64
     iget-object p0, p0, Landroid/support/v4/content/Loader$ForceLoadContentObserver;->this$0:Landroid/support/v4/content/Loader;

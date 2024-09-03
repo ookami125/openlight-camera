@@ -48,13 +48,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     .line 114
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -95,7 +95,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/listener/ScreenGestureListener;)F
-    .locals 0
+    .registers 1
 
     .line 27
     iget p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLowestScrollValue:F
@@ -104,7 +104,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/listener/ScreenGestureListener;F)F
-    .locals 0
+    .registers 2
 
     .line 27
     iput p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLowestScrollValue:F
@@ -113,7 +113,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/listener/ScreenGestureListener;)F
-    .locals 0
+    .registers 1
 
     .line 27
     iget p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mHighestScrollValue:F
@@ -122,7 +122,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/listener/ScreenGestureListener;F)F
-    .locals 0
+    .registers 2
 
     .line 27
     iput p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mHighestScrollValue:F
@@ -131,7 +131,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/listener/ScreenGestureListener;)Landroid/view/VelocityTracker;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
@@ -140,7 +140,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/listener/ScreenGestureListener;)F
-    .locals 0
+    .registers 1
 
     .line 27
     iget p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLastDistanceBetweenFingers:F
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/camera/listener/ScreenGestureListener;F)F
-    .locals 0
+    .registers 2
 
     .line 27
     iput p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLastDistanceBetweenFingers:F
@@ -158,7 +158,7 @@
 .end method
 
 .method static synthetic access$500()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lopenlight/co/camera/listener/ScreenGestureListener;->TAG:Ljava/lang/String;
@@ -167,7 +167,7 @@
 .end method
 
 .method private static getFingerSpacing(Landroid/view/MotionEvent;)F
-    .locals 4
+    .registers 5
 
     const/4 v0, 0x0
 
@@ -219,7 +219,7 @@
 .end method
 
 .method public calculatePixelPerStepsFromVelocity(F)F
-    .locals 5
+    .registers 7
 
     .line 295
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
@@ -336,22 +336,22 @@
 
     cmpg-float v0, p1, v3
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6b
 
     move p1, v3
 
-    goto :goto_0
+    goto :goto_70
 
-    :cond_0
+    :cond_6b
     cmpl-float v0, p1, v2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_70
 
     move p1, v2
 
     .line 317
-    :cond_1
-    :goto_0
+    :cond_70
+    :goto_70
     iget-object p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
 
     int-to-float v0, v1
@@ -360,18 +360,18 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_7c
 
     const/high16 p0, 0x40000000    # 2.0f
 
     mul-float/2addr p1, p0
 
-    :cond_2
+    :cond_7c
     return p1
 .end method
 
 .method public calculateScrollThreshold(F)F
-    .locals 0
+    .registers 2
 
     .line 331
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
@@ -382,21 +382,21 @@
 
     cmpl-float p0, p0, p1
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_d
 
     const/high16 p0, 0x40a00000    # 5.0f
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/high16 p0, 0x41200000    # 10.0f
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method public getZoomPointerCount()I
-    .locals 0
+    .registers 1
 
     .line 111
     iget p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mPinchZoomPointerCount:I
@@ -420,7 +420,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 5
+    .registers 8
 
     .line 124
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -435,19 +435,19 @@
 
     const/high16 v3, -0x40800000    # -1.0f
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_7a
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 138
-    :pswitch_0
+    :pswitch_d
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result p1
 
     const/4 v4, 0x2
 
-    if-ne p1, v4, :cond_3
+    if-ne p1, v4, :cond_6e
 
     .line 139
     invoke-static {p2}, Lopenlight/co/camera/listener/ScreenGestureListener;->getFingerSpacing(Landroid/view/MotionEvent;)F
@@ -459,13 +459,13 @@
 
     cmpl-float v1, v4, v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_20
 
     .line 141
     iput p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLastDistanceBetweenFingers:F
 
     .line 143
-    :cond_0
+    :cond_20
     iget v1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLastDistanceBetweenFingers:F
 
     sub-float v1, p1, v1
@@ -478,7 +478,7 @@
 
     cmpl-float v4, v1, v4
 
-    if-lez v4, :cond_3
+    if-lez v4, :cond_6e
 
     const/high16 v2, 0x44160000    # 600.0f
 
@@ -489,22 +489,22 @@
 
     cmpg-float v2, p1, v2
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_38
 
     mul-float/2addr v1, v3
 
     .line 151
-    :cond_1
+    :cond_38
     iput p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLastDistanceBetweenFingers:F
 
     move v2, v0
 
     move v3, v1
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 157
-    :pswitch_1
+    :pswitch_3d
     iput v1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mLastDistanceBetweenFingers:F
 
     .line 158
@@ -513,17 +513,17 @@
     .line 159
     iget-object p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_6e
 
     .line 160
     iget-object p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {p1}, Landroid/view/VelocityTracker;->clear()V
 
-    goto :goto_1
+    goto :goto_6e
 
     .line 126
-    :pswitch_2
+    :pswitch_4b
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
@@ -535,7 +535,7 @@
     .line 127
     iget-object p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_5e
 
     .line 129
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -544,16 +544,16 @@
 
     iput-object p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
 
-    goto :goto_0
+    goto :goto_63
 
     .line 131
-    :cond_2
+    :cond_5e
     iget-object p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {p1}, Landroid/view/VelocityTracker;->clear()V
 
     .line 133
-    :goto_0
+    :goto_63
     iget-object p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mVelTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {p1, p2}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -566,26 +566,26 @@
     iput p1, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mPinchZoomPointerCount:I
 
     .line 168
-    :cond_3
-    :goto_1
+    :cond_6e
+    :goto_6e
     invoke-virtual {p0, p2, v3, v2}, Lopenlight/co/camera/listener/ScreenGestureListener;->onTouch(Landroid/view/MotionEvent;FZ)Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_79
 
     .line 169
     iget-object p0, p0, Lopenlight/co/camera/listener/ScreenGestureListener;->mGestureListener:Landroid/view/GestureDetector;
 
     invoke-virtual {p0, p2}, Landroid/view/GestureDetector;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
-    :cond_4
+    :cond_79
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4b
+        :pswitch_3d
+        :pswitch_d
     .end packed-switch
 .end method

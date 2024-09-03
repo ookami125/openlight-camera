@@ -24,7 +24,7 @@
 # static fields
 .field private static final GALLERY_PACKAGE_NAME:Ljava/lang/String; = "light.co.lightgallery"
 
-.field private static final MANAGE_PRESETS_ACTIVITY_CLASSNAME:Ljava/lang/String; = "openlight.co.gallery.view.ManagePresetsActivity"
+.field private static final MANAGE_PRESETS_ACTIVITY_CLASSNAME:Ljava/lang/String; = "light.co.gallery.view.ManagePresetsActivity"
 
 .field private static final TAG:Ljava/lang/String; = "SettingAdapter"
 
@@ -62,13 +62,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 252
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
@@ -104,7 +104,7 @@
 .end method
 
 .method static isSettingDisabled(Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;)Z
-    .locals 1
+    .registers 2
 
     .line 460
     sget-object v0, Lopenlight/co/camera/view/setting/SettingAdapter$1;->$SwitchMap$light$co$camera$view$setting$SettingAdapter$SettingsId:[I
@@ -115,14 +115,14 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_2a
 
     const/4 p0, 0x0
 
     return p0
 
     .line 466
-    :pswitch_0
+    :pswitch_d
     invoke-static {}, Lopenlight/co/camera/utils/CipherManager;->get()Lopenlight/co/camera/utils/CipherManager;
 
     move-result-object p0
@@ -136,7 +136,7 @@
     return p0
 
     .line 464
-    :pswitch_1
+    :pswitch_18
     invoke-static {}, Lopenlight/co/TheaterMode/TheaterModeSettings;->get()Lopenlight/co/TheaterMode/TheaterModeSettings;
 
     move-result-object p0
@@ -148,7 +148,7 @@
     return p0
 
     .line 462
-    :pswitch_2
+    :pswitch_21
     invoke-static {}, Lopenlight/co/TheaterMode/TheaterModeSettings;->get()Lopenlight/co/TheaterMode/TheaterModeSettings;
 
     move-result-object p0
@@ -159,21 +159,21 @@
 
     return p0
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_18
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method public static synthetic lambda$onBindViewHolder$0(Lopenlight/co/camera/view/setting/SettingAdapter;Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 387
     iget-object p2, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_15
 
     .line 388
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->getAdapterPosition()I
@@ -195,17 +195,17 @@
     .line 389
     invoke-interface {p2, p1, p0}, Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;->onOptionClicked(ILopenlight/co/camera/view/setting/SettingModel;)V
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public static synthetic lambda$onBindViewHolder$1(Lopenlight/co/camera/view/setting/SettingAdapter;Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;Landroid/widget/CompoundButton;Z)V
-    .locals 2
+    .registers 6
 
     .line 411
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 413
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->getAdapterPosition()I
@@ -231,7 +231,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     const/4 p3, 0x0
 
@@ -239,24 +239,24 @@
     invoke-virtual {p2, p3}, Landroid/widget/CompoundButton;->setChecked(Z)V
 
     .line 421
-    :cond_0
+    :cond_1e
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
 
     invoke-interface {p0, p3, p1, v0}, Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;->onSwitchTypeSelected(ZILopenlight/co/camera/view/setting/SettingModel;)V
 
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method public static synthetic lambda$onBindViewHolder$2(Lopenlight/co/camera/view/setting/SettingAdapter;ZLopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;Landroid/view/View;)V
-    .locals 0
+    .registers 5
 
     .line 433
     iget-object p4, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_21
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     .line 435
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
@@ -277,10 +277,10 @@
     .line 435
     invoke-interface {p1, p0}, Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;->onDialogOpen(Lopenlight/co/camera/view/setting/SettingModel;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 438
-    :cond_0
+    :cond_18
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
 
     invoke-virtual {p3}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->getIntent()Landroid/content/Intent;
@@ -289,13 +289,13 @@
 
     invoke-interface {p0, p1}, Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;->onStartActivity(Landroid/content/Intent;)V
 
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     return-void
 .end method
 
 .method private populateList()V
-    .locals 7
+    .registers 8
 
     .line 265
     invoke-static {}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->values()[Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -306,8 +306,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_29
 
     aget-object v3, v0, v2
 
@@ -316,7 +316,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_26
 
     .line 268
     iget-object v5, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mPrefKeyToIndex:Ljava/util/HashMap;
@@ -340,13 +340,13 @@
 
     invoke-interface {v3, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_26
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 272
-    :cond_1
+    :cond_29
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingAdapter;->notifyDataSetChanged()V
 
     return-void
@@ -355,14 +355,14 @@
 
 # virtual methods
 .method createModel(Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;)Lopenlight/co/camera/view/setting/SettingModel;
-    .locals 0
+    .registers 2
 
     .line 320
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->isImplemented()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 321
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->getSettingModel()Lopenlight/co/camera/view/setting/SettingModel;
@@ -372,17 +372,17 @@
     .line 322
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingModel;->initValue()V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return-object p0
 .end method
 
 .method public getItemCount()I
-    .locals 0
+    .registers 1
 
     .line 451
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mSettingList:Ljava/util/List;
@@ -395,19 +395,19 @@
 .end method
 
 .method getKeyPosition(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 301
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mSettingList:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_1f
 
     .line 302
     iget-object v1, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mSettingList:Ljava/util/List;
@@ -426,23 +426,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     return v0
 
-    :cond_0
+    :cond_1c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_1f
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method getSettingsIdFromIndex(I)Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
-    .locals 0
+    .registers 2
 
     .line 315
     invoke-static {}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->values()[Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -455,7 +455,7 @@
 .end method
 
 .method indexForKey(Ljava/lang/String;)I
-    .locals 0
+    .registers 2
 
     .line 290
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mPrefKeyToIndex:Ljava/util/HashMap;
@@ -466,24 +466,24 @@
 
     check-cast p0, Ljava/lang/Integer;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_c
 
     const/4 p0, -0x1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 291
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
 
-    :goto_0
+    :goto_10
     return p0
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 36
     check-cast p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;
@@ -494,7 +494,7 @@
 .end method
 
 .method public onBindViewHolder(Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;I)V
-    .locals 9
+    .registers 12
 
     .line 338
     iget-object p2, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mSettingList:Ljava/util/List;
@@ -509,19 +509,19 @@
 
     check-cast p2, Lopenlight/co/camera/view/setting/SettingModel;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_f
 
     return-void
 
     .line 340
-    :cond_0
+    :cond_f
     iget v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mMarginValue:I
 
     const/16 v1, 0x30
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_44
 
     .line 341
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
@@ -536,7 +536,7 @@
     .line 343
     iget v3, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mMarginValue:I
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_2e
 
     .line 344
     iget v3, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mMarginValue:I
@@ -549,15 +549,15 @@
 
     invoke-virtual {v0, v3, v2, v4, v2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 345
-    :cond_1
+    :cond_2e
     iget v3, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mMarginValue:I
 
     const/16 v4, 0xf0
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_3f
 
     .line 346
     iget v3, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mMarginValue:I
@@ -571,19 +571,19 @@
     invoke-virtual {v0, v3, v2, v4, v2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMargins(IIII)V
 
     .line 348
-    :cond_2
-    :goto_0
+    :cond_3f
+    :goto_3f
     iget-object v3, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
 
     invoke-virtual {v3, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 350
-    :cond_3
+    :cond_44
     invoke-virtual {p2}, Lopenlight/co/camera/view/setting/SettingModel;->getIconId()I
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_65
 
     .line 351
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mContext:Landroid/content/Context;
@@ -613,7 +613,7 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 354
-    :cond_4
+    :cond_65
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->titleItem:Landroid/widget/TextView;
 
     invoke-virtual {p2}, Lopenlight/co/camera/view/setting/SettingModel;->getTitle()Ljava/lang/String;
@@ -629,17 +629,17 @@
 
     const/16 v1, 0x8
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_7c
 
     .line 357
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->subtitleItem:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_86
 
     .line 359
-    :cond_5
+    :cond_7c
     iget-object v3, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->subtitleItem:Landroid/widget/TextView;
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setVisibility(I)V
@@ -650,7 +650,7 @@
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 362
-    :goto_1
+    :goto_86
     invoke-virtual {p2}, Lopenlight/co/camera/view/setting/SettingModel;->getSettingsId()Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
 
     move-result-object v0
@@ -668,11 +668,11 @@
 
     const/4 v7, 0x0
 
-    if-eq v3, v6, :cond_e
+    if-eq v3, v6, :cond_12a
 
     const/4 v8, 0x3
 
-    if-eq v3, v8, :cond_9
+    if-eq v3, v8, :cond_c7
 
     .line 427
     iget-object p2, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->switchButton:Landroid/widget/Switch;
@@ -693,19 +693,19 @@
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_6
+    if-ne v3, v4, :cond_ae
 
     move v2, v6
 
-    :cond_6
-    if-nez v2, :cond_7
+    :cond_ae
+    if-nez v2, :cond_b3
 
     const/4 v4, 0x4
 
-    if-ne v3, v4, :cond_8
+    if-ne v3, v4, :cond_bb
 
     .line 432
-    :cond_7
+    :cond_b3
     new-instance v3, Lopenlight/co/camera/view/setting/-$$Lambda$SettingAdapter$nNZSKcZ2H9KHXRvmcQRir2ipuFs;
 
     invoke-direct {v3, p0, v2, p1, v0}, Lopenlight/co/camera/view/setting/-$$Lambda$SettingAdapter$nNZSKcZ2H9KHXRvmcQRir2ipuFs;-><init>(Lopenlight/co/camera/view/setting/SettingAdapter;ZLopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;)V
@@ -713,7 +713,7 @@
     invoke-virtual {p2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 443
-    :cond_8
+    :cond_bb
     iget-object p0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->switchButton:Landroid/widget/Switch;
 
     invoke-virtual {p0, v1}, Landroid/widget/Switch;->setVisibility(I)V
@@ -723,17 +723,17 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto/16 :goto_4
+    goto/16 :goto_163
 
     .line 372
-    :cond_9
+    :cond_c7
     sget-object v3, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->HAPTIC:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
 
     invoke-virtual {v0, v3}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_d7
 
     iget-object v3, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mTheaterModeSettings:Lopenlight/co/TheaterMode/TheaterModeSettings;
 
@@ -741,9 +741,9 @@
 
     move-result v3
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_e7
 
-    :cond_a
+    :cond_d7
     sget-object v3, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->AUDIO:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
 
     .line 373
@@ -751,7 +751,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_f6
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mTheaterModeSettings:Lopenlight/co/TheaterMode/TheaterModeSettings;
 
@@ -759,10 +759,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_f6
 
     .line 374
-    :cond_b
+    :cond_e7
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->setAlpha(F)V
@@ -776,10 +776,10 @@
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_ff
 
     .line 377
-    :cond_c
+    :cond_f6
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->setAlpha(F)V
@@ -790,7 +790,7 @@
     move-result-object v0
 
     .line 382
-    :goto_2
+    :goto_ff
     invoke-virtual {p2}, Lopenlight/co/camera/view/setting/SettingModel;->getSettingsId()Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
 
     move-result-object p2
@@ -801,7 +801,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_d
+    if-nez p2, :cond_110
 
     .line 383
     iget-object p2, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->optionText:Landroid/widget/TextView;
@@ -809,7 +809,7 @@
     invoke-virtual {p2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 386
-    :cond_d
+    :cond_110
     iget-object p2, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
 
     new-instance v0, Lopenlight/co/camera/view/setting/-$$Lambda$SettingAdapter$HuJmipwoo-BiSqe_xDfVasOEfzM;
@@ -833,10 +833,10 @@
 
     invoke-virtual {p0, v7}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    goto :goto_4
+    goto :goto_163
 
     .line 398
-    :cond_e
+    :cond_12a
     iget-object v3, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->switchButton:Landroid/widget/Switch;
 
     invoke-virtual {v3, v7}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
@@ -856,17 +856,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_145
 
     .line 403
     iget-object p2, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
 
     invoke-virtual {p2, v5}, Landroid/view/ViewGroup;->setAlpha(F)V
 
-    goto :goto_3
+    goto :goto_154
 
     .line 406
-    :cond_f
+    :cond_145
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->parentItem:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->setAlpha(F)V
@@ -883,7 +883,7 @@
     move-result v2
 
     .line 409
-    :goto_3
+    :goto_154
     iget-object p2, p1, Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;->switchButton:Landroid/widget/Switch;
 
     invoke-virtual {p2, v2}, Landroid/widget/Switch;->setChecked(Z)V
@@ -897,12 +897,12 @@
 
     invoke-virtual {p2, v0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    :goto_4
+    :goto_163
     return-void
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 36
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/setting/SettingAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;
@@ -913,7 +913,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;
-    .locals 1
+    .registers 4
 
     .line 331
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -942,7 +942,7 @@
 .end method
 
 .method setMarginValue(I)V
-    .locals 0
+    .registers 2
 
     .line 238
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mMarginValue:I
@@ -954,7 +954,7 @@
 .end method
 
 .method setOnSettingAdapterListener(Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;)V
-    .locals 0
+    .registers 2
 
     .line 491
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mOnSettingAdapterListener:Lopenlight/co/camera/view/setting/SettingAdapter$OnSettingAdapterListener;
@@ -963,12 +963,12 @@
 .end method
 
 .method updateData()V
-    .locals 1
+    .registers 2
 
     .line 258
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 259
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mSettingList:Ljava/util/List;
@@ -978,16 +978,16 @@
     .line 260
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingAdapter;->populateList()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method updateItemSelected(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     const/4 v0, -0x1
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v0, :cond_11
 
     .line 277
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingAdapter;->mSettingList:Ljava/util/List;
@@ -1003,6 +1003,6 @@
     .line 278
     invoke-virtual {p0, p2}, Lopenlight/co/camera/view/setting/SettingAdapter;->notifyItemChanged(I)V
 
-    :cond_0
+    :cond_11
     return-void
 .end method

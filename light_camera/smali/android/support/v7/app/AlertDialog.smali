@@ -26,7 +26,7 @@
 
 # direct methods
 .method protected constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -41,7 +41,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -77,7 +77,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 1
+    .registers 5
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -102,7 +102,7 @@
 .end method
 
 .method static resolveDialogTheme(Landroid/content/Context;I)I
-    .locals 2
+    .registers 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -118,12 +118,12 @@
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     return p1
 
     .line 113
-    :cond_0
+    :cond_8
     new-instance p1, Landroid/util/TypedValue;
 
     invoke-direct {p1}, Landroid/util/TypedValue;-><init>()V
@@ -146,7 +146,7 @@
 
 # virtual methods
 .method public getButton(I)Landroid/widget/Button;
-    .locals 0
+    .registers 2
 
     .line 130
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -159,7 +159,7 @@
 .end method
 
 .method public getListView()Landroid/widget/ListView;
-    .locals 0
+    .registers 1
 
     .line 139
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -172,7 +172,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
 
     .line 259
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDialog;->onCreate(Landroid/os/Bundle;)V
@@ -186,7 +186,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
 
     .line 265
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -195,14 +195,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 p0, 0x1
 
     return p0
 
     .line 268
-    :cond_0
+    :cond_a
     invoke-super {p0, p1, p2}, Landroid/support/v7/app/AppCompatDialog;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result p0
@@ -211,7 +211,7 @@
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
 
     .line 273
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -220,14 +220,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 p0, 0x1
 
     return p0
 
     .line 276
-    :cond_0
+    :cond_a
     invoke-super {p0, p1, p2}, Landroid/support/v7/app/AppCompatDialog;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result p0
@@ -236,7 +236,7 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-    .locals 1
+    .registers 5
 
     .line 225
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -249,7 +249,7 @@
 .end method
 
 .method public setButton(ILjava/lang/CharSequence;Landroid/os/Message;)V
-    .locals 1
+    .registers 5
 
     .line 210
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -262,7 +262,7 @@
 .end method
 
 .method setButtonPanelLayoutHint(I)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -278,7 +278,7 @@
 .end method
 
 .method public setCustomTitle(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 154
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -289,7 +289,7 @@
 .end method
 
 .method public setIcon(I)V
-    .locals 0
+    .registers 2
 
     .line 234
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -300,7 +300,7 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 243
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -311,7 +311,7 @@
 .end method
 
 .method public setIconAttribute(I)V
-    .locals 3
+    .registers 5
 
     .line 252
     new-instance v0, Landroid/util/TypedValue;
@@ -342,7 +342,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 163
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -353,7 +353,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 144
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDialog;->setTitle(Ljava/lang/CharSequence;)V
@@ -367,7 +367,7 @@
 .end method
 
 .method public setView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 171
     iget-object p0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;
@@ -378,7 +378,7 @@
 .end method
 
 .method public setView(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 12
 
     .line 186
     iget-object v0, p0, Landroid/support/v7/app/AlertDialog;->mAlert:Landroid/support/v7/app/AlertController;

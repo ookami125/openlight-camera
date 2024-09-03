@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/internal/TextScale;Landroid/widget/TextView;)V
-    .locals 0
+    .registers 3
 
     .line 75
     iput-object p1, p0, Landroid/support/design/internal/TextScale$1;->this$0:Landroid/support/design/internal/TextScale;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
 
     .line 78
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;

@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Ljava/lang/Object;Landroid/support/v4/os/ResultReceiver;)V
-    .locals 0
+    .registers 4
 
     .line 1397
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$3;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method bridge synthetic onResultSent(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1397
     check-cast p1, Ljava/util/List;
@@ -57,7 +57,7 @@
 .end method
 
 .method onResultSent(Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,14 +74,14 @@
 
     and-int/lit8 v0, v0, 0x4
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
-    goto :goto_0
+    goto :goto_24
 
     .line 1405
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
@@ -111,8 +111,8 @@
     return-void
 
     .line 1402
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$3;->val$receiver:Landroid/support/v4/os/ResultReceiver;
 
     const/4 p1, -0x1

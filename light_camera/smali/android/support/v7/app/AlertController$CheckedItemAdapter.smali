@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;II[Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 5
 
     .line 1082
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;II[Ljava/lang/Object;)V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public getItemId(I)J
-    .locals 0
+    .registers 2
 
     int-to-long p0, p1
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public hasStableIds()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

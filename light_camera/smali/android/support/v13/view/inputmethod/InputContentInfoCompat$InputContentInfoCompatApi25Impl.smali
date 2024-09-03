@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/net/Uri;Landroid/content/ClipDescription;Landroid/net/Uri;)V
-    .locals 1
+    .registers 5
     .param p1    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public getContentUri()Landroid/net/Uri;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public getDescription()Landroid/content/ClipDescription;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public getInputContentInfo()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -119,7 +119,7 @@
 .end method
 
 .method public getLinkUri()Landroid/net/Uri;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -134,7 +134,7 @@
 .end method
 
 .method public releasePermission()V
-    .locals 0
+    .registers 1
 
     .line 148
     iget-object p0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;
@@ -145,7 +145,7 @@
 .end method
 
 .method public requestPermission()V
-    .locals 0
+    .registers 1
 
     .line 143
     iget-object p0, p0, Landroid/support/v13/view/inputmethod/InputContentInfoCompat$InputContentInfoCompatApi25Impl;->mObject:Landroid/view/inputmethod/InputContentInfo;

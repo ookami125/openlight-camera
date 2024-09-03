@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;)V
-    .locals 3
+    .registers 6
 
     .line 161
     invoke-direct {p0, p1, p2}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method enqueueWork(Landroid/content/Intent;)V
-    .locals 2
+    .registers 4
 
     .line 177
     new-instance v0, Landroid/content/Intent;
@@ -142,16 +142,16 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2b
 
     .line 181
     monitor-enter p0
 
     .line 182
-    :try_start_0
+    :try_start_13
     iget-boolean p1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_26
 
     const/4 p1, 0x1
 
@@ -161,7 +161,7 @@
     .line 184
     iget-boolean p1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceRunning:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_26
 
     .line 190
     iget-object p1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -171,36 +171,36 @@
     invoke-virtual {p1, v0, v1}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     .line 193
-    :cond_0
+    :cond_26
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_2b
 
-    :catchall_0
+    :catchall_28
     move-exception p1
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_13 .. :try_end_2a} :catchall_28
 
     throw p1
 
-    :cond_1
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 .end method
 
 .method public serviceCreated()V
-    .locals 1
+    .registers 2
 
     .line 199
     monitor-enter p0
 
     .line 201
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceRunning:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     const/4 v0, 0x1
 
@@ -218,32 +218,32 @@
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
     .line 206
-    :cond_0
+    :cond_12
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_14
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_1 .. :try_end_16} :catchall_14
 
     throw v0
 .end method
 
 .method public serviceDestroyed()V
-    .locals 3
+    .registers 4
 
     .line 220
     monitor-enter p0
 
     .line 223
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 224
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
@@ -252,7 +252,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
-    :cond_0
+    :cond_d
     const/4 v0, 0x0
 
     .line 226
@@ -268,18 +268,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_17
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_19
+    .catchall {:try_start_1 .. :try_end_19} :catchall_17
 
     throw v0
 .end method
 
 .method public serviceStartReceived()V
-    .locals 1
+    .registers 2
 
     .line 211
     monitor-enter p0
@@ -287,7 +287,7 @@
     const/4 v0, 0x0
 
     .line 214
-    :try_start_0
+    :try_start_2
     iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
     .line 215
@@ -295,12 +295,12 @@
 
     return-void
 
-    :catchall_0
+    :catchall_6
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_2 .. :try_end_8} :catchall_6
 
     throw v0
 .end method

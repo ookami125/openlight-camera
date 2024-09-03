@@ -20,7 +20,7 @@
 
 # direct methods
 .method public varargs constructor <init>([Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public matches(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     .line 47
     iget-object p0, p0, Lorg/apache/commons/io/serialization/FullClassNameMatcher;->classesSet:Ljava/util/Set;

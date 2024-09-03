@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 459
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method getWrappedView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 475
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$CollapsibleActionViewWrapper;->mWrappedView:Landroid/view/CollapsibleActionView;
@@ -59,7 +59,7 @@
 .end method
 
 .method public onActionViewCollapsed()V
-    .locals 0
+    .registers 1
 
     .line 471
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$CollapsibleActionViewWrapper;->mWrappedView:Landroid/view/CollapsibleActionView;
@@ -70,7 +70,7 @@
 .end method
 
 .method public onActionViewExpanded()V
-    .locals 0
+    .registers 1
 
     .line 466
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$CollapsibleActionViewWrapper;->mWrappedView:Landroid/view/CollapsibleActionView;

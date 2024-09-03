@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     .line 12
     new-instance v7, Lopenlight/co/camera/enums/BurstMode;
@@ -137,7 +137,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;III)V
-    .locals 0
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -165,7 +165,7 @@
 .end method
 
 .method public static getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/BurstMode;
-    .locals 5
+    .registers 6
 
     .line 64
     invoke-static {}, Lopenlight/co/camera/enums/BurstMode;->values()[Lopenlight/co/camera/enums/BurstMode;
@@ -176,8 +176,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_16
 
     aget-object v3, v0, v2
 
@@ -188,17 +188,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     return-object v3
 
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 69
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -221,7 +221,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/BurstMode;
-    .locals 1
+    .registers 2
 
     .line 10
     const-class v0, Lopenlight/co/camera/enums/BurstMode;
@@ -236,7 +236,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/BurstMode;
-    .locals 1
+    .registers 1
 
     .line 10
     sget-object v0, Lopenlight/co/camera/enums/BurstMode;->$VALUES:[Lopenlight/co/camera/enums/BurstMode;
@@ -253,7 +253,7 @@
 
 # virtual methods
 .method public getConfirmationResId()I
-    .locals 0
+    .registers 1
 
     .line 102
     iget p0, p0, Lopenlight/co/camera/enums/BurstMode;->mConfirmationResId:I
@@ -262,7 +262,7 @@
 .end method
 
 .method public getFirstLevelResId()I
-    .locals 0
+    .registers 1
 
     .line 86
     iget p0, p0, Lopenlight/co/camera/enums/BurstMode;->mFirstLevelResId:I
@@ -271,7 +271,7 @@
 .end method
 
 .method public getPrefsKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 78
     iget-object p0, p0, Lopenlight/co/camera/enums/BurstMode;->mPrefsKey:Ljava/lang/String;
@@ -280,7 +280,7 @@
 .end method
 
 .method public getSecondLevelResId()I
-    .locals 0
+    .registers 1
 
     .line 94
     iget p0, p0, Lopenlight/co/camera/enums/BurstMode;->mSecondLevelResId:I

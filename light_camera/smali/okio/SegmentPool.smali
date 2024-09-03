@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,32 +22,32 @@
 .end method
 
 .method static recycle(Lokio/Segment;)V
-    .locals 7
+    .registers 8
 
     .line 50
     iget-object v0, p0, Lokio/Segment;->next:Lokio/Segment;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_34
 
     iget-object v0, p0, Lokio/Segment;->prev:Lokio/Segment;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_34
 
     .line 51
     iget-boolean v0, p0, Lokio/Segment;->shared:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     return-void
 
     .line 52
-    :cond_0
+    :cond_d
     const-class v0, Lokio/SegmentPool;
 
     monitor-enter v0
 
     .line 53
-    :try_start_0
+    :try_start_10
     sget-wide v1, Lokio/SegmentPool;->byteCount:J
 
     const-wide/16 v3, 0x2000
@@ -58,14 +58,14 @@
 
     cmp-long v1, v1, v5
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_1e
 
     monitor-exit v0
 
     return-void
 
     .line 54
-    :cond_1
+    :cond_1e
     sget-wide v1, Lokio/SegmentPool;->byteCount:J
 
     const/4 v5, 0x0
@@ -94,17 +94,17 @@
 
     return-void
 
-    :catchall_0
+    :catchall_31
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_10 .. :try_end_33} :catchall_31
 
     throw p0
 
     .line 50
-    :cond_2
+    :cond_34
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -113,7 +113,7 @@
 .end method
 
 .method static take()Lokio/Segment;
-    .locals 6
+    .registers 6
 
     .line 37
     const-class v0, Lokio/SegmentPool;
@@ -121,10 +121,10 @@
     monitor-enter v0
 
     .line 38
-    :try_start_0
+    :try_start_3
     sget-object v1, Lokio/SegmentPool;->next:Lokio/Segment;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 39
     sget-object v1, Lokio/SegmentPool;->next:Lokio/Segment;
@@ -154,10 +154,10 @@
     return-object v1
 
     .line 45
-    :cond_0
+    :cond_19
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_3 .. :try_end_1a} :catchall_20
 
     .line 46
     new-instance v0, Lokio/Segment;
@@ -166,14 +166,14 @@
 
     return-object v0
 
-    :catchall_0
+    :catchall_20
     move-exception v1
 
     .line 45
-    :try_start_1
+    :try_start_21
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_22
+    .catchall {:try_start_21 .. :try_end_22} :catchall_20
 
     throw v1
 .end method

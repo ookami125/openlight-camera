@@ -61,7 +61,7 @@
 
 # direct methods
 .method constructor <init>(II[BI)V
-    .locals 2
+    .registers 7
 
     .line 113
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -110,7 +110,7 @@
     .line 103
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_3e
 
     iput-object v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->masks:[I
 
@@ -143,7 +143,7 @@
 
     nop
 
-    :array_0
+    :array_3e
     .array-data 4
         0x0
         0x1
@@ -166,19 +166,19 @@
 .end method
 
 .method private nextPixel()I
-    .locals 3
+    .registers 4
 
     .line 245
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->remaining:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, -0x1
 
     return p0
 
     .line 248
-    :cond_0
+    :cond_6
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->remaining:I
 
     add-int/lit8 v0, v0, -0x1
@@ -204,7 +204,7 @@
 
 # virtual methods
 .method final MAXCODE(I)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 
@@ -216,7 +216,7 @@
 .end method
 
 .method char_out(BLjava/io/OutputStream;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -239,17 +239,17 @@
 
     const/16 v0, 0xfe
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_13
 
     .line 125
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->flush_char(Ljava/io/OutputStream;)V
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method cl_block(Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -282,12 +282,12 @@
 .end method
 
 .method cl_hash(I)V
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_1
+    if-ge v0, p1, :cond_b
 
     .line 142
     iget-object v1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->htab:[I
@@ -298,14 +298,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method compress(ILjava/io/OutputStream;)V
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -368,18 +368,18 @@
     .line 171
     iget v2, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->hsize:I
 
-    :goto_0
+    :goto_2a
     const/high16 v3, 0x10000
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_33
 
     add-int/lit8 v0, v0, 0x1
 
     mul-int/lit8 v2, v2, 0x2
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_33
     rsub-int/lit8 v0, v0, 0x8
 
     .line 175
@@ -394,14 +394,14 @@
     invoke-virtual {p0, v3, p2}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->output(ILjava/io/OutputStream;)V
 
     .line 181
-    :goto_1
+    :goto_3f
     invoke-direct {p0}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->nextPixel()I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_7
+    if-eq v3, v4, :cond_96
 
     .line 182
     iget v4, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxbits:I
@@ -419,61 +419,61 @@
 
     aget v6, v6, v5
 
-    if-ne v6, v4, :cond_1
+    if-ne v6, v4, :cond_59
 
     .line 186
     iget-object p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->codetab:[I
 
     aget p1, p1, v5
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 188
-    :cond_1
+    :cond_59
     iget-object v6, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->htab:[I
 
     aget v6, v6, v5
 
-    if-ltz v6, :cond_5
+    if-ltz v6, :cond_79
 
     sub-int v6, v2, v5
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_64
 
     move v6, v1
 
-    :cond_2
+    :cond_64
     sub-int/2addr v5, v6
 
-    if-gez v5, :cond_3
+    if-gez v5, :cond_68
 
     add-int/2addr v5, v2
 
     .line 197
-    :cond_3
+    :cond_68
     iget-object v7, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->htab:[I
 
     aget v7, v7, v5
 
-    if-ne v7, v4, :cond_4
+    if-ne v7, v4, :cond_73
 
     .line 198
     iget-object p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->codetab:[I
 
     aget p1, p1, v5
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 201
-    :cond_4
+    :cond_73
     iget-object v7, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->htab:[I
 
     aget v7, v7, v5
 
-    if-gez v7, :cond_2
+    if-gez v7, :cond_64
 
     .line 203
-    :cond_5
+    :cond_79
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->output(ILjava/io/OutputStream;)V
 
     .line 205
@@ -481,7 +481,7 @@
 
     iget v6, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxmaxcode:I
 
-    if-ge p1, v6, :cond_6
+    if-ge p1, v6, :cond_91
 
     .line 206
     iget-object p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->codetab:[I
@@ -499,19 +499,19 @@
 
     aput v4, p1, v5
 
-    goto :goto_2
+    goto :goto_94
 
     .line 209
-    :cond_6
+    :cond_91
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cl_block(Ljava/io/OutputStream;)V
 
-    :goto_2
+    :goto_94
     move p1, v3
 
-    goto :goto_1
+    goto :goto_3f
 
     .line 212
-    :cond_7
+    :cond_96
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->output(ILjava/io/OutputStream;)V
 
     .line 213
@@ -523,7 +523,7 @@
 .end method
 
 .method encode(Ljava/io/OutputStream;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -563,7 +563,7 @@
 .end method
 
 .method flush_char(Ljava/io/OutputStream;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -573,7 +573,7 @@
     .line 230
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->a_count:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_13
 
     .line 231
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->a_count:I
@@ -592,12 +592,12 @@
     .line 233
     iput v2, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->a_count:I
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method output(ILjava/io/OutputStream;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -620,7 +620,7 @@
     .line 258
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_19
 
     .line 259
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_accum:I
@@ -633,14 +633,14 @@
 
     iput v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_accum:I
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 261
-    :cond_0
+    :cond_19
     iput p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_accum:I
 
     .line 263
-    :goto_0
+    :goto_1b
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
     iget v1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->n_bits:I
@@ -650,12 +650,12 @@
     iput v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
     .line 265
-    :goto_1
+    :goto_22
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
     const/16 v1, 0x8
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_3b
 
     .line 266
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_accum:I
@@ -680,25 +680,25 @@
 
     iput v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
-    goto :goto_1
+    goto :goto_22
 
     .line 273
-    :cond_1
+    :cond_3b
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->free_ent:I
 
     iget v2, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxcode:I
 
-    if-gt v0, v2, :cond_2
+    if-gt v0, v2, :cond_45
 
     iget-boolean v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->clear_flg:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_70
 
     .line 274
-    :cond_2
+    :cond_45
     iget-boolean v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->clear_flg:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_57
 
     .line 275
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->g_init_bits:I
@@ -716,10 +716,10 @@
     .line 276
     iput-boolean v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->clear_flg:Z
 
-    goto :goto_2
+    goto :goto_70
 
     .line 278
-    :cond_3
+    :cond_57
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->n_bits:I
 
     add-int/lit8 v0, v0, 0x1
@@ -731,17 +731,17 @@
 
     iget v2, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxbits:I
 
-    if-ne v0, v2, :cond_4
+    if-ne v0, v2, :cond_68
 
     .line 280
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxmaxcode:I
 
     iput v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxcode:I
 
-    goto :goto_2
+    goto :goto_70
 
     .line 282
-    :cond_4
+    :cond_68
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->n_bits:I
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->MAXCODE(I)I
@@ -751,17 +751,17 @@
     iput v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->maxcode:I
 
     .line 286
-    :cond_5
-    :goto_2
+    :cond_70
+    :goto_70
     iget v0, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->EOFCode:I
 
-    if-ne p1, v0, :cond_7
+    if-ne p1, v0, :cond_8e
 
     .line 288
-    :goto_3
+    :goto_74
     iget p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
-    if-lez p1, :cond_6
+    if-lez p1, :cond_8b
 
     .line 289
     iget p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_accum:I
@@ -786,12 +786,12 @@
 
     iput p1, p0, Lcom/bumptech/glide/gifencoder/LZWEncoder;->cur_bits:I
 
-    goto :goto_3
+    goto :goto_74
 
     .line 294
-    :cond_6
+    :cond_8b
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/gifencoder/LZWEncoder;->flush_char(Ljava/io/OutputStream;)V
 
-    :cond_7
+    :cond_8e
     return-void
 .end method

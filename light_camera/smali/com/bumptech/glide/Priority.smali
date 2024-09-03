@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 9
     new-instance v0, Lcom/bumptech/glide/Priority;
@@ -116,7 +116,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -130,7 +130,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/Priority;
-    .locals 1
+    .registers 2
 
     .line 8
     const-class v0, Lcom/bumptech/glide/Priority;
@@ -145,7 +145,7 @@
 .end method
 
 .method public static values()[Lcom/bumptech/glide/Priority;
-    .locals 1
+    .registers 1
 
     .line 8
     sget-object v0, Lcom/bumptech/glide/Priority;->$VALUES:[Lcom/bumptech/glide/Priority;

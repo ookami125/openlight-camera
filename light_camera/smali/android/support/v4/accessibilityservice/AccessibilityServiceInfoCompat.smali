@@ -46,14 +46,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 63
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 64
     new-instance v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoApi18Impl;
@@ -62,15 +62,15 @@
 
     sput-object v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat;->IMPL:Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 65
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 66
     new-instance v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoApi16Impl;
@@ -79,22 +79,22 @@
 
     sput-object v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat;->IMPL:Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 68
-    :cond_1
+    :cond_1c
     new-instance v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat;->IMPL:Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;
 
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 235
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,53 +103,53 @@
 .end method
 
 .method public static capabilityToString(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x4
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_16
 
     const/16 v0, 0x8
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_13
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_1a
 
     const-string p0, "UNKNOWN"
 
     return-object p0
 
-    :pswitch_0
+    :pswitch_d
     const-string p0, "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION"
 
     return-object p0
 
-    :pswitch_1
+    :pswitch_10
     const-string p0, "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT"
 
     return-object p0
 
-    :cond_0
+    :cond_13
     const-string p0, "CAPABILITY_CAN_FILTER_KEY_EVENTS"
 
     return-object p0
 
-    :cond_1
+    :cond_16
     const-string p0, "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_10
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method public static feedbackTypeToString(I)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 345
     new-instance v0, Ljava/lang/StringBuilder;
@@ -161,8 +161,8 @@
     .line 346
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_0
-    if-lez p0, :cond_4
+    :goto_a
+    if-lez p0, :cond_4d
 
     .line 348
     invoke-static {p0}, Ljava/lang/Integer;->numberOfTrailingZeros(I)I
@@ -182,71 +182,71 @@
 
     move-result v3
 
-    if-le v3, v2, :cond_0
+    if-le v3, v2, :cond_20
 
     const-string v2, ", "
 
     .line 351
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_0
+    :cond_20
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_47
 
     const/16 v2, 0x8
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_41
 
     const/16 v2, 0x10
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_3b
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_58
 
-    goto :goto_0
+    goto :goto_a
 
-    :pswitch_0
+    :pswitch_2f
     const-string v1, "FEEDBACK_HAPTIC"
 
     .line 358
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_a
 
-    :pswitch_1
+    :pswitch_35
     const-string v1, "FEEDBACK_SPOKEN"
 
     .line 364
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
+    :cond_3b
     const-string v1, "FEEDBACK_GENERIC"
 
     .line 361
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_2
+    :cond_41
     const-string v1, "FEEDBACK_VISUAL"
 
     .line 367
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_3
+    :cond_47
     const-string v1, "FEEDBACK_AUDIBLE"
 
     .line 355
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_4
+    :cond_4d
     const-string p0, "]"
 
     .line 371
@@ -261,77 +261,77 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_58
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_35
+        :pswitch_2f
     .end packed-switch
 .end method
 
 .method public static flagToString(I)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x4
 
-    if-eq p0, v0, :cond_3
+    if-eq p0, v0, :cond_23
 
     const/16 v0, 0x8
 
-    if-eq p0, v0, :cond_2
+    if-eq p0, v0, :cond_20
 
     const/16 v0, 0x10
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_1d
 
     const/16 v0, 0x20
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_1a
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_26
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :pswitch_0
+    :pswitch_14
     const-string p0, "FLAG_INCLUDE_NOT_IMPORTANT_VIEWS"
 
     return-object p0
 
-    :pswitch_1
+    :pswitch_17
     const-string p0, "DEFAULT"
 
     return-object p0
 
-    :cond_0
+    :cond_1a
     const-string p0, "FLAG_REQUEST_FILTER_KEY_EVENTS"
 
     return-object p0
 
-    :cond_1
+    :cond_1d
     const-string p0, "FLAG_REPORT_VIEW_IDS"
 
     return-object p0
 
-    :cond_2
+    :cond_20
     const-string p0, "FLAG_REQUEST_ENHANCED_WEB_ACCESSIBILITY"
 
     return-object p0
 
-    :cond_3
+    :cond_23
     const-string p0, "FLAG_REQUEST_TOUCH_EXPLORATION_MODE"
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_17
+        :pswitch_14
     .end packed-switch
 .end method
 
 .method public static getCanRetrieveWindowContent(Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -344,7 +344,7 @@
 .end method
 
 .method public static getCapabilities(Landroid/accessibilityservice/AccessibilityServiceInfo;)I
-    .locals 1
+    .registers 2
 
     .line 415
     sget-object v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat;->IMPL:Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;
@@ -357,7 +357,7 @@
 .end method
 
 .method public static getDescription(Landroid/accessibilityservice/AccessibilityServiceInfo;)Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public static getId(Landroid/accessibilityservice/AccessibilityServiceInfo;)Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -383,7 +383,7 @@
 .end method
 
 .method public static getResolveInfo(Landroid/accessibilityservice/AccessibilityServiceInfo;)Landroid/content/pm/ResolveInfo;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -396,7 +396,7 @@
 .end method
 
 .method public static getSettingsActivityName(Landroid/accessibilityservice/AccessibilityServiceInfo;)Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -409,7 +409,7 @@
 .end method
 
 .method public static loadDescription(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 333
     sget-object v0, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat;->IMPL:Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoBaseImpl;

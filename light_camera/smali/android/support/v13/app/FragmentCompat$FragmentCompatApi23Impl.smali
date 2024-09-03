@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 87
     invoke-direct {p0}, Landroid/support/v13/app/FragmentCompat$FragmentCompatApi15Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public requestPermissions(Landroid/app/Fragment;[Ljava/lang/String;I)V
-    .locals 0
+    .registers 4
 
     .line 90
     invoke-virtual {p1, p2, p3}, Landroid/app/Fragment;->requestPermissions([Ljava/lang/String;I)V
@@ -40,7 +40,7 @@
 .end method
 
 .method public shouldShowRequestPermissionRationale(Landroid/app/Fragment;Ljava/lang/String;)Z
-    .locals 0
+    .registers 3
 
     .line 95
     invoke-virtual {p1, p2}, Landroid/app/Fragment;->shouldShowRequestPermissionRationale(Ljava/lang/String;)Z

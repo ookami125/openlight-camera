@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Ljava/lang/String;Landroid/support/transition/Transition;Landroid/support/transition/WindowIdImpl;Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 6
 
     .line 2357
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

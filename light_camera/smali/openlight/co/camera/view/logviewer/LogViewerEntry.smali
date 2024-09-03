@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 27
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 45
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 49
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
+    .registers 5
 
     .line 53
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
@@ -97,7 +97,7 @@
 .end method
 
 .method private static stackTrace(Ljava/lang/Exception;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 95
     new-instance v0, Ljava/io/StringWriter;
@@ -126,7 +126,7 @@
 
 # virtual methods
 .method public bind(ILopenlight/co/lib/utils/LogUtil$Entry;)V
-    .locals 4
+    .registers 7
 
     .line 62
     iget-object v0, p0, Lopenlight/co/camera/view/logviewer/LogViewerEntry;->mTimestamp:Landroid/widget/TextView;
@@ -173,7 +173,7 @@
     .line 66
     iget-object v0, p2, Lopenlight/co/lib/utils/LogUtil$Entry;->exception:Ljava/lang/Exception;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_36
 
     .line 67
     iget-object p2, p0, Lopenlight/co/camera/view/logviewer/LogViewerEntry;->mStack:Landroid/widget/TextView;
@@ -182,10 +182,10 @@
 
     invoke-virtual {p2, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_47
 
     .line 69
-    :cond_0
+    :cond_36
     iget-object v0, p0, Lopenlight/co/camera/view/logviewer/LogViewerEntry;->mStack:Landroid/widget/TextView;
 
     const/4 v1, 0x0
@@ -203,30 +203,30 @@
 
     invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_47
     and-int/lit8 p1, p1, 0x1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_50
 
     const/4 p1, -0x1
 
     .line 73
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/logviewer/LogViewerEntry;->setBackgroundColor(I)V
 
-    goto :goto_1
+    goto :goto_56
 
-    :cond_1
+    :cond_50
     const p1, -0x222223
 
     .line 75
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/logviewer/LogViewerEntry;->setBackgroundColor(I)V
 
-    :goto_1
+    :goto_56
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 1
+    .registers 2
 
     .line 81
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V

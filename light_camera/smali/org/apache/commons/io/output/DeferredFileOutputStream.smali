@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/io/File;)V
-    .locals 6
+    .registers 9
 
     const/4 v3, 0x0
 
@@ -42,7 +42,7 @@
 .end method
 
 .method private constructor <init>(ILjava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
-    .locals 0
+    .registers 6
 
     .line 136
     invoke-direct {p0, p1}, Lorg/apache/commons/io/output/ThresholdingOutputStream;-><init>(I)V
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Ljava/lang/String;Ljava/io/File;)V
-    .locals 6
+    .registers 11
 
     const/4 v2, 0x0
 
@@ -97,12 +97,12 @@
     .line 118
     invoke-direct/range {v0 .. v5}, Lorg/apache/commons/io/output/DeferredFileOutputStream;-><init>(ILjava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     return-void
 
     .line 120
-    :cond_0
+    :cond_c
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Temporary file prefix is missing"
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -134,12 +134,12 @@
 .end method
 
 .method public getData()[B
-    .locals 1
+    .registers 2
 
     .line 217
     iget-object v0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->memoryOutputStream:Lorg/apache/commons/io/output/ByteArrayOutputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 219
     iget-object p0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->memoryOutputStream:Lorg/apache/commons/io/output/ByteArrayOutputStream;
@@ -150,14 +150,14 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public getFile()Ljava/io/File;
-    .locals 0
+    .registers 1
 
     .line 241
     iget-object p0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->outputFile:Ljava/io/File;
@@ -166,7 +166,7 @@
 .end method
 
 .method protected getStream()Ljava/io/OutputStream;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -180,7 +180,7 @@
 .end method
 
 .method public isInMemory()Z
-    .locals 0
+    .registers 1
 
     .line 203
     invoke-virtual {p0}, Lorg/apache/commons/io/output/DeferredFileOutputStream;->isThresholdExceeded()Z
@@ -193,7 +193,7 @@
 .end method
 
 .method protected thresholdReached()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -203,7 +203,7 @@
     .line 176
     iget-object v0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->prefix:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 177
     iget-object v0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->prefix:Ljava/lang/String;
@@ -219,7 +219,7 @@
     iput-object v0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->outputFile:Ljava/io/File;
 
     .line 179
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/io/FileOutputStream;
 
     iget-object v1, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->outputFile:Ljava/io/File;
@@ -227,12 +227,12 @@
     invoke-direct {v0, v1}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;)V
 
     .line 181
-    :try_start_0
+    :try_start_17
     iget-object v1, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->memoryOutputStream:Lorg/apache/commons/io/output/ByteArrayOutputStream;
 
     invoke-virtual {v1, v0}, Lorg/apache/commons/io/output/ByteArrayOutputStream;->writeTo(Ljava/io/OutputStream;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_1c} :catch_22
 
     .line 186
     iput-object v0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->currentOutputStream:Ljava/io/OutputStream;
@@ -244,7 +244,7 @@
 
     return-void
 
-    :catch_0
+    :catch_22
     move-exception p0
 
     .line 183
@@ -255,7 +255,7 @@
 .end method
 
 .method public writeTo(Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -265,24 +265,24 @@
     .line 270
     iget-boolean v0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->closed:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 275
     invoke-virtual {p0}, Lorg/apache/commons/io/output/DeferredFileOutputStream;->isInMemory()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 277
     iget-object p0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->memoryOutputStream:Lorg/apache/commons/io/output/ByteArrayOutputStream;
 
     invoke-virtual {p0, p1}, Lorg/apache/commons/io/output/ByteArrayOutputStream;->writeTo(Ljava/io/OutputStream;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 281
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/io/FileInputStream;
 
     iget-object p0, p0, Lorg/apache/commons/io/output/DeferredFileOutputStream;->outputFile:Ljava/io/File;
@@ -290,18 +290,18 @@
     invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 283
-    :try_start_0
+    :try_start_17
     invoke-static {v0, p1}, Lorg/apache/commons/io/IOUtils;->copy(Ljava/io/InputStream;Ljava/io/OutputStream;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_17 .. :try_end_1a} :catchall_1e
 
     .line 285
     invoke-static {v0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
 
-    :goto_0
+    :goto_1d
     return-void
 
-    :catchall_0
+    :catchall_1e
     move-exception p0
 
     invoke-static {v0}, Lorg/apache/commons/io/IOUtils;->closeQuietly(Ljava/io/InputStream;)V
@@ -309,7 +309,7 @@
     throw p0
 
     .line 272
-    :cond_1
+    :cond_23
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Stream not closed"

@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 389
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method synthetic constructor <init>(Lopenlight/co/camera/CameraInfo$1;)V
-    .locals 0
+    .registers 2
 
     .line 389
     invoke-direct {p0}, Lopenlight/co/camera/CameraInfo$CompareSizesByArea;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public compare(Landroid/util/Size;Landroid/util/Size;)I
-    .locals 4
+    .registers 7
 
     .line 392
     invoke-virtual {p1}, Landroid/util/Size;->getWidth()I
@@ -89,7 +89,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 389
     check-cast p1, Landroid/util/Size;

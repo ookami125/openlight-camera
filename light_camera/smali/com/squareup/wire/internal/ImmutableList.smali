@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -95,7 +95,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lcom/squareup/wire/internal/ImmutableList;->list:Ljava/util/ArrayList;
@@ -108,7 +108,7 @@
 .end method
 
 .method public toArray()[Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 42
     iget-object p0, p0, Lcom/squareup/wire/internal/ImmutableList;->list:Ljava/util/ArrayList;

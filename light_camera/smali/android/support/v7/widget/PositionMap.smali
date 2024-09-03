@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 26
     new-instance v0, Ljava/lang/Object;
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0xa
 
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>(I)V
-    .locals 2
+    .registers 4
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,7 @@
     .line 27
     iput-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_11
 
     .line 49
     sget-object p1, Landroid/support/v7/widget/PositionMap$ContainerHelpers;->EMPTY_INTS:[I
@@ -86,10 +86,10 @@
 
     iput-object p1, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 52
-    :cond_0
+    :cond_11
     invoke-static {p1}, Landroid/support/v7/widget/PositionMap;->idealIntArraySize(I)I
 
     move-result p1
@@ -105,14 +105,14 @@
     iput-object p1, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     .line 56
-    :goto_0
+    :goto_1d
     iput v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
     return-void
 .end method
 
 .method private gc()V
-    .locals 8
+    .registers 9
 
     .line 151
     iget v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
@@ -129,8 +129,8 @@
 
     move v5, v4
 
-    :goto_0
-    if-ge v4, v0, :cond_2
+    :goto_9
+    if-ge v4, v0, :cond_21
 
     .line 157
     aget-object v6, v2, v4
@@ -138,9 +138,9 @@
     .line 159
     sget-object v7, Landroid/support/v7/widget/PositionMap;->DELETED:Ljava/lang/Object;
 
-    if-eq v6, v7, :cond_1
+    if-eq v6, v7, :cond_1e
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_1c
 
     .line 161
     aget v7, v1, v4
@@ -155,16 +155,16 @@
     .line 163
     aput-object v6, v2, v4
 
-    :cond_0
+    :cond_1c
     add-int/lit8 v5, v5, 0x1
 
-    :cond_1
+    :cond_1e
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 170
-    :cond_2
+    :cond_21
     iput-boolean v3, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
     .line 171
@@ -174,7 +174,7 @@
 .end method
 
 .method static idealBooleanArraySize(I)I
-    .locals 0
+    .registers 1
 
     .line 410
     invoke-static {p0}, Landroid/support/v7/widget/PositionMap;->idealByteArraySize(I)I
@@ -185,14 +185,14 @@
 .end method
 
 .method static idealByteArraySize(I)I
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x4
 
-    :goto_0
+    :goto_1
     const/16 v1, 0x20
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_f
 
     const/4 v1, 0x1
 
@@ -200,21 +200,21 @@
 
     add-int/lit8 v1, v1, -0xc
 
-    if-gt p0, v1, :cond_0
+    if-gt p0, v1, :cond_c
 
     return v1
 
-    :cond_0
+    :cond_c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_f
     return p0
 .end method
 
 .method static idealCharArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x2
 
@@ -229,7 +229,7 @@
 .end method
 
 .method static idealFloatArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x4
 
@@ -244,7 +244,7 @@
 .end method
 
 .method static idealIntArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x4
 
@@ -259,7 +259,7 @@
 .end method
 
 .method static idealLongArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x8
 
@@ -274,7 +274,7 @@
 .end method
 
 .method static idealObjectArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x4
 
@@ -289,7 +289,7 @@
 .end method
 
 .method static idealShortArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x2
 
@@ -306,7 +306,7 @@
 
 # virtual methods
 .method public append(ILjava/lang/Object;)V
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)V"
@@ -316,7 +316,7 @@
     .line 337
     iget v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
@@ -326,7 +326,7 @@
 
     aget v0, v0, v1
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_12
 
     .line 338
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/PositionMap;->put(ILjava/lang/Object;)V
@@ -334,10 +334,10 @@
     return-void
 
     .line 342
-    :cond_0
+    :cond_12
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     iget v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
@@ -345,13 +345,13 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_20
 
     .line 343
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
     .line 346
-    :cond_1
+    :cond_20
     iget v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
     .line 347
@@ -359,7 +359,7 @@
 
     array-length v1, v1
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_46
 
     add-int/lit8 v1, v0, 0x1
 
@@ -401,7 +401,7 @@
     iput-object v1, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     .line 361
-    :cond_2
+    :cond_46
     iget-object v1, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
     aput p1, v1, v0
@@ -420,7 +420,7 @@
 .end method
 
 .method public clear()V
-    .locals 5
+    .registers 6
 
     .line 321
     iget v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
@@ -432,8 +432,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v3, v0, :cond_0
+    :goto_6
+    if-ge v3, v0, :cond_e
 
     const/4 v4, 0x0
 
@@ -442,10 +442,10 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 328
-    :cond_0
+    :cond_e
     iput v2, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
     .line 329
@@ -455,7 +455,7 @@
 .end method
 
 .method public clone()Landroid/support/v7/widget/PositionMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -467,17 +467,17 @@
     const/4 v0, 0x0
 
     .line 64
-    :try_start_0
+    :try_start_1
     invoke-super {p0}, Ljava/lang/Object;->clone()Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/support/v7/widget/PositionMap;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_1 .. :try_end_7} :catch_1c
 
     .line 65
-    :try_start_1
+    :try_start_7
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
     invoke-virtual {v0}, [I->clone()Ljava/lang/Object;
@@ -498,21 +498,21 @@
     check-cast p0, [Ljava/lang/Object;
 
     iput-object p0, v1, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
-    :try_end_1
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1b
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_7 .. :try_end_1b} :catch_1d
 
-    goto :goto_0
+    goto :goto_1d
 
-    :catch_0
+    :catch_1c
     move-object v1, v0
 
-    :catch_1
-    :goto_0
+    :catch_1d
+    :goto_1d
     return-object v1
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -528,7 +528,7 @@
 .end method
 
 .method public delete(I)V
-    .locals 2
+    .registers 4
 
     .line 100
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
@@ -539,7 +539,7 @@
 
     move-result p1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1b
 
     .line 103
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
@@ -548,7 +548,7 @@
 
     sget-object v1, Landroid/support/v7/widget/PositionMap;->DELETED:Ljava/lang/Object;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_1b
 
     .line 104
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
@@ -562,12 +562,12 @@
     .line 105
     iput-boolean p1, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -585,7 +585,7 @@
 .end method
 
 .method public get(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"
@@ -601,7 +601,7 @@
 
     move-result p1
 
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_18
 
     .line 89
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
@@ -610,36 +610,36 @@
 
     sget-object v1, Landroid/support/v7/widget/PositionMap;->DELETED:Ljava/lang/Object;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
-    goto :goto_0
+    goto :goto_18
 
     .line 92
-    :cond_0
+    :cond_13
     iget-object p0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     aget-object p0, p0, p1
 
     return-object p0
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     return-object p2
 .end method
 
 .method public indexOfKey(I)I
-    .locals 1
+    .registers 3
 
     .line 286
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 287
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
     .line 290
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
     iget p0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
@@ -652,7 +652,7 @@
 .end method
 
 .method public indexOfValue(Ljava/lang/Object;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)I"
@@ -662,59 +662,59 @@
     .line 304
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 305
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     .line 308
-    :goto_0
+    :goto_8
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_16
 
     .line 309
     iget-object v1, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     aget-object v1, v1, v0
 
-    if-ne v1, p1, :cond_1
+    if-ne v1, p1, :cond_13
 
     return v0
 
-    :cond_1
+    :cond_13
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_2
+    :cond_16
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public insertKeyRange(II)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public keyAt(I)I
-    .locals 1
+    .registers 3
 
     .line 246
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 247
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
     .line 250
-    :cond_0
+    :cond_7
     iget-object p0, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
     aget p0, p0, p1
@@ -723,7 +723,7 @@
 .end method
 
 .method public put(ILjava/lang/Object;)V
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)V"
@@ -739,22 +739,22 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_10
 
     .line 185
     iget-object p0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     aput-object p2, p0, v0
 
-    goto/16 :goto_0
+    goto/16 :goto_8e
 
-    :cond_0
+    :cond_10
     not-int v0, v0
 
     .line 189
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_26
 
     iget-object v1, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
@@ -762,7 +762,7 @@
 
     sget-object v2, Landroid/support/v7/widget/PositionMap;->DELETED:Ljava/lang/Object;
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_26
 
     .line 190
     iget-object v1, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
@@ -777,10 +777,10 @@
     return-void
 
     .line 195
-    :cond_1
+    :cond_26
     iget-boolean v1, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3d
 
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
@@ -788,7 +788,7 @@
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_2
+    if-lt v1, v2, :cond_3d
 
     .line 196
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
@@ -805,14 +805,14 @@
     not-int v0, v0
 
     .line 202
-    :cond_2
+    :cond_3d
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
     iget-object v2, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
     array-length v2, v2
 
-    if-lt v1, v2, :cond_3
+    if-lt v1, v2, :cond_65
 
     .line 203
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
@@ -856,12 +856,12 @@
     iput-object v1, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     .line 216
-    :cond_3
+    :cond_65
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
     sub-int/2addr v1, v0
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_80
 
     .line 218
     iget-object v1, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
@@ -888,7 +888,7 @@
     invoke-static {v1, v0, v2, v3, v4}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
     .line 222
-    :cond_4
+    :cond_80
     iget-object v1, p0, Landroid/support/v7/widget/PositionMap;->mKeys:[I
 
     aput p1, v1, v0
@@ -905,12 +905,12 @@
 
     iput p1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
-    :goto_0
+    :goto_8e
     return-void
 .end method
 
 .method public remove(I)V
-    .locals 0
+    .registers 2
 
     .line 114
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/PositionMap;->delete(I)V
@@ -919,7 +919,7 @@
 .end method
 
 .method public removeAt(I)V
-    .locals 2
+    .registers 4
 
     .line 121
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
@@ -928,7 +928,7 @@
 
     sget-object v1, Landroid/support/v7/widget/PositionMap;->DELETED:Ljava/lang/Object;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_11
 
     .line 122
     iget-object v0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
@@ -942,12 +942,12 @@
     .line 123
     iput-boolean p1, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public removeAtRange(II)V
-    .locals 1
+    .registers 4
 
     .line 134
     iget v0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
@@ -958,22 +958,22 @@
 
     move-result p2
 
-    :goto_0
-    if-ge p1, p2, :cond_0
+    :goto_7
+    if-ge p1, p2, :cond_f
 
     .line 136
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/PositionMap;->removeAt(I)V
 
     add-int/lit8 p1, p1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public removeKeyRange(Ljava/util/ArrayList;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -986,7 +986,7 @@
 .end method
 
 .method public setValueAt(ILjava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)V"
@@ -996,13 +996,13 @@
     .line 273
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 274
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
     .line 277
-    :cond_0
+    :cond_7
     iget-object p0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     aput-object p2, p0, p1
@@ -1011,39 +1011,39 @@
 .end method
 
 .method public size()I
-    .locals 1
+    .registers 2
 
     .line 233
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 234
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
     .line 237
-    :cond_0
+    :cond_7
     iget p0, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
     return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 375
     invoke-virtual {p0}, Landroid/support/v7/widget/PositionMap;->size()I
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_9
 
     const-string p0, "{}"
 
     return-object p0
 
     .line 379
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     iget v1, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
@@ -1060,12 +1060,12 @@
     const/4 v1, 0x0
 
     .line 381
-    :goto_0
+    :goto_18
     iget v2, p0, Landroid/support/v7/widget/PositionMap;->mSize:I
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_41
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_23
 
     const-string v2, ", "
 
@@ -1073,7 +1073,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 385
-    :cond_1
+    :cond_23
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/PositionMap;->keyAt(I)I
 
     move-result v2
@@ -1091,25 +1091,25 @@
 
     move-result-object v2
 
-    if-eq v2, p0, :cond_2
+    if-eq v2, p0, :cond_39
 
     .line 390
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_2
+    :cond_39
     const-string v2, "(this Map)"
 
     .line 392
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_3e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_3
+    :cond_41
     const/16 p0, 0x7d
 
     .line 395
@@ -1124,7 +1124,7 @@
 .end method
 
 .method public valueAt(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -1134,13 +1134,13 @@
     .line 260
     iget-boolean v0, p0, Landroid/support/v7/widget/PositionMap;->mGarbage:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 261
     invoke-direct {p0}, Landroid/support/v7/widget/PositionMap;->gc()V
 
     .line 264
-    :cond_0
+    :cond_7
     iget-object p0, p0, Landroid/support/v7/widget/PositionMap;->mValues:[Ljava/lang/Object;
 
     aget-object p0, p0, p1

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 22
     const-class v0, Lopenlight/co/camera/listener/LightCrashListener;
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Landroid/app/PendingIntent;)V
-    .locals 1
+    .registers 5
 
     .line 31
     invoke-direct {p0}, Lnet/hockeyapp/android/CrashManagerListener;-><init>()V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public getDescription()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 113
     sget-object v0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
@@ -89,14 +89,14 @@
 
     const/4 v2, 0x3
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_5d
 
     .line 115
     iget-object v0, p0, Lopenlight/co/camera/listener/LightCrashListener;->mContext:Landroid/content/Context;
 
     instance-of v0, v0, Lopenlight/co/camera/CameraActivity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 116
     iget-object v0, p0, Lopenlight/co/camera/listener/LightCrashListener;->mContext:Landroid/content/Context;
@@ -106,7 +106,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/CameraActivity;->clear()V
 
     .line 118
-    :cond_0
+    :cond_2b
     sget-object v0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -157,7 +157,7 @@
     invoke-static {v0}, Ljava/lang/System;->exit(I)V
 
     .line 125
-    :cond_1
+    :cond_5d
     iget v0, p0, Lopenlight/co/camera/listener/LightCrashListener;->mCountToStart:I
 
     add-int/2addr v0, v1
@@ -170,7 +170,7 @@
 .end method
 
 .method public getUserID()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 93
     sget-object v0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
@@ -197,7 +197,7 @@
 .end method
 
 .method public ignoreDefaultHandler()Z
-    .locals 1
+    .registers 2
 
     .line 44
     sget-object p0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
@@ -212,7 +212,7 @@
 .end method
 
 .method public onCrashesNotSent()V
-    .locals 1
+    .registers 2
 
     .line 77
     sget-object p0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
@@ -230,7 +230,7 @@
 .end method
 
 .method public onCrashesSent()V
-    .locals 1
+    .registers 2
 
     .line 63
     sget-object p0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
@@ -243,7 +243,7 @@
 .end method
 
 .method public onNewCrashesFound()V
-    .locals 1
+    .registers 2
 
     .line 103
     sget-object p0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;
@@ -256,7 +256,7 @@
 .end method
 
 .method public shouldAutoUploadCrashes()Z
-    .locals 1
+    .registers 2
 
     .line 55
     sget-object p0, Lopenlight/co/camera/listener/LightCrashListener;->TAG:Ljava/lang/String;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     const-string v0, "image_manager_disk_cache"
 
@@ -18,7 +18,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
 
     const-string v0, "image_manager_disk_cache"
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
 
     .line 22
     new-instance v0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory$1;

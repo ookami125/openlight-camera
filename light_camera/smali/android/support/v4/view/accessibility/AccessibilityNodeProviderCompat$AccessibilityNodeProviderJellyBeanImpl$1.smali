@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderJellyBeanImpl;Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;)V
-    .locals 0
+    .registers 3
 
     .line 53
     iput-object p1, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderJellyBeanImpl$1;->this$0:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderJellyBeanImpl;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 81
     iget-object p0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderJellyBeanImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
@@ -50,14 +50,14 @@
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 86
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
 
     move-result-object p0
@@ -66,7 +66,7 @@
 .end method
 
 .method public findAccessibilityNodeInfosByText(Ljava/lang/String;I)Ljava/util/List;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -86,14 +86,14 @@
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 68
-    :cond_0
+    :cond_a
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
@@ -105,8 +105,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p2, :cond_1
+    :goto_14
+    if-ge v0, p2, :cond_26
 
     .line 71
     invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -124,14 +124,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_26
     return-object p1
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
-    .locals 0
+    .registers 4
 
     .line 57
     iget-object p0, p0, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderJellyBeanImpl$1;->val$compat:Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;

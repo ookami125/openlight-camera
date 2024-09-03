@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;)V
-    .locals 0
+    .registers 2
 
     .line 835
     iput-object p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$KeySet$1;->this$1:Lcom/google/gson/internal/LinkedHashTreeMap$KeySet;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public next()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TK;"

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static getCurrent(Ljava/lang/Object;)F
-    .locals 0
+    .registers 1
 
     .line 30
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
@@ -38,7 +38,7 @@
 .end method
 
 .method static getMax(Ljava/lang/Object;)F
-    .locals 0
+    .registers 1
 
     .line 34
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
@@ -51,7 +51,7 @@
 .end method
 
 .method static getMin(Ljava/lang/Object;)F
-    .locals 0
+    .registers 1
 
     .line 38
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;
@@ -64,7 +64,7 @@
 .end method
 
 .method static getType(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 42
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeInfo$RangeInfo;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Ljava/lang/Object;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;IILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -45,7 +45,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "AT_MOST.com.bumptech.glide.load.data.bitmap"
 
@@ -53,7 +53,7 @@
 .end method
 
 .method protected getSampleSize(IIII)I
-    .locals 0
+    .registers 5
 
     int-to-float p0, p2
 
@@ -91,14 +91,14 @@
 
     move-result p1
 
-    if-ge p1, p0, :cond_0
+    if-ge p1, p0, :cond_1c
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 p2, 0x0
 
-    :goto_0
+    :goto_1d
     shl-int p0, p1, p2
 
     return p0

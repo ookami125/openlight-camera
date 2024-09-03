@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 20
     new-instance v0, Lopenlight/co/lightsdk/camera2/KeyMapperInternal;
@@ -48,7 +48,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 94
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method public static get()Lopenlight/co/lightsdk/camera2/KeyMapperInternal;
-    .locals 1
+    .registers 1
 
     .line 23
     sget-object v0, Lopenlight/co/lightsdk/camera2/KeyMapperInternal;->sInstance:Lopenlight/co/lightsdk/camera2/KeyMapperInternal;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method getVendorRequestKey(Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;)Landroid/hardware/camera2/CaptureRequest$Key;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -110,7 +110,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 42
     check-cast v0, Landroid/hardware/camera2/CaptureRequest$Key;
@@ -118,8 +118,8 @@
     return-object v0
 
     .line 45
-    :cond_0
-    :try_start_0
+    :cond_13
+    :try_start_13
     const-class v0, Landroid/hardware/camera2/CaptureRequest$Key;
 
     const/4 v1, 0x2
@@ -173,22 +173,22 @@
     move-result-object p1
 
     invoke-virtual {p0, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_43
+    .catch Ljava/lang/InstantiationException; {:try_start_13 .. :try_end_43} :catch_44
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_13 .. :try_end_43} :catch_44
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_13 .. :try_end_43} :catch_44
+    .catch Ljava/lang/IllegalAccessException; {:try_start_13 .. :try_end_43} :catch_44
 
     return-object v0
 
-    :catch_0
+    :catch_44
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method getVendorResultKey(Lopenlight/co/lightsdk/camera2/CaptureResult$Key;)Landroid/hardware/camera2/CaptureResult$Key;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -216,7 +216,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 73
     check-cast v0, Landroid/hardware/camera2/CaptureResult$Key;
@@ -224,8 +224,8 @@
     return-object v0
 
     .line 76
-    :cond_0
-    :try_start_0
+    :cond_13
+    :try_start_13
     const-class v0, Landroid/hardware/camera2/CaptureResult$Key;
 
     const/4 v1, 0x2
@@ -298,15 +298,15 @@
     move-result-object p1
 
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_59
+    .catch Ljava/lang/InstantiationException; {:try_start_13 .. :try_end_59} :catch_5a
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_13 .. :try_end_59} :catch_5a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_13 .. :try_end_59} :catch_5a
+    .catch Ljava/lang/IllegalAccessException; {:try_start_13 .. :try_end_59} :catch_5a
 
     return-object v0
 
-    :catch_0
+    :catch_5a
     move-exception p0
 
     .line 87

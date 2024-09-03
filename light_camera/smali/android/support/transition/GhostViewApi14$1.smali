@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/GhostViewApi14;)V
-    .locals 0
+    .registers 2
 
     .line 121
     iput-object p1, p0, Landroid/support/transition/GhostViewApi14$1;->this$0:Landroid/support/transition/GhostViewApi14;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 2
+    .registers 3
 
     .line 125
     iget-object v0, p0, Landroid/support/transition/GhostViewApi14$1;->this$0:Landroid/support/transition/GhostViewApi14;
@@ -61,13 +61,13 @@
 
     iget-object v0, v0, Landroid/support/transition/GhostViewApi14;->mStartParent:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     iget-object v0, p0, Landroid/support/transition/GhostViewApi14$1;->this$0:Landroid/support/transition/GhostViewApi14;
 
     iget-object v0, v0, Landroid/support/transition/GhostViewApi14;->mStartView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     .line 129
     iget-object v0, p0, Landroid/support/transition/GhostViewApi14$1;->this$0:Landroid/support/transition/GhostViewApi14;
@@ -99,7 +99,7 @@
 
     iput-object v1, p0, Landroid/support/transition/GhostViewApi14;->mStartView:Landroid/view/View;
 
-    :cond_0
+    :cond_38
     const/4 p0, 0x1
 
     return p0

@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;Lcom/bumptech/glide/load/Key;)V
-    .locals 0
+    .registers 3
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,18 +31,18 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2b
 
     .line 26
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -53,12 +53,12 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_12
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 30
-    :cond_1
+    :cond_12
     check-cast p1, Lcom/bumptech/glide/load/engine/OriginalKey;
 
     .line 32
@@ -70,12 +70,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1f
 
     return v1
 
     .line 35
-    :cond_2
+    :cond_1f
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/OriginalKey;->signature:Lcom/bumptech/glide/load/Key;
 
     iget-object p1, p1, Lcom/bumptech/glide/load/engine/OriginalKey;->signature:Lcom/bumptech/glide/load/Key;
@@ -84,20 +84,20 @@
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_2a
 
     return v1
 
-    :cond_3
+    :cond_2a
     return v0
 
-    :cond_4
-    :goto_0
+    :cond_2b
+    :goto_2b
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 44
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/OriginalKey;->id:Ljava/lang/String;
@@ -121,7 +121,7 @@
 .end method
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;

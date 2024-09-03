@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "line.separator"
 
@@ -29,7 +29,7 @@
     .line 124
     new-array v0, v0, [C
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1c
 
     sput-object v0, Lorg/apache/commons/io/HexDump;->_hexcodes:[C
 
@@ -38,7 +38,7 @@
     .line 129
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_30
 
     sput-object v0, Lorg/apache/commons/io/HexDump;->_shifts:[I
 
@@ -46,7 +46,7 @@
 
     nop
 
-    :array_0
+    :array_1c
     .array-data 2
         0x30s
         0x31s
@@ -66,7 +66,7 @@
         0x46s
     .end array-data
 
-    :array_1
+    :array_30
     .array-data 4
         0x1c
         0x18
@@ -80,7 +80,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -89,14 +89,14 @@
 .end method
 
 .method private static dump(Ljava/lang/StringBuilder;B)Ljava/lang/StringBuilder;
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     const/4 v1, 0x2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_18
 
     .line 158
     sget-object v1, Lorg/apache/commons/io/HexDump;->_hexcodes:[C
@@ -117,21 +117,21 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_18
     return-object p0
 .end method
 
 .method private static dump(Ljava/lang/StringBuilder;J)Ljava/lang/StringBuilder;
-    .locals 4
+    .registers 7
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     const/16 v1, 0x8
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_18
 
     .line 143
     sget-object v1, Lorg/apache/commons/io/HexDump;->_hexcodes:[C
@@ -152,14 +152,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_18
     return-object p0
 .end method
 
 .method public static dump([BJLjava/io/OutputStream;I)V
-    .locals 8
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -168,14 +168,14 @@
         }
     .end annotation
 
-    if-ltz p4, :cond_7
+    if-ltz p4, :cond_82
 
     .line 77
     array-length v0, p0
 
-    if-ge p4, v0, :cond_7
+    if-ge p4, v0, :cond_82
 
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_7a
 
     int-to-long v0, p4
 
@@ -189,10 +189,10 @@
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(I)V
 
     .line 88
-    :goto_0
+    :goto_10
     array-length v1, p0
 
-    if-ge p4, v1, :cond_5
+    if-ge p4, v1, :cond_79
 
     .line 89
     array-length v1, p0
@@ -201,12 +201,12 @@
 
     const/16 v2, 0x10
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_1a
 
     move v1, v2
 
     .line 94
-    :cond_0
+    :cond_1a
     invoke-static {v0, p1, p2}, Lorg/apache/commons/io/HexDump;->dump(Ljava/lang/StringBuilder;J)Ljava/lang/StringBuilder;
 
     move-result-object v3
@@ -219,10 +219,10 @@
 
     move v5, v3
 
-    :goto_1
-    if-ge v5, v2, :cond_2
+    :goto_25
+    if-ge v5, v2, :cond_3c
 
-    if-ge v5, v1, :cond_1
+    if-ge v5, v1, :cond_31
 
     add-int v6, v5, p4
 
@@ -231,40 +231,40 @@
 
     invoke-static {v0, v6}, Lorg/apache/commons/io/HexDump;->dump(Ljava/lang/StringBuilder;B)Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    goto :goto_36
 
-    :cond_1
+    :cond_31
     const-string v6, "  "
 
     .line 99
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 101
-    :goto_2
+    :goto_36
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_2
+    :cond_3c
     move v2, v3
 
-    :goto_3
-    if-ge v2, v1, :cond_4
+    :goto_3d
+    if-ge v2, v1, :cond_5a
 
     add-int v5, v2, p4
 
     .line 104
     aget-byte v6, p0, v5
 
-    if-lt v6, v4, :cond_3
+    if-lt v6, v4, :cond_52
 
     aget-byte v6, p0, v5
 
     const/16 v7, 0x7f
 
-    if-ge v6, v7, :cond_3
+    if-ge v6, v7, :cond_52
 
     .line 105
     aget-byte v5, p0, v5
@@ -273,21 +273,21 @@
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_4
+    goto :goto_57
 
-    :cond_3
+    :cond_52
     const/16 v5, 0x2e
 
     .line 107
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_4
+    :goto_57
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_3
+    goto :goto_3d
 
     .line 110
-    :cond_4
+    :cond_5a
     sget-object v2, Lorg/apache/commons/io/HexDump;->EOL:Ljava/lang/String;
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -319,13 +319,13 @@
 
     add-int/lit8 p4, p4, 0x10
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_5
+    :cond_79
     return-void
 
     .line 83
-    :cond_6
+    :cond_7a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "cannot write to nullstream"
@@ -335,7 +335,7 @@
     throw p0
 
     .line 78
-    :cond_7
+    :cond_82
     new-instance p1, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     new-instance p2, Ljava/lang/StringBuilder;

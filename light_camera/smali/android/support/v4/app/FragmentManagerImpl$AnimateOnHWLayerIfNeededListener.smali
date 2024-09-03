@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/view/animation/Animation$AnimationListener;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 3
+    .registers 5
     .annotation build Landroid/support/annotation/CallSuper;
     .end annotation
 
@@ -47,18 +47,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
-    goto :goto_0
+    goto :goto_17
 
     .line 3954
-    :cond_0
+    :cond_f
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimateOnHWLayerIfNeededListener;->mView:Landroid/view/View;
 
     const/4 v1, 0x0
@@ -67,11 +67,11 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    goto :goto_1
+    goto :goto_21
 
     .line 3947
-    :cond_1
-    :goto_0
+    :cond_17
+    :goto_17
     iget-object v0, p0, Landroid/support/v4/app/FragmentManagerImpl$AnimateOnHWLayerIfNeededListener;->mView:Landroid/view/View;
 
     new-instance v1, Landroid/support/v4/app/FragmentManagerImpl$AnimateOnHWLayerIfNeededListener$1;
@@ -81,7 +81,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
     .line 3956
-    :goto_1
+    :goto_21
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentManagerImpl$AnimationListenerWrapper;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
     return-void

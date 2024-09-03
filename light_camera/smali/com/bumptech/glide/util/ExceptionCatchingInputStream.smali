@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -38,7 +38,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method static clearQueue()V
-    .locals 1
+    .registers 1
 
     .line 35
     :goto_0
@@ -57,7 +57,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 36
     sget-object v0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->QUEUE:Ljava/util/Queue;
@@ -66,12 +66,12 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public static obtain(Ljava/io/InputStream;)Lcom/bumptech/glide/util/ExceptionCatchingInputStream;
-    .locals 2
+    .registers 3
 
     .line 23
     sget-object v0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->QUEUE:Ljava/util/Queue;
@@ -79,7 +79,7 @@
     monitor-enter v0
 
     .line 24
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->QUEUE:Ljava/util/Queue;
 
     invoke-interface {v1}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -90,10 +90,10 @@
 
     .line 25
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_17
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     .line 27
     new-instance v1, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;
@@ -101,19 +101,19 @@
     invoke-direct {v1}, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;-><init>()V
 
     .line 29
-    :cond_0
+    :cond_13
     invoke-virtual {v1, p0}, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->setInputStream(Ljava/io/InputStream;)V
 
     return-object v1
 
-    :catchall_0
+    :catchall_17
     move-exception p0
 
     .line 25
-    :try_start_1
+    :try_start_18
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catchall {:try_start_18 .. :try_end_19} :catchall_17
 
     throw p0
 .end method
@@ -121,7 +121,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -139,7 +139,7 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -155,7 +155,7 @@
 .end method
 
 .method public getException()Ljava/io/IOException;
-    .locals 0
+    .registers 1
 
     .line 122
     iget-object p0, p0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->exception:Ljava/io/IOException;
@@ -164,7 +164,7 @@
 .end method
 
 .method public mark(I)V
-    .locals 0
+    .registers 2
 
     .line 60
     iget-object p0, p0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->wrapped:Ljava/io/InputStream;
@@ -175,7 +175,7 @@
 .end method
 
 .method public markSupported()Z
-    .locals 0
+    .registers 1
 
     .line 65
     iget-object p0, p0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->wrapped:Ljava/io/InputStream;
@@ -188,7 +188,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -202,12 +202,12 @@
     invoke-virtual {v0}, Ljava/io/InputStream;->read()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_b
 
-    :catch_0
+    :catch_7
     move-exception v0
 
     .line 115
@@ -215,12 +215,12 @@
 
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_b
     return v0
 .end method
 
 .method public read([B)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -234,12 +234,12 @@
     invoke-virtual {v0, p1}, Ljava/io/InputStream;->read([B)I
 
     move-result p1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_b
 
-    :catch_0
+    :catch_7
     move-exception p1
 
     .line 74
@@ -247,12 +247,12 @@
 
     const/4 p1, -0x1
 
-    :goto_0
+    :goto_b
     return p1
 .end method
 
 .method public read([BII)I
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -266,12 +266,12 @@
     invoke-virtual {v0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
 
     move-result p1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_b
 
-    :catch_0
+    :catch_7
     move-exception p1
 
     .line 86
@@ -279,12 +279,12 @@
 
     const/4 p1, -0x1
 
-    :goto_0
+    :goto_b
     return p1
 .end method
 
 .method public release()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -300,7 +300,7 @@
     monitor-enter v0
 
     .line 129
-    :try_start_0
+    :try_start_8
     sget-object v1, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->QUEUE:Ljava/util/Queue;
 
     invoke-interface {v1, p0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
@@ -310,18 +310,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_f
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_8 .. :try_end_11} :catchall_f
 
     throw p0
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -331,19 +331,19 @@
     monitor-enter p0
 
     .line 94
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->wrapped:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_6
+    .catchall {:try_start_1 .. :try_end_6} :catchall_8
 
     .line 95
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_8
     move-exception v0
 
     .line 93
@@ -353,7 +353,7 @@
 .end method
 
 .method setInputStream(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
 
     .line 45
     iput-object p1, p0, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->wrapped:Ljava/io/InputStream;
@@ -362,7 +362,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -376,12 +376,12 @@
     invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
 
     move-result-wide p1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_c
 
-    :catch_0
+    :catch_7
     move-exception p1
 
     .line 103
@@ -389,6 +389,6 @@
 
     const-wide/16 p1, 0x0
 
-    :goto_0
+    :goto_c
     return-wide p1
 .end method

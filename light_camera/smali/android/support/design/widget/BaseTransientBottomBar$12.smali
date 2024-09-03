@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BaseTransientBottomBar;I)V
-    .locals 0
+    .registers 3
 
     .line 596
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$12;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
 
     .line 599
     iget-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$12;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -53,13 +53,13 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

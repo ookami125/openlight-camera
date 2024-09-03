@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/ripple/RippleViewOnClick;)V
-    .locals 0
+    .registers 2
 
     .line 58
     iput-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick$1;->this$0:Lopenlight/co/camera/view/ripple/RippleViewOnClick;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 61
     iget-object p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick$1;->this$0:Lopenlight/co/camera/view/ripple/RippleViewOnClick;

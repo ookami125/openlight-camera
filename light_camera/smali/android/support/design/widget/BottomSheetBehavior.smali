@@ -105,7 +105,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 170
     invoke-direct {p0}, Landroid/support/design/widget/CoordinatorLayout$Behavior;-><init>()V
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
 
     .line 180
     invoke-direct {p0, p1, p2}, Landroid/support/design/widget/CoordinatorLayout$Behavior;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -159,22 +159,22 @@
 
     const/4 v1, -0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 184
     iget v2, v0, Landroid/util/TypedValue;->data:I
 
-    if-ne v2, v1, :cond_0
+    if-ne v2, v1, :cond_26
 
     .line 185
     iget v0, v0, Landroid/util/TypedValue;->data:I
 
     invoke-virtual {p0, v0}, Landroid/support/design/widget/BottomSheetBehavior;->setPeekHeight(I)V
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 187
-    :cond_0
+    :cond_26
     sget v0, Landroid/support/design/R$styleable;->BottomSheetBehavior_Layout_behavior_peekHeight:I
 
     invoke-virtual {p2, v0, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -184,7 +184,7 @@
     invoke-virtual {p0, v0}, Landroid/support/design/widget/BottomSheetBehavior;->setPeekHeight(I)V
 
     .line 190
-    :goto_0
+    :goto_2f
     sget v0, Landroid/support/design/R$styleable;->BottomSheetBehavior_Layout_behavior_hideable:I
 
     const/4 v1, 0x0
@@ -225,7 +225,7 @@
 .end method
 
 .method public static from(Landroid/view/View;)Landroid/support/design/widget/BottomSheetBehavior;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<V:",
@@ -244,7 +244,7 @@
     .line 815
     instance-of v0, p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     .line 818
     check-cast p0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
@@ -257,7 +257,7 @@
     .line 820
     instance-of v0, p0, Landroid/support/design/widget/BottomSheetBehavior;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 824
     check-cast p0, Landroid/support/design/widget/BottomSheetBehavior;
@@ -265,7 +265,7 @@
     return-object p0
 
     .line 821
-    :cond_0
+    :cond_15
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "The view is not associated with BottomSheetBehavior"
@@ -275,7 +275,7 @@
     throw p0
 
     .line 816
-    :cond_1
+    :cond_1d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "The view is not a child of CoordinatorLayout"
@@ -286,7 +286,7 @@
 .end method
 
 .method private getYVelocity()F
-    .locals 3
+    .registers 4
 
     .line 616
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -310,7 +310,7 @@
 .end method
 
 .method private reset()V
-    .locals 1
+    .registers 2
 
     const/4 v0, -0x1
 
@@ -320,7 +320,7 @@
     .line 580
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 581
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
@@ -332,14 +332,14 @@
     .line 582
     iput-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 
 # virtual methods
 .method dispatchOnSlide(I)V
-    .locals 3
+    .registers 5
 
     .line 724
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewRef:Ljava/lang/ref/WeakReference;
@@ -350,17 +350,17 @@
 
     check-cast v0, Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 725
     iget-object v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mCallback:Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_33
 
     .line 726
     iget v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
-    if-le p1, v1, :cond_0
+    if-le p1, v1, :cond_23
 
     .line 727
     iget-object v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mCallback:Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;
@@ -383,10 +383,10 @@
 
     invoke-virtual {v1, v0, p1}, Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;->onSlide(Landroid/view/View;F)V
 
-    goto :goto_0
+    goto :goto_33
 
     .line 730
-    :cond_0
+    :cond_23
     iget-object v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mCallback:Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;
 
     iget v2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
@@ -407,13 +407,13 @@
 
     invoke-virtual {v1, v0, p1}, Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;->onSlide(Landroid/view/View;F)V
 
-    :cond_1
-    :goto_0
+    :cond_33
+    :goto_33
     return-void
 .end method
 
 .method findScrollingChild(Landroid/view/View;)Landroid/view/View;
-    .locals 3
+    .registers 5
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -422,15 +422,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object p1
 
     .line 603
-    :cond_0
+    :cond_7
     instance-of v0, p1, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 604
     check-cast p1, Landroid/view/ViewGroup;
@@ -442,8 +442,8 @@
 
     move-result v1
 
-    :goto_0
-    if-ge v0, v1, :cond_2
+    :goto_12
+    if-ge v0, v1, :cond_22
 
     .line 606
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -454,42 +454,42 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     return-object v2
 
-    :cond_1
+    :cond_1f
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_2
+    :cond_22
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public final getPeekHeight()I
-    .locals 1
+    .registers 2
 
     .line 465
     iget-boolean v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightAuto:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 p0, -0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     iget p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeight:I
 
-    :goto_0
+    :goto_8
     return p0
 .end method
 
 .method getPeekHeightMin()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -500,7 +500,7 @@
 .end method
 
 .method public getSkipCollapsed()Z
-    .locals 0
+    .registers 1
 
     .line 507
     iget-boolean p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mSkipCollapsed:Z
@@ -509,7 +509,7 @@
 .end method
 
 .method public final getState()I
-    .locals 0
+    .registers 1
 
     .line 564
     iget p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
@@ -518,7 +518,7 @@
 .end method
 
 .method public isHideable()Z
-    .locals 0
+    .registers 1
 
     .line 485
     iget-boolean p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
@@ -527,7 +527,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -547,7 +547,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 257
     iput-boolean v2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
@@ -555,21 +555,21 @@
     return v1
 
     .line 260
-    :cond_0
+    :cond_b
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 263
     invoke-direct {p0}, Landroid/support/design/widget/BottomSheetBehavior;->reset()V
 
     .line 265
-    :cond_1
+    :cond_14
     iget-object v3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_1e
 
     .line 266
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -579,7 +579,7 @@
     iput-object v3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 268
-    :cond_2
+    :cond_1e
     iget-object v3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v3, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
@@ -588,14 +588,14 @@
 
     const/4 v4, -0x1
 
-    if-eq v0, v3, :cond_6
+    if-eq v0, v3, :cond_6d
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_c4
 
-    goto :goto_2
+    goto :goto_78
 
     .line 281
-    :pswitch_0
+    :pswitch_2b
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getX()F
 
     move-result v3
@@ -614,7 +614,7 @@
     .line 283
     iget-object v5, p0, Landroid/support/design/widget/BottomSheetBehavior;->mNestedScrollingChildRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_44
 
     iget-object v5, p0, Landroid/support/design/widget/BottomSheetBehavior;->mNestedScrollingChildRef:Ljava/lang/ref/WeakReference;
 
@@ -625,13 +625,13 @@
 
     check-cast v5, Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_3
+    :cond_44
     const/4 v5, 0x0
 
-    :goto_0
-    if-eqz v5, :cond_4
+    :goto_45
+    if-eqz v5, :cond_5b
 
     .line 285
     iget v6, p0, Landroid/support/design/widget/BottomSheetBehavior;->mInitialY:I
@@ -640,7 +640,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5b
 
     .line 286
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionIndex()I
@@ -657,10 +657,10 @@
     iput-boolean v2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mTouchingScrollingChild:Z
 
     .line 289
-    :cond_4
+    :cond_5b
     iget v5, p0, Landroid/support/design/widget/BottomSheetBehavior;->mActivePointerId:I
 
-    if-ne v5, v4, :cond_5
+    if-ne v5, v4, :cond_69
 
     iget v4, p0, Landroid/support/design/widget/BottomSheetBehavior;->mInitialY:I
 
@@ -669,23 +669,23 @@
 
     move-result p2
 
-    if-nez p2, :cond_5
+    if-nez p2, :cond_69
 
     move p2, v2
 
-    goto :goto_1
+    goto :goto_6a
 
-    :cond_5
+    :cond_69
     move p2, v1
 
-    :goto_1
+    :goto_6a
     iput-boolean p2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
 
-    goto :goto_2
+    goto :goto_78
 
     .line 272
-    :cond_6
-    :pswitch_1
+    :cond_6d
+    :pswitch_6d
     iput-boolean v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mTouchingScrollingChild:Z
 
     .line 273
@@ -694,7 +694,7 @@
     .line 275
     iget-boolean p2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_78
 
     .line 276
     iput-boolean v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
@@ -702,11 +702,11 @@
     return v1
 
     .line 293
-    :cond_7
-    :goto_2
+    :cond_78
+    :goto_78
     iget-boolean p2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
 
-    if-nez p2, :cond_8
+    if-nez p2, :cond_85
 
     iget-object p2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
@@ -714,12 +714,12 @@
 
     move-result p2
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_85
 
     return v2
 
     .line 299
-    :cond_8
+    :cond_85
     iget-object p2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mNestedScrollingChildRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -730,18 +730,18 @@
 
     const/4 v3, 0x2
 
-    if-ne v0, v3, :cond_9
+    if-ne v0, v3, :cond_c2
 
-    if-eqz p2, :cond_9
+    if-eqz p2, :cond_c2
 
     .line 300
     iget-boolean v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_c2
 
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    if-eq v0, v2, :cond_9
+    if-eq v0, v2, :cond_c2
 
     .line 302
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getX()F
@@ -760,7 +760,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_9
+    if-nez p1, :cond_c2
 
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mInitialY:I
 
@@ -787,24 +787,24 @@
 
     cmpl-float p0, p1, p0
 
-    if-lez p0, :cond_9
+    if-lez p0, :cond_c2
 
     move v1, v2
 
-    :cond_9
+    :cond_c2
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c4
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
+        :pswitch_2b
+        :pswitch_6d
     .end packed-switch
 .end method
 
 .method public onLayoutChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -820,19 +820,19 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     invoke-static {p2}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 218
     invoke-static {p2, v1}, Landroid/support/v4/view/ViewCompat;->setFitsSystemWindows(Landroid/view/View;Z)V
 
     .line 220
-    :cond_0
+    :cond_10
     invoke-virtual {p2}, Landroid/view/View;->getTop()I
 
     move-result v0
@@ -850,12 +850,12 @@
     .line 226
     iget-boolean p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightAuto:Z
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_43
 
     .line 227
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightMin:I
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_31
 
     .line 228
     invoke-virtual {p1}, Landroid/support/design/widget/CoordinatorLayout;->getResources()Landroid/content/res/Resources;
@@ -871,7 +871,7 @@
     iput p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightMin:I
 
     .line 231
-    :cond_1
+    :cond_31
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightMin:I
 
     iget v2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mParentHeight:I
@@ -890,13 +890,13 @@
 
     move-result p3
 
-    goto :goto_0
+    goto :goto_45
 
     .line 233
-    :cond_2
+    :cond_43
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeight:I
 
-    :goto_0
+    :goto_45
     const/4 v2, 0x0
 
     .line 235
@@ -932,63 +932,63 @@
 
     const/4 v2, 0x3
 
-    if-ne p3, v2, :cond_3
+    if-ne p3, v2, :cond_69
 
     .line 238
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMinOffset:I
 
     invoke-static {p2, p3}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
-    goto :goto_1
+    goto :goto_94
 
     .line 239
-    :cond_3
+    :cond_69
     iget-boolean p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_78
 
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
     const/4 v2, 0x5
 
-    if-ne p3, v2, :cond_4
+    if-ne p3, v2, :cond_78
 
     .line 240
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mParentHeight:I
 
     invoke-static {p2, p3}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
-    goto :goto_1
+    goto :goto_94
 
     .line 241
-    :cond_4
+    :cond_78
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
     const/4 v2, 0x4
 
-    if-ne p3, v2, :cond_5
+    if-ne p3, v2, :cond_83
 
     .line 242
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
     invoke-static {p2, p3}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
-    goto :goto_1
+    goto :goto_94
 
     .line 243
-    :cond_5
+    :cond_83
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    if-eq p3, v1, :cond_6
+    if-eq p3, v1, :cond_8c
 
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
     const/4 v2, 0x2
 
-    if-ne p3, v2, :cond_7
+    if-ne p3, v2, :cond_94
 
     .line 244
-    :cond_6
+    :cond_8c
     invoke-virtual {p2}, Landroid/view/View;->getTop()I
 
     move-result p3
@@ -998,11 +998,11 @@
     invoke-static {p2, v0}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
     .line 246
-    :cond_7
-    :goto_1
+    :cond_94
+    :goto_94
     iget-object p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
-    if-nez p3, :cond_8
+    if-nez p3, :cond_a0
 
     .line 247
     iget-object p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mDragCallback:Landroid/support/v4/widget/ViewDragHelper$Callback;
@@ -1014,7 +1014,7 @@
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
     .line 249
-    :cond_8
+    :cond_a0
     new-instance p1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {p1, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
@@ -1036,7 +1036,7 @@
 .end method
 
 .method public onNestedPreFling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z
-    .locals 2
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1054,35 +1054,35 @@
 
     move-result-object v0
 
-    if-ne p3, v0, :cond_1
+    if-ne p3, v0, :cond_15
 
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     .line 424
     invoke-super/range {p0 .. p5}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedPreFling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_15
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_16
     return p0
 .end method
 
 .method public onNestedPreScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[I)V
-    .locals 2
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1102,12 +1102,12 @@
 
     check-cast p1, Landroid/view/View;
 
-    if-eq p3, p1, :cond_0
+    if-eq p3, p1, :cond_b
 
     return-void
 
     .line 349
-    :cond_0
+    :cond_b
     invoke-virtual {p2}, Landroid/view/View;->getTop()I
 
     move-result p1
@@ -1116,12 +1116,12 @@
 
     const/4 v0, 0x1
 
-    if-lez p5, :cond_2
+    if-lez p5, :cond_32
 
     .line 352
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMinOffset:I
 
-    if-ge p4, p3, :cond_1
+    if-ge p4, p3, :cond_28
 
     .line 353
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMinOffset:I
@@ -1142,10 +1142,10 @@
     .line 355
     invoke-virtual {p0, p1}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 357
-    :cond_1
+    :cond_28
     aput p5, p6, v0
 
     neg-int p1, p5
@@ -1156,10 +1156,10 @@
     .line 359
     invoke-virtual {p0, v0}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
-    goto :goto_1
+    goto :goto_5d
 
-    :cond_2
-    if-gez p5, :cond_5
+    :cond_32
+    if-gez p5, :cond_5d
 
     const/4 v1, -0x1
 
@@ -1168,21 +1168,21 @@
 
     move-result p3
 
-    if-nez p3, :cond_5
+    if-nez p3, :cond_5d
 
     .line 363
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
-    if-le p4, p3, :cond_4
+    if-le p4, p3, :cond_54
 
     iget-boolean p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_44
 
-    goto :goto_0
+    goto :goto_54
 
     .line 368
-    :cond_3
+    :cond_44
     iget p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
     sub-int/2addr p1, p3
@@ -1201,11 +1201,11 @@
     .line 370
     invoke-virtual {p0, p1}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
-    goto :goto_1
+    goto :goto_5d
 
     .line 364
-    :cond_4
-    :goto_0
+    :cond_54
+    :goto_54
     aput p5, p6, v0
 
     neg-int p1, p5
@@ -1217,8 +1217,8 @@
     invoke-virtual {p0, v0}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
     .line 374
-    :cond_5
-    :goto_1
+    :cond_5d
+    :goto_5d
     invoke-virtual {p2}, Landroid/view/View;->getTop()I
 
     move-result p1
@@ -1235,7 +1235,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1261,37 +1261,37 @@
 
     const/4 p2, 0x1
 
-    if-eq p1, p2, :cond_1
+    if-eq p1, p2, :cond_19
 
     iget p1, p3, Landroid/support/design/widget/BottomSheetBehavior$SavedState;->state:I
 
     const/4 p2, 0x2
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_14
 
-    goto :goto_0
+    goto :goto_19
 
     .line 211
-    :cond_0
+    :cond_14
     iget p1, p3, Landroid/support/design/widget/BottomSheetBehavior$SavedState;->state:I
 
     iput p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     const/4 p1, 0x4
 
     .line 209
     iput p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    :goto_1
+    :goto_1c
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1316,7 +1316,7 @@
 .end method
 
 .method public onStartNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;I)Z
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1338,16 +1338,16 @@
 
     and-int/lit8 p0, p5, 0x2
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     const/4 p1, 0x1
 
-    :cond_0
+    :cond_a
     return p1
 .end method
 
 .method public onStopNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1367,7 +1367,7 @@
 
     const/4 v1, 0x3
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_d
 
     .line 382
     invoke-virtual {p0, v1}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
@@ -1375,10 +1375,10 @@
     return-void
 
     .line 385
-    :cond_0
+    :cond_d
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mNestedScrollingChildRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_7a
 
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mNestedScrollingChildRef:Ljava/lang/ref/WeakReference;
 
@@ -1386,32 +1386,32 @@
 
     move-result-object p1
 
-    if-ne p3, p1, :cond_7
+    if-ne p3, p1, :cond_7a
 
     iget-boolean p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mNestedScrolled:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_1e
 
-    goto :goto_3
+    goto :goto_7a
 
     .line 391
-    :cond_1
+    :cond_1e
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mLastNestedScrollDy:I
 
     const/4 p3, 0x4
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_26
 
     .line 392
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMinOffset:I
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 394
-    :cond_2
+    :cond_26
     iget-boolean p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_38
 
     invoke-direct {p0}, Landroid/support/design/widget/BottomSheetBehavior;->getYVelocity()F
 
@@ -1421,20 +1421,20 @@
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_38
 
     .line 395
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mParentHeight:I
 
     const/4 v1, 0x5
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 397
-    :cond_3
+    :cond_38
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mLastNestedScrollDy:I
 
-    if-nez p1, :cond_5
+    if-nez p1, :cond_57
 
     .line 398
     invoke-virtual {p2}, Landroid/view/View;->getTop()I
@@ -1458,28 +1458,28 @@
 
     move-result p1
 
-    if-ge v0, p1, :cond_4
+    if-ge v0, p1, :cond_54
 
     .line 400
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMinOffset:I
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 403
-    :cond_4
+    :cond_54
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
-    goto :goto_0
+    goto :goto_59
 
     .line 407
-    :cond_5
+    :cond_57
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
-    :goto_0
+    :goto_59
     move v1, p3
 
     .line 410
-    :goto_1
+    :goto_5a
     iget-object p3, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
     invoke-virtual {p2}, Landroid/view/View;->getLeft()I
@@ -1490,7 +1490,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_73
 
     const/4 p1, 0x2
 
@@ -1504,13 +1504,13 @@
 
     invoke-static {p2, p1}, Landroid/support/v4/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_2
+    goto :goto_76
 
     .line 414
-    :cond_6
+    :cond_73
     invoke-virtual {p0, v1}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
-    :goto_2
+    :goto_76
     const/4 p1, 0x0
 
     .line 416
@@ -1518,13 +1518,13 @@
 
     return-void
 
-    :cond_7
-    :goto_3
+    :cond_7a
+    :goto_7a
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1540,14 +1540,14 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     const/4 p0, 0x0
 
     return p0
 
     .line 311
-    :cond_0
+    :cond_8
     invoke-virtual {p3}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result p1
@@ -1557,28 +1557,28 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_14
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_14
 
     return v1
 
     .line 315
-    :cond_1
+    :cond_14
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
     invoke-virtual {v0, p3}, Landroid/support/v4/widget/ViewDragHelper;->processTouchEvent(Landroid/view/MotionEvent;)V
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1e
 
     .line 318
     invoke-direct {p0}, Landroid/support/design/widget/BottomSheetBehavior;->reset()V
 
     .line 320
-    :cond_2
+    :cond_1e
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_28
 
     .line 321
     invoke-static {}, Landroid/view/VelocityTracker;->obtain()Landroid/view/VelocityTracker;
@@ -1588,19 +1588,19 @@
     iput-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     .line 323
-    :cond_3
+    :cond_28
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     invoke-virtual {v0, p3}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_58
 
     .line 326
     iget-boolean p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_58
 
     .line 327
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mInitialY:I
@@ -1627,7 +1627,7 @@
 
     cmpl-float p1, p1, v0
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_58
 
     .line 328
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
@@ -1643,7 +1643,7 @@
     invoke-virtual {p1, p2, p3}, Landroid/support/v4/widget/ViewDragHelper;->captureChildView(Landroid/view/View;I)V
 
     .line 331
-    :cond_4
+    :cond_58
     iget-boolean p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mIgnoreEvents:Z
 
     xor-int/2addr p0, v1
@@ -1652,7 +1652,7 @@
 .end method
 
 .method public setBottomSheetCallback(Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;)V
-    .locals 0
+    .registers 2
 
     .line 516
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mCallback:Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;
@@ -1661,7 +1661,7 @@
 .end method
 
 .method public setHideable(Z)V
-    .locals 0
+    .registers 2
 
     .line 475
     iput-boolean p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
@@ -1670,7 +1670,7 @@
 .end method
 
 .method public final setPeekHeight(I)V
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x1
 
@@ -1678,38 +1678,38 @@
 
     const/4 v2, -0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_c
 
     .line 439
     iget-boolean p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightAuto:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_15
 
     .line 440
     iput-boolean v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightAuto:Z
 
-    goto :goto_1
+    goto :goto_24
 
     .line 443
-    :cond_0
+    :cond_c
     iget-boolean v2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightAuto:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_17
 
     iget v2, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeight:I
 
-    if-eq v2, p1, :cond_1
+    if-eq v2, p1, :cond_15
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_15
     move v0, v1
 
-    goto :goto_1
+    goto :goto_24
 
     .line 444
-    :cond_2
-    :goto_0
+    :cond_17
+    :goto_17
     iput-boolean v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mPeekHeightAuto:Z
 
     .line 445
@@ -1726,19 +1726,19 @@
 
     iput v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_24
+    if-eqz v0, :cond_3c
 
     .line 449
     iget p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
     const/4 v0, 0x4
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_3c
 
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewRef:Ljava/lang/ref/WeakReference;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_3c
 
     .line 450
     iget-object p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewRef:Ljava/lang/ref/WeakReference;
@@ -1749,17 +1749,17 @@
 
     check-cast p0, Landroid/view/View;
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_3c
 
     .line 452
     invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
-    :cond_3
+    :cond_3c
     return-void
 .end method
 
 .method public setSkipCollapsed(Z)V
-    .locals 0
+    .registers 2
 
     .line 496
     iput-boolean p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mSkipCollapsed:Z
@@ -1768,47 +1768,47 @@
 .end method
 
 .method public final setState(I)V
-    .locals 2
+    .registers 4
 
     .line 527
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     return-void
 
     .line 530
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewRef:Ljava/lang/ref/WeakReference;
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_19
 
     const/4 v0, 0x4
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_16
 
     const/4 v0, 0x3
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_16
 
     .line 532
     iget-boolean v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x5
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_18
 
     .line 534
-    :cond_1
+    :cond_16
     iput p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    :cond_2
+    :cond_18
     return-void
 
     .line 538
-    :cond_3
+    :cond_19
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -1817,30 +1817,30 @@
 
     check-cast v0, Landroid/view/View;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_24
 
     return-void
 
     .line 543
-    :cond_4
+    :cond_24
     invoke-virtual {v0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_3f
 
     .line 544
     invoke-interface {v1}, Landroid/view/ViewParent;->isLayoutRequested()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_3f
 
     invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_3f
 
     .line 545
     new-instance v1, Landroid/support/design/widget/BottomSheetBehavior$1;
@@ -1849,28 +1849,28 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    goto :goto_42
 
     .line 552
-    :cond_5
+    :cond_3f
     invoke-virtual {p0, v0, p1}, Landroid/support/design/widget/BottomSheetBehavior;->startSettlingAnimation(Landroid/view/View;I)V
 
-    :goto_0
+    :goto_42
     return-void
 .end method
 
 .method setStateInternal(I)V
-    .locals 2
+    .registers 4
 
     .line 568
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     return-void
 
     .line 571
-    :cond_0
+    :cond_5
     iput p1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mState:I
 
     .line 572
@@ -1882,36 +1882,36 @@
 
     check-cast v0, Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 573
     iget-object v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mCallback:Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     .line 574
     iget-object p0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mCallback:Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;
 
     invoke-virtual {p0, v0, p1}, Landroid/support/design/widget/BottomSheetBehavior$BottomSheetCallback;->onStateChanged(Landroid/view/View;I)V
 
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method shouldHide(Landroid/view/View;F)Z
-    .locals 4
+    .registers 7
 
     .line 587
     iget-boolean v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mSkipCollapsed:Z
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     return v1
 
     .line 590
-    :cond_0
+    :cond_6
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
 
     move-result v0
@@ -1920,12 +1920,12 @@
 
     const/4 v3, 0x0
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_10
 
     return v3
 
     .line 594
-    :cond_1
+    :cond_10
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
 
     move-result p1
@@ -1959,54 +1959,54 @@
 
     cmpl-float p0, p1, p0
 
-    if-lez p0, :cond_2
+    if-lez p0, :cond_2d
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_2
+    :cond_2d
     move v1, v3
 
-    :goto_0
+    :goto_2e
     return v1
 .end method
 
 .method startSettlingAnimation(Landroid/view/View;I)V
-    .locals 3
+    .registers 6
 
     const/4 v0, 0x4
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_6
 
     .line 623
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMaxOffset:I
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x3
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_c
 
     .line 625
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mMinOffset:I
 
-    goto :goto_0
+    goto :goto_15
 
     .line 626
-    :cond_1
+    :cond_c
     iget-boolean v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mHideable:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_32
 
     const/4 v0, 0x5
 
-    if-ne p2, v0, :cond_3
+    if-ne p2, v0, :cond_32
 
     .line 627
     iget v0, p0, Landroid/support/design/widget/BottomSheetBehavior;->mParentHeight:I
 
     .line 631
-    :goto_0
+    :goto_15
     iget-object v1, p0, Landroid/support/design/widget/BottomSheetBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
 
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
@@ -2017,7 +2017,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     const/4 v0, 0x2
 
@@ -2031,17 +2031,17 @@
 
     invoke-static {p1, v0}, Landroid/support/v4/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_1
+    goto :goto_31
 
     .line 635
-    :cond_2
+    :cond_2e
     invoke-virtual {p0, p2}, Landroid/support/design/widget/BottomSheetBehavior;->setStateInternal(I)V
 
-    :goto_1
+    :goto_31
     return-void
 
     .line 629
-    :cond_3
+    :cond_32
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;

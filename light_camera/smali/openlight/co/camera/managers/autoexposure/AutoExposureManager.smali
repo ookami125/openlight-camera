@@ -78,7 +78,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 61
     new-instance v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
@@ -91,7 +91,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 496
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -182,7 +182,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;)J
-    .locals 2
+    .registers 3
 
     .line 43
     iget-wide v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeTriggerFrameNumber:J
@@ -191,7 +191,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;J)J
-    .locals 0
+    .registers 3
 
     .line 43
     iput-wide p1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeTriggerFrameNumber:J
@@ -200,7 +200,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 43
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
@@ -209,7 +209,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;)Lopenlight/co/camera/utils/Provider;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -218,7 +218,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
-    .locals 1
+    .registers 1
 
     .line 115
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->sInstance:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
@@ -227,7 +227,7 @@
 .end method
 
 .method private resetAeLockPostCapture()V
-    .locals 2
+    .registers 3
 
     .line 422
     iget-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -245,9 +245,9 @@
     .line 423
     iget-boolean v1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsAeHwLock:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_47
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_47
 
     .line 424
     sget-object v1, Landroid/hardware/camera2/CaptureResult;->CONTROL_AE_LOCK:Landroid/hardware/camera2/CaptureResult$Key;
@@ -263,7 +263,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_42
 
     .line 426
     iget-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCaptureRequestManager:Lopenlight/co/camera/utils/Provider;
@@ -301,17 +301,17 @@
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
     .line 430
-    :cond_0
+    :cond_42
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeUiUpdateListener:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$AeUiUpdate;
 
     invoke-interface {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$AeUiUpdate;->updateFocusUI()V
 
-    :cond_1
+    :cond_47
     return-void
 .end method
 
 .method private updateAeArea(Lopenlight/co/camera/models/MeteringPoint;Lopenlight/co/camera/AutoFitTextureView;)Z
-    .locals 7
+    .registers 10
 
     .line 447
     invoke-virtual {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->isCenterWeighted()Z
@@ -363,12 +363,12 @@
 
     const/4 v3, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 455
     iget-boolean v4, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCenterMeteringOnce:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_46
 
     .line 456
     sget-object p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
@@ -386,11 +386,11 @@
     return v3
 
     .line 461
-    :cond_0
+    :cond_46
     invoke-virtual {p1}, Lopenlight/co/camera/models/MeteringPoint;->resetToCenter()Lopenlight/co/camera/models/MeteringPoint;
 
     .line 464
-    :cond_1
+    :cond_49
     iget-object v4, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mFocusManager:Lopenlight/co/camera/utils/Provider;
 
     invoke-interface {v4}, Lopenlight/co/camera/utils/Provider;->get()Ljava/lang/Object;
@@ -406,15 +406,15 @@
 
     const/4 v6, 0x0
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_6c
 
     invoke-virtual {v4}, Lopenlight/co/camera/managers/focus/FocusManager;->hasInitialFocusCompleted()Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_6c
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_6c
 
     .line 471
     sget-object p1, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
@@ -428,10 +428,10 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_8c
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_6c
+    if-eqz v0, :cond_80
 
     .line 478
     sget-object p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
@@ -449,10 +449,10 @@
 
     invoke-direct {p0, p1, v6}, Landroid/hardware/camera2/params/MeteringRectangle;-><init>(Landroid/graphics/Rect;I)V
 
-    goto :goto_0
+    goto :goto_8c
 
     .line 481
-    :cond_3
+    :cond_80
     invoke-static {}, Lopenlight/co/camera/utils/MeteringRect;->get()Lopenlight/co/camera/utils/MeteringRect;
 
     move-result-object p0
@@ -467,7 +467,7 @@
     check-cast p0, Landroid/hardware/camera2/params/MeteringRectangle;
 
     .line 484
-    :goto_0
+    :goto_8c
     sget-object p1, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -486,9 +486,9 @@
 
     invoke-static {p1, p2}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_b1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_b1
 
     .line 486
     new-array p1, v3, [Landroid/hardware/camera2/params/MeteringRectangle;
@@ -503,19 +503,19 @@
 
     return v3
 
-    :cond_4
+    :cond_b1
     return v6
 .end method
 
 
 # virtual methods
 .method public clearFlashRequestOnAeUnlock()V
-    .locals 1
+    .registers 2
 
     .line 343
     iget-boolean v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsAeHwLock:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->get()Lopenlight/co/camera/managers/capture/CaptureManager;
 
@@ -525,19 +525,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     const/4 v0, 0x0
 
     .line 344
     iput-boolean v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsFlashReqOnAeLocked:Z
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public getAeHwLock()Z
-    .locals 0
+    .registers 1
 
     .line 268
     iget-boolean p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsAeHwLock:Z
@@ -546,7 +546,7 @@
 .end method
 
 .method public getAeTriggerFrameNumber()J
-    .locals 2
+    .registers 3
 
     .line 264
     iget-wide v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeTriggerFrameNumber:J
@@ -555,7 +555,7 @@
 .end method
 
 .method public getCurrentState()Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
-    .locals 0
+    .registers 1
 
     .line 372
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCurrentState:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
@@ -564,7 +564,7 @@
 .end method
 
 .method public getFlashOnAeLocked()Z
-    .locals 0
+    .registers 1
 
     .line 354
     iget-boolean p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsFlashReqOnAeLocked:Z
@@ -573,7 +573,7 @@
 .end method
 
 .method public getROI()Landroid/hardware/camera2/params/MeteringRectangle;
-    .locals 3
+    .registers 4
 
     .line 307
     invoke-static {}, Lopenlight/co/camera/utils/MeteringRect;->get()Lopenlight/co/camera/utils/MeteringRect;
@@ -603,7 +603,7 @@
 .end method
 
 .method public isCenterWeighted()Z
-    .locals 1
+    .registers 2
 
     .line 210
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -626,49 +626,49 @@
 .end method
 
 .method public isLocked()Z
-    .locals 1
+    .registers 2
 
     .line 325
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCurrentState:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;->LOCKED:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isMetering()Z
-    .locals 1
+    .registers 2
 
     .line 317
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCurrentState:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;->METERING:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public lockAe(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 2
+    .registers 4
 
     .line 254
     iget-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -699,7 +699,7 @@
 .end method
 
 .method public onMeteringModeUpdate(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 245
     invoke-virtual {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->resetAeMetering()V
@@ -708,7 +708,7 @@
 .end method
 
 .method public preCaptureTrigger(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 2
+    .registers 4
 
     .line 148
     :try_start_0
@@ -766,14 +766,14 @@
 
     .line 157
     invoke-virtual {v1, p1, p0, v0}, Landroid/hardware/camera2/CameraCaptureSession;->capture(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_31
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_31} :catch_32
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_31} :catch_32
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_31} :catch_32
 
-    goto :goto_0
+    goto :goto_3a
 
-    :catch_0
+    :catch_32
     move-exception p0
 
     .line 161
@@ -783,12 +783,12 @@
 
     invoke-static {p1, v0, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :goto_0
+    :goto_3a
     return-void
 .end method
 
 .method public resetAeMetering()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -804,7 +804,7 @@
 .end method
 
 .method public resetPreCaptureTrigger(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 2
+    .registers 4
 
     .line 171
     :try_start_0
@@ -830,13 +830,13 @@
     check-cast p0, Lopenlight/co/camera/managers/CameraManager;
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_15} :catch_16
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_15} :catch_16
 
-    goto :goto_0
+    goto :goto_1e
 
-    :catch_0
+    :catch_16
     move-exception p0
 
     .line 175
@@ -846,12 +846,12 @@
 
     invoke-static {p1, v0, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public resetRoiInCenterWeighted(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 2
+    .registers 4
 
     .line 221
     iget-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -869,12 +869,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 223
     iget-boolean v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCenterMeteringOnce:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     const/4 v0, 0x0
 
@@ -892,12 +892,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public setAeHwLock(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)V
-    .locals 1
+    .registers 3
 
     .line 125
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$2;->$SwitchMap$light$co$camera$listener$HardKeyManager$KeyAction:[I
@@ -908,15 +908,15 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_2c
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 131
-    :pswitch_0
+    :pswitch_c
     iget-boolean p1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsAeHwLock:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2b
 
     .line 132
     sget-object p1, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
@@ -936,10 +936,10 @@
     .line 136
     invoke-direct {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->resetAeLockPostCapture()V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 127
-    :pswitch_1
+    :pswitch_21
     sget-object p1, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
 
     const-string v0, "FOCUS LONG_PRESS"
@@ -951,19 +951,19 @@
     .line 128
     iput-boolean p1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsAeHwLock:Z
 
-    :cond_0
-    :goto_0
+    :cond_2b
+    :goto_2b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_21
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public setAeUiUpdateListener(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$AeUiUpdate;)V
-    .locals 0
+    .registers 2
 
     .line 272
     iput-object p1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeUiUpdateListener:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$AeUiUpdate;
@@ -972,7 +972,7 @@
 .end method
 
 .method public setFlashReqOnAeLocked()V
-    .locals 1
+    .registers 2
 
     .line 334
     iget-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -991,19 +991,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     const/4 v0, 0x1
 
     .line 335
     iput-boolean v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mIsFlashReqOnAeLocked:Z
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public setMeteringCompleted()V
-    .locals 1
+    .registers 2
 
     .line 321
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;->IDLE:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
@@ -1014,7 +1014,7 @@
 .end method
 
 .method public setMeteringPointToCenter()V
-    .locals 0
+    .registers 1
 
     .line 276
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeMeteringPoint:Lopenlight/co/camera/models/MeteringPoint;
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public shouldAutoMeteringBeTriggered()Z
-    .locals 2
+    .registers 3
 
     .line 365
     iget-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -1046,7 +1046,7 @@
     .line 367
     iput-object v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mPreviousMeteringMode:Ljava/lang/String;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1c
 
     const-string p0, "center-weighted"
 
@@ -1055,21 +1055,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1d
     return p0
 .end method
 
 .method public startAeMetering()Z
-    .locals 5
+    .registers 6
 
     .line 183
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;->METERING:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$State;
@@ -1097,7 +1097,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4a
 
     .line 187
     iget-object v3, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeMeteringPoint:Lopenlight/co/camera/models/MeteringPoint;
@@ -1106,12 +1106,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4a
 
     const/4 v0, 0x1
 
     .line 189
-    :try_start_0
+    :try_start_21
     sget-object v3, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
 
     const-string v4, "[AE] Start AE Metering"
@@ -1142,14 +1142,14 @@
 
     .line 194
     iput-boolean v0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCenterMeteringOnce:Z
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3d
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_21 .. :try_end_3d} :catch_3e
+    .catch Ljava/lang/IllegalStateException; {:try_start_21 .. :try_end_3d} :catch_3e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_21 .. :try_end_3d} :catch_3e
 
-    goto :goto_0
+    goto :goto_49
 
-    :catch_0
+    :catch_3e
     move-exception v1
 
     .line 197
@@ -1162,11 +1162,11 @@
     .line 199
     invoke-virtual {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->resetAeMetering()V
 
-    :goto_0
+    :goto_49
     return v0
 
     .line 203
-    :cond_0
+    :cond_4a
     sget-object v0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Failed to create AE ROI. Locking AE and going for Focus directly"
@@ -1182,34 +1182,34 @@
 .end method
 
 .method public updateMeteringPoint(II)V
-    .locals 1
+    .registers 4
 
     .line 295
     invoke-virtual {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->isCenterWeighted()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 296
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeMeteringPoint:Lopenlight/co/camera/models/MeteringPoint;
 
     invoke-virtual {p0}, Lopenlight/co/camera/models/MeteringPoint;->resetToCenter()Lopenlight/co/camera/models/MeteringPoint;
 
-    goto :goto_0
+    goto :goto_11
 
     .line 299
-    :cond_0
+    :cond_c
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeMeteringPoint:Lopenlight/co/camera/models/MeteringPoint;
 
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/models/MeteringPoint;->set(II)Lopenlight/co/camera/models/MeteringPoint;
 
-    :goto_0
+    :goto_11
     return-void
 .end method
 
 .method public updateMeteringPoint(Landroid/view/MotionEvent;)V
-    .locals 1
+    .registers 3
 
     .line 284
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F

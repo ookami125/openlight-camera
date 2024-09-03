@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/16 v0, 0x35
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     .line 81
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -115,7 +115,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 104
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -168,7 +168,7 @@
 .end method
 
 .method private drawCircle(IIF)V
-    .locals 3
+    .registers 7
 
     .line 190
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingDofWheel;->getHeight()I
@@ -218,11 +218,11 @@
 
     cmpl-float v1, p1, p2
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_28
 
     move p1, p2
 
-    :cond_0
+    :cond_28
     const/high16 p2, 0x3f000000    # 0.5f
 
     mul-float/2addr p2, p1
@@ -286,7 +286,7 @@
 .end method
 
 .method private drawCurrentLevelText()V
-    .locals 5
+    .registers 6
 
     .line 207
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mCurrentDofValue:Ljava/lang/String;
@@ -303,12 +303,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     return-void
 
     .line 216
-    :cond_0
+    :cond_10
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingDofWheel;->getHeight()I
 
     move-result v2
@@ -393,7 +393,7 @@
 .end method
 
 .method private drawItems(I)V
-    .locals 11
+    .registers 13
 
     .line 165
     iget-wide v0, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mAngleOfFirstItem:D
@@ -418,7 +418,7 @@
 
     add-int v5, v4, p1
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_5a
 
     .line 169
     sget-object p1, Lopenlight/co/camera/view/setting/SettingDofWheel;->ITEMS:[Ljava/lang/Integer;
@@ -427,12 +427,12 @@
 
     add-int/lit8 p1, p1, -0x1
 
-    if-le v5, p1, :cond_0
+    if-le v5, p1, :cond_1c
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 173
-    :cond_0
+    :cond_1c
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v0
@@ -506,13 +506,13 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_5a
+    :goto_5a
     return-void
 .end method
 
 .method private drawSideText(Ljava/lang/String;Landroid/graphics/Rect;DFF)V
-    .locals 4
+    .registers 11
 
     .line 272
     iget v0, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mCenterX:I
@@ -619,43 +619,43 @@
 .end method
 
 .method private drawText(IIDF)V
-    .locals 8
+    .registers 14
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_6
 
     .line 238
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingDofWheel;->drawCurrentLevelText()V
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 240
-    :cond_0
+    :cond_6
     invoke-direct {p0, p2}, Lopenlight/co/camera/view/setting/SettingDofWheel;->getSideText(I)I
 
     move-result v0
 
     const/16 v1, 0x32
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_12
 
     const/16 v2, 0x64
 
-    if-lt v0, v2, :cond_3
+    if-lt v0, v2, :cond_19
 
-    :cond_1
-    if-lez v0, :cond_2
+    :cond_12
+    if-lez v0, :cond_16
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_19
 
-    :cond_2
+    :cond_16
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_1a
 
-    :cond_3
+    :cond_19
     return-void
 
-    :cond_4
+    :cond_1a
     sub-int/2addr p1, p2
 
     .line 243
@@ -667,7 +667,7 @@
 
     const/4 v1, 0x5
 
-    if-ge p1, v1, :cond_5
+    if-ge p1, v1, :cond_29
 
     const p2, 0x3e4ccccd    # 0.2f
 
@@ -675,7 +675,7 @@
 
     mul-float/2addr p2, p1
 
-    :cond_5
+    :cond_29
     move v7, p2
 
     .line 248
@@ -697,7 +697,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_5a
 
     .line 251
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mTextPaint:Landroid/text/TextPaint;
@@ -711,12 +711,12 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_4b
 
     return-void
 
     .line 254
-    :cond_6
+    :cond_4b
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {p0, v7}, Lopenlight/co/camera/view/setting/SettingDofWheel;->fillColor(F)I
@@ -734,59 +734,59 @@
     .line 255
     invoke-direct/range {v1 .. v7}, Lopenlight/co/camera/view/setting/SettingDofWheel;->drawSideText(Ljava/lang/String;Landroid/graphics/Rect;DFF)V
 
-    :cond_7
-    :goto_0
+    :cond_5a
+    :goto_5a
     return-void
 .end method
 
 .method private getSideText(I)I
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 264
-    :cond_0
+    :cond_4
     sget-object p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->ITEMS:[Ljava/lang/Integer;
 
     array-length p0, p0
 
     add-int/lit8 p0, p0, -0x1
 
-    if-ne p1, p0, :cond_1
+    if-ne p1, p0, :cond_e
 
     const/16 p0, 0x64
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_1
+    :cond_e
     const/4 p0, -0x1
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method private getTextBound(Ljava/lang/String;)Landroid/graphics/Rect;
-    .locals 3
+    .registers 5
 
     .line 228
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mTextPaint:Landroid/text/TextPaint;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 229
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/graphics/Rect;
 
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
@@ -804,15 +804,15 @@
 
     return-object v0
 
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private init()V
-    .locals 3
+    .registers 4
 
     .line 110
     invoke-static {}, Lopenlight/co/camera/view/cache/FontCache;->get()Lopenlight/co/camera/view/cache/FontCache;
@@ -858,14 +858,14 @@
 .end method
 
 .method private initValue()V
-    .locals 2
+    .registers 3
 
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1
     const/16 v0, 0x35
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_12
 
     add-int/lit8 v0, p0, -0x1a
 
@@ -880,14 +880,14 @@
 
     add-int/lit8 p0, p0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method private updateAngleOfFirst()V
-    .locals 4
+    .registers 5
 
     .line 50
     sget-object v0, Lopenlight/co/camera/view/setting/SettingDofWheel;->ITEMS:[Ljava/lang/Integer;
@@ -920,7 +920,7 @@
 
 # virtual methods
 .method fillColor(F)I
-    .locals 1
+    .registers 3
 
     const/high16 v0, 0x437f0000    # 255.0f
 
@@ -933,7 +933,7 @@
 
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_10
 
     const/16 p0, 0xff
 
@@ -941,9 +941,9 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_10
     const/4 p0, 0x0
 
     .line 65
@@ -951,12 +951,12 @@
 
     move-result p0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 293
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -971,7 +971,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 3
+    .registers 5
 
     .line 128
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -982,42 +982,42 @@
     .line 130
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mCenterX:I
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mCenterY:I
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_e
 
-    goto :goto_1
+    goto :goto_32
 
     .line 134
-    :cond_0
+    :cond_e
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mCenterAlpha:F
 
     const/4 v0, 0x0
 
     cmpl-float p1, p1, v0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_1c
 
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mWheelAlpha:F
 
     cmpl-float p1, p1, v0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_1c
 
     return-void
 
     .line 137
-    :cond_1
+    :cond_1c
     sget-object p1, Lopenlight/co/camera/view/setting/SettingDofWheel;->ITEMS:[Ljava/lang/Integer;
 
     array-length v0, p1
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_20
+    if-ge v1, v0, :cond_2e
 
     aget-object v2, p1, v1
 
@@ -1030,9 +1030,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_2
+    :cond_2e
     const/4 p1, 0x0
 
     .line 140
@@ -1040,13 +1040,13 @@
 
     return-void
 
-    :cond_3
-    :goto_1
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 0
+    .registers 2
 
     .line 288
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingDofWheel;->invalidate()V
@@ -1055,7 +1055,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 121
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -1074,7 +1074,7 @@
 .end method
 
 .method public setScaleValue(F)V
-    .locals 1
+    .registers 3
 
     .line 146
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mZoomLevel:F
@@ -1086,26 +1086,26 @@
 
     cmpl-float p1, p1, v0
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_c
 
     .line 148
     iput v0, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mZoomLevel:F
 
     .line 150
-    :cond_0
+    :cond_c
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mZoomLevel:F
 
     const/4 v0, 0x0
 
     cmpg-float p1, p1, v0
 
-    if-gez p1, :cond_1
+    if-gez p1, :cond_15
 
     .line 151
     iput v0, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mZoomLevel:F
 
     .line 153
-    :cond_1
+    :cond_15
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mZoomLevel:F
 
     const/high16 v0, 0x42c80000    # 100.0f
@@ -1128,7 +1128,7 @@
 .end method
 
 .method public setZoomFinish(FF)V
-    .locals 0
+    .registers 3
 
     .line 159
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingDofWheel;->mCenterAlpha:F
@@ -1143,7 +1143,7 @@
 .end method
 
 .method strokeColor(F)I
-    .locals 1
+    .registers 3
 
     const/high16 v0, 0x437f0000    # 255.0f
 
@@ -1156,7 +1156,7 @@
 
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_f
 
     const/4 p0, 0x0
 
@@ -1164,9 +1164,9 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_f
     const/16 p0, 0xff
 
     .line 71
@@ -1174,6 +1174,6 @@
 
     move-result p0
 
-    :goto_0
+    :goto_15
     return p0
 .end method

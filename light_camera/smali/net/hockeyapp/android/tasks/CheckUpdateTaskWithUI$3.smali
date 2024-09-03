@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;Lorg/json/JSONArray;)V
-    .locals 0
+    .registers 3
 
     .line 109
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     .line 111
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
@@ -49,11 +49,12 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 112
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
 
+    # getter for: Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
     invoke-static {p1}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->access$000(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;)Landroid/app/Activity;
 
     move-result-object p1
@@ -63,11 +64,12 @@
     invoke-static {p1, p2}, Lnet/hockeyapp/android/utils/VersionCache;->setVersionInfo(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 115
-    :cond_0
+    :cond_13
     new-instance p1, Ljava/lang/ref/WeakReference;
 
     iget-object p2, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
 
+    # getter for: Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
     invoke-static {p2}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->access$000(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;)Landroid/app/Activity;
 
     move-result-object p2
@@ -83,7 +85,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3a
 
     invoke-static {p1}, Lnet/hockeyapp/android/utils/Util;->runsOnTablet(Ljava/lang/ref/WeakReference;)Ljava/lang/Boolean;
 
@@ -93,19 +95,20 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3a
 
     .line 117
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
 
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->val$updateInfo:Lorg/json/JSONArray;
 
+    # invokes: Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->showUpdateFragment(Lorg/json/JSONArray;)V
     invoke-static {p1, p0}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->access$100(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;Lorg/json/JSONArray;)V
 
-    goto :goto_0
+    goto :goto_46
 
     .line 119
-    :cond_1
+    :cond_3a
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->this$0:Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
 
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI$3;->val$updateInfo:Lorg/json/JSONArray;
@@ -116,8 +119,9 @@
 
     move-result-object p2
 
+    # invokes: Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->startUpdateIntent(Lorg/json/JSONArray;Ljava/lang/Boolean;)V
     invoke-static {p1, p0, p2}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->access$200(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;Lorg/json/JSONArray;Ljava/lang/Boolean;)V
 
-    :goto_0
+    :goto_46
     return-void
 .end method

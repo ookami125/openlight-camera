@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 20
     sget-object v0, Landroid/graphics/Bitmap$CompressFormat;->JPEG:Landroid/graphics/Bitmap$CompressFormat;
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Bitmap$CompressFormat;I)V
-    .locals 0
+    .registers 3
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "BitmapBytesTranscoder.com.bumptech.glide.load.resource.transcode"
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public transcode(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

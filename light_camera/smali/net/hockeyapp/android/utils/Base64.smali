@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 740
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static decode(Ljava/lang/String;I)[B
-    .locals 0
+    .registers 2
 
     .line 99
     invoke-virtual {p0}, Ljava/lang/String;->getBytes()[B
@@ -53,7 +53,7 @@
 .end method
 
 .method public static decode([BI)[B
-    .locals 2
+    .registers 4
 
     .line 117
     array-length v0, p0
@@ -68,7 +68,7 @@
 .end method
 
 .method public static decode([BIII)[B
-    .locals 2
+    .registers 6
 
     .line 139
     new-instance v0, Lnet/hockeyapp/android/utils/Base64$Decoder;
@@ -88,7 +88,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_29
 
     .line 146
     iget p0, v0, Lnet/hockeyapp/android/utils/Base64$Decoder;->op:I
@@ -97,7 +97,7 @@
 
     array-length p1, p1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_1c
 
     .line 147
     iget-object p0, v0, Lnet/hockeyapp/android/utils/Base64$Decoder;->output:[B
@@ -105,7 +105,7 @@
     return-object p0
 
     .line 152
-    :cond_0
+    :cond_1c
     iget p0, v0, Lnet/hockeyapp/android/utils/Base64$Decoder;->op:I
 
     new-array p0, p0, [B
@@ -122,7 +122,7 @@
     return-object p0
 
     .line 142
-    :cond_1
+    :cond_29
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "bad base-64"
@@ -133,7 +133,7 @@
 .end method
 
 .method public static encode([BI)[B
-    .locals 2
+    .registers 4
 
     .line 480
     array-length v0, p0
@@ -148,7 +148,7 @@
 .end method
 
 .method public static encode([BIII)[B
-    .locals 4
+    .registers 8
 
     .line 497
     new-instance v0, Lnet/hockeyapp/android/utils/Base64$Encoder;
@@ -165,44 +165,44 @@
     .line 503
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_padding:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 504
     rem-int/lit8 v1, p2, 0x3
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_20
 
     add-int/lit8 p3, p3, 0x4
 
-    goto :goto_0
+    goto :goto_20
 
     .line 508
-    :cond_0
+    :cond_15
     rem-int/lit8 v1, p2, 0x3
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_4a
 
-    goto :goto_0
+    goto :goto_20
 
-    :pswitch_0
+    :pswitch_1b
     add-int/lit8 p3, p3, 0x3
 
-    goto :goto_0
+    goto :goto_20
 
-    :pswitch_1
+    :pswitch_1e
     add-int/lit8 p3, p3, 0x2
 
     .line 521
-    :cond_1
-    :goto_0
-    :pswitch_2
+    :cond_20
+    :goto_20
+    :pswitch_20
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_newline:Z
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_35
 
-    if-lez p2, :cond_3
+    if-lez p2, :cond_35
 
     add-int/lit8 v1, p2, -0x1
 
@@ -213,22 +213,22 @@
 
     iget-boolean v3, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_32
 
     const/4 v3, 0x2
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_32
     move v3, v2
 
-    :goto_1
+    :goto_33
     mul-int/2addr v1, v3
 
     add-int/2addr p3, v1
 
     .line 526
-    :cond_3
+    :cond_35
     new-array v1, p3, [B
 
     iput-object v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->output:[B
@@ -239,7 +239,7 @@
     .line 529
     iget p0, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->op:I
 
-    if-ne p0, p3, :cond_4
+    if-ne p0, p3, :cond_43
 
     .line 533
     iget-object p0, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->output:[B
@@ -247,7 +247,7 @@
     return-object p0
 
     .line 530
-    :cond_4
+    :cond_43
     new-instance p0, Ljava/lang/AssertionError;
 
     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
@@ -256,16 +256,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_20
+        :pswitch_1e
+        :pswitch_1b
     .end packed-switch
 .end method
 
 .method public static encodeToString([BI)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 440
     :try_start_0
@@ -278,12 +278,12 @@
     const-string p1, "US-ASCII"
 
     invoke-direct {v0, p0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_b} :catch_c
 
     return-object v0
 
-    :catch_0
+    :catch_c
     move-exception p0
 
     .line 443
@@ -295,7 +295,7 @@
 .end method
 
 .method public static encodeToString([BIII)Ljava/lang/String;
-    .locals 1
+    .registers 5
 
     .line 462
     :try_start_0
@@ -308,12 +308,12 @@
     const-string p1, "US-ASCII"
 
     invoke-direct {v0, p0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_b} :catch_c
 
     return-object v0
 
-    :catch_0
+    :catch_c
     move-exception p0
 
     .line 465

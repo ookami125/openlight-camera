@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;Landroid/os/Handler;)V
-    .locals 0
+    .registers 3
 
     .line 148
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method private createConnection(Ljava/net/URL;)Ljava/net/URLConnection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +101,7 @@
 
     const/16 v0, 0x9
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_1e
 
     const-string p1, "connection"
 
@@ -110,17 +110,17 @@
     .line 264
     invoke-virtual {p0, p1, v0}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_1e
     return-object p0
 .end method
 
 .method private downloadAttachment(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 13
+    .registers 16
 
     const/4 v0, 0x0
 
     .line 221
-    :try_start_0
+    :try_start_1
     new-instance v1, Ljava/net/URL;
 
     invoke-direct {v1, p1}, Ljava/net/URL;-><init>(Ljava/lang/String;)V
@@ -145,7 +145,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_22
 
     const-string v3, "200"
 
@@ -154,12 +154,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_22
 
     return v0
 
     .line 234
-    :cond_0
+    :cond_22
     new-instance v2, Ljava/io/File;
 
     iget-object v3, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->dropFolder:Ljava/io/File;
@@ -190,7 +190,7 @@
     move-wide v5, v3
 
     .line 241
-    :goto_0
+    :goto_3e
     invoke-virtual {p2, v2}, Ljava/io/InputStream;->read([B)I
 
     move-result v7
@@ -199,7 +199,7 @@
 
     const/4 v9, 0x1
 
-    if-eq v7, v8, :cond_1
+    if-eq v7, v8, :cond_5d
 
     int-to-long v10, v7
 
@@ -229,10 +229,10 @@
     .line 244
     invoke-virtual {p1, v2, v0, v7}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_3e
 
     .line 247
-    :cond_1
+    :cond_5d
     invoke-virtual {p1}, Ljava/io/OutputStream;->flush()V
 
     .line 248
@@ -240,19 +240,19 @@
 
     .line 249
     invoke-virtual {p2}, Ljava/io/InputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_66
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_66} :catch_6c
 
     cmp-long p0, v5, v3
 
-    if-lez p0, :cond_2
+    if-lez p0, :cond_6b
 
     move v0, v9
 
-    :cond_2
+    :cond_6b
     return v0
 
-    :catch_0
+    :catch_6c
     move-exception p0
 
     .line 253
@@ -262,7 +262,7 @@
 .end method
 
 .method private loadImageThumbnail()V
-    .locals 5
+    .registers 6
 
     .line 202
     :try_start_0
@@ -301,40 +301,40 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_27
 
     .line 207
     invoke-virtual {v1}, Lnet/hockeyapp/android/views/AttachmentView;->getWidthLandscape()I
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_27
     invoke-virtual {v1}, Lnet/hockeyapp/android/views/AttachmentView;->getWidthPortrait()I
 
     move-result v2
 
     .line 208
-    :goto_0
+    :goto_2b
     iget v4, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->bitmapOrientation:I
 
-    if-ne v4, v3, :cond_1
+    if-ne v4, v3, :cond_34
 
     .line 209
     invoke-virtual {v1}, Lnet/hockeyapp/android/views/AttachmentView;->getMaxHeightLandscape()I
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_1
+    :cond_34
     invoke-virtual {v1}, Lnet/hockeyapp/android/views/AttachmentView;->getMaxHeightPortrait()I
 
     move-result v1
 
     .line 211
-    :goto_1
+    :goto_38
     new-instance v3, Ljava/io/File;
 
     iget-object v4, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->dropFolder:Ljava/io/File;
@@ -346,12 +346,12 @@
     move-result-object v0
 
     iput-object v0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->bitmap:Landroid/graphics/Bitmap;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_45
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_45} :catch_46
 
-    goto :goto_2
+    goto :goto_4d
 
-    :catch_0
+    :catch_46
     move-exception v0
 
     .line 214
@@ -362,14 +362,14 @@
     .line 215
     iput-object v0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->bitmap:Landroid/graphics/Bitmap;
 
-    :goto_2
+    :goto_4d
     return-void
 .end method
 
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Boolean;
-    .locals 1
+    .registers 3
 
     .line 162
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->downloadJob:Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;
@@ -383,7 +383,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const-string p1, "Cached..."
 
@@ -402,7 +402,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_1a
     const-string v0, "Downloading..."
 
     .line 170
@@ -421,13 +421,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_30
 
     .line 173
     invoke-direct {p0}, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->loadImageThumbnail()V
 
     .line 175
-    :cond_1
+    :cond_30
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
@@ -436,7 +436,7 @@
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 136
     check-cast p1, [Ljava/lang/Void;
@@ -449,7 +449,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Boolean;)V
-    .locals 3
+    .registers 5
 
     .line 185
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->downloadJob:Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;
@@ -472,7 +472,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 189
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->bitmap:Landroid/graphics/Bitmap;
@@ -481,24 +481,24 @@
 
     invoke-virtual {v0, p1, v1}, Lnet/hockeyapp/android/views/AttachmentView;->setImage(Landroid/graphics/Bitmap;I)V
 
-    goto :goto_0
+    goto :goto_28
 
     .line 192
-    :cond_0
+    :cond_1d
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->downloadJob:Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;
 
     invoke-virtual {p1}, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->hasRetry()Z
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_28
 
     .line 193
     invoke-virtual {v0}, Lnet/hockeyapp/android/views/AttachmentView;->signalImageLoadingError()V
 
     .line 197
-    :cond_1
-    :goto_0
+    :cond_28
+    :goto_28
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadTask;->handler:Landroid/os/Handler;
 
     const/4 p1, 0x0
@@ -509,7 +509,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 136
     check-cast p1, Ljava/lang/Boolean;
@@ -520,19 +520,19 @@
 .end method
 
 .method protected onPreExecute()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method protected varargs onProgressUpdate([Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method protected bridge synthetic onProgressUpdate([Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 136
     check-cast p1, [Ljava/lang/Integer;

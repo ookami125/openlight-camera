@@ -35,7 +35,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat;Ljava/lang/Object;Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 6
 
     .line 1309
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method bridge synthetic onResultSent(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 1309
     check-cast p1, Ljava/util/List;
@@ -65,7 +65,7 @@
 .end method
 
 .method onResultSent(Ljava/util/List;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -94,12 +94,12 @@
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->val$connection:Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_3d
 
     .line 1313
     sget-boolean p1, Landroid/support/v4/media/MediaBrowserServiceCompat;->DEBUG:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3c
 
     const-string p1, "MBServiceCompat"
 
@@ -132,18 +132,18 @@
 
     invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_3c
     return-void
 
     .line 1321
-    :cond_1
+    :cond_3d
     invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->getFlags()I
 
     move-result v0
 
     and-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4d
 
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->this$0:Landroid/support/v4/media/MediaBrowserServiceCompat;
 
@@ -155,8 +155,8 @@
     move-result-object p1
 
     .line 1324
-    :cond_2
-    :try_start_0
+    :cond_4d
+    :try_start_4d
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->val$connection:Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;
 
     iget-object v0, v0, Landroid/support/v4/media/MediaBrowserServiceCompat$ConnectionRecord;->callbacks:Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;
@@ -166,12 +166,12 @@
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$1;->val$options:Landroid/os/Bundle;
 
     invoke-interface {v0, v1, p1, v2}, Landroid/support/v4/media/MediaBrowserServiceCompat$ServiceCallbacks;->onLoadChildren(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_58
+    .catch Landroid/os/RemoteException; {:try_start_4d .. :try_end_58} :catch_59
 
-    goto :goto_0
+    goto :goto_7d
 
-    :catch_0
+    :catch_59
     const-string p1, "MBServiceCompat"
 
     .line 1327
@@ -203,6 +203,6 @@
 
     invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
+    :goto_7d
     return-void
 .end method

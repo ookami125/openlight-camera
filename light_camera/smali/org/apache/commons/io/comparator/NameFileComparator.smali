@@ -76,7 +76,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 57
     new-instance v0, Lorg/apache/commons/io/comparator/NameFileComparator;
@@ -134,7 +134,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 80
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
@@ -148,17 +148,17 @@
 .end method
 
 .method public constructor <init>(Lorg/apache/commons/io/IOCase;)V
-    .locals 0
+    .registers 2
 
     .line 89
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     .line 90
     sget-object p1, Lorg/apache/commons/io/IOCase;->SENSITIVE:Lorg/apache/commons/io/IOCase;
 
-    :cond_0
+    :cond_7
     iput-object p1, p0, Lorg/apache/commons/io/comparator/NameFileComparator;->caseSensitivity:Lorg/apache/commons/io/IOCase;
 
     return-void
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 0
+    .registers 3
 
     .line 104
     iget-object p0, p0, Lorg/apache/commons/io/comparator/NameFileComparator;->caseSensitivity:Lorg/apache/commons/io/IOCase;
@@ -188,7 +188,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 52
     check-cast p1, Ljava/io/File;
@@ -203,7 +203,7 @@
 .end method
 
 .method public bridge synthetic sort(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
 
     .line 52
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort(Ljava/util/List;)Ljava/util/List;
@@ -214,7 +214,7 @@
 .end method
 
 .method public bridge synthetic sort([Ljava/io/File;)[Ljava/io/File;
-    .locals 0
+    .registers 2
 
     .line 52
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort([Ljava/io/File;)[Ljava/io/File;
@@ -225,7 +225,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 114
     new-instance v0, Ljava/lang/StringBuilder;

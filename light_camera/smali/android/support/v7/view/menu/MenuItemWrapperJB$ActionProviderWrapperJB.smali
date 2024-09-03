@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/view/menu/MenuItemWrapperJB;Landroid/content/Context;Landroid/view/ActionProvider;)V
-    .locals 0
+    .registers 4
 
     .line 50
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperJB;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public isVisible()Z
-    .locals 0
+    .registers 1
 
     .line 66
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mInner:Landroid/view/ActionProvider;
@@ -52,24 +52,24 @@
 .end method
 
 .method public onActionProviderVisibilityChanged(Z)V
-    .locals 1
+    .registers 3
 
     .line 82
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mListener:Landroid/support/v4/view/ActionProvider$VisibilityListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 83
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mListener:Landroid/support/v4/view/ActionProvider$VisibilityListener;
 
     invoke-interface {p0, p1}, Landroid/support/v4/view/ActionProvider$VisibilityListener;->onActionProviderVisibilityChanged(Z)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public onCreateActionView(Landroid/view/MenuItem;)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 56
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mInner:Landroid/view/ActionProvider;
@@ -82,7 +82,7 @@
 .end method
 
 .method public overridesItemVisibility()Z
-    .locals 0
+    .registers 1
 
     .line 61
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mInner:Landroid/view/ActionProvider;
@@ -95,7 +95,7 @@
 .end method
 
 .method public refreshVisibility()V
-    .locals 0
+    .registers 1
 
     .line 71
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mInner:Landroid/view/ActionProvider;
@@ -106,7 +106,7 @@
 .end method
 
 .method public setVisibilityListener(Landroid/support/v4/view/ActionProvider$VisibilityListener;)V
-    .locals 1
+    .registers 3
 
     .line 76
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mListener:Landroid/support/v4/view/ActionProvider$VisibilityListener;
@@ -114,14 +114,14 @@
     .line 77
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperJB$ActionProviderWrapperJB;->mInner:Landroid/view/ActionProvider;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     invoke-virtual {v0, p0}, Landroid/view/ActionProvider;->setVisibilityListener(Landroid/view/ActionProvider$VisibilityListener;)V
 
     return-void

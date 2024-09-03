@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 417
     new-instance v0, Lltpb/GPSData$Track$ProtoAdapter_Track;
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Double;Lltpb/GPSData$ReferenceNorth;)V
-    .locals 1
+    .registers 4
 
     .line 443
     sget-object v0, Lokio/ByteString;->EMPTY:Lokio/ByteString;
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Double;Lltpb/GPSData$ReferenceNorth;Lokio/ByteString;)V
-    .locals 1
+    .registers 5
 
     .line 447
     sget-object v0, Lltpb/GPSData$Track;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
@@ -125,26 +125,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 464
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/GPSData$Track;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 465
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/GPSData$Track;
 
     .line 466
@@ -160,7 +160,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object v1, p0, Lltpb/GPSData$Track;->value:Ljava/lang/Double;
 
@@ -171,7 +171,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object p0, p0, Lltpb/GPSData$Track;->ref:Lltpb/GPSData$ReferenceNorth;
 
@@ -182,24 +182,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     move v0, v2
 
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 473
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 475
     invoke-virtual {p0}, Lltpb/GPSData$Track;->unknownFields()Lokio/ByteString;
@@ -235,12 +235,12 @@
     .line 478
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_0
+    :cond_20
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 416
     invoke-virtual {p0}, Lltpb/GPSData$Track;->newBuilder()Lltpb/GPSData$Track$Builder;
@@ -251,7 +251,7 @@
 .end method
 
 .method public newBuilder()Lltpb/GPSData$Track$Builder;
-    .locals 2
+    .registers 3
 
     .line 454
     new-instance v0, Lltpb/GPSData$Track$Builder;
@@ -279,7 +279,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 485
     new-instance v0, Ljava/lang/StringBuilder;

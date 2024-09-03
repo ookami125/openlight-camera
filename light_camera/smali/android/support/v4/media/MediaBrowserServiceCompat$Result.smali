@@ -39,7 +39,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 593
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,13 +51,13 @@
 .end method
 
 .method private checkExtraFields(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
-    :cond_0
+    :cond_3
     const-string p0, "android.media.browse.extra.DOWNLOAD_PROGRESS"
 
     .line 700
@@ -65,7 +65,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_28
 
     const-string p0, "android.media.browse.extra.DOWNLOAD_PROGRESS"
 
@@ -78,18 +78,18 @@
 
     cmpg-float p1, p0, p1
 
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_20
 
     const p1, 0x3f800054    # 1.00001f
 
     cmpl-float p0, p0, p1
 
-    if-gtz p0, :cond_1
+    if-gtz p0, :cond_20
 
-    goto :goto_0
+    goto :goto_28
 
     .line 703
-    :cond_1
+    :cond_20
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The value of the EXTRA_DOWNLOAD_PROGRESS field must be a float number within [0.0, 1.0]."
@@ -98,30 +98,30 @@
 
     throw p0
 
-    :cond_2
-    :goto_0
+    :cond_28
+    :goto_28
     return-void
 .end method
 
 
 # virtual methods
 .method public detach()V
-    .locals 3
+    .registers 4
 
     .line 645
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mDetachCalled:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_42
 
     .line 649
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendResultCalled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 653
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendErrorCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     const/4 v0, 0x1
 
@@ -131,7 +131,7 @@
     return-void
 
     .line 654
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -155,7 +155,7 @@
     throw v0
 
     .line 650
-    :cond_1
+    :cond_29
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -179,7 +179,7 @@
     throw v0
 
     .line 646
-    :cond_2
+    :cond_42
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -204,7 +204,7 @@
 .end method
 
 .method getFlags()I
-    .locals 0
+    .registers 1
 
     .line 669
     iget p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mFlags:I
@@ -213,38 +213,38 @@
 .end method
 
 .method isDone()Z
-    .locals 1
+    .registers 2
 
     .line 661
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mDetachCalled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendResultCalled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     iget-boolean p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendErrorCalled:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method onErrorSent(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 692
     new-instance p1, Ljava/lang/UnsupportedOperationException;
@@ -271,7 +271,7 @@
 .end method
 
 .method onProgressUpdateSent(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 683
     new-instance p1, Ljava/lang/UnsupportedOperationException;
@@ -298,7 +298,7 @@
 .end method
 
 .method onResultSent(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -309,16 +309,16 @@
 .end method
 
 .method public sendError(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 632
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendResultCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendErrorCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
@@ -331,7 +331,7 @@
     return-void
 
     .line 633
-    :cond_0
+    :cond_f
     new-instance p1, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -356,16 +356,16 @@
 .end method
 
 .method public sendProgressUpdate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 616
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendResultCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendErrorCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 620
     invoke-direct {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->checkExtraFields(Landroid/os/Bundle;)V
@@ -381,7 +381,7 @@
     return-void
 
     .line 617
-    :cond_0
+    :cond_12
     new-instance p1, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -406,7 +406,7 @@
 .end method
 
 .method public sendResult(Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -416,11 +416,11 @@
     .line 601
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendResultCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     iget-boolean v0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mSendErrorCalled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x1
 
@@ -433,7 +433,7 @@
     return-void
 
     .line 602
-    :cond_0
+    :cond_f
     new-instance p1, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -458,7 +458,7 @@
 .end method
 
 .method setFlags(I)V
-    .locals 0
+    .registers 2
 
     .line 665
     iput p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$Result;->mFlags:I

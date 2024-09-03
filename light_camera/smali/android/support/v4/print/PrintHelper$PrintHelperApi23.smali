@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 864
     invoke-direct {p0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi20;-><init>(Landroid/content/Context;)V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method protected copyAttributes(Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes$Builder;
-    .locals 1
+    .registers 3
 
     .line 854
     invoke-super {p0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi20;->copyAttributes(Landroid/print/PrintAttributes;)Landroid/print/PrintAttributes$Builder;
@@ -48,7 +48,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 857
     invoke-virtual {p1}, Landroid/print/PrintAttributes;->getDuplexMode()I
@@ -57,6 +57,6 @@
 
     invoke-virtual {p0, p1}, Landroid/print/PrintAttributes$Builder;->setDuplexMode(I)Landroid/print/PrintAttributes$Builder;
 
-    :cond_0
+    :cond_11
     return-object p0
 .end method

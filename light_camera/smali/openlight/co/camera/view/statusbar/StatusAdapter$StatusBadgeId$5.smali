@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZLjava/lang/String;IFI)V
-    .locals 9
+    .registers 17
 
     const/4 v8, 0x0
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getIconId()I
-    .locals 1
+    .registers 2
 
     .line 98
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -61,6 +61,7 @@
     move-result-object p0
 
     .line 99
+    # invokes: Lopenlight/co/camera/view/statusbar/StatusAdapter;->getTimerIcon(Ljava/lang/String;)I
     invoke-static {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->access$400(Ljava/lang/String;)I
 
     move-result p0

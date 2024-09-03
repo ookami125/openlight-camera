@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AlertController$AlertParams;Landroid/support/v7/app/AlertController$RecycleListView;Landroid/support/v7/app/AlertController;)V
-    .locals 0
+    .registers 4
 
     .line 1053
     iput-object p1, p0, Landroid/support/v7/app/AlertController$AlertParams$4;->this$0:Landroid/support/v7/app/AlertController$AlertParams;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 
     iget-object p1, p1, Landroid/support/v7/app/AlertController$AlertParams;->mCheckedItems:[Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 1057
     iget-object p1, p0, Landroid/support/v7/app/AlertController$AlertParams$4;->this$0:Landroid/support/v7/app/AlertController$AlertParams;
@@ -76,7 +76,7 @@
     aput-boolean p2, p1, p3
 
     .line 1059
-    :cond_0
+    :cond_12
     iget-object p1, p0, Landroid/support/v7/app/AlertController$AlertParams$4;->this$0:Landroid/support/v7/app/AlertController$AlertParams;
 
     iget-object p1, p1, Landroid/support/v7/app/AlertController$AlertParams;->mOnCheckboxClickListener:Landroid/content/DialogInterface$OnMultiChoiceClickListener;

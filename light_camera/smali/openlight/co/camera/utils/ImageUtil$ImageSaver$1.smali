@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/ImageUtil$ImageSaver;)V
-    .locals 0
+    .registers 2
 
     .line 261
     iput-object p1, p0, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$1;->this$0:Lopenlight/co/camera/utils/ImageUtil$ImageSaver;
@@ -36,15 +36,16 @@
 
 # virtual methods
 .method public onMediaScannerConnected()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 3
+    .registers 6
 
     .line 270
+    # getter for: Lopenlight/co/camera/utils/ImageUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/ImageUtil;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -70,6 +71,7 @@
     invoke-static {v0, v1}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 271
+    # getter for: Lopenlight/co/camera/utils/ImageUtil;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/ImageUtil;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -93,15 +95,17 @@
     .line 272
     iget-object p2, p0, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$1;->this$0:Lopenlight/co/camera/utils/ImageUtil$ImageSaver;
 
+    # getter for: Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->mListener:Lopenlight/co/camera/listener/OnImageSavedListener;
     invoke-static {p2}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->access$100(Lopenlight/co/camera/utils/ImageUtil$ImageSaver;)Lopenlight/co/camera/listener/OnImageSavedListener;
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_47
 
     .line 273
     iget-object p2, p0, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$1;->this$0:Lopenlight/co/camera/utils/ImageUtil$ImageSaver;
 
+    # getter for: Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->mListener:Lopenlight/co/camera/listener/OnImageSavedListener;
     invoke-static {p2}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->access$100(Lopenlight/co/camera/utils/ImageUtil$ImageSaver;)Lopenlight/co/camera/listener/OnImageSavedListener;
 
     move-result-object p2
@@ -111,29 +115,31 @@
     invoke-interface {p2, p1, v0}, Lopenlight/co/camera/listener/OnImageSavedListener;->onSaved(Ljava/lang/String;I)V
 
     .line 275
-    :cond_0
+    :cond_47
     iget-object p1, p0, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$1;->this$0:Lopenlight/co/camera/utils/ImageUtil$ImageSaver;
 
     const/4 p2, 0x0
 
+    # setter for: Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->mContext:Landroid/content/Context;
     invoke-static {p1, p2}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->access$202(Lopenlight/co/camera/utils/ImageUtil$ImageSaver;Landroid/content/Context;)Landroid/content/Context;
 
     .line 277
-    :try_start_0
+    :try_start_4d
     iget-object p0, p0, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$1;->this$0:Lopenlight/co/camera/utils/ImageUtil$ImageSaver;
 
+    # invokes: Ljava/lang/Object;->finalize()V
     invoke-static {p0}, Lopenlight/co/camera/utils/ImageUtil$ImageSaver;->access$300(Lopenlight/co/camera/utils/ImageUtil$ImageSaver;)V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_52
+    .catch Ljava/lang/Throwable; {:try_start_4d .. :try_end_52} :catch_53
 
-    goto :goto_0
+    goto :goto_57
 
-    :catch_0
+    :catch_53
     move-exception p0
 
     .line 279
     invoke-virtual {p0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    :goto_0
+    :goto_57
     return-void
 .end method

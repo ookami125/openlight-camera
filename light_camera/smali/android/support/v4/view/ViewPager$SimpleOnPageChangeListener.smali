@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 315
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,19 +30,19 @@
 
 # virtual methods
 .method public onPageScrollStateChanged(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onPageScrolled(IFI)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public onPageSelected(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

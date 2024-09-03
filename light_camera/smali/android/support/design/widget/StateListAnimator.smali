@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,12 +62,12 @@
 .end method
 
 .method private cancel()V
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mRunningAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 90
     iget-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mRunningAnimator:Landroid/animation/ValueAnimator;
@@ -79,12 +79,12 @@
     .line 91
     iput-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mRunningAnimator:Landroid/animation/ValueAnimator;
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method private start(Landroid/support/design/widget/StateListAnimator$Tuple;)V
-    .locals 0
+    .registers 2
 
     .line 84
     iget-object p1, p1, Landroid/support/design/widget/StateListAnimator$Tuple;->mAnimator:Landroid/animation/ValueAnimator;
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public addState([ILandroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 4
 
     .line 51
     new-instance v0, Landroid/support/design/widget/StateListAnimator$Tuple;
@@ -123,12 +123,12 @@
 .end method
 
 .method public jumpToCurrentState()V
-    .locals 1
+    .registers 2
 
     .line 101
     iget-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mRunningAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 102
     iget-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mRunningAnimator:Landroid/animation/ValueAnimator;
@@ -140,12 +140,12 @@
     .line 103
     iput-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mRunningAnimator:Landroid/animation/ValueAnimator;
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method setState([I)V
-    .locals 4
+    .registers 6
 
     .line 61
     iget-object v0, p0, Landroid/support/design/widget/StateListAnimator;->mTuples:Ljava/util/ArrayList;
@@ -156,8 +156,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_7
+    if-ge v1, v0, :cond_1d
 
     .line 63
     iget-object v2, p0, Landroid/support/design/widget/StateListAnimator;->mTuples:Ljava/util/ArrayList;
@@ -175,44 +175,44 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1a
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_0
+    :cond_1a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_1
+    :cond_1d
     const/4 v2, 0x0
 
     .line 69
-    :goto_1
+    :goto_1e
     iget-object p1, p0, Landroid/support/design/widget/StateListAnimator;->mLastMatch:Landroid/support/design/widget/StateListAnimator$Tuple;
 
-    if-ne v2, p1, :cond_2
+    if-ne v2, p1, :cond_23
 
     return-void
 
     .line 72
-    :cond_2
+    :cond_23
     iget-object p1, p0, Landroid/support/design/widget/StateListAnimator;->mLastMatch:Landroid/support/design/widget/StateListAnimator$Tuple;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2a
 
     .line 73
     invoke-direct {p0}, Landroid/support/design/widget/StateListAnimator;->cancel()V
 
     .line 76
-    :cond_3
+    :cond_2a
     iput-object v2, p0, Landroid/support/design/widget/StateListAnimator;->mLastMatch:Landroid/support/design/widget/StateListAnimator$Tuple;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_31
 
     .line 79
     invoke-direct {p0, v2}, Landroid/support/design/widget/StateListAnimator;->start(Landroid/support/design/widget/StateListAnimator$Tuple;)V
 
-    :cond_4
+    :cond_31
     return-void
 .end method

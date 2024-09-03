@@ -37,7 +37,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,12 +46,12 @@
 .end method
 
 .method static getInstance()Landroid/support/v7/app/TwilightCalculator;
-    .locals 1
+    .registers 1
 
     .line 31
     sget-object v0, Landroid/support/v7/app/TwilightCalculator;->sInstance:Landroid/support/v7/app/TwilightCalculator;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 32
     new-instance v0, Landroid/support/v7/app/TwilightCalculator;
@@ -61,7 +61,7 @@
     sput-object v0, Landroid/support/v7/app/TwilightCalculator;->sInstance:Landroid/support/v7/app/TwilightCalculator;
 
     .line 34
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v7/app/TwilightCalculator;->sInstance:Landroid/support/v7/app/TwilightCalculator;
 
     return-object v0
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public calculateTwilight(JDD)V
-    .locals 16
+    .registers 23
 
     move-object/from16 v0, p0
 
@@ -262,7 +262,7 @@
 
     const-wide/16 v8, -0x1
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_c2
 
     .line 117
     iput v7, v0, Landroid/support/v7/app/TwilightCalculator;->state:I
@@ -275,14 +275,14 @@
 
     return-void
 
-    :cond_0
+    :cond_c2
     const-wide/high16 v12, -0x4010000000000000L    # -1.0
 
     cmpg-double v6, v10, v12
 
     const/4 v12, 0x0
 
-    if-gtz v6, :cond_1
+    if-gtz v6, :cond_d0
 
     .line 122
     iput v12, v0, Landroid/support/v7/app/TwilightCalculator;->state:I
@@ -296,7 +296,7 @@
     return-void
 
     .line 128
-    :cond_1
+    :cond_d0
     invoke-static {v10, v11}, Ljava/lang/Math;->acos(D)D
 
     move-result-wide v8
@@ -342,23 +342,23 @@
 
     cmp-long v2, v2, p1
 
-    if-gez v2, :cond_2
+    if-gez v2, :cond_103
 
     iget-wide v2, v0, Landroid/support/v7/app/TwilightCalculator;->sunset:J
 
     cmp-long v1, v2, p1
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_103
 
     .line 134
     iput v12, v0, Landroid/support/v7/app/TwilightCalculator;->state:I
 
-    goto :goto_0
+    goto :goto_105
 
     .line 136
-    :cond_2
+    :cond_103
     iput v7, v0, Landroid/support/v7/app/TwilightCalculator;->state:I
 
-    :goto_0
+    :goto_105
     return-void
 .end method

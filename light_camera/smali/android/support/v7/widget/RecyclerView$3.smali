@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 506
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 1
+    .registers 3
 
     const/high16 p0, 0x3f800000    # 1.0f
 

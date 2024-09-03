@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 139
     new-instance v0, Lorg/apache/commons/io/input/BOMInputStream$1;
@@ -56,7 +56,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x1
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Z)V
-    .locals 3
+    .registers 6
 
     const/4 v0, 0x1
 
@@ -94,17 +94,17 @@
 .end method
 
 .method public varargs constructor <init>(Ljava/io/InputStream;Z[Lorg/apache/commons/io/ByteOrderMark;)V
-    .locals 0
+    .registers 4
 
     .line 165
     invoke-direct {p0, p1}, Lorg/apache/commons/io/input/ProxyInputStream;-><init>(Ljava/io/InputStream;)V
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_16
 
     .line 166
     array-length p1, p3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     .line 169
     iput-boolean p2, p0, Lorg/apache/commons/io/input/BOMInputStream;->include:Z
@@ -124,7 +124,7 @@
     return-void
 
     .line 167
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "No BOMs specified"
@@ -135,7 +135,7 @@
 .end method
 
 .method public varargs constructor <init>(Ljava/io/InputStream;[Lorg/apache/commons/io/ByteOrderMark;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -146,7 +146,7 @@
 .end method
 
 .method private find()Lorg/apache/commons/io/ByteOrderMark;
-    .locals 3
+    .registers 4
 
     .line 274
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->boms:Ljava/util/List;
@@ -155,12 +155,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_19
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -173,30 +173,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_6
 
     return-object v1
 
-    :cond_1
+    :cond_19
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private matches(Lorg/apache/commons/io/ByteOrderMark;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 294
-    :goto_0
+    :goto_2
     invoke-virtual {p1}, Lorg/apache/commons/io/ByteOrderMark;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_16
 
     .line 295
     invoke-virtual {p1, v1}, Lorg/apache/commons/io/ByteOrderMark;->get(I)I
@@ -207,23 +207,23 @@
 
     aget v3, v3, v1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_13
 
     return v0
 
-    :cond_0
+    :cond_13
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
+    :cond_16
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method private readFirstBytes()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -238,7 +238,7 @@
 
     iget v1, p0, Lorg/apache/commons/io/input/BOMInputStream;->fbLength:I
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_14
 
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->firstBytes:[I
 
@@ -250,19 +250,19 @@
 
     aget p0, v0, v1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 p0, -0x1
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 
 # virtual methods
 .method public getBOM()Lorg/apache/commons/io/ByteOrderMark;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -272,7 +272,7 @@
     .line 213
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->firstBytes:[I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5b
 
     const/4 v0, 0x0
 
@@ -300,12 +300,12 @@
     move v1, v0
 
     .line 219
-    :goto_0
+    :goto_18
     iget-object v2, p0, Lorg/apache/commons/io/input/BOMInputStream;->firstBytes:[I
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_37
 
     .line 220
     iget-object v2, p0, Lorg/apache/commons/io/input/BOMInputStream;->firstBytes:[I
@@ -330,18 +330,18 @@
 
     aget v2, v2, v1
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_34
 
-    goto :goto_1
+    goto :goto_37
 
-    :cond_0
+    :cond_34
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 227
-    :cond_1
-    :goto_1
+    :cond_37
+    :goto_37
     invoke-direct {p0}, Lorg/apache/commons/io/input/BOMInputStream;->find()Lorg/apache/commons/io/ByteOrderMark;
 
     move-result-object v1
@@ -351,12 +351,12 @@
     .line 228
     iget-object v1, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5b
 
     .line 229
     iget-boolean v1, p0, Lorg/apache/commons/io/input/BOMInputStream;->include:Z
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_5b
 
     .line 230
     iget-object v1, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
@@ -369,7 +369,7 @@
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_59
 
     .line 231
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
@@ -380,22 +380,22 @@
 
     iput v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->fbIndex:I
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 233
-    :cond_2
+    :cond_59
     iput v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->fbLength:I
 
     .line 238
-    :cond_3
-    :goto_2
+    :cond_5b
+    :goto_5b
     iget-object p0, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
 
     return-object p0
 .end method
 
 .method public getBOMCharsetName()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -408,25 +408,25 @@
     .line 251
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_9
     iget-object p0, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
 
     invoke-virtual {p0}, Lorg/apache/commons/io/ByteOrderMark;->getCharsetName()Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
+    :goto_f
     return-object p0
 .end method
 
 .method public hasBOM()Z
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -438,21 +438,21 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public hasBOM(Lorg/apache/commons/io/ByteOrderMark;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -466,12 +466,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 202
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->byteOrderMark:Lorg/apache/commons/io/ByteOrderMark;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     invoke-virtual {p0}, Lorg/apache/commons/io/input/BOMInputStream;->getBOM()Lorg/apache/commons/io/ByteOrderMark;
 
@@ -481,20 +481,20 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_19
     return p0
 
     .line 200
-    :cond_1
+    :cond_1a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -517,12 +517,12 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     .line 370
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->fbIndex:I
 
     iput v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->markFbIndex:I
@@ -530,31 +530,31 @@
     .line 371
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->firstBytes:[I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_c
     iput-boolean v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->markedAtStart:Z
 
     .line 372
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_1 .. :try_end_13} :catchall_15
 
     .line 373
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_15
     move-exception p1
 
     .line 369
@@ -564,7 +564,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -576,24 +576,24 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_7
 
-    goto :goto_0
+    goto :goto_d
 
     .line 316
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lorg/apache/commons/io/input/BOMInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
 
     move-result v0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public read([B)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -613,7 +613,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -624,18 +624,18 @@
 
     move v1, v0
 
-    :cond_0
-    :goto_0
-    if-lez p3, :cond_1
+    :cond_2
+    :goto_2
+    if-lez p3, :cond_19
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_19
 
     .line 337
     invoke-direct {p0}, Lorg/apache/commons/io/input/BOMInputStream;->readFirstBytes()I
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_2
 
     add-int/lit8 v2, p2, 0x1
 
@@ -652,36 +652,36 @@
 
     move p2, v2
 
-    goto :goto_0
+    goto :goto_2
 
     .line 344
-    :cond_1
+    :cond_19
     iget-object p0, p0, Lorg/apache/commons/io/input/BOMInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {p0, p1, p2, p3}, Ljava/io/InputStream;->read([BII)I
 
     move-result p0
 
-    if-gez p0, :cond_3
+    if-gez p0, :cond_26
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_24
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_2
+    :cond_24
     const/4 v1, -0x1
 
-    goto :goto_1
+    goto :goto_27
 
-    :cond_3
+    :cond_26
     add-int/2addr v1, p0
 
-    :goto_1
+    :goto_27
     return v1
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -691,7 +691,7 @@
     monitor-enter p0
 
     .line 383
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->markFbIndex:I
 
     iput v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->fbIndex:I
@@ -699,7 +699,7 @@
     .line 384
     iget-boolean v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->markedAtStart:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x0
 
@@ -707,19 +707,19 @@
     iput-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->firstBytes:[I
 
     .line 388
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lorg/apache/commons/io/input/BOMInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_1 .. :try_end_11} :catchall_13
 
     .line 389
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_13
     move-exception v0
 
     .line 382
@@ -729,7 +729,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -738,26 +738,26 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     int-to-long v1, v0
 
     cmp-long v3, p1, v1
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_f
 
     .line 403
     invoke-direct {p0}, Lorg/apache/commons/io/input/BOMInputStream;->readFirstBytes()I
 
     move-result v3
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_f
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 406
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lorg/apache/commons/io/input/BOMInputStream;->in:Ljava/io/InputStream;
 
     sub-long/2addr p1, v1

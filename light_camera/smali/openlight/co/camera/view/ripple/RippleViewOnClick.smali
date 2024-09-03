@@ -68,7 +68,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     .line 72
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -191,7 +191,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 77
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/ripple/RippleViewOnClick;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 2
 
     .line 32
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->sendClickEvent(Ljava/lang/Boolean;)V
@@ -263,18 +263,18 @@
 .end method
 
 .method private createAnimation(FF)V
-    .locals 3
+    .registers 6
 
     .line 239
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_78
 
     iget-boolean v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mAnimationRunning:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_78
 
     .line 240
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->hasToZoom:Ljava/lang/Boolean;
@@ -283,7 +283,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 241
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->scaleAnimation:Landroid/view/animation/ScaleAnimation;
@@ -291,7 +291,7 @@
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->startAnimation(Landroid/view/animation/Animation;)V
 
     .line 243
-    :cond_0
+    :cond_17
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mWidth:I
 
     iget v1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mHeight:I
@@ -313,7 +313,7 @@
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_32
 
     .line 246
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRadiusMax:F
@@ -325,7 +325,7 @@
     iput v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRadiusMax:F
 
     .line 248
-    :cond_1
+    :cond_32
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRadiusMax:F
 
     iget v2, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->ripplePadding:I
@@ -345,7 +345,7 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_51
 
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->rippleType:Ljava/lang/Integer;
 
@@ -353,22 +353,22 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_4c
 
-    goto :goto_0
+    goto :goto_51
 
     .line 254
-    :cond_2
+    :cond_4c
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->x:F
 
     .line 255
     iput p2, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->y:F
 
-    goto :goto_1
+    goto :goto_61
 
     .line 251
-    :cond_3
-    :goto_0
+    :cond_51
+    :goto_51
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->getMeasuredWidth()I
 
     move-result p1
@@ -391,7 +391,7 @@
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->y:F
 
     .line 258
-    :goto_1
+    :goto_61
     iput-boolean v2, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mAnimationRunning:Z
 
     .line 260
@@ -401,11 +401,11 @@
 
     move-result p1
 
-    if-ne p1, v2, :cond_4
+    if-ne p1, v2, :cond_75
 
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->originBitmap:Landroid/graphics/Bitmap;
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_75
 
     .line 261
     invoke-virtual {p0, v2}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->getDrawingCache(Z)Landroid/graphics/Bitmap;
@@ -415,15 +415,15 @@
     iput-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->originBitmap:Landroid/graphics/Bitmap;
 
     .line 263
-    :cond_4
+    :cond_75
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->invalidate()V
 
-    :cond_5
+    :cond_78
     return-void
 .end method
 
 .method private getCircleBitmap(I)Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 10
 
     .line 305
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->originBitmap:Landroid/graphics/Bitmap;
@@ -521,19 +521,19 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 4
+    .registers 7
 
     .line 88
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->isInEditMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 91
-    :cond_0
+    :cond_7
     sget-object v0, Lopenlight/co/camera/R$styleable;->RippleViewOnClick:[I
 
     .line 92
@@ -732,7 +732,7 @@
 .end method
 
 .method private sendClickEvent(Ljava/lang/Boolean;)V
-    .locals 7
+    .registers 9
 
     .line 288
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->getParent()Landroid/view/ViewParent;
@@ -741,7 +741,7 @@
 
     instance-of v0, v0, Landroid/widget/AdapterView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3a
 
     .line 289
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->getParent()Landroid/view/ViewParent;
@@ -767,14 +767,14 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2c
 
     .line 293
     invoke-virtual {v2}, Landroid/widget/AdapterView;->getOnItemLongClickListener()Landroid/widget/AdapterView$OnItemLongClickListener;
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3a
 
     .line 294
     invoke-virtual {v2}, Landroid/widget/AdapterView;->getOnItemLongClickListener()Landroid/widget/AdapterView$OnItemLongClickListener;
@@ -786,15 +786,15 @@
     .line 295
     invoke-interface/range {v1 .. v6}, Landroid/widget/AdapterView$OnItemLongClickListener;->onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 297
-    :cond_0
+    :cond_2c
     invoke-virtual {v2}, Landroid/widget/AdapterView;->getOnItemClickListener()Landroid/widget/AdapterView$OnItemClickListener;
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3a
 
     .line 298
     invoke-virtual {v2}, Landroid/widget/AdapterView;->getOnItemClickListener()Landroid/widget/AdapterView$OnItemClickListener;
@@ -806,15 +806,15 @@
     .line 299
     invoke-interface/range {v1 .. v6}, Landroid/widget/AdapterView$OnItemClickListener;->onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
 
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     return-void
 .end method
 
 
 # virtual methods
 .method public animateRipple(FF)V
-    .locals 0
+    .registers 3
 
     .line 229
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->createAnimation(FF)V
@@ -823,7 +823,7 @@
 .end method
 
 .method public animateRipple(Landroid/view/MotionEvent;)V
-    .locals 1
+    .registers 3
 
     .line 219
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -840,7 +840,7 @@
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 6
+    .registers 8
 
     .line 142
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->draw(Landroid/graphics/Canvas;)V
@@ -848,7 +848,7 @@
     .line 143
     iget-boolean v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mAnimationRunning:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_115
 
     .line 144
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -864,7 +864,7 @@
 
     const/4 v2, -0x1
 
-    if-gt v0, v1, :cond_2
+    if-gt v0, v1, :cond_33
 
     const/4 v0, 0x0
 
@@ -885,29 +885,29 @@
 
     const/16 v1, 0x17
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_26
 
     .line 154
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
     .line 156
-    :cond_0
+    :cond_26
     invoke-virtual {p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->invalidate()V
 
     .line 157
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->onCompletionListener:Lopenlight/co/camera/view/ripple/RippleViewOnClick$OnRippleCompleteListener;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_32
 
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->onCompletionListener:Lopenlight/co/camera/view/ripple/RippleViewOnClick$OnRippleCompleteListener;
 
     invoke-interface {p1, p0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick$OnRippleCompleteListener;->onComplete(Lopenlight/co/camera/view/ripple/RippleViewOnClick;)V
 
-    :cond_1
+    :cond_32
     return-void
 
     .line 160
-    :cond_2
+    :cond_33
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mCanvasHandler:Landroid/os/Handler;
 
     iget-object v1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->runnable:Ljava/lang/Runnable;
@@ -921,13 +921,13 @@
     .line 162
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->timer:I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_44
 
     .line 163
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     .line 166
-    :cond_3
+    :cond_44
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->x:F
 
     iget v1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->y:F
@@ -976,11 +976,11 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_b4
 
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->originBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_b4
 
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->timer:I
 
@@ -1002,12 +1002,12 @@
 
     cmpl-float v0, v0, v3
 
-    if-lez v0, :cond_5
+    if-lez v0, :cond_b4
 
     .line 173
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->durationEmpty:I
 
-    if-ne v0, v2, :cond_4
+    if-ne v0, v2, :cond_93
 
     .line 174
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleDuration:I
@@ -1023,7 +1023,7 @@
     iput v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->durationEmpty:I
 
     .line 176
-    :cond_4
+    :cond_93
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->timerEmpty:I
 
     add-int/2addr v0, v1
@@ -1068,7 +1068,7 @@
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
     .line 183
-    :cond_5
+    :cond_b4
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->paint:Landroid/graphics/Paint;
 
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->rippleColor:I
@@ -1082,7 +1082,7 @@
 
     move-result p1
 
-    if-ne p1, v1, :cond_7
+    if-ne p1, v1, :cond_f7
 
     .line 186
     iget p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->timer:I
@@ -1105,7 +1105,7 @@
 
     cmpl-float p1, p1, v0
 
-    if-lez p1, :cond_6
+    if-lez p1, :cond_ef
 
     .line 187
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->paint:Landroid/graphics/Paint;
@@ -1142,20 +1142,20 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    goto :goto_0
+    goto :goto_110
 
     .line 191
-    :cond_6
+    :cond_ef
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->paint:Landroid/graphics/Paint;
 
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleAnimation:I
 
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    goto :goto_0
+    goto :goto_110
 
     .line 193
-    :cond_7
+    :cond_f7
     iget-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->paint:Landroid/graphics/Paint;
 
     iget v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleAnimation:I
@@ -1191,19 +1191,19 @@
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
     .line 197
-    :goto_0
+    :goto_110
     iget p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->timer:I
 
     add-int/2addr p1, v1
 
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->timer:I
 
-    :cond_8
+    :cond_115
     return-void
 .end method
 
 .method public getRippleColor()I
-    .locals 0
+    .registers 1
 
     .line 334
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->rippleColor:I
@@ -1212,7 +1212,7 @@
 .end method
 
 .method public getRipplePadding()I
-    .locals 0
+    .registers 1
 
     .line 364
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->ripplePadding:I
@@ -1221,7 +1221,7 @@
 .end method
 
 .method public getRippleType()Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;
-    .locals 1
+    .registers 2
 
     .line 338
     invoke-static {}, Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;->values()[Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public getZoomDuration()I
-    .locals 0
+    .registers 1
 
     .line 403
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->zoomDuration:I
@@ -1249,7 +1249,7 @@
 .end method
 
 .method public getZoomScale()F
-    .locals 0
+    .registers 1
 
     .line 390
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->zoomScale:F
@@ -1258,7 +1258,7 @@
 .end method
 
 .method public getmFrameRate()I
-    .locals 0
+    .registers 1
 
     .line 429
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mFrameRate:I
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public getmRippleAnimation()I
-    .locals 0
+    .registers 1
 
     .line 442
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleAnimation:I
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public getmRippleDuration()I
-    .locals 0
+    .registers 1
 
     .line 416
     iget p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleDuration:I
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public isCentered()Ljava/lang/Boolean;
-    .locals 0
+    .registers 1
 
     .line 351
     iget-object p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->isCentered:Ljava/lang/Boolean;
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public isZooming()Ljava/lang/Boolean;
-    .locals 0
+    .registers 1
 
     .line 377
     iget-object p0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->hasToZoom:Ljava/lang/Boolean;
@@ -1303,7 +1303,7 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     .line 278
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -1317,7 +1317,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 7
+    .registers 12
 
     .line 203
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/RelativeLayout;->onSizeChanged(IIII)V
@@ -1380,7 +1380,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
 
     .line 269
     iget-object v0, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->gestureDetector:Landroid/view/GestureDetector;
@@ -1389,7 +1389,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 270
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->animateRipple(Landroid/view/MotionEvent;)V
@@ -1404,7 +1404,7 @@
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->sendClickEvent(Ljava/lang/Boolean;)V
 
     .line 273
-    :cond_0
+    :cond_13
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
@@ -1413,7 +1413,7 @@
 .end method
 
 .method public setCentered(Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 2
 
     .line 360
     iput-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->isCentered:Ljava/lang/Boolean;
@@ -1422,7 +1422,7 @@
 .end method
 
 .method public setOnRippleCompleteListener(Lopenlight/co/camera/view/ripple/RippleViewOnClick$OnRippleCompleteListener;)V
-    .locals 0
+    .registers 2
 
     .line 455
     iput-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->onCompletionListener:Lopenlight/co/camera/view/ripple/RippleViewOnClick$OnRippleCompleteListener;
@@ -1431,7 +1431,7 @@
 .end method
 
 .method public setRippleColor(I)V
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/ColorRes;
     .end annotation
 
@@ -1450,7 +1450,7 @@
 .end method
 
 .method public setRipplePadding(I)V
-    .locals 0
+    .registers 2
 
     .line 373
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->ripplePadding:I
@@ -1459,7 +1459,7 @@
 .end method
 
 .method public setRippleType(Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;)V
-    .locals 0
+    .registers 2
 
     .line 347
     invoke-virtual {p1}, Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;->ordinal()I
@@ -1476,7 +1476,7 @@
 .end method
 
 .method public setZoomDuration(I)V
-    .locals 0
+    .registers 2
 
     .line 412
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->zoomDuration:I
@@ -1485,7 +1485,7 @@
 .end method
 
 .method public setZoomScale(F)V
-    .locals 0
+    .registers 2
 
     .line 399
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->zoomScale:F
@@ -1494,7 +1494,7 @@
 .end method
 
 .method public setZooming(Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 2
 
     .line 386
     iput-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->hasToZoom:Ljava/lang/Boolean;
@@ -1503,7 +1503,7 @@
 .end method
 
 .method public setmFrameRate(I)V
-    .locals 0
+    .registers 2
 
     .line 438
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mFrameRate:I
@@ -1512,7 +1512,7 @@
 .end method
 
 .method public setmRippleAnimation(I)V
-    .locals 0
+    .registers 2
 
     .line 451
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleAnimation:I
@@ -1521,7 +1521,7 @@
 .end method
 
 .method public setmRippleDuration(I)V
-    .locals 0
+    .registers 2
 
     .line 425
     iput p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->mRippleDuration:I

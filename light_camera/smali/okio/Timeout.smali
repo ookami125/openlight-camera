@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 49
     new-instance v0, Lokio/Timeout$1;
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 70
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public clearDeadline()Lokio/Timeout;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -52,7 +52,7 @@
 .end method
 
 .method public clearTimeout()Lokio/Timeout;
-    .locals 2
+    .registers 3
 
     const-wide/16 v0, 0x0
 
@@ -63,15 +63,15 @@
 .end method
 
 .method public final deadline(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 2
+    .registers 6
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1e
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_16
 
     .line 124
     invoke-static {}, Ljava/lang/System;->nanoTime()J
@@ -91,7 +91,7 @@
     return-object p0
 
     .line 123
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "unit == null"
@@ -101,7 +101,7 @@
     throw p0
 
     .line 122
-    :cond_1
+    :cond_1e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p3, Ljava/lang/StringBuilder;
@@ -124,12 +124,12 @@
 .end method
 
 .method public deadlineNanoTime()J
-    .locals 2
+    .registers 3
 
     .line 105
     iget-boolean v0, p0, Lokio/Timeout;->hasDeadline:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 106
     iget-wide v0, p0, Lokio/Timeout;->deadlineNanoTime:J
@@ -137,7 +137,7 @@
     return-wide v0
 
     .line 105
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "No deadline"
@@ -148,7 +148,7 @@
 .end method
 
 .method public deadlineNanoTime(J)Lokio/Timeout;
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -162,7 +162,7 @@
 .end method
 
 .method public hasDeadline()Z
-    .locals 0
+    .registers 1
 
     .line 95
     iget-boolean p0, p0, Lokio/Timeout;->hasDeadline:Z
@@ -171,7 +171,7 @@
 .end method
 
 .method public throwIfReached()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -183,12 +183,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     .line 149
     iget-boolean v0, p0, Lokio/Timeout;->hasDeadline:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     iget-wide v0, p0, Lokio/Timeout;->deadlineNanoTime:J
 
@@ -202,12 +202,12 @@
 
     cmp-long p0, v0, v2
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_18
 
-    goto :goto_0
+    goto :goto_20
 
     .line 150
-    :cond_0
+    :cond_18
     new-instance p0, Ljava/io/InterruptedIOException;
 
     const-string v0, "deadline reached"
@@ -216,12 +216,12 @@
 
     throw p0
 
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     return-void
 
     .line 146
-    :cond_2
+    :cond_21
     new-instance p0, Ljava/io/InterruptedIOException;
 
     const-string v0, "thread interrupted"
@@ -232,15 +232,15 @@
 .end method
 
 .method public timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 2
+    .registers 6
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_17
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_f
 
     .line 84
     invoke-virtual {p3, p1, p2}, Ljava/util/concurrent/TimeUnit;->toNanos(J)J
@@ -252,7 +252,7 @@
     return-object p0
 
     .line 83
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "unit == null"
@@ -262,7 +262,7 @@
     throw p0
 
     .line 82
-    :cond_1
+    :cond_17
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p3, Ljava/lang/StringBuilder;
@@ -285,7 +285,7 @@
 .end method
 
 .method public timeoutNanos()J
-    .locals 2
+    .registers 3
 
     .line 90
     iget-wide v0, p0, Lokio/Timeout;->timeoutNanos:J
@@ -294,7 +294,7 @@
 .end method
 
 .method public final waitUntilNotified(Ljava/lang/Object;)V
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/InterruptedIOException;
@@ -314,11 +314,11 @@
 
     const-wide/16 v3, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     cmp-long v5, v1, v3
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_14
 
     .line 196
     invoke-virtual {p1}, Ljava/lang/Object;->wait()V
@@ -326,16 +326,16 @@
     return-void
 
     .line 202
-    :cond_0
+    :cond_14
     invoke-static {}, Ljava/lang/System;->nanoTime()J
 
     move-result-wide v5
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     cmp-long v7, v1, v3
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_29
 
     .line 204
     invoke-virtual {p0}, Lokio/Timeout;->deadlineNanoTime()J
@@ -351,10 +351,10 @@
 
     move-result-wide v1
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_29
+    if-eqz v0, :cond_32
 
     .line 207
     invoke-virtual {p0}, Lokio/Timeout;->deadlineNanoTime()J
@@ -365,11 +365,11 @@
 
     sub-long v1, v0, v5
 
-    :cond_2
-    :goto_0
+    :cond_32
+    :goto_32
     cmp-long p0, v1, v3
 
-    if-lez p0, :cond_3
+    if-lez p0, :cond_4a
 
     const-wide/32 v3, 0xf4240
 
@@ -396,15 +396,15 @@
 
     sub-long v3, p0, v5
 
-    :cond_3
+    :cond_4a
     cmp-long p0, v3, v1
 
-    if-gez p0, :cond_4
+    if-gez p0, :cond_4f
 
     return-void
 
     .line 222
-    :cond_4
+    :cond_4f
     new-instance p0, Ljava/io/InterruptedIOException;
 
     const-string p1, "timeout"
@@ -412,11 +412,11 @@
     invoke-direct {p0, p1}, Ljava/io/InterruptedIOException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_57
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_57} :catch_57
 
     .line 225
-    :catch_0
+    :catch_57
     new-instance p0, Ljava/io/InterruptedIOException;
 
     const-string p1, "interrupted"

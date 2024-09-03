@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 17
+    .registers 17
 
     .line 45
     new-instance v8, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId$1;
@@ -240,7 +240,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZLjava/lang/String;IFI)V
-    .locals 0
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -271,7 +271,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IZLjava/lang/String;IFILopenlight/co/camera/view/statusbar/StatusAdapter$1;)V
-    .locals 0
+    .registers 9
 
     .line 44
     invoke-direct/range {p0 .. p7}, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;-><init>(Ljava/lang/String;IZLjava/lang/String;IFI)V
@@ -280,7 +280,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;
-    .locals 1
+    .registers 2
 
     .line 44
     const-class v0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;
@@ -295,7 +295,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;
-    .locals 1
+    .registers 1
 
     .line 44
     sget-object v0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->$VALUES:[Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;
@@ -312,7 +312,7 @@
 
 # virtual methods
 .method public getAlpha()F
-    .locals 0
+    .registers 1
 
     .line 151
     iget p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->mAlpha:F
@@ -321,7 +321,7 @@
 .end method
 
 .method public getIconId()I
-    .locals 0
+    .registers 1
 
     .line 143
     iget p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->mIconId:I
@@ -330,7 +330,7 @@
 .end method
 
 .method public getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 139
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->mPreferenceKey:Ljava/lang/String;
@@ -339,7 +339,7 @@
 .end method
 
 .method public getType()I
-    .locals 0
+    .registers 1
 
     .line 147
     iget p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->mType:I
@@ -348,7 +348,7 @@
 .end method
 
 .method public isDisplayed()Z
-    .locals 0
+    .registers 1
 
     .line 135
     iget-boolean p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->mIsDisplayed:Z

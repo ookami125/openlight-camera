@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 30
     new-instance v0, Ljava/lang/Object;
@@ -71,7 +71,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Ljava/io/File;Lnet/hockeyapp/android/metrics/Sender;)V
-    .locals 1
+    .registers 5
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,7 +109,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Lnet/hockeyapp/android/metrics/Sender;)V
-    .locals 3
+    .registers 6
 
     .line 79
     new-instance v0, Ljava/io/File;
@@ -149,12 +149,12 @@
 .end method
 
 .method private getContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 307
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/Persistence;->mWeakContext:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 308
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Persistence;->mWeakContext:Ljava/lang/ref/WeakReference;
@@ -165,19 +165,19 @@
 
     check-cast p0, Landroid/content/Context;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_e
     return-object p0
 .end method
 
 
 # virtual methods
 .method protected createDirectoriesIfNecessary()V
-    .locals 3
+    .registers 4
 
     const-string v0, "Successfully created directory"
 
@@ -186,7 +186,7 @@
     .line 291
     iget-object v2, p0, Lnet/hockeyapp/android/metrics/Persistence;->mTelemetryDirectory:Ljava/io/File;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_23
 
     iget-object v2, p0, Lnet/hockeyapp/android/metrics/Persistence;->mTelemetryDirectory:Ljava/io/File;
 
@@ -194,7 +194,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_23
 
     .line 292
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Persistence;->mTelemetryDirectory:Ljava/io/File;
@@ -203,30 +203,30 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1e
 
     const-string p0, "HA-MetricsPersistence"
 
     .line 293
     invoke-static {p0, v0}, Lnet/hockeyapp/android/utils/HockeyLog;->info(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_1e
     const-string p0, "HA-MetricsPersistence"
 
     .line 295
     invoke-static {p0, v1}, Lnet/hockeyapp/android/utils/HockeyLog;->info(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     return-void
 .end method
 
 .method protected deleteFile(Ljava/io/File;)V
-    .locals 4
+    .registers 6
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_4a
 
     .line 236
     sget-object v0, Lnet/hockeyapp/android/metrics/Persistence;->LOCK:Ljava/lang/Object;
@@ -234,12 +234,12 @@
     monitor-enter v0
 
     .line 237
-    :try_start_0
+    :try_start_5
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_26
 
     const-string p0, "HA-MetricsPersistence"
 
@@ -264,9 +264,9 @@
 
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->warn(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_26
     const-string v1, "HA-MetricsPersistence"
 
     .line 241
@@ -296,21 +296,21 @@
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     .line 244
-    :goto_0
+    :goto_45
     monitor-exit v0
 
-    goto :goto_1
+    goto :goto_51
 
-    :catchall_0
+    :catchall_47
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_49
+    .catchall {:try_start_5 .. :try_end_49} :catchall_47
 
     throw p0
 
-    :cond_1
+    :cond_4a
     const-string p0, "HA-MetricsPersistence"
 
     const-string p1, "Couldn\'t delete file, the reference to the file was null"
@@ -318,17 +318,17 @@
     .line 246
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->warn(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_1
+    :goto_51
     return-void
 .end method
 
 .method protected getSender()Lnet/hockeyapp/android/metrics/Sender;
-    .locals 1
+    .registers 2
 
     .line 321
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/Persistence;->mWeakSender:Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 322
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Persistence;->mWeakSender:Ljava/lang/ref/WeakReference;
@@ -339,38 +339,38 @@
 
     check-cast p0, Lnet/hockeyapp/android/metrics/Sender;
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_e
     return-object p0
 .end method
 
 .method protected hasFilesAvailable()Z
-    .locals 0
+    .registers 1
 
     .line 192
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Persistence;->nextAvailableFileInDirectory()Ljava/io/File;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method protected isFreeSpaceAvailable()Z
-    .locals 3
+    .registers 4
 
     .line 270
     sget-object v0, Lnet/hockeyapp/android/metrics/Persistence;->LOCK:Ljava/lang/Object;
@@ -378,7 +378,7 @@
     monitor-enter v0
 
     .line 271
-    :try_start_0
+    :try_start_3
     invoke-direct {p0}, Lnet/hockeyapp/android/metrics/Persistence;->getContext()Landroid/content/Context;
 
     move-result-object p0
@@ -390,7 +390,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_44
 
     .line 273
     invoke-virtual {p0}, Landroid/content/Context;->getFilesDir()Ljava/io/File;
@@ -421,7 +421,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_44
 
     .line 276
     new-instance v1, Ljava/io/File;
@@ -433,7 +433,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_42
 
     .line 278
     array-length p0, p0
@@ -444,55 +444,55 @@
 
     move-result v1
 
-    if-ge p0, v1, :cond_0
+    if-ge p0, v1, :cond_42
 
     const/4 v2, 0x1
 
-    :cond_0
+    :cond_42
     monitor-exit v0
 
     return v2
 
     .line 281
-    :cond_1
+    :cond_44
     monitor-exit v0
 
     return v2
 
-    :catchall_0
+    :catchall_46
     move-exception p0
 
     .line 282
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_48
+    .catchall {:try_start_3 .. :try_end_48} :catchall_46
 
     throw p0
 .end method
 
 .method protected load(Ljava/io/File;)Ljava/lang/String;
-    .locals 4
+    .registers 6
 
     .line 154
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_9c
 
     const/4 v0, 0x0
 
     .line 158
-    :try_start_0
+    :try_start_8
     sget-object v1, Lnet/hockeyapp/android/metrics/Persistence;->LOCK:Ljava/lang/Object;
 
     monitor-enter v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_b} :catch_3d
+    .catchall {:try_start_8 .. :try_end_b} :catchall_3b
 
     .line 159
-    :try_start_1
+    :try_start_b
     new-instance v2, Ljava/io/FileInputStream;
 
     invoke-direct {v2, p1}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
@@ -506,42 +506,42 @@
     new-instance v2, Ljava/io/BufferedReader;
 
     invoke-direct {v2, p1}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_1a
+    .catchall {:try_start_b .. :try_end_1a} :catchall_38
 
     .line 163
-    :goto_0
-    :try_start_2
+    :goto_1a
+    :try_start_1a
     invoke-virtual {v2}, Ljava/io/BufferedReader;->read()I
 
     move-result p1
 
     const/4 v0, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_26
 
     int-to-char p1, p1
 
     .line 164
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 166
-    :cond_0
+    :cond_26
     monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_27
+    .catchall {:try_start_1a .. :try_end_27} :catchall_35
 
     .line 174
-    :try_start_3
+    :try_start_27
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_2a
+    .catch Ljava/io/IOException; {:try_start_27 .. :try_end_2a} :catch_2c
 
-    goto/16 :goto_5
+    goto/16 :goto_9c
 
-    :catch_0
+    :catch_2c
     move-exception p1
 
     const-string v0, "HA-MetricsPersistence"
@@ -551,40 +551,40 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    goto :goto_2
+    goto :goto_66
 
-    :catchall_0
+    :catchall_35
     move-exception p1
 
     move-object v0, v2
 
-    goto :goto_1
+    goto :goto_39
 
-    :catchall_1
+    :catchall_38
     move-exception p1
 
     .line 166
-    :goto_1
-    :try_start_4
+    :goto_39
+    :try_start_39
     monitor-exit v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_3a
+    .catchall {:try_start_39 .. :try_end_3a} :catchall_38
 
-    :try_start_5
+    :try_start_3a
     throw p1
-    :try_end_5
-    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_3b
+    .catch Ljava/lang/Exception; {:try_start_3a .. :try_end_3b} :catch_3d
+    .catchall {:try_start_3a .. :try_end_3b} :catchall_3b
 
-    :catchall_2
+    :catchall_3b
     move-exception p0
 
-    goto :goto_3
+    goto :goto_7a
 
-    :catch_1
+    :catch_3d
     move-exception p1
 
-    :try_start_6
+    :try_start_3e
     const-string v1, "HA-MetricsPersistence"
 
     .line 168
@@ -609,20 +609,20 @@
 
     .line 168
     invoke-static {v1, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->warn(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_58
+    .catchall {:try_start_3e .. :try_end_58} :catchall_3b
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_9c
 
     .line 174
-    :try_start_7
+    :try_start_5a
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-    :try_end_7
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_2
+    :try_end_5d
+    .catch Ljava/io/IOException; {:try_start_5a .. :try_end_5d} :catch_5e
 
-    goto :goto_5
+    goto :goto_9c
 
-    :catch_2
+    :catch_5e
     move-exception p1
 
     const-string v0, "HA-MetricsPersistence"
@@ -632,7 +632,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    :goto_2
+    :goto_66
     const-string v2, "Error closing stream."
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -651,20 +651,20 @@
     .line 177
     invoke-static {v0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->warn(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_5
+    goto :goto_9c
 
-    :goto_3
-    if-eqz v0, :cond_1
+    :goto_7a
+    if-eqz v0, :cond_9b
 
     .line 174
-    :try_start_8
+    :try_start_7c
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
+    :try_end_7f
+    .catch Ljava/io/IOException; {:try_start_7c .. :try_end_7f} :catch_80
 
-    goto :goto_4
+    goto :goto_9b
 
-    :catch_3
+    :catch_80
     move-exception p1
 
     .line 177
@@ -693,13 +693,13 @@
     invoke-static {v0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->warn(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 179
-    :cond_1
-    :goto_4
+    :cond_9b
+    :goto_9b
     throw p0
 
     .line 183
-    :cond_2
-    :goto_5
+    :cond_9c
+    :goto_9c
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -708,45 +708,45 @@
 .end method
 
 .method protected makeAvailable(Ljava/io/File;)V
-    .locals 1
+    .registers 3
 
     .line 257
     sget-object v0, Lnet/hockeyapp/android/metrics/Persistence;->LOCK:Ljava/lang/Object;
 
     monitor-enter v0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 259
-    :try_start_0
+    :try_start_5
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Persistence;->mServedFiles:Ljava/util/ArrayList;
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
-    goto :goto_1
+    goto :goto_f
 
     .line 261
-    :cond_0
-    :goto_0
+    :cond_d
+    :goto_d
     monitor-exit v0
 
     return-void
 
-    :goto_1
+    :goto_f
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_5 .. :try_end_10} :catchall_b
 
     throw p0
 .end method
 
 .method protected nextAvailableFileInDirectory()Ljava/io/File;
-    .locals 7
+    .registers 8
 
     .line 202
     sget-object v0, Lnet/hockeyapp/android/metrics/Persistence;->LOCK:Ljava/lang/Object;
@@ -754,10 +754,10 @@
     monitor-enter v0
 
     .line 203
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/Persistence;->mTelemetryDirectory:Ljava/io/File;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_6a
 
     .line 204
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/Persistence;->mTelemetryDirectory:Ljava/io/File;
@@ -766,22 +766,22 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_6a
 
     .line 207
     array-length v2, v1
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_6a
 
     const/4 v2, 0x0
 
     .line 208
-    :goto_0
+    :goto_13
     array-length v3, v1
 
     add-int/lit8 v3, v3, -0x1
 
-    if-gt v2, v3, :cond_1
+    if-gt v2, v3, :cond_6a
 
     .line 210
     aget-object v3, v1, v2
@@ -793,7 +793,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_48
 
     const-string v1, "HA-MetricsPersistence"
 
@@ -832,7 +832,7 @@
 
     return-object v3
 
-    :cond_0
+    :cond_48
     const-string v4, "HA-MetricsPersistence"
 
     .line 216
@@ -862,13 +862,13 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 221
-    :cond_1
+    :cond_6a
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/Persistence;->mTelemetryDirectory:Ljava/io/File;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_8f
 
     const-string v1, "HA-MetricsPersistence"
 
@@ -899,7 +899,7 @@
 
     invoke-static {v1, p0}, Lnet/hockeyapp/android/utils/HockeyLog;->info(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_8f
     const/4 p0, 0x0
 
     .line 225
@@ -907,26 +907,26 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_92
     move-exception p0
 
     .line 226
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_94
+    .catchall {:try_start_3 .. :try_end_94} :catchall_92
 
     throw p0
 .end method
 
 .method protected persist([Ljava/lang/String;)V
-    .locals 5
+    .registers 7
 
     .line 92
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Persistence;->isFreeSpaceAvailable()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const-string p1, "HA-MetricsPersistence"
 
@@ -942,10 +942,10 @@
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Sender;->triggerSending()V
 
-    goto :goto_1
+    goto :goto_42
 
     .line 96
-    :cond_0
+    :cond_15
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -955,8 +955,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_1c
+    if-ge v2, v1, :cond_31
 
     aget-object v3, p1, v2
 
@@ -965,7 +965,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_1
+    if-lez v4, :cond_2b
 
     const/16 v4, 0xa
 
@@ -973,15 +973,15 @@
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 102
-    :cond_1
+    :cond_2b
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 105
-    :cond_2
+    :cond_31
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
@@ -991,7 +991,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_42
 
     .line 108
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Persistence;->getSender()Lnet/hockeyapp/android/metrics/Sender;
@@ -1000,13 +1000,13 @@
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Sender;->triggerSending()V
 
-    :cond_3
-    :goto_1
+    :cond_42
+    :goto_42
     return-void
 .end method
 
 .method protected setSender(Lnet/hockeyapp/android/metrics/Sender;)V
-    .locals 1
+    .registers 3
 
     .line 334
     new-instance v0, Ljava/lang/ref/WeakReference;
@@ -1019,7 +1019,7 @@
 .end method
 
 .method protected writeToDisk(Ljava/lang/String;)Z
-    .locals 6
+    .registers 8
 
     .line 122
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
@@ -1040,16 +1040,16 @@
     const/4 v2, 0x0
 
     .line 126
-    :try_start_0
+    :try_start_e
     sget-object v3, Lnet/hockeyapp/android/metrics/Persistence;->LOCK:Ljava/lang/Object;
 
     monitor-enter v3
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_11} :catch_6f
+    .catchall {:try_start_e .. :try_end_11} :catchall_6d
 
     .line 127
-    :try_start_1
+    :try_start_11
     new-instance v4, Ljava/io/File;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1078,11 +1078,11 @@
     const/4 v0, 0x1
 
     invoke-direct {p0, v4, v0}, Ljava/io/FileOutputStream;-><init>(Ljava/io/File;Z)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    :try_end_32
+    .catchall {:try_start_11 .. :try_end_32} :catchall_6a
 
     .line 129
-    :try_start_2
+    :try_start_32
     invoke-virtual {p1}, Ljava/lang/String;->getBytes()[B
 
     move-result-object p1
@@ -1114,81 +1114,81 @@
 
     .line 131
     monitor-exit v3
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_54
+    .catchall {:try_start_32 .. :try_end_54} :catchall_67
 
     .line 132
-    :try_start_3
+    :try_start_54
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p1
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_58
+    .catch Ljava/lang/Exception; {:try_start_54 .. :try_end_58} :catch_64
+    .catchall {:try_start_54 .. :try_end_58} :catchall_61
 
     .line 138
-    :try_start_4
+    :try_start_58
     invoke-virtual {p0}, Ljava/io/FileOutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_5b
+    .catch Ljava/io/IOException; {:try_start_58 .. :try_end_5b} :catch_5c
 
-    goto :goto_3
+    goto :goto_95
 
-    :catch_0
+    :catch_5c
     move-exception p0
 
     .line 140
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_3
+    goto :goto_95
 
-    :catchall_0
+    :catchall_61
     move-exception p1
 
     move-object v2, p0
 
-    goto :goto_4
+    goto :goto_9a
 
-    :catch_1
+    :catch_64
     move-exception p1
 
     move-object v2, p0
 
-    goto :goto_1
+    goto :goto_70
 
-    :catchall_1
+    :catchall_67
     move-exception p1
 
     move-object v2, p0
 
-    goto :goto_0
+    goto :goto_6b
 
-    :catchall_2
+    :catchall_6a
     move-exception p1
 
     .line 131
-    :goto_0
-    :try_start_5
+    :goto_6b
+    :try_start_6b
     monitor-exit v3
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_6c
+    .catchall {:try_start_6b .. :try_end_6c} :catchall_6a
 
-    :try_start_6
+    :try_start_6c
     throw p1
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
-    .catchall {:try_start_6 .. :try_end_6} :catchall_3
+    :try_end_6d
+    .catch Ljava/lang/Exception; {:try_start_6c .. :try_end_6d} :catch_6f
+    .catchall {:try_start_6c .. :try_end_6d} :catchall_6d
 
-    :catchall_3
+    :catchall_6d
     move-exception p1
 
-    goto :goto_4
+    goto :goto_9a
 
-    :catch_2
+    :catch_6f
     move-exception p1
 
-    :goto_1
-    :try_start_7
+    :goto_70
+    :try_start_70
     const-string p0, "HA-MetricsPersistence"
 
     .line 134
@@ -1211,56 +1211,56 @@
     move-result-object p1
 
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->warn(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+    :try_end_8a
+    .catchall {:try_start_70 .. :try_end_8a} :catchall_6d
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_94
 
     .line 138
-    :try_start_8
+    :try_start_8c
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
+    :try_end_8f
+    .catch Ljava/io/IOException; {:try_start_8c .. :try_end_8f} :catch_90
 
-    goto :goto_2
+    goto :goto_94
 
-    :catch_3
+    :catch_90
     move-exception p0
 
     .line 140
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    :cond_0
-    :goto_2
+    :cond_94
+    :goto_94
     move-object p1, v1
 
     .line 144
-    :goto_3
+    :goto_95
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 
     return p0
 
-    :goto_4
-    if-eqz v2, :cond_1
+    :goto_9a
+    if-eqz v2, :cond_a4
 
     .line 138
-    :try_start_9
+    :try_start_9c
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-    :try_end_9
-    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_4
+    :try_end_9f
+    .catch Ljava/io/IOException; {:try_start_9c .. :try_end_9f} :catch_a0
 
-    goto :goto_5
+    goto :goto_a4
 
-    :catch_4
+    :catch_a0
     move-exception p0
 
     .line 140
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 141
-    :cond_1
-    :goto_5
+    :cond_a4
+    :goto_a4
     throw p1
 .end method

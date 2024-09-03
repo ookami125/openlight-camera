@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/timer/VideoTimer;)V
-    .locals 0
+    .registers 2
 
     .line 56
     iput-object p1, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 9
+    .registers 10
 
     .line 58
     iget-object v0, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
@@ -47,12 +47,14 @@
 
     iget-object v3, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mStartTime:J
     invoke-static {v3}, Lopenlight/co/camera/view/timer/VideoTimer;->access$100(Lopenlight/co/camera/view/timer/VideoTimer;)J
 
     move-result-wide v3
 
     sub-long/2addr v1, v3
 
+    # setter for: Lopenlight/co/camera/view/timer/VideoTimer;->mTimeInMillis:J
     invoke-static {v0, v1, v2}, Lopenlight/co/camera/view/timer/VideoTimer;->access$002(Lopenlight/co/camera/view/timer/VideoTimer;J)J
 
     .line 59
@@ -60,23 +62,27 @@
 
     iget-object v1, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mTimeSwap:J
     invoke-static {v1}, Lopenlight/co/camera/view/timer/VideoTimer;->access$300(Lopenlight/co/camera/view/timer/VideoTimer;)J
 
     move-result-wide v1
 
     iget-object v3, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mTimeInMillis:J
     invoke-static {v3}, Lopenlight/co/camera/view/timer/VideoTimer;->access$000(Lopenlight/co/camera/view/timer/VideoTimer;)J
 
     move-result-wide v3
 
     add-long/2addr v1, v3
 
+    # setter for: Lopenlight/co/camera/view/timer/VideoTimer;->mUpdatedTime:J
     invoke-static {v0, v1, v2}, Lopenlight/co/camera/view/timer/VideoTimer;->access$202(Lopenlight/co/camera/view/timer/VideoTimer;J)J
 
     .line 60
     iget-object v0, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mUpdatedTime:J
     invoke-static {v0}, Lopenlight/co/camera/view/timer/VideoTimer;->access$200(Lopenlight/co/camera/view/timer/VideoTimer;)J
 
     move-result-wide v0
@@ -102,15 +108,17 @@
     .line 65
     iget-object v3, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mRecordingTimer:Landroid/widget/TextView;
     invoke-static {v3}, Lopenlight/co/camera/view/timer/VideoTimer;->access$400(Lopenlight/co/camera/view/timer/VideoTimer;)Landroid/widget/TextView;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_8d
 
     .line 66
     iget-object v3, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mRecordingTimer:Landroid/widget/TextView;
     invoke-static {v3}, Lopenlight/co/camera/view/timer/VideoTimer;->access$400(Lopenlight/co/camera/view/timer/VideoTimer;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -189,9 +197,10 @@
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 70
-    :cond_0
+    :cond_8d
     iget-object v0, p0, Lopenlight/co/camera/view/timer/VideoTimer$1;->this$0:Lopenlight/co/camera/view/timer/VideoTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/VideoTimer;->mCustomHandler:Landroid/os/Handler;
     invoke-static {v0}, Lopenlight/co/camera/view/timer/VideoTimer;->access$500(Lopenlight/co/camera/view/timer/VideoTimer;)Landroid/os/Handler;
 
     move-result-object v0

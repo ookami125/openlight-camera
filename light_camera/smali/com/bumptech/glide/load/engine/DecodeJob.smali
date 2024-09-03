@@ -88,7 +88,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;
@@ -101,7 +101,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/EngineKey;IILcom/bumptech/glide/load/data/DataFetcher;Lcom/bumptech/glide/provider/DataLoadProvider;Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;)V
-    .locals 12
+    .registers 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -153,7 +153,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/engine/EngineKey;IILcom/bumptech/glide/load/data/DataFetcher;Lcom/bumptech/glide/provider/DataLoadProvider;Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;Lcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;)V
-    .locals 0
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -215,7 +215,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/bumptech/glide/load/engine/DecodeJob;)Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;
-    .locals 0
+    .registers 1
 
     .line 30
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->fileOpener:Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;
@@ -224,7 +224,7 @@
 .end method
 
 .method private cacheAndDecodeSourceData(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)",
@@ -279,7 +279,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2c
 
     const-string p1, "Wrote source to cache"
 
@@ -287,7 +287,7 @@
     invoke-direct {p0, p1, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
     .line 206
-    :cond_0
+    :cond_2c
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
 
     move-result-wide v0
@@ -310,21 +310,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_49
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_49
 
     const-string v2, "Decoded source from cache"
 
     .line 209
     invoke-direct {p0, v2, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
-    :cond_1
+    :cond_49
     return-object p1
 .end method
 
 .method private decodeFromSourceData(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;)",
@@ -346,17 +346,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 187
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/DecodeJob;->cacheAndDecodeSourceData(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 189
-    :cond_0
+    :cond_d
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
 
     move-result-wide v0
@@ -385,22 +385,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2d
 
     const-string v2, "Decoded from source"
 
     .line 192
     invoke-direct {p0, v2, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
-    :cond_1
+    :cond_2d
     move-object p0, p1
 
-    :goto_0
+    :goto_2e
     return-object p0
 .end method
 
 .method private decodeSource()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -439,7 +439,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1a
 
     const-string v3, "Fetched data"
 
@@ -447,12 +447,12 @@
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
     .line 174
-    :cond_0
+    :cond_1a
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->isCancelled:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_0 .. :try_end_1c} :catchall_2f
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     const/4 v0, 0x0
 
@@ -464,13 +464,13 @@
     return-object v0
 
     .line 177
-    :cond_1
-    :try_start_1
+    :cond_25
+    :try_start_25
     invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/DecodeJob;->decodeFromSourceData(Ljava/lang/Object;)Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_29
+    .catchall {:try_start_25 .. :try_end_29} :catchall_2f
 
     .line 179
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->fetcher:Lcom/bumptech/glide/load/data/DataFetcher;
@@ -479,7 +479,7 @@
 
     return-object v0
 
-    :catchall_0
+    :catchall_2f
     move-exception v0
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->fetcher:Lcom/bumptech/glide/load/data/DataFetcher;
@@ -490,7 +490,7 @@
 .end method
 
 .method private loadFromCache(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -518,15 +518,15 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 222
-    :cond_0
-    :try_start_0
+    :cond_e
+    :try_start_e
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->loadProvider:Lcom/bumptech/glide/provider/DataLoadProvider;
 
     invoke-interface {v1}, Lcom/bumptech/glide/provider/DataLoadProvider;->getCacheDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
@@ -540,10 +540,10 @@
     invoke-interface {v1, v0, v2, v3}, Lcom/bumptech/glide/load/ResourceDecoder;->decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_e .. :try_end_1c} :catchall_28
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     .line 225
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->diskCacheProvider:Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;
@@ -554,10 +554,10 @@
 
     invoke-interface {p0, p1}, Lcom/bumptech/glide/load/engine/cache/DiskCache;->delete(Lcom/bumptech/glide/load/Key;)V
 
-    :cond_1
+    :cond_27
     return-object v0
 
-    :catchall_0
+    :catchall_28
     move-exception v0
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->diskCacheProvider:Lcom/bumptech/glide/load/engine/DecodeJob$DiskCacheProvider;
@@ -572,7 +572,7 @@
 .end method
 
 .method private logWithTimeAndKey(Ljava/lang/String;J)V
-    .locals 2
+    .registers 6
 
     const-string v0, "DecodeJob"
 
@@ -611,7 +611,7 @@
 .end method
 
 .method private transcode(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -622,14 +622,14 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 247
-    :cond_0
+    :cond_4
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
     invoke-interface {p0, p1}, Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;->transcode(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
@@ -640,7 +640,7 @@
 .end method
 
 .method private transform(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -651,14 +651,14 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 236
-    :cond_0
+    :cond_4
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->transformation:Lcom/bumptech/glide/load/Transformation;
 
     iget v1, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->width:I
@@ -674,17 +674,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 238
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    :cond_1
+    :cond_17
     return-object p0
 .end method
 
 .method private transformEncodeAndTranscode(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -714,7 +714,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     const-string v2, "Transformed resource from source"
 
@@ -722,7 +722,7 @@
     invoke-direct {p0, v2, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
     .line 144
-    :cond_0
+    :cond_16
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/DecodeJob;->writeTransformedToCache(Lcom/bumptech/glide/load/engine/Resource;)V
 
     .line 146
@@ -742,19 +742,19 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2e
 
     const-string v2, "Transcoded transformed from source"
 
     .line 149
     invoke-direct {p0, v2, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
-    :cond_1
+    :cond_2e
     return-object p1
 .end method
 
 .method private writeTransformedToCache(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -763,7 +763,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_34
 
     .line 155
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob;->diskCacheStrategy:Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
@@ -772,12 +772,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
-    goto :goto_0
+    goto :goto_34
 
     .line 158
-    :cond_0
+    :cond_b
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
 
     move-result-wide v0
@@ -813,25 +813,25 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_33
 
     const-string p1, "Wrote transformed from source to cache"
 
     .line 162
     invoke-direct {p0, p1, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
-    :cond_1
+    :cond_33
     return-void
 
-    :cond_2
-    :goto_0
+    :cond_34
+    :goto_34
     return-void
 .end method
 
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -847,7 +847,7 @@
 .end method
 
 .method public decodeFromSource()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -876,7 +876,7 @@
 .end method
 
 .method public decodeResultFromCache()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -898,14 +898,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 84
-    :cond_0
+    :cond_a
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
 
     move-result-wide v0
@@ -926,7 +926,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_22
 
     const-string v3, "Decoded transformed from cache"
 
@@ -934,7 +934,7 @@
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
     .line 89
-    :cond_1
+    :cond_22
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
 
     move-result-wide v0
@@ -951,19 +951,19 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_37
 
     const-string v3, "Transcoded transformed from cache"
 
     .line 92
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
-    :cond_2
+    :cond_37
     return-object v2
 .end method
 
 .method public decodeSourceFromCache()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -985,14 +985,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 108
-    :cond_0
+    :cond_a
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
 
     move-result-wide v0
@@ -1017,7 +1017,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_26
 
     const-string v3, "Decoded source from cache"
 
@@ -1025,7 +1025,7 @@
     invoke-direct {p0, v3, v0, v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->logWithTimeAndKey(Ljava/lang/String;J)V
 
     .line 113
-    :cond_1
+    :cond_26
     invoke-direct {p0, v2}, Lcom/bumptech/glide/load/engine/DecodeJob;->transformEncodeAndTranscode(Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object p0

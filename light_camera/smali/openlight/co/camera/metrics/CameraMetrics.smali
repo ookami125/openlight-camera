@@ -79,7 +79,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -88,7 +88,7 @@
 .end method
 
 .method public static createPropertiesForBurstCapture(ILjava/lang/String;Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;F)Ljava/util/HashMap;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -143,7 +143,7 @@
 .end method
 
 .method public static createPropertiesForCameraLocked(Z)Ljava/util/HashMap;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -172,7 +172,7 @@
 .end method
 
 .method public static createPropertiesForMediaRecorderError(II)Ljava/util/HashMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -210,7 +210,7 @@
 .end method
 
 .method public static createPropertiesForMediaRecorderInfo(II)Ljava/util/HashMap;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -248,7 +248,7 @@
 .end method
 
 .method public static createPropertiesForSingleCapture(Ljava/lang/String;Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;F)Ljava/util/HashMap;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

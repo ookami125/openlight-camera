@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 22
     new-instance v0, Lopenlight/co/camera/utils/FaceDetector;
@@ -53,7 +53,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,7 +85,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/FaceDetector;
-    .locals 1
+    .registers 1
 
     .line 32
     sget-object v0, Lopenlight/co/camera/utils/FaceDetector;->sInstance:Lopenlight/co/camera/utils/FaceDetector;
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public convertFaceRectToDisplayCoordinates(Landroid/hardware/camera2/params/Face;IILandroid/graphics/Rect;)V
-    .locals 4
+    .registers 9
 
     int-to-float p0, p2
 
@@ -188,14 +188,14 @@
 .end method
 
 .method public disableFaceDetectionOnPreview(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 1
+    .registers 3
 
     .line 80
     invoke-virtual {p0}, Lopenlight/co/camera/utils/FaceDetector;->isFaceDetectionFeatureEnabled()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     .line 81
     sget-object p0, Landroid/hardware/camera2/CaptureRequest;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -210,19 +210,19 @@
     .line 81
     invoke-virtual {p1, p0, v0}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public enableFaceDetectionOnPreview(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 1
+    .registers 3
 
     .line 67
     invoke-virtual {p0}, Lopenlight/co/camera/utils/FaceDetector;->isFaceDetectionFeatureEnabled()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     .line 68
     sget-object p0, Landroid/hardware/camera2/CaptureRequest;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -237,12 +237,12 @@
     .line 68
     invoke-virtual {p1, p0, v0}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public getFaceMode(Landroid/hardware/camera2/CaptureResult;)I
-    .locals 0
+    .registers 2
 
     .line 59
     sget-object p0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACE_DETECT_MODE:Landroid/hardware/camera2/CaptureResult$Key;
@@ -261,7 +261,7 @@
 .end method
 
 .method public isFaceDetectionFeatureEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 137
     sget-boolean p0, Lopenlight/co/camera/utils/FaceDetector;->ENABLE_FACE_DETECTION:Z
@@ -270,7 +270,7 @@
 .end method
 
 .method public declared-synchronized processCaptureResult(Landroid/hardware/camera2/CaptureResult;)Ljava/util/List;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -286,13 +286,13 @@
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     .line 43
-    :try_start_0
+    :try_start_4
     iget-object v1, p0, Lopenlight/co/camera/utils/FaceDetector;->mOnFaceEventListener:Lopenlight/co/camera/utils/FaceDetector$OnFaceEventListener;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 45
     invoke-virtual {p0, p1}, Lopenlight/co/camera/utils/FaceDetector;->getFaceMode(Landroid/hardware/camera2/CaptureResult;)I
@@ -301,7 +301,7 @@
 
     const/4 v2, 0x2
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_24
 
     .line 46
     sget-object v0, Landroid/hardware/camera2/CaptureResult;->STATISTICS_FACES:Landroid/hardware/camera2/CaptureResult$Key;
@@ -320,12 +320,12 @@
     iget-object p1, p0, Lopenlight/co/camera/utils/FaceDetector;->mOnFaceEventListener:Lopenlight/co/camera/utils/FaceDetector$OnFaceEventListener;
 
     invoke-interface {p1, v0}, Lopenlight/co/camera/utils/FaceDetector$OnFaceEventListener;->onFaceDetected(Ljava/util/List;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_4 .. :try_end_20} :catchall_21
 
-    goto :goto_0
+    goto :goto_24
 
-    :catchall_0
+    :catchall_21
     move-exception p1
 
     .line 41
@@ -334,38 +334,38 @@
     throw p1
 
     .line 49
-    :cond_0
-    :goto_0
+    :cond_24
+    :goto_24
     monitor-exit p0
 
     return-object v0
 .end method
 
 .method public declared-synchronized registerOnFaceEventListener(Lopenlight/co/camera/utils/FaceDetector$OnFaceEventListener;)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     .line 124
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0}, Lopenlight/co/camera/utils/FaceDetector;->isFaceDetectionFeatureEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 125
     iput-object p1, p0, Lopenlight/co/camera/utils/FaceDetector;->mOnFaceEventListener:Lopenlight/co/camera/utils/FaceDetector$OnFaceEventListener;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
     .line 127
-    :cond_0
+    :cond_9
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     .line 123
@@ -375,24 +375,24 @@
 .end method
 
 .method public declared-synchronized unregisterOnFaceEventListener()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     const/4 v0, 0x0
 
     .line 133
-    :try_start_0
+    :try_start_2
     iput-object v0, p0, Lopenlight/co/camera/utils/FaceDetector;->mOnFaceEventListener:Lopenlight/co/camera/utils/FaceDetector$OnFaceEventListener;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4
+    .catchall {:try_start_2 .. :try_end_4} :catchall_6
 
     .line 134
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_6
     move-exception v0
 
     .line 132

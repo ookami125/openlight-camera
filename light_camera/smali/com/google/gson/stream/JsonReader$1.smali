@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1594
     invoke-direct {p0}, Lcom/google/gson/internal/JsonReaderInternalAccess;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public promoteNameToValue(Lcom/google/gson/stream/JsonReader;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -37,7 +37,7 @@
     .line 1596
     instance-of p0, p1, Lcom/google/gson/internal/bind/JsonTreeReader;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     .line 1597
     check-cast p1, Lcom/google/gson/internal/bind/JsonTreeReader;
@@ -47,55 +47,55 @@
     return-void
 
     .line 1600
-    :cond_0
+    :cond_a
     iget p0, p1, Lcom/google/gson/stream/JsonReader;->peeked:I
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_12
 
     .line 1602
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->doPeek()I
 
     move-result p0
 
-    :cond_1
+    :cond_12
     const/16 v0, 0xd
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_1b
 
     const/16 p0, 0x9
 
     .line 1605
     iput p0, p1, Lcom/google/gson/stream/JsonReader;->peeked:I
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_2
+    :cond_1b
     const/16 v0, 0xc
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_24
 
     const/16 p0, 0x8
 
     .line 1607
     iput p0, p1, Lcom/google/gson/stream/JsonReader;->peeked:I
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_3
+    :cond_24
     const/16 v0, 0xe
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_2d
 
     const/16 p0, 0xa
 
     .line 1609
     iput p0, p1, Lcom/google/gson/stream/JsonReader;->peeked:I
 
-    :goto_0
+    :goto_2c
     return-void
 
     .line 1611
-    :cond_4
+    :cond_2d
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;

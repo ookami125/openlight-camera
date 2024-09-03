@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 18
     new-instance v0, Lcom/bumptech/glide/load/resource/file/FileToStreamDecoder$FileOpener;
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/ResourceDecoder;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/resource/file/FileToStreamDecoder$FileOpener;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public decode(Ljava/io/File;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -125,63 +125,63 @@
     const/4 v0, 0x0
 
     .line 38
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/file/FileToStreamDecoder;->fileOpener:Lcom/bumptech/glide/load/resource/file/FileToStreamDecoder$FileOpener;
 
     invoke-virtual {v1, p1}, Lcom/bumptech/glide/load/resource/file/FileToStreamDecoder$FileOpener;->open(Ljava/io/File;)Ljava/io/InputStream;
 
     move-result-object p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_15
 
     .line 39
-    :try_start_1
+    :try_start_7
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/file/FileToStreamDecoder;->streamDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
     invoke-interface {p0, p1, p2, p3}, Lcom/bumptech/glide/load/ResourceDecoder;->decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_d
+    .catchall {:try_start_7 .. :try_end_d} :catchall_13
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 43
-    :try_start_2
+    :try_start_f
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_12
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_12} :catch_12
 
-    :catch_0
-    :cond_0
+    :catch_12
+    :cond_12
     return-object p0
 
-    :catchall_0
+    :catchall_13
     move-exception p0
 
-    goto :goto_0
+    goto :goto_17
 
-    :catchall_1
+    :catchall_15
     move-exception p0
 
     move-object p1, v0
 
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_17
+    if-eqz p1, :cond_1c
 
-    :try_start_3
+    :try_start_19
     invoke-virtual {p1}, Ljava/io/InputStream;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_1
+    :try_end_1c
+    .catch Ljava/io/IOException; {:try_start_19 .. :try_end_1c} :catch_1c
 
     .line 46
-    :catch_1
-    :cond_1
+    :catch_1c
+    :cond_1c
     throw p0
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -199,7 +199,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, ""
 

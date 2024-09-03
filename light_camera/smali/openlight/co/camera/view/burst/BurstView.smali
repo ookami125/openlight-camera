@@ -27,13 +27,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 3
+    .registers 5
 
     .line 50
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -53,7 +53,7 @@
     .line 53
     iget-object v0, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstView:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1d
 
     const v0, 0x7f0b0021
 
@@ -69,10 +69,10 @@
     iput-object p1, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstView:Landroid/view/View;
 
     .line 56
-    :cond_0
+    :cond_1d
     iget-object p1, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstView:Landroid/view/View;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_28
 
     .line 57
     iget-object p1, p0, Lopenlight/co/camera/view/burst/BurstView;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -81,14 +81,14 @@
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_1
+    :cond_28
     return-void
 .end method
 
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 2
+    .registers 3
 
     .line 63
     iget-object v0, p0, Lopenlight/co/camera/view/burst/BurstView;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -116,12 +116,12 @@
 .end method
 
 .method public closeAll()V
-    .locals 3
+    .registers 4
 
     .line 101
     iget-object v0, p0, Lopenlight/co/camera/view/burst/BurstView;->mImageFragmentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 102
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -151,12 +151,12 @@
     .line 105
     iput-object v1, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstView:Landroid/view/View;
 
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 122
     const-class p0, Lopenlight/co/camera/view/burst/BurstView;
@@ -169,7 +169,7 @@
 .end method
 
 .method public initChildView()V
-    .locals 3
+    .registers 4
 
     .line 71
     invoke-static {}, Lopenlight/co/camera/view/cache/FontCache;->get()Lopenlight/co/camera/view/cache/FontCache;
@@ -287,7 +287,7 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 1
+    .registers 3
 
     .line 116
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -305,7 +305,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x1
 
@@ -313,38 +313,38 @@
 .end method
 
 .method public removeModeSelection()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 111
     iget-object p0, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public updateBurstView(I)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_15
 
     .line 85
     iget-object p1, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstNumber:Landroid/widget/TextView;
@@ -363,10 +363,10 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 89
-    :cond_0
+    :cond_15
     iget-object v1, p0, Lopenlight/co/camera/view/burst/BurstView;->mBurstNumber:Landroid/widget/TextView;
 
     invoke-virtual {v1, v0}, Landroid/widget/TextView;->setVisibility(I)V
@@ -380,6 +380,6 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_23
     return-void
 .end method

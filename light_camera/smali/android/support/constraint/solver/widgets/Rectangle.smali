@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,12 +26,12 @@
 
 # virtual methods
 .method public contains(II)Z
-    .locals 2
+    .registers 5
 
     .line 46
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_18
 
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
 
@@ -39,11 +39,11 @@
 
     add-int/2addr v0, v1
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_18
 
     iget p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
 
-    if-lt p2, p1, :cond_0
+    if-lt p2, p1, :cond_18
 
     iget p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
 
@@ -51,21 +51,21 @@
 
     add-int/2addr p1, p0
 
-    if-ge p2, p1, :cond_0
+    if-ge p2, p1, :cond_18
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_19
     return p0
 .end method
 
 .method public getCenterX()I
-    .locals 1
+    .registers 2
 
     .line 50
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
@@ -80,7 +80,7 @@
 .end method
 
 .method public getCenterY()I
-    .locals 1
+    .registers 2
 
     .line 51
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
@@ -95,7 +95,7 @@
 .end method
 
 .method grow(II)V
-    .locals 1
+    .registers 4
 
     .line 34
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
@@ -133,14 +133,14 @@
 .end method
 
 .method intersects(Landroid/support/constraint/solver/widgets/Rectangle;)Z
-    .locals 3
+    .registers 5
 
     .line 41
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
 
     iget v1, p1, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_20
 
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I
 
@@ -150,13 +150,13 @@
 
     add-int/2addr v1, v2
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_20
 
     iget v0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
 
     iget v1, p1, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_20
 
     iget p0, p0, Landroid/support/constraint/solver/widgets/Rectangle;->y:I
 
@@ -166,21 +166,21 @@
 
     add-int/2addr v0, p1
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_20
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_20
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_21
     return p0
 .end method
 
 .method public setBounds(IIII)V
-    .locals 0
+    .registers 5
 
     .line 28
     iput p1, p0, Landroid/support/constraint/solver/widgets/Rectangle;->x:I

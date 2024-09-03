@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 42
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lopenlight/co/camera/utils/ImageUtil;->TAG:Ljava/lang/String;
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$400(Ljava/lang/String;)Lltpb/GPSData$ProcessingMethod;
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-static {p0}, Lopenlight/co/camera/utils/ImageUtil;->providerToGpsProcessingMethod(Ljava/lang/String;)Lltpb/GPSData$ProcessingMethod;
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$500(Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-static {p0}, Lopenlight/co/camera/utils/ImageUtil;->providerToProcessingMethod(Ljava/lang/String;)Ljava/lang/String;
@@ -91,7 +91,7 @@
 .end method
 
 .method static synthetic access$600(J)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 37
     invoke-static {p0, p1}, Lopenlight/co/camera/utils/ImageUtil;->toExifDateTime(J)Ljava/lang/String;
@@ -102,9 +102,9 @@
 .end method
 
 .method private static getAspectRatioValue(Z)Lltpb/ViewPreferences$AspectRatio;
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 127
     sget-object p0, Lltpb/ViewPreferences$AspectRatio;->ASPECT_RATIO_16_9:Lltpb/ViewPreferences$AspectRatio;
@@ -112,83 +112,83 @@
     return-object p0
 
     .line 129
-    :cond_0
+    :cond_5
     sget-object p0, Lltpb/ViewPreferences$AspectRatio;->ASPECT_RATIO_4_3:Lltpb/ViewPreferences$AspectRatio;
 
     return-object p0
 .end method
 
 .method private static getAwbModeFromValue(I)Lltpb/ViewPreferences$AWBMode;
-    .locals 1
+    .registers 2
 
     .line 74
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_AUTO:Lltpb/ViewPreferences$AWBMode;
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_16
 
-    :pswitch_0
-    goto :goto_0
+    :pswitch_5
+    goto :goto_14
 
     .line 86
-    :pswitch_1
+    :pswitch_6
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_CLOUDY:Lltpb/ViewPreferences$AWBMode;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 82
-    :pswitch_2
+    :pswitch_9
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_DAYLIGHT:Lltpb/ViewPreferences$AWBMode;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 90
-    :pswitch_3
+    :pswitch_c
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_FLUORESCENT:Lltpb/ViewPreferences$AWBMode;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 94
-    :pswitch_4
+    :pswitch_f
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_TUNGSTEN:Lltpb/ViewPreferences$AWBMode;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 78
-    :pswitch_5
+    :pswitch_12
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_AUTO:Lltpb/ViewPreferences$AWBMode;
 
-    :goto_0
+    :goto_14
     return-object v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_16
     .packed-switch 0x1
+        :pswitch_12
+        :pswitch_f
+        :pswitch_c
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_0
-        :pswitch_2
-        :pswitch_1
+        :pswitch_9
+        :pswitch_6
     .end packed-switch
 .end method
 
 .method private static getOrientationValue(I)Lltpb/ViewPreferences$Orientation;
-    .locals 1
+    .registers 2
 
     const/16 v0, 0x5a
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     .line 111
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT90_CW:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 
-    :cond_0
+    :cond_7
     const/16 v0, -0x5a
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_e
 
     .line 113
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_ROT90_CCW:Lltpb/ViewPreferences$Orientation;
@@ -196,14 +196,14 @@
     return-object p0
 
     .line 115
-    :cond_1
+    :cond_e
     sget-object p0, Lltpb/ViewPreferences$Orientation;->ORIENTATION_NORMAL:Lltpb/ViewPreferences$Orientation;
 
     return-object p0
 .end method
 
 .method public static getViewPrefs(Lopenlight/co/camera/proto/CameraCaptureRequestInfo;)Lltpb/ViewPreferences;
-    .locals 4
+    .registers 5
 
     .line 57
     invoke-virtual {p0}, Lopenlight/co/camera/proto/CameraCaptureRequestInfo;->getAwbMode()I
@@ -267,7 +267,7 @@
 .end method
 
 .method private static providerToGpsProcessingMethod(Ljava/lang/String;)Lltpb/GPSData$ProcessingMethod;
-    .locals 2
+    .registers 3
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -282,98 +282,98 @@
 
     const v1, 0x190aa
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_28
 
     const v1, 0x5d44923
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1e
 
     const v1, 0x6de15a2e
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_14
     const-string v0, "network"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/4 p0, 0x2
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_1e
     const-string v0, "fused"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_28
     const-string v0, "gps"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_3
-    :goto_0
+    :cond_32
+    :goto_32
     const/4 p0, -0x1
 
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    :goto_33
+    packed-switch p0, :pswitch_data_42
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 719
-    :pswitch_0
+    :pswitch_38
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_WLAN:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 717
-    :pswitch_1
+    :pswitch_3b
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_GPS:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 715
-    :pswitch_2
+    :pswitch_3e
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_FUSED:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_3b
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method private static providerToProcessingMethod(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -388,95 +388,95 @@
 
     const v1, 0x190aa
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_28
 
     const v1, 0x5d44923
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1e
 
     const v1, 0x6de15a2e
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_14
     const-string v0, "network"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/4 p0, 0x2
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_1e
     const-string v0, "fused"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_28
     const-string v0, "gps"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_3
-    :goto_0
+    :cond_32
+    :goto_32
     const/4 p0, -0x1
 
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    :goto_33
+    packed-switch p0, :pswitch_data_42
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :pswitch_0
+    :pswitch_38
     const-string p0, "WLAN"
 
     return-object p0
 
-    :pswitch_1
+    :pswitch_3b
     const-string p0, "GPS"
 
     return-object p0
 
-    :pswitch_2
+    :pswitch_3e
     const-string p0, "FUSED"
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3e
+        :pswitch_3b
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method private static toExifDateTime(J)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 684
     sget-object v0, Lopenlight/co/camera/utils/ImageUtil;->EXIF_DATE_TIME_FORMAT:Ljava/text/DateFormat;
@@ -484,7 +484,7 @@
     monitor-enter v0
 
     .line 685
-    :try_start_0
+    :try_start_3
     sget-object v1, Lopenlight/co/camera/utils/ImageUtil;->EXIF_DATE_TIME_FORMAT:Ljava/text/DateFormat;
 
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -499,13 +499,13 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_f
     move-exception p0
 
     .line 686
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catchall {:try_start_3 .. :try_end_11} :catchall_f
 
     throw p0
 .end method

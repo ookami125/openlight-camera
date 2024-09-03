@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bindStream(Ljava/io/InputStream;)Ljava/io/InputStream;
-    .locals 1
+    .registers 3
 
     .line 43
     iget-object v0, p0, Lorg/apache/commons/io/input/DemuxInputStream;->m_streams:Ljava/lang/InheritableThreadLocal;
@@ -55,7 +55,7 @@
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,17 +71,17 @@
 
     check-cast p0, Ljava/io/InputStream;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     .line 60
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public read()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,7 +97,7 @@
 
     check-cast p0, Ljava/io/InputStream;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     .line 77
     invoke-virtual {p0}, Ljava/io/InputStream;->read()I
@@ -106,7 +106,7 @@
 
     return p0
 
-    :cond_0
+    :cond_f
     const/4 p0, -0x1
 
     return p0

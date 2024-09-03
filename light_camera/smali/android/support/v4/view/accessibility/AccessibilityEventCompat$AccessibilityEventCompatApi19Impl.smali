@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 76
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityEventCompat$AccessibilityEventCompatApi16Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getContentChangeTypes(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 0
+    .registers 2
 
     .line 85
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getContentChangeTypes()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public setContentChangeTypes(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 3
 
     .line 80
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityEvent;->setContentChangeTypes(I)V

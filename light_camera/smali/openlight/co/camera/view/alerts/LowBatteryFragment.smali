@@ -13,13 +13,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Lopenlight/co/lib/view/LightFragment;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 0
+    .registers 4
     .param p2    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -58,7 +58,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .registers 2
 
     .line 56
     invoke-super {p0}, Lopenlight/co/lib/view/LightFragment;->onPause()V
@@ -76,7 +76,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 48
     invoke-super {p0}, Lopenlight/co/lib/view/LightFragment;->onResume()V

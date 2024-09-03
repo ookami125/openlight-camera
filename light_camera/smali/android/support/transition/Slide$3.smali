@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
-    .locals 0
+    .registers 3
 
     .line 116
     invoke-virtual {p2}, Landroid/view/View;->getTranslationY()F

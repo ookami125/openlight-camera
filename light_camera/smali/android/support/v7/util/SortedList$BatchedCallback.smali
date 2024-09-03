@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/util/SortedList$Callback;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public areContentsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)Z"
@@ -87,7 +87,7 @@
 .end method
 
 .method public areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)Z"
@@ -105,7 +105,7 @@
 .end method
 
 .method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT2;TT2;)I"
@@ -123,7 +123,7 @@
 .end method
 
 .method public dispatchLastEvent()V
-    .locals 0
+    .registers 1
 
     .line 818
     iget-object p0, p0, Landroid/support/v7/util/SortedList$BatchedCallback;->mBatchingListUpdateCallback:Landroid/support/v7/util/BatchingListUpdateCallback;
@@ -134,7 +134,7 @@
 .end method
 
 .method public onChanged(II)V
-    .locals 1
+    .registers 4
 
     .line 800
     iget-object p0, p0, Landroid/support/v7/util/SortedList$BatchedCallback;->mBatchingListUpdateCallback:Landroid/support/v7/util/BatchingListUpdateCallback;
@@ -147,7 +147,7 @@
 .end method
 
 .method public onInserted(II)V
-    .locals 0
+    .registers 3
 
     .line 785
     iget-object p0, p0, Landroid/support/v7/util/SortedList$BatchedCallback;->mBatchingListUpdateCallback:Landroid/support/v7/util/BatchingListUpdateCallback;
@@ -158,7 +158,7 @@
 .end method
 
 .method public onMoved(II)V
-    .locals 0
+    .registers 3
 
     .line 795
     iget-object p0, p0, Landroid/support/v7/util/SortedList$BatchedCallback;->mBatchingListUpdateCallback:Landroid/support/v7/util/BatchingListUpdateCallback;
@@ -169,7 +169,7 @@
 .end method
 
 .method public onRemoved(II)V
-    .locals 0
+    .registers 3
 
     .line 790
     iget-object p0, p0, Landroid/support/v7/util/SortedList$BatchedCallback;->mBatchingListUpdateCallback:Landroid/support/v7/util/BatchingListUpdateCallback;

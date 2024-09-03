@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/view/alerts/OverlayWarningView;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     iget-object p0, p0, Lopenlight/co/camera/view/alerts/-$$Lambda$OverlayWarningView$3QDcjs9uh-fqmU2YSfiYyFSBOCg;->f$0:Lopenlight/co/camera/view/alerts/OverlayWarningView;
 

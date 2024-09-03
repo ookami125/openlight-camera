@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,19 +19,19 @@
 
 # virtual methods
 .method public onDestroy()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onStart()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onStop()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 161
     new-instance v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
@@ -60,7 +60,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 158
     invoke-direct {p0}, Ljava/lang/Thread;-><init>()V
@@ -85,7 +85,7 @@
 .end method
 
 .method public static getInstance()Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
-    .locals 1
+    .registers 1
 
     .line 166
     sget-object v0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->sInstance:Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
@@ -96,19 +96,19 @@
 
 # virtual methods
 .method public enqueue(Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;)V
-    .locals 1
+    .registers 3
 
     .line 223
     :try_start_0
     iget-object p0, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mQueue:Ljava/util/concurrent/ArrayBlockingQueue;
 
     invoke-virtual {p0, p1}, Ljava/util/concurrent/ArrayBlockingQueue;->put(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_5} :catch_6
 
     return-void
 
-    :catch_0
+    :catch_6
     move-exception p0
 
     .line 225
@@ -122,7 +122,7 @@
 .end method
 
 .method public obtainRequest()Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
-    .locals 0
+    .registers 1
 
     .line 205
     iget-object p0, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;->mRequestPool:Landroid/support/v4/util/Pools$SynchronizedPool;
@@ -133,19 +133,19 @@
 
     check-cast p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_f
 
     .line 207
     new-instance p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
 
     invoke-direct {p0}, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;-><init>()V
 
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method public releaseRequest(Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -175,7 +175,7 @@
 .end method
 
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 200
     :goto_0
@@ -185,7 +185,7 @@
 .end method
 
 .method public runInner()V
-    .locals 4
+    .registers 5
 
     .line 178
     :try_start_0
@@ -196,13 +196,13 @@
     move-result-object p0
 
     check-cast p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_8
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_8} :catch_2c
 
     const/4 v0, 0x0
 
     .line 186
-    :try_start_1
+    :try_start_9
     iget-object v1, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->inflater:Landroid/support/v4/view/AsyncLayoutInflater;
 
     iget-object v1, v1, Landroid/support/v4/view/AsyncLayoutInflater;->mInflater:Landroid/view/LayoutInflater;
@@ -216,12 +216,12 @@
     move-result-object v1
 
     iput-object v1, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->view:Landroid/view/View;
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_17
+    .catch Ljava/lang/RuntimeException; {:try_start_9 .. :try_end_17} :catch_18
 
-    goto :goto_0
+    goto :goto_20
 
-    :catch_0
+    :catch_18
     move-exception v1
 
     const-string v2, "AsyncLayoutInflater"
@@ -232,7 +232,7 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 193
-    :goto_0
+    :goto_20
     iget-object v1, p0, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->inflater:Landroid/support/v4/view/AsyncLayoutInflater;
 
     iget-object v1, v1, Landroid/support/v4/view/AsyncLayoutInflater;->mHandler:Landroid/os/Handler;
@@ -246,7 +246,7 @@
 
     return-void
 
-    :catch_1
+    :catch_2c
     move-exception p0
 
     const-string v0, "AsyncLayoutInflater"

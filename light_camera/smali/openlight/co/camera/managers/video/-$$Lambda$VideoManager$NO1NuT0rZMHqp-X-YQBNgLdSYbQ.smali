@@ -12,7 +12,7 @@
 
 # direct methods
 .method static synthetic constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     new-instance v0, Lopenlight/co/camera/managers/video/-$$Lambda$VideoManager$NO1NuT0rZMHqp-X-YQBNgLdSYbQ;
 
@@ -24,7 +24,7 @@
 .end method
 
 .method private synthetic constructor <init>()V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public final onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 0
+    .registers 3
 
     invoke-static {p1, p2}, Lopenlight/co/camera/managers/video/VideoManager;->lambda$createVideoThumbnail$2(Ljava/lang/String;Landroid/net/Uri;)V
 

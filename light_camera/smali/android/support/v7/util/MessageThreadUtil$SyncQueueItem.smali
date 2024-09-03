@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 178
     new-instance v0, Ljava/lang/Object;
@@ -53,7 +53,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 175
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
-    .locals 0
+    .registers 1
 
     .line 175
     iget-object p0, p0, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->next:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$002(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
-    .locals 0
+    .registers 2
 
     .line 175
     iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->next:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
@@ -80,7 +80,7 @@
 .end method
 
 .method static obtainMessage(III)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
-    .locals 7
+    .registers 10
 
     const/4 v3, 0x0
 
@@ -105,7 +105,7 @@
 .end method
 
 .method static obtainMessage(IIIIIILjava/lang/Object;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
-    .locals 3
+    .registers 10
 
     .line 202
     sget-object v0, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->sPoolLock:Ljava/lang/Object;
@@ -113,20 +113,20 @@
     monitor-enter v0
 
     .line 204
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->sPool:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_d
 
     .line 205
     new-instance v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     invoke-direct {v1}, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;-><init>()V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 207
-    :cond_0
+    :cond_d
     sget-object v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->sPool:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     .line 208
@@ -142,7 +142,7 @@
     iput-object v2, v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->next:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     .line 211
-    :goto_0
+    :goto_18
     iput p0, v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->what:I
 
     .line 212
@@ -168,19 +168,19 @@
 
     return-object v1
 
-    :catchall_0
+    :catchall_28
     move-exception p0
 
     .line 219
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2a
+    .catchall {:try_start_3 .. :try_end_2a} :catchall_28
 
     throw p0
 .end method
 
 .method static obtainMessage(IILjava/lang/Object;)Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
-    .locals 7
+    .registers 10
 
     const/4 v2, 0x0
 
@@ -207,7 +207,7 @@
 
 # virtual methods
 .method recycle()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -238,10 +238,10 @@
     monitor-enter v0
 
     .line 193
-    :try_start_0
+    :try_start_15
     sget-object v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->sPool:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 194
     sget-object v1, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->sPool:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
@@ -249,7 +249,7 @@
     iput-object v1, p0, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->next:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     .line 196
-    :cond_0
+    :cond_1d
     sput-object p0, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->sPool:Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;
 
     .line 197
@@ -257,12 +257,12 @@
 
     return-void
 
-    :catchall_0
+    :catchall_21
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_15 .. :try_end_23} :catchall_21
 
     throw p0
 .end method

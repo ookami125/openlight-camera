@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/fihtdc/UploadAgentService/UploadAgent;)V
-    .locals 0
+    .registers 2
 
     .line 1
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$1;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
-    .locals 3
+    .registers 6
 
     .line 123
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$1;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -95,7 +95,7 @@
 .end method
 
 .method public onServiceDisconnected(Landroid/content/ComponentName;)V
-    .locals 1
+    .registers 3
 
     .line 130
     iget-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$1;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;

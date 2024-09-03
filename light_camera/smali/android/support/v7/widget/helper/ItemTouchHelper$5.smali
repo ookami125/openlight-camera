@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/helper/ItemTouchHelper;)V
-    .locals 0
+    .registers 2
 
     .line 1253
     iput-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -36,26 +36,26 @@
 
 # virtual methods
 .method public onGetChildDrawingOrder(II)I
-    .locals 2
+    .registers 5
 
     .line 1256
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
     iget-object v0, v0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChild:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return p2
 
     .line 1259
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
 
     iget v0, v0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChildPosition:I
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1e
 
     .line 1261
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$5;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -75,21 +75,21 @@
 
     iput v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper;->mOverdrawChildPosition:I
 
-    :cond_1
+    :cond_1e
     add-int/lit8 p1, p1, -0x1
 
-    if-ne p2, p1, :cond_2
+    if-ne p2, p1, :cond_23
 
     return v0
 
-    :cond_2
-    if-ge p2, v0, :cond_3
+    :cond_23
+    if-ge p2, v0, :cond_26
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_3
+    :cond_26
     add-int/lit8 p2, p2, 0x1
 
-    :goto_0
+    :goto_28
     return p2
 .end method

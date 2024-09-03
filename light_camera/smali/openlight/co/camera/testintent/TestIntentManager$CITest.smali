@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 59
     new-instance v0, Lopenlight/co/camera/testintent/TestIntentManager$CITest;
@@ -303,7 +303,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;I)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -325,7 +325,7 @@
 .end method
 
 .method static forIndex(I)Lopenlight/co/camera/testintent/TestIntentManager$CITest;
-    .locals 1
+    .registers 2
 
     .line 91
     sget-object v0, Lopenlight/co/camera/testintent/TestIntentManager$CITest;->sVals:[Lopenlight/co/camera/testintent/TestIntentManager$CITest;
@@ -336,7 +336,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/testintent/TestIntentManager$CITest;
-    .locals 1
+    .registers 2
 
     .line 58
     const-class v0, Lopenlight/co/camera/testintent/TestIntentManager$CITest;
@@ -351,7 +351,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/testintent/TestIntentManager$CITest;
-    .locals 1
+    .registers 1
 
     .line 58
     sget-object v0, Lopenlight/co/camera/testintent/TestIntentManager$CITest;->$VALUES:[Lopenlight/co/camera/testintent/TestIntentManager$CITest;
@@ -368,7 +368,7 @@
 
 # virtual methods
 .method getEventMessage()I
-    .locals 0
+    .registers 1
 
     .line 87
     iget p0, p0, Lopenlight/co/camera/testintent/TestIntentManager$CITest;->mEventMsg:I
@@ -377,7 +377,7 @@
 .end method
 
 .method getTestKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 83
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager$CITest;->mTestKey:Ljava/lang/String;

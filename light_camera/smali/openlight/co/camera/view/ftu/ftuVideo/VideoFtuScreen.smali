@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -87,13 +87,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_5a
 
     .line 102
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -111,7 +111,7 @@
     const/4 p2, 0x4
 
     .line 105
-    :try_start_0
+    :try_start_e
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p2
@@ -189,15 +189,15 @@
     move-result-object p2
 
     iput-object p2, p0, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->mSpecLine5Text:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_51
+    .catchall {:try_start_e .. :try_end_51} :catchall_55
 
     .line 115
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_5a
 
-    :catchall_0
+    :catchall_55
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -205,13 +205,13 @@
     .line 116
     throw p0
 
-    :cond_0
-    :goto_0
+    :cond_5a
+    :goto_5a
     return-void
 .end method
 
 .method public static synthetic lambda$onFinishInflate$0(Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 76
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->onButtonClick()V
@@ -220,7 +220,7 @@
 .end method
 
 .method private static setVisibility(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
 
     .line 121
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
@@ -231,7 +231,7 @@
 
 # virtual methods
 .method public getImageView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 60
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->mImage:Landroid/widget/ImageView;
@@ -240,13 +240,13 @@
 .end method
 
 .method public hideView(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 13
+    .registers 14
 
     .line 69
     invoke-super {p0}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->onFinishInflate()V
@@ -375,16 +375,16 @@
 
     const/16 v12, 0x8
 
-    if-nez v10, :cond_0
+    if-nez v10, :cond_83
 
     move v10, v12
 
-    goto :goto_0
+    goto :goto_84
 
-    :cond_0
+    :cond_83
     move v10, v11
 
-    :goto_0
+    :goto_84
     invoke-static {v9, v10}, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->setVisibility(Landroid/view/View;I)V
 
     .line 87
@@ -395,11 +395,11 @@
     .line 88
     iget-object v3, p0, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->mSpecTitleText:Ljava/lang/String;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_91
 
     move v11, v12
 
-    :cond_1
+    :cond_91
     invoke-static {v2, v11}, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->setVisibility(Landroid/view/View;I)V
 
     .line 89
@@ -435,16 +435,16 @@
     .line 95
     iget-object v2, p0, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->mSpecTitleText:Ljava/lang/String;
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_b8
 
     const/4 v2, 0x1
 
-    goto :goto_1
+    goto :goto_b9
 
-    :cond_2
+    :cond_b8
     const/4 v2, 0x5
 
-    :goto_1
+    :goto_b9
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setGravity(I)V
 
     .line 96
@@ -456,7 +456,7 @@
 .end method
 
 .method public setOnFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 64
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;->setFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V

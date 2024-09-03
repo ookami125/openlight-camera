@@ -12,7 +12,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 12
     new-instance v0, Lcom/bumptech/glide/signature/EmptySignature;
@@ -25,7 +25,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public static obtain()Lcom/bumptech/glide/signature/EmptySignature;
-    .locals 1
+    .registers 1
 
     .line 15
     sget-object v0, Lcom/bumptech/glide/signature/EmptySignature;->EMPTY_KEY:Lcom/bumptech/glide/signature/EmptySignature;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;

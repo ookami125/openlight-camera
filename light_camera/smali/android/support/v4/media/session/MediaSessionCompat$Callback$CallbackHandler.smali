@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$Callback;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
 
     .line 1226
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
@@ -38,20 +38,21 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
 
     .line 1232
     iget p1, p1, Landroid/os/Message;->what:I
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 1233
     iget-object p0, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$Callback;
 
+    # invokes: Landroid/support/v4/media/session/MediaSessionCompat$Callback;->handleMediaPlayPauseKeySingleTapIfPending()V
     invoke-static {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->access$000(Landroid/support/v4/media/session/MediaSessionCompat$Callback;)V
 
-    :cond_0
+    :cond_a
     return-void
 .end method

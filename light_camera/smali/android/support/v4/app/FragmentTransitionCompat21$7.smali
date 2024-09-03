@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
 
     .line 560
     iput-object p1, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 563
     iget-object v0, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
@@ -51,8 +51,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_7
+    if-ge v1, v0, :cond_23
 
     .line 565
     iget-object v2, p0, Landroid/support/v4/app/FragmentTransitionCompat21$7;->val$sharedElementsIn:Ljava/util/ArrayList;
@@ -82,8 +82,8 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_23
     return-void
 .end method

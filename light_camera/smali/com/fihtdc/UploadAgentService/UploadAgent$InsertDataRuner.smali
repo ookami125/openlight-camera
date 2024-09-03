@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/fihtdc/UploadAgentService/UploadAgent;)V
-    .locals 0
+    .registers 2
 
     .line 835
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -64,7 +64,7 @@
 .end method
 
 .method static synthetic access$0(Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;Ljava/util/HashMap;)V
-    .locals 0
+    .registers 2
 
     .line 836
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->sendFileHM:Ljava/util/HashMap;
@@ -75,16 +75,17 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 841
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->sendFileHM:Ljava/util/HashMap;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_88
 
     .line 842
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
+    # getter for: Lcom/fihtdc/UploadAgentService/UploadAgent;->mDBLock:Ljava/lang/String;
     invoke-static {v0}, Lcom/fihtdc/UploadAgentService/UploadAgent;->access$3(Lcom/fihtdc/UploadAgentService/UploadAgent;)Ljava/lang/String;
 
     move-result-object v0
@@ -92,7 +93,7 @@
     monitor-enter v0
 
     .line 843
-    :try_start_0
+    :try_start_b
     new-instance v1, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;
 
     iget-object v2, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -115,30 +116,30 @@
     move-result-object v2
 
     .line 845
-    :goto_0
+    :goto_20
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_28
 
     .line 842
     monitor-exit v0
 
-    goto :goto_2
+    goto :goto_88
 
     .line 846
-    :cond_0
+    :cond_28
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2e
+    .catchall {:try_start_b .. :try_end_2e} :catchall_85
 
     .line 848
-    :try_start_1
+    :try_start_2e
     iget-boolean v4, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->isForceUpload:Z
 
     iget-boolean v5, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->isResend:Z
@@ -179,17 +180,17 @@
     move-result-object v5
 
     invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5e
+    .catch Ljava/lang/Exception; {:try_start_2e .. :try_end_5e} :catch_5f
+    .catchall {:try_start_2e .. :try_end_5e} :catchall_85
 
-    goto :goto_1
+    goto :goto_81
 
-    :catch_0
+    :catch_5f
     move-exception v4
 
     .line 851
-    :try_start_2
+    :try_start_60
     iget-object v5, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$InsertDataRuner;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v5, v5, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -219,22 +220,22 @@
     invoke-static {v5, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 854
-    :goto_1
+    :goto_81
     invoke-virtual {v1}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->close()V
 
-    goto :goto_0
+    goto :goto_20
 
-    :catchall_0
+    :catchall_85
     move-exception p0
 
     .line 842
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_87
+    .catchall {:try_start_60 .. :try_end_87} :catchall_85
 
     throw p0
 
-    :cond_1
-    :goto_2
+    :cond_88
+    :goto_88
     return-void
 .end method

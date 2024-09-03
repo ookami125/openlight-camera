@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 39
     invoke-static {p1}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;)Ljava/util/regex/Pattern;
@@ -25,12 +25,12 @@
 .end method
 
 .method public constructor <init>(Ljava/util/regex/Pattern;)V
-    .locals 0
+    .registers 2
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 52
     iput-object p1, p0, Lorg/apache/commons/io/serialization/RegexpClassNameMatcher;->pattern:Ljava/util/regex/Pattern;
@@ -38,7 +38,7 @@
     return-void
 
     .line 50
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Null pattern"
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public matches(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     .line 57
     iget-object p0, p0, Lorg/apache/commons/io/serialization/RegexpClassNameMatcher;->pattern:Ljava/util/regex/Pattern;

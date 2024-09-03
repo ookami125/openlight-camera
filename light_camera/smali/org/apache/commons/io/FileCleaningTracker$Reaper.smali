@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lorg/apache/commons/io/FileCleaningTracker;)V
-    .locals 0
+    .registers 2
 
     .line 209
     iput-object p1, p0, Lorg/apache/commons/io/FileCleaningTracker$Reaper;->this$0:Lorg/apache/commons/io/FileCleaningTracker;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 222
     :catch_0
@@ -55,7 +55,7 @@
 
     iget-boolean v0, v0, Lorg/apache/commons/io/FileCleaningTracker;->exitWhenFinished:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker$Reaper;->this$0:Lorg/apache/commons/io/FileCleaningTracker;
 
@@ -65,17 +65,17 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_11
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     return-void
 
     .line 225
-    :cond_1
-    :goto_1
-    :try_start_0
+    :cond_12
+    :goto_12
+    :try_start_12
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker$Reaper;->this$0:Lorg/apache/commons/io/FileCleaningTracker;
 
     iget-object v0, v0, Lorg/apache/commons/io/FileCleaningTracker;->q:Ljava/lang/ref/ReferenceQueue;
@@ -98,7 +98,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_34
 
     .line 228
     iget-object v1, p0, Lorg/apache/commons/io/FileCleaningTracker$Reaper;->this$0:Lorg/apache/commons/io/FileCleaningTracker;
@@ -112,10 +112,10 @@
     invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 230
-    :cond_2
+    :cond_34
     invoke-virtual {v0}, Lorg/apache/commons/io/FileCleaningTracker$Tracker;->clear()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_37
+    .catch Ljava/lang/InterruptedException; {:try_start_12 .. :try_end_37} :catch_0
 
     goto :goto_0
 .end method

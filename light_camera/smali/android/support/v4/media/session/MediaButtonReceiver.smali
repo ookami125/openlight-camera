@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 93
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -26,14 +26,14 @@
 .end method
 
 .method public static buildMediaButtonPendingIntent(Landroid/content/Context;J)Landroid/app/PendingIntent;
-    .locals 1
+    .registers 4
 
     .line 221
     invoke-static {p0}, Landroid/support/v4/media/session/MediaButtonReceiver;->getMediaButtonReceiverComponent(Landroid/content/Context;)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const-string p0, "MediaButtonReceiver"
 
@@ -47,7 +47,7 @@
     return-object p0
 
     .line 227
-    :cond_0
+    :cond_f
     invoke-static {p0, v0, p1, p2}, Landroid/support/v4/media/session/MediaButtonReceiver;->buildMediaButtonPendingIntent(Landroid/content/Context;Landroid/content/ComponentName;J)Landroid/app/PendingIntent;
 
     move-result-object p0
@@ -56,11 +56,11 @@
 .end method
 
 .method public static buildMediaButtonPendingIntent(Landroid/content/Context;Landroid/content/ComponentName;J)Landroid/app/PendingIntent;
-    .locals 2
+    .registers 6
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
     const-string p0, "MediaButtonReceiver"
 
@@ -72,12 +72,12 @@
     return-object v0
 
     .line 258
-    :cond_0
+    :cond_b
     invoke-static {p2, p3}, Landroid/support/v4/media/session/PlaybackStateCompat;->toKeyCode(J)I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_28
 
     const-string p0, "MediaButtonReceiver"
 
@@ -101,7 +101,7 @@
     return-object v0
 
     .line 264
-    :cond_1
+    :cond_28
     new-instance p2, Landroid/content/Intent;
 
     const-string p3, "android.intent.action.MEDIA_BUTTON"
@@ -131,7 +131,7 @@
 .end method
 
 .method static getMediaButtonReceiverComponent(Landroid/content/Context;)Landroid/content/ComponentName;
-    .locals 3
+    .registers 4
 
     .line 271
     new-instance v0, Landroid/content/Intent;
@@ -166,7 +166,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_32
 
     .line 276
     invoke-interface {p0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -191,12 +191,12 @@
     return-object v0
 
     .line 279
-    :cond_0
+    :cond_32
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result p0
 
-    if-le p0, v2, :cond_1
+    if-le p0, v2, :cond_3f
 
     const-string p0, "MediaButtonReceiver"
 
@@ -205,14 +205,14 @@
     .line 280
     invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_3f
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private static getServiceComponentByAction(Landroid/content/Context;Ljava/lang/String;)Landroid/content/ComponentName;
-    .locals 3
+    .registers 5
 
     .line 295
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -245,7 +245,7 @@
 
     const/4 v2, 0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_30
 
     .line 300
     invoke-interface {v0, p0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -270,19 +270,19 @@
     return-object p1
 
     .line 303
-    :cond_0
+    :cond_30
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_38
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 306
-    :cond_1
+    :cond_38
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -316,11 +316,11 @@
 .end method
 
 .method public static handleIntent(Landroid/support/v4/media/session/MediaSessionCompat;Landroid/content/Intent;)Landroid/view/KeyEvent;
-    .locals 2
+    .registers 4
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_29
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_29
 
     const-string v0, "android.intent.action.MEDIA_BUTTON"
 
@@ -333,7 +333,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     const-string v0, "android.intent.extra.KEY_EVENT"
 
@@ -342,11 +342,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_19
     const-string v0, "android.intent.extra.KEY_EVENT"
 
     .line 192
@@ -366,42 +366,42 @@
 
     return-object p1
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private static startForegroundService(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .registers 4
 
     .line 287
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 288
     invoke-virtual {p0, p1}, Landroid/content/Context;->startForegroundService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    goto :goto_0
+    goto :goto_d
 
     .line 290
-    :cond_0
+    :cond_a
     invoke-virtual {p0, p1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .registers 5
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_50
 
     const-string v0, "android.intent.action.MEDIA_BUTTON"
 
@@ -414,7 +414,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_50
 
     const-string v0, "android.intent.extra.KEY_EVENT"
 
@@ -423,11 +423,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_50
 
-    :cond_0
+    :cond_17
     const-string v0, "android.intent.action.MEDIA_BUTTON"
 
     .line 105
@@ -435,7 +435,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 107
     invoke-virtual {p2, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
@@ -445,7 +445,7 @@
 
     return-void
 
-    :cond_1
+    :cond_26
     const-string v0, "android.media.browse.MediaBrowserService"
 
     .line 111
@@ -453,7 +453,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_48
 
     .line 114
     invoke-virtual {p0}, Landroid/support/v4/media/session/MediaButtonReceiver;->goAsync()Landroid/content/BroadcastReceiver$PendingResult;
@@ -486,7 +486,7 @@
     return-void
 
     .line 124
-    :cond_2
+    :cond_48
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Could not find any Service that handles android.intent.action.MEDIA_BUTTON or implements a media browser service."
@@ -495,8 +495,8 @@
 
     throw p0
 
-    :cond_3
-    :goto_0
+    :cond_50
+    :goto_50
     const-string p0, "MediaButtonReceiver"
 
     .line 101

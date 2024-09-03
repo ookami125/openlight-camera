@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
 
     .line 17
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
@@ -29,24 +29,24 @@
 .end method
 
 .method private getBytesToRead(J)J
-    .locals 2
+    .registers 5
 
     .line 73
     iget v0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     const-wide/16 p0, -0x1
 
     return-wide p0
 
     .line 75
-    :cond_0
+    :cond_7
     iget v0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_18
 
     iget v0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
 
@@ -54,7 +54,7 @@
 
     cmp-long v0, p1, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_18
 
     .line 76
     iget p0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
@@ -63,25 +63,25 @@
 
     return-wide p0
 
-    :cond_1
+    :cond_18
     return-wide p1
 .end method
 
 .method private updateAvailableBytesAfterRead(J)V
-    .locals 2
+    .registers 5
 
     .line 83
     iget v0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
 
     const/high16 v1, -0x80000000
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_13
 
     const-wide/16 v0, -0x1
 
     cmp-long v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 84
     iget v0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
@@ -94,14 +94,14 @@
 
     iput p1, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 
 # virtual methods
 .method public available()I
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -113,15 +113,15 @@
 
     const/high16 v1, -0x80000000
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
     invoke-super {p0}, Ljava/io/FilterInputStream;->available()I
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_b
     iget v0, p0, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->availableBytes:I
 
     invoke-super {p0}, Ljava/io/FilterInputStream;->available()I
@@ -132,12 +132,12 @@
 
     move-result p0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method public mark(I)V
-    .locals 0
+    .registers 2
 
     .line 22
     invoke-super {p0, p1}, Ljava/io/FilterInputStream;->mark(I)V
@@ -149,7 +149,7 @@
 .end method
 
 .method public read()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -167,14 +167,14 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_e
 
     const/4 p0, -0x1
 
     return p0
 
     .line 32
-    :cond_0
+    :cond_e
     invoke-super {p0}, Ljava/io/FilterInputStream;->read()I
 
     move-result v2
@@ -186,7 +186,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -204,12 +204,12 @@
 
     const/4 v0, -0x1
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_a
 
     return v0
 
     .line 44
-    :cond_0
+    :cond_a
     invoke-super {p0, p1, p2, p3}, Ljava/io/FilterInputStream;->read([BII)I
 
     move-result p1
@@ -223,7 +223,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -242,7 +242,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -258,12 +258,12 @@
 
     cmp-long v2, p1, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_b
 
     return-wide v0
 
     .line 62
-    :cond_0
+    :cond_b
     invoke-super {p0, p1, p2}, Ljava/io/FilterInputStream;->skip(J)J
 
     move-result-wide p1

@@ -34,13 +34,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -98,13 +98,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_39
 
     .line 95
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -122,7 +122,7 @@
     const/16 p2, 0xc
 
     .line 98
-    :try_start_0
+    :try_start_f
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object p2
@@ -162,15 +162,15 @@
     move-result-object p2
 
     iput-object p2, p0, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->mNextText:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_f .. :try_end_30} :catchall_34
 
     .line 104
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_39
 
-    :catchall_0
+    :catchall_34
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -179,15 +179,15 @@
     throw p0
 
     .line 108
-    :cond_0
-    :goto_0
+    :cond_39
+    :goto_39
     invoke-virtual {p0, p0}, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
 
 .method public static synthetic lambda$onFinishInflate$0(Lopenlight/co/camera/view/ftu/ImageFtuFocus;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 81
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->onButtonClick()V
@@ -198,7 +198,7 @@
 
 # virtual methods
 .method public getImageView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -206,22 +206,22 @@
 .end method
 
 .method public hideView(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 2
+    .registers 4
 
     .line 60
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;->SINGLE_RUN:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p1, 0x0
 
     .line 61
-    :goto_0
+    :goto_7
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->mConfirmButton:Landroid/widget/TextView;
 
     xor-int/lit8 v1, p1, 0x1
@@ -237,22 +237,22 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 49
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->mConfirmButton:Landroid/widget/TextView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     .line 50
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->onButtonClick()V
 
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 73
     invoke-super {p0}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->onFinishInflate()V
@@ -374,7 +374,7 @@
 .end method
 
 .method public setOnFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 55
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuFocus;->setFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V

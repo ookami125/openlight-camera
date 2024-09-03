@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 906
     invoke-direct {p0}, Lcom/squareup/wire/Message$Builder;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
 
     .line 901
     invoke-virtual {p0}, Lltpb/ViewPreferences$Crop$Builder;->build()Lltpb/ViewPreferences$Crop;
@@ -53,16 +53,16 @@
 .end method
 
 .method public build()Lltpb/ViewPreferences$Crop;
-    .locals 3
+    .registers 4
 
     .line 927
     iget-object v0, p0, Lltpb/ViewPreferences$Crop$Builder;->start:Lltpb/Point2F;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lltpb/ViewPreferences$Crop$Builder;->size:Lltpb/Point2F;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 932
     new-instance v0, Lltpb/ViewPreferences$Crop;
@@ -79,7 +79,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x4
 
     .line 929
@@ -117,7 +117,7 @@
 .end method
 
 .method public size(Lltpb/Point2F;)Lltpb/ViewPreferences$Crop$Builder;
-    .locals 0
+    .registers 2
 
     .line 921
     iput-object p1, p0, Lltpb/ViewPreferences$Crop$Builder;->size:Lltpb/Point2F;
@@ -126,7 +126,7 @@
 .end method
 
 .method public start(Lltpb/Point2F;)Lltpb/ViewPreferences$Crop$Builder;
-    .locals 0
+    .registers 2
 
     .line 913
     iput-object p1, p0, Lltpb/ViewPreferences$Crop$Builder;->start:Lltpb/Point2F;

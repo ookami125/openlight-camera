@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/fihtdc/UploadAgentService/upload/UploadLog;)V
-    .locals 0
+    .registers 2
 
     .line 620
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/upload/UploadLog$Type4Response;->this$0:Lcom/fihtdc/UploadAgentService/upload/UploadLog;
@@ -47,7 +47,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/fihtdc/UploadAgentService/upload/UploadLog;Lcom/fihtdc/UploadAgentService/upload/UploadLog$Type4Response;)V
-    .locals 0
+    .registers 3
 
     .line 620
     invoke-direct {p0, p1}, Lcom/fihtdc/UploadAgentService/upload/UploadLog$Type4Response;-><init>(Lcom/fihtdc/UploadAgentService/upload/UploadLog;)V

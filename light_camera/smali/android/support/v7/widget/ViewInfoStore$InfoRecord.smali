@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 305
     new-instance v0, Landroid/support/v4/util/Pools$SimplePool;
@@ -71,7 +71,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 307
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method static drainCache()V
-    .locals 1
+    .registers 1
 
     .line 324
     :goto_0
@@ -90,16 +90,16 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     goto :goto_0
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method static obtain()Landroid/support/v7/widget/ViewInfoStore$InfoRecord;
-    .locals 1
+    .registers 1
 
     .line 311
     sget-object v0, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;->sPool:Landroid/support/v4/util/Pools$Pool;
@@ -110,19 +110,19 @@
 
     check-cast v0, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 312
     new-instance v0, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;
 
     invoke-direct {v0}, Landroid/support/v7/widget/ViewInfoStore$InfoRecord;-><init>()V
 
-    :cond_0
+    :cond_f
     return-object v0
 .end method
 
 .method static recycle(Landroid/support/v7/widget/ViewInfoStore$InfoRecord;)V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 

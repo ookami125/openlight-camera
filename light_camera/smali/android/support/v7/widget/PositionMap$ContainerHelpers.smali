@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -54,7 +54,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 437
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,14 +63,14 @@
 .end method
 
 .method static binarySearch([III)I
-    .locals 3
+    .registers 6
 
     add-int/lit8 p1, p1, -0x1
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-gt v0, p1, :cond_2
+    :goto_3
+    if-gt v0, p1, :cond_18
 
     add-int v1, v0, p1
 
@@ -79,27 +79,27 @@
     .line 450
     aget v2, p0, v1
 
-    if-ge v2, p2, :cond_0
+    if-ge v2, p2, :cond_11
 
     add-int/lit8 v1, v1, 0x1
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_0
-    if-le v2, p2, :cond_1
+    :cond_11
+    if-le v2, p2, :cond_17
 
     add-int/lit8 v1, v1, -0x1
 
     move p1, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
+    :cond_17
     return v1
 
-    :cond_2
+    :cond_18
     not-int p0, v0
 
     return p0

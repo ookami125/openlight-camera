@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lnet/hockeyapp/android/FeedbackActivity;)V
-    .locals 1
+    .registers 3
 
     .line 852
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .registers 7
 
     .line 860
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$ParseFeedbackHandler;->mWeakFeedbackActivity:Ljava/lang/ref/WeakReference;
@@ -57,30 +57,31 @@
 
     check-cast v0, Lnet/hockeyapp/android/FeedbackActivity;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     return-void
 
     .line 865
-    :cond_0
+    :cond_b
     new-instance v1, Lnet/hockeyapp/android/objects/ErrorObject;
 
     invoke-direct {v1}, Lnet/hockeyapp/android/objects/ErrorObject;-><init>()V
 
+    # setter for: Lnet/hockeyapp/android/FeedbackActivity;->mError:Lnet/hockeyapp/android/objects/ErrorObject;
     invoke-static {v0, v1}, Lnet/hockeyapp/android/FeedbackActivity;->access$002(Lnet/hockeyapp/android/FeedbackActivity;Lnet/hockeyapp/android/objects/ErrorObject;)Lnet/hockeyapp/android/objects/ErrorObject;
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_4f
 
     .line 867
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4f
 
     .line 868
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
@@ -96,7 +97,7 @@
 
     check-cast p1, Lnet/hockeyapp/android/objects/FeedbackResponse;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_4f
 
     .line 871
     invoke-virtual {p1}, Lnet/hockeyapp/android/objects/FeedbackResponse;->getStatus()Ljava/lang/String;
@@ -109,14 +110,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4f
 
     .line 875
     invoke-virtual {p1}, Lnet/hockeyapp/android/objects/FeedbackResponse;->getToken()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_4e
 
     .line 877
     invoke-static {}, Lnet/hockeyapp/android/utils/PrefsUtil;->getInstance()Lnet/hockeyapp/android/utils/PrefsUtil;
@@ -130,16 +131,18 @@
     invoke-virtual {v3, v0, v4}, Lnet/hockeyapp/android/utils/PrefsUtil;->saveFeedbackTokenToPrefs(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 879
+    # invokes: Lnet/hockeyapp/android/FeedbackActivity;->loadFeedbackMessages(Lnet/hockeyapp/android/objects/FeedbackResponse;)V
     invoke-static {v0, p1}, Lnet/hockeyapp/android/FeedbackActivity;->access$800(Lnet/hockeyapp/android/FeedbackActivity;Lnet/hockeyapp/android/objects/FeedbackResponse;)V
 
     .line 880
+    # setter for: Lnet/hockeyapp/android/FeedbackActivity;->mInSendFeedback:Z
     invoke-static {v0, v2}, Lnet/hockeyapp/android/FeedbackActivity;->access$902(Lnet/hockeyapp/android/FeedbackActivity;Z)Z
 
-    :cond_1
+    :cond_4e
     move v2, v1
 
-    :cond_2
-    if-nez v2, :cond_3
+    :cond_4f
+    if-nez v2, :cond_59
 
     .line 890
     new-instance p1, Lnet/hockeyapp/android/FeedbackActivity$ParseFeedbackHandler$1;
@@ -149,7 +152,7 @@
     invoke-virtual {v0, p1}, Lnet/hockeyapp/android/FeedbackActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     .line 900
-    :cond_3
+    :cond_59
     invoke-virtual {v0, v1}, Lnet/hockeyapp/android/FeedbackActivity;->enableDisableSendFeedbackButton(Z)V
 
     return-void

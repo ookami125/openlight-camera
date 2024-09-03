@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 44
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -75,26 +75,26 @@
 
     const/16 v3, 0x15
 
-    if-ge v0, v3, :cond_0
+    if-ge v0, v3, :cond_a
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     move v0, v1
 
-    :goto_0
+    :goto_b
     sput-boolean v0, Landroid/support/v7/app/AppCompatDelegateImplBase;->SHOULD_INSTALL_EXCEPTION_HANDLER:Z
 
     .line 51
     sget-boolean v0, Landroid/support/v7/app/AppCompatDelegateImplBase;->SHOULD_INSTALL_EXCEPTION_HANDLER:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     sget-boolean v0, Landroid/support/v7/app/AppCompatDelegateImplBase;->sInstalledExceptionHandler:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 53
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
@@ -112,7 +112,7 @@
     sput-boolean v2, Landroid/support/v7/app/AppCompatDelegateImplBase;->sInstalledExceptionHandler:Z
 
     .line 84
-    :cond_1
+    :cond_23
     new-array v0, v2, [I
 
     const v2, 0x1010054
@@ -125,7 +125,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-    .locals 0
+    .registers 4
 
     .line 112
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatDelegate;-><init>()V
@@ -153,7 +153,7 @@
 
     instance-of p2, p2, Landroid/support/v7/app/AppCompatDelegateImplBase$AppCompatWindowCallbackBase;
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_3d
 
     .line 122
     iget-object p2, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mOriginalWindowCallback:Landroid/view/Window$Callback;
@@ -187,7 +187,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_39
 
     .line 130
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mWindow:Landroid/view/Window;
@@ -195,13 +195,13 @@
     invoke-virtual {p0, p2}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 132
-    :cond_0
+    :cond_39
     invoke-virtual {p1}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     return-void
 
     .line 119
-    :cond_1
+    :cond_3d
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "AppCompat has already installed itself into the Window"
@@ -214,7 +214,7 @@
 
 # virtual methods
 .method public applyDayNight()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -225,37 +225,37 @@
 .end method
 
 .method final getActionBarThemedContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 187
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplBase;->getSupportActionBar()Landroid/support/v7/app/ActionBar;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 189
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar;->getThemedContext()Landroid/content/Context;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_c
+    if-nez v0, :cond_10
 
     .line 193
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mContext:Landroid/content/Context;
 
-    :cond_1
+    :cond_10
     return-object v0
 .end method
 
 .method public final getDrawerToggleDelegate()Landroid/support/v7/app/ActionBarDrawerToggle$Delegate;
-    .locals 1
+    .registers 2
 
     .line 180
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;
@@ -266,12 +266,12 @@
 .end method
 
 .method public getMenuInflater()Landroid/view/MenuInflater;
-    .locals 2
+    .registers 3
 
     .line 156
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mMenuInflater:Landroid/view/MenuInflater;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     .line 157
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplBase;->initWindowDecorActionBar()V
@@ -281,7 +281,7 @@
 
     iget-object v1, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mActionBar:Landroid/support/v7/app/ActionBar;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     iget-object v1, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mActionBar:Landroid/support/v7/app/ActionBar;
 
@@ -290,25 +290,25 @@
 
     move-result-object v1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     iget-object v1, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mContext:Landroid/content/Context;
 
-    :goto_0
+    :goto_16
     invoke-direct {v0, v1}, Landroid/support/v7/view/SupportMenuInflater;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mMenuInflater:Landroid/view/MenuInflater;
 
     .line 161
-    :cond_1
+    :cond_1b
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mMenuInflater:Landroid/view/MenuInflater;
 
     return-object p0
 .end method
 
 .method public getSupportActionBar()Landroid/support/v7/app/ActionBar;
-    .locals 0
+    .registers 1
 
     .line 145
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplBase;->initWindowDecorActionBar()V
@@ -320,14 +320,14 @@
 .end method
 
 .method final getTitle()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 301
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mOriginalWindowCallback:Landroid/view/Window$Callback;
 
     instance-of v0, v0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 302
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mOriginalWindowCallback:Landroid/view/Window$Callback;
@@ -341,14 +341,14 @@
     return-object p0
 
     .line 305
-    :cond_0
+    :cond_f
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mTitle:Ljava/lang/CharSequence;
 
     return-object p0
 .end method
 
 .method final getWindowCallback()Landroid/view/Window$Callback;
-    .locals 0
+    .registers 1
 
     .line 283
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mWindow:Landroid/view/Window;
@@ -364,7 +364,7 @@
 .end method
 
 .method final isDestroyed()Z
-    .locals 0
+    .registers 1
 
     .line 275
     iget-boolean p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mIsDestroyed:Z
@@ -373,7 +373,7 @@
 .end method
 
 .method public isHandleNativeActionModesEnabled()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -381,7 +381,7 @@
 .end method
 
 .method final isStarted()Z
-    .locals 0
+    .registers 1
 
     .line 279
     iget-boolean p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mIsStarted:Z
@@ -390,7 +390,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -410,13 +410,13 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onStart()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -427,7 +427,7 @@
 .end method
 
 .method public onStop()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -441,7 +441,7 @@
 .end method
 
 .method final peekSupportActionBar()Landroid/support/v7/app/ActionBar;
-    .locals 0
+    .registers 1
 
     .line 150
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mActionBar:Landroid/support/v7/app/ActionBar;
@@ -450,19 +450,19 @@
 .end method
 
 .method public setHandleNativeActionModesEnabled(Z)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public setLocalNightMode(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public final setTitle(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 288
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplBase;->mTitle:Ljava/lang/CharSequence;
@@ -477,7 +477,7 @@
 .end method
 
 .method wrapWindowCallback(Landroid/view/Window$Callback;)Landroid/view/Window$Callback;
-    .locals 1
+    .registers 3
 
     .line 138
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplBase$AppCompatWindowCallbackBase;

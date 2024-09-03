@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 3597
     new-instance v0, Landroid/support/v4/app/NotificationCompat$Action$1;
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;)V
-    .locals 8
+    .registers 12
 
     .line 3137
     new-instance v4, Landroid/os/Bundle;
@@ -90,7 +90,7 @@
 .end method
 
 .method constructor <init>(ILjava/lang/CharSequence;Landroid/app/PendingIntent;Landroid/os/Bundle;[Landroid/support/v4/app/RemoteInput;[Landroid/support/v4/app/RemoteInput;Z)V
-    .locals 0
+    .registers 8
 
     .line 3142
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompatBase$Action;-><init>()V
@@ -108,17 +108,17 @@
     .line 3145
     iput-object p3, p0, Landroid/support/v4/app/NotificationCompat$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_10
 
-    goto :goto_0
+    goto :goto_15
 
     .line 3146
-    :cond_0
+    :cond_10
     new-instance p4, Landroid/os/Bundle;
 
     invoke-direct {p4}, Landroid/os/Bundle;-><init>()V
 
-    :goto_0
+    :goto_15
     iput-object p4, p0, Landroid/support/v4/app/NotificationCompat$Action;->mExtras:Landroid/os/Bundle;
 
     .line 3147
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public getActionIntent()Landroid/app/PendingIntent;
-    .locals 0
+    .registers 1
 
     .line 3164
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->actionIntent:Landroid/app/PendingIntent;
@@ -145,7 +145,7 @@
 .end method
 
 .method public getAllowGeneratedReplies()Z
-    .locals 0
+    .registers 1
 
     .line 3181
     iget-boolean p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mAllowGeneratedReplies:Z
@@ -154,7 +154,7 @@
 .end method
 
 .method public getDataOnlyRemoteInputs()[Landroid/support/v4/app/RemoteInput;
-    .locals 0
+    .registers 1
 
     .line 3206
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mDataOnlyRemoteInputs:[Landroid/support/v4/app/RemoteInput;
@@ -163,7 +163,7 @@
 .end method
 
 .method public bridge synthetic getDataOnlyRemoteInputs()[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
-    .locals 0
+    .registers 1
 
     .line 3104
     invoke-virtual {p0}, Landroid/support/v4/app/NotificationCompat$Action;->getDataOnlyRemoteInputs()[Landroid/support/v4/app/RemoteInput;
@@ -174,7 +174,7 @@
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .locals 0
+    .registers 1
 
     .line 3172
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mExtras:Landroid/os/Bundle;
@@ -183,7 +183,7 @@
 .end method
 
 .method public getIcon()I
-    .locals 0
+    .registers 1
 
     .line 3154
     iget p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->icon:I
@@ -192,7 +192,7 @@
 .end method
 
 .method public getRemoteInputs()[Landroid/support/v4/app/RemoteInput;
-    .locals 0
+    .registers 1
 
     .line 3191
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->mRemoteInputs:[Landroid/support/v4/app/RemoteInput;
@@ -201,7 +201,7 @@
 .end method
 
 .method public bridge synthetic getRemoteInputs()[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
-    .locals 0
+    .registers 1
 
     .line 3104
     invoke-virtual {p0}, Landroid/support/v4/app/NotificationCompat$Action;->getRemoteInputs()[Landroid/support/v4/app/RemoteInput;
@@ -212,7 +212,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     .line 3159
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompat$Action;->title:Ljava/lang/CharSequence;

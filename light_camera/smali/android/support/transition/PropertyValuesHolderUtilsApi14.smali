@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public ofPointF(Landroid/util/Property;Landroid/graphics/Path;)Landroid/animation/PropertyValuesHolder;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -48,7 +48,7 @@
 
     new-array p1, p1, [F
 
-    fill-array-data p1, :array_0
+    fill-array-data p1, :array_10
 
     invoke-static {p0, p1}, Landroid/animation/PropertyValuesHolder;->ofFloat(Landroid/util/Property;[F)Landroid/animation/PropertyValuesHolder;
 
@@ -56,7 +56,7 @@
 
     return-object p0
 
-    :array_0
+    :array_10
     .array-data 4
         0x0
         0x3f800000    # 1.0f

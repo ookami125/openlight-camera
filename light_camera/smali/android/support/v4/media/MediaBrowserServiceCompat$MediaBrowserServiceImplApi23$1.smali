@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;Ljava/lang/Object;Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;)V
-    .locals 0
+    .registers 4
 
     .line 392
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1;->this$1:Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public detach()V
-    .locals 0
+    .registers 1
 
     .line 406
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1;->val$resultWrapper:Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;
@@ -56,9 +56,9 @@
 .end method
 
 .method onResultSent(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
-    .locals 2
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 396
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23$1;->val$resultWrapper:Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;
@@ -67,10 +67,10 @@
 
     invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;->sendResult(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 398
-    :cond_0
+    :cond_9
     invoke-static {}, Landroid/os/Parcel;->obtain()Landroid/os/Parcel;
 
     move-result-object v0
@@ -85,12 +85,12 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ResultWrapper;->sendResult(Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_16
     return-void
 .end method
 
 .method bridge synthetic onResultSent(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 392
     check-cast p1, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;

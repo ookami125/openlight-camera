@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 
 # virtual methods
 .method public getHeight()I
-    .locals 0
+    .registers 1
 
     .line 40
     iget p0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->height:I
@@ -81,7 +81,7 @@
 .end method
 
 .method public getNumFrames()I
-    .locals 0
+    .registers 1
 
     .line 48
     iget p0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->frameCount:I
@@ -90,7 +90,7 @@
 .end method
 
 .method public getStatus()I
-    .locals 0
+    .registers 1
 
     .line 55
     iget p0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->status:I
@@ -99,7 +99,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 0
+    .registers 1
 
     .line 44
     iget p0, p0, Lcom/bumptech/glide/gifdecoder/GifHeader;->width:I

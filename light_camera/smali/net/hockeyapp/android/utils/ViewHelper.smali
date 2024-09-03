@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,14 +14,14 @@
 .end method
 
 .method public static getGradient()Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x2
 
     .line 8
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_e
 
     .line 9
     new-instance v1, Landroid/graphics/drawable/GradientDrawable;
@@ -32,7 +32,7 @@
 
     return-object v1
 
-    :array_0
+    :array_e
     .array-data 4
         -0x1000000
         0x0

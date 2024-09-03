@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -29,12 +29,12 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Lorg/apache/commons/io/IOCase;)V
-    .locals 2
+    .registers 5
 
     .line 69
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_14
 
     const/4 v0, 0x1
 
@@ -47,18 +47,18 @@
 
     iput-object v0, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->names:[Ljava/lang/String;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_11
 
     .line 74
     sget-object p2, Lorg/apache/commons/io/IOCase;->SENSITIVE:Lorg/apache/commons/io/IOCase;
 
-    :cond_0
+    :cond_11
     iput-object p2, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->caseSensitivity:Lorg/apache/commons/io/IOCase;
 
     return-void
 
     .line 71
-    :cond_1
+    :cond_14
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The wildcard must not be null"
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;Lorg/apache/commons/io/IOCase;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -103,7 +103,7 @@
     .line 125
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1a
 
     .line 129
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -120,18 +120,18 @@
 
     iput-object p1, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->names:[Ljava/lang/String;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_17
 
     .line 130
     sget-object p2, Lorg/apache/commons/io/IOCase;->SENSITIVE:Lorg/apache/commons/io/IOCase;
 
-    :cond_0
+    :cond_17
     iput-object p2, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->caseSensitivity:Lorg/apache/commons/io/IOCase;
 
     return-void
 
     .line 127
-    :cond_1
+    :cond_1a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The list of names must not be null"
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -153,12 +153,12 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;Lorg/apache/commons/io/IOCase;)V
-    .locals 3
+    .registers 6
 
     .line 97
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
     .line 101
     array-length v0, p1
@@ -176,18 +176,18 @@
 
     invoke-static {p1, v2, v0, v2, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_15
 
     .line 103
     sget-object p2, Lorg/apache/commons/io/IOCase;->SENSITIVE:Lorg/apache/commons/io/IOCase;
 
-    :cond_0
+    :cond_15
     iput-object p2, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->caseSensitivity:Lorg/apache/commons/io/IOCase;
 
     return-void
 
     .line 99
-    :cond_1
+    :cond_18
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The array of names must not be null"
@@ -200,7 +200,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 6
+    .registers 8
 
     .line 142
     invoke-virtual {p1}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -216,8 +216,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_9
+    if-ge v3, v1, :cond_1a
 
     aget-object v4, v0, v3
 
@@ -228,23 +228,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_17
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_17
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_1
+    :cond_1a
     return v2
 .end method
 
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 5
+    .registers 8
 
     .line 160
     iget-object p1, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->names:[Ljava/lang/String;
@@ -255,8 +255,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_5
+    if-ge v2, v0, :cond_16
 
     aget-object v3, p1, v2
 
@@ -267,23 +267,23 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
+    :cond_16
     return v1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 175
     new-instance v0, Ljava/lang/StringBuilder;
@@ -305,19 +305,19 @@
     .line 178
     iget-object v1, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->names:[Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2c
 
     const/4 v1, 0x0
 
     .line 179
-    :goto_0
+    :goto_16
     iget-object v2, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->names:[Ljava/lang/String;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2c
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_22
 
     const-string v2, ","
 
@@ -325,7 +325,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 183
-    :cond_0
+    :cond_22
     iget-object v2, p0, Lorg/apache/commons/io/filefilter/NameFileFilter;->names:[Ljava/lang/String;
 
     aget-object v2, v2, v1
@@ -334,9 +334,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_2c
     const-string p0, ")"
 
     .line 186

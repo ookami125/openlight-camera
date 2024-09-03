@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 260
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$1;)V
-    .locals 0
+    .registers 2
 
     .line 260
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$NullBitmapTracker;-><init>()V
@@ -39,13 +39,13 @@
 
 # virtual methods
 .method public add(Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public remove(Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

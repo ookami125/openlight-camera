@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     .line 62
     sget-object v0, Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$UncaughtThrowableStrategy;->LOG:Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$UncaughtThrowableStrategy;
@@ -36,7 +36,7 @@
 .end method
 
 .method public constructor <init>(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/ThreadFactory;Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$UncaughtThrowableStrategy;)V
-    .locals 8
+    .registers 16
 
     .line 80
     new-instance v6, Ljava/util/concurrent/PriorityBlockingQueue;
@@ -71,7 +71,7 @@
 .end method
 
 .method public constructor <init>(ILcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$UncaughtThrowableStrategy;)V
-    .locals 8
+    .registers 11
 
     .line 74
     sget-object v5, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
@@ -98,17 +98,17 @@
 
 # virtual methods
 .method protected afterExecute(Ljava/lang/Runnable;Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 3
 
     .line 91
     invoke-super {p0, p1, p2}, Ljava/util/concurrent/ThreadPoolExecutor;->afterExecute(Ljava/lang/Runnable;Ljava/lang/Throwable;)V
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_28
 
     .line 92
     instance-of p2, p1, Ljava/util/concurrent/Future;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_28
 
     .line 93
     check-cast p1, Ljava/util/concurrent/Future;
@@ -118,24 +118,24 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_28
 
     invoke-interface {p1}, Ljava/util/concurrent/Future;->isCancelled()Z
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_28
 
     .line 96
-    :try_start_0
+    :try_start_17
     invoke-interface {p1}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Ljava/lang/InterruptedException; {:try_start_17 .. :try_end_1a} :catch_22
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_17 .. :try_end_1a} :catch_1b
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_0
+    :catch_1b
     move-exception p1
 
     .line 100
@@ -143,9 +143,9 @@
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$UncaughtThrowableStrategy;->handle(Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_1
+    :catch_22
     move-exception p1
 
     .line 98
@@ -153,13 +153,13 @@
 
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor$UncaughtThrowableStrategy;->handle(Ljava/lang/Throwable;)V
 
-    :cond_0
-    :goto_0
+    :cond_28
+    :goto_28
     return-void
 .end method
 
 .method protected newTaskFor(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

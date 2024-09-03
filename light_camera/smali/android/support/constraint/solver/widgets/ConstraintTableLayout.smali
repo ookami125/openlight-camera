@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>()V
@@ -136,7 +136,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 88
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>(II)V
@@ -196,7 +196,7 @@
 .end method
 
 .method public constructor <init>(IIII)V
-    .locals 0
+    .registers 5
 
     .line 78
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;-><init>(IIII)V
@@ -256,7 +256,7 @@
 .end method
 
 .method private setChildrenConnections()V
-    .locals 11
+    .registers 12
 
     .line 479
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mChildren:Ljava/util/ArrayList;
@@ -269,8 +269,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_8
+    if-ge v1, v0, :cond_e6
 
     .line 482
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mChildren:Ljava/util/ArrayList;
@@ -349,7 +349,7 @@
     .line 497
     instance-of v6, v7, Landroid/support/constraint/solver/widgets/Guideline;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_5e
 
     .line 498
     sget-object v6, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
@@ -369,10 +369,10 @@
 
     invoke-virtual {v6, v7, v9}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;I)Z
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 501
-    :cond_0
+    :cond_5e
     sget-object v6, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
     invoke-virtual {v3, v6}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -391,23 +391,23 @@
     invoke-virtual {v6, v7, v9}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;I)Z
 
     .line 506
-    :goto_1
+    :goto_6f
     iget v4, v4, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
-    packed-switch v4, :pswitch_data_0
+    packed-switch v4, :pswitch_data_e8
 
-    goto :goto_2
+    goto :goto_a8
 
     .line 508
-    :pswitch_0
+    :pswitch_75
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     invoke-virtual {v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->setHorizontalDimensionBehaviour(Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;)V
 
-    goto :goto_2
+    goto :goto_a8
 
     .line 519
-    :pswitch_1
+    :pswitch_7b
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
     invoke-virtual {v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -429,10 +429,10 @@
 
     invoke-virtual {v4, v6}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->setStrength(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;)V
 
-    goto :goto_2
+    goto :goto_a8
 
     .line 512
-    :pswitch_2
+    :pswitch_92
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
     invoke-virtual {v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -455,7 +455,7 @@
     invoke-virtual {v4, v6}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->setStrength(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Strength;)V
 
     .line 526
-    :goto_2
+    :goto_a8
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->TOP:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
     invoke-virtual {v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -476,7 +476,7 @@
     .line 528
     instance-of v4, v5, Landroid/support/constraint/solver/widgets/Guideline;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_cf
 
     .line 529
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
@@ -496,10 +496,10 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;I)Z
 
-    goto :goto_3
+    goto :goto_e0
 
     .line 532
-    :cond_1
+    :cond_cf
     sget-object v4, Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;
 
     invoke-virtual {v3, v4}, Landroid/support/constraint/solver/widgets/ConstraintWidget;->getAnchor(Landroid/support/constraint/solver/widgets/ConstraintAnchor$Type;)Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -517,28 +517,28 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/support/constraint/solver/widgets/ConstraintAnchor;->connect(Landroid/support/constraint/solver/widgets/ConstraintAnchor;I)Z
 
-    :goto_3
+    :goto_e0
     add-int/lit8 v2, v2, 0x1
 
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_8
 
-    :cond_2
+    :cond_e6
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_e8
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_92
+        :pswitch_7b
+        :pswitch_75
     .end packed-switch
 .end method
 
 .method private setHorizontalSlices()V
-    .locals 7
+    .registers 8
 
     .line 451
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalSlices:Ljava/util/ArrayList;
@@ -563,10 +563,10 @@
     move v4, v1
 
     .line 455
-    :goto_0
+    :goto_f
     iget v5, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
 
-    if-ge v2, v5, :cond_1
+    if-ge v2, v5, :cond_44
 
     .line 456
     new-instance v5, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$HorizontalSlice;
@@ -581,7 +581,7 @@
 
     add-int/lit8 v3, v3, -0x1
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_38
 
     .line 459
     new-instance v3, Landroid/support/constraint/solver/widgets/Guideline;
@@ -609,14 +609,14 @@
 
     invoke-virtual {v6, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 467
-    :cond_0
+    :cond_38
     iput-object p0, v5, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$HorizontalSlice;->bottom:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 469
-    :goto_1
+    :goto_3a
     iget-object v3, v5, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$HorizontalSlice;->bottom:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 470
@@ -626,17 +626,17 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 472
-    :cond_1
+    :cond_44
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->updateDebugSolverNames()V
 
     return-void
 .end method
 
 .method private setVerticalSlices()V
-    .locals 6
+    .registers 7
 
     .line 422
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -659,10 +659,10 @@
     move v3, v1
 
     .line 426
-    :goto_0
+    :goto_e
     iget v4, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
-    if-ge v0, v4, :cond_1
+    if-ge v0, v4, :cond_43
 
     .line 427
     new-instance v4, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;
@@ -679,7 +679,7 @@
 
     sub-int/2addr v2, v5
 
-    if-ge v0, v2, :cond_0
+    if-ge v0, v2, :cond_37
 
     .line 430
     new-instance v2, Landroid/support/constraint/solver/widgets/Guideline;
@@ -707,14 +707,14 @@
 
     invoke-virtual {v5, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_39
 
     .line 438
-    :cond_0
+    :cond_37
     iput-object p0, v4, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->right:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 440
-    :goto_1
+    :goto_39
     iget-object v2, v4, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->right:Landroid/support/constraint/solver/widgets/ConstraintWidget;
 
     .line 441
@@ -724,27 +724,27 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 443
-    :cond_1
+    :cond_43
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->updateDebugSolverNames()V
 
     return-void
 .end method
 
 .method private updateDebugSolverNames()V
-    .locals 7
+    .registers 8
 
     .line 404
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->system:Landroid/support/constraint/solver/LinearSystem;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 407
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
@@ -755,8 +755,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_d
+    if-ge v2, v0, :cond_37
 
     .line 409
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -793,18 +793,18 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 411
-    :cond_1
+    :cond_37
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    :goto_1
-    if-ge v1, v0, :cond_2
+    :goto_3d
+    if-ge v1, v0, :cond_67
 
     .line 413
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
@@ -841,16 +841,16 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_3d
 
-    :cond_2
+    :cond_67
     return-void
 .end method
 
 
 # virtual methods
 .method public addToSolver(Landroid/support/constraint/solver/LinearSystem;I)V
-    .locals 8
+    .registers 11
 
     .line 314
     invoke-super {p0, p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->addToSolver(Landroid/support/constraint/solver/LinearSystem;I)V
@@ -862,18 +862,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     return-void
 
     .line 319
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setTableDimensions()V
 
     .line 322
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mSystem:Landroid/support/constraint/solver/LinearSystem;
 
-    if-ne p1, v1, :cond_5
+    if-ne p1, v1, :cond_6e
 
     .line 323
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -886,10 +886,10 @@
 
     move v3, v2
 
-    :goto_0
+    :goto_1b
     const/4 v4, 0x1
 
-    if-ge v3, v1, :cond_2
+    if-ge v3, v1, :cond_39
 
     .line 325
     iget-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -907,15 +907,15 @@
 
     sget-object v7, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v6, v7, :cond_1
+    if-ne v6, v7, :cond_2f
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     move v4, v2
 
     .line 326
-    :goto_1
+    :goto_30
     invoke-virtual {v5, v4}, Landroid/support/constraint/solver/widgets/Guideline;->setPositionRelaxed(Z)V
 
     .line 328
@@ -923,10 +923,10 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 330
-    :cond_2
+    :cond_39
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
@@ -935,8 +935,8 @@
 
     move v3, v2
 
-    :goto_2
-    if-ge v3, v1, :cond_4
+    :goto_40
+    if-ge v3, v1, :cond_5e
 
     .line 332
     iget-object v5, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
@@ -954,17 +954,17 @@
 
     sget-object v7, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->WRAP_CONTENT:Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v6, v7, :cond_3
+    if-ne v6, v7, :cond_54
 
     move v6, v4
 
-    goto :goto_3
+    goto :goto_55
 
-    :cond_3
+    :cond_54
     move v6, v2
 
     .line 333
-    :goto_3
+    :goto_55
     invoke-virtual {v5, v6}, Landroid/support/constraint/solver/widgets/Guideline;->setPositionRelaxed(Z)V
 
     .line 335
@@ -972,11 +972,11 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_2
+    goto :goto_40
 
-    :cond_4
-    :goto_4
-    if-ge v2, v0, :cond_5
+    :cond_5e
+    :goto_5e
+    if-ge v2, v0, :cond_6e
 
     .line 338
     iget-object v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mChildren:Ljava/util/ArrayList;
@@ -992,14 +992,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_4
+    goto :goto_5e
 
-    :cond_5
+    :cond_6e
     return-void
 .end method
 
 .method public computeGuidelinesPercentPositions()V
-    .locals 4
+    .registers 5
 
     .line 578
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -1012,8 +1012,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_8
+    if-ge v2, v0, :cond_18
 
     .line 580
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -1028,18 +1028,18 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 582
-    :cond_0
+    :cond_18
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    :goto_1
-    if-ge v1, v0, :cond_1
+    :goto_1e
+    if-ge v1, v0, :cond_2e
 
     .line 584
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
@@ -1054,14 +1054,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
+    :cond_2e
     return-void
 .end method
 
 .method public cycleColumnAlignment(I)V
-    .locals 1
+    .registers 3
 
     .line 252
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -1075,50 +1075,50 @@
     .line 253
     iget v0, p1, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1e
 
-    goto :goto_0
+    goto :goto_19
 
-    :pswitch_0
+    :pswitch_e
     const/4 v0, 0x1
 
     .line 258
     iput v0, p1, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :pswitch_1
+    :pswitch_12
     const/4 v0, 0x0
 
     .line 255
     iput v0, p1, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
-    goto :goto_0
+    goto :goto_19
 
-    :pswitch_2
+    :pswitch_16
     const/4 v0, 0x2
 
     .line 261
     iput v0, p1, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
     .line 264
-    :goto_0
+    :goto_19
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setChildrenConnections()V
 
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_12
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public getColumnAlignmentRepresentation(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 158
     iget-object p0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -1134,54 +1134,54 @@
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_10
 
     const-string p0, "L"
 
     return-object p0
 
     .line 161
-    :cond_0
+    :cond_10
     iget p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_17
 
     const-string p0, "C"
 
     return-object p0
 
     .line 163
-    :cond_1
+    :cond_17
     iget p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
     const/4 v0, 0x3
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1f
 
     const-string p0, "F"
 
     return-object p0
 
     .line 165
-    :cond_2
+    :cond_1f
     iget p0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
     const/4 p1, 0x2
 
-    if-ne p0, p1, :cond_3
+    if-ne p0, p1, :cond_27
 
     const-string p0, "R"
 
     return-object p0
 
-    :cond_3
+    :cond_27
     const-string p0, "!"
 
     return-object p0
 .end method
 
 .method public getColumnsAlignmentRepresentation()Ljava/lang/String;
-    .locals 6
+    .registers 7
 
     .line 134
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -1194,8 +1194,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_4
+    :goto_9
+    if-ge v2, v0, :cond_70
 
     .line 137
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -1211,7 +1211,7 @@
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_2a
 
     .line 139
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1228,13 +1228,13 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_6d
 
     .line 140
-    :cond_0
+    :cond_2a
     iget v4, v3, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_40
 
     .line 141
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1251,15 +1251,15 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_6d
 
     .line 142
-    :cond_1
+    :cond_40
     iget v4, v3, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
     const/4 v5, 0x3
 
-    if-ne v4, v5, :cond_2
+    if-ne v4, v5, :cond_57
 
     .line 143
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1276,15 +1276,15 @@
 
     move-result-object v1
 
-    goto :goto_1
+    goto :goto_6d
 
     .line 144
-    :cond_2
+    :cond_57
     iget v3, v3, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->alignment:I
 
     const/4 v4, 0x2
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_6d
 
     .line 145
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1301,18 +1301,18 @@
 
     move-result-object v1
 
-    :cond_3
-    :goto_1
+    :cond_6d
+    :goto_6d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_4
+    :cond_70
     return-object v1
 .end method
 
 .method public getHorizontalGuidelines()Ljava/util/ArrayList;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1329,7 +1329,7 @@
 .end method
 
 .method public getNumCols()I
-    .locals 0
+    .registers 1
 
     .line 116
     iget p0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
@@ -1338,7 +1338,7 @@
 .end method
 
 .method public getNumRows()I
-    .locals 0
+    .registers 1
 
     .line 107
     iget p0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
@@ -1347,7 +1347,7 @@
 .end method
 
 .method public getPadding()I
-    .locals 0
+    .registers 1
 
     .line 125
     iget p0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mPadding:I
@@ -1356,7 +1356,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "ConstraintTableLayout"
 
@@ -1364,7 +1364,7 @@
 .end method
 
 .method public getVerticalGuidelines()Ljava/util/ArrayList;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1381,7 +1381,7 @@
 .end method
 
 .method public handlesInternalConstraints()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -1389,7 +1389,7 @@
 .end method
 
 .method public isVerticalGrowth()Z
-    .locals 0
+    .registers 1
 
     .line 208
     iget-boolean p0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGrowth:Z
@@ -1398,7 +1398,7 @@
 .end method
 
 .method public setColumnAlignment(II)V
-    .locals 1
+    .registers 4
 
     .line 239
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -1407,7 +1407,7 @@
 
     move-result v0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_15
 
     .line 240
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalSlices:Ljava/util/ArrayList;
@@ -1424,12 +1424,12 @@
     .line 242
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setChildrenConnections()V
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public setColumnAlignment(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
 
     .line 273
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -1440,8 +1440,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_4
+    :goto_6
+    if-ge v2, v0, :cond_35
 
     .line 274
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -1450,64 +1450,64 @@
 
     const/16 v4, 0x4c
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_15
 
     const/4 v3, 0x1
 
     .line 276
     invoke-virtual {p0, v2, v3}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setColumnAlignment(II)V
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_0
+    :cond_15
     const/16 v4, 0x43
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_1d
 
     .line 278
     invoke-virtual {p0, v2, v1}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setColumnAlignment(II)V
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_1
+    :cond_1d
     const/16 v4, 0x46
 
-    if-ne v3, v4, :cond_2
+    if-ne v3, v4, :cond_26
 
     const/4 v3, 0x3
 
     .line 280
     invoke-virtual {p0, v2, v3}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setColumnAlignment(II)V
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_2
+    :cond_26
     const/16 v4, 0x52
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_2f
 
     const/4 v3, 0x2
 
     .line 282
     invoke-virtual {p0, v2, v3}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setColumnAlignment(II)V
 
-    goto :goto_1
+    goto :goto_32
 
     .line 284
-    :cond_3
+    :cond_2f
     invoke-virtual {p0, v2, v1}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setColumnAlignment(II)V
 
-    :goto_1
+    :goto_32
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_4
+    :cond_35
     return-void
 .end method
 
 .method public setDebugSolverName(Landroid/support/constraint/solver/LinearSystem;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 396
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->system:Landroid/support/constraint/solver/LinearSystem;
@@ -1522,16 +1522,16 @@
 .end method
 
 .method public setNumCols(I)V
-    .locals 1
+    .registers 3
 
     .line 179
     iget-boolean v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGrowth:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_10
 
     .line 180
     iput p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
@@ -1542,21 +1542,21 @@
     .line 182
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setTableDimensions()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public setNumRows(I)V
-    .locals 1
+    .registers 3
 
     .line 194
     iget-boolean v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGrowth:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     iget v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_10
 
     .line 195
     iput p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
@@ -1567,26 +1567,26 @@
     .line 197
     invoke-virtual {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setTableDimensions()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public setPadding(I)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_5
 
     .line 227
     iput p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mPadding:I
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public setTableDimensions()V
-    .locals 4
+    .registers 5
 
     .line 350
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mChildren:Ljava/util/ArrayList;
@@ -1599,8 +1599,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_8
+    if-ge v1, v0, :cond_1a
 
     .line 352
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mChildren:Ljava/util/ArrayList;
@@ -1620,9 +1620,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_1a
     add-int/2addr v0, v2
 
     .line 356
@@ -1630,18 +1630,18 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_48
 
     .line 357
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_27
 
     .line 358
     invoke-virtual {p0, v2}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setNumCols(I)V
 
     .line 360
-    :cond_1
+    :cond_27
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
     div-int v1, v0, v1
@@ -1651,15 +1651,15 @@
 
     mul-int/2addr v3, v1
 
-    if-ge v3, v0, :cond_2
+    if-ge v3, v0, :cond_32
 
     add-int/lit8 v1, v1, 0x1
 
     .line 364
-    :cond_2
+    :cond_32
     iget v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_42
 
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
 
@@ -1672,30 +1672,30 @@
 
     sub-int/2addr v3, v2
 
-    if-ne v0, v3, :cond_3
+    if-ne v0, v3, :cond_42
 
     return-void
 
     .line 368
-    :cond_3
+    :cond_42
     iput v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
 
     .line 369
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setHorizontalSlices()V
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 371
-    :cond_4
+    :cond_48
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_4f
 
     .line 372
     invoke-virtual {p0, v2}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setNumRows(I)V
 
     .line 374
-    :cond_5
+    :cond_4f
     iget v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumRows:I
 
     div-int v1, v0, v1
@@ -1705,15 +1705,15 @@
 
     mul-int/2addr v3, v1
 
-    if-ge v3, v0, :cond_6
+    if-ge v3, v0, :cond_5a
 
     add-int/lit8 v1, v1, 0x1
 
     .line 378
-    :cond_6
+    :cond_5a
     iget v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
-    if-ne v0, v1, :cond_7
+    if-ne v0, v1, :cond_6a
 
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
 
@@ -1726,26 +1726,26 @@
 
     sub-int/2addr v3, v2
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v3, :cond_6a
 
     return-void
 
     .line 382
-    :cond_7
+    :cond_6a
     iput v1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mNumCols:I
 
     .line 383
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setVerticalSlices()V
 
     .line 385
-    :goto_1
+    :goto_6f
     invoke-direct {p0}, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->setChildrenConnections()V
 
     return-void
 .end method
 
 .method public setVerticalGrowth(Z)V
-    .locals 0
+    .registers 2
 
     .line 217
     iput-boolean p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGrowth:Z
@@ -1754,7 +1754,7 @@
 .end method
 
 .method public updateFromSolver(Landroid/support/constraint/solver/LinearSystem;I)V
-    .locals 4
+    .registers 7
 
     .line 547
     invoke-super {p0, p1, p2}, Landroid/support/constraint/solver/widgets/ConstraintWidgetContainer;->updateFromSolver(Landroid/support/constraint/solver/LinearSystem;I)V
@@ -1762,7 +1762,7 @@
     .line 550
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mSystem:Landroid/support/constraint/solver/LinearSystem;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_35
 
     .line 551
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -1775,8 +1775,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_f
+    if-ge v2, v0, :cond_1f
 
     .line 553
     iget-object v3, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mVerticalGuidelines:Ljava/util/ArrayList;
@@ -1792,18 +1792,18 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 556
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    :goto_1
-    if-ge v1, v0, :cond_1
+    :goto_25
+    if-ge v1, v0, :cond_35
 
     .line 558
     iget-object v2, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout;->mHorizontalGuidelines:Ljava/util/ArrayList;
@@ -1819,8 +1819,8 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
+    :cond_35
     return-void
 .end method

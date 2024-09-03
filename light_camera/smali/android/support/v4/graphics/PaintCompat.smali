@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
     .param p0    # Landroid/graphics/Paint;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -29,7 +29,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 38
     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->hasGlyph(Ljava/lang/String;)Z
@@ -39,7 +39,7 @@
     return p0
 
     .line 40
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroid/support/v4/graphics/PaintCompatApi14;->hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
 
     move-result p0

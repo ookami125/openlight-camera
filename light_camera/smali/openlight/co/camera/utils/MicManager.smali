@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 16
     new-instance v0, Lopenlight/co/camera/utils/MicManager;
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/MicManager;
-    .locals 1
+    .registers 1
 
     .line 20
     sget-object v0, Lopenlight/co/camera/utils/MicManager;->sInstance:Lopenlight/co/camera/utils/MicManager;
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public release()V
-    .locals 1
+    .registers 2
 
     .line 42
     iget-object p0, p0, Lopenlight/co/camera/utils/MicManager;->mAudioManager:Landroid/media/AudioManager;
@@ -76,7 +76,7 @@
 .end method
 
 .method public updateMicFromPrefs()Z
-    .locals 3
+    .registers 4
 
     .line 30
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;

@@ -16,12 +16,12 @@
 
 # direct methods
 .method public constructor <init>(Lorg/apache/commons/io/filefilter/IOFileFilter;)V
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 45
     iput-object p1, p0, Lorg/apache/commons/io/filefilter/NotFileFilter;->filter:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -29,7 +29,7 @@
     return-void
 
     .line 43
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The filter must not be null"
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 0
+    .registers 2
 
     .line 56
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/NotFileFilter;->filter:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -57,7 +57,7 @@
 .end method
 
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 0
+    .registers 3
 
     .line 68
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/NotFileFilter;->filter:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -72,7 +72,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 78
     new-instance v0, Ljava/lang/StringBuilder;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 2
 
     .line 1070
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onPreferenceChanged(Lopenlight/co/lib/content/Prefs;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 1073
     invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
@@ -45,68 +45,69 @@
 
     const v0, -0x11e151fb
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_28
 
     const v0, 0x3ad4468e
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_1e
 
     const v0, 0x6fda0646
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_14
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_14
     const-string p1, "ex_index"
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     const/4 p1, 0x0
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_1e
     const-string p1, "camera_mode_setting"
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     const/4 p1, 0x2
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_28
     const-string p1, "zoom_value"
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     const/4 p1, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_3
-    :goto_0
+    :cond_32
+    :goto_32
     const/4 p1, -0x1
 
-    :goto_1
-    packed-switch p1, :pswitch_data_0
+    :goto_33
+    packed-switch p1, :pswitch_data_80
 
-    goto :goto_2
+    goto :goto_7e
 
     .line 1083
-    :pswitch_0
+    :pswitch_37
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$800()Ljava/lang/String;
 
     move-result-object p1
@@ -118,15 +119,17 @@
     .line 1084
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # invokes: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
     invoke-static {p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_7e
 
     .line 1089
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mUpdatePreferenceListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdatePreferenceListener;
     invoke-static {p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2200(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdatePreferenceListener;
 
     move-result-object p1
@@ -136,6 +139,7 @@
     .line 1090
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
     invoke-static {p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2100(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/hud/HudLayout;
 
     move-result-object p1
@@ -145,16 +149,18 @@
     .line 1091
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
     invoke-static {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2100(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/hud/HudLayout;
 
     move-result-object p0
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudValues()V
 
-    goto :goto_2
+    goto :goto_7e
 
     .line 1076
-    :pswitch_1
+    :pswitch_64
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$800()Ljava/lang/String;
 
     move-result-object p1
@@ -166,31 +172,33 @@
     .line 1077
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # invokes: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
     invoke-static {p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_7e
 
     .line 1078
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$5;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
     invoke-static {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2100(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/hud/HudLayout;
 
     move-result-object p0
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudValues()V
 
-    :cond_4
-    :goto_2
+    :cond_7e
+    :goto_7e
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_80
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_64
+        :pswitch_64
+        :pswitch_37
     .end packed-switch
 .end method

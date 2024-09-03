@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method static newModel(Ljava/lang/String;Ljava/lang/String;II)Lopenlight/co/camera/view/setting/SettingModel;
-    .locals 1
+    .registers 5
 
     .line 47
     new-instance v0, Lopenlight/co/camera/view/setting/DynamicSettingModel;
@@ -54,7 +54,7 @@
 .end method
 
 .method static newModel(Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;)Lopenlight/co/camera/view/setting/SettingModel;
-    .locals 1
+    .registers 2
 
     .line 34
     new-instance v0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;
@@ -67,7 +67,7 @@
 
 # virtual methods
 .method getIconId()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -75,7 +75,7 @@
 .end method
 
 .method getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -83,7 +83,7 @@
 .end method
 
 .method getRelatedListId()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -91,7 +91,7 @@
 .end method
 
 .method getResourceList()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -107,7 +107,7 @@
 .end method
 
 .method getSelectedIconId()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -115,7 +115,7 @@
 .end method
 
 .method getSettingsId()Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -123,7 +123,7 @@
 .end method
 
 .method getSettingsValue()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 71
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingModel;->mSettingsValue:Ljava/lang/String;
@@ -132,7 +132,7 @@
 .end method
 
 .method getSubTitle()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 60
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingModel;->mSubTitle:Ljava/lang/String;
@@ -141,7 +141,7 @@
 .end method
 
 .method getTitle()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingModel;->mTitle:Ljava/lang/String;
@@ -150,7 +150,7 @@
 .end method
 
 .method getType()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -158,13 +158,13 @@
 .end method
 
 .method initValue()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method isSelectionHighlighted()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -172,7 +172,7 @@
 .end method
 
 .method setSettingsValue(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 74
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingModel;->mSettingsValue:Ljava/lang/String;

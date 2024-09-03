@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method private updateOffsets()V
-    .locals 4
+    .registers 5
 
     .line 53
     iget-object v0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mView:Landroid/view/View;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public getLayoutLeft()I
-    .locals 0
+    .registers 1
 
     .line 100
     iget p0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mLayoutLeft:I
@@ -84,7 +84,7 @@
 .end method
 
 .method public getLayoutTop()I
-    .locals 0
+    .registers 1
 
     .line 96
     iget p0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mLayoutTop:I
@@ -93,7 +93,7 @@
 .end method
 
 .method public getLeftAndRightOffset()I
-    .locals 0
+    .registers 1
 
     .line 92
     iget p0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mOffsetLeft:I
@@ -102,7 +102,7 @@
 .end method
 
 .method public getTopAndBottomOffset()I
-    .locals 0
+    .registers 1
 
     .line 88
     iget p0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mOffsetTop:I
@@ -111,7 +111,7 @@
 .end method
 
 .method public onViewLayout()V
-    .locals 1
+    .registers 2
 
     .line 45
     iget-object v0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mView:Landroid/view/View;
@@ -138,12 +138,12 @@
 .end method
 
 .method public setLeftAndRightOffset(I)Z
-    .locals 1
+    .registers 3
 
     .line 79
     iget v0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mOffsetLeft:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 80
     iput p1, p0, Landroid/support/design/widget/ViewOffsetHelper;->mOffsetLeft:I
@@ -155,19 +155,19 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public setTopAndBottomOffset(I)Z
-    .locals 1
+    .registers 3
 
     .line 64
     iget v0, p0, Landroid/support/design/widget/ViewOffsetHelper;->mOffsetTop:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_b
 
     .line 65
     iput p1, p0, Landroid/support/design/widget/ViewOffsetHelper;->mOffsetTop:I
@@ -179,7 +179,7 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return p0

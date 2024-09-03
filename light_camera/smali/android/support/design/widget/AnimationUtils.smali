@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 28
     new-instance v0, Landroid/view/animation/LinearInterpolator;
@@ -58,7 +58,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method static lerp(FFF)F
-    .locals 0
+    .registers 3
 
     sub-float/2addr p1, p0
 
@@ -79,7 +79,7 @@
 .end method
 
 .method static lerp(IIF)I
-    .locals 0
+    .registers 3
 
     sub-int/2addr p1, p0
 

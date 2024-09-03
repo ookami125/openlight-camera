@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>([BLjava/lang/Class;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B",
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method readResolve()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -78,18 +78,18 @@
     move-result-object v0
 
     .line 39
-    :try_start_0
+    :try_start_6
     iget-object p0, p0, Lcom/squareup/wire/MessageSerializedForm;->bytes:[B
 
     invoke-virtual {v0, p0}, Lcom/squareup/wire/ProtoAdapter;->decode([B)Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_c} :catch_d
 
     return-object p0
 
-    :catch_0
+    :catch_d
     move-exception p0
 
     .line 41

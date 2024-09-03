@@ -154,7 +154,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 132
     const-class v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -169,7 +169,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lopenlight/co/camera/ImagePreviewFragment;Landroid/view/ViewGroup;)V
-    .locals 3
+    .registers 7
 
     .line 255
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -302,7 +302,7 @@
     .line 264
     iget-object p3, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7d
 
     const p3, 0x7f0b005d
 
@@ -317,7 +317,7 @@
     iput-object p2, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
 
     .line 268
-    :cond_0
+    :cond_7d
     new-instance p2, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$2;
 
     invoke-direct {p2, p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$2;-><init>(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Landroid/content/Context;)V
@@ -328,7 +328,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->launchVideoFragment()V
@@ -337,7 +337,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCurrentWheelView:Landroid/view/View;
@@ -346,7 +346,7 @@
 .end method
 
 .method static synthetic access$1000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCaptureListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
@@ -355,7 +355,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Landroid/view/View;)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 94
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCurrentWheelView:Landroid/view/View;
@@ -364,7 +364,7 @@
 .end method
 
 .method static synthetic access$1100(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/managers/capture/CaptureManager;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCaptureManager:Lopenlight/co/camera/managers/capture/CaptureManager;
@@ -373,7 +373,7 @@
 .end method
 
 .method static synthetic access$1200(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Z)V
-    .locals 0
+    .registers 2
 
     .line 94
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->handleViewLeftControl(Z)V
@@ -382,7 +382,7 @@
 .end method
 
 .method static synthetic access$1300(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeStatusBar()V
@@ -391,7 +391,7 @@
 .end method
 
 .method static synthetic access$1400(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Ljava/lang/String;Z)V
-    .locals 0
+    .registers 3
 
     .line 94
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrShowAncillaryToolbar(Ljava/lang/String;Z)V
@@ -400,7 +400,7 @@
 .end method
 
 .method static synthetic access$1500(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->disableWheelControl()V
@@ -409,7 +409,7 @@
 .end method
 
 .method static synthetic access$1600(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeLevel()V
@@ -418,7 +418,7 @@
 .end method
 
 .method static synthetic access$1700(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeDofView()V
@@ -427,7 +427,7 @@
 .end method
 
 .method static synthetic access$1802(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Z)Z
-    .locals 0
+    .registers 2
 
     .line 94
     iput-boolean p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsDofEnabled:Z
@@ -436,7 +436,7 @@
 .end method
 
 .method static synthetic access$1900(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Landroid/view/ViewGroup;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
@@ -445,7 +445,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 94
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeWheelView(Landroid/view/View;)V
@@ -454,7 +454,7 @@
 .end method
 
 .method static synthetic access$2000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Z
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
@@ -465,7 +465,7 @@
 .end method
 
 .method static synthetic access$2100(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/hud/HudLayout;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
@@ -474,7 +474,7 @@
 .end method
 
 .method static synthetic access$2200(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdatePreferenceListener;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mUpdatePreferenceListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdatePreferenceListener;
@@ -483,7 +483,7 @@
 .end method
 
 .method static synthetic access$2300(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/CameraActivity;
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getCameraActivity()Lopenlight/co/camera/CameraActivity;
@@ -494,7 +494,7 @@
 .end method
 
 .method static synthetic access$2400(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Z)V
-    .locals 0
+    .registers 2
 
     .line 94
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->setAlphaInformationViews(Z)V
@@ -503,7 +503,7 @@
 .end method
 
 .method static synthetic access$2500(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/wheel/ModeWheel;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
@@ -512,7 +512,7 @@
 .end method
 
 .method static synthetic access$2600(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->testUpdateOnUi()V
@@ -521,7 +521,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeConfirmation()V
@@ -530,7 +530,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 1
 
     .line 94
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->showGalleryThumbTimeout()V
@@ -539,7 +539,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/thumbnail/ThumbnailView;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -548,7 +548,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/metrics/Metrics;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
@@ -557,7 +557,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mContext:Landroid/content/Context;
@@ -566,7 +566,7 @@
 .end method
 
 .method static synthetic access$800()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 94
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
@@ -575,7 +575,7 @@
 .end method
 
 .method private addDofView()V
-    .locals 3
+    .registers 4
 
     .line 1573
     new-instance v0, Lopenlight/co/camera/view/depthoffield/DepthOfField;
@@ -611,55 +611,55 @@
 .end method
 
 .method private addDragMovement(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 1143
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getTopControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_12
 
     .line 1144
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getBottomControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 p1, 0x0
 
-    :goto_0
-    if-eqz p1, :cond_2
+    :goto_13
+    if-eqz p1, :cond_1a
 
     .line 1146
     iget p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPositionOfDrag:F
 
     invoke-virtual {p1, p0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->updateDragPosition(F)V
 
-    :cond_2
+    :cond_1a
     return-void
 .end method
 
 .method private addHud()V
-    .locals 4
+    .registers 5
 
     .line 1475
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 1476
     new-instance v0, Lopenlight/co/camera/view/hud/HudLayout;
@@ -686,17 +686,17 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/hud/HudLayout;->openLayoutAnimation()V
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private addLevel()V
-    .locals 2
+    .registers 3
 
     .line 1510
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mLevelView:Lopenlight/co/camera/view/level/Leveler;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 1511
     new-instance v0, Lopenlight/co/camera/view/level/Leveler;
@@ -729,12 +729,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/level/Leveler;->addLevelView()V
 
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method private addModeWheelControl()V
-    .locals 4
+    .registers 5
 
     .line 1359
     new-instance v0, Lopenlight/co/camera/view/wheel/ModeWheel;
@@ -755,7 +755,7 @@
 .end method
 
 .method private addModeWheelView()V
-    .locals 2
+    .registers 3
 
     .line 1364
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeSwitchParent:Landroid/widget/RelativeLayout;
@@ -780,7 +780,7 @@
 .end method
 
 .method private addOrRemoveAlertView()V
-    .locals 3
+    .registers 4
 
     .line 1638
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -798,12 +798,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     .line 1641
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 1642
     new-instance v0, Lopenlight/co/camera/view/notification/AlertView;
@@ -821,40 +821,40 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/notification/AlertView;->addViewToFragment()V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 1645
-    :cond_0
+    :cond_25
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/notification/AlertView;->show()V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 1648
-    :cond_1
+    :cond_2b
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeAlertView()V
 
-    :goto_0
+    :goto_2e
     return-void
 .end method
 
 .method private addOrRemoveModeWheel(Z)V
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     .line 929
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addModeWheelView()V
 
-    goto :goto_0
+    goto :goto_9
 
     .line 931
-    :cond_0
+    :cond_6
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeModeWheelView()V
 
     .line 933
-    :goto_0
+    :goto_9
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result p1
@@ -867,12 +867,12 @@
 .end method
 
 .method private addOrShowAncillaryToolbar(Ljava/lang/String;Z)V
-    .locals 7
+    .registers 10
 
     .line 1293
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 1294
     new-instance v0, Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
@@ -898,16 +898,16 @@
 
     invoke-virtual {p2, p0}, Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 1298
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
     invoke-virtual {v0, p1, p2}, Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;->updateToolbar(Ljava/lang/String;Z)V
 
     .line 1300
-    :goto_0
+    :goto_20
     iget-object p2, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
     const/4 v0, 0x1
@@ -921,21 +921,21 @@
 
     const/4 p2, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2f
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_1
+    :cond_2f
     move v0, p2
 
     .line 1302
-    :goto_1
+    :goto_30
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrRemoveModeWheel(Z)V
 
     .line 1304
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHistogramView:Landroid/view/View;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_59
 
     .line 1305
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHistogramView:Landroid/view/View;
@@ -973,19 +973,19 @@
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_2
+    :cond_59
     return-void
 .end method
 
 .method private addOrShowGridView()V
-    .locals 4
+    .registers 5
 
     .line 1535
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 1536
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -999,7 +999,7 @@
     .line 1537
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     .line 1538
     new-instance v1, Lopenlight/co/camera/view/grid/GridView;
@@ -1012,39 +1012,39 @@
 
     iput-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 1540
-    :cond_0
+    :cond_1e
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
     invoke-virtual {v1, v0}, Lopenlight/co/camera/view/grid/GridView;->updateGridType(Ljava/lang/String;)V
 
     .line 1542
-    :goto_0
+    :goto_23
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/grid/GridView;->setVisibility(I)V
 
-    :cond_1
+    :cond_29
     return-void
 .end method
 
 .method private addStatusBar()V
-    .locals 3
+    .registers 4
 
     .line 1393
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 1394
     new-instance v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$6;
@@ -1067,19 +1067,19 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/statusbar/StatusBar;->openLayoutAnimation()V
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private addUiElement()V
-    .locals 2
+    .registers 3
 
     .line 937
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 938
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
@@ -1106,10 +1106,10 @@
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;->resetItems()V
 
-    goto :goto_0
+    goto :goto_48
 
     .line 944
-    :cond_0
+    :cond_20
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getAlpha()F
@@ -1120,13 +1120,13 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2f
 
     .line 945
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->showGalleryThumb()V
 
     .line 947
-    :cond_1
+    :cond_2f
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
 
     const/4 v1, 0x0
@@ -1153,23 +1153,23 @@
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addStatusBar()V
 
     .line 954
-    :goto_0
+    :goto_48
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateControlUiOnModeChange()V
 
     .line 955
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_52
 
     .line 956
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrRemoveAlertView()V
 
-    :cond_2
+    :cond_52
     return-void
 .end method
 
 .method private addWheelControl()V
-    .locals 4
+    .registers 5
 
     .line 920
     new-instance v0, Lopenlight/co/camera/view/wheel/FerrisWheel;
@@ -1220,7 +1220,7 @@
 .end method
 
 .method private addWheelView(Landroid/view/View;)V
-    .locals 4
+    .registers 6
 
     .line 1186
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -1265,7 +1265,7 @@
 
     const/4 v2, 0x4
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_34
 
     .line 1197
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mFerrisLayout:Landroid/widget/LinearLayout;
@@ -1281,13 +1281,13 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_51
 
     .line 1199
-    :cond_0
+    :cond_34
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_51
 
     .line 1200
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mFerrisLayout:Landroid/widget/LinearLayout;
@@ -1307,19 +1307,19 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_4c
 
     const/16 v2, 0x8
 
     .line 1206
-    :cond_1
+    :cond_4c
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 1208
-    :cond_2
-    :goto_0
+    :cond_51
+    :goto_51
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeUiElementOnTap(Landroid/view/View;)V
 
     .line 1210
@@ -1331,7 +1331,7 @@
 .end method
 
 .method private checkAndEnableDof()V
-    .locals 2
+    .registers 3
 
     .line 1386
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -1349,42 +1349,42 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     const/4 v0, 0x1
 
     .line 1388
     iput-boolean v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsDofEnabled:Z
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method private disableStatusBar()V
-    .locals 1
+    .registers 2
 
     .line 1436
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1437
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/statusbar/StatusBar;->disableStatusBar()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private disableWheelControl()V
-    .locals 2
+    .registers 3
 
     .line 1013
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
@@ -1405,24 +1405,24 @@
 .end method
 
 .method private enableStatusBar()V
-    .locals 1
+    .registers 2
 
     .line 1441
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1442
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/statusbar/StatusBar;->enableStatusBar()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private enableWheelControl()V
-    .locals 2
+    .registers 3
 
     .line 1019
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
@@ -1443,7 +1443,7 @@
 .end method
 
 .method private getAdjustableAttributes(Lopenlight/co/camera/CameraMode;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1465,14 +1465,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 1048
     invoke-virtual {p1}, Lopenlight/co/camera/CameraMode;->isEvAdjustable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 1049
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->EV:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
@@ -1480,27 +1480,27 @@
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1052
-    :cond_0
+    :cond_16
     invoke-virtual {p1}, Lopenlight/co/camera/CameraMode;->isSsAdjustable()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_43
 
     .line 1053
     sget-object p1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->SHUTTER_SPEED:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_43
 
     .line 1056
-    :cond_1
+    :cond_22
     invoke-virtual {p1}, Lopenlight/co/camera/CameraMode;->isIsoAdjustable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     .line 1057
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->ISO:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
@@ -1508,12 +1508,12 @@
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1059
-    :cond_2
+    :cond_2d
     invoke-virtual {p1}, Lopenlight/co/camera/CameraMode;->isSsAdjustable()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_38
 
     .line 1060
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->SHUTTER_SPEED:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
@@ -1521,25 +1521,25 @@
     invoke-interface {p0, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 1062
-    :cond_3
+    :cond_38
     invoke-virtual {p1}, Lopenlight/co/camera/CameraMode;->isEvAdjustable()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_43
 
     .line 1063
     sget-object p1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->EV:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_4
-    :goto_0
+    :cond_43
+    :goto_43
     return-object p0
 .end method
 
 .method private getBottomControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
-    .locals 2
+    .registers 3
 
     .line 1115
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -1559,49 +1559,49 @@
 
     aget v0, v1, v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1120
-    :pswitch_0
+    :pswitch_15
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mExposureWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1124
-    :pswitch_1
+    :pswitch_18
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mShutterSpeedWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    :goto_0
+    :goto_1a
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_15
+        :pswitch_18
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method private getCameraActivity()Lopenlight/co/camera/CameraActivity;
-    .locals 1
+    .registers 2
 
     .line 913
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mImageFragment:Lopenlight/co/camera/ImagePreviewFragment;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_6
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mImageFragment:Lopenlight/co/camera/ImagePreviewFragment;
 
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -1610,12 +1610,12 @@
 
     check-cast p0, Lopenlight/co/camera/CameraActivity;
 
-    :goto_0
+    :goto_e
     return-object p0
 .end method
 
 .method private getDraggerModel(Lopenlight/co/camera/view/wheel/FerrisWheel;)Lopenlight/co/camera/view/dragger/DraggerModel;
-    .locals 1
+    .registers 3
 
     .line 1132
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mExposureWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
@@ -1624,58 +1624,58 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 1133
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
 
     iget-object p0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mExposureCompensationDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1134
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsoWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 1135
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
 
     iget-object p0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mSensitivityDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1136
-    :cond_1
+    :cond_1a
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mShutterSpeedWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_27
 
     .line 1137
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
 
     iget-object p0, p0, Lopenlight/co/camera/models/DraggerModelHelper;->mShutterSpeedDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
-    goto :goto_0
+    goto :goto_28
 
-    :cond_2
+    :cond_27
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_28
     return-object p0
 .end method
 
 .method private getTopControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
-    .locals 2
+    .registers 3
 
     .line 1100
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -1695,37 +1695,37 @@
 
     aget v0, v1, v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1c
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1108
-    :pswitch_0
+    :pswitch_15
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mExposureWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 1105
-    :pswitch_1
+    :pswitch_18
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsoWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    :goto_0
+    :goto_1a
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_18
+        :pswitch_18
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method private handleAncillaryListItem(Landroid/view/View;)V
-    .locals 5
+    .registers 7
 
     .line 1713
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -1734,7 +1734,7 @@
 
     check-cast p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_ba
 
     .line 1715
     invoke-virtual {p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getKey()Ljava/lang/String;
@@ -1752,167 +1752,167 @@
 
     const/4 v4, 0x2
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_bc
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
-    :sswitch_0
+    :sswitch_18
     const-string v2, "cam_video_mode_caf"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/4 v1, 0x6
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
-    :sswitch_1
+    :sswitch_23
     const-string v2, "white_balance_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/4 v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_95
 
-    :sswitch_2
+    :sswitch_2e
     const-string v2, "flash_setting_manual"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     move v1, v4
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_3
+    :sswitch_38
     const-string v2, "cam_manual_mode_caf"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/4 v1, 0x7
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_4
+    :sswitch_42
     const-string v2, "burst_mode"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/4 v1, 0x4
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_5
+    :sswitch_4c
     const-string v2, "grid_off"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/16 v1, 0x9
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_6
+    :sswitch_57
     const-string v2, "timer_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     move v1, v3
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_7
+    :sswitch_61
     const-string v2, "golden_ratio"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/16 v1, 0xb
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_8
+    :sswitch_6c
     const-string v2, "3x3"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/16 v1, 0xa
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_9
+    :sswitch_77
     const-string v2, "cam_auto_mode_caf"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/16 v1, 0x8
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_a
+    :sswitch_82
     const-string v2, "flash_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/4 v1, 0x3
 
-    goto :goto_0
+    goto :goto_95
 
-    :sswitch_b
+    :sswitch_8c
     const-string v2, "grid_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_95
 
     const/4 v1, 0x5
 
-    :cond_0
-    :goto_0
-    packed-switch v1, :pswitch_data_0
+    :cond_95
+    :goto_95
+    packed-switch v1, :pswitch_data_ee
 
     .line 1736
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mMainLooperHandler:Landroid/os/Handler;
@@ -1940,84 +1940,84 @@
 
     invoke-virtual {p0, v4, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_1
+    goto :goto_ba
 
     .line 1732
-    :pswitch_0
+    :pswitch_b3
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrShowGridView()V
 
-    goto :goto_1
+    goto :goto_ba
 
     .line 1727
-    :pswitch_1
+    :pswitch_b7
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeModeWheelView()V
 
-    :cond_1
-    :goto_1
+    :cond_ba
+    :goto_ba
     return-void
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_bc
     .sparse-switch
-        -0x79e565a9 -> :sswitch_b
-        -0x52784aff -> :sswitch_a
-        -0x1a875cb4 -> :sswitch_9
-        0xce2e -> :sswitch_8
-        0xaefd55 -> :sswitch_7
-        0xafda756 -> :sswitch_6
-        0x12fa54f6 -> :sswitch_5
-        0x1876bd62 -> :sswitch_4
-        0x43af5f15 -> :sswitch_3
-        0x5a2ebcc4 -> :sswitch_2
-        0x633437d7 -> :sswitch_1
-        0x7438cce0 -> :sswitch_0
+        -0x79e565a9 -> :sswitch_8c
+        -0x52784aff -> :sswitch_82
+        -0x1a875cb4 -> :sswitch_77
+        0xce2e -> :sswitch_6c
+        0xaefd55 -> :sswitch_61
+        0xafda756 -> :sswitch_57
+        0x12fa54f6 -> :sswitch_4c
+        0x1876bd62 -> :sswitch_42
+        0x43af5f15 -> :sswitch_38
+        0x5a2ebcc4 -> :sswitch_2e
+        0x633437d7 -> :sswitch_23
+        0x7438cce0 -> :sswitch_18
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_ee
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b7
+        :pswitch_b3
+        :pswitch_b3
+        :pswitch_b3
     .end packed-switch
 .end method
 
 .method private handleView(Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_e
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p0, 0x8
 
     .line 1349
-    :goto_0
+    :goto_8
     invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
 
     .line 1350
     invoke-virtual {p1, p2}, Landroid/view/View;->setEnabled(Z)V
 
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method private handleViewLeftControl(Z)V
-    .locals 1
+    .registers 3
 
     .line 1339
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
@@ -2048,12 +2048,12 @@
 .end method
 
 .method private hideAncillaryToolbar()V
-    .locals 5
+    .registers 6
 
     .line 1318
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_38
 
     .line 1319
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
@@ -2065,7 +2065,7 @@
     .line 1320
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHistogramView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_30
 
     .line 1321
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHistogramView:Landroid/view/View;
@@ -2104,7 +2104,7 @@
     invoke-virtual {v2, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 1327
-    :cond_0
+    :cond_30
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setAncillaryToolbarShown(Z)V
@@ -2112,17 +2112,17 @@
     .line 1328
     invoke-direct {p0, v1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrRemoveModeWheel(Z)V
 
-    :cond_1
+    :cond_38
     return-void
 .end method
 
 .method private hideGridView()V
-    .locals 1
+    .registers 2
 
     .line 1550
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1551
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
@@ -2131,31 +2131,31 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/grid/GridView;->setVisibility(I)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method private isHudEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 1490
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method private isVisible()Z
-    .locals 0
+    .registers 1
 
     .line 1702
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
@@ -2164,21 +2164,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public static synthetic lambda$onTouch$1(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Lopenlight/co/camera/managers/CameraManager;)V
-    .locals 1
+    .registers 3
 
     .line 758
     invoke-virtual {p1}, Lopenlight/co/camera/managers/CameraManager;->getCameraMode()Lopenlight/co/camera/CameraMode;
@@ -2189,7 +2189,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_17
 
     .line 759
     sget-object p1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
@@ -2205,12 +2205,12 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public static synthetic lambda$openLayoutAnimation$0(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 4
+    .registers 5
 
     .line 550
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
@@ -2244,14 +2244,14 @@
 .end method
 
 .method private launchVideoFragment()V
-    .locals 2
+    .registers 3
 
     .line 1750
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getCameraActivity()Lopenlight/co/camera/CameraActivity;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_24
 
     .line 1752
     invoke-static {}, Lopenlight/co/camera/managers/zoom/ZoomManager;->get()Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -2282,12 +2282,12 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentTransaction;->commit()I
 
-    :cond_0
+    :cond_24
     return-void
 .end method
 
 .method private registerTestIntentListener()V
-    .locals 2
+    .registers 3
 
     .line 1670
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -2299,53 +2299,53 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 1672
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTestIntentListener:Lopenlight/co/camera/testintent/TestIntentListener;
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/testintent/TestIntentManager;->registerListener(Lopenlight/co/camera/testintent/TestIntentListener;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method private releaseDraggerModelHelper()V
-    .locals 1
+    .registers 2
 
     .line 1587
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1588
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
 
     invoke-virtual {p0}, Lopenlight/co/camera/models/DraggerModelHelper;->releaseModels()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private removeAlertView()V
-    .locals 1
+    .registers 2
 
     .line 1653
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1654
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/notification/AlertView;->closeAll()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private removeConfirmation()V
-    .locals 1
+    .registers 2
 
     .line 1355
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mConfirmationImageView:Landroid/widget/ImageView;
@@ -2358,12 +2358,12 @@
 .end method
 
 .method private removeDofView()V
-    .locals 2
+    .registers 3
 
     .line 1580
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDof:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1581
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -2377,19 +2377,19 @@
     .line 1582
     iput-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDof:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method private removeHud()V
-    .locals 1
+    .registers 2
 
     .line 1483
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 1484
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
@@ -2401,17 +2401,17 @@
     .line 1485
     iput-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method private removeLevel()V
-    .locals 1
+    .registers 2
 
     .line 1523
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mLevelView:Lopenlight/co/camera/view/level/Leveler;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1524
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mLevelView:Lopenlight/co/camera/view/level/Leveler;
@@ -2428,17 +2428,17 @@
     .line 1526
     iput-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mLevelView:Lopenlight/co/camera/view/level/Leveler;
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private removeModeWheelView()V
-    .locals 2
+    .registers 3
 
     .line 1370
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 1371
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeSwitchParent:Landroid/widget/RelativeLayout;
@@ -2454,17 +2454,17 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/RelativeLayout;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method private removeStatusBar()V
-    .locals 1
+    .registers 2
 
     .line 1429
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 1430
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
@@ -2476,19 +2476,19 @@
     .line 1431
     iput-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method private removeUiElementOnTap(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 985
-    :cond_0
+    :cond_3
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
 
     const/4 v0, 0x4
@@ -2512,7 +2512,7 @@
 .end method
 
 .method private removeViewsFromUi()V
-    .locals 0
+    .registers 1
 
     .line 992
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeStatusBar()V
@@ -2530,19 +2530,19 @@
 .end method
 
 .method private removeWheelLayout()V
-    .locals 2
+    .registers 3
 
     .line 1220
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelState:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
     sget-object v1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->VISIBLE:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_21
 
     .line 1221
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mExposureWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 1222
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mExposureWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
@@ -2550,10 +2550,10 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->updatePreviousIndexValue()V
 
     .line 1224
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mShutterSpeedWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 1225
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mShutterSpeedWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
@@ -2561,10 +2561,10 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->updatePreviousIndexValue()V
 
     .line 1227
-    :cond_1
+    :cond_18
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsoWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     .line 1228
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsoWheel:Lopenlight/co/camera/view/wheel/FerrisWheel;
@@ -2572,7 +2572,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->updatePreviousIndexValue()V
 
     .line 1232
-    :cond_2
+    :cond_21
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mFerrisLayout:Landroid/widget/LinearLayout;
 
     invoke-virtual {v0}, Landroid/widget/LinearLayout;->removeAllViews()V
@@ -2588,7 +2588,7 @@
 .end method
 
 .method private removeWheelView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 1271
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mFerrisLayout:Landroid/widget/LinearLayout;
@@ -2597,39 +2597,39 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     return-void
 
     .line 1273
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_13
 
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getTopControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_13
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_1c
 
     .line 1274
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getBottomControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_2
+    :cond_1c
     const/4 p1, 0x0
 
-    :goto_0
-    if-eqz p1, :cond_3
+    :goto_1d
+    if-eqz p1, :cond_29
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -2642,7 +2642,7 @@
     invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
     .line 1279
-    :cond_3
+    :cond_29
     sget-object p1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
 
     const-string v0, "Remove Wheel view"
@@ -2658,14 +2658,14 @@
 .end method
 
 .method private setAlphaInformationViews(Z)V
-    .locals 1
+    .registers 3
 
     .line 1377
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1378
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
@@ -2673,22 +2673,22 @@
     invoke-virtual {v0, p1}, Lopenlight/co/camera/view/hud/HudLayout;->setAlpha(Z)V
 
     .line 1380
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 1381
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/notification/AlertView;->setAlpha(Z)V
 
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method private setModeText(Lopenlight/co/camera/CameraMode;)V
-    .locals 0
+    .registers 2
 
     .line 980
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeText:Landroid/widget/TextView;
@@ -2703,19 +2703,19 @@
 .end method
 
 .method private setPositionOfDrag(FZ)V
-    .locals 3
+    .registers 6
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const v0, 0x3b03126f    # 0.002f
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_6
     const v0, 0x3a83126f    # 0.001f
 
     .line 1154
-    :goto_0
+    :goto_9
     iget v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDragStart:F
 
     iget v2, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTouchStart:F
@@ -2728,12 +2728,12 @@
 
     iput v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPositionOfDrag:F
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1f
 
     .line 1155
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     .line 1156
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
@@ -2742,12 +2742,12 @@
 
     invoke-virtual {p1, p0}, Lopenlight/co/camera/view/wheel/ModeWheel;->updateDragPosition(F)V
 
-    :cond_1
+    :cond_1f
     return-void
 .end method
 
 .method private setResource(Z)V
-    .locals 3
+    .registers 5
 
     .line 1026
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPictureControls:Ljava/util/List;
@@ -2756,11 +2756,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_58
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     .line 1027
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPictureControls:Ljava/util/List;
@@ -2775,9 +2775,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_18
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPictureControls:Ljava/util/List;
 
     .line 1028
@@ -2792,7 +2792,7 @@
     move-result v0
 
     .line 1029
-    :goto_0
+    :goto_24
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPictureControls:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->size()I
@@ -2801,14 +2801,14 @@
 
     const/4 v2, 0x1
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_53
 
     .line 1030
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_41
 
     .line 1031
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPictureControls:Ljava/util/List;
@@ -2823,9 +2823,9 @@
 
     move-result p1
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_1
+    :cond_41
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPictureControls:Ljava/util/List;
 
     .line 1032
@@ -2840,26 +2840,26 @@
     move-result p1
 
     .line 1033
-    :goto_1
+    :goto_4d
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    goto :goto_2
+    goto :goto_58
 
     .line 1035
-    :cond_2
+    :cond_53
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    :cond_3
-    :goto_2
+    :cond_58
+    :goto_58
     return-void
 .end method
 
 .method private setUpFerrisWheelView(Landroid/view/View;)V
-    .locals 3
+    .registers 5
 
     .line 1161
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateDraggerModelHelper()V
@@ -2869,38 +2869,38 @@
 
     const/4 v1, 0x0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_d
 
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getTopControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_16
 
     .line 1164
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getBottomControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     move-object v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_3
+    :goto_17
+    if-eqz v0, :cond_38
 
     .line 1166
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getDraggerModel(Lopenlight/co/camera/view/wheel/FerrisWheel;)Lopenlight/co/camera/view/dragger/DraggerModel;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_34
 
     .line 1168
     invoke-virtual {v2}, Lopenlight/co/camera/view/dragger/DraggerModel;->initialPositionFromSubject()F
@@ -2927,30 +2927,30 @@
     move-object v1, p1
 
     .line 1173
-    :cond_2
+    :cond_34
     iget p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPositionOfDrag:F
 
     iput p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDragStart:F
 
     .line 1175
-    :cond_3
+    :cond_38
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_43
 
     .line 1176
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
 
     invoke-virtual {p0, v1}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudItems(Ljava/lang/String;)V
 
-    :cond_4
+    :cond_43
     return-void
 .end method
 
 .method private setUpModeWheel()V
-    .locals 1
+    .registers 2
 
     .line 999
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateDraggerModelHelper()V
@@ -2983,7 +2983,7 @@
 .end method
 
 .method private setupTimer()V
-    .locals 4
+    .registers 5
 
     .line 901
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mMainLooperHandler:Landroid/os/Handler;
@@ -3003,18 +3003,18 @@
 .end method
 
 .method private showGalleryThumb()V
-    .locals 1
+    .registers 2
 
     .line 1594
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 1595
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
@@ -3023,17 +3023,17 @@
 
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setAlpha(F)V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private showGalleryThumbTimeout()V
-    .locals 1
+    .registers 2
 
     .line 907
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 908
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -3042,12 +3042,12 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setIconAlpha(F)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method private tearDownFerrisWheelView(Landroid/view/View;I)V
-    .locals 4
+    .registers 7
 
     .line 1243
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHaptic:Lopenlight/co/camera/haptic/PlayHaptic;
@@ -3061,31 +3061,31 @@
 
     const/4 v1, 0x0
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_11
 
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getTopControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mBottomControl:Landroid/widget/ImageView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_1a
 
     .line 1245
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getBottomControlWheel()Lopenlight/co/camera/view/wheel/FerrisWheel;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     move-object v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_2
+    :goto_1b
+    if-eqz v0, :cond_32
 
     .line 1247
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->getDraggerModel(Lopenlight/co/camera/view/wheel/FerrisWheel;)Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -3112,28 +3112,28 @@
     invoke-virtual {v0, v2, v3}, Lopenlight/co/camera/view/wheel/FerrisWheel;->setDragComplete(FF)V
 
     .line 1252
-    :cond_2
+    :cond_32
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     .line 1253
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudItems(Ljava/lang/String;)V
 
-    :cond_3
-    if-nez p2, :cond_4
+    :cond_3d
+    if-nez p2, :cond_43
 
     .line 1258
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeWheelView(Landroid/view/View;)V
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 1260
-    :cond_4
+    :cond_43
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCurrentWheelView:Landroid/view/View;
 
     .line 1261
@@ -3145,29 +3145,29 @@
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :goto_1
+    :goto_4c
     return-void
 .end method
 
 .method private tearDownModeWheelView()V
-    .locals 1
+    .registers 2
 
     .line 1007
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1008
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/wheel/ModeWheel;->setDragComplete()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private testUpdateOnUi()V
-    .locals 1
+    .registers 2
 
     .line 1659
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -3178,13 +3178,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     .line 1660
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateControlUiOnModeChange()V
@@ -3195,12 +3195,12 @@
     .line 1662
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addStatusBar()V
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method private unregisterTestIntentListener()V
-    .locals 1
+    .registers 2
 
     .line 1694
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -3219,7 +3219,7 @@
 .end method
 
 .method private updateAspectRatio()V
-    .locals 3
+    .registers 4
 
     .line 1449
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -3238,7 +3238,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     .line 1452
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeStatusBar()V
@@ -3256,12 +3256,12 @@
     .line 1455
     iput-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAspectRatioValue:Ljava/lang/String;
 
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method private updateControlUiOnModeChange()V
-    .locals 4
+    .registers 5
 
     .line 961
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -3279,7 +3279,7 @@
 
     const/16 v2, 0x8
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 963
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
@@ -3301,25 +3301,25 @@
 
     invoke-interface {p0}, Ljava/util/List;->clear()V
 
-    goto :goto_1
+    goto :goto_4a
 
     .line 968
-    :cond_0
+    :cond_25
     invoke-virtual {v0}, Lopenlight/co/camera/CameraMode;->isAuto()Z
 
     move-result v1
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2d
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     move v2, v3
 
     .line 969
-    :goto_0
+    :goto_2e
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -3349,12 +3349,12 @@
     .line 975
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->setResource(Z)V
 
-    :goto_1
+    :goto_4a
     return-void
 .end method
 
 .method private updateDofInfo()V
-    .locals 2
+    .registers 3
 
     .line 1559
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -3372,7 +3372,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1561
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeDofView()V
@@ -3382,9 +3382,9 @@
     .line 1562
     iput-boolean v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsDofEnabled:Z
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_17
     const/4 v0, 0x1
 
     .line 1564
@@ -3395,7 +3395,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_26
 
     .line 1566
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeDofView()V
@@ -3403,13 +3403,13 @@
     .line 1567
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addDofView()V
 
-    :cond_1
-    :goto_0
+    :cond_26
+    :goto_26
     return-void
 .end method
 
 .method private updateHudInfo()V
-    .locals 2
+    .registers 3
 
     .line 1463
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -3427,14 +3427,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 1465
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 1466
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
@@ -3442,21 +3442,21 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/hud/HudLayout;->removeOrientationControllerInHud()V
 
     .line 1468
-    :cond_0
+    :cond_1b
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeHud()V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 1470
-    :cond_1
+    :cond_1f
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addHud()V
 
-    :goto_0
+    :goto_22
     return-void
 .end method
 
 .method private updateLevelInfo()V
-    .locals 2
+    .registers 3
 
     .line 1497
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -3475,25 +3475,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 1500
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeLevel()V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 1502
-    :cond_0
+    :cond_14
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addLevel()V
 
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 5
+    .registers 6
 
     .line 335
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -3533,7 +3533,7 @@
     .line 342
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     .line 343
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -3543,7 +3543,7 @@
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 345
-    :cond_0
+    :cond_28
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
 
     move-result-object v1
@@ -3574,7 +3574,7 @@
 .end method
 
 .method public checkChangesFromToolbar()V
-    .locals 0
+    .registers 1
 
     .line 591
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateHudInfo()V
@@ -3595,12 +3595,12 @@
 .end method
 
 .method public closeAll()V
-    .locals 3
+    .registers 4
 
     .line 776
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mImageFragmentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4c
 
     .line 777
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mMainLooperHandler:Landroid/os/Handler;
@@ -3677,12 +3677,12 @@
 
     invoke-virtual {p0, v1}, Lopenlight/co/camera/ImageReaderManager;->setPendingCapturesCompleteListener(Lopenlight/co/camera/ImageReaderManager$PendingCapturesCompleteListener;)V
 
-    :cond_0
+    :cond_4c
     return-void
 .end method
 
 .method public closeAncillaryToolbar()V
-    .locals 0
+    .registers 1
 
     .line 528
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->hideAncillaryToolbar()V
@@ -3691,7 +3691,7 @@
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 614
     const-class p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -3704,7 +3704,7 @@
 .end method
 
 .method public hideViewsOnCaptureRequest()V
-    .locals 1
+    .registers 2
 
     .line 561
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
@@ -3717,14 +3717,14 @@
 .end method
 
 .method public hideWheelWhileCapture()V
-    .locals 2
+    .registers 3
 
     .line 495
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelState:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
     sget-object v1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->VISIBLE:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_17
 
     .line 496
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mTopControl:Landroid/widget/ImageView;
@@ -3744,12 +3744,12 @@
     .line 499
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->checkChangesFromToolbar()V
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public initChildView()V
-    .locals 4
+    .registers 5
 
     .line 354
     invoke-static {}, Lopenlight/co/camera/view/cache/FontCache;->get()Lopenlight/co/camera/view/cache/FontCache;
@@ -3983,12 +3983,12 @@
 .end method
 
 .method public isAncillaryToolbarVisible()Z
-    .locals 1
+    .registers 2
 
     .line 883
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
@@ -3996,36 +3996,36 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method public manageControlViews(ZZ)V
-    .locals 2
+    .registers 5
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     const/16 v0, 0x8
 
     .line 812
-    :goto_0
+    :goto_6
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_f
 
     .line 813
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
@@ -4033,10 +4033,10 @@
     invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
 
     .line 815
-    :cond_1
+    :cond_f
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_18
 
     .line 816
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
@@ -4044,10 +4044,10 @@
     invoke-virtual {v1, p1}, Lopenlight/co/camera/view/statusbar/StatusBar;->setVisibility(Z)V
 
     .line 818
-    :cond_2
+    :cond_18
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_21
 
     .line 819
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
@@ -4055,12 +4055,12 @@
     invoke-virtual {v1, p1}, Lopenlight/co/camera/view/notification/AlertView;->setVisibility(Z)V
 
     .line 821
-    :cond_3
+    :cond_21
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_2c
 
     .line 822
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
@@ -4068,18 +4068,18 @@
     invoke-virtual {v1, p1}, Lopenlight/co/camera/view/hud/HudLayout;->setVisibility(Z)V
 
     .line 824
-    :cond_4
+    :cond_2c
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_35
 
     .line 825
     iget-object v1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
     invoke-virtual {v1, v0}, Lopenlight/co/camera/view/grid/GridView;->setVisibility(I)V
 
-    :cond_5
-    if-eqz p1, :cond_6
+    :cond_35
+    if-eqz p1, :cond_57
 
     .line 830
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->openLayoutAnimation()V
@@ -4113,10 +4113,10 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/lib/content/Prefs;->registerChangeListener(Lopenlight/co/lib/content/Prefs$OnPreferenceChangeListener;)V
 
-    goto :goto_1
+    goto :goto_6f
 
     .line 840
-    :cond_6
+    :cond_57
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mModeSwitchParent:Landroid/widget/RelativeLayout;
 
     invoke-virtual {p1, v0}, Landroid/widget/RelativeLayout;->setVisibility(I)V
@@ -4140,12 +4140,12 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/lib/content/Prefs;->unregisterChangeListener(Lopenlight/co/lib/content/Prefs$OnPreferenceChangeListener;)V
 
-    :goto_1
+    :goto_6f
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 852
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -4154,35 +4154,35 @@
 
     const v1, 0x7f090022
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_46
 
     const p1, 0x7f09004b
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_14
 
     const p1, 0x7f090172
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_20
 
-    goto :goto_0
+    goto :goto_49
 
     .line 856
-    :cond_0
+    :cond_14
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
     invoke-virtual {p1}, Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;->isFromFirstLevel()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_20
 
     .line 857
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addModeWheelView()V
 
-    goto :goto_0
+    goto :goto_49
 
     .line 861
-    :cond_1
+    :cond_20
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeConfirmation()V
 
     .line 862
@@ -4220,18 +4220,18 @@
     .line 870
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateControls(Z)V
 
-    goto :goto_0
+    goto :goto_49
 
     .line 873
-    :cond_2
+    :cond_46
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->handleAncillaryListItem(Landroid/view/View;)V
 
-    :goto_0
+    :goto_49
     return-void
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 2
+    .registers 4
 
     .line 649
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -4275,19 +4275,19 @@
 .end method
 
 .method public onSelectionComplete()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onTickListener()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onTimerComplete()V
-    .locals 1
+    .registers 2
 
     .line 292
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCaptureListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
@@ -4305,7 +4305,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 7
 
     .line 691
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGestureDetector:Landroid/view/GestureDetector;
@@ -4321,24 +4321,24 @@
 
     const/4 v2, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_106
 
-    goto/16 :goto_1
+    goto/16 :goto_105
 
     .line 715
-    :pswitch_0
+    :pswitch_10
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v0
 
-    if-ne v0, v2, :cond_7
+    if-ne v0, v2, :cond_105
 
     .line 716
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 718
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -4347,15 +4347,15 @@
 
     invoke-direct {p0, p1, v2}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->setPositionOfDrag(FZ)V
 
-    goto/16 :goto_1
+    goto/16 :goto_105
 
     .line 719
-    :cond_0
+    :cond_25
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelState:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
     sget-object v3, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->VISIBLE:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
-    if-ne v0, v3, :cond_7
+    if-ne v0, v3, :cond_105
 
     .line 721
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -4370,10 +4370,10 @@
     .line 723
     iput-boolean v2, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelScrolled:Z
 
-    goto/16 :goto_1
+    goto/16 :goto_105
 
     .line 728
-    :pswitch_1
+    :pswitch_39
     sget-object p2, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
 
     const-string v0, "onTouch ACTION_UP"
@@ -4385,20 +4385,20 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_4a
 
     .line 730
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->tearDownModeWheelView()V
 
-    goto :goto_0
+    goto :goto_6f
 
     .line 731
-    :cond_1
+    :cond_4a
     iget-object p2, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelState:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->VISIBLE:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
-    if-ne p2, v0, :cond_2
+    if-ne p2, v0, :cond_6f
 
     .line 736
     sget-object p2, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->CLOSING:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
@@ -4420,11 +4420,11 @@
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_6f
 
     iget-boolean p2, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelScrolled:Z
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_6f
 
     .line 742
     sget-object p2, Lopenlight/co/camera/enums/FtuView;->WHEEL_SCREEN:Lopenlight/co/camera/enums/FtuView;
@@ -4435,8 +4435,8 @@
     invoke-virtual {p0, v1, v1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->manageControlViews(ZZ)V
 
     .line 746
-    :cond_2
-    :goto_0
+    :cond_6f
+    :goto_6f
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
 
     move-result-object p1
@@ -4450,14 +4450,14 @@
 
     move-result p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_b7
 
     .line 748
     invoke-virtual {p1}, Lopenlight/co/camera/managers/CameraManager;->getPendingReaderReferences()I
 
     move-result p2
 
-    if-gtz p2, :cond_3
+    if-gtz p2, :cond_91
 
     .line 749
     sget-object p1, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
@@ -4471,10 +4471,10 @@
 
     invoke-virtual {p0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_105
 
     .line 752
-    :cond_3
+    :cond_91
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->getApp()Landroid/content/Context;
 
     move-result-object p2
@@ -4512,15 +4512,15 @@
 
     invoke-virtual {p2, v0}, Lopenlight/co/camera/ImageReaderManager;->setPendingCapturesCompleteListener(Lopenlight/co/camera/ImageReaderManager$PendingCapturesCompleteListener;)V
 
-    goto :goto_1
+    goto :goto_105
 
     .line 764
-    :cond_4
+    :cond_b7
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isVisible()Z
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_105
 
     .line 766
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addUiElement()V
@@ -4528,10 +4528,10 @@
     .line 767
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->checkChangesFromToolbar()V
 
-    goto :goto_1
+    goto :goto_105
 
     .line 694
-    :pswitch_2
+    :pswitch_c4
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
 
     const-string v1, "onTouch ACTION_DOWN"
@@ -4550,15 +4550,15 @@
 
     move-result p2
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_db
 
     .line 698
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->setUpModeWheel()V
 
-    goto :goto_1
+    goto :goto_105
 
     .line 700
-    :cond_5
+    :cond_db
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->setUpFerrisWheelView(Landroid/view/View;)V
 
     .line 701
@@ -4566,7 +4566,7 @@
 
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->INVISIBLE:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
-    if-ne p2, v0, :cond_7
+    if-ne p2, v0, :cond_105
 
     .line 703
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addWheelView(Landroid/view/View;)V
@@ -4574,7 +4574,7 @@
     .line 705
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mUpdateFocusViewListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdateFocusViewListener;
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_fa
 
     invoke-static {}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->get()Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
 
@@ -4585,7 +4585,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_6
+    if-nez p1, :cond_fa
 
     .line 707
     iget-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mUpdateFocusViewListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdateFocusViewListener;
@@ -4593,7 +4593,7 @@
     invoke-interface {p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdateFocusViewListener;->updateFocusView()V
 
     .line 710
-    :cond_6
+    :cond_fa
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
 
     move-result-object p1
@@ -4604,50 +4604,50 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
 
-    :cond_7
-    :goto_1
+    :cond_105
+    :goto_105
     return v2
 
-    :pswitch_data_0
+    :pswitch_data_106
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_c4
+        :pswitch_39
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method public onUpdateHudLayout()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onUpdateLevelMeter()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onUpdateUi(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onUpdateZoom(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onWheelItemSelected(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public openLayoutAnimation()V
-    .locals 1
+    .registers 2
 
     .line 549
     new-instance v0, Lopenlight/co/camera/view/primarycontrol/-$$Lambda$ImagePrimaryControl$0fafEPntU8S3U1HlME5tpbzzTAo;
@@ -4659,23 +4659,23 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_e
 
     .line 556
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public removeModeSelection()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public resetThumbnailPath()V
-    .locals 0
+    .registers 1
 
     .line 668
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -4686,7 +4686,7 @@
 .end method
 
 .method public restoreViewsOnCaptureRequestComplete()V
-    .locals 1
+    .registers 2
 
     .line 568
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
@@ -4699,7 +4699,7 @@
 .end method
 
 .method public setCaptureListener(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;)V
-    .locals 0
+    .registers 2
 
     .line 545
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCaptureListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
@@ -4708,7 +4708,7 @@
 .end method
 
 .method public setHistogramView(Lopenlight/co/lib/view/HistogramView;)V
-    .locals 0
+    .registers 2
 
     .line 329
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHistogramView:Landroid/view/View;
@@ -4717,7 +4717,7 @@
 .end method
 
 .method public setNeedAnimationAfterCapture(Z)V
-    .locals 0
+    .registers 2
 
     .line 609
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -4728,24 +4728,24 @@
 .end method
 
 .method public setScrollDistance(F)V
-    .locals 1
+    .registers 3
 
     .line 532
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDof:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 533
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDof:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->setScrollDistance(F)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setTappedPoint(FF)V
-    .locals 0
+    .registers 3
 
     .line 519
     iput p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDofX:F
@@ -4756,7 +4756,7 @@
     .line 521
     iget-boolean p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mIsDofEnabled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 522
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->removeDofView()V
@@ -4764,12 +4764,12 @@
     .line 523
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addDofView()V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public setThumbnailPath(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 677
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -4780,7 +4780,7 @@
 .end method
 
 .method public setUpdateFocusViewListener(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdateFocusViewListener;)V
-    .locals 0
+    .registers 2
 
     .line 317
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mUpdateFocusViewListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdateFocusViewListener;
@@ -4789,7 +4789,7 @@
 .end method
 
 .method public setUpdatePreference(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdatePreferenceListener;)V
-    .locals 0
+    .registers 2
 
     .line 325
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mUpdatePreferenceListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$UpdatePreferenceListener;
@@ -4798,7 +4798,7 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 2
+    .registers 4
 
     .line 799
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
@@ -4810,49 +4810,49 @@
     .line 800
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mPrimaryControlView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_f
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public showAlertView(II)V
-    .locals 1
+    .registers 4
 
     .line 572
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 573
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrRemoveAlertView()V
 
     .line 575
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 576
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/notification/AlertView;->updateBatteryStatus(II)V
 
-    :cond_1
+    :cond_10
     return-void
 .end method
 
 .method public startAnimation()V
-    .locals 2
+    .registers 3
 
     .line 478
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -4882,7 +4882,7 @@
 .end method
 
 .method public stopAnimation()V
-    .locals 2
+    .registers 3
 
     .line 488
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -4912,12 +4912,12 @@
 .end method
 
 .method public touchUp()V
-    .locals 1
+    .registers 2
 
     .line 538
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDof:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 539
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDof:Lopenlight/co/camera/view/depthoffield/DepthOfField;
@@ -4929,12 +4929,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/haptic/PlayHaptic;->stopAllHaptic()V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public updateControls(Z)V
-    .locals 4
+    .registers 6
 
     .line 430
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -4944,7 +4944,7 @@
     .line 431
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCapture:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 432
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCapture:Landroid/widget/ImageView;
@@ -4952,12 +4952,12 @@
     invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setEnabled(Z)V
 
     .line 434
-    :cond_0
+    :cond_e
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGalleryThumbContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->setEnabled(Z)V
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_54
 
     .line 436
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCapture:Landroid/widget/ImageView;
@@ -4966,20 +4966,20 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     .line 437
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isAncillaryToolbarVisible()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2d
 
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mWheelState:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
     sget-object v3, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;->INVISIBLE:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$WheelState;
 
-    if-ne v0, v3, :cond_1
+    if-ne v0, v3, :cond_2d
 
     .line 438
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCapture:Landroid/widget/ImageView;
@@ -4987,13 +4987,13 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 440
-    :cond_1
+    :cond_2d
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCapture:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setAlpha(F)V
 
     .line 442
-    :cond_2
+    :cond_32
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mThumbnailView:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
     invoke-virtual {v0, v2}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setIconAlpha(F)V
@@ -5006,7 +5006,7 @@
     .line 445
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_48
 
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/ImageAncillaryToolbar;
 
@@ -5014,25 +5014,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4d
 
     .line 446
-    :cond_3
+    :cond_48
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mToolBarLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
     .line 448
-    :cond_4
+    :cond_4d
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->enableWheelControl()V
 
     .line 449
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->enableStatusBar()V
 
-    goto :goto_0
+    goto :goto_6b
 
     .line 451
-    :cond_5
+    :cond_54
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->disableWheelControl()V
 
     .line 452
@@ -5056,7 +5056,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setAlpha(F)V
 
     .line 457
-    :goto_0
+    :goto_6b
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mToolBarLayout:Landroid/widget/RelativeLayout;
 
     invoke-virtual {p0, p1}, Landroid/widget/RelativeLayout;->setEnabled(Z)V
@@ -5065,7 +5065,7 @@
 .end method
 
 .method public updateControlsForWheelFtu(Z)V
-    .locals 1
+    .registers 3
 
     .line 468
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mToolBarLayout:Landroid/widget/RelativeLayout;
@@ -5075,19 +5075,19 @@
     .line 469
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 470
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mStatusBar:Lopenlight/co/camera/view/statusbar/StatusBar;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/statusbar/StatusBar;->setVisibility(Z)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public updateDepth()V
-    .locals 0
+    .registers 1
 
     .line 303
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateHudInfo()V
@@ -5096,7 +5096,7 @@
 .end method
 
 .method public updateDraggerModelHelper()V
-    .locals 2
+    .registers 3
 
     .line 887
     new-instance v0, Lopenlight/co/camera/models/DraggerModelHelper;
@@ -5111,41 +5111,41 @@
 .end method
 
 .method public updateGridView()V
-    .locals 1
+    .registers 2
 
     .line 513
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 514
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrShowGridView()V
 
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public updateHudTextOnZoomWheelView(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 603
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 604
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/hud/HudLayout;->updateHudItems(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public updatePreviewPostFtuReset()V
-    .locals 1
+    .registers 2
 
     .line 895
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
@@ -5172,40 +5172,40 @@
 .end method
 
 .method public updateRealTimeHud(JI)V
-    .locals 1
+    .registers 5
 
     .line 504
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->isHudEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 505
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mHudLayout:Lopenlight/co/camera/view/hud/HudLayout;
 
     invoke-virtual {p0, p1, p2, p3}, Lopenlight/co/camera/view/hud/HudLayout;->updateRealTime(JI)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public updateRemainingImageCount()V
-    .locals 1
+    .registers 2
 
     .line 581
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 582
     invoke-direct {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addOrRemoveAlertView()V
 
     .line 584
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 585
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mAlertView:Lopenlight/co/camera/view/notification/AlertView;
@@ -5214,6 +5214,6 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/notification/AlertView;->updateStorageAndImageCountNotification(Z)V
 
-    :cond_1
+    :cond_11
     return-void
 .end method

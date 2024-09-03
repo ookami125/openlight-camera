@@ -59,7 +59,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;Lcom/google/gson/reflect/TypeToken;ZLjava/lang/Class;)V
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,53 +79,53 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     move-object v0, p1
 
     check-cast v0, Lcom/google/gson/JsonSerializer;
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move-object v0, v1
 
-    :goto_0
+    :goto_d
     iput-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->serializer:Lcom/google/gson/JsonSerializer;
 
     .line 131
     instance-of v0, p1, Lcom/google/gson/JsonDeserializer;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     move-object v1, p1
 
     check-cast v1, Lcom/google/gson/JsonDeserializer;
 
-    :cond_1
+    :cond_16
     iput-object v1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->deserializer:Lcom/google/gson/JsonDeserializer;
 
     .line 134
     iget-object p1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->serializer:Lcom/google/gson/JsonSerializer;
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_23
 
     iget-object p1, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->deserializer:Lcom/google/gson/JsonDeserializer;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_21
 
-    goto :goto_1
+    goto :goto_23
 
-    :cond_2
+    :cond_21
     const/4 p1, 0x0
 
-    goto :goto_2
+    goto :goto_24
 
-    :cond_3
-    :goto_1
+    :cond_23
+    :goto_23
     const/4 p1, 0x1
 
-    :goto_2
+    :goto_24
     invoke-static {p1}, Lcom/google/gson/internal/$Gson$Preconditions;->checkArgument(Z)V
 
     .line 135
@@ -143,7 +143,7 @@
 
 # virtual methods
 .method public create(Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)Lcom/google/gson/TypeAdapter;
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -160,7 +160,7 @@
     .line 143
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->exactType:Lcom/google/gson/reflect/TypeToken;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->exactType:Lcom/google/gson/reflect/TypeToken;
 
@@ -169,11 +169,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     iget-boolean v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->matchRawType:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->exactType:Lcom/google/gson/reflect/TypeToken;
 
@@ -185,22 +185,22 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_2
+    :cond_21
     iget-object v0, p0, Lcom/google/gson/internal/bind/TreeTypeAdapter$SingleTypeFactory;->hierarchyType:Ljava/lang/Class;
 
     .line 145
@@ -212,8 +212,8 @@
 
     move-result v0
 
-    :goto_1
-    if-eqz v0, :cond_3
+    :goto_2b
+    if-eqz v0, :cond_3b
 
     .line 146
     new-instance v0, Lcom/google/gson/internal/bind/TreeTypeAdapter;
@@ -232,11 +232,11 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/google/gson/internal/bind/TreeTypeAdapter;-><init>(Lcom/google/gson/JsonSerializer;Lcom/google/gson/JsonDeserializer;Lcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;Lcom/google/gson/TypeAdapterFactory;)V
 
-    goto :goto_2
+    goto :goto_3c
 
-    :cond_3
+    :cond_3b
     const/4 v0, 0x0
 
-    :goto_2
+    :goto_3c
     return-object v0
 .end method

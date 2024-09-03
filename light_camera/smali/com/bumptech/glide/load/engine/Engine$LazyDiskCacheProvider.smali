@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;)V
-    .locals 0
+    .registers 2
 
     .line 315
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,21 +39,21 @@
 
 # virtual methods
 .method public getDiskCache()Lcom/bumptech/glide/load/engine/cache/DiskCache;
-    .locals 1
+    .registers 2
 
     .line 321
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     .line 322
     monitor-enter p0
 
     .line 323
-    :try_start_0
+    :try_start_5
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 324
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->factory:Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;
@@ -65,10 +65,10 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;
 
     .line 326
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     .line 327
     new-instance v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheAdapter;
@@ -78,23 +78,23 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;
 
     .line 329
-    :cond_1
+    :cond_1c
     monitor-exit p0
 
-    goto :goto_0
+    goto :goto_21
 
-    :catchall_0
+    :catchall_1e
     move-exception v0
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_5 .. :try_end_20} :catchall_1e
 
     throw v0
 
     .line 331
-    :cond_2
-    :goto_0
+    :cond_21
+    :goto_21
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;->diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;
 
     return-object p0

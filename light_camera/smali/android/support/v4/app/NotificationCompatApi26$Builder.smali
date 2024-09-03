@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/app/Notification;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/widget/RemoteViews;ILandroid/app/PendingIntent;Landroid/app/PendingIntent;Landroid/graphics/Bitmap;IIZZZILjava/lang/CharSequence;ZLjava/lang/String;Ljava/util/ArrayList;Landroid/os/Bundle;IILandroid/app/Notification;Ljava/lang/String;ZLjava/lang/String;[Ljava/lang/CharSequence;Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;Landroid/widget/RemoteViews;Ljava/lang/String;ILjava/lang/String;JZZI)V
-    .locals 10
+    .registers 50
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,17 +159,17 @@
 
     const/4 v9, 0x1
 
-    if-eqz v7, :cond_0
+    if-eqz v7, :cond_57
 
     move v7, v9
 
-    goto :goto_0
+    goto :goto_58
 
-    :cond_0
+    :cond_57
     move v7, v8
 
     .line 57
-    :goto_0
+    :goto_58
     invoke-virtual {v6, v7}, Landroid/app/Notification$Builder;->setOngoing(Z)Landroid/app/Notification$Builder;
 
     move-result-object v6
@@ -178,17 +178,17 @@
 
     and-int/lit8 v7, v7, 0x8
 
-    if-eqz v7, :cond_1
+    if-eqz v7, :cond_64
 
     move v7, v9
 
-    goto :goto_1
+    goto :goto_65
 
-    :cond_1
+    :cond_64
     move v7, v8
 
     .line 58
-    :goto_1
+    :goto_65
     invoke-virtual {v6, v7}, Landroid/app/Notification$Builder;->setOnlyAlertOnce(Z)Landroid/app/Notification$Builder;
 
     move-result-object v6
@@ -197,17 +197,17 @@
 
     and-int/lit8 v7, v7, 0x10
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_71
 
     move v7, v9
 
-    goto :goto_2
+    goto :goto_72
 
-    :cond_2
+    :cond_71
     move v7, v8
 
     .line 59
-    :goto_2
+    :goto_72
     invoke-virtual {v6, v7}, Landroid/app/Notification$Builder;->setAutoCancel(Z)Landroid/app/Notification$Builder;
 
     move-result-object v6
@@ -265,19 +265,19 @@
 
     and-int/lit16 v1, v1, 0x80
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_a7
 
     move-object/from16 v1, p9
 
     move v8, v9
 
-    goto :goto_3
+    goto :goto_a9
 
-    :cond_3
+    :cond_a7
     move-object/from16 v1, p9
 
     .line 67
-    :goto_3
+    :goto_a9
     invoke-virtual {v6, v1, v8}, Landroid/app/Notification$Builder;->setFullScreenIntent(Landroid/app/PendingIntent;Z)Landroid/app/Notification$Builder;
 
     move-result-object v1
@@ -426,7 +426,7 @@
 
     iput-object v1, v0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
 
-    if-eqz p38, :cond_4
+    if-eqz p38, :cond_132
 
     .line 90
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
@@ -435,24 +435,24 @@
 
     invoke-virtual {v1, v5}, Landroid/app/Notification$Builder;->setColorized(Z)Landroid/app/Notification$Builder;
 
-    :cond_4
-    if-eqz v2, :cond_5
+    :cond_132
+    if-eqz v2, :cond_139
 
     .line 93
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
 
     invoke-virtual {v1, v2}, Landroid/app/Notification$Builder;->setCustomContentView(Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
 
-    :cond_5
-    if-eqz v3, :cond_6
+    :cond_139
+    if-eqz v3, :cond_140
 
     .line 96
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
 
     invoke-virtual {v1, v3}, Landroid/app/Notification$Builder;->setCustomBigContentView(Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
 
-    :cond_6
-    if-eqz v4, :cond_7
+    :cond_140
+    if-eqz v4, :cond_147
 
     .line 99
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
@@ -460,17 +460,17 @@
     invoke-virtual {v1, v4}, Landroid/app/Notification$Builder;->setCustomHeadsUpContentView(Landroid/widget/RemoteViews;)Landroid/app/Notification$Builder;
 
     .line 101
-    :cond_7
+    :cond_147
     invoke-virtual/range {p20 .. p20}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :goto_4
+    :goto_14b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_15d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -483,16 +483,16 @@
 
     invoke-virtual {v3, v2}, Landroid/app/Notification$Builder;->addPerson(Ljava/lang/String;)Landroid/app/Notification$Builder;
 
-    goto :goto_4
+    goto :goto_14b
 
-    :cond_8
+    :cond_15d
     return-void
 .end method
 
 
 # virtual methods
 .method public addAction(Landroid/support/v4/app/NotificationCompatBase$Action;)V
-    .locals 0
+    .registers 2
 
     .line 108
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
@@ -503,7 +503,7 @@
 .end method
 
 .method public build()Landroid/app/Notification;
-    .locals 0
+    .registers 1
 
     .line 118
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;
@@ -516,7 +516,7 @@
 .end method
 
 .method public getBuilder()Landroid/app/Notification$Builder;
-    .locals 0
+    .registers 1
 
     .line 113
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompatApi26$Builder;->mB:Landroid/app/Notification$Builder;

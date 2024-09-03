@@ -26,16 +26,16 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;ILjava/nio/charset/Charset;)V
-    .locals 1
+    .registers 5
 
     .line 86
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2a
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_2a
 
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_22
 
     .line 93
     sget-object v0, Lcom/bumptech/glide/disklrucache/Util;->US_ASCII:Ljava/nio/charset/Charset;
@@ -44,7 +44,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 97
     iput-object p1, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->in:Ljava/io/InputStream;
@@ -60,7 +60,7 @@
     return-void
 
     .line 94
-    :cond_0
+    :cond_1a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Unsupported encoding"
@@ -70,7 +70,7 @@
     throw p0
 
     .line 91
-    :cond_1
+    :cond_22
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "capacity <= 0"
@@ -80,7 +80,7 @@
     throw p0
 
     .line 88
-    :cond_2
+    :cond_2a
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x2000
 
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/bumptech/glide/disklrucache/StrictLineReader;)Ljava/nio/charset/Charset;
-    .locals 0
+    .registers 1
 
     .line 45
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->charset:Ljava/nio/charset/Charset;
@@ -109,7 +109,7 @@
 .end method
 
 .method private fillBuf()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -133,7 +133,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
     .line 192
     iput v3, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
@@ -144,7 +144,7 @@
     return-void
 
     .line 190
-    :cond_0
+    :cond_14
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -155,7 +155,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -168,10 +168,10 @@
     monitor-enter v0
 
     .line 110
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     const/4 v1, 0x0
 
@@ -184,44 +184,44 @@
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
     .line 114
-    :cond_0
+    :cond_f
     monitor-exit v0
 
     return-void
 
-    :catchall_0
+    :catchall_11
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catchall {:try_start_3 .. :try_end_13} :catchall_11
 
     throw p0
 .end method
 
 .method public hasUnterminatedLine()Z
-    .locals 1
+    .registers 2
 
     .line 180
     iget p0, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->end:I
 
     const/4 v0, -0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     return p0
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -234,43 +234,43 @@
     monitor-enter v0
 
     .line 127
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_8f
 
     .line 134
     iget v1, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
 
     iget v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->end:I
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_10
 
     .line 135
     invoke-direct {p0}, Lcom/bumptech/glide/disklrucache/StrictLineReader;->fillBuf()V
 
     .line 138
-    :cond_0
+    :cond_10
     iget v1, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
 
-    :goto_0
+    :goto_12
     iget v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->end:I
 
     const/16 v3, 0xa
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_49
 
     .line 139
     iget-object v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
 
     aget-byte v2, v2, v1
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_46
 
     .line 140
     iget v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2d
 
     iget-object v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
 
@@ -280,15 +280,15 @@
 
     const/16 v4, 0xd
 
-    if-ne v2, v4, :cond_1
+    if-ne v2, v4, :cond_2d
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     move v3, v1
 
     .line 141
-    :goto_1
+    :goto_2e
     new-instance v2, Ljava/lang/String;
 
     iget-object v4, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
@@ -317,13 +317,13 @@
 
     return-object v2
 
-    :cond_2
+    :cond_46
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 148
-    :cond_3
+    :cond_49
     new-instance v1, Lcom/bumptech/glide/disklrucache/StrictLineReader$1;
 
     iget v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->end:I
@@ -337,7 +337,7 @@
     invoke-direct {v1, p0, v2}, Lcom/bumptech/glide/disklrucache/StrictLineReader$1;-><init>(Lcom/bumptech/glide/disklrucache/StrictLineReader;I)V
 
     .line 161
-    :cond_4
+    :cond_55
     iget-object v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
 
     iget v4, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
@@ -361,22 +361,22 @@
     .line 166
     iget v2, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
 
-    :goto_2
+    :goto_69
     iget v4, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->end:I
 
-    if-eq v2, v4, :cond_4
+    if-eq v2, v4, :cond_55
 
     .line 167
     iget-object v4, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
 
     aget-byte v4, v4, v2
 
-    if-ne v4, v3, :cond_6
+    if-ne v4, v3, :cond_8c
 
     .line 168
     iget v3, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->pos:I
 
-    if-eq v2, v3, :cond_5
+    if-eq v2, v3, :cond_82
 
     .line 169
     iget-object v3, p0, Lcom/bumptech/glide/disklrucache/StrictLineReader;->buf:[B
@@ -389,7 +389,7 @@
 
     invoke-virtual {v1, v3, v4, v5}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    :cond_5
+    :cond_82
     add-int/lit8 v2, v2, 0x1
 
     .line 171
@@ -404,13 +404,13 @@
 
     return-object p0
 
-    :cond_6
+    :cond_8c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_2
+    goto :goto_69
 
     .line 128
-    :cond_7
+    :cond_8f
     new-instance p0, Ljava/io/IOException;
 
     const-string v1, "LineReader is closed"
@@ -419,13 +419,13 @@
 
     throw p0
 
-    :catchall_0
+    :catchall_97
     move-exception p0
 
     .line 176
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_99
+    .catchall {:try_start_3 .. :try_end_99} :catchall_97
 
     throw p0
 .end method

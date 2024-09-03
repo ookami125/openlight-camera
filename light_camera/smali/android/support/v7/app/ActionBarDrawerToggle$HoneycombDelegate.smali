@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
 
     .line 530
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 541
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$HoneycombDelegate;->mActivity:Landroid/app/Activity;
@@ -52,7 +52,7 @@
 .end method
 
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
 
     .line 536
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$HoneycombDelegate;->mActivity:Landroid/app/Activity;
@@ -65,7 +65,7 @@
 .end method
 
 .method public isNavigationVisible()Z
-    .locals 0
+    .registers 1
 
     .line 546
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$HoneycombDelegate;->mActivity:Landroid/app/Activity;
@@ -74,7 +74,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 548
     invoke-virtual {p0}, Landroid/app/ActionBar;->getDisplayOptions()I
@@ -83,21 +83,21 @@
 
     and-int/lit8 p0, p0, 0x4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method public setActionBarDescription(I)V
-    .locals 2
+    .registers 4
 
     .line 564
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$HoneycombDelegate;->mSetIndicatorInfo:Landroid/support/v7/app/ActionBarDrawerToggleHoneycomb$SetIndicatorInfo;
@@ -114,7 +114,7 @@
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .locals 3
+    .registers 6
 
     .line 553
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$HoneycombDelegate;->mActivity:Landroid/app/Activity;
@@ -123,7 +123,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     const/4 v1, 0x1
 
@@ -146,6 +146,6 @@
     .line 558
     invoke-virtual {v0, p0}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
-    :cond_0
+    :cond_1a
     return-void
 .end method

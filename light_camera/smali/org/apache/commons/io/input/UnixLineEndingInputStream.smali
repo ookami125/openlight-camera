@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;Z)V
-    .locals 1
+    .registers 4
 
     .line 46
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -43,24 +43,24 @@
 .end method
 
 .method private eofGame(Z)I
-    .locals 1
+    .registers 3
 
     const/4 v0, -0x1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_13
 
     .line 100
     iget-boolean p1, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->ensureLineFeedAtEndOfFile:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
-    goto :goto_0
+    goto :goto_13
 
     .line 103
-    :cond_0
+    :cond_8
     iget-boolean p1, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->slashNSeen:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_12
 
     const/4 p1, 0x1
 
@@ -71,16 +71,16 @@
 
     return p0
 
-    :cond_1
+    :cond_12
     return v0
 
-    :cond_2
-    :goto_0
+    :cond_13
+    :goto_13
     return v0
 .end method
 
 .method private readWithUpdate()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -100,50 +100,50 @@
 
     const/4 v3, -0x1
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_d
 
     move v3, v2
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v3, v1
 
     .line 58
-    :goto_0
+    :goto_e
     iput-boolean v3, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->eofSeen:Z
 
     .line 59
     iget-boolean v3, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->eofSeen:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_15
 
     return v0
 
-    :cond_1
+    :cond_15
     const/16 v3, 0xa
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_1b
 
     move v3, v2
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_2
+    :cond_1b
     move v3, v1
 
     .line 62
-    :goto_1
+    :goto_1c
     iput-boolean v3, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->slashNSeen:Z
 
     const/16 v3, 0xd
 
-    if-ne v0, v3, :cond_3
+    if-ne v0, v3, :cond_23
 
     move v1, v2
 
     .line 63
-    :cond_3
+    :cond_23
     iput-boolean v1, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->slashRSeen:Z
 
     return v0
@@ -152,7 +152,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -171,12 +171,12 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     .line 126
-    :try_start_0
+    :try_start_1
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     const-string v0, "Mark notsupported"
@@ -184,10 +184,10 @@
     invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_9
 
-    :catchall_0
+    :catchall_9
     move-exception p1
 
     monitor-exit p0
@@ -196,7 +196,7 @@
 .end method
 
 .method public read()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -209,7 +209,7 @@
     .line 73
     iget-boolean v1, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->eofSeen:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_b
 
     .line 74
     invoke-direct {p0, v0}, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->eofGame(Z)I
@@ -219,7 +219,7 @@
     return p0
 
     .line 77
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->readWithUpdate()I
 
     move-result v1
@@ -227,7 +227,7 @@
     .line 78
     iget-boolean v2, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->eofSeen:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_18
 
     .line 79
     invoke-direct {p0, v0}, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->eofGame(Z)I
@@ -237,22 +237,22 @@
     return p0
 
     .line 81
-    :cond_1
+    :cond_18
     iget-boolean v2, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->slashRSeen:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1f
 
     const/16 p0, 0xa
 
     return p0
 
-    :cond_2
-    if-eqz v0, :cond_3
+    :cond_1f
+    if-eqz v0, :cond_2a
 
     .line 86
     iget-boolean v0, p0, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->slashNSeen:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2a
 
     .line 87
     invoke-virtual {p0}, Lorg/apache/commons/io/input/UnixLineEndingInputStream;->read()I
@@ -261,6 +261,6 @@
 
     return p0
 
-    :cond_3
+    :cond_2a
     return v1
 .end method

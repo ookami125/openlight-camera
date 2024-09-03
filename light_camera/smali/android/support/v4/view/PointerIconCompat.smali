@@ -57,7 +57,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,14 +69,14 @@
 .end method
 
 .method public static create(Landroid/graphics/Bitmap;FF)Landroid/support/v4/view/PointerIconCompat;
-    .locals 2
+    .registers 5
 
     .line 149
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 150
     new-instance v0, Landroid/support/v4/view/PointerIconCompat;
@@ -90,7 +90,7 @@
     return-object v0
 
     .line 152
-    :cond_0
+    :cond_10
     new-instance p0, Landroid/support/v4/view/PointerIconCompat;
 
     const/4 p1, 0x0
@@ -101,14 +101,14 @@
 .end method
 
 .method public static getSystemIcon(Landroid/content/Context;I)Landroid/support/v4/view/PointerIconCompat;
-    .locals 2
+    .registers 4
 
     .line 128
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 129
     new-instance v0, Landroid/support/v4/view/PointerIconCompat;
@@ -122,7 +122,7 @@
     return-object v0
 
     .line 131
-    :cond_0
+    :cond_10
     new-instance p0, Landroid/support/v4/view/PointerIconCompat;
 
     const/4 p1, 0x0
@@ -133,14 +133,14 @@
 .end method
 
 .method public static load(Landroid/content/res/Resources;I)Landroid/support/v4/view/PointerIconCompat;
-    .locals 2
+    .registers 4
 
     .line 178
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     .line 179
     new-instance v0, Landroid/support/v4/view/PointerIconCompat;
@@ -154,7 +154,7 @@
     return-object v0
 
     .line 181
-    :cond_0
+    :cond_10
     new-instance p0, Landroid/support/v4/view/PointerIconCompat;
 
     const/4 p1, 0x0
@@ -167,7 +167,7 @@
 
 # virtual methods
 .method public getPointerIcon()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;

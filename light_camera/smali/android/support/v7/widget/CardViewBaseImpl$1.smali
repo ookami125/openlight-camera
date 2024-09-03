@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/CardViewBaseImpl;)V
-    .locals 0
+    .registers 2
 
     .line 36
     iput-object p1, p0, Landroid/support/v7/widget/CardViewBaseImpl$1;->this$0:Landroid/support/v7/widget/CardViewBaseImpl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public drawRoundRect(Landroid/graphics/Canvas;Landroid/graphics/RectF;FLandroid/graphics/Paint;)V
-    .locals 15
+    .registers 20
 
     move-object v0, p0
 
@@ -70,7 +70,7 @@
 
     cmpl-float v1, p3, v9
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_c7
 
     const/high16 v1, 0x3f000000    # 0.5f
 
@@ -79,6 +79,7 @@
     .line 46
     iget-object v1, v0, Landroid/support/v7/widget/CardViewBaseImpl$1;->this$0:Landroid/support/v7/widget/CardViewBaseImpl;
 
+    # getter for: Landroid/support/v7/widget/CardViewBaseImpl;->mCornerRect:Landroid/graphics/RectF;
     invoke-static {v1}, Landroid/support/v7/widget/CardViewBaseImpl;->access$000(Landroid/support/v7/widget/CardViewBaseImpl;)Landroid/graphics/RectF;
 
     move-result-object v1
@@ -106,6 +107,7 @@
     .line 51
     iget-object v1, v0, Landroid/support/v7/widget/CardViewBaseImpl$1;->this$0:Landroid/support/v7/widget/CardViewBaseImpl;
 
+    # getter for: Landroid/support/v7/widget/CardViewBaseImpl;->mCornerRect:Landroid/graphics/RectF;
     invoke-static {v1}, Landroid/support/v7/widget/CardViewBaseImpl;->access$000(Landroid/support/v7/widget/CardViewBaseImpl;)Landroid/graphics/RectF;
 
     move-result-object v2
@@ -135,6 +137,7 @@
     .line 54
     iget-object v1, v0, Landroid/support/v7/widget/CardViewBaseImpl$1;->this$0:Landroid/support/v7/widget/CardViewBaseImpl;
 
+    # getter for: Landroid/support/v7/widget/CardViewBaseImpl;->mCornerRect:Landroid/graphics/RectF;
     invoke-static {v1}, Landroid/support/v7/widget/CardViewBaseImpl;->access$000(Landroid/support/v7/widget/CardViewBaseImpl;)Landroid/graphics/RectF;
 
     move-result-object v2
@@ -156,6 +159,7 @@
     .line 57
     iget-object v1, v0, Landroid/support/v7/widget/CardViewBaseImpl$1;->this$0:Landroid/support/v7/widget/CardViewBaseImpl;
 
+    # getter for: Landroid/support/v7/widget/CardViewBaseImpl;->mCornerRect:Landroid/graphics/RectF;
     invoke-static {v1}, Landroid/support/v7/widget/CardViewBaseImpl;->access$000(Landroid/support/v7/widget/CardViewBaseImpl;)Landroid/graphics/RectF;
 
     move-result-object v2
@@ -173,6 +177,7 @@
     .line 60
     iget-object v0, v0, Landroid/support/v7/widget/CardViewBaseImpl$1;->this$0:Landroid/support/v7/widget/CardViewBaseImpl;
 
+    # getter for: Landroid/support/v7/widget/CardViewBaseImpl;->mCornerRect:Landroid/graphics/RectF;
     invoke-static {v0}, Landroid/support/v7/widget/CardViewBaseImpl;->access$000(Landroid/support/v7/widget/CardViewBaseImpl;)Landroid/graphics/RectF;
 
     move-result-object v1
@@ -263,7 +268,7 @@
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     .line 72
-    :cond_0
+    :cond_c7
     iget v1, v8, Landroid/graphics/RectF;->left:F
 
     iget v0, v8, Landroid/graphics/RectF;->top:F

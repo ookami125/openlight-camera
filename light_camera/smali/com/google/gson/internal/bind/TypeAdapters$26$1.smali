@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/bind/TypeAdapters$26;Lcom/google/gson/TypeAdapter;)V
-    .locals 0
+    .registers 3
 
     .line 579
     iput-object p1, p0, Lcom/google/gson/internal/bind/TypeAdapters$26$1;->this$0:Lcom/google/gson/internal/bind/TypeAdapters$26;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -61,7 +61,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/sql/Timestamp;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -77,7 +77,7 @@
 
     check-cast p0, Ljava/util/Date;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     .line 582
     new-instance p1, Ljava/sql/Timestamp;
@@ -88,17 +88,17 @@
 
     invoke-direct {p1, v0, v1}, Ljava/sql/Timestamp;-><init>(J)V
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_15
     return-object p1
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -114,7 +114,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/sql/Timestamp;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

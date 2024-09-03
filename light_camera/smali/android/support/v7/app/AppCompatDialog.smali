@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -23,7 +23,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 0
+    .registers 3
 
     .line 46
     invoke-static {p1, p2}, Landroid/support/v7/app/AppCompatDialog;->getThemeResId(Landroid/content/Context;I)I
@@ -52,7 +52,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
-    .locals 0
+    .registers 4
 
     .line 60
     invoke-direct {p0, p1, p2, p3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;ZLandroid/content/DialogInterface$OnCancelListener;)V
@@ -61,9 +61,9 @@
 .end method
 
 .method private static getThemeResId(Landroid/content/Context;I)I
-    .locals 2
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_13
 
     .line 166
     new-instance p1, Landroid/util/TypedValue;
@@ -84,14 +84,14 @@
     .line 168
     iget p1, p1, Landroid/util/TypedValue;->resourceId:I
 
-    :cond_0
+    :cond_13
     return p1
 .end method
 
 
 # virtual methods
 .method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 3
 
     .line 117
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -104,7 +104,7 @@
 .end method
 
 .method public findViewById(I)Landroid/view/View;
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
@@ -133,12 +133,12 @@
 .end method
 
 .method public getDelegate()Landroid/support/v7/app/AppCompatDelegate;
-    .locals 1
+    .registers 2
 
     .line 157
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 158
     invoke-static {p0, p0}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/app/Dialog;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
@@ -148,14 +148,14 @@
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDialog;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
     .line 160
-    :cond_0
+    :cond_a
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDialog;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
     return-object p0
 .end method
 
 .method public getSupportActionBar()Landroid/support/v7/app/ActionBar;
-    .locals 0
+    .registers 1
 
     .line 78
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -170,7 +170,7 @@
 .end method
 
 .method public invalidateOptionsMenu()V
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -188,7 +188,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
 
     .line 65
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -211,7 +211,7 @@
 .end method
 
 .method protected onStop()V
-    .locals 0
+    .registers 1
 
     .line 122
     invoke-super {p0}, Landroid/app/Dialog;->onStop()V
@@ -227,19 +227,19 @@
 .end method
 
 .method public onSupportActionModeFinished(Landroid/support/v7/view/ActionMode;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onSupportActionModeStarted(Landroid/support/v7/view/ActionMode;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onWindowStartingSupportActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public setContentView(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/LayoutRes;
         .end annotation
@@ -266,7 +266,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 88
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -279,7 +279,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 3
 
     .line 93
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -292,7 +292,7 @@
 .end method
 
 .method public setTitle(I)V
-    .locals 1
+    .registers 3
 
     .line 111
     invoke-super {p0, p1}, Landroid/app/Dialog;->setTitle(I)V
@@ -316,7 +316,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 105
     invoke-super {p0, p1}, Landroid/app/Dialog;->setTitle(Ljava/lang/CharSequence;)V
@@ -332,7 +332,7 @@
 .end method
 
 .method public supportRequestWindowFeature(I)Z
-    .locals 0
+    .registers 2
 
     .line 141
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDialog;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;

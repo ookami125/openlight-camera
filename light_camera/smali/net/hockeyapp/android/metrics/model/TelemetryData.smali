@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 7
     invoke-direct {p0}, Lnet/hockeyapp/android/metrics/ITelemetry;-><init>()V

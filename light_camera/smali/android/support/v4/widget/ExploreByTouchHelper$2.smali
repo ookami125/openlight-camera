@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 346
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public get(Landroid/support/v4/util/SparseArrayCompat;I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;I)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 346
     check-cast p1, Landroid/support/v4/util/SparseArrayCompat;
@@ -77,7 +77,7 @@
 .end method
 
 .method public size(Landroid/support/v4/util/SparseArrayCompat;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 .end method
 
 .method public bridge synthetic size(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 346
     check-cast p1, Landroid/support/v4/util/SparseArrayCompat;

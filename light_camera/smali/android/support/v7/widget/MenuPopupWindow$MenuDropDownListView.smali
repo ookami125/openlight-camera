@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Z)V
-    .locals 3
+    .registers 6
 
     .line 137
     invoke-direct {p0, p1, p2}, Landroid/support/v7/widget/DropDownListView;-><init>(Landroid/content/Context;Z)V
@@ -56,7 +56,7 @@
 
     const/16 v2, 0x11
 
-    if-lt p2, v2, :cond_0
+    if-lt p2, v2, :cond_21
 
     const/4 p2, 0x1
 
@@ -65,7 +65,7 @@
 
     move-result p1
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_21
 
     .line 143
     iput v0, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mAdvanceKey:I
@@ -73,23 +73,23 @@
     .line 144
     iput v1, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mRetreatKey:I
 
-    goto :goto_0
+    goto :goto_25
 
     .line 146
-    :cond_0
+    :cond_21
     iput v1, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mAdvanceKey:I
 
     .line 147
     iput v0, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mRetreatKey:I
 
-    :goto_0
+    :goto_25
     return-void
 .end method
 
 
 # virtual methods
 .method public clearSelection()V
-    .locals 1
+    .registers 2
 
     const/4 v0, -0x1
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public bridge synthetic hasFocus()Z
-    .locals 0
+    .registers 1
 
     .line 128
     invoke-super {p0}, Landroid/support/v7/widget/DropDownListView;->hasFocus()Z
@@ -111,7 +111,7 @@
 .end method
 
 .method public bridge synthetic hasWindowFocus()Z
-    .locals 0
+    .registers 1
 
     .line 128
     invoke-super {p0}, Landroid/support/v7/widget/DropDownListView;->hasWindowFocus()Z
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic isFocused()Z
-    .locals 0
+    .registers 1
 
     .line 128
     invoke-super {p0}, Landroid/support/v7/widget/DropDownListView;->isFocused()Z
@@ -133,7 +133,7 @@
 .end method
 
 .method public bridge synthetic isInTouchMode()Z
-    .locals 0
+    .registers 1
 
     .line 128
     invoke-super {p0}, Landroid/support/v7/widget/DropDownListView;->isInTouchMode()Z
@@ -144,7 +144,7 @@
 .end method
 
 .method public bridge synthetic onForwardedEvent(Landroid/view/MotionEvent;I)Z
-    .locals 0
+    .registers 3
 
     .line 128
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/DropDownListView;->onForwardedEvent(Landroid/view/MotionEvent;I)Z
@@ -155,12 +155,12 @@
 .end method
 
 .method public onHoverEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
+    .registers 7
 
     .line 183
     iget-object v0, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mHoverListener:Landroid/support/v7/widget/MenuItemHoverListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5b
 
     .line 187
     invoke-virtual {p0}, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->getAdapter()Landroid/widget/ListAdapter;
@@ -170,7 +170,7 @@
     .line 188
     instance-of v1, v0, Landroid/widget/HeaderViewListAdapter;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 189
     check-cast v0, Landroid/widget/HeaderViewListAdapter;
@@ -187,15 +187,15 @@
 
     check-cast v0, Landroid/support/v7/view/menu/MenuAdapter;
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_19
     const/4 v1, 0x0
 
     .line 194
     check-cast v0, Landroid/support/v7/view/menu/MenuAdapter;
 
-    :goto_0
+    :goto_1c
     const/4 v2, 0x0
 
     .line 199
@@ -205,7 +205,7 @@
 
     const/16 v4, 0xa
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_43
 
     .line 200
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -226,18 +226,18 @@
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_1
+    if-eq v3, v4, :cond_43
 
     sub-int/2addr v3, v1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_43
 
     .line 203
     invoke-virtual {v0}, Landroid/support/v7/view/menu/MenuAdapter;->getCount()I
 
     move-result v1
 
-    if-ge v3, v1, :cond_1
+    if-ge v3, v1, :cond_43
 
     .line 204
     invoke-virtual {v0, v3}, Landroid/support/v7/view/menu/MenuAdapter;->getItem(I)Landroid/support/v7/view/menu/MenuItemImpl;
@@ -245,17 +245,17 @@
     move-result-object v2
 
     .line 209
-    :cond_1
+    :cond_43
     iget-object v1, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mHoveredMenuItem:Landroid/view/MenuItem;
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_5b
 
     .line 211
     invoke-virtual {v0}, Landroid/support/v7/view/menu/MenuAdapter;->getAdapterMenu()Landroid/support/v7/view/menu/MenuBuilder;
 
     move-result-object v0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_52
 
     .line 213
     iget-object v3, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mHoverListener:Landroid/support/v7/widget/MenuItemHoverListener;
@@ -263,10 +263,10 @@
     invoke-interface {v3, v0, v1}, Landroid/support/v7/widget/MenuItemHoverListener;->onItemHoverExit(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)V
 
     .line 216
-    :cond_2
+    :cond_52
     iput-object v2, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mHoveredMenuItem:Landroid/view/MenuItem;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5b
 
     .line 219
     iget-object v1, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mHoverListener:Landroid/support/v7/widget/MenuItemHoverListener;
@@ -274,7 +274,7 @@
     invoke-interface {v1, v0, v2}, Landroid/support/v7/widget/MenuItemHoverListener;->onItemHoverEnter(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)V
 
     .line 224
-    :cond_3
+    :cond_5b
     invoke-super {p0, p1}, Landroid/support/v7/widget/DropDownListView;->onHoverEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
@@ -283,7 +283,7 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 4
+    .registers 7
 
     .line 161
     invoke-virtual {p0}, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->getSelectedView()Landroid/view/View;
@@ -294,19 +294,19 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 162
     iget v2, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mAdvanceKey:I
 
-    if-ne p1, v2, :cond_1
+    if-ne p1, v2, :cond_29
 
     .line 163
     invoke-virtual {v0}, Landroid/support/v7/view/menu/ListMenuItemView;->isEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_28
 
     invoke-virtual {v0}, Landroid/support/v7/view/menu/ListMenuItemView;->getItemData()Landroid/support/v7/view/menu/MenuItemImpl;
 
@@ -316,7 +316,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_28
 
     .line 166
     invoke-virtual {p0}, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->getSelectedItemPosition()I
@@ -331,16 +331,16 @@
     .line 164
     invoke-virtual {p0, v0, p1, v2, v3}, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->performItemClick(Landroid/view/View;IJ)Z
 
-    :cond_0
+    :cond_28
     return v1
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_29
+    if-eqz v0, :cond_42
 
     .line 170
     iget v0, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mRetreatKey:I
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_42
 
     const/4 p1, -0x1
 
@@ -365,7 +365,7 @@
     return v1
 
     .line 177
-    :cond_2
+    :cond_42
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/DropDownListView;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result p0
@@ -374,7 +374,7 @@
 .end method
 
 .method public setHoverListener(Landroid/support/v7/widget/MenuItemHoverListener;)V
-    .locals 0
+    .registers 2
 
     .line 152
     iput-object p1, p0, Landroid/support/v7/widget/MenuPopupWindow$MenuDropDownListView;->mHoverListener:Landroid/support/v7/widget/MenuItemHoverListener;

@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>([Ljava/lang/String;Landroid/app/Activity;I)V
-    .locals 0
+    .registers 4
 
     .line 397
     iput-object p1, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .registers 7
 
     .line 400
     iget-object v0, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
@@ -74,8 +74,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_0
+    :goto_15
+    if-ge v4, v3, :cond_24
 
     .line 407
     iget-object v5, p0, Landroid/support/v4/app/ActivityCompat$1;->val$permissions:[Ljava/lang/String;
@@ -90,10 +90,10 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 411
-    :cond_0
+    :cond_24
     iget-object v1, p0, Landroid/support/v4/app/ActivityCompat$1;->val$activity:Landroid/app/Activity;
 
     check-cast v1, Landroid/support/v4/app/ActivityCompat$OnRequestPermissionsResultCallback;

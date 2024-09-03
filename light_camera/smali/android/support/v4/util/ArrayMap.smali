@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Landroid/support/v4/util/SimpleArrayMap;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 61
     invoke-direct {p0, p1}, Landroid/support/v4/util/SimpleArrayMap;-><init>(I)V
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/support/v4/util/SimpleArrayMap;)V
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-direct {p0, p1}, Landroid/support/v4/util/SimpleArrayMap;-><init>(Landroid/support/v4/util/SimpleArrayMap;)V
@@ -62,7 +62,7 @@
 .end method
 
 .method private getCollection()Landroid/support/v4/util/MapCollections;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -74,7 +74,7 @@
     .line 72
     iget-object v0, p0, Landroid/support/v4/util/ArrayMap;->mCollections:Landroid/support/v4/util/MapCollections;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 73
     new-instance v0, Landroid/support/v4/util/ArrayMap$1;
@@ -84,7 +84,7 @@
     iput-object v0, p0, Landroid/support/v4/util/ArrayMap;->mCollections:Landroid/support/v4/util/MapCollections;
 
     .line 120
-    :cond_0
+    :cond_b
     iget-object p0, p0, Landroid/support/v4/util/ArrayMap;->mCollections:Landroid/support/v4/util/MapCollections;
 
     return-object p0
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public containsAll(Ljava/util/Collection;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,7 +111,7 @@
 .end method
 
 .method public entrySet()Ljava/util/Set;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -134,7 +134,7 @@
 .end method
 
 .method public keySet()Ljava/util/Set;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -156,7 +156,7 @@
 .end method
 
 .method public putAll(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,12 +185,12 @@
 
     move-result-object p1
 
-    :goto_0
+    :goto_12
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2a
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -209,14 +209,14 @@
 
     invoke-virtual {p0, v1, v0}, Landroid/support/v4/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_2a
     return-void
 .end method
 
 .method public removeAll(Ljava/util/Collection;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -234,7 +234,7 @@
 .end method
 
 .method public retainAll(Ljava/util/Collection;)Z
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -252,7 +252,7 @@
 .end method
 
 .method public values()Ljava/util/Collection;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

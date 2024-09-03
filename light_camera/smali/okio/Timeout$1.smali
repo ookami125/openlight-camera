@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Lokio/Timeout;-><init>()V
@@ -27,13 +27,13 @@
 
 # virtual methods
 .method public deadlineNanoTime(J)Lokio/Timeout;
-    .locals 0
+    .registers 3
 
     return-object p0
 .end method
 
 .method public throwIfReached()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -44,7 +44,7 @@
 .end method
 
 .method public timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 0
+    .registers 4
 
     return-object p0
 .end method

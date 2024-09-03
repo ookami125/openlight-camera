@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 49
     new-instance v0, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths$1;
@@ -121,7 +121,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -138,7 +138,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IILopenlight/co/camera/CameraInfo$1;)V
-    .locals 0
+    .registers 5
 
     .line 48
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;-><init>(Ljava/lang/String;II)V
@@ -147,7 +147,7 @@
 .end method
 
 .method static getAllPrimeFocalLength(F)Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -175,8 +175,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_e
+    if-ge v3, v2, :cond_22
 
     aget-object v4, v1, v3
 
@@ -197,14 +197,14 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_22
     return-object v0
 .end method
 
 .method public static getDefaultFocalLength(Lopenlight/co/camera/CameraMode;)I
-    .locals 5
+    .registers 6
 
     .line 87
     invoke-static {}, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;->values()[Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;
@@ -215,8 +215,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_18
 
     aget-object v3, v0, v2
 
@@ -225,7 +225,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     .line 89
     invoke-virtual {v3}, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;->getPrimeFocalLength()I
@@ -234,13 +234,13 @@
 
     return p0
 
-    :cond_0
+    :cond_15
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 92
-    :cond_1
+    :cond_18
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "No focal length registered as default "
@@ -251,7 +251,7 @@
 .end method
 
 .method static getDefaultRelativeMin(FLopenlight/co/camera/CameraMode;)F
-    .locals 1
+    .registers 3
 
     .line 104
     invoke-static {p1}, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;->getDefaultFocalLength(Lopenlight/co/camera/CameraMode;)I
@@ -270,7 +270,7 @@
 .end method
 
 .method static getMaxDefaultLengthRatio(FLopenlight/co/camera/CameraMode;)F
-    .locals 1
+    .registers 3
 
     const/high16 v0, 0x41200000    # 10.0f
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;
-    .locals 1
+    .registers 2
 
     .line 48
     const-class v0, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;
@@ -304,7 +304,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;
-    .locals 1
+    .registers 1
 
     .line 48
     sget-object v0, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;->$VALUES:[Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;
@@ -321,7 +321,7 @@
 
 # virtual methods
 .method public getPrimeFocalLength()I
-    .locals 0
+    .registers 1
 
     .line 72
     iget p0, p0, Lopenlight/co/camera/CameraInfo$SimulatedPrimeFocalLengths;->mPrimeFocalLength:I
@@ -330,7 +330,7 @@
 .end method
 
 .method public isDefault(Lopenlight/co/camera/CameraMode;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 

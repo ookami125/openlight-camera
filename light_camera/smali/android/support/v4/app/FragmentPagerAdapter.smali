@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/app/FragmentManager;)V
-    .locals 1
+    .registers 3
 
     .line 69
     invoke-direct {p0}, Landroid/support/v4/view/PagerAdapter;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method private static makeFragmentName(IJ)Ljava/lang/String;
-    .locals 2
+    .registers 5
 
     .line 178
     new-instance v0, Ljava/lang/StringBuilder;
@@ -68,12 +68,12 @@
 
 # virtual methods
 .method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 117
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 118
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mFragmentManager:Landroid/support/v4/app/FragmentManager;
@@ -85,7 +85,7 @@
     iput-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
     .line 122
-    :cond_0
+    :cond_c
     iget-object p0, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
     check-cast p3, Landroid/support/v4/app/Fragment;
@@ -96,12 +96,12 @@
 .end method
 
 .method public finishUpdate(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
 
     .line 144
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 145
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
@@ -113,7 +113,7 @@
     .line 146
     iput-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
@@ -121,7 +121,7 @@
 .end method
 
 .method public getItemId(I)J
-    .locals 0
+    .registers 2
 
     int-to-long p0, p1
 
@@ -129,12 +129,12 @@
 .end method
 
 .method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
-    .locals 4
+    .registers 7
 
     .line 89
     iget-object v0, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 90
     iget-object v0, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mFragmentManager:Landroid/support/v4/app/FragmentManager;
@@ -146,7 +146,7 @@
     iput-object v0, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
     .line 93
-    :cond_0
+    :cond_c
     invoke-virtual {p0, p2}, Landroid/support/v4/app/FragmentPagerAdapter;->getItemId(I)J
 
     move-result-wide v0
@@ -167,17 +167,17 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 100
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurTransaction:Landroid/support/v4/app/FragmentTransaction;
 
     invoke-virtual {p1, v2}, Landroid/support/v4/app/FragmentTransaction;->attach(Landroid/support/v4/app/Fragment;)Landroid/support/v4/app/FragmentTransaction;
 
-    goto :goto_0
+    goto :goto_3b
 
     .line 102
-    :cond_1
+    :cond_26
     invoke-virtual {p0, p2}, Landroid/support/v4/app/FragmentPagerAdapter;->getItem(I)Landroid/support/v4/app/Fragment;
 
     move-result-object v2
@@ -202,10 +202,10 @@
     invoke-virtual {p2, v3, v2, p1}, Landroid/support/v4/app/FragmentTransaction;->add(ILandroid/support/v4/app/Fragment;Ljava/lang/String;)Landroid/support/v4/app/FragmentTransaction;
 
     .line 107
-    :goto_0
+    :goto_3b
     iget-object p0, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurrentPrimaryItem:Landroid/support/v4/app/Fragment;
 
-    if-eq v2, p0, :cond_2
+    if-eq v2, p0, :cond_46
 
     const/4 p0, 0x0
 
@@ -215,12 +215,12 @@
     .line 109
     invoke-virtual {v2, p0}, Landroid/support/v4/app/Fragment;->setUserVisibleHint(Z)V
 
-    :cond_2
+    :cond_46
     return-object v2
 .end method
 
 .method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 152
     check-cast p2, Landroid/support/v4/app/Fragment;
@@ -229,27 +229,27 @@
 
     move-result-object p0
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public restoreState(Landroid/os/Parcelable;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public saveState()Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -257,7 +257,7 @@
 .end method
 
 .method public setPrimaryItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 128
     check-cast p3, Landroid/support/v4/app/Fragment;
@@ -265,12 +265,12 @@
     .line 129
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurrentPrimaryItem:Landroid/support/v4/app/Fragment;
 
-    if-eq p3, p1, :cond_2
+    if-eq p3, p1, :cond_20
 
     .line 130
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurrentPrimaryItem:Landroid/support/v4/app/Fragment;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 131
     iget-object p1, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurrentPrimaryItem:Landroid/support/v4/app/Fragment;
@@ -284,8 +284,8 @@
 
     invoke-virtual {p1, p2}, Landroid/support/v4/app/Fragment;->setUserVisibleHint(Z)V
 
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_15
+    if-eqz p3, :cond_1e
 
     const/4 p1, 0x1
 
@@ -296,15 +296,15 @@
     invoke-virtual {p3, p1}, Landroid/support/v4/app/Fragment;->setUserVisibleHint(Z)V
 
     .line 138
-    :cond_1
+    :cond_1e
     iput-object p3, p0, Landroid/support/v4/app/FragmentPagerAdapter;->mCurrentPrimaryItem:Landroid/support/v4/app/Fragment;
 
-    :cond_2
+    :cond_20
     return-void
 .end method
 
 .method public startUpdate(Landroid/view/ViewGroup;)V
-    .locals 2
+    .registers 4
 
     .line 80
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getId()I
@@ -313,12 +313,12 @@
 
     const/4 v0, -0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_8
 
     return-void
 
     .line 81
-    :cond_0
+    :cond_8
     new-instance p1, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;

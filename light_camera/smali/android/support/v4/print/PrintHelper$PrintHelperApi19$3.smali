@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/print/PrintHelper$PrintHelperApi19;Ljava/lang/String;Landroid/net/Uri;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;I)V
-    .locals 0
+    .registers 6
 
     .line 580
     iput-object p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
@@ -68,7 +68,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;)V
-    .locals 0
+    .registers 1
 
     .line 580
     invoke-direct {p0}, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->cancelLoad()V
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$500(Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;)Landroid/print/PrintAttributes;
-    .locals 0
+    .registers 1
 
     .line 580
     iget-object p0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mAttributes:Landroid/print/PrintAttributes;
@@ -86,11 +86,12 @@
 .end method
 
 .method private cancelLoad()V
-    .locals 2
+    .registers 3
 
     .line 688
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
 
+    # getter for: Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->mLock:Ljava/lang/Object;
     invoke-static {v0}, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->access$700(Landroid/support/v4/print/PrintHelper$PrintHelperApi19;)Ljava/lang/Object;
 
     move-result-object v0
@@ -98,12 +99,12 @@
     monitor-enter v0
 
     .line 689
-    :try_start_0
+    :try_start_7
     iget-object v1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
 
     iget-object v1, v1, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 690
     iget-object v1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
@@ -120,17 +121,17 @@
     iput-object v1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->mDecodeOptions:Landroid/graphics/BitmapFactory$Options;
 
     .line 693
-    :cond_0
+    :cond_19
     monitor-exit v0
 
     return-void
 
-    :catchall_0
+    :catchall_1b
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_7 .. :try_end_1d} :catchall_1b
 
     throw p0
 .end method
@@ -138,7 +139,7 @@
 
 # virtual methods
 .method public onFinish()V
-    .locals 2
+    .registers 3
 
     .line 698
     invoke-super {p0}, Landroid/print/PrintDocumentAdapter;->onFinish()V
@@ -149,7 +150,7 @@
     .line 700
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mLoadBitmap:Landroid/os/AsyncTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 701
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mLoadBitmap:Landroid/os/AsyncTask;
@@ -159,10 +160,10 @@
     invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->cancel(Z)Z
 
     .line 703
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->val$callback:Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 704
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->val$callback:Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
@@ -170,10 +171,10 @@
     invoke-interface {v0}, Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;->onFinish()V
 
     .line 706
-    :cond_1
+    :cond_19
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     .line 707
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mBitmap:Landroid/graphics/Bitmap;
@@ -185,31 +186,31 @@
     .line 708
     iput-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mBitmap:Landroid/graphics/Bitmap;
 
-    :cond_2
+    :cond_25
     return-void
 .end method
 
 .method public onLayout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$LayoutResultCallback;Landroid/os/Bundle;)V
-    .locals 6
+    .registers 12
 
     .line 592
     monitor-enter p0
 
     .line 593
-    :try_start_0
+    :try_start_1
     iput-object p2, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mAttributes:Landroid/print/PrintAttributes;
 
     .line 594
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4
+    .catchall {:try_start_1 .. :try_end_4} :catchall_44
 
     .line 596
     invoke-virtual {p3}, Landroid/os/CancellationSignal;->isCanceled()Z
 
     move-result p5
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_e
 
     .line 597
     invoke-virtual {p4}, Landroid/print/PrintDocumentAdapter$LayoutResultCallback;->onLayoutCancelled()V
@@ -217,10 +218,10 @@
     return-void
 
     .line 601
-    :cond_0
+    :cond_e
     iget-object p5, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_2f
 
     .line 602
     new-instance p3, Landroid/print/PrintDocumentInfo$Builder;
@@ -259,7 +260,7 @@
     return-void
 
     .line 611
-    :cond_1
+    :cond_2f
     new-instance p5, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1;
 
     move-object v0, p5
@@ -289,20 +290,20 @@
 
     return-void
 
-    :catchall_0
+    :catchall_44
     move-exception p1
 
     .line 594
-    :try_start_1
+    :try_start_45
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_46
+    .catchall {:try_start_45 .. :try_end_46} :catchall_44
 
     throw p1
 .end method
 
 .method public onWrite([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
-    .locals 7
+    .registers 12
 
     .line 716
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
@@ -319,6 +320,7 @@
 
     move-object v6, p4
 
+    # invokes: Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->writeBitmap(Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
     invoke-static/range {v0 .. v6}, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->access$000(Landroid/support/v4/print/PrintHelper$PrintHelperApi19;Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
 
     return-void

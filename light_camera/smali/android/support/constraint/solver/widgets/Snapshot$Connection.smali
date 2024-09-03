@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/widgets/ConstraintAnchor;)V
-    .locals 1
+    .registers 3
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public applyTo(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 3
+    .registers 5
 
     .line 81
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->mAnchor:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -98,7 +98,7 @@
 .end method
 
 .method public updateFrom(Landroid/support/constraint/solver/widgets/ConstraintWidget;)V
-    .locals 1
+    .registers 3
 
     .line 61
     iget-object v0, p0, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->mAnchor:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -116,7 +116,7 @@
     .line 62
     iget-object p1, p0, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->mAnchor:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_31
 
     .line 63
     iget-object p1, p0, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->mAnchor:Landroid/support/constraint/solver/widgets/ConstraintAnchor;
@@ -154,9 +154,9 @@
 
     iput p1, p0, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->mCreator:I
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_0
+    :cond_31
     const/4 p1, 0x0
 
     .line 68
@@ -175,6 +175,6 @@
     .line 71
     iput p1, p0, Landroid/support/constraint/solver/widgets/Snapshot$Connection;->mCreator:I
 
-    :goto_0
+    :goto_3d
     return-void
 .end method

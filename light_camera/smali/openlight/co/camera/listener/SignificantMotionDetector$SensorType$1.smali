@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;F)V
-    .locals 6
+    .registers 11
 
     const/4 v5, 0x0
 
@@ -39,9 +39,10 @@
 
 # virtual methods
 .method public processEvent(Landroid/hardware/SensorEvent;Lopenlight/co/camera/listener/SignificantMotionDetector;)V
-    .locals 0
+    .registers 3
 
     .line 40
+    # invokes: Lopenlight/co/camera/listener/SignificantMotionDetector;->processGryoEvent(Landroid/hardware/SensorEvent;)V
     invoke-static {p2, p1}, Lopenlight/co/camera/listener/SignificantMotionDetector;->access$100(Lopenlight/co/camera/listener/SignificantMotionDetector;Landroid/hardware/SensorEvent;)V
 
     return-void

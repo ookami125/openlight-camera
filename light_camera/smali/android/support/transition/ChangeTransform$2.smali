@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 84
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public get(Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;)Landroid/graphics/PointF;
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 84
     check-cast p1, Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;
@@ -57,7 +57,7 @@
 .end method
 
 .method public set(Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;Landroid/graphics/PointF;)V
-    .locals 0
+    .registers 3
 
     .line 92
     invoke-virtual {p1, p2}, Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;->setTranslation(Landroid/graphics/PointF;)V
@@ -66,7 +66,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 84
     check-cast p1, Landroid/support/transition/ChangeTransform$PathAnimatorMatrix;

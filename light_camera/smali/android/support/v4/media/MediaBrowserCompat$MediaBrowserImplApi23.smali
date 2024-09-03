@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 5
 
     .line 1936
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;Landroid/os/Bundle;)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getItem(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -44,7 +44,7 @@
     .line 1941
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi23;->mServiceBinderWrapper:Landroid/support/v4/media/MediaBrowserCompat$ServiceBinderWrapper;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 1942
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi23;->mBrowserObj:Ljava/lang/Object;
@@ -53,12 +53,12 @@
 
     invoke-static {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompatApi23;->getItem(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 1944
-    :cond_0
+    :cond_c
     invoke-super {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->getItem(Ljava/lang/String;Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method

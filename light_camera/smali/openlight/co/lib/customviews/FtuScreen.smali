@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 49
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -58,7 +58,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 55
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 60
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -82,13 +82,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_46
 
     .line 187
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -104,7 +104,7 @@
     move-result-object p1
 
     .line 190
-    :try_start_0
+    :try_start_d
     sget p2, Lopenlight/co/lib/R$styleable;->FtuScreen_ftuImage:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -157,15 +157,15 @@
     move-result-object p2
 
     iput-object p2, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton2Text:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3d
+    .catchall {:try_start_d .. :try_end_3d} :catchall_41
 
     .line 197
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_46
 
-    :catchall_0
+    :catchall_41
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -174,31 +174,31 @@
     throw p0
 
     .line 201
-    :cond_0
-    :goto_0
+    :cond_46
+    :goto_46
     invoke-virtual {p0, p0}, Lopenlight/co/lib/customviews/FtuScreen;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
 
 .method private setText(Landroid/widget/TextView;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 176
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_c
 
     const/16 p0, 0x8
 
     .line 177
     invoke-virtual {p1, p0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_c
     const/4 p0, 0x0
 
     .line 179
@@ -207,24 +207,24 @@
     .line 180
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 134
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mListener:Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 135
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton1:Landroid/widget/TextView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_f
 
     .line 136
     iget-object p0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mListener:Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;
@@ -233,13 +233,13 @@
 
     invoke-interface {p0, p1}, Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;->onButtonClicked(I)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 137
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton2:Landroid/widget/TextView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_19
 
     .line 138
     iget-object p0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mListener:Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;
@@ -248,13 +248,13 @@
 
     invoke-interface {p0, p1}, Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;->onButtonClicked(I)V
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 145
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
@@ -378,7 +378,7 @@
 .end method
 
 .method public setBody(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 93
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mBody:Landroid/widget/TextView;
@@ -389,7 +389,7 @@
 .end method
 
 .method public setButton1(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 101
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton1:Landroid/widget/TextView;
@@ -400,7 +400,7 @@
 .end method
 
 .method public setButton2(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 109
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton2:Landroid/widget/TextView;
@@ -411,49 +411,49 @@
 .end method
 
 .method public setButtonVisibility(IZ)V
-    .locals 1
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     .line 126
     iget-object p0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton1:Landroid/widget/TextView;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_b
 
     iget-object p0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mButton2:Landroid/widget/TextView;
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_1
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
-    if-eqz p0, :cond_3
+    :goto_c
+    if-eqz p0, :cond_17
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_12
 
     const/4 p1, 0x0
 
-    goto :goto_1
+    goto :goto_14
 
-    :cond_2
+    :cond_12
     const/16 p1, 0x8
 
     .line 128
-    :goto_1
+    :goto_14
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_3
+    :cond_17
     return-void
 .end method
 
 .method public setImage(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 69
     iget-object p0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mImage:Landroid/widget/ImageView;
@@ -464,7 +464,7 @@
 .end method
 
 .method public setOnButtonClickListener(Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;)V
-    .locals 0
+    .registers 2
     .param p1    # Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -477,7 +477,7 @@
 .end method
 
 .method public setSubTitle(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 85
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mSubTitle:Landroid/widget/TextView;
@@ -488,7 +488,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 77
     iget-object v0, p0, Lopenlight/co/lib/customviews/FtuScreen;->mTitle:Landroid/widget/TextView;

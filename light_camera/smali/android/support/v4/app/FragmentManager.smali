@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 85
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static enableDebugLogging(Z)V
-    .locals 0
+    .registers 1
 
     .line 428
     sput-boolean p0, Landroid/support/v4/app/FragmentManagerImpl;->DEBUG:Z
@@ -90,7 +90,7 @@
 .end method
 
 .method public openTransaction()Landroid/support/v4/app/FragmentTransaction;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;

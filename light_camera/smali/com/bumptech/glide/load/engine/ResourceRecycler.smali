@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public recycle(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 22
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->handler:Landroid/os/Handler;
@@ -75,10 +75,10 @@
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 24
-    :cond_0
+    :cond_12
     iput-boolean v1, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->isRecycling:Z
 
     .line 25
@@ -89,6 +89,6 @@
     .line 26
     iput-boolean p1, p0, Lcom/bumptech/glide/load/engine/ResourceRecycler;->isRecycling:Z
 
-    :goto_0
+    :goto_1a
     return-void
 .end method

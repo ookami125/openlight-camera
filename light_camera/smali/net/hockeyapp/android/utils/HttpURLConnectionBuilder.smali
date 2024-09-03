@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method private static getFormString(Ljava/util/Map;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,12 +101,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3f
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -150,9 +150,9 @@
 
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_3f
     const-string p0, "&"
 
     .line 171
@@ -166,7 +166,7 @@
 
 # virtual methods
 .method public build()Ljava/net/HttpURLConnection;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -202,7 +202,7 @@
 
     const/16 v2, 0x9
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_24
 
     const-string v1, "Connection"
 
@@ -212,14 +212,14 @@
     invoke-virtual {v0, v1, v2}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 133
-    :cond_0
+    :cond_24
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestMethod:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_51
 
     .line 134
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestMethod:Ljava/lang/String;
@@ -233,7 +233,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_4d
 
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestMethod:Ljava/lang/String;
 
@@ -243,7 +243,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4d
 
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestMethod:Ljava/lang/String;
 
@@ -253,16 +253,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_51
 
-    :cond_1
+    :cond_4d
     const/4 v1, 0x1
 
     .line 136
     invoke-virtual {v0, v1}, Ljava/net/HttpURLConnection;->setDoOutput(Z)V
 
     .line 140
-    :cond_2
+    :cond_51
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mHeaders:Ljava/util/Map;
 
     invoke-interface {v1}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -273,12 +273,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_5b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_73
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -297,17 +297,17 @@
 
     invoke-virtual {v0, v2, v3}, Ljava/net/HttpURLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 144
-    :cond_3
+    :cond_73
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestBody:Ljava/lang/String;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_96
 
     .line 145
     invoke-virtual {v0}, Ljava/net/HttpURLConnection;->getOutputStream()Ljava/io/OutputStream;
@@ -337,10 +337,10 @@
     invoke-virtual {v2}, Ljava/io/BufferedWriter;->close()V
 
     .line 152
-    :cond_4
+    :cond_96
     iget-object v1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mMultipartEntity:Lnet/hockeyapp/android/utils/SimpleMultipartEntity;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_c5
 
     const-string v1, "Content-Length"
 
@@ -385,12 +385,12 @@
     .line 157
     invoke-virtual {v1}, Ljava/io/BufferedOutputStream;->close()V
 
-    :cond_5
+    :cond_c5
     return-object v0
 .end method
 
 .method public setBasicAuthorization(Ljava/lang/String;Ljava/lang/String;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 2
+    .registers 5
 
     .line 114
     new-instance v0, Ljava/lang/StringBuilder;
@@ -444,7 +444,7 @@
 .end method
 
 .method public setHeader(Ljava/lang/String;Ljava/lang/String;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 1
+    .registers 4
 
     .line 109
     iget-object v0, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mHeaders:Ljava/util/Map;
@@ -455,7 +455,7 @@
 .end method
 
 .method public setRequestBody(Ljava/lang/String;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 0
+    .registers 2
 
     .line 57
     iput-object p1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestBody:Ljava/lang/String;
@@ -464,7 +464,7 @@
 .end method
 
 .method public setRequestMethod(Ljava/lang/String;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 0
+    .registers 2
 
     .line 52
     iput-object p1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mRequestMethod:Ljava/lang/String;
@@ -473,9 +473,9 @@
 .end method
 
 .method public setTimeout(I)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 0
+    .registers 2
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_5
 
     .line 104
     iput p1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mTimeout:I
@@ -483,7 +483,7 @@
     return-object p0
 
     .line 102
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Timeout has to be positive."
@@ -494,7 +494,7 @@
 .end method
 
 .method public writeFormFields(Ljava/util/Map;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -523,12 +523,12 @@
 
     .line 65
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->setRequestBody(Ljava/lang/String;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_10} :catch_11
 
     return-object p0
 
-    :catch_0
+    :catch_11
     move-exception p0
 
     .line 67
@@ -540,7 +540,7 @@
 .end method
 
 .method public writeMultipartData(Ljava/util/Map;Landroid/content/Context;Ljava/util/List;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    .locals 7
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -578,12 +578,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_14
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -602,20 +602,20 @@
 
     invoke-virtual {v2, v1, v3}, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->addPart(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_2c
     const/4 p1, 0x0
 
     move v0, p1
 
     .line 81
-    :goto_1
+    :goto_2e
     invoke-interface {p3}, Ljava/util/List;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_69
 
     .line 82
     invoke-interface {p3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -633,15 +633,15 @@
 
     sub-int/2addr v2, v3
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_43
 
-    goto :goto_2
+    goto :goto_44
 
-    :cond_1
+    :cond_43
     move v3, p1
 
     .line 85
-    :goto_2
+    :goto_44
     invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -676,10 +676,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 89
-    :cond_2
+    :cond_69
     iget-object p1, p0, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->mMultipartEntity:Lnet/hockeyapp/android/utils/SimpleMultipartEntity;
 
     invoke-virtual {p1}, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->writeLastBoundaryIfNeeds()V
@@ -708,12 +708,12 @@
     move-result-object p2
 
     invoke-virtual {p0, p1, p2}, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->setHeader(Ljava/lang/String;Ljava/lang/String;)Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8a
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_8a} :catch_8b
 
     return-object p0
 
-    :catch_0
+    :catch_8b
     move-exception p0
 
     .line 94

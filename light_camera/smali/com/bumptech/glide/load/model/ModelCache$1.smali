@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/model/ModelCache;I)V
-    .locals 0
+    .registers 3
 
     .line 26
     iput-object p1, p0, Lcom/bumptech/glide/load/model/ModelCache$1;->this$0:Lcom/bumptech/glide/load/model/ModelCache;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method protected onItemEvicted(Lcom/bumptech/glide/load/model/ModelCache$ModelKey;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 .end method
 
 .method protected bridge synthetic onItemEvicted(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 26
     check-cast p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;

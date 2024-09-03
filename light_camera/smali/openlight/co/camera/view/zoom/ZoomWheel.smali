@@ -96,13 +96,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 98
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -223,7 +223,7 @@
 .end method
 
 .method private calculateFinishZoomText()V
-    .locals 2
+    .registers 3
 
     .line 232
     iget v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomLevel:F
@@ -260,7 +260,7 @@
 .end method
 
 .method private calculateZoomLevel()V
-    .locals 6
+    .registers 7
 
     .line 212
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -295,27 +295,27 @@
 
     cmpg-float v4, v4, v0
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_23
 
     .line 217
     invoke-direct {p0, v3, v0}, Lopenlight/co/camera/view/zoom/ZoomWheel;->getComputedZoomLevel(FF)D
 
     move-result-wide v0
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_23
     iget v4, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomLevel:F
 
     cmpl-float v0, v4, v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_37
 
     iget v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomLevel:F
 
     cmpg-float v0, v0, v2
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_37
 
     const-wide/high16 v4, 0x3fe0000000000000L    # 0.5
 
@@ -326,12 +326,12 @@
 
     add-double/2addr v0, v4
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_1
+    :cond_37
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
 
-    :goto_0
+    :goto_39
     iput-wide v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCalculatedZoomLevel:D
 
     .line 220
@@ -344,7 +344,7 @@
 .end method
 
 .method private drawDotsOnZoomWheel(DFLandroid/graphics/Canvas;)V
-    .locals 3
+    .registers 8
 
     .line 285
     invoke-virtual {p0}, Lopenlight/co/camera/view/zoom/ZoomWheel;->getWidth()I
@@ -440,7 +440,7 @@
 .end method
 
 .method private drawFocalLengthText(Ljava/lang/String;DLandroid/graphics/Canvas;)V
-    .locals 16
+    .registers 21
 
     move-object/from16 v10, p0
 
@@ -490,12 +490,12 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_10a
 
-    goto/16 :goto_0
+    goto/16 :goto_108
 
     .line 448
-    :pswitch_0
+    :pswitch_30
     iget v0, v10, Lopenlight/co/camera/view/zoom/ZoomWheel;->mFocalLengthLeftMargin:F
 
     invoke-static {v0}, Ljava/lang/Math;->round(F)I
@@ -580,10 +580,10 @@
 
     invoke-direct/range {v0 .. v9}, Lopenlight/co/camera/view/zoom/ZoomWheel;->drawText(Ljava/lang/String;IFDIIFLandroid/graphics/Canvas;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_108
 
     .line 432
-    :pswitch_1
+    :pswitch_74
     iget v0, v10, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCenterX:I
 
     int-to-float v0, v0
@@ -684,10 +684,10 @@
 
     invoke-direct/range {v0 .. v9}, Lopenlight/co/camera/view/zoom/ZoomWheel;->drawText(Ljava/lang/String;IFDIIFLandroid/graphics/Canvas;)V
 
-    goto :goto_0
+    goto :goto_108
 
     .line 417
-    :pswitch_2
+    :pswitch_c2
     iget v0, v10, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCenterX:I
 
     int-to-float v0, v0
@@ -777,22 +777,22 @@
 
     invoke-direct/range {v0 .. v9}, Lopenlight/co/camera/view/zoom/ZoomWheel;->drawText(Ljava/lang/String;IFDIIFLandroid/graphics/Canvas;)V
 
-    :goto_0
+    :goto_108
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_10a
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_c2
+        :pswitch_74
+        :pswitch_30
+        :pswitch_30
     .end packed-switch
 .end method
 
 .method private drawFocalLengths(IIDFLandroid/graphics/Canvas;)V
-    .locals 9
+    .registers 16
 
     .line 366
     iget v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomLevel:F
@@ -803,7 +803,7 @@
 
     cmpl-double v0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 367
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -817,8 +817,8 @@
     .line 368
     invoke-direct {p0}, Lopenlight/co/camera/view/zoom/ZoomWheel;->calculateFinishZoomText()V
 
-    :cond_0
-    if-ne p2, p1, :cond_1
+    :cond_14
+    if-ne p2, p1, :cond_1f
 
     .line 373
     invoke-direct {p0, p2}, Lopenlight/co/camera/view/zoom/ZoomWheel;->playHaptic(I)V
@@ -828,22 +828,22 @@
 
     invoke-direct {p0, p1, p3, p4, p6}, Lopenlight/co/camera/view/zoom/ZoomWheel;->drawFocalLengthText(Ljava/lang/String;DLandroid/graphics/Canvas;)V
 
-    goto :goto_0
+    goto :goto_70
 
     .line 376
-    :cond_1
+    :cond_1f
     invoke-direct {p0, p2}, Lopenlight/co/camera/view/zoom/ZoomWheel;->getPrimeLevelToDisplay(I)I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_27
 
     return-void
 
     .line 378
-    :cond_2
+    :cond_27
     sget-object v1, Lopenlight/co/camera/view/zoom/ZoomWheel;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -879,7 +879,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_70
 
     .line 383
     iget p1, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mSmallTextSize:F
@@ -918,13 +918,13 @@
 
     invoke-direct/range {v1 .. v8}, Lopenlight/co/camera/view/zoom/ZoomWheel;->drawPrimeFocalLengthText(Ljava/lang/String;ILandroid/graphics/Rect;DFLandroid/graphics/Canvas;)V
 
-    :cond_3
-    :goto_0
+    :cond_70
+    :goto_70
     return-void
 .end method
 
 .method private drawItem(ILandroid/graphics/Canvas;)V
-    .locals 11
+    .registers 14
 
     .line 245
     iget-wide v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mAngleOfFirstItem:D
@@ -950,16 +950,16 @@
 
     add-int v5, v4, p1
 
-    if-ltz v5, :cond_1
+    if-ltz v5, :cond_5c
 
     const/16 p1, 0x35
 
-    if-lt v5, p1, :cond_0
+    if-lt v5, p1, :cond_1b
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 254
-    :cond_0
+    :cond_1b
     invoke-virtual {v0}, Ljava/lang/Double;->doubleValue()D
 
     move-result-wide v0
@@ -1047,13 +1047,13 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_5c
+    :goto_5c
     return-void
 .end method
 
 .method private drawPrimeFocalLengthText(Ljava/lang/String;ILandroid/graphics/Rect;DFLandroid/graphics/Canvas;)V
-    .locals 10
+    .registers 18
 
     move-object v0, p0
 
@@ -1098,16 +1098,16 @@
 
     const/4 v4, 0x0
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_90
 
     move v6, v4
 
     move v7, v6
 
-    goto :goto_1
+    goto :goto_7d
 
     .line 492
-    :pswitch_0
+    :pswitch_25
     invoke-virtual {p3}, Landroid/graphics/Rect;->exactCenterY()F
 
     move-result v2
@@ -1149,10 +1149,10 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_7b
 
     .line 502
-    :pswitch_1
+    :pswitch_44
     invoke-virtual {p3}, Landroid/graphics/Rect;->exactCenterX()F
 
     move-result v2
@@ -1190,10 +1190,10 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_7b
 
     .line 497
-    :pswitch_2
+    :pswitch_61
     invoke-virtual {p3}, Landroid/graphics/Rect;->width()I
 
     move-result v2
@@ -1229,13 +1229,13 @@
 
     move-result v2
 
-    :goto_0
+    :goto_7b
     move v7, v1
 
     move v6, v2
 
     .line 508
-    :goto_1
+    :goto_7d
     iget-object v1, v0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
 
     .line 509
@@ -1262,17 +1262,17 @@
 
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_90
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_61
+        :pswitch_44
+        :pswitch_25
+        :pswitch_25
     .end packed-switch
 .end method
 
 .method private drawText(Ljava/lang/String;IFDIIFLandroid/graphics/Canvas;)V
-    .locals 4
+    .registers 14
 
     .line 322
     invoke-static {p4, p5}, Ljava/lang/Math;->cos(D)D
@@ -1289,11 +1289,11 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_18
 
     const/16 v2, 0x8
 
-    if-ge p2, v2, :cond_0
+    if-ge p2, v2, :cond_18
 
     div-float v0, v1, v0
 
@@ -1301,13 +1301,13 @@
 
     mul-float/2addr v0, v2
 
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_18
+    if-nez p2, :cond_1b
 
-    goto :goto_0
+    goto :goto_26
 
     .line 331
-    :cond_1
+    :cond_1b
     invoke-static {p4, p5}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide p4
@@ -1321,7 +1321,7 @@
     double-to-float v1, p4
 
     .line 334
-    :goto_0
+    :goto_26
     invoke-virtual {p9}, Landroid/graphics/Canvas;->save()I
 
     .line 335
@@ -1394,7 +1394,7 @@
 .end method
 
 .method private static fillColor(F)I
-    .locals 1
+    .registers 2
 
     const/high16 v0, 0x437f0000    # 255.0f
 
@@ -1413,7 +1413,7 @@
 .end method
 
 .method private getComputedZoomLevel(FF)D
-    .locals 0
+    .registers 3
 
     const/high16 p0, 0x3f800000    # 1.0f
 
@@ -1433,11 +1433,11 @@
 .end method
 
 .method private getPrimeLevelToDisplay(I)I
-    .locals 2
+    .registers 4
 
     const/high16 v0, 0x41200000    # 10.0f
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 565
     iget-object p0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -1453,12 +1453,12 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_10
     const/16 v1, 0x34
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_20
 
     iget-object p0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
 
@@ -1473,17 +1473,17 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_1
+    :cond_20
     const/4 p0, -0x1
 
-    :goto_0
+    :goto_21
     return p0
 .end method
 
 .method private static getPrimeTextSize(DF)F
-    .locals 2
+    .registers 5
 
     .line 549
     invoke-static {p0, p1}, Ljava/lang/Math;->cos(D)D
@@ -1509,17 +1509,17 @@
 .end method
 
 .method private getTextBound(Ljava/lang/String;F)V
-    .locals 3
+    .registers 6
 
     .line 533
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mTextPaint:Landroid/text/TextPaint;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 534
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mTextPaint:Landroid/text/TextPaint;
 
     invoke-virtual {v0, p2}, Landroid/text/TextPaint;->setTextSize(F)V
@@ -1539,23 +1539,23 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1c
 
     iget-object p0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mExtensionRect:Landroid/graphics/Rect;
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1c
     iget-object p0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mFocalLengthRect:Landroid/graphics/Rect;
 
-    :goto_0
+    :goto_1e
     invoke-virtual {p2, p1, v0, v1, p0}, Landroid/text/TextPaint;->getTextBounds(Ljava/lang/String;IILandroid/graphics/Rect;)V
 
     return-void
 .end method
 
 .method private static getTextWidth(Ljava/lang/String;Landroid/graphics/Paint;)F
-    .locals 2
+    .registers 4
 
     .line 523
     invoke-virtual {p0}, Ljava/lang/String;->length()I
@@ -1572,7 +1572,7 @@
 .end method
 
 .method private initResources()V
-    .locals 3
+    .registers 4
 
     .line 172
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCameraApp:Landroid/content/Context;
@@ -1746,7 +1746,7 @@
 .end method
 
 .method private playHaptic(I)V
-    .locals 3
+    .registers 5
 
     .line 601
     sget-object v0, Lopenlight/co/camera/view/zoom/ZoomWheel;->TAG:Ljava/lang/String;
@@ -1776,7 +1776,7 @@
 
     sget-object v1, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomType;->FLING:Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomType;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_42
 
     iget v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomLevel:F
 
@@ -1789,35 +1789,35 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_36
 
     const/16 v0, 0x1a
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_36
 
     const/16 v0, 0x34
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_36
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_42
 
-    :cond_0
+    :cond_36
     iget-object p1, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCurrentEventType:Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;
 
     sget-object v0, Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;->DISPLAY:Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_3f
 
     sget-object p1, Lopenlight/co/camera/haptic/Immersion;->DISPLAY_ZOOM_PRIME:Lopenlight/co/camera/haptic/Immersion;
 
-    goto :goto_0
+    goto :goto_50
 
-    :cond_1
+    :cond_3f
     sget-object p1, Lopenlight/co/camera/haptic/Immersion;->TOUCHSTRIP_ZOOM_PRIME:Lopenlight/co/camera/haptic/Immersion;
 
-    goto :goto_0
+    goto :goto_50
 
-    :cond_2
+    :cond_42
     iget-object p1, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomString:Ljava/lang/String;
 
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mPrevZoomString:Ljava/lang/String;
@@ -1827,17 +1827,17 @@
 
     move-result p1
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_4f
 
     sget-object p1, Lopenlight/co/camera/haptic/Immersion;->DISPLAY_ZOOM_DOT:Lopenlight/co/camera/haptic/Immersion;
 
-    goto :goto_0
+    goto :goto_50
 
-    :cond_3
+    :cond_4f
     const/4 p1, 0x0
 
-    :goto_0
-    if-eqz p1, :cond_4
+    :goto_50
+    if-eqz p1, :cond_5b
 
     .line 612
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mHaptic:Lopenlight/co/camera/haptic/PlayHaptic;
@@ -1849,12 +1849,12 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mPrevZoomString:Ljava/lang/String;
 
-    :cond_4
+    :cond_5b
     return-void
 .end method
 
 .method private removeListener()V
-    .locals 1
+    .registers 2
 
     .line 621
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -1871,7 +1871,7 @@
 .end method
 
 .method private static strokeColor(F)I
-    .locals 1
+    .registers 2
 
     const/high16 v0, 0x437f0000    # 255.0f
 
@@ -1890,7 +1890,7 @@
 .end method
 
 .method private updateAngleOfFirst()V
-    .locals 4
+    .registers 5
 
     .line 203
     iget-wide v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mAngleBetweenItemsInRadians:D
@@ -1915,7 +1915,7 @@
 
 # virtual methods
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 115
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1930,7 +1930,7 @@
 .end method
 
 .method public getZoomValue()F
-    .locals 0
+    .registers 1
 
     .line 141
     iget-object p0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomString:Ljava/lang/String;
@@ -1943,7 +1943,7 @@
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 0
+    .registers 1
 
     .line 167
     invoke-super {p0}, Landroid/view/View;->onDetachedFromWindow()V
@@ -1955,7 +1955,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
 
     .line 153
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -1963,39 +1963,39 @@
     .line 154
     iget v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCenterX:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_19
 
     iget v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCenterY:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_0
+    :cond_c
     const/16 v0, -0x1a
 
-    :goto_0
+    :goto_e
     const/16 v1, 0x1a
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_18
 
     .line 161
     invoke-direct {p0, v0, p1}, Lopenlight/co/camera/view/zoom/ZoomWheel;->drawItem(ILandroid/graphics/Canvas;)V
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_1
+    :cond_18
     return-void
 
-    :cond_2
-    :goto_1
+    :cond_19
+    :goto_19
     return-void
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 0
+    .registers 2
 
     .line 109
     iput-object p1, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
@@ -2007,7 +2007,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 146
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -2026,7 +2026,7 @@
 .end method
 
 .method public setCurrentEventType(Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;)V
-    .locals 0
+    .registers 2
 
     .line 132
     iput-object p1, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mCurrentEventType:Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;
@@ -2035,7 +2035,7 @@
 .end method
 
 .method public setZoomLevel()V
-    .locals 1
+    .registers 2
 
     .line 122
     iget-object v0, p0, Lopenlight/co/camera/view/zoom/ZoomWheel;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;

@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 2
+    .registers 5
 
     .line 63
     const-class v0, Ljava/util/Date;
@@ -60,7 +60,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Class;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,7 +93,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Class;I)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -121,7 +121,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;II)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,7 +152,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -182,7 +182,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Class;Ljava/text/DateFormat;Ljava/text/DateFormat;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -202,20 +202,20 @@
     .line 75
     const-class v0, Ljava/util/Date;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_45
 
     const-class v0, Ljava/sql/Date;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_45
 
     const-class v0, Ljava/sql/Timestamp;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_10
 
-    goto :goto_0
+    goto :goto_45
 
     .line 76
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -261,8 +261,8 @@
     throw p0
 
     .line 78
-    :cond_1
-    :goto_0
+    :cond_45
+    :goto_45
     iput-object p1, p0, Lcom/google/gson/DefaultDateTypeAdapter;->dateType:Ljava/lang/Class;
 
     .line 79
@@ -275,7 +275,7 @@
 .end method
 
 .method private deserializeToDate(Ljava/lang/String;)Ljava/util/Date;
-    .locals 2
+    .registers 4
 
     .line 117
     iget-object v0, p0, Lcom/google/gson/DefaultDateTypeAdapter;->localFormat:Ljava/text/DateFormat;
@@ -283,50 +283,50 @@
     monitor-enter v0
 
     .line 119
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lcom/google/gson/DefaultDateTypeAdapter;->localFormat:Ljava/text/DateFormat;
 
     invoke-virtual {v1, p1}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catch Ljava/text/ParseException; {:try_start_3 .. :try_end_9} :catch_d
+    .catchall {:try_start_3 .. :try_end_9} :catchall_b
 
-    :try_start_1
+    :try_start_9
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_a
+    .catchall {:try_start_9 .. :try_end_a} :catchall_b
 
     return-object v1
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
-    goto :goto_0
+    goto :goto_28
 
     .line 122
-    :catch_0
-    :try_start_2
+    :catch_d
+    :try_start_d
     iget-object p0, p0, Lcom/google/gson/DefaultDateTypeAdapter;->enUsFormat:Ljava/text/DateFormat;
 
     invoke-virtual {p0, p1}, Ljava/text/DateFormat;->parse(Ljava/lang/String;)Ljava/util/Date;
 
     move-result-object p0
-    :try_end_2
-    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_13
+    .catch Ljava/text/ParseException; {:try_start_d .. :try_end_13} :catch_15
+    .catchall {:try_start_d .. :try_end_13} :catchall_b
 
-    :try_start_3
+    :try_start_13
     monitor-exit v0
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_14
+    .catchall {:try_start_13 .. :try_end_14} :catchall_b
 
     return-object p0
 
     .line 125
-    :catch_1
-    :try_start_4
+    :catch_15
+    :try_start_15
     new-instance p0, Ljava/text/ParsePosition;
 
     const/4 v1, 0x0
@@ -336,16 +336,16 @@
     invoke-static {p1, p0}, Lcom/google/gson/internal/bind/util/ISO8601Utils;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
 
     move-result-object p0
-    :try_end_4
-    .catch Ljava/text/ParseException; {:try_start_4 .. :try_end_4} :catch_2
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_1f
+    .catch Ljava/text/ParseException; {:try_start_15 .. :try_end_1f} :catch_21
+    .catchall {:try_start_15 .. :try_end_1f} :catchall_b
 
-    :try_start_5
+    :try_start_1f
     monitor-exit v0
 
     return-object p0
 
-    :catch_2
+    :catch_21
     move-exception p0
 
     .line 127
@@ -356,10 +356,10 @@
     throw v1
 
     .line 129
-    :goto_0
+    :goto_28
     monitor-exit v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_29
+    .catchall {:try_start_1f .. :try_end_29} :catchall_b
 
     throw p0
 .end method
@@ -367,7 +367,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -383,7 +383,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/util/Date;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -397,7 +397,7 @@
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 100
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -407,7 +407,7 @@
     return-object p0
 
     .line 103
-    :cond_0
+    :cond_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object p1
@@ -421,17 +421,17 @@
 
     const-class v1, Ljava/util/Date;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1c
 
     return-object p1
 
     .line 106
-    :cond_1
+    :cond_1c
     iget-object v0, p0, Lcom/google/gson/DefaultDateTypeAdapter;->dateType:Ljava/lang/Class;
 
     const-class v1, Ljava/sql/Timestamp;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2c
 
     .line 107
     new-instance p0, Ljava/sql/Timestamp;
@@ -445,12 +445,12 @@
     return-object p0
 
     .line 108
-    :cond_2
+    :cond_2c
     iget-object p0, p0, Lcom/google/gson/DefaultDateTypeAdapter;->dateType:Ljava/lang/Class;
 
     const-class v0, Ljava/sql/Date;
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_3c
 
     .line 109
     new-instance p0, Ljava/sql/Date;
@@ -464,7 +464,7 @@
     return-object p0
 
     .line 112
-    :cond_3
+    :cond_3c
     new-instance p0, Ljava/lang/AssertionError;
 
     invoke-direct {p0}, Ljava/lang/AssertionError;-><init>()V
@@ -473,7 +473,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 134
     new-instance v0, Ljava/lang/StringBuilder;
@@ -515,7 +515,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -531,14 +531,14 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/util/Date;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     .line 88
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->nullValue()Lcom/google/gson/stream/JsonWriter;
@@ -546,13 +546,13 @@
     return-void
 
     .line 91
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lcom/google/gson/DefaultDateTypeAdapter;->localFormat:Ljava/text/DateFormat;
 
     monitor-enter v0
 
     .line 92
-    :try_start_0
+    :try_start_9
     iget-object p0, p0, Lcom/google/gson/DefaultDateTypeAdapter;->enUsFormat:Ljava/text/DateFormat;
 
     invoke-virtual {p0, p2}, Ljava/text/DateFormat;->format(Ljava/util/Date;)Ljava/lang/String;
@@ -567,12 +567,12 @@
 
     return-void
 
-    :catchall_0
+    :catchall_14
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_16
+    .catchall {:try_start_9 .. :try_end_16} :catchall_14
 
     throw p0
 .end method

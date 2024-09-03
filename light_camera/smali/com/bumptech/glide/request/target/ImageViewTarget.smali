@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 2
 
     .line 17
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/ViewTarget;-><init>(Landroid/view/View;)V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getCurrentDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
 
     .line 26
     iget-object p0, p0, Lcom/bumptech/glide/request/target/ImageViewTarget;->view:Landroid/view/View;
@@ -48,7 +48,7 @@
 .end method
 
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 70
     iget-object p0, p0, Lcom/bumptech/glide/request/target/ImageViewTarget;->view:Landroid/view/View;
@@ -61,7 +61,7 @@
 .end method
 
 .method public onLoadFailed(Ljava/lang/Exception;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 3
 
     .line 59
     iget-object p0, p0, Lcom/bumptech/glide/request/target/ImageViewTarget;->view:Landroid/view/View;
@@ -74,7 +74,7 @@
 .end method
 
 .method public onLoadStarted(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 48
     iget-object p0, p0, Lcom/bumptech/glide/request/target/ImageViewTarget;->view:Landroid/view/View;
@@ -87,7 +87,7 @@
 .end method
 
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TZ;",
@@ -96,25 +96,25 @@
         }
     .end annotation
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_8
 
     .line 75
     invoke-interface {p2, p1, p0}, Lcom/bumptech/glide/request/animation/GlideAnimation;->animate(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation$ViewAdapter;)Z
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_b
 
     .line 76
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/request/target/ImageViewTarget;->setResource(Ljava/lang/Object;)V
 
-    :cond_1
+    :cond_b
     return-void
 .end method
 
 .method public setDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 37
     iget-object p0, p0, Lcom/bumptech/glide/request/target/ImageViewTarget;->view:Landroid/view/View;

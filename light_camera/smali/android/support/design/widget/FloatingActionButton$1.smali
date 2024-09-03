@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/FloatingActionButton;Landroid/support/design/widget/FloatingActionButton$OnVisibilityChangedListener;)V
-    .locals 0
+    .registers 3
 
     .line 420
     iput-object p1, p0, Landroid/support/design/widget/FloatingActionButton$1;->this$0:Landroid/support/design/widget/FloatingActionButton;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onHidden()V
-    .locals 1
+    .registers 2
 
     .line 428
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButton$1;->val$listener:Landroid/support/design/widget/FloatingActionButton$OnVisibilityChangedListener;
@@ -53,7 +53,7 @@
 .end method
 
 .method public onShown()V
-    .locals 1
+    .registers 2
 
     .line 423
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButton$1;->val$listener:Landroid/support/design/widget/FloatingActionButton$OnVisibilityChangedListener;

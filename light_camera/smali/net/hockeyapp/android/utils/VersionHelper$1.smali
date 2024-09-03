@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/utils/VersionHelper;)V
-    .locals 0
+    .registers 2
 
     .line 72
     iput-object p1, p0, Lnet/hockeyapp/android/utils/VersionHelper$1;->this$0:Lnet/hockeyapp/android/utils/VersionHelper;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 72
     check-cast p1, Lorg/json/JSONObject;
@@ -60,11 +60,11 @@
 .end method
 
 .method public compare(Lorg/json/JSONObject;Lorg/json/JSONObject;)I
-    .locals 1
+    .registers 4
 
     const/4 p0, 0x0
 
-    :try_start_0
+    :try_start_1
     const-string v0, "version"
 
     .line 75
@@ -77,15 +77,15 @@
     invoke-virtual {p2, v0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
     move-result p2
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_d} :catch_10
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_d} :catch_10
 
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_10
 
     return p0
 
-    :catch_0
-    :cond_0
+    :catch_10
+    :cond_10
     return p0
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 660
     invoke-direct {p0}, Lcom/google/gson/TypeAdapter;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,7 +51,7 @@
 .end method
 
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/util/Locale;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -67,7 +67,7 @@
 
     const/4 v1, 0x0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
     .line 664
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -75,7 +75,7 @@
     return-object v1
 
     .line 667
-    :cond_0
+    :cond_d
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextString()Ljava/lang/String;
 
     move-result-object p0
@@ -92,53 +92,53 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_23
 
     .line 673
     invoke-virtual {p1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     move-object p0, v1
 
     .line 675
-    :goto_0
+    :goto_24
     invoke-virtual {p1}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2f
 
     .line 676
     invoke-virtual {p1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     move-object v0, v1
 
     .line 678
-    :goto_1
+    :goto_30
     invoke-virtual {p1}, Ljava/util/StringTokenizer;->hasMoreElements()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_3a
 
     .line 679
     invoke-virtual {p1}, Ljava/util/StringTokenizer;->nextToken()Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_3a
+    if-nez v0, :cond_44
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_44
 
     .line 682
     new-instance p1, Ljava/util/Locale;
@@ -147,8 +147,8 @@
 
     return-object p1
 
-    :cond_4
-    if-nez v1, :cond_5
+    :cond_44
+    if-nez v1, :cond_4c
 
     .line 684
     new-instance p1, Ljava/util/Locale;
@@ -158,7 +158,7 @@
     return-object p1
 
     .line 686
-    :cond_5
+    :cond_4c
     new-instance p1, Ljava/util/Locale;
 
     invoke-direct {p1, p0, v0, v1}, Ljava/util/Locale;-><init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
@@ -167,7 +167,7 @@
 .end method
 
 .method public bridge synthetic write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -183,26 +183,26 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/util/Locale;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 691
-    :cond_0
+    :cond_4
     invoke-virtual {p2}, Ljava/util/Locale;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
+    :goto_8
     invoke-virtual {p1, p0}, Lcom/google/gson/stream/JsonWriter;->value(Ljava/lang/String;)Lcom/google/gson/stream/JsonWriter;
 
     return-void

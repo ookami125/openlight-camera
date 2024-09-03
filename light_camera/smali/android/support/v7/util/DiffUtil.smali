@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 72
     new-instance v0, Landroid/support/v7/util/DiffUtil$1;
@@ -42,7 +42,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public static calculateDiff(Landroid/support/v7/util/DiffUtil$Callback;)Landroid/support/v7/util/DiffUtil$DiffResult;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -64,7 +64,7 @@
 .end method
 
 .method public static calculateDiff(Landroid/support/v7/util/DiffUtil$Callback;Z)Landroid/support/v7/util/DiffUtil$DiffResult;
-    .locals 15
+    .registers 17
 
     .line 109
     invoke-virtual {p0}, Landroid/support/v7/util/DiffUtil$Callback;->getOldListSize()I
@@ -120,12 +120,12 @@
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
     .line 129
-    :goto_0
+    :goto_2e
     invoke-interface {v2}, Ljava/util/List;->isEmpty()Z
 
     move-result v5
 
-    if-nez v5, :cond_7
+    if-nez v5, :cond_f3
 
     .line 130
     invoke-interface {v2}, Ljava/util/List;->size()I
@@ -163,18 +163,18 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_ee
 
     .line 134
     iget v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->size:I
 
-    if-lez v6, :cond_0
+    if-lez v6, :cond_5a
 
     .line 135
     invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 138
-    :cond_0
+    :cond_5a
     iget v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
     iget v7, v14, Landroid/support/v7/util/DiffUtil$Range;->oldListStart:I
@@ -197,16 +197,16 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_74
 
     new-instance v6, Landroid/support/v7/util/DiffUtil$Range;
 
     invoke-direct {v6}, Landroid/support/v7/util/DiffUtil$Range;-><init>()V
 
-    goto :goto_1
+    goto :goto_80
 
     .line 143
-    :cond_1
+    :cond_74
     invoke-interface {v3}, Ljava/util/List;->size()I
 
     move-result v6
@@ -221,7 +221,7 @@
     check-cast v6, Landroid/support/v7/util/DiffUtil$Range;
 
     .line 144
-    :goto_1
+    :goto_80
     iget v7, v14, Landroid/support/v7/util/DiffUtil$Range;->oldListStart:I
 
     iput v7, v6, Landroid/support/v7/util/DiffUtil$Range;->oldListStart:I
@@ -234,7 +234,7 @@
     .line 146
     iget-boolean v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->reverse:Z
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_95
 
     .line 147
     iget v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
@@ -246,13 +246,13 @@
 
     iput v7, v6, Landroid/support/v7/util/DiffUtil$Range;->newListEnd:I
 
-    goto :goto_2
+    goto :goto_ae
 
     .line 150
-    :cond_2
+    :cond_95
     iget-boolean v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->removal:Z
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_a4
 
     .line 151
     iget v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
@@ -266,10 +266,10 @@
 
     iput v7, v6, Landroid/support/v7/util/DiffUtil$Range;->newListEnd:I
 
-    goto :goto_2
+    goto :goto_ae
 
     .line 154
-    :cond_3
+    :cond_a4
     iget v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
     iput v7, v6, Landroid/support/v7/util/DiffUtil$Range;->oldListEnd:I
@@ -282,18 +282,18 @@
     iput v7, v6, Landroid/support/v7/util/DiffUtil$Range;->newListEnd:I
 
     .line 158
-    :goto_2
+    :goto_ae
     invoke-interface {v2, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 163
     iget-boolean v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->reverse:Z
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_db
 
     .line 164
     iget-boolean v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->removal:Z
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_ca
 
     .line 165
     iget v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
@@ -315,10 +315,10 @@
 
     iput v6, v14, Landroid/support/v7/util/DiffUtil$Range;->newListStart:I
 
-    goto :goto_3
+    goto :goto_e9
 
     .line 168
-    :cond_4
+    :cond_ca
     iget v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
     iget v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->size:I
@@ -338,10 +338,10 @@
 
     iput v6, v14, Landroid/support/v7/util/DiffUtil$Range;->newListStart:I
 
-    goto :goto_3
+    goto :goto_e9
 
     .line 172
-    :cond_5
+    :cond_db
     iget v6, v5, Landroid/support/v7/util/DiffUtil$Snake;->x:I
 
     iget v7, v5, Landroid/support/v7/util/DiffUtil$Snake;->size:I
@@ -360,19 +360,19 @@
     iput v6, v14, Landroid/support/v7/util/DiffUtil$Range;->newListStart:I
 
     .line 175
-    :goto_3
+    :goto_e9
     invoke-interface {v2, v14}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_2e
 
     .line 177
-    :cond_6
+    :cond_ee
     invoke-interface {v3, v14}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_0
+    goto/16 :goto_2e
 
     .line 182
-    :cond_7
+    :cond_f3
     sget-object v0, Landroid/support/v7/util/DiffUtil;->SNAKE_COMPARATOR:Ljava/util/Comparator;
 
     invoke-static {v4, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
@@ -396,7 +396,7 @@
 .end method
 
 .method private static diffPartial(Landroid/support/v7/util/DiffUtil$Callback;IIII[I[II)Landroid/support/v7/util/DiffUtil$Snake;
-    .locals 21
+    .registers 29
 
     move-object/from16 v0, p0
 
@@ -410,13 +410,13 @@
 
     const/4 v7, 0x1
 
-    if-lt v5, v7, :cond_f
+    if-lt v5, v7, :cond_15a
 
-    if-ge v6, v7, :cond_0
+    if-ge v6, v7, :cond_11
 
-    goto/16 :goto_a
+    goto/16 :goto_15a
 
-    :cond_0
+    :cond_11
     sub-int v8, v5, v6
 
     add-int v9, v5, v6
@@ -449,31 +449,31 @@
     .line 201
     rem-int/lit8 v10, v8, 0x2
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_2d
 
     move v10, v7
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     move v10, v12
 
-    :goto_0
+    :goto_2e
     move v11, v12
 
-    :goto_1
-    if-gt v11, v9, :cond_e
+    :goto_2f
+    if-gt v11, v9, :cond_152
 
     neg-int v13, v11
 
     move v14, v13
 
-    :goto_2
-    if-gt v14, v11, :cond_7
+    :goto_33
+    if-gt v14, v11, :cond_c0
 
-    if-eq v14, v13, :cond_3
+    if-eq v14, v13, :cond_54
 
-    if-eq v14, v11, :cond_2
+    if-eq v14, v11, :cond_47
 
     add-int v15, p7, v14
 
@@ -486,13 +486,13 @@
 
     aget v7, v3, v15
 
-    if-ge v12, v7, :cond_2
+    if-ge v12, v7, :cond_47
 
     const/16 v17, 0x1
 
-    goto :goto_3
+    goto :goto_56
 
-    :cond_2
+    :cond_47
     add-int v7, p7, v14
 
     const/16 v17, 0x1
@@ -506,12 +506,12 @@
 
     move/from16 v12, v17
 
-    goto :goto_4
+    goto :goto_5d
 
-    :cond_3
+    :cond_54
     move/from16 v17, v7
 
-    :goto_3
+    :goto_56
     add-int v7, p7, v14
 
     add-int/lit8 v7, v7, 0x1
@@ -521,17 +521,17 @@
 
     const/4 v12, 0x0
 
-    :goto_4
+    :goto_5d
     sub-int v15, v7, v14
 
     move/from16 v18, v9
 
     move v9, v15
 
-    :goto_5
-    if-ge v7, v5, :cond_4
+    :goto_62
+    if-ge v7, v5, :cond_7d
 
-    if-ge v9, v6, :cond_4
+    if-ge v9, v6, :cond_7d
 
     move/from16 v19, v5
 
@@ -546,7 +546,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_81
 
     add-int/lit8 v7, v7, 0x1
 
@@ -556,20 +556,20 @@
 
     move/from16 v6, v20
 
-    goto :goto_5
+    goto :goto_62
 
-    :cond_4
+    :cond_7d
     move/from16 v19, v5
 
     move/from16 v20, v6
 
-    :cond_5
+    :cond_81
     add-int v5, p7, v14
 
     .line 223
     aput v7, v3, v5
 
-    if-eqz v10, :cond_6
+    if-eqz v10, :cond_b3
 
     sub-int v6, v8, v11
 
@@ -577,20 +577,20 @@
 
     add-int/2addr v6, v7
 
-    if-lt v14, v6, :cond_6
+    if-lt v14, v6, :cond_b3
 
     add-int v6, v8, v11
 
     sub-int/2addr v6, v7
 
-    if-gt v14, v6, :cond_6
+    if-gt v14, v6, :cond_b3
 
     .line 225
     aget v6, v3, v5
 
     aget v7, v4, v5
 
-    if-lt v6, v7, :cond_6
+    if-lt v6, v7, :cond_b3
 
     .line 226
     new-instance v0, Landroid/support/v7/util/DiffUtil$Snake;
@@ -628,7 +628,7 @@
 
     return-object v0
 
-    :cond_6
+    :cond_b3
     const/4 v5, 0x0
 
     add-int/lit8 v14, v14, 0x2
@@ -643,9 +643,9 @@
 
     const/4 v7, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_33
 
-    :cond_7
+    :cond_c0
     move/from16 v19, v5
 
     move/from16 v20, v6
@@ -656,18 +656,18 @@
 
     move v6, v13
 
-    :goto_6
-    if-gt v6, v11, :cond_d
+    :goto_c8
+    if-gt v6, v11, :cond_145
 
     add-int v7, v6, v8
 
     add-int v9, v11, v8
 
-    if-eq v7, v9, :cond_a
+    if-eq v7, v9, :cond_f0
 
     add-int v9, v13, v8
 
-    if-eq v7, v9, :cond_8
+    if-eq v7, v9, :cond_e3
 
     add-int v9, p7, v7
 
@@ -682,14 +682,14 @@
 
     aget v9, v4, v9
 
-    if-ge v12, v9, :cond_9
+    if-ge v12, v9, :cond_e5
 
-    goto :goto_7
+    goto :goto_f2
 
-    :cond_8
+    :cond_e3
     const/16 v17, 0x1
 
-    :cond_9
+    :cond_e5
     add-int v9, p7, v7
 
     add-int/lit8 v9, v9, 0x1
@@ -701,12 +701,12 @@
 
     move/from16 v12, v17
 
-    goto :goto_8
+    goto :goto_f9
 
-    :cond_a
+    :cond_f0
     const/16 v17, 0x1
 
-    :goto_7
+    :goto_f2
     add-int v9, p7, v7
 
     add-int/lit8 v9, v9, -0x1
@@ -716,13 +716,13 @@
 
     move v12, v5
 
-    :goto_8
+    :goto_f9
     sub-int v14, v9, v7
 
-    :goto_9
-    if-lez v9, :cond_b
+    :goto_fb
+    if-lez v9, :cond_115
 
-    if-lez v14, :cond_b
+    if-lez v14, :cond_115
 
     add-int v15, p1, v9
 
@@ -737,7 +737,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_115
 
     add-int/lit8 v9, v9, -0x1
 
@@ -747,26 +747,26 @@
 
     const/16 v17, 0x1
 
-    goto :goto_9
+    goto :goto_fb
 
-    :cond_b
+    :cond_115
     add-int v1, p7, v7
 
     .line 258
     aput v9, v4, v1
 
-    if-nez v10, :cond_c
+    if-nez v10, :cond_140
 
-    if-lt v7, v13, :cond_c
+    if-lt v7, v13, :cond_140
 
-    if-gt v7, v11, :cond_c
+    if-gt v7, v11, :cond_140
 
     .line 260
     aget v5, v3, v1
 
     aget v9, v4, v1
 
-    if-lt v5, v9, :cond_c
+    if-lt v5, v9, :cond_140
 
     .line 261
     new-instance v0, Landroid/support/v7/util/DiffUtil$Snake;
@@ -804,16 +804,16 @@
 
     return-object v0
 
-    :cond_c
+    :cond_140
     const/4 v1, 0x1
 
     add-int/lit8 v6, v6, 0x2
 
     const/4 v5, 0x0
 
-    goto :goto_6
+    goto :goto_c8
 
-    :cond_d
+    :cond_145
     const/4 v1, 0x1
 
     add-int/lit8 v11, v11, 0x1
@@ -828,10 +828,10 @@
 
     const/4 v12, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_2f
 
     .line 273
-    :cond_e
+    :cond_152
     new-instance v0, Ljava/lang/IllegalStateException;
 
     const-string v1, "DiffUtil hit an unexpected case while trying to calculate the optimal path. Please make sure your data is not changing during the diff calculation."
@@ -840,8 +840,8 @@
 
     throw v0
 
-    :cond_f
-    :goto_a
+    :cond_15a
+    :goto_15a
     const/4 v0, 0x0
 
     return-object v0

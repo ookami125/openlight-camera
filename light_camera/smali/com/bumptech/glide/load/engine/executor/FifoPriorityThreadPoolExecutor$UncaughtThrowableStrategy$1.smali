@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method protected handle(Ljava/lang/Throwable;)V
-    .locals 1
+    .registers 3
 
     const-string p0, "PriorityExecutor"
 
@@ -40,7 +40,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_10
 
     const-string p0, "PriorityExecutor"
 
@@ -49,6 +49,6 @@
     .line 37
     invoke-static {p0, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_10
     return-void
 .end method

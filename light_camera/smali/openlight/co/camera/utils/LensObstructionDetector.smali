@@ -69,7 +69,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 35
     const-class v0, Lopenlight/co/camera/utils/LensObstructionDetector;
@@ -130,7 +130,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 460
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -182,7 +182,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/utils/LensObstructionDetector;)Lopenlight/co/camera/view/ftu/FtuHelper;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -191,7 +191,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/utils/LensObstructionDetector;)Landroid/hardware/Sensor;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximitySensor:Landroid/hardware/Sensor;
@@ -200,7 +200,7 @@
 .end method
 
 .method static synthetic access$1000(Lopenlight/co/camera/utils/LensObstructionDetector;)J
-    .locals 2
+    .registers 3
 
     .line 34
     iget-wide v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLastLensesBlockedTime:J
@@ -209,7 +209,7 @@
 .end method
 
 .method static synthetic access$1002(Lopenlight/co/camera/utils/LensObstructionDetector;J)J
-    .locals 0
+    .registers 3
 
     .line 34
     iput-wide p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLastLensesBlockedTime:J
@@ -218,7 +218,7 @@
 .end method
 
 .method static synthetic access$1100()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 34
     sget-object v0, Lopenlight/co/camera/utils/LensObstructionDetector;->TAG:Ljava/lang/String;
@@ -227,7 +227,7 @@
 .end method
 
 .method static synthetic access$1200(Lopenlight/co/camera/utils/LensObstructionDetector;)Landroid/hardware/Sensor;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mAmbientLightSensor:Landroid/hardware/Sensor;
@@ -236,7 +236,7 @@
 .end method
 
 .method static synthetic access$1300()F
-    .locals 1
+    .registers 1
 
     .line 34
     sget v0, Lopenlight/co/camera/utils/LensObstructionDetector;->MAX_IN_POCKET_ILLUMINANCE:F
@@ -245,7 +245,7 @@
 .end method
 
 .method static synthetic access$1400(Lopenlight/co/camera/utils/LensObstructionDetector;)J
-    .locals 2
+    .registers 3
 
     .line 34
     iget-wide v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLowIlluminanceStartTime:J
@@ -254,7 +254,7 @@
 .end method
 
 .method static synthetic access$1402(Lopenlight/co/camera/utils/LensObstructionDetector;J)J
-    .locals 0
+    .registers 3
 
     .line 34
     iput-wide p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLowIlluminanceStartTime:J
@@ -263,7 +263,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/utils/LensObstructionDetector;)Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mOnObstructionEventListener:Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
@@ -272,7 +272,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/utils/LensObstructionDetector;)I
-    .locals 0
+    .registers 1
 
     .line 34
     iget p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityEventCount:I
@@ -281,7 +281,7 @@
 .end method
 
 .method static synthetic access$302(Lopenlight/co/camera/utils/LensObstructionDetector;I)I
-    .locals 0
+    .registers 2
 
     .line 34
     iput p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityEventCount:I
@@ -290,7 +290,7 @@
 .end method
 
 .method static synthetic access$308(Lopenlight/co/camera/utils/LensObstructionDetector;)I
-    .locals 2
+    .registers 3
 
     .line 34
     iget v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityEventCount:I
@@ -303,7 +303,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/utils/LensObstructionDetector;)I
-    .locals 0
+    .registers 1
 
     .line 34
     iget p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mBlockedLensesBitField:I
@@ -312,7 +312,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/camera/utils/LensObstructionDetector;I)I
-    .locals 0
+    .registers 2
 
     .line 34
     iput p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mBlockedLensesBitField:I
@@ -321,7 +321,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/utils/LensObstructionDetector;)Z
-    .locals 0
+    .registers 1
 
     .line 34
     iget-boolean p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mCurrentlyInPocket:Z
@@ -330,7 +330,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/utils/LensObstructionDetector;)V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->resetInPocketStatus()V
@@ -339,7 +339,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/utils/LensObstructionDetector;)I
-    .locals 0
+    .registers 1
 
     .line 34
     iget p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mPreviousBlockedLensesBitField:I
@@ -348,7 +348,7 @@
 .end method
 
 .method static synthetic access$702(Lopenlight/co/camera/utils/LensObstructionDetector;I)I
-    .locals 0
+    .registers 2
 
     .line 34
     iput p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mPreviousBlockedLensesBitField:I
@@ -357,7 +357,7 @@
 .end method
 
 .method static synthetic access$800(Lopenlight/co/camera/utils/LensObstructionDetector;)Z
-    .locals 0
+    .registers 1
 
     .line 34
     iget-boolean p0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLensBlockedDetectionEnabled:Z
@@ -366,7 +366,7 @@
 .end method
 
 .method static synthetic access$900(Lopenlight/co/camera/utils/LensObstructionDetector;)V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->processEventForInPocketMode()V
@@ -375,19 +375,19 @@
 .end method
 
 .method private detectInPocketStateTransition()Z
-    .locals 8
+    .registers 9
 
     .line 377
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mCurrentlyInPocket:Z
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     return v1
 
     .line 382
-    :cond_0
+    :cond_6
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->registerAmbientLightSensor()V
 
     .line 383
@@ -402,7 +402,7 @@
 
     cmp-long v4, v2, v4
 
-    if-gez v4, :cond_1
+    if-gez v4, :cond_1b
 
     .line 388
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -411,10 +411,10 @@
 
     iput-wide v1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLastLensesBlockedTime:J
 
-    goto :goto_0
+    goto :goto_5a
 
     .line 392
-    :cond_1
+    :cond_1b
     iget-wide v4, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLastLensesBlockedTime:J
 
     sub-long v4, v2, v4
@@ -423,7 +423,7 @@
 
     cmp-long v4, v4, v6
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_5a
 
     iget-wide v4, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLowIlluminanceStartTime:J
 
@@ -433,7 +433,7 @@
 
     cmp-long v4, v4, v6
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_5a
 
     .line 394
     sget-object v0, Lopenlight/co/camera/utils/LensObstructionDetector;->TAG:Ljava/lang/String;
@@ -474,13 +474,13 @@
 
     move v0, v1
 
-    :cond_2
-    :goto_0
+    :cond_5a
+    :goto_5a
     return v0
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/LensObstructionDetector;
-    .locals 1
+    .registers 1
 
     .line 51
     sget-object v0, Lopenlight/co/camera/utils/LensObstructionDetector;->sInstance:Lopenlight/co/camera/utils/LensObstructionDetector;
@@ -489,7 +489,7 @@
 .end method
 
 .method public static synthetic lambda$init$0(Lopenlight/co/camera/utils/LensObstructionDetector;)V
-    .locals 0
+    .registers 1
 
     .line 277
     invoke-virtual {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->onSettingsUpdate()V
@@ -498,23 +498,23 @@
 .end method
 
 .method private processEventForInPocketMode()V
-    .locals 2
+    .registers 3
 
     .line 358
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mInPocketDetectionEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mCurrentlyInPocket:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 359
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->detectInPocketStateTransition()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 361
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mOnObstructionEventListener:Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
@@ -535,12 +535,12 @@
     .line 365
     iput-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mCurrentlyInPocket:Z
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private readUserSettings()V
-    .locals 4
+    .registers 5
 
     .line 431
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mTheaterModeSettings:Lopenlight/co/TheaterMode/TheaterModeSettings;
@@ -553,7 +553,7 @@
 
     const/4 v2, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mCameraPref:Lopenlight/co/lib/content/Prefs;
 
@@ -571,16 +571,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     move v0, v2
 
-    :goto_0
+    :goto_1d
     iput-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mInPocketDetectionEnabled:Z
 
     .line 434
@@ -590,7 +590,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_38
 
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mCameraPref:Lopenlight/co/lib/content/Prefs;
 
@@ -608,26 +608,26 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_38
 
-    goto :goto_1
+    goto :goto_39
 
-    :cond_1
+    :cond_38
     move v1, v2
 
-    :goto_1
+    :goto_39
     iput-boolean v1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLensBlockedDetectionEnabled:Z
 
     return-void
 .end method
 
 .method private registerAmbientLightSensor()V
-    .locals 4
+    .registers 5
 
     .line 344
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mAlsListenerRegistered:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -676,26 +676,26 @@
 
     invoke-static {v0, p0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 .method private registerProximitySensor()V
-    .locals 4
+    .registers 5
 
     .line 306
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLensBlockedDetectionEnabled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mInPocketDetectionEnabled:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
-    :cond_0
+    :cond_8
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityListenerRegistered:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_33
 
     .line 308
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->resetAllState()V
@@ -736,22 +736,22 @@
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 314
-    :cond_1
+    :cond_33
     sget-object p0, Lopenlight/co/camera/utils/LensObstructionDetector;->TAG:Ljava/lang/String;
 
     const-string v0, "Proximity sensor not registered or disabled from Settings"
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_3a
     return-void
 .end method
 
 .method private resetAllState()V
-    .locals 2
+    .registers 3
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -773,7 +773,7 @@
 .end method
 
 .method private resetInPocketStatus()V
-    .locals 2
+    .registers 3
 
     const-wide v0, 0x7fffffffffffffffL
 
@@ -795,17 +795,17 @@
 .end method
 
 .method private unregisterAmbientLightSensor()V
-    .locals 3
+    .registers 4
 
     .line 330
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mAlsListenerRegistered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     const/4 v0, 0x0
 
     .line 332
-    :try_start_0
+    :try_start_5
     iput-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mAlsListenerRegistered:Z
 
     const-wide v1, 0x7fffffffffffffffL
@@ -843,12 +843,12 @@
     move-result-object p0
 
     invoke-static {v0, p0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2f
+    .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_2f} :catch_30
 
-    goto :goto_0
+    goto :goto_38
 
-    :catch_0
+    :catch_30
     move-exception p0
 
     .line 338
@@ -858,18 +858,18 @@
 
     invoke-static {v0, v1, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :cond_0
-    :goto_0
+    :cond_38
+    :goto_38
     return-void
 .end method
 
 .method private unregisterProximitySensor()V
-    .locals 2
+    .registers 3
 
     .line 293
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityListenerRegistered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     const/4 v0, 0x0
 
@@ -877,7 +877,7 @@
     iput-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityListenerRegistered:Z
 
     .line 296
-    :try_start_0
+    :try_start_7
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximityListener:Landroid/hardware/SensorEventListener;
@@ -893,12 +893,12 @@
     const-string v0, "Proximity sensor unregistration successful"
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_18} :catch_19
 
-    goto :goto_0
+    goto :goto_21
 
-    :catch_0
+    :catch_19
     move-exception p0
 
     .line 300
@@ -908,15 +908,15 @@
 
     invoke-static {v0, v1, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :cond_0
-    :goto_0
+    :cond_21
+    :goto_21
     return-void
 .end method
 
 
 # virtual methods
 .method public init(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     .line 263
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->readUserSettings()V
@@ -939,7 +939,7 @@
     .line 266
     iget-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_44
 
     .line 267
     iget-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mSensorManager:Landroid/hardware/SensorManager;
@@ -955,13 +955,13 @@
 
     move-result-object p1
 
-    :cond_0
-    :goto_0
+    :cond_20
+    :goto_20
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -980,15 +980,15 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_20
 
     .line 271
     iput-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mProximitySensor:Landroid/hardware/Sensor;
 
-    goto :goto_0
+    goto :goto_20
 
     .line 274
-    :cond_1
+    :cond_3b
     iget-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
     const/4 v0, 0x5
@@ -1000,7 +1000,7 @@
     iput-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mAmbientLightSensor:Landroid/hardware/Sensor;
 
     .line 277
-    :cond_2
+    :cond_44
     iget-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mTheaterModeSettings:Lopenlight/co/TheaterMode/TheaterModeSettings;
 
     new-instance v0, Lopenlight/co/camera/utils/-$$Lambda$LensObstructionDetector$QCgKEkiaerLJ6YbI_MP7EQhfVDk;
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public onSettingsUpdate()V
-    .locals 1
+    .registers 2
 
     .line 408
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->readUserSettings()V
@@ -1027,7 +1027,7 @@
     .line 415
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mOnObstructionEventListener:Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 416
     iget-object v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mOnObstructionEventListener:Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
@@ -1040,27 +1040,27 @@
     invoke-virtual {v0}, Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;->onOutOfPocket()V
 
     .line 421
-    :cond_0
+    :cond_17
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mInPocketDetectionEnabled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1f
 
     iget-boolean v0, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mLensBlockedDetectionEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_22
 
     .line 422
-    :cond_1
+    :cond_1f
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->registerProximitySensor()V
 
-    :cond_2
+    :cond_22
     return-void
 .end method
 
 .method public setOnObstructionEventListener(Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;)V
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 283
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->unregisterProximitySensor()V
@@ -1073,15 +1073,15 @@
     .line 285
     iput-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mOnObstructionEventListener:Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
 
-    goto :goto_0
+    goto :goto_11
 
     .line 287
-    :cond_0
+    :cond_c
     invoke-direct {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->registerProximitySensor()V
 
     .line 288
     iput-object p1, p0, Lopenlight/co/camera/utils/LensObstructionDetector;->mOnObstructionEventListener:Lopenlight/co/camera/utils/LensObstructionDetector$OnObstructionEventListener;
 
-    :goto_0
+    :goto_11
     return-void
 .end method

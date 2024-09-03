@@ -49,7 +49,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/Engine;Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/content/Context;Lcom/bumptech/glide/load/DecodeFormat;)V
-    .locals 3
+    .registers 9
 
     .line 203
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -411,7 +411,7 @@
 .end method
 
 .method public static buildFileDescriptorModelLoader(Ljava/lang/Class;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -439,7 +439,7 @@
 .end method
 
 .method public static buildFileDescriptorModelLoader(Ljava/lang/Object;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -465,7 +465,7 @@
 .end method
 
 .method public static buildModelLoader(Ljava/lang/Class;Ljava/lang/Class;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -484,7 +484,7 @@
         }
     .end annotation
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_14
 
     const-string p0, "Glide"
 
@@ -495,7 +495,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const-string p0, "Glide"
 
@@ -504,13 +504,13 @@
     .line 535
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
     return-object p0
 
     .line 539
-    :cond_1
+    :cond_14
     invoke-static {p2}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
 
     move-result-object p2
@@ -527,7 +527,7 @@
 .end method
 
 .method public static buildModelLoader(Ljava/lang/Object;Ljava/lang/Class;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -544,19 +544,19 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
     .line 557
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     invoke-static {p0, p1, p2}, Lcom/bumptech/glide/Glide;->buildModelLoader(Ljava/lang/Class;Ljava/lang/Class;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
 
     move-result-object p0
@@ -565,7 +565,7 @@
 .end method
 
 .method public static buildStreamModelLoader(Ljava/lang/Class;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -593,7 +593,7 @@
 .end method
 
 .method public static buildStreamModelLoader(Ljava/lang/Object;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -619,7 +619,7 @@
 .end method
 
 .method public static clear(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 459
     new-instance v0, Lcom/bumptech/glide/Glide$ClearTarget;
@@ -633,7 +633,7 @@
 .end method
 
 .method public static clear(Lcom/bumptech/glide/request/FutureTarget;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -649,7 +649,7 @@
 .end method
 
 .method public static clear(Lcom/bumptech/glide/request/target/Target;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -666,7 +666,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 430
     invoke-interface {v0}, Lcom/bumptech/glide/request/Request;->clear()V
@@ -676,17 +676,17 @@
     .line 431
     invoke-interface {p0, v0}, Lcom/bumptech/glide/request/target/Target;->setRequest(Lcom/bumptech/glide/request/Request;)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public static get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
-    .locals 5
+    .registers 6
 
     .line 145
     sget-object v0, Lcom/bumptech/glide/Glide;->glide:Lcom/bumptech/glide/Glide;
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_52
 
     .line 146
     const-class v0, Lcom/bumptech/glide/Glide;
@@ -694,10 +694,10 @@
     monitor-enter v0
 
     .line 147
-    :try_start_0
+    :try_start_7
     sget-object v1, Lcom/bumptech/glide/Glide;->glide:Lcom/bumptech/glide/Glide;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4d
 
     .line 148
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -723,12 +723,12 @@
 
     move-result-object v3
 
-    :goto_0
+    :goto_21
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_31
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -739,10 +739,10 @@
     .line 153
     invoke-interface {v4, p0, v2}, Lcom/bumptech/glide/module/GlideModule;->applyOptions(Landroid/content/Context;Lcom/bumptech/glide/GlideBuilder;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 155
-    :cond_0
+    :cond_31
     invoke-virtual {v2}, Lcom/bumptech/glide/GlideBuilder;->createGlide()Lcom/bumptech/glide/Glide;
 
     move-result-object v2
@@ -754,12 +754,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_3b
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4d
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -772,33 +772,33 @@
 
     invoke-interface {v2, p0, v3}, Lcom/bumptech/glide/module/GlideModule;->registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;)V
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 160
-    :cond_1
+    :cond_4d
     monitor-exit v0
 
-    goto :goto_2
+    goto :goto_52
 
-    :catchall_0
+    :catchall_4f
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_51
+    .catchall {:try_start_7 .. :try_end_51} :catchall_4f
 
     throw p0
 
     .line 163
-    :cond_2
-    :goto_2
+    :cond_52
+    :goto_52
     sget-object p0, Lcom/bumptech/glide/Glide;->glide:Lcom/bumptech/glide/Glide;
 
     return-object p0
 .end method
 
 .method private getLoaderFactory()Lcom/bumptech/glide/load/model/GenericLoaderFactory;
-    .locals 0
+    .registers 1
 
     .line 329
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->loaderFactory:Lcom/bumptech/glide/load/model/GenericLoaderFactory;
@@ -807,7 +807,7 @@
 .end method
 
 .method public static getPhotoCacheDir(Landroid/content/Context;)Ljava/io/File;
-    .locals 1
+    .registers 2
 
     const-string v0, "image_manager_disk_cache"
 
@@ -820,7 +820,7 @@
 .end method
 
 .method public static getPhotoCacheDir(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
-    .locals 2
+    .registers 4
 
     .line 124
     invoke-virtual {p0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
@@ -829,7 +829,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_20
 
     .line 126
     new-instance v1, Ljava/io/File;
@@ -841,27 +841,27 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_1f
 
     invoke-virtual {v1}, Ljava/io/File;->exists()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1e
 
     invoke-virtual {v1}, Ljava/io/File;->isDirectory()Z
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_1f
 
-    :cond_0
+    :cond_1e
     return-object v0
 
-    :cond_1
+    :cond_1f
     return-object v1
 
-    :cond_2
+    :cond_20
     const-string p0, "Glide"
 
     const/4 p1, 0x6
@@ -871,7 +871,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_30
 
     const-string p0, "Glide"
 
@@ -880,33 +880,33 @@
     .line 134
     invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_30
     return-object v0
 .end method
 
 .method public static isSetup()Z
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 176
     sget-object v0, Lcom/bumptech/glide/Glide;->glide:Lcom/bumptech/glide/Glide;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_7
     return v0
 .end method
 
 .method public static setup(Lcom/bumptech/glide/GlideBuilder;)V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -915,7 +915,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 195
     invoke-virtual {p0}, Lcom/bumptech/glide/GlideBuilder;->createGlide()Lcom/bumptech/glide/Glide;
@@ -927,7 +927,7 @@
     return-void
 
     .line 192
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Glide is already setup, check with isSetup() first"
@@ -938,7 +938,7 @@
 .end method
 
 .method static tearDown()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -949,7 +949,7 @@
 .end method
 
 .method public static with(Landroid/app/Activity;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 2
 
     .line 640
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
@@ -965,7 +965,7 @@
 .end method
 
 .method public static with(Landroid/app/Fragment;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 2
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -984,7 +984,7 @@
 .end method
 
 .method public static with(Landroid/content/Context;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 2
 
     .line 628
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
@@ -1000,7 +1000,7 @@
 .end method
 
 .method public static with(Landroid/support/v4/app/Fragment;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 2
 
     .line 677
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
@@ -1016,7 +1016,7 @@
 .end method
 
 .method public static with(Landroid/support/v4/app/FragmentActivity;)Lcom/bumptech/glide/RequestManager;
-    .locals 1
+    .registers 2
 
     .line 652
     invoke-static {}, Lcom/bumptech/glide/manager/RequestManagerRetriever;->get()Lcom/bumptech/glide/manager/RequestManagerRetriever;
@@ -1034,7 +1034,7 @@
 
 # virtual methods
 .method buildDataProvider(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/provider/DataLoadProvider;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1062,7 +1062,7 @@
 .end method
 
 .method buildImageViewTarget(Landroid/widget/ImageView;Ljava/lang/Class;)Lcom/bumptech/glide/request/target/Target;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",
@@ -1087,7 +1087,7 @@
 .end method
 
 .method buildTranscoder(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -1115,7 +1115,7 @@
 .end method
 
 .method public clearDiskCache()V
-    .locals 0
+    .registers 1
 
     .line 397
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertBackgroundThread()V
@@ -1131,7 +1131,7 @@
 .end method
 
 .method public clearMemory()V
-    .locals 1
+    .registers 2
 
     .line 370
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -1150,7 +1150,7 @@
 .end method
 
 .method getBitmapCenterCrop()Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;
-    .locals 0
+    .registers 1
 
     .line 305
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->bitmapCenterCrop:Lcom/bumptech/glide/load/resource/bitmap/CenterCrop;
@@ -1159,7 +1159,7 @@
 .end method
 
 .method getBitmapFitCenter()Lcom/bumptech/glide/load/resource/bitmap/FitCenter;
-    .locals 0
+    .registers 1
 
     .line 309
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->bitmapFitCenter:Lcom/bumptech/glide/load/resource/bitmap/FitCenter;
@@ -1168,7 +1168,7 @@
 .end method
 
 .method public getBitmapPool()Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
-    .locals 0
+    .registers 1
 
     .line 285
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
@@ -1177,7 +1177,7 @@
 .end method
 
 .method getDecodeFormat()Lcom/bumptech/glide/load/DecodeFormat;
-    .locals 0
+    .registers 1
 
     .line 325
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->decodeFormat:Lcom/bumptech/glide/load/DecodeFormat;
@@ -1186,7 +1186,7 @@
 .end method
 
 .method getDrawableCenterCrop()Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;
-    .locals 0
+    .registers 1
 
     .line 313
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->drawableCenterCrop:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;
@@ -1195,7 +1195,7 @@
 .end method
 
 .method getDrawableFitCenter()Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;
-    .locals 0
+    .registers 1
 
     .line 317
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->drawableFitCenter:Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;
@@ -1204,7 +1204,7 @@
 .end method
 
 .method getEngine()Lcom/bumptech/glide/load/engine/Engine;
-    .locals 0
+    .registers 1
 
     .line 301
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->engine:Lcom/bumptech/glide/load/engine/Engine;
@@ -1213,7 +1213,7 @@
 .end method
 
 .method getMainHandler()Landroid/os/Handler;
-    .locals 0
+    .registers 1
 
     .line 321
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->mainHandler:Landroid/os/Handler;
@@ -1222,7 +1222,7 @@
 .end method
 
 .method public varargs preFillBitmapPool([Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 359
     iget-object p0, p0, Lcom/bumptech/glide/Glide;->bitmapPreFiller:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;
@@ -1233,7 +1233,7 @@
 .end method
 
 .method public register(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1257,17 +1257,17 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 494
     invoke-interface {p0}, Lcom/bumptech/glide/load/model/ModelLoaderFactory;->teardown()V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setMemoryCategory(Lcom/bumptech/glide/MemoryCategory;)V
-    .locals 2
+    .registers 4
 
     .line 414
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -1294,7 +1294,7 @@
 .end method
 
 .method public trimMemory(I)V
-    .locals 1
+    .registers 3
 
     .line 383
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -1313,7 +1313,7 @@
 .end method
 
 .method public unregister(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1338,11 +1338,11 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 513
     invoke-interface {p0}, Lcom/bumptech/glide/load/model/ModelLoaderFactory;->teardown()V
 
-    :cond_0
+    :cond_b
     return-void
 .end method

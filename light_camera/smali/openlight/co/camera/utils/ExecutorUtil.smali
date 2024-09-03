@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 19
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -107,7 +107,7 @@
 .end method
 
 .method public static execute(Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 2
 
     .line 29
     sget-object v0, Lopenlight/co/camera/utils/ExecutorUtil;->sExecutor:Ljava/util/concurrent/Executor;
@@ -118,7 +118,7 @@
 .end method
 
 .method public static execute(Ljava/lang/Runnable;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

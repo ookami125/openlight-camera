@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/SwipeRefreshLayout;)V
-    .locals 0
+    .registers 2
 
     .line 1099
     iput-object p1, p0, Landroid/support/v4/widget/SwipeRefreshLayout$6;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
@@ -33,14 +33,14 @@
 
 # virtual methods
 .method public applyTransformation(FLandroid/view/animation/Transformation;)V
-    .locals 2
+    .registers 5
 
     .line 1104
     iget-object p2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$6;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     iget-boolean p2, p2, Landroid/support/v4/widget/SwipeRefreshLayout;->mUsingCustomStart:Z
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_14
 
     .line 1105
     iget-object p2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$6;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
@@ -57,16 +57,16 @@
 
     sub-int/2addr p2, v0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 1107
-    :cond_0
+    :cond_14
     iget-object p2, p0, Landroid/support/v4/widget/SwipeRefreshLayout$6;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     iget p2, p2, Landroid/support/v4/widget/SwipeRefreshLayout;->mSpinnerOffsetEnd:I
 
     .line 1109
-    :goto_0
+    :goto_18
     iget-object v0, p0, Landroid/support/v4/widget/SwipeRefreshLayout$6;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
     iget v0, v0, Landroid/support/v4/widget/SwipeRefreshLayout;->mFrom:I

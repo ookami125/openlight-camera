@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/FloatingActionButton;)V
-    .locals 0
+    .registers 2
 
     .line 807
     iput-object p1, p0, Landroid/support/design/widget/FloatingActionButton$ShadowDelegateImpl;->this$0:Landroid/support/design/widget/FloatingActionButton;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getRadius()F
-    .locals 1
+    .registers 2
 
     .line 812
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButton$ShadowDelegateImpl;->this$0:Landroid/support/design/widget/FloatingActionButton;
@@ -55,7 +55,7 @@
 .end method
 
 .method public isCompatPaddingEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 829
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButton$ShadowDelegateImpl;->this$0:Landroid/support/design/widget/FloatingActionButton;
@@ -66,18 +66,19 @@
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 824
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButton$ShadowDelegateImpl;->this$0:Landroid/support/design/widget/FloatingActionButton;
 
+    # invokes: Landroid/support/design/widget/VisibilityAwareImageButton;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     invoke-static {p0, p1}, Landroid/support/design/widget/FloatingActionButton;->access$001(Landroid/support/design/widget/FloatingActionButton;Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
 .method public setShadowPadding(IIII)V
-    .locals 2
+    .registers 7
 
     .line 817
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButton$ShadowDelegateImpl;->this$0:Landroid/support/design/widget/FloatingActionButton;

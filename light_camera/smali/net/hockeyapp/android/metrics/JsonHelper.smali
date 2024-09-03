@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     const/16 v0, 0x80
 
@@ -24,10 +24,10 @@
 
     move v1, v0
 
-    :goto_0
+    :goto_8
     const/16 v2, 0x1f
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_22
 
     .line 25
     sget-object v2, Lnet/hockeyapp/android/metrics/JsonHelper;->CONTROL_CHARACTERS:[Ljava/lang/String;
@@ -52,10 +52,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
     .line 29
-    :cond_0
+    :cond_22
     sget-object v0, Lnet/hockeyapp/android/metrics/JsonHelper;->CONTROL_CHARACTERS:[Ljava/lang/String;
 
     const/16 v1, 0x22
@@ -122,7 +122,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -131,7 +131,7 @@
 .end method
 
 .method public static convert(C)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 104
     invoke-static {p0}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
@@ -142,7 +142,7 @@
 .end method
 
 .method public static convert(Ljava/lang/Double;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 124
     invoke-virtual {p0}, Ljava/lang/Double;->doubleValue()D
@@ -157,7 +157,7 @@
 .end method
 
 .method public static convert(Ljava/lang/Float;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 114
     invoke-virtual {p0}, Ljava/lang/Float;->floatValue()F
@@ -172,7 +172,7 @@
 .end method
 
 .method public static convert(Ljava/lang/Integer;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 84
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
@@ -187,7 +187,7 @@
 .end method
 
 .method public static convert(Ljava/lang/Long;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 94
     invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
@@ -202,28 +202,28 @@
 .end method
 
 .method public static convert(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-string p0, "null"
 
     return-object p0
 
     .line 146
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     const-string p0, "\"\""
 
     return-object p0
 
     .line 149
-    :cond_1
+    :cond_e
     invoke-static {p0}, Lnet/hockeyapp/android/metrics/JsonHelper;->escapeJSON(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -232,7 +232,7 @@
 .end method
 
 .method public static convert(Z)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-static {p0}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
@@ -243,7 +243,7 @@
 .end method
 
 .method private static escapeJSON(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;
@@ -258,12 +258,12 @@
     const/4 v1, 0x0
 
     .line 53
-    :goto_0
+    :goto_b
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_41
 
     .line 54
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -272,60 +272,60 @@
 
     const/16 v3, 0x80
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_27
 
     .line 56
     sget-object v3, Lnet/hockeyapp/android/metrics/JsonHelper;->CONTROL_CHARACTERS:[Ljava/lang/String;
 
     aget-object v3, v3, v2
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_23
 
     .line 58
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 60
-    :cond_0
+    :cond_23
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_1
+    :cond_27
     const/16 v3, 0x2028
 
-    if-ne v2, v3, :cond_2
+    if-ne v2, v3, :cond_31
 
     const-string v2, "\\u2028"
 
     .line 64
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_2
+    :cond_31
     const/16 v3, 0x2029
 
-    if-ne v2, v3, :cond_3
+    if-ne v2, v3, :cond_3b
 
     const-string v2, "\\u2029"
 
     .line 67
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 69
-    :cond_3
+    :cond_3b
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_3e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_4
+    :cond_41
     const-string p0, "\""
 
     .line 73
@@ -340,7 +340,7 @@
 .end method
 
 .method public static writeDictionary(Ljava/io/Writer;Ljava/util/Map;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -359,19 +359,19 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_85
 
     .line 175
     invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
-    goto/16 :goto_1
+    goto/16 :goto_85
 
     .line 178
-    :cond_0
+    :cond_a
     invoke-interface {p1}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
     move-result-object v0
@@ -386,7 +386,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_8a
 
     const-string v1, "{"
 
@@ -435,12 +435,12 @@
     invoke-static {p0, v2}, Lnet/hockeyapp/android/metrics/JsonHelper;->writeItem(Ljava/io/Writer;Ljava/lang/Object;)V
 
     .line 191
-    :goto_0
+    :goto_48
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_7f
 
     .line 192
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -488,30 +488,30 @@
     .line 199
     invoke-static {p0, v1}, Lnet/hockeyapp/android/metrics/JsonHelper;->writeItem(Ljava/io/Writer;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_48
 
-    :cond_1
+    :cond_7f
     const-string p1, "}"
 
     .line 202
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_8a
 
-    :cond_2
-    :goto_1
+    :cond_85
+    :goto_85
     const-string p1, "null"
 
     .line 176
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    :cond_3
-    :goto_2
+    :cond_8a
+    :goto_8a
     return-void
 .end method
 
 .method private static writeItem(Ljava/io/Writer;Ljava/lang/Object;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -528,12 +528,12 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_5f
 
     .line 246
     instance-of v0, p1, Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 247
     check-cast p1, Ljava/lang/String;
@@ -544,13 +544,13 @@
 
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 248
-    :cond_0
+    :cond_10
     instance-of v0, p1, Ljava/lang/Double;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
     .line 249
     check-cast p1, Ljava/lang/Double;
@@ -561,13 +561,13 @@
 
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 250
-    :cond_1
+    :cond_1e
     instance-of v0, p1, Ljava/lang/Integer;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 251
     check-cast p1, Ljava/lang/Integer;
@@ -578,13 +578,13 @@
 
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 252
-    :cond_2
+    :cond_2c
     instance-of v0, p1, Ljava/lang/Long;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3a
 
     .line 253
     check-cast p1, Ljava/lang/Long;
@@ -595,23 +595,23 @@
 
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 254
-    :cond_3
+    :cond_3a
     instance-of v0, p1, Lnet/hockeyapp/android/metrics/model/IJsonSerializable;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_44
 
     .line 255
     check-cast p1, Lnet/hockeyapp/android/metrics/model/IJsonSerializable;
 
     invoke-interface {p1, p0}, Lnet/hockeyapp/android/metrics/model/IJsonSerializable;->serialize(Ljava/io/Writer;)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 257
-    :cond_4
+    :cond_44
     new-instance p0, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -636,35 +636,35 @@
 
     throw p0
 
-    :cond_5
+    :cond_5f
     const-string p1, "null"
 
     .line 260
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_64
     return-void
 .end method
 
 .method public static writeJsonSerializable(Ljava/io/Writer;Lnet/hockeyapp/android/metrics/model/IJsonSerializable;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 163
     invoke-interface {p1, p0}, Lnet/hockeyapp/android/metrics/model/IJsonSerializable;->serialize(Ljava/io/Writer;)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public static writeList(Ljava/io/Writer;Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -682,19 +682,19 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3c
 
     .line 215
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 218
-    :cond_0
+    :cond_9
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
@@ -704,7 +704,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_41
 
     const-string v0, "["
 
@@ -722,12 +722,12 @@
     invoke-interface {v0, p0}, Lnet/hockeyapp/android/metrics/model/IJsonSerializable;->serialize(Ljava/io/Writer;)V
 
     .line 225
-    :goto_0
+    :goto_21
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 226
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -744,24 +744,24 @@
     .line 228
     invoke-interface {v0, p0}, Lnet/hockeyapp/android/metrics/model/IJsonSerializable;->serialize(Ljava/io/Writer;)V
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_1
+    :cond_36
     const-string p1, "]"
 
     .line 231
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_41
 
-    :cond_2
-    :goto_1
+    :cond_3c
+    :goto_3c
     const-string p1, "null"
 
     .line 216
     invoke-virtual {p0, p1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    :cond_3
-    :goto_2
+    :cond_41
+    :goto_41
     return-void
 .end method

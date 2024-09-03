@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 44
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,20 +93,20 @@
 .end method
 
 .method private declared-synchronized addTracker(Ljava/lang/String;Ljava/lang/Object;Lorg/apache/commons/io/FileDeleteStrategy;)V
-    .locals 3
+    .registers 7
 
     monitor-enter p0
 
     .line 140
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lorg/apache/commons/io/FileCleaningTracker;->exitWhenFinished:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 143
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker;->reaper:Ljava/lang/Thread;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 144
     new-instance v0, Lorg/apache/commons/io/FileCleaningTracker$Reaper;
@@ -121,7 +121,7 @@
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
     .line 147
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker;->trackers:Ljava/util/Collection;
 
     new-instance v1, Lorg/apache/commons/io/FileCleaningTracker$Tracker;
@@ -131,8 +131,8 @@
     invoke-direct {v1, p1, p3, p2, v2}, Lorg/apache/commons/io/FileCleaningTracker$Tracker;-><init>(Ljava/lang/String;Lorg/apache/commons/io/FileDeleteStrategy;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
 
     invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_2b
 
     .line 148
     monitor-exit p0
@@ -140,8 +140,8 @@
     return-void
 
     .line 141
-    :cond_1
-    :try_start_1
+    :cond_23
+    :try_start_23
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string p2, "No new trackers can be added once exitWhenFinished() is called"
@@ -149,10 +149,10 @@
     invoke-direct {p1, p2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_23 .. :try_end_2b} :catchall_2b
 
-    :catchall_0
+    :catchall_2b
     move-exception p1
 
     .line 139
@@ -164,30 +164,30 @@
 
 # virtual methods
 .method public declared-synchronized exitWhenFinished()V
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     const/4 v0, 0x1
 
     .line 195
-    :try_start_0
+    :try_start_2
     iput-boolean v0, p0, Lorg/apache/commons/io/FileCleaningTracker;->exitWhenFinished:Z
 
     .line 196
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker;->reaper:Ljava/lang/Thread;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 197
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker;->reaper:Ljava/lang/Thread;
 
     monitor-enter v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_b
+    .catchall {:try_start_2 .. :try_end_b} :catchall_17
 
     .line 198
-    :try_start_1
+    :try_start_b
     iget-object v1, p0, Lorg/apache/commons/io/FileCleaningTracker;->reaper:Ljava/lang/Thread;
 
     invoke-virtual {v1}, Ljava/lang/Thread;->interrupt()V
@@ -195,28 +195,28 @@
     .line 199
     monitor-exit v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_14
+    .catchall {:try_start_b .. :try_end_14} :catchall_12
 
-    :try_start_2
+    :try_start_14
     throw v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_15
+    .catchall {:try_start_14 .. :try_end_15} :catchall_17
 
     .line 201
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     monitor-exit p0
 
     return-void
 
-    :catchall_1
+    :catchall_17
     move-exception v0
 
     .line 194
@@ -226,7 +226,7 @@
 .end method
 
 .method public getDeleteFailures()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -243,7 +243,7 @@
 .end method
 
 .method public getTrackCount()I
-    .locals 0
+    .registers 1
 
     .line 158
     iget-object p0, p0, Lorg/apache/commons/io/FileCleaningTracker;->trackers:Ljava/util/Collection;
@@ -256,7 +256,7 @@
 .end method
 
 .method public track(Ljava/io/File;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -267,9 +267,9 @@
 .end method
 
 .method public track(Ljava/io/File;Ljava/lang/Object;Lorg/apache/commons/io/FileDeleteStrategy;)V
-    .locals 0
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 97
     invoke-virtual {p1}, Ljava/io/File;->getPath()Ljava/lang/String;
@@ -281,7 +281,7 @@
     return-void
 
     .line 95
-    :cond_0
+    :cond_a
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "The file must not be null"
@@ -292,7 +292,7 @@
 .end method
 
 .method public track(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -303,9 +303,9 @@
 .end method
 
 .method public track(Ljava/lang/String;Ljava/lang/Object;Lorg/apache/commons/io/FileDeleteStrategy;)V
-    .locals 0
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     .line 127
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/io/FileCleaningTracker;->addTracker(Ljava/lang/String;Ljava/lang/Object;Lorg/apache/commons/io/FileDeleteStrategy;)V
@@ -313,7 +313,7 @@
     return-void
 
     .line 125
-    :cond_0
+    :cond_6
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "The path must not be null"

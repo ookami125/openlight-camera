@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/ImageViewUtilsApi14;Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 3
 
     .line 47
     iput-object p1, p0, Landroid/support/transition/ImageViewUtilsApi14$1;->this$0:Landroid/support/transition/ImageViewUtilsApi14;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 4
+    .registers 6
 
     .line 50
     iget-object v0, p0, Landroid/support/transition/ImageViewUtilsApi14$1;->val$view:Landroid/widget/ImageView;
@@ -68,7 +68,7 @@
     .line 54
     sget-object v1, Landroid/widget/ImageView$ScaleType;->MATRIX:Landroid/widget/ImageView$ScaleType;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_31
 
     .line 55
     iget-object v0, p0, Landroid/support/transition/ImageViewUtilsApi14$1;->val$view:Landroid/widget/ImageView;
@@ -93,7 +93,7 @@
     invoke-virtual {v0, v1, v3}, Landroid/widget/ImageView;->setTag(ILjava/lang/Object;)V
 
     .line 58
-    :cond_0
+    :cond_31
     invoke-virtual {p1, p0}, Landroid/animation/Animator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 
     return-void

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/alerts/LowBatteryFragment;)V
-    .locals 0
+    .registers 2
 
     .line 30
     iput-object p1, p0, Lopenlight/co/camera/view/alerts/LowBatteryFragment$1;->this$0:Lopenlight/co/camera/view/alerts/LowBatteryFragment;
@@ -33,11 +33,11 @@
 
 # virtual methods
 .method public onBatteryUpdate(II)V
-    .locals 0
+    .registers 3
 
     const/16 p2, 0xc
 
-    if-lt p1, p2, :cond_0
+    if-lt p1, p2, :cond_d
 
     .line 34
     iget-object p0, p0, Lopenlight/co/camera/view/alerts/LowBatteryFragment$1;->this$0:Lopenlight/co/camera/view/alerts/LowBatteryFragment;
@@ -48,6 +48,6 @@
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :cond_0
+    :cond_d
     return-void
 .end method

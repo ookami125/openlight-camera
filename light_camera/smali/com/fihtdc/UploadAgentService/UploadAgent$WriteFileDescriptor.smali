@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/fihtdc/UploadAgentService/UploadAgent;)V
-    .locals 0
+    .registers 2
 
     .line 212
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -38,12 +38,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 9
+    .registers 10
 
     .line 221
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_31e
 
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
@@ -51,17 +51,17 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_31e
 
     const/4 v0, 0x0
 
     .line 223
-    :try_start_0
+    :try_start_d
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->currentUploadFile:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_75
 
     .line 224
     new-instance v1, Ljava/io/File;
@@ -81,7 +81,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_75
 
     .line 226
     new-instance v1, Ljava/io/FileInputStream;
@@ -99,13 +99,13 @@
     invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {v1, v2}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_7
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_5
-    .catchall {:try_start_0 .. :try_end_0} :catchall_3
+    :try_end_38
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_38} :catch_195
+    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_38} :catch_f8
+    .catchall {:try_start_d .. :try_end_38} :catchall_f4
 
     .line 227
-    :try_start_1
+    :try_start_38
     new-instance v2, Ljava/io/FileOutputStream;
 
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
@@ -115,13 +115,13 @@
     move-result-object v3
 
     invoke-direct {v2, v3}, Ljava/io/FileOutputStream;-><init>(Ljava/io/FileDescriptor;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_3
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_43
+    .catch Ljava/io/IOException; {:try_start_38 .. :try_end_43} :catch_6e
+    .catch Ljava/lang/Exception; {:try_start_38 .. :try_end_43} :catch_67
+    .catchall {:try_start_38 .. :try_end_43} :catchall_60
 
     .line 228
-    :try_start_2
+    :try_start_43
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -129,16 +129,16 @@
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->currentUploadFileSize:Ljava/lang/Long;
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/fihtdc/UploadAgentService/UploadAgent;->streamCopy(Ljava/io/InputStream;Ljava/io/OutputStream;Ljava/lang/Long;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_4c
+    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_4c} :catch_5a
+    .catch Ljava/lang/Exception; {:try_start_43 .. :try_end_4c} :catch_54
+    .catchall {:try_start_43 .. :try_end_4c} :catchall_4e
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_76
 
-    :catchall_0
+    :catchall_4e
     move-exception v0
 
     move-object v8, v1
@@ -147,9 +147,9 @@
 
     move-object v0, v8
 
-    goto/16 :goto_9
+    goto/16 :goto_2a3
 
-    :catch_0
+    :catch_54
     move-exception v0
 
     move-object v8, v1
@@ -158,9 +158,9 @@
 
     move-object v0, v8
 
-    goto/16 :goto_3
+    goto/16 :goto_fa
 
-    :catch_1
+    :catch_5a
     move-exception v0
 
     move-object v8, v1
@@ -169,9 +169,9 @@
 
     move-object v0, v8
 
-    goto/16 :goto_5
+    goto/16 :goto_197
 
-    :catchall_1
+    :catchall_60
     move-exception v2
 
     move-object v8, v2
@@ -182,9 +182,9 @@
 
     move-object v1, v8
 
-    goto/16 :goto_9
+    goto/16 :goto_2a3
 
-    :catch_2
+    :catch_67
     move-exception v2
 
     move-object v8, v2
@@ -195,9 +195,9 @@
 
     move-object v1, v8
 
-    goto/16 :goto_3
+    goto/16 :goto_fa
 
-    :catch_3
+    :catch_6e
     move-exception v2
 
     move-object v8, v2
@@ -208,13 +208,13 @@
 
     move-object v1, v8
 
-    goto/16 :goto_5
+    goto/16 :goto_197
 
-    :cond_0
+    :cond_75
     move-object v2, v0
 
     .line 260
-    :goto_0
+    :goto_76
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->completeUploadFiles:Ljava/util/ArrayList;
@@ -222,7 +222,7 @@
     monitor-enter v1
 
     .line 261
-    :try_start_3
+    :try_start_7b
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -258,34 +258,34 @@
 
     .line 260
     monitor-exit v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_2
+    :try_end_a0
+    .catchall {:try_start_7b .. :try_end_a0} :catchall_f1
 
     .line 265
-    :try_start_4
+    :try_start_a0
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_aa
 
     .line 267
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
-    :cond_1
-    if-eqz v2, :cond_e
+    :cond_aa
+    if-eqz v2, :cond_31e
 
     .line 270
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V
 
     .line 271
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_b2
+    .catch Ljava/io/IOException; {:try_start_a0 .. :try_end_b2} :catch_b4
 
-    goto/16 :goto_b
+    goto/16 :goto_31e
 
-    :catch_4
+    :catch_b4
     move-exception v0
 
     .line 275
@@ -293,7 +293,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_d6
 
     .line 276
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -306,7 +306,7 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    :goto_1
+    :goto_c6
     invoke-virtual {v0}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v0
@@ -319,10 +319,10 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_b
+    goto/16 :goto_31e
 
     .line 278
-    :cond_2
+    :cond_d6
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -333,7 +333,7 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    :goto_2
+    :goto_e1
     invoke-virtual {v0}, Ljava/io/IOException;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -346,39 +346,39 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_b
+    goto/16 :goto_31e
 
-    :catchall_2
+    :catchall_f1
     move-exception p0
 
     .line 260
-    :try_start_5
+    :try_start_f2
     monitor-exit v1
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    :try_end_f3
+    .catchall {:try_start_f2 .. :try_end_f3} :catchall_f1
 
     throw p0
 
-    :catchall_3
+    :catchall_f4
     move-exception v1
 
     move-object v2, v0
 
-    goto/16 :goto_9
+    goto/16 :goto_2a3
 
-    :catch_5
+    :catch_f8
     move-exception v1
 
     move-object v2, v0
 
     .line 251
-    :goto_3
-    :try_start_6
+    :goto_fa
+    :try_start_fa
     invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_11a
 
     .line 252
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -403,10 +403,10 @@
 
     invoke-static {v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_133
 
     .line 254
-    :cond_3
+    :cond_11a
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -428,11 +428,11 @@
     move-result-object v1
 
     invoke-static {v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_6
+    :try_end_133
+    .catchall {:try_start_fa .. :try_end_133} :catchall_2a2
 
     .line 260
-    :goto_4
+    :goto_133
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->completeUploadFiles:Ljava/util/ArrayList;
@@ -440,7 +440,7 @@
     monitor-enter v1
 
     .line 261
-    :try_start_7
+    :try_start_138
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -476,34 +476,34 @@
 
     .line 260
     monitor-exit v1
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_4
+    :try_end_15d
+    .catchall {:try_start_138 .. :try_end_15d} :catchall_192
 
     .line 265
-    :try_start_8
+    :try_start_15d
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_167
 
     .line 267
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
-    :cond_4
-    if-eqz v2, :cond_e
+    :cond_167
+    if-eqz v2, :cond_31e
 
     .line 270
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V
 
     .line 271
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_6
+    :try_end_16f
+    .catch Ljava/io/IOException; {:try_start_15d .. :try_end_16f} :catch_171
 
-    goto/16 :goto_b
+    goto/16 :goto_31e
 
-    :catch_6
+    :catch_171
     move-exception v0
 
     .line 275
@@ -511,7 +511,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_185
 
     .line 276
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -524,10 +524,10 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_c6
 
     .line 278
-    :cond_5
+    :cond_185
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -538,32 +538,32 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_e1
 
-    :catchall_4
+    :catchall_192
     move-exception p0
 
     .line 260
-    :try_start_9
+    :try_start_193
     monitor-exit v1
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_4
+    :try_end_194
+    .catchall {:try_start_193 .. :try_end_194} :catchall_192
 
     throw p0
 
-    :catch_7
+    :catch_195
     move-exception v1
 
     move-object v2, v0
 
     .line 233
-    :goto_5
-    :try_start_a
+    :goto_197
+    :try_start_197
     invoke-virtual {v1}, Ljava/io/IOException;->getMessage()Ljava/lang/String;
 
     move-result-object v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_1b8
 
     .line 234
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -588,10 +588,10 @@
 
     invoke-static {v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_8
+    goto/16 :goto_240
 
     .line 236
-    :cond_6
+    :cond_1b8
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -622,20 +622,20 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_227
 
     const/4 v4, 0x0
 
     .line 240
-    :goto_6
+    :goto_1db
     array-length v5, v3
 
-    if-lt v4, v5, :cond_7
+    if-lt v4, v5, :cond_1df
 
-    goto :goto_7
+    goto :goto_227
 
     .line 241
-    :cond_7
+    :cond_1df
     iget-object v5, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v5, v5, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -698,11 +698,11 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_6
+    goto :goto_1db
 
     .line 244
-    :cond_8
-    :goto_7
+    :cond_227
+    :goto_227
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -724,11 +724,11 @@
     move-result-object v1
 
     invoke-static {v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_a
-    .catchall {:try_start_a .. :try_end_a} :catchall_6
+    :try_end_240
+    .catchall {:try_start_197 .. :try_end_240} :catchall_2a2
 
     .line 260
-    :goto_8
+    :goto_240
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->completeUploadFiles:Ljava/util/ArrayList;
@@ -736,7 +736,7 @@
     monitor-enter v1
 
     .line 261
-    :try_start_b
+    :try_start_245
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -772,34 +772,34 @@
 
     .line 260
     monitor-exit v1
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_5
+    :try_end_26a
+    .catchall {:try_start_245 .. :try_end_26a} :catchall_29f
 
     .line 265
-    :try_start_c
+    :try_start_26a
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v1}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_274
 
     .line 267
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
-    :cond_9
-    if-eqz v2, :cond_e
+    :cond_274
+    if-eqz v2, :cond_31e
 
     .line 270
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V
 
     .line 271
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-    :try_end_c
-    .catch Ljava/io/IOException; {:try_start_c .. :try_end_c} :catch_8
+    :try_end_27c
+    .catch Ljava/io/IOException; {:try_start_26a .. :try_end_27c} :catch_27e
 
-    goto/16 :goto_b
+    goto/16 :goto_31e
 
-    :catch_8
+    :catch_27e
     move-exception v0
 
     .line 275
@@ -807,7 +807,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_292
 
     .line 276
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -820,10 +820,10 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_c6
 
     .line 278
-    :cond_a
+    :cond_292
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -834,23 +834,23 @@
 
     invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_e1
 
-    :catchall_5
+    :catchall_29f
     move-exception p0
 
     .line 260
-    :try_start_d
+    :try_start_2a0
     monitor-exit v1
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_5
+    :try_end_2a1
+    .catchall {:try_start_2a0 .. :try_end_2a1} :catchall_29f
 
     throw p0
 
-    :catchall_6
+    :catchall_2a2
     move-exception v1
 
-    :goto_9
+    :goto_2a3
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v3, v3, Lcom/fihtdc/UploadAgentService/UploadAgent;->completeUploadFiles:Ljava/util/ArrayList;
@@ -858,7 +858,7 @@
     monitor-enter v3
 
     .line 261
-    :try_start_e
+    :try_start_2a8
     iget-object v4, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v4, v4, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -894,34 +894,34 @@
 
     .line 260
     monitor-exit v3
-    :try_end_e
-    .catchall {:try_start_e .. :try_end_e} :catchall_7
+    :try_end_2cd
+    .catchall {:try_start_2a8 .. :try_end_2cd} :catchall_31b
 
     .line 265
-    :try_start_f
+    :try_start_2cd
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->writeFileDescriptor:Landroid/os/ParcelFileDescriptor;
 
     invoke-virtual {v3}, Landroid/os/ParcelFileDescriptor;->close()V
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_2d7
 
     .line 267
     invoke-virtual {v0}, Ljava/io/FileInputStream;->close()V
 
-    :cond_b
-    if-eqz v2, :cond_d
+    :cond_2d7
+    if-eqz v2, :cond_31a
 
     .line 270
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->flush()V
 
     .line 271
     invoke-virtual {v2}, Ljava/io/FileOutputStream;->close()V
-    :try_end_f
-    .catch Ljava/io/IOException; {:try_start_f .. :try_end_f} :catch_9
+    :try_end_2df
+    .catch Ljava/io/IOException; {:try_start_2cd .. :try_end_2df} :catch_2e0
 
-    goto :goto_a
+    goto :goto_31a
 
-    :catch_9
+    :catch_2e0
     move-exception v0
 
     .line 275
@@ -929,7 +929,7 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_301
 
     .line 276
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -954,10 +954,10 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_a
+    goto :goto_31a
 
     .line 278
-    :cond_c
+    :cond_301
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -981,24 +981,24 @@
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 284
-    :cond_d
-    :goto_a
+    :cond_31a
+    :goto_31a
     throw v1
 
-    :catchall_7
+    :catchall_31b
     move-exception p0
 
     .line 260
-    :try_start_10
+    :try_start_31c
     monitor-exit v3
-    :try_end_10
-    .catchall {:try_start_10 .. :try_end_10} :catchall_7
+    :try_end_31d
+    .catchall {:try_start_31c .. :try_end_31d} :catchall_31b
 
     throw p0
 
     .line 286
-    :cond_e
-    :goto_b
+    :cond_31e
+    :goto_31e
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$WriteFileDescriptor;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v0, v0, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;

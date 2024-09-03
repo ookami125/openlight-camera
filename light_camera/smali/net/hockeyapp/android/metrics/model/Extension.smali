@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,13 +31,13 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getVer()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 30
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Extension;->ver:Ljava/lang/String;
@@ -46,14 +46,14 @@
 .end method
 
 .method public serialize(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const/16 v0, 0x7b
 
@@ -71,7 +71,7 @@
     return-void
 
     .line 49
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "writer"
@@ -82,7 +82,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -94,7 +94,7 @@
     .line 64
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Extension;->ver:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 65
     new-instance v1, Ljava/lang/StringBuilder;
@@ -124,12 +124,12 @@
 
     const-string v0, ","
 
-    :cond_0
+    :cond_25
     return-object v0
 .end method
 
 .method public setVer(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 37
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Extension;->ver:Ljava/lang/String;

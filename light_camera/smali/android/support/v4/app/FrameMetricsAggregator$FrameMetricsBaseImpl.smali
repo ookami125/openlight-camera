@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 309
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v4/app/FrameMetricsAggregator$1;)V
-    .locals 0
+    .registers 2
 
     .line 309
     invoke-direct {p0}, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;-><init>()V
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public add(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public getMetrics()[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public reset()[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -66,7 +66,7 @@
 .end method
 
 .method public stop()[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

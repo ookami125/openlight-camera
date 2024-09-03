@@ -23,13 +23,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v13/view/inputmethod/EditorInfoCompat$1;)V
-    .locals 0
+    .registers 2
 
     .line 81
     invoke-direct {p0}, Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatBaseImpl;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getContentMimeTypes(Landroid/view/inputmethod/EditorInfo;)[Ljava/lang/String;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/inputmethod/EditorInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -60,9 +60,10 @@
     .line 97
     iget-object p0, p1, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_9
 
     .line 98
+    # getter for: Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
     invoke-static {}, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->access$000()[Ljava/lang/String;
 
     move-result-object p0
@@ -70,7 +71,7 @@
     return-object p0
 
     .line 100
-    :cond_0
+    :cond_9
     iget-object p0, p1, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
     sget-object p1, Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatBaseImpl;->CONTENT_MIME_TYPES_KEY:Ljava/lang/String;
@@ -79,22 +80,23 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_14
 
-    goto :goto_0
+    goto :goto_18
 
     .line 101
-    :cond_1
+    :cond_14
+    # getter for: Landroid/support/v13/view/inputmethod/EditorInfoCompat;->EMPTY_STRING_ARRAY:[Ljava/lang/String;
     invoke-static {}, Landroid/support/v13/view/inputmethod/EditorInfoCompat;->access$000()[Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
+    :goto_18
     return-object p0
 .end method
 
 .method public setContentMimeTypes(Landroid/view/inputmethod/EditorInfo;[Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/inputmethod/EditorInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -107,7 +109,7 @@
     .line 88
     iget-object p0, p1, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_b
 
     .line 89
     new-instance p0, Landroid/os/Bundle;
@@ -117,7 +119,7 @@
     iput-object p0, p1, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
     .line 91
-    :cond_0
+    :cond_b
     iget-object p0, p1, Landroid/view/inputmethod/EditorInfo;->extras:Landroid/os/Bundle;
 
     sget-object p1, Landroid/support/v13/view/inputmethod/EditorInfoCompat$EditorInfoCompatBaseImpl;->CONTENT_MIME_TYPES_KEY:Ljava/lang/String;

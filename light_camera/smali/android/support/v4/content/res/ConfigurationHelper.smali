@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static getDensityDpi(Landroid/content/res/Resources;)I
-    .locals 2
+    .registers 3
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -25,7 +25,7 @@
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 80
     invoke-virtual {p0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
@@ -37,7 +37,7 @@
     return p0
 
     .line 82
-    :cond_0
+    :cond_d
     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object p0
@@ -48,7 +48,7 @@
 .end method
 
 .method public static getScreenHeightDp(Landroid/content/res/Resources;)I
-    .locals 0
+    .registers 1
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -67,7 +67,7 @@
 .end method
 
 .method public static getScreenWidthDp(Landroid/content/res/Resources;)I
-    .locals 0
+    .registers 1
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -86,7 +86,7 @@
 .end method
 
 .method public static getSmallestScreenWidthDp(Landroid/content/res/Resources;)I
-    .locals 0
+    .registers 1
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

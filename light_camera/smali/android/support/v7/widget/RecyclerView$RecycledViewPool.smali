@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 5110
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 .end method
 
 .method private getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
-    .locals 1
+    .registers 3
 
     .line 5258
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -72,7 +72,7 @@
 
     check-cast v0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 5260
     new-instance v0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -84,14 +84,14 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    :cond_0
+    :cond_14
     return-object v0
 .end method
 
 
 # virtual methods
 .method attach(Landroid/support/v7/widget/RecyclerView$Adapter;)V
-    .locals 0
+    .registers 2
 
     .line 5225
     iget p1, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mAttachCount:I
@@ -104,19 +104,19 @@
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
     .line 5138
-    :goto_0
+    :goto_1
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_19
 
     .line 5139
     iget-object v1, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -134,14 +134,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method detach()V
-    .locals 1
+    .registers 2
 
     .line 5229
     iget v0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mAttachCount:I
@@ -154,7 +154,7 @@
 .end method
 
 .method factorInBindTime(IJ)V
-    .locals 2
+    .registers 6
 
     .line 5209
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -174,7 +174,7 @@
 .end method
 
 .method factorInCreateTime(IJ)V
-    .locals 2
+    .registers 6
 
     .line 5203
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -194,7 +194,7 @@
 .end method
 
 .method public getRecycledView(I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 2
 
     .line 5163
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -205,7 +205,7 @@
 
     check-cast p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_21
 
     .line 5164
     iget-object p1, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
@@ -214,7 +214,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_21
 
     .line 5165
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
@@ -234,14 +234,14 @@
 
     return-object p0
 
-    :cond_0
+    :cond_21
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public getRecycledViewCount(I)I
-    .locals 0
+    .registers 2
 
     .line 5159
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -258,36 +258,36 @@
 .end method
 
 .method onAdapterChanged(Landroid/support/v7/widget/RecyclerView$Adapter;Landroid/support/v7/widget/RecyclerView$Adapter;Z)V
-    .locals 0
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 5247
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->detach()V
 
-    :cond_0
-    if-nez p3, :cond_1
+    :cond_5
+    if-nez p3, :cond_e
 
     .line 5249
     iget p1, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mAttachCount:I
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_e
 
     .line 5250
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->clear()V
 
-    :cond_1
-    if-eqz p2, :cond_2
+    :cond_e
+    if-eqz p2, :cond_13
 
     .line 5253
     invoke-virtual {p0, p2}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->attach(Landroid/support/v7/widget/RecyclerView$Adapter;)V
 
-    :cond_2
+    :cond_13
     return-void
 .end method
 
 .method public putRecycledView(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 2
+    .registers 4
 
     .line 5183
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->getItemViewType()I
@@ -316,12 +316,12 @@
 
     move-result v0
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_1b
 
     return-void
 
     .line 5191
-    :cond_0
+    :cond_1b
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->resetInternal()V
 
     .line 5192
@@ -331,17 +331,17 @@
 .end method
 
 .method runningAverage(JJ)J
-    .locals 4
+    .registers 9
 
     const-wide/16 v0, 0x0
 
     cmp-long p0, p1, v0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     return-wide p3
 
-    :cond_0
+    :cond_7
     const-wide/16 v0, 0x4
 
     .line 5199
@@ -359,7 +359,7 @@
 .end method
 
 .method public setMaxRecycledViews(II)V
-    .locals 0
+    .registers 3
 
     .line 5145
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -372,15 +372,15 @@
     .line 5147
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1a
 
     .line 5149
-    :goto_0
+    :goto_a
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result p1
 
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_1a
 
     .line 5150
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
@@ -391,28 +391,28 @@
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method size()I
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 5173
-    :goto_0
+    :goto_2
     iget-object v2, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
 
     invoke-virtual {v2}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_1e
 
     .line 5174
     iget-object v2, p0, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->mScrap:Landroid/util/SparseArray;
@@ -425,7 +425,7 @@
 
     iget-object v2, v2, Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;->mScrapHeap:Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1b
 
     .line 5176
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
@@ -434,17 +434,17 @@
 
     add-int/2addr v1, v2
 
-    :cond_0
+    :cond_1b
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
+    :cond_1e
     return v1
 .end method
 
 .method willBindInTime(IJJ)Z
-    .locals 2
+    .registers 8
 
     .line 5220
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -457,31 +457,31 @@
 
     cmp-long v0, p0, v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     add-long/2addr p2, p0
 
     cmp-long p0, p2, p4
 
-    if-gez p0, :cond_0
+    if-gez p0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_15
     return p0
 .end method
 
 .method willCreateInTime(IJJ)Z
-    .locals 2
+    .registers 8
 
     .line 5215
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$RecycledViewPool;->getScrapDataForType(I)Landroid/support/v7/widget/RecyclerView$RecycledViewPool$ScrapData;
@@ -494,25 +494,25 @@
 
     cmp-long v0, p0, v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     add-long/2addr p2, p0
 
     cmp-long p0, p2, p4
 
-    if-gez p0, :cond_0
+    if-gez p0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_15
     return p0
 .end method

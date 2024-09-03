@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/wire/ProtoAdapter;Lcom/squareup/wire/FieldEncoding;Ljava/lang/Class;)V
-    .locals 0
+    .registers 4
 
     .line 472
     iput-object p1, p0, Lcom/squareup/wire/ProtoAdapter$15;->this$0:Lcom/squareup/wire/ProtoAdapter;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -57,7 +57,7 @@
 .end method
 
 .method public decode(Lcom/squareup/wire/ProtoReader;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -106,7 +106,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,7 +127,7 @@
 .end method
 
 .method public bridge synthetic encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/lang/Object;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -143,7 +143,7 @@
 .end method
 
 .method public encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/util/List;)V
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -167,8 +167,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_5
+    if-ge v1, v0, :cond_13
 
     .line 492
     iget-object v2, p0, Lcom/squareup/wire/ProtoAdapter$15;->this$0:Lcom/squareup/wire/ProtoAdapter;
@@ -181,14 +181,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 472
     check-cast p1, Ljava/util/List;
@@ -201,7 +201,7 @@
 .end method
 
 .method public encodedSize(Ljava/util/List;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -221,7 +221,7 @@
 .end method
 
 .method public bridge synthetic encodedSizeWithTag(ILjava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 472
     check-cast p2, Ljava/util/List;
@@ -234,7 +234,7 @@
 .end method
 
 .method public encodedSizeWithTag(ILjava/util/List;)I
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -252,8 +252,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_6
+    if-ge v1, v0, :cond_16
 
     .line 480
     iget-object v3, p0, Lcom/squareup/wire/ProtoAdapter$15;->this$0:Lcom/squareup/wire/ProtoAdapter;
@@ -270,14 +270,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_16
     return v2
 .end method
 
 .method public bridge synthetic redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 472
     check-cast p1, Ljava/util/List;
@@ -290,7 +290,7 @@
 .end method
 
 .method public redact(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

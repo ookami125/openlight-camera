@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     .line 6
     new-instance v7, Lopenlight/co/camera/enums/OrientationConfig;
@@ -158,7 +158,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IIIII)V
-    .locals 0
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIII)V"
@@ -184,7 +184,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/OrientationConfig;
-    .locals 1
+    .registers 2
 
     .line 5
     const-class v0, Lopenlight/co/camera/enums/OrientationConfig;
@@ -199,7 +199,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/OrientationConfig;
-    .locals 1
+    .registers 1
 
     .line 5
     sget-object v0, Lopenlight/co/camera/enums/OrientationConfig;->$VALUES:[Lopenlight/co/camera/enums/OrientationConfig;
@@ -216,7 +216,7 @@
 
 # virtual methods
 .method public getAndroidOrientationConfiguration()I
-    .locals 0
+    .registers 1
 
     .line 51
     iget p0, p0, Lopenlight/co/camera/enums/OrientationConfig;->mAndroidOrientationConfiguration:I
@@ -225,7 +225,7 @@
 .end method
 
 .method public getDeviceAngle()I
-    .locals 0
+    .registers 1
 
     .line 34
     iget p0, p0, Lopenlight/co/camera/enums/OrientationConfig;->mDeviceAngle:I
@@ -234,7 +234,7 @@
 .end method
 
 .method public getOrientationHint()I
-    .locals 0
+    .registers 1
 
     .line 59
     iget p0, p0, Lopenlight/co/camera/enums/OrientationConfig;->mOrientationHint:I
@@ -243,7 +243,7 @@
 .end method
 
 .method public getViewRotationAngle()I
-    .locals 0
+    .registers 1
 
     .line 42
     iget p0, p0, Lopenlight/co/camera/enums/OrientationConfig;->mViewRotationAngle:I

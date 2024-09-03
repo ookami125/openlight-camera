@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 236
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,19 +30,19 @@
 
 # virtual methods
 .method public onPanelClosed(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onPanelOpened(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onPanelSlide(Landroid/view/View;F)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method

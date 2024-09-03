@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,19 +14,19 @@
 .end method
 
 .method public static appendSelectionArgs([Ljava/lang/String;[Ljava/lang/String;)[Ljava/lang/String;
-    .locals 3
+    .registers 5
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_16
 
     .line 49
     array-length v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    goto :goto_0
+    goto :goto_16
 
     .line 52
-    :cond_0
+    :cond_6
     array-length v0, p0
 
     array-length v1, p1
@@ -51,35 +51,35 @@
 
     return-object v0
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     return-object p1
 .end method
 
 .method public static concatenateWhere(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 34
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object p1
 
     .line 37
-    :cond_0
+    :cond_7
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e
 
     return-object p0
 
     .line 41
-    :cond_1
+    :cond_e
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V

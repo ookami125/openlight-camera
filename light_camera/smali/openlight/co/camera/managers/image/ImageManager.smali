@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Lopenlight/co/camera/managers/image/ImageManager;
@@ -34,7 +34,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 235
     invoke-direct {p0}, Lopenlight/co/camera/managers/CameraManager;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method private closeImageReadersAndCamera()Z
-    .locals 1
+    .registers 2
 
     .line 229
     invoke-virtual {p0}, Lopenlight/co/camera/managers/image/ImageManager;->initCapturesInFlight()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/image/ImageManager;
-    .locals 1
+    .registers 1
 
     .line 51
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->sImageManager:Lopenlight/co/camera/managers/image/ImageManager;
@@ -78,14 +78,14 @@
 .end method
 
 .method public static synthetic lambda$closeCamera$0(Lopenlight/co/camera/managers/image/ImageManager;)V
-    .locals 2
+    .registers 3
 
     .line 89
     invoke-virtual {p0}, Lopenlight/co/camera/managers/image/ImageManager;->getPendingReaderReferences()I
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_13
 
     .line 90
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
@@ -100,14 +100,14 @@
     .line 92
     invoke-virtual {p0}, Lopenlight/co/camera/managers/image/ImageManager;->stopBackgroundThread()V
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 
 # virtual methods
 .method public canGotoGallery()Z
-    .locals 3
+    .registers 4
 
     .line 148
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
@@ -133,21 +133,21 @@
     .line 149
     iget p0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCapturesInFlight:I
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_1e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1f
     return p0
 .end method
 
 .method public checkForQueuedState()V
-    .locals 2
+    .registers 3
 
     .line 201
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureManager;->get()Lopenlight/co/camera/managers/capture/CaptureManager;
@@ -158,7 +158,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 202
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
@@ -170,17 +170,17 @@
     .line 203
     invoke-virtual {p0}, Lopenlight/co/camera/managers/image/ImageManager;->captureStart()V
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public declared-synchronized closeCamera()Z
-    .locals 3
+    .registers 4
 
     monitor-enter p0
 
     .line 76
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCameraOpenCloseLock:Ljava/util/concurrent/Semaphore;
 
     invoke-virtual {v0}, Ljava/util/concurrent/Semaphore;->acquire()V
@@ -190,7 +190,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_19
 
     .line 79
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
@@ -203,17 +203,17 @@
     invoke-direct {p0}, Lopenlight/co/camera/managers/image/ImageManager;->closeImageReadersAndCamera()Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_17} :catch_37
+    .catchall {:try_start_1 .. :try_end_17} :catchall_35
 
     monitor-exit p0
 
     return v0
 
     .line 83
-    :cond_0
-    :try_start_1
+    :cond_19
+    :try_start_19
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
 
     const-string v1, "captures save in progress, release surface and stop repeating"
@@ -238,31 +238,31 @@
     invoke-direct {v1, p0}, Lopenlight/co/camera/managers/image/-$$Lambda$ImageManager$ZvEKuMzyTFkZxPQtIYNLCQYTpRI;-><init>(Lopenlight/co/camera/managers/image/ImageManager;)V
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/ImageReaderManager;->setPendingCapturesCompleteListener(Lopenlight/co/camera/ImageReaderManager$PendingCapturesCompleteListener;)V
-    :try_end_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_34
+    .catch Ljava/lang/InterruptedException; {:try_start_19 .. :try_end_34} :catch_37
+    .catchall {:try_start_19 .. :try_end_34} :catchall_35
 
-    goto :goto_0
+    goto :goto_3f
 
-    :catchall_0
+    :catchall_35
     move-exception v0
 
-    goto :goto_1
+    goto :goto_42
 
-    :catch_0
+    :catch_37
     move-exception v0
 
     .line 97
-    :try_start_2
+    :try_start_38
     sget-object v1, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
 
     const-string v2, "InterruptedException while acquiring lock during camera close."
 
     invoke-static {v1, v2, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3f
+    .catchall {:try_start_38 .. :try_end_3f} :catchall_35
 
-    :goto_0
+    :goto_3f
     const/4 v0, 0x0
 
     .line 99
@@ -271,14 +271,14 @@
     return v0
 
     .line 75
-    :goto_1
+    :goto_42
     monitor-exit p0
 
     throw v0
 .end method
 
 .method public createCameraSession(Landroid/graphics/SurfaceTexture;Landroid/util/Size;)V
-    .locals 6
+    .registers 9
 
     .line 107
     :try_start_0
@@ -390,7 +390,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7a
 
     .line 125
     iget-object v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mSurfaceList:Ljava/util/List;
@@ -402,10 +402,10 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 130
-    :cond_0
+    :cond_7a
     sget-boolean v0, Lopenlight/co/camera/CameraActivity;->HISTOGRAM_SUPPORTED:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_91
 
     .line 131
     invoke-static {}, Lopenlight/co/camera/utils/FaceDetector;->get()Lopenlight/co/camera/utils/FaceDetector;
@@ -416,7 +416,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_91
 
     .line 132
     iget-object v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mSurfaceList:Ljava/util/List;
@@ -428,14 +428,14 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     .line 135
-    :cond_1
+    :cond_91
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/managers/image/ImageManager;->createCameraPreviewSessionLocked(Landroid/graphics/SurfaceTexture;Landroid/util/Size;)V
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_94
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_94} :catch_95
 
-    goto :goto_0
+    goto :goto_9f
 
-    :catch_0
+    :catch_95
     move-exception p0
 
     .line 137
@@ -447,17 +447,17 @@
 
     invoke-static {p1, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_9f
     return-void
 .end method
 
 .method public decrementCapturesInFlight()V
-    .locals 1
+    .registers 2
 
     .line 172
     iget v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCapturesInFlight:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_a
 
     .line 173
     iget v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCapturesInFlight:I
@@ -466,12 +466,12 @@
 
     iput v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCapturesInFlight:I
 
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public getBackgroundThreadName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "PictureBackground"
 
@@ -479,7 +479,7 @@
 .end method
 
 .method public getCapturesInFlight()I
-    .locals 0
+    .registers 1
 
     .line 157
     iget p0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCapturesInFlight:I
@@ -488,7 +488,7 @@
 .end method
 
 .method public getPendingReaderReferences()I
-    .locals 3
+    .registers 4
 
     .line 188
     iget-object v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
@@ -536,24 +536,24 @@
 .end method
 
 .method protected handleOnCaptureFailed()V
-    .locals 1
+    .registers 2
 
     .line 219
     iget-object v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mUpdatePreviewListener:Lopenlight/co/camera/managers/CameraManager$UpdatePreview;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 220
     iget-object p0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mUpdatePreviewListener:Lopenlight/co/camera/managers/CameraManager$UpdatePreview;
 
     invoke-interface {p0}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->cameraDeviceError()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public incrementCapturesInFlight()V
-    .locals 1
+    .registers 2
 
     .line 164
     iget v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mCapturesInFlight:I
@@ -566,7 +566,7 @@
 .end method
 
 .method protected initCapturesInFlight()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -577,15 +577,15 @@
 .end method
 
 .method public declared-synchronized openCamera()Z
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     .line 58
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lopenlight/co/camera/managers/image/ImageManager;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 59
     sget-object v0, Lopenlight/co/camera/managers/image/ImageManager;->TAG:Ljava/lang/String;
@@ -601,7 +601,7 @@
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/ImageReaderManager;->setPendingCapturesCompleteListener(Lopenlight/co/camera/ImageReaderManager$PendingCapturesCompleteListener;)V
 
-    :cond_0
+    :cond_12
     const/4 v0, 0x0
 
     .line 62
@@ -616,14 +616,14 @@
     invoke-super {p0}, Lopenlight/co/camera/managers/CameraManager;->openCamera()Z
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_20
 
     monitor-exit p0
 
     return v0
 
-    :catchall_0
+    :catchall_20
     move-exception v0
 
     .line 57

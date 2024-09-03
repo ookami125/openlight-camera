@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 467
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method private setLeftTopRightBottom()V
-    .locals 5
+    .registers 6
 
     .line 490
     iget-object v0, p0, Landroid/support/transition/ChangeBounds$ViewBounds;->mView:Landroid/view/View;
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method setBottomRight(Landroid/graphics/PointF;)V
-    .locals 1
+    .registers 3
 
     .line 481
     iget v0, p1, Landroid/graphics/PointF;->x:F
@@ -105,17 +105,17 @@
 
     iget v0, p0, Landroid/support/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1f
 
     .line 485
     invoke-direct {p0}, Landroid/support/transition/ChangeBounds$ViewBounds;->setLeftTopRightBottom()V
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method setTopLeft(Landroid/graphics/PointF;)V
-    .locals 1
+    .registers 3
 
     .line 472
     iget v0, p1, Landroid/graphics/PointF;->x:F
@@ -147,11 +147,11 @@
 
     iget v0, p0, Landroid/support/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1f
 
     .line 476
     invoke-direct {p0}, Landroid/support/transition/ChangeBounds$ViewBounds;->setLeftTopRightBottom()V
 
-    :cond_0
+    :cond_1f
     return-void
 .end method

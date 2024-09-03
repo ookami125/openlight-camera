@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;)V
-    .locals 0
+    .registers 2
 
     .line 464
     iput-object p1, p0, Landroid/support/v4/view/MenuItemCompat$1;->val$listener:Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     .line 472
     iget-object p0, p0, Landroid/support/v4/view/MenuItemCompat$1;->val$listener:Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;
@@ -49,7 +49,7 @@
 .end method
 
 .method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     .line 467
     iget-object p0, p0, Landroid/support/v4/view/MenuItemCompat$1;->val$listener:Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;

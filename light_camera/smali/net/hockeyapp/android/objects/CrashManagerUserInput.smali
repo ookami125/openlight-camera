@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 11
     new-instance v0, Lnet/hockeyapp/android/objects/CrashManagerUserInput;
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -104,7 +104,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lnet/hockeyapp/android/objects/CrashManagerUserInput;
-    .locals 1
+    .registers 2
 
     .line 7
     const-class v0, Lnet/hockeyapp/android/objects/CrashManagerUserInput;
@@ -119,7 +119,7 @@
 .end method
 
 .method public static values()[Lnet/hockeyapp/android/objects/CrashManagerUserInput;
-    .locals 1
+    .registers 1
 
     .line 7
     sget-object v0, Lnet/hockeyapp/android/objects/CrashManagerUserInput;->$VALUES:[Lnet/hockeyapp/android/objects/CrashManagerUserInput;
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 28
     iget p0, p0, Lnet/hockeyapp/android/objects/CrashManagerUserInput;->mValue:I

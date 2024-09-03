@@ -22,14 +22,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 109
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 110
     new-instance v0, Landroid/support/v13/app/FragmentCompat$FragmentCompatApi24Impl;
@@ -38,15 +38,15 @@
 
     sput-object v0, Landroid/support/v13/app/FragmentCompat;->IMPL:Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 111
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 112
     new-instance v0, Landroid/support/v13/app/FragmentCompat$FragmentCompatApi23Impl;
@@ -55,15 +55,15 @@
 
     sput-object v0, Landroid/support/v13/app/FragmentCompat;->IMPL:Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 113
-    :cond_1
+    :cond_1c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xf
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2a
 
     .line 114
     new-instance v0, Landroid/support/v13/app/FragmentCompat$FragmentCompatApi15Impl;
@@ -72,22 +72,22 @@
 
     sput-object v0, Landroid/support/v13/app/FragmentCompat;->IMPL:Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 
-    goto :goto_0
+    goto :goto_31
 
     .line 116
-    :cond_2
+    :cond_2a
     new-instance v0, Landroid/support/v13/app/FragmentCompat$FragmentCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v13/app/FragmentCompat$FragmentCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v13/app/FragmentCompat;->IMPL:Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
 
-    :goto_0
+    :goto_31
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +96,7 @@
 .end method
 
 .method public static requestPermissions(Landroid/app/Fragment;[Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .param p0    # Landroid/app/Fragment;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -115,7 +115,7 @@
 .end method
 
 .method public static setMenuVisibility(Landroid/app/Fragment;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -126,7 +126,7 @@
 .end method
 
 .method public static setUserVisibleHint(Landroid/app/Fragment;Z)V
-    .locals 1
+    .registers 3
 
     .line 159
     sget-object v0, Landroid/support/v13/app/FragmentCompat;->IMPL:Landroid/support/v13/app/FragmentCompat$FragmentCompatImpl;
@@ -137,7 +137,7 @@
 .end method
 
 .method public static shouldShowRequestPermissionRationale(Landroid/app/Fragment;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0    # Landroid/app/Fragment;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

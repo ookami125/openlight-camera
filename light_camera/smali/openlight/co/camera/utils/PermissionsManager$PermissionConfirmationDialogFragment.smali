@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 106
     invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static newInstance()Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;
-    .locals 1
+    .registers 1
 
     .line 109
     new-instance v0, Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 2
+    .registers 4
 
     .line 114
     new-instance p1, Landroid/app/AlertDialog$Builder;

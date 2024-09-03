@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 2221
     invoke-direct {p0}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public fastForward()V
-    .locals 0
+    .registers 1
 
     .line 2276
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -45,7 +45,7 @@
 .end method
 
 .method public pause()V
-    .locals 0
+    .registers 1
 
     .line 2261
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -56,7 +56,7 @@
 .end method
 
 .method public play()V
-    .locals 0
+    .registers 1
 
     .line 2256
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -67,7 +67,7 @@
 .end method
 
 .method public playFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
 
     .line 2338
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -78,7 +78,7 @@
 .end method
 
 .method public playFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
 
     .line 2344
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -89,9 +89,9 @@
 .end method
 
 .method public playFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1f
 
     .line 2350
     sget-object v0, Landroid/net/Uri;->EMPTY:Landroid/net/Uri;
@@ -100,7 +100,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 2354
     new-instance v0, Landroid/os/Bundle;
@@ -125,7 +125,7 @@
     return-void
 
     .line 2351
-    :cond_0
+    :cond_1f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You must specify a non-empty Uri for playFromUri."
@@ -136,7 +136,7 @@
 .end method
 
 .method public prepare()V
-    .locals 2
+    .registers 3
 
     const-string v0, "android.support.v4.media.session.action.PREPARE"
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public prepareFromMediaId(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
     .line 2232
     new-instance v0, Landroid/os/Bundle;
@@ -175,7 +175,7 @@
 .end method
 
 .method public prepareFromSearch(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
     .line 2240
     new-instance v0, Landroid/os/Bundle;
@@ -201,7 +201,7 @@
 .end method
 
 .method public prepareFromUri(Landroid/net/Uri;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
     .line 2248
     new-instance v0, Landroid/os/Bundle;
@@ -227,7 +227,7 @@
 .end method
 
 .method public rewind()V
-    .locals 0
+    .registers 1
 
     .line 2281
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -238,7 +238,7 @@
 .end method
 
 .method public seekTo(J)V
-    .locals 0
+    .registers 3
 
     .line 2271
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -249,13 +249,14 @@
 .end method
 
 .method public sendCustomAction(Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;Landroid/os/Bundle;)V
-    .locals 1
+    .registers 4
 
     .line 2367
     invoke-virtual {p1}, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->getAction()Ljava/lang/String;
 
     move-result-object v0
 
+    # invokes: Landroid/support/v4/media/session/MediaControllerCompat;->validateCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
     invoke-static {v0, p2}, Landroid/support/v4/media/session/MediaControllerCompat;->access$100(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 2368
@@ -273,9 +274,10 @@
 .end method
 
 .method public sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
 
     .line 2374
+    # invokes: Landroid/support/v4/media/session/MediaControllerCompat;->validateCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
     invoke-static {p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat;->access$100(Ljava/lang/String;Landroid/os/Bundle;)V
 
     .line 2375
@@ -287,7 +289,7 @@
 .end method
 
 .method public setCaptioningEnabled(Z)V
-    .locals 2
+    .registers 4
 
     .line 2310
     new-instance v0, Landroid/os/Bundle;
@@ -308,32 +310,32 @@
 .end method
 
 .method public setRating(Landroid/support/v4/media/RatingCompat;)V
-    .locals 0
+    .registers 2
 
     .line 2296
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 2297
     invoke-virtual {p1}, Landroid/support/v4/media/RatingCompat;->getRating()Ljava/lang/Object;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p1, 0x0
 
     .line 2296
-    :goto_0
+    :goto_a
     invoke-static {p0, p1}, Landroid/support/v4/media/session/MediaControllerCompatApi21$TransportControls;->setRating(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public setRating(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
     .line 2302
     new-instance v0, Landroid/os/Bundle;
@@ -359,7 +361,7 @@
 .end method
 
 .method public setRepeatMode(I)V
-    .locals 2
+    .registers 4
 
     .line 2317
     new-instance v0, Landroid/os/Bundle;
@@ -380,7 +382,7 @@
 .end method
 
 .method public setShuffleMode(I)V
-    .locals 2
+    .registers 4
 
     .line 2331
     new-instance v0, Landroid/os/Bundle;
@@ -401,7 +403,7 @@
 .end method
 
 .method public setShuffleModeEnabled(Z)V
-    .locals 2
+    .registers 4
 
     .line 2324
     new-instance v0, Landroid/os/Bundle;
@@ -422,7 +424,7 @@
 .end method
 
 .method public skipToNext()V
-    .locals 0
+    .registers 1
 
     .line 2286
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -433,7 +435,7 @@
 .end method
 
 .method public skipToPrevious()V
-    .locals 0
+    .registers 1
 
     .line 2291
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -444,7 +446,7 @@
 .end method
 
 .method public skipToQueueItem(J)V
-    .locals 0
+    .registers 3
 
     .line 2362
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;
@@ -455,7 +457,7 @@
 .end method
 
 .method public stop()V
-    .locals 0
+    .registers 1
 
     .line 2266
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsApi21;->mControlsObj:Ljava/lang/Object;

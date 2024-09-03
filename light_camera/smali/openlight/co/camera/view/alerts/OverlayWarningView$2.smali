@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/alerts/OverlayWarningView;)V
-    .locals 0
+    .registers 2
 
     .line 140
     iput-object p1, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView$2;->this$0:Lopenlight/co/camera/view/alerts/OverlayWarningView;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 143
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V

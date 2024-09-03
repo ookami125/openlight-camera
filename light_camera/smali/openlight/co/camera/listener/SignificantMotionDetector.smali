@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 22
     const-class v0, Lopenlight/co/camera/listener/SignificantMotionDetector;
@@ -122,7 +122,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 232
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -205,7 +205,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/listener/SignificantMotionDetector;Landroid/hardware/SensorEvent;)V
-    .locals 0
+    .registers 2
 
     .line 20
     invoke-direct {p0, p1}, Lopenlight/co/camera/listener/SignificantMotionDetector;->processGryoEvent(Landroid/hardware/SensorEvent;)V
@@ -214,7 +214,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/listener/SignificantMotionDetector;Landroid/hardware/SensorEvent;)V
-    .locals 0
+    .registers 2
 
     .line 20
     invoke-direct {p0, p1}, Lopenlight/co/camera/listener/SignificantMotionDetector;->processAccelEvent(Landroid/hardware/SensorEvent;)V
@@ -223,7 +223,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/listener/SignificantMotionDetector;)Lopenlight/co/camera/listener/SignificantMotionListener;
-    .locals 0
+    .registers 1
 
     .line 20
     iget-object p0, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mSignificantMotionListener:Lopenlight/co/camera/listener/SignificantMotionListener;
@@ -232,7 +232,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/listener/SignificantMotionDetector;
-    .locals 1
+    .registers 1
 
     .line 107
     sget-object v0, Lopenlight/co/camera/listener/SignificantMotionDetector;->sInstance:Lopenlight/co/camera/listener/SignificantMotionDetector;
@@ -241,7 +241,7 @@
 .end method
 
 .method private static getDefaultSensorType()Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
-    .locals 2
+    .registers 2
 
     .line 228
     invoke-static {}, Lopenlight/co/lib/utils/FeatureManager;->get()Lopenlight/co/lib/utils/FeatureManager;
@@ -261,21 +261,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     sget-object v0, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;->GYRO:Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     sget-object v0, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;->ACCEL:Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
 
-    :goto_0
+    :goto_17
     return-object v0
 .end method
 
 .method private processAccelEvent(Landroid/hardware/SensorEvent;)V
-    .locals 9
+    .registers 11
 
     .line 165
     iget-object v0, p1, Landroid/hardware/SensorEvent;->values:[F
@@ -406,7 +406,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_77
 
     .line 193
     invoke-static {v2}, Ljava/lang/Math;->abs(F)F
@@ -415,7 +415,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_77
 
     .line 194
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
@@ -424,10 +424,10 @@
 
     cmpl-float p1, p1, v1
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_88
 
     .line 195
-    :cond_0
+    :cond_77
     iget-object p1, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mHandler:Landroid/os/Handler;
 
     iget-object v0, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mStationaryRunnable:Ljava/lang/Runnable;
@@ -445,12 +445,12 @@
 
     invoke-virtual {p1, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_1
+    :cond_88
     return-void
 .end method
 
 .method private processGryoEvent(Landroid/hardware/SensorEvent;)V
-    .locals 4
+    .registers 6
 
     .line 207
     iget-object v0, p1, Landroid/hardware/SensorEvent;->values:[F
@@ -501,7 +501,7 @@
 
     cmpl-double p1, v0, v2
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_35
 
     .line 217
     iget-object p1, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mHandler:Landroid/os/Handler;
@@ -521,20 +521,20 @@
 
     invoke-virtual {p1, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_0
+    :cond_35
     return-void
 .end method
 
 
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 1
+    .registers 3
 
     .line 156
     sget-object v0, Lopenlight/co/camera/listener/SignificantMotionDetector;->DEFAULT_SENSOR_TYPE:Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
@@ -545,14 +545,14 @@
 .end method
 
 .method public registerListener(Lopenlight/co/camera/listener/SignificantMotionListener;)V
-    .locals 3
+    .registers 5
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2e
 
     .line 119
     sget-boolean v0, Lopenlight/co/camera/listener/SignificantMotionDetector;->SIGNIFICANT_MOTION_ENABLED:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 120
     sget-object v0, Lopenlight/co/camera/listener/SignificantMotionDetector$2;->$SwitchMap$light$co$camera$listener$SignificantMotionDetector$SensorType:[I
@@ -567,22 +567,22 @@
 
     const/4 v1, 0x3
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_36
 
-    goto :goto_0
+    goto :goto_24
 
     .line 126
-    :pswitch_0
+    :pswitch_15
     iget-object v0, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v2, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mAccelSensor:Landroid/hardware/Sensor;
 
     invoke-virtual {v0, p0, v2, v1}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
-    goto :goto_0
+    goto :goto_24
 
     .line 122
-    :pswitch_1
+    :pswitch_1d
     iget-object v0, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v2, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mGyroscopeSensor:Landroid/hardware/Sensor;
@@ -590,7 +590,7 @@
     invoke-virtual {v0, p0, v2, v1}, Landroid/hardware/SensorManager;->registerListener(Landroid/hardware/SensorEventListener;Landroid/hardware/Sensor;I)Z
 
     .line 129
-    :goto_0
+    :goto_24
     iput-object p1, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mSignificantMotionListener:Lopenlight/co/camera/listener/SignificantMotionListener;
 
     .line 130
@@ -600,11 +600,11 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_2d
     return-void
 
     .line 116
-    :cond_1
+    :cond_2e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Listener cannot be null"
@@ -613,15 +613,15 @@
 
     throw p0
 
-    :pswitch_data_0
+    :pswitch_data_36
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1d
+        :pswitch_15
     .end packed-switch
 .end method
 
 .method public unregisterListener(Lopenlight/co/camera/listener/SignificantMotionListener;)V
-    .locals 1
+    .registers 3
 
     .line 139
     iget-object v0, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mSignificantMotionListener:Lopenlight/co/camera/listener/SignificantMotionListener;
@@ -630,7 +630,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1f
 
     .line 140
     iget-object p1, p0, Lopenlight/co/camera/listener/SignificantMotionDetector;->mHandler:Landroid/os/Handler;
@@ -659,7 +659,7 @@
     return-void
 
     .line 145
-    :cond_0
+    :cond_1f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Trying to unregister a listener that was not previously registered"

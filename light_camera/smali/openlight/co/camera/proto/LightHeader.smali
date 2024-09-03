@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 20
     const-class v0, Lopenlight/co/camera/proto/LightHeader;
@@ -41,7 +41,7 @@
     .line 25
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_24
 
     sput-object v1, Lopenlight/co/camera/proto/LightHeader;->MAGIC_ID:[B
 
@@ -73,7 +73,7 @@
 
     nop
 
-    :array_0
+    :array_24
     .array-data 1
         0x4ct
         0x45t
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Lcom/squareup/wire/Message;B)V
-    .locals 0
+    .registers 3
     .param p1    # Lcom/squareup/wire/Message;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -102,7 +102,7 @@
 .end method
 
 .method private dump(Lcom/squareup/wire/Message;)V
-    .locals 6
+    .registers 8
 
     .line 84
     sget-object p0, Lopenlight/co/camera/proto/LightHeader;->TAG:Ljava/lang/String;
@@ -147,8 +147,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_0
+    :goto_2a
+    if-ge v2, v0, :cond_43
 
     aget-byte v3, p1, v2
 
@@ -173,9 +173,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_0
+    :cond_43
     const/16 p1, 0xa
 
     .line 89
@@ -194,7 +194,7 @@
 .end method
 
 .method private printByteInfo(B)V
-    .locals 4
+    .registers 6
 
     .line 112
     sget-object p0, Lopenlight/co/camera/proto/LightHeader;->TAG:Ljava/lang/String;
@@ -237,7 +237,7 @@
 .end method
 
 .method private printIntInfo(I)V
-    .locals 7
+    .registers 9
 
     const/4 p0, 0x4
 
@@ -261,8 +261,8 @@
 
     move v1, v0
 
-    :goto_0
-    if-ge v1, p1, :cond_0
+    :goto_10
+    if-ge v1, p1, :cond_3c
 
     aget-byte v2, p0, v1
 
@@ -303,14 +303,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_3c
     return-void
 .end method
 
 .method private printLongInfo(J)V
-    .locals 6
+    .registers 9
 
     const/16 p0, 0x8
 
@@ -334,8 +334,8 @@
 
     move v0, p2
 
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_11
+    if-ge v0, p1, :cond_3d
 
     aget-byte v1, p0, v0
 
@@ -376,16 +376,16 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 
 # virtual methods
 .method public getBuffer()Ljava/nio/ByteBuffer;
-    .locals 6
+    .registers 7
 
     .line 54
     iget-object v0, p0, Lopenlight/co/camera/proto/LightHeader;->message:Lcom/squareup/wire/Message;

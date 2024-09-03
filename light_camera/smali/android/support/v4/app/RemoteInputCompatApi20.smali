@@ -15,7 +15,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 .end method
 
 .method public static addDataResultToIntent(Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -42,7 +42,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 130
     new-instance v0, Landroid/content/Intent;
@@ -50,7 +50,7 @@
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
     .line 132
-    :cond_0
+    :cond_b
     invoke-interface {p2}, Ljava/util/Map;->entrySet()Ljava/util/Set;
 
     move-result-object p2
@@ -59,12 +59,12 @@
 
     move-result-object p2
 
-    :goto_0
+    :goto_13
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_50
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -86,12 +86,12 @@
 
     check-cast v1, Landroid/net/Uri;
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2e
 
-    goto :goto_0
+    goto :goto_13
 
     .line 139
-    :cond_1
+    :cond_2e
     invoke-static {v2}, Landroid/support/v4/app/RemoteInputCompatApi20;->getExtraResultsKeyForData(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
@@ -100,7 +100,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3d
 
     .line 141
     new-instance v3, Landroid/os/Bundle;
@@ -108,7 +108,7 @@
     invoke-direct {v3}, Landroid/os/Bundle;-><init>()V
 
     .line 143
-    :cond_2
+    :cond_3d
     invoke-virtual {p0}, Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;->getResultKey()Ljava/lang/String;
 
     move-result-object v4
@@ -126,9 +126,9 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_3
+    :cond_50
     const-string p0, "android.remoteinput.results"
 
     .line 146
@@ -142,33 +142,33 @@
 .end method
 
 .method static addResultsToIntent([Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
-    .locals 6
+    .registers 9
 
     .line 100
     invoke-static {p1}, Landroid/support/v4/app/RemoteInputCompatApi20;->getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
-    goto :goto_0
+    goto :goto_b
 
     .line 104
-    :cond_0
+    :cond_7
     invoke-virtual {v0, p2}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
 
     move-object p2, v0
 
     .line 106
-    :goto_0
+    :goto_b
     array-length v0, p0
 
     const/4 v1, 0x0
 
     move v2, v1
 
-    :goto_1
-    if-ge v2, v0, :cond_2
+    :goto_e
+    if-ge v2, v0, :cond_2e
 
     aget-object v3, p0, v2
 
@@ -195,31 +195,31 @@
 
     invoke-static {v5, p1, p2}, Landroid/app/RemoteInput;->addResultsToIntent([Landroid/app/RemoteInput;Landroid/content/Intent;Landroid/os/Bundle;)V
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2b
 
     .line 114
     invoke-static {v3, p1, v4}, Landroid/support/v4/app/RemoteInputCompatApi20;->addDataResultToIntent(Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;Landroid/content/Intent;Ljava/util/Map;)V
 
-    :cond_1
+    :cond_2b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_2
+    :cond_2e
     return-void
 .end method
 
 .method static fromCompat([Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;)[Landroid/app/RemoteInput;
-    .locals 5
+    .registers 6
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 54
-    :cond_0
+    :cond_4
     array-length v0, p0
 
     new-array v0, v0, [Landroid/app/RemoteInput;
@@ -227,10 +227,10 @@
     const/4 v1, 0x0
 
     .line 55
-    :goto_0
+    :goto_8
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_3f
 
     .line 56
     aget-object v2, p0, v1
@@ -289,14 +289,14 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_3f
     return-object v0
 .end method
 
 .method private static getClipDataIntentFromIntent(Landroid/content/Intent;)Landroid/content/Intent;
-    .locals 3
+    .registers 4
 
     .line 154
     invoke-virtual {p0}, Landroid/content/Intent;->getClipData()Landroid/content/ClipData;
@@ -305,12 +305,12 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     return-object v0
 
     .line 158
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/content/ClipData;->getDescription()Landroid/content/ClipDescription;
 
     move-result-object v1
@@ -322,12 +322,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_15
 
     return-object v0
 
     .line 162
-    :cond_1
+    :cond_15
     invoke-virtual {v1}, Landroid/content/ClipDescription;->getLabel()Ljava/lang/CharSequence;
 
     move-result-object v1
@@ -338,11 +338,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
     return-object v0
 
-    :cond_2
+    :cond_22
     const/4 v0, 0x0
 
     .line 165
@@ -358,7 +358,7 @@
 .end method
 
 .method static getDataResultsFromIntent(Landroid/content/Intent;Ljava/lang/String;)Ljava/util/Map;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -379,12 +379,12 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     return-object v0
 
     .line 76
-    :cond_0
+    :cond_8
     new-instance v1, Ljava/util/HashMap;
 
     invoke-direct {v1}, Ljava/util/HashMap;-><init>()V
@@ -403,13 +403,13 @@
 
     move-result-object v2
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_59
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -424,7 +424,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_19
 
     const-string v4, "android.remoteinput.dataTypeResultsData"
 
@@ -437,19 +437,19 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_19
 
     .line 81
     invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_40
 
-    goto :goto_0
+    goto :goto_19
 
     .line 84
-    :cond_2
+    :cond_40
     invoke-virtual {p0, v3}, Landroid/content/Intent;->getBundleExtra(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v3
@@ -459,46 +459,46 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_19
 
     .line 86
     invoke-virtual {v3}, Ljava/lang/String;->isEmpty()Z
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_51
 
-    goto :goto_0
+    goto :goto_19
 
     .line 89
-    :cond_3
+    :cond_51
     invoke-static {v3}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v3
 
     invoke-interface {v1, v4, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 92
-    :cond_4
+    :cond_59
     invoke-interface {v1}, Ljava/util/Map;->isEmpty()Z
 
     move-result p0
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_60
 
-    goto :goto_1
+    goto :goto_61
 
-    :cond_5
+    :cond_60
     move-object v0, v1
 
-    :goto_1
+    :goto_61
     return-object v0
 .end method
 
 .method private static getExtraResultsKeyForData(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 150
     new-instance v0, Ljava/lang/StringBuilder;
@@ -519,7 +519,7 @@
 .end method
 
 .method static getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
-    .locals 0
+    .registers 1
 
     .line 68
     invoke-static {p0}, Landroid/app/RemoteInput;->getResultsFromIntent(Landroid/content/Intent;)Landroid/os/Bundle;
@@ -530,16 +530,16 @@
 .end method
 
 .method static toCompat([Landroid/app/RemoteInput;Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;)[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
-    .locals 10
+    .registers 12
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 41
-    :cond_0
+    :cond_4
     array-length v0, p0
 
     invoke-interface {p1, v0}, Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;->newArray(I)[Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput;
@@ -549,10 +549,10 @@
     const/4 v1, 0x0
 
     .line 42
-    :goto_0
+    :goto_a
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_2e
 
     .line 43
     aget-object v2, p0, v1
@@ -592,8 +592,8 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
+    :cond_2e
     return-object v0
 .end method

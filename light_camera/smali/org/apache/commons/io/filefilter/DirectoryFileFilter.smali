@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 48
     new-instance v0, Lorg/apache/commons/io/filefilter/DirectoryFileFilter;
@@ -34,7 +34,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 0
+    .registers 2
 
     .line 71
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z

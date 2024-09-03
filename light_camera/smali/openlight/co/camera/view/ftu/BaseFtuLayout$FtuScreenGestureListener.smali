@@ -20,7 +20,7 @@
 
 # direct methods
 .method protected constructor <init>(Lopenlight/co/camera/view/ftu/BaseFtuLayout;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
 
     .line 57
     iput-object p1, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout$FtuScreenGestureListener;->this$0:Lopenlight/co/camera/view/ftu/BaseFtuLayout;
@@ -32,7 +32,7 @@
 .end method
 
 .method private isEventWithinScreen(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     .line 146
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
@@ -43,13 +43,13 @@
 
     cmpl-float p0, p0, p1
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_c
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_c
     const/4 p0, 0x0
 
     return p0
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public areValidEvents(Landroid/view/MotionEvent;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 3
 
     .line 107
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/ftu/BaseFtuLayout$FtuScreenGestureListener;->isEventWithinScreen(Landroid/view/MotionEvent;)Z
@@ -69,21 +69,22 @@
 .end method
 
 .method public onFling(Z)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onScroll(FFZ)V
-    .locals 0
+    .registers 4
 
     .line 91
+    # getter for: Lopenlight/co/camera/view/ftu/BaseFtuLayout;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -95,27 +96,29 @@
     .line 92
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout$FtuScreenGestureListener;->this$0:Lopenlight/co/camera/view/ftu/BaseFtuLayout;
 
+    # getter for: Lopenlight/co/camera/view/ftu/BaseFtuLayout;->mListener:Lopenlight/co/camera/view/ftu/OnFtuActionListener;
     invoke-static {p1}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->access$100(Lopenlight/co/camera/view/ftu/BaseFtuLayout;)Lopenlight/co/camera/view/ftu/OnFtuActionListener;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     .line 93
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout$FtuScreenGestureListener;->this$0:Lopenlight/co/camera/view/ftu/BaseFtuLayout;
 
+    # getter for: Lopenlight/co/camera/view/ftu/BaseFtuLayout;->mListener:Lopenlight/co/camera/view/ftu/OnFtuActionListener;
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->access$100(Lopenlight/co/camera/view/ftu/BaseFtuLayout;)Lopenlight/co/camera/view/ftu/OnFtuActionListener;
 
     move-result-object p0
 
     invoke-interface {p0}, Lopenlight/co/camera/view/ftu/OnFtuActionListener;->onScreenScrolled()V
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -123,7 +126,7 @@
 .end method
 
 .method public onTouch(Landroid/view/MotionEvent;FZ)Z
-    .locals 0
+    .registers 4
 
     const/4 p0, 0x1
 

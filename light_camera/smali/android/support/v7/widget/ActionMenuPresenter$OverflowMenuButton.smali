@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;Landroid/content/Context;)V
-    .locals 2
+    .registers 5
 
     .line 641
     iput-object p1, p0, Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public needsDividerAfter()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public needsDividerBefore()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -96,7 +96,7 @@
 .end method
 
 .method public performClick()Z
-    .locals 2
+    .registers 3
 
     .line 684
     invoke-super {p0}, Landroid/support/v7/widget/AppCompatImageView;->performClick()Z
@@ -105,11 +105,11 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     return v1
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 688
@@ -124,7 +124,7 @@
 .end method
 
 .method protected setFrame(IIII)Z
-    .locals 3
+    .registers 8
 
     .line 705
     invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v7/widget/AppCompatImageView;->setFrame(IIII)Z
@@ -141,9 +141,9 @@
 
     move-result-object p3
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_3f
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_3f
 
     .line 711
     invoke-virtual {p0}, Landroid/support/v7/widget/ActionMenuPresenter$OverflowMenuButton;->getWidth()I
@@ -205,6 +205,6 @@
     .line 718
     invoke-static {p3, p0, v1, p2, p4}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setHotspotBounds(Landroid/graphics/drawable/Drawable;IIII)V
 
-    :cond_0
+    :cond_3f
     return p1
 .end method

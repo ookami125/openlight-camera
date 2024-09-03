@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 22
     const-class v0, Lopenlight/co/camera/managers/mode/IsoPriorityModeReqMgr;
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Lopenlight/co/camera/managers/mode/ModeReqMgr;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected applyCommonModeSettings(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 5
+    .registers 7
 
     .line 62
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->applyCommonModeSettings(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -105,7 +105,7 @@
 .end method
 
 .method public resetSettingsOnCaptureComplete(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->resetSettingsOnCaptureComplete(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -117,7 +117,7 @@
 .end method
 
 .method public setBurstCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 32
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->setBurstCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -129,7 +129,7 @@
 .end method
 
 .method public setStillCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 38
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->setStillCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -141,7 +141,7 @@
 .end method
 
 .method protected setTransferRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 56
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->setTransferRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -153,7 +153,7 @@
 .end method
 
 .method public startAeOrFocus(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 50
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->startAeOrFocus(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -165,7 +165,7 @@
 .end method
 
 .method public startCapture(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 44
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->startCapture(Landroid/hardware/camera2/CaptureRequest$Builder;)V

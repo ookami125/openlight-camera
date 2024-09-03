@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TabLayout$SlidingTabStrip;IIII)V
-    .locals 0
+    .registers 6
 
     .line 2012
     iput-object p1, p0, Landroid/support/design/widget/TabLayout$SlidingTabStrip$1;->this$1:Landroid/support/design/widget/TabLayout$SlidingTabStrip;
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
 
     .line 2015
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F

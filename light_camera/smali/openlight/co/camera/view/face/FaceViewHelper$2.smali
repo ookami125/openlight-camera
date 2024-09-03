@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/face/FaceViewHelper;I)V
-    .locals 0
+    .registers 3
 
     .line 121
     iput-object p1, p0, Lopenlight/co/camera/view/face/FaceViewHelper$2;->this$0:Lopenlight/co/camera/view/face/FaceViewHelper;
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public compare(Landroid/hardware/camera2/params/Face;Landroid/hardware/camera2/params/Face;)I
-    .locals 2
+    .registers 5
 
     .line 124
     invoke-virtual {p2}, Landroid/hardware/camera2/params/Face;->getId()I
@@ -58,28 +58,28 @@
 
     iget v1, p0, Lopenlight/co/camera/view/face/FaceViewHelper$2;->val$lastFaceId:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 p0, 0x1
 
     return p0
 
     .line 126
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Landroid/hardware/camera2/params/Face;->getId()I
 
     move-result v0
 
     iget p0, p0, Lopenlight/co/camera/view/face/FaceViewHelper$2;->val$lastFaceId:I
 
-    if-ne v0, p0, :cond_1
+    if-ne v0, p0, :cond_14
 
     const/4 p0, -0x1
 
     return p0
 
     .line 131
-    :cond_1
+    :cond_14
     invoke-virtual {p2}, Landroid/hardware/camera2/params/Face;->getBounds()Landroid/graphics/Rect;
 
     move-result-object p0
@@ -115,7 +115,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 121
     check-cast p1, Landroid/hardware/camera2/params/Face;

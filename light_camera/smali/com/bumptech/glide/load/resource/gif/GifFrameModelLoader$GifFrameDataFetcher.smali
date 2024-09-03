@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/gifdecoder/GifDecoder;)V
-    .locals 0
+    .registers 2
 
     .line 18
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,19 +46,19 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public cleanup()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameModelLoader$GifFrameDataFetcher;->decoder:Lcom/bumptech/glide/gifdecoder/GifDecoder;
@@ -75,7 +75,7 @@
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/gifdecoder/GifDecoder;
-    .locals 0
+    .registers 2
 
     .line 24
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameModelLoader$GifFrameDataFetcher;->decoder:Lcom/bumptech/glide/gifdecoder/GifDecoder;
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic loadData(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

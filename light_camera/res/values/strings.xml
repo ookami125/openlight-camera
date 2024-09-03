@@ -65,7 +65,7 @@ ratio"</string>
     <string name="burst_mode_title">burst</string>
     <string name="caf_title">"dynamic
 af"</string>
-    <string name="camera_mode_preference_key">light.co.dummycamera.cameramode</string>
+    <string name="camera_mode_preference_key">openlight.co.dummycamera.cameramode</string>
     <string name="camera_not_found">No compatible camera was found. Exiting.</string>
     <string name="cancel">cancel</string>
     <string name="character_counter_pattern">%1$d / %2$d</string>

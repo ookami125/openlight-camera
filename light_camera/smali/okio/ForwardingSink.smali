@@ -12,12 +12,12 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Sink;)V
-    .locals 0
+    .registers 2
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 26
     iput-object p1, p0, Lokio/ForwardingSink;->delegate:Lokio/Sink;
@@ -25,7 +25,7 @@
     return-void
 
     .line 25
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "delegate == null"
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -54,7 +54,7 @@
 .end method
 
 .method public final delegate()Lokio/Sink;
-    .locals 0
+    .registers 1
 
     .line 31
     iget-object p0, p0, Lokio/ForwardingSink;->delegate:Lokio/Sink;
@@ -63,7 +63,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,7 +79,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lokio/ForwardingSink;->delegate:Lokio/Sink;
@@ -92,7 +92,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 51
     new-instance v0, Ljava/lang/StringBuilder;
@@ -133,7 +133,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

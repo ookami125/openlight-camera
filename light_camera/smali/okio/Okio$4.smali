@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/net/Socket;)V
-    .locals 0
+    .registers 2
 
     .line 225
     iput-object p1, p0, Lokio/Okio$4;->val$socket:Ljava/net/Socket;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method protected newTimeoutException(Ljava/io/IOException;)Ljava/io/IOException;
-    .locals 1
+    .registers 3
 
     .line 227
     new-instance p0, Ljava/net/SocketTimeoutException;
@@ -42,30 +42,30 @@
 
     invoke-direct {p0, v0}, Ljava/net/SocketTimeoutException;-><init>(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 229
     invoke-virtual {p0, p1}, Ljava/io/InterruptedIOException;->initCause(Ljava/lang/Throwable;)Ljava/lang/Throwable;
 
-    :cond_0
+    :cond_c
     return-object p0
 .end method
 
 .method protected timedOut()V
-    .locals 5
+    .registers 6
 
     .line 236
     :try_start_0
     iget-object v0, p0, Lokio/Okio$4;->val$socket:Ljava/net/Socket;
 
     invoke-virtual {v0}, Ljava/net/Socket;->close()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_5} :catch_29
+    .catch Ljava/lang/AssertionError; {:try_start_0 .. :try_end_5} :catch_6
 
-    goto :goto_0
+    goto :goto_44
 
-    :catch_0
+    :catch_6
     move-exception v0
 
     .line 240
@@ -73,7 +73,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     .line 243
     sget-object v1, Lokio/Okio;->logger:Ljava/util/logging/Logger;
@@ -98,13 +98,13 @@
 
     invoke-virtual {v1, v2, p0, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    goto :goto_0
+    goto :goto_44
 
     .line 245
-    :cond_0
+    :cond_28
     throw v0
 
-    :catch_1
+    :catch_29
     move-exception v0
 
     .line 238
@@ -130,6 +130,6 @@
 
     invoke-virtual {v1, v2, p0, v0}, Ljava/util/logging/Logger;->log(Ljava/util/logging/Level;Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_44
     return-void
 .end method

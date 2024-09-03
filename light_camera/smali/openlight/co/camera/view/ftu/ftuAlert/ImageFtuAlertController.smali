@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 21
     const-class v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;ILopenlight/co/camera/enums/FtuView;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -69,7 +69,7 @@
 .end method
 
 .method private init()V
-    .locals 2
+    .registers 3
 
     .line 103
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mRootContainer:Landroid/view/ViewGroup;
@@ -93,7 +93,7 @@
 .end method
 
 .method public static synthetic lambda$displayFtuScreen$0(Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method protected displayFtuScreen()V
-    .locals 4
+    .registers 5
 
     .line 79
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
@@ -128,7 +128,7 @@
 .end method
 
 .method protected getViewForFtu(Lopenlight/co/camera/enums/FtuView;)Lopenlight/co/camera/view/ftu/BaseFtuLayout;
-    .locals 1
+    .registers 3
 
     .line 92
     sget-object v0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController$1;->$SwitchMap$light$co$camera$enums$FtuView:[I
@@ -141,27 +141,27 @@
 
     const/4 v0, 0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_d
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 94
-    :cond_0
+    :cond_d
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mFocusFailed:Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;
 
     return-object p0
 .end method
 
 .method protected onIncorrectResponseInPrime()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public setFtuActionListener(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 46
     invoke-super {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->setFtuActionListener(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;)V
@@ -170,17 +170,17 @@
 .end method
 
 .method public show(Z)V
-    .locals 3
+    .registers 5
 
     .line 56
     iget-boolean v0, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mIsShown:Z
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_38
 
     .line 57
     iput-boolean p1, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mIsShown:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_33
 
     .line 59
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mLayoutInflater:Landroid/view/LayoutInflater;
@@ -226,21 +226,21 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_0
+    goto :goto_38
 
     .line 69
-    :cond_0
+    :cond_33
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    :cond_1
-    :goto_0
+    :cond_38
+    :goto_38
     return-void
 .end method
 
 .method protected updateVisibilityOfView(Z)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

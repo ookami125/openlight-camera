@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -20,7 +20,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 36
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method final getUserSetVisibility()I
-    .locals 0
+    .registers 1
 
     .line 53
     iget p0, p0, Landroid/support/design/widget/VisibilityAwareImageButton;->mUserSetVisibility:I
@@ -58,22 +58,22 @@
 .end method
 
 .method final internalSetVisibility(IZ)V
-    .locals 0
+    .registers 3
 
     .line 46
     invoke-super {p0, p1}, Landroid/widget/ImageButton;->setVisibility(I)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     .line 48
     iput p1, p0, Landroid/support/design/widget/VisibilityAwareImageButton;->mUserSetVisibility:I
 
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method public setVisibility(I)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 

@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 19
     new-instance v0, Lcom/bumptech/glide/load/resource/file/StreamFileDataLoadProvider$ErrorSourceDecoder;
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,7 +93,7 @@
 
 # virtual methods
 .method public getCacheDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -111,7 +111,7 @@
 .end method
 
 .method public getEncoder()Lcom/bumptech/glide/load/ResourceEncoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -130,7 +130,7 @@
 .end method
 
 .method public getSourceDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -148,7 +148,7 @@
 .end method
 
 .method public getSourceEncoder()Lcom/bumptech/glide/load/Encoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

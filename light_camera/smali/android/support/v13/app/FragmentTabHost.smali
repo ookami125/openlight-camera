@@ -44,7 +44,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     .line 128
     invoke-direct {p0, p1, p2}, Landroid/widget/TabHost;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -84,21 +84,21 @@
 .end method
 
 .method private doTabChanged(Ljava/lang/String;Landroid/app/FragmentTransaction;)Landroid/app/FragmentTransaction;
-    .locals 4
+    .registers 7
 
     const/4 v0, 0x0
 
     const/4 v1, 0x0
 
     .line 321
-    :goto_0
+    :goto_2
     iget-object v2, p0, Landroid/support/v13/app/FragmentTabHost;->mTabs:Ljava/util/ArrayList;
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1e
 
     .line 322
     iget-object v2, p0, Landroid/support/v13/app/FragmentTabHost;->mTabs:Ljava/util/ArrayList;
@@ -116,24 +116,24 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     move-object v0, v2
 
-    :cond_0
+    :cond_1b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
-    if-eqz v0, :cond_7
+    :cond_1e
+    if-eqz v0, :cond_65
 
     .line 330
     iget-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mLastTab:Landroid/support/v13/app/FragmentTabHost$TabInfo;
 
-    if-eq p1, v0, :cond_6
+    if-eq p1, v0, :cond_64
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_2c
 
     .line 332
     iget-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mFragmentManager:Landroid/app/FragmentManager;
@@ -143,17 +143,17 @@
     move-result-object p2
 
     .line 334
-    :cond_2
+    :cond_2c
     iget-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mLastTab:Landroid/support/v13/app/FragmentTabHost$TabInfo;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_3d
 
     .line 335
     iget-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mLastTab:Landroid/support/v13/app/FragmentTabHost$TabInfo;
 
     iget-object p1, p1, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_3d
 
     .line 336
     iget-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mLastTab:Landroid/support/v13/app/FragmentTabHost$TabInfo;
@@ -162,13 +162,13 @@
 
     invoke-virtual {p2, p1}, Landroid/app/FragmentTransaction;->detach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    :cond_3
-    if-eqz v0, :cond_5
+    :cond_3d
+    if-eqz v0, :cond_62
 
     .line 340
     iget-object p1, v0, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_5d
 
     .line 341
     iget-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mContext:Landroid/content/Context;
@@ -198,24 +198,24 @@
 
     invoke-virtual {p2, p1, v1, v2}, Landroid/app/FragmentTransaction;->add(ILandroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
-    goto :goto_1
+    goto :goto_62
 
     .line 345
-    :cond_4
+    :cond_5d
     iget-object p1, v0, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
     invoke-virtual {p2, p1}, Landroid/app/FragmentTransaction;->attach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
     .line 349
-    :cond_5
-    :goto_1
+    :cond_62
+    :goto_62
     iput-object v0, p0, Landroid/support/v13/app/FragmentTabHost;->mLastTab:Landroid/support/v13/app/FragmentTabHost$TabInfo;
 
-    :cond_6
+    :cond_64
     return-object p2
 
     .line 328
-    :cond_7
+    :cond_65
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -238,12 +238,12 @@
 .end method
 
 .method private ensureContent()V
-    .locals 3
+    .registers 4
 
     .line 206
     iget-object v0, p0, Landroid/support/v13/app/FragmentTabHost;->mRealTabContent:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     .line 207
     iget v0, p0, Landroid/support/v13/app/FragmentTabHost;->mContainerId:I
@@ -259,12 +259,12 @@
     .line 208
     iget-object v0, p0, Landroid/support/v13/app/FragmentTabHost;->mRealTabContent:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 209
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/lang/IllegalStateException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -287,13 +287,13 @@
 
     throw v0
 
-    :cond_1
-    :goto_0
+    :cond_2c
+    :goto_2c
     return-void
 .end method
 
 .method private ensureHierarchy(Landroid/content/Context;)V
-    .locals 7
+    .registers 9
 
     const v0, 0x1020013
 
@@ -302,7 +302,7 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_5c
 
     .line 145
     new-instance v1, Landroid/widget/LinearLayout;
@@ -387,12 +387,12 @@
 
     invoke-virtual {v1, v2, p0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_0
+    :cond_5c
     return-void
 .end method
 
 .method private initFragmentTabHost(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
 
     const/4 v0, 0x1
 
@@ -428,7 +428,7 @@
 
 # virtual methods
 .method public addTab(Landroid/widget/TabHost$TabSpec;Ljava/lang/Class;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -462,7 +462,7 @@
     .line 226
     iget-boolean p2, p0, Landroid/support/v13/app/FragmentTabHost;->mAttached:Z
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_39
 
     .line 230
     iget-object p2, p0, Landroid/support/v13/app/FragmentTabHost;->mFragmentManager:Landroid/app/FragmentManager;
@@ -476,7 +476,7 @@
     .line 231
     iget-object p2, v1, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_39
 
     iget-object p2, v1, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
@@ -484,7 +484,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_39
 
     .line 232
     iget-object p2, p0, Landroid/support/v13/app/FragmentTabHost;->mFragmentManager:Landroid/app/FragmentManager;
@@ -502,7 +502,7 @@
     invoke-virtual {p2}, Landroid/app/FragmentTransaction;->commit()I
 
     .line 238
-    :cond_0
+    :cond_39
     iget-object p2, p0, Landroid/support/v13/app/FragmentTabHost;->mTabs:Ljava/util/ArrayList;
 
     invoke-virtual {p2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -514,7 +514,7 @@
 .end method
 
 .method protected onAttachedToWindow()V
-    .locals 6
+    .registers 7
 
     .line 244
     invoke-super {p0}, Landroid/widget/TabHost;->onAttachedToWindow()V
@@ -529,14 +529,14 @@
     const/4 v2, 0x0
 
     .line 251
-    :goto_0
+    :goto_9
     iget-object v3, p0, Landroid/support/v13/app/FragmentTabHost;->mTabs:Ljava/util/ArrayList;
 
     invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_3
+    if-ge v2, v3, :cond_4a
 
     .line 252
     iget-object v3, p0, Landroid/support/v13/app/FragmentTabHost;->mTabs:Ljava/util/ArrayList;
@@ -561,7 +561,7 @@
     .line 254
     iget-object v4, v3, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_47
 
     iget-object v4, v3, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
@@ -569,7 +569,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_47
 
     .line 255
     iget-object v4, v3, Landroid/support/v13/app/FragmentTabHost$TabInfo;->tag:Ljava/lang/String;
@@ -578,15 +578,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3a
 
     .line 259
     iput-object v3, p0, Landroid/support/v13/app/FragmentTabHost;->mLastTab:Landroid/support/v13/app/FragmentTabHost$TabInfo;
 
-    goto :goto_1
+    goto :goto_47
 
-    :cond_0
-    if-nez v1, :cond_1
+    :cond_3a
+    if-nez v1, :cond_42
 
     .line 264
     iget-object v1, p0, Landroid/support/v13/app/FragmentTabHost;->mFragmentManager:Landroid/app/FragmentManager;
@@ -596,18 +596,18 @@
     move-result-object v1
 
     .line 266
-    :cond_1
+    :cond_42
     iget-object v3, v3, Landroid/support/v13/app/FragmentTabHost$TabInfo;->fragment:Landroid/app/Fragment;
 
     invoke-virtual {v1, v3}, Landroid/app/FragmentTransaction;->detach(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    :cond_2
-    :goto_1
+    :cond_47
+    :goto_47
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_3
+    :cond_4a
     const/4 v2, 0x1
 
     .line 273
@@ -618,7 +618,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5b
 
     .line 276
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
@@ -628,12 +628,12 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentManager;->executePendingTransactions()Z
 
-    :cond_4
+    :cond_5b
     return-void
 .end method
 
 .method protected onDetachedFromWindow()V
-    .locals 1
+    .registers 2
 
     .line 283
     invoke-super {p0}, Landroid/widget/TabHost;->onDetachedFromWindow()V
@@ -647,12 +647,12 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 297
     instance-of v0, p1, Landroid/support/v13/app/FragmentTabHost$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 298
     invoke-super {p0, p1}, Landroid/widget/TabHost;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -660,7 +660,7 @@
     return-void
 
     .line 301
-    :cond_0
+    :cond_8
     check-cast p1, Landroid/support/v13/app/FragmentTabHost$SavedState;
 
     .line 302
@@ -679,7 +679,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
 
     .line 289
     invoke-super {p0}, Landroid/widget/TabHost;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -702,12 +702,12 @@
 .end method
 
 .method public onTabChanged(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 308
     iget-boolean v0, p0, Landroid/support/v13/app/FragmentTabHost;->mAttached:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -716,28 +716,28 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 311
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
     .line 314
-    :cond_0
+    :cond_e
     iget-object v0, p0, Landroid/support/v13/app/FragmentTabHost;->mOnTabChangeListener:Landroid/widget/TabHost$OnTabChangeListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 315
     iget-object p0, p0, Landroid/support/v13/app/FragmentTabHost;->mOnTabChangeListener:Landroid/widget/TabHost$OnTabChangeListener;
 
     invoke-interface {p0, p1}, Landroid/widget/TabHost$OnTabChangeListener;->onTabChanged(Ljava/lang/String;)V
 
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 .method public setOnTabChangedListener(Landroid/widget/TabHost$OnTabChangeListener;)V
-    .locals 0
+    .registers 2
 
     .line 217
     iput-object p1, p0, Landroid/support/v13/app/FragmentTabHost;->mOnTabChangeListener:Landroid/widget/TabHost$OnTabChangeListener;
@@ -746,7 +746,7 @@
 .end method
 
 .method public setup()V
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -761,7 +761,7 @@
 .end method
 
 .method public setup(Landroid/content/Context;Landroid/app/FragmentManager;)V
-    .locals 0
+    .registers 3
 
     .line 182
     invoke-direct {p0, p1}, Landroid/support/v13/app/FragmentTabHost;->ensureHierarchy(Landroid/content/Context;)V
@@ -782,7 +782,7 @@
 .end method
 
 .method public setup(Landroid/content/Context;Landroid/app/FragmentManager;I)V
-    .locals 0
+    .registers 4
 
     .line 190
     invoke-direct {p0, p1}, Landroid/support/v13/app/FragmentTabHost;->ensureHierarchy(Landroid/content/Context;)V
@@ -814,13 +814,13 @@
 
     const/4 p2, -0x1
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_21
 
     const p1, 0x1020012
 
     .line 201
     invoke-virtual {p0, p1}, Landroid/support/v13/app/FragmentTabHost;->setId(I)V
 
-    :cond_0
+    :cond_21
     return-void
 .end method

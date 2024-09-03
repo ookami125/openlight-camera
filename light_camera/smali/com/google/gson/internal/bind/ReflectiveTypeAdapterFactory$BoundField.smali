@@ -24,7 +24,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/String;ZZ)V
-    .locals 0
+    .registers 4
 
     .line 185
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public charAt(I)C
-    .locals 0
+    .registers 2
 
     .line 112
     iget-object p0, p0, Lcom/google/gson/internal/Streams$AppendableWriter$CurrentWrite;->chars:[C
@@ -45,7 +45,7 @@
 .end method
 
 .method public length()I
-    .locals 0
+    .registers 1
 
     .line 109
     iget-object p0, p0, Lcom/google/gson/internal/Streams$AppendableWriter$CurrentWrite;->chars:[C
@@ -56,7 +56,7 @@
 .end method
 
 .method public subSequence(II)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 4
 
     .line 115
     new-instance v0, Ljava/lang/String;

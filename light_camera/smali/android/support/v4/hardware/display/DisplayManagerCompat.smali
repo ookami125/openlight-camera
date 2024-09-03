@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Ljava/util/WeakHashMap;
@@ -42,7 +42,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getInstance(Landroid/content/Context;)Landroid/support/v4/hardware/display/DisplayManagerCompat;
-    .locals 3
+    .registers 4
 
     .line 56
     sget-object v0, Landroid/support/v4/hardware/display/DisplayManagerCompat;->sInstances:Ljava/util/WeakHashMap;
@@ -59,7 +59,7 @@
     monitor-enter v0
 
     .line 57
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroid/support/v4/hardware/display/DisplayManagerCompat;->sInstances:Ljava/util/WeakHashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -68,47 +68,47 @@
 
     check-cast v1, Landroid/support/v4/hardware/display/DisplayManagerCompat;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_23
 
     .line 59
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x11
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_19
 
     .line 60
     new-instance v1, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi17Impl;
 
     invoke-direct {v1, p0}, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi17Impl;-><init>(Landroid/content/Context;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 62
-    :cond_0
+    :cond_19
     new-instance v1, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi14Impl;
 
     invoke-direct {v1, p0}, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi14Impl;-><init>(Landroid/content/Context;)V
 
     .line 64
-    :goto_0
+    :goto_1e
     sget-object v2, Landroid/support/v4/hardware/display/DisplayManagerCompat;->sInstances:Ljava/util/WeakHashMap;
 
     invoke-virtual {v2, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 66
-    :cond_1
+    :cond_23
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_25
     move-exception p0
 
     .line 67
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_27
+    .catchall {:try_start_3 .. :try_end_27} :catchall_25
 
     throw p0
 .end method

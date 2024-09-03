@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 97
     invoke-direct {p0}, Lcom/squareup/wire/Message$Builder;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-virtual {p0}, Lltpb/Point2F$Builder;->build()Lltpb/Point2F;
@@ -53,16 +53,16 @@
 .end method
 
 .method public build()Lltpb/Point2F;
-    .locals 3
+    .registers 4
 
     .line 112
     iget-object v0, p0, Lltpb/Point2F$Builder;->x:Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lltpb/Point2F$Builder;->y:Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 117
     new-instance v0, Lltpb/Point2F;
@@ -79,7 +79,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x4
 
     .line 114
@@ -117,7 +117,7 @@
 .end method
 
 .method public x(Ljava/lang/Float;)Lltpb/Point2F$Builder;
-    .locals 0
+    .registers 2
 
     .line 101
     iput-object p1, p0, Lltpb/Point2F$Builder;->x:Ljava/lang/Float;
@@ -126,7 +126,7 @@
 .end method
 
 .method public y(Ljava/lang/Float;)Lltpb/Point2F$Builder;
-    .locals 0
+    .registers 2
 
     .line 106
     iput-object p1, p0, Lltpb/Point2F$Builder;->y:Ljava/lang/Float;

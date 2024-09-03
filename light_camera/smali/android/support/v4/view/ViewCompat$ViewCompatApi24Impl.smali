@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1490
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi23Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public cancelDragAndDrop(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 1515
     invoke-virtual {p1}, Landroid/view/View;->cancelDragAndDrop()V
@@ -40,7 +40,7 @@
 .end method
 
 .method public dispatchFinishTemporaryDetach(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 1498
     invoke-virtual {p1}, Landroid/view/View;->dispatchFinishTemporaryDetach()V
@@ -49,7 +49,7 @@
 .end method
 
 .method public dispatchStartTemporaryDetach(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 1493
     invoke-virtual {p1}, Landroid/view/View;->dispatchStartTemporaryDetach()V
@@ -58,21 +58,21 @@
 .end method
 
 .method public setPointerIcon(Landroid/view/View;Landroid/support/v4/view/PointerIconCompat;)V
-    .locals 0
+    .registers 3
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_7
 
     .line 1504
     invoke-virtual {p2}, Landroid/support/v4/view/PointerIconCompat;->getPointerIcon()Ljava/lang/Object;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     check-cast p0, Landroid/view/PointerIcon;
 
     .line 1503
@@ -82,7 +82,7 @@
 .end method
 
 .method public startDragAndDrop(Landroid/view/View;Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
-    .locals 0
+    .registers 6
 
     .line 1510
     invoke-virtual {p1, p2, p3, p4, p5}, Landroid/view/View;->startDragAndDrop(Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
@@ -93,7 +93,7 @@
 .end method
 
 .method public updateDragShadow(Landroid/view/View;Landroid/view/View$DragShadowBuilder;)V
-    .locals 0
+    .registers 3
 
     .line 1520
     invoke-virtual {p1, p2}, Landroid/view/View;->updateDragShadow(Landroid/view/View$DragShadowBuilder;)V

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/level/Leveler;)V
-    .locals 0
+    .registers 2
 
     .line 62
     iput-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
@@ -36,17 +36,18 @@
 
 # virtual methods
 .method public onAccuracyChanged(Landroid/hardware/Sensor;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onSensorChanged(Landroid/hardware/SensorEvent;)V
-    .locals 4
+    .registers 6
 
     .line 65
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->r:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$000(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -58,12 +59,14 @@
     .line 66
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->r:[F
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$000(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->o:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$100(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -73,12 +76,14 @@
     .line 67
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->compassAzimuth:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$200(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->o:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$100(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -92,12 +97,14 @@
     .line 68
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->r:[F
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$000(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->r2:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$300(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -111,12 +118,14 @@
     .line 69
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->r2:[F
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$300(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->o2:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$400(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -126,12 +135,14 @@
     .line 71
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->azimuthFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$500(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->o2:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$400(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -143,12 +154,14 @@
     .line 72
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->pitchFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$600(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->o2:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$400(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -160,12 +173,14 @@
     .line 73
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->rollFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$700(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->o2:[F
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$400(Lopenlight/co/camera/view/level/Leveler;)[F
 
     move-result-object v0
@@ -179,12 +194,14 @@
     .line 75
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->rollFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$700(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object v0
@@ -202,12 +219,14 @@
     .line 76
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->pitchFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$600(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object v0
@@ -223,12 +242,14 @@
     .line 77
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->azimuthFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$500(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
 
     move-result-object v0
@@ -244,13 +265,15 @@
     .line 78
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->isRegistered:Z
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$900(Lopenlight/co/camera/view/level/Leveler;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14b
 
     .line 79
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/level/Leveler;->access$1000()Ljava/lang/String;
 
     move-result-object p1
@@ -265,6 +288,7 @@
 
     iget-object v2, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {v2}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object v2
@@ -280,6 +304,7 @@
     invoke-static {p1, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 80
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/level/Leveler;->access$1000()Ljava/lang/String;
 
     move-result-object p1
@@ -294,6 +319,7 @@
 
     iget-object v2, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {v2}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object v2
@@ -309,6 +335,7 @@
     invoke-static {p1, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 81
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/level/Leveler;->access$1000()Ljava/lang/String;
 
     move-result-object p1
@@ -323,6 +350,7 @@
 
     iget-object v2, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {v2}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object v2
@@ -340,21 +368,24 @@
     .line 82
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->mLevelView:Lopenlight/co/camera/view/level/LevelView;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$1100(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/LevelView;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14b
 
     .line 83
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->mLevelView:Lopenlight/co/camera/view/level/LevelView;
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$1100(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/LevelView;
 
     move-result-object p1
 
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
     invoke-static {v0}, Lopenlight/co/camera/view/level/Leveler;->access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
 
     move-result-object v0
@@ -364,21 +395,23 @@
     .line 84
     iget-object p1, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->isShow:Z
     invoke-static {p1}, Lopenlight/co/camera/view/level/Leveler;->access$1200(Lopenlight/co/camera/view/level/Leveler;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14b
 
     .line 85
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler$1;->this$0:Lopenlight/co/camera/view/level/Leveler;
 
+    # getter for: Lopenlight/co/camera/view/level/Leveler;->mLevelView:Lopenlight/co/camera/view/level/LevelView;
     invoke-static {p0}, Lopenlight/co/camera/view/level/Leveler;->access$1100(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/LevelView;
 
     move-result-object p0
 
     invoke-virtual {p0, v1}, Lopenlight/co/camera/view/level/LevelView;->setVisibility(I)V
 
-    :cond_0
+    :cond_14b
     return-void
 .end method

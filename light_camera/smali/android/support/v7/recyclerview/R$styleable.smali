@@ -64,14 +64,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x6
 
     .line 157
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1a
 
     sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->FontFamily:[I
 
@@ -80,7 +80,7 @@
     .line 164
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_2a
 
     sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->FontFamilyFont:[I
 
@@ -89,13 +89,13 @@
     .line 168
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_2
+    fill-array-data v0, :array_34
 
     sput-object v0, Landroid/support/v7/recyclerview/R$styleable;->RecyclerView:[I
 
     return-void
 
-    :array_0
+    :array_1a
     .array-data 4
         0x7f0400ae
         0x7f0400af
@@ -105,14 +105,14 @@
         0x7f0400b3
     .end array-data
 
-    :array_1
+    :array_2a
     .array-data 4
         0x7f0400ac
         0x7f0400b4
         0x7f0400b5
     .end array-data
 
-    :array_2
+    :array_34
     .array-data 4
         0x10100c4
         0x10100f1
@@ -129,7 +129,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 155
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,34 +47,34 @@
 .end method
 
 .method private static retrieveField(Ljava/lang/String;)Ljava/lang/reflect/Field;
-    .locals 4
+    .registers 5
 
     const/4 v0, 0x0
 
     .line 99
-    :try_start_0
+    :try_start_1
     const-class v1, Landroid/widget/TextView;
 
     invoke-virtual {v1, p0}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_7} :catch_c
 
     const/4 v0, 0x1
 
     .line 100
-    :try_start_1
+    :try_start_8
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_8 .. :try_end_b} :catch_d
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_0
+    :catch_c
     move-object v1, v0
 
-    :catch_1
+    :catch_d
     const-string v0, "TextViewCompatBase"
 
     .line 102
@@ -98,24 +98,24 @@
 
     invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
+    :goto_28
     return-object v1
 .end method
 
 .method private static retrieveIntFromField(Ljava/lang/reflect/Field;Landroid/widget/TextView;)I
-    .locals 2
+    .registers 4
 
     .line 109
     :try_start_0
     invoke-virtual {p0, p1}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
 
     move-result p1
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_4} :catch_5
 
     return p1
 
-    :catch_0
+    :catch_5
     const-string p1, "TextViewCompatBase"
 
     .line 111
@@ -151,12 +151,12 @@
 
 # virtual methods
 .method public getAutoSizeMaxTextSize(Landroid/widget/TextView;)I
-    .locals 0
+    .registers 2
 
     .line 209
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 210
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
@@ -167,19 +167,19 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public getAutoSizeMinTextSize(Landroid/widget/TextView;)I
-    .locals 0
+    .registers 2
 
     .line 202
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 203
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
@@ -190,19 +190,19 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public getAutoSizeStepGranularity(Landroid/widget/TextView;)I
-    .locals 0
+    .registers 2
 
     .line 195
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 196
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
@@ -213,19 +213,19 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public getAutoSizeTextAvailableSizes(Landroid/widget/TextView;)[I
-    .locals 0
+    .registers 2
 
     .line 216
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 217
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
@@ -236,7 +236,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     .line 219
@@ -246,12 +246,12 @@
 .end method
 
 .method public getAutoSizeTextType(Landroid/widget/TextView;)I
-    .locals 0
+    .registers 2
 
     .line 188
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 189
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
@@ -262,14 +262,14 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public getCompoundDrawablesRelative(Landroid/widget/TextView;)[Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/widget/TextView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -284,14 +284,14 @@
 .end method
 
 .method public getMaxLines(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 3
 
     .line 117
     sget-boolean p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaxModeFieldFetched:Z
 
     const/4 v0, 0x1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_f
 
     const-string p0, "mMaxMode"
 
@@ -306,10 +306,10 @@
     sput-boolean v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaxModeFieldFetched:Z
 
     .line 121
-    :cond_0
+    :cond_f
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaxModeField:Ljava/lang/reflect/Field;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_34
 
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaxModeField:Ljava/lang/reflect/Field;
 
@@ -317,12 +317,12 @@
 
     move-result p0
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_34
 
     .line 123
     sget-boolean p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaximumFieldFetched:Z
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_29
 
     const-string p0, "mMaximum"
 
@@ -337,10 +337,10 @@
     sput-boolean v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaximumFieldFetched:Z
 
     .line 127
-    :cond_1
+    :cond_29
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaximumField:Ljava/lang/reflect/Field;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_34
 
     .line 128
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMaximumField:Ljava/lang/reflect/Field;
@@ -351,21 +351,21 @@
 
     return p0
 
-    :cond_2
+    :cond_34
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public getMinLines(Landroid/widget/TextView;)I
-    .locals 1
+    .registers 3
 
     .line 135
     sget-boolean p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinModeFieldFetched:Z
 
     const/4 v0, 0x1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_f
 
     const-string p0, "mMinMode"
 
@@ -380,10 +380,10 @@
     sput-boolean v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinModeFieldFetched:Z
 
     .line 139
-    :cond_0
+    :cond_f
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinModeField:Ljava/lang/reflect/Field;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_34
 
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinModeField:Ljava/lang/reflect/Field;
 
@@ -391,12 +391,12 @@
 
     move-result p0
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_34
 
     .line 141
     sget-boolean p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinimumFieldFetched:Z
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_29
 
     const-string p0, "mMinimum"
 
@@ -411,10 +411,10 @@
     sput-boolean v0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinimumFieldFetched:Z
 
     .line 145
-    :cond_1
+    :cond_29
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinimumField:Ljava/lang/reflect/Field;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_34
 
     .line 146
     sget-object p0, Landroid/support/v4/widget/TextViewCompat$TextViewCompatBaseImpl;->sMinimumField:Ljava/lang/reflect/Field;
@@ -425,14 +425,14 @@
 
     return p0
 
-    :cond_2
+    :cond_34
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public setAutoSizeTextTypeUniformWithConfiguration(Landroid/widget/TextView;IIII)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -442,19 +442,19 @@
     .line 173
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 174
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
     invoke-interface {p1, p2, p3, p4, p5}, Landroid/support/v4/widget/AutoSizeableTextView;->setAutoSizeTextTypeUniformWithConfiguration(IIII)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setAutoSizeTextTypeUniformWithPresetSizes(Landroid/widget/TextView;[II)V
-    .locals 0
+    .registers 4
     .param p2    # [I
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -468,36 +468,36 @@
     .line 181
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 182
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
     invoke-interface {p1, p2, p3}, Landroid/support/v4/widget/AutoSizeableTextView;->setAutoSizeTextTypeUniformWithPresetSizes([II)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setAutoSizeTextTypeWithDefaults(Landroid/widget/TextView;I)V
-    .locals 0
+    .registers 3
 
     .line 162
     instance-of p0, p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 163
     check-cast p1, Landroid/support/v4/widget/AutoSizeableTextView;
 
     invoke-interface {p1, p2}, Landroid/support/v4/widget/AutoSizeableTextView;->setAutoSizeTextTypeWithDefaults(I)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setCompoundDrawablesRelative(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 6
     .param p1    # Landroid/widget/TextView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -526,7 +526,7 @@
 .end method
 
 .method public setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;IIII)V
-    .locals 0
+    .registers 6
     .param p1    # Landroid/widget/TextView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -555,7 +555,7 @@
 .end method
 
 .method public setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/widget/TextView;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 6
     .param p1    # Landroid/widget/TextView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -584,7 +584,7 @@
 .end method
 
 .method public setTextAppearance(Landroid/widget/TextView;I)V
-    .locals 0
+    .registers 3
     .param p2    # I
         .annotation build Landroid/support/annotation/StyleRes;
         .end annotation

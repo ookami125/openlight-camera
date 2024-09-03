@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 797
     iput-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment$3;->this$0:Lopenlight/co/camera/ImagePreviewFragment;
@@ -33,11 +33,12 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 800
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment$3;->this$0:Lopenlight/co/camera/ImagePreviewFragment;
 
+    # invokes: Lopenlight/co/camera/ImagePreviewFragment;->removeCaptureAnimListenerAndUpdateControls()V
     invoke-static {p0}, Lopenlight/co/camera/ImagePreviewFragment;->access$100(Lopenlight/co/camera/ImagePreviewFragment;)V
 
     return-void

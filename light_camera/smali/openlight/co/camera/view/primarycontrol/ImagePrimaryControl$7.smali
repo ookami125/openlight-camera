@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
-    .locals 0
+    .registers 2
 
     .line 1676
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$7;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 1689
     const-class p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -49,17 +49,18 @@
 .end method
 
 .method public updateFocusROI(II)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public updateUiAfterTest()V
-    .locals 0
+    .registers 1
 
     .line 1679
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$7;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # invokes: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->testUpdateOnUi()V
     invoke-static {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$2600(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)V
 
     return-void

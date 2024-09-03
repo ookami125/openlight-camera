@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;Landroid/content/Context;IZ)V
-    .locals 0
+    .registers 5
 
     .line 223
     iput-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar$1;->this$0:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onLayoutCompleted(Landroid/support/v7/widget/RecyclerView$State;)V
-    .locals 0
+    .registers 2
 
     .line 226
     invoke-super {p0, p1}, Landroid/support/v7/widget/LinearLayoutManager;->onLayoutCompleted(Landroid/support/v7/widget/RecyclerView$State;)V
@@ -55,6 +55,7 @@
     move-result p1
 
     .line 229
+    # invokes: Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->updateListRotation(I)V
     invoke-static {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->access$000(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;I)V
 
     return-void

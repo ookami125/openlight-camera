@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplBase;)V
-    .locals 0
+    .registers 2
 
     .line 199
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;->this$0:Landroid/support/v7/app/AppCompatDelegateImplBase;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 213
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;->this$0:Landroid/support/v7/app/AppCompatDelegateImplBase;
@@ -49,7 +49,7 @@
 .end method
 
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
-    .locals 3
+    .registers 4
 
     .line 205
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;->getActionBarThemedContext()Landroid/content/Context;
@@ -85,7 +85,7 @@
 .end method
 
 .method public isNavigationVisible()Z
-    .locals 0
+    .registers 1
 
     .line 218
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;->this$0:Landroid/support/v7/app/AppCompatDelegateImplBase;
@@ -94,7 +94,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 219
     invoke-virtual {p0}, Landroid/support/v7/app/ActionBar;->getDisplayOptions()I
@@ -103,21 +103,21 @@
 
     and-int/lit8 p0, p0, 0x4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method public setActionBarDescription(I)V
-    .locals 0
+    .registers 2
 
     .line 233
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;->this$0:Landroid/support/v7/app/AppCompatDelegateImplBase;
@@ -126,17 +126,17 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 235
     invoke-virtual {p0, p1}, Landroid/support/v7/app/ActionBar;->setHomeActionContentDescription(I)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .locals 0
+    .registers 3
 
     .line 224
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplBase$ActionBarDrawableToggleImpl;->this$0:Landroid/support/v7/app/AppCompatDelegateImplBase;
@@ -145,7 +145,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 226
     invoke-virtual {p0, p1}, Landroid/support/v7/app/ActionBar;->setHomeAsUpIndicator(Landroid/graphics/drawable/Drawable;)V
@@ -153,6 +153,6 @@
     .line 227
     invoke-virtual {p0, p2}, Landroid/support/v7/app/ActionBar;->setHomeActionContentDescription(I)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method

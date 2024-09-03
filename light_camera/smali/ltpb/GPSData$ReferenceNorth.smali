@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 285
     new-instance v0, Lltpb/GPSData$ReferenceNorth;
@@ -106,7 +106,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -123,37 +123,37 @@
 .end method
 
 .method public static fromValue(I)Lltpb/GPSData$ReferenceNorth;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_c
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 303
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/GPSData$ReferenceNorth;->REFERENCE_NORTH_TRUE:Lltpb/GPSData$ReferenceNorth;
 
     return-object p0
 
     .line 302
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/GPSData$ReferenceNorth;->REFERENCE_NORTH_MAGNETIC:Lltpb/GPSData$ReferenceNorth;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/GPSData$ReferenceNorth;
-    .locals 1
+    .registers 2
 
     .line 284
     const-class v0, Lltpb/GPSData$ReferenceNorth;
@@ -168,7 +168,7 @@
 .end method
 
 .method public static values()[Lltpb/GPSData$ReferenceNorth;
-    .locals 1
+    .registers 1
 
     .line 284
     sget-object v0, Lltpb/GPSData$ReferenceNorth;->$VALUES:[Lltpb/GPSData$ReferenceNorth;
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 310
     iget p0, p0, Lltpb/GPSData$ReferenceNorth;->value:I

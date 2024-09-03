@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/LogViewerActivity;)V
-    .locals 0
+    .registers 2
 
     .line 69
     iput-object p1, p0, Lopenlight/co/camera/LogViewerActivity$2;->this$0:Lopenlight/co/camera/LogViewerActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 0
+    .registers 2
 
     .line 82
     iget-object p0, p0, Lopenlight/co/camera/LogViewerActivity$2;->this$0:Lopenlight/co/camera/LogViewerActivity;
@@ -47,13 +47,13 @@
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
 
     return-void
 .end method

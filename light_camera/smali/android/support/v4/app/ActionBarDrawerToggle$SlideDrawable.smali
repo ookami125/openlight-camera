@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/ActionBarDrawerToggle;Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 4
 
     .line 549
     iput-object p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->this$0:Landroid/support/v4/app/ActionBarDrawerToggle;
@@ -46,11 +46,11 @@
 
     const/16 v0, 0x12
 
-    if-le p2, v0, :cond_0
+    if-le p2, v0, :cond_d
 
     const/4 p1, 0x1
 
-    :cond_0
+    :cond_d
     iput-boolean p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mHasMirroring:Z
 
     .line 544
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
     .param p1    # Landroid/graphics/Canvas;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -101,22 +101,22 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1d
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_1e
+    if-eqz v0, :cond_21
 
     const/4 v1, -0x1
 
     .line 588
-    :cond_1
+    :cond_21
     iget-object v2, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mTmpRect:Landroid/graphics/Rect;
 
     invoke-virtual {v2}, Landroid/graphics/Rect;->width()I
@@ -144,12 +144,12 @@
 
     invoke-virtual {p1, v3, v1}, Landroid/graphics/Canvas;->translate(FF)V
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     .line 592
     iget-boolean v0, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mHasMirroring:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_45
 
     .line 593
     invoke-virtual {p1, v2, v1}, Landroid/graphics/Canvas;->translate(FF)V
@@ -162,7 +162,7 @@
     invoke-virtual {p1, v0, v1}, Landroid/graphics/Canvas;->scale(FF)V
 
     .line 597
-    :cond_2
+    :cond_45
     invoke-super {p0, p1}, Landroid/graphics/drawable/InsetDrawable;->draw(Landroid/graphics/Canvas;)V
 
     .line 598
@@ -172,7 +172,7 @@
 .end method
 
 .method public getPosition()F
-    .locals 0
+    .registers 1
 
     .line 564
     iget p0, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mPosition:F
@@ -181,7 +181,7 @@
 .end method
 
 .method public setOffset(F)V
-    .locals 0
+    .registers 2
 
     .line 575
     iput p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mOffset:F
@@ -193,7 +193,7 @@
 .end method
 
 .method public setPosition(F)V
-    .locals 0
+    .registers 2
 
     .line 559
     iput p1, p0, Landroid/support/v4/app/ActionBarDrawerToggle$SlideDrawable;->mPosition:F

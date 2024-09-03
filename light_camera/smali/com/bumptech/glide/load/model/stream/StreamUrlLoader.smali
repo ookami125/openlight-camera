@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

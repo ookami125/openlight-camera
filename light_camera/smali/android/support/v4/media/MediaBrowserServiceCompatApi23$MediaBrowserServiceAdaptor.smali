@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/support/v4/media/MediaBrowserServiceCompatApi23$ServiceCompatProxy;)V
-    .locals 0
+    .registers 3
 
     .line 39
     invoke-direct {p0, p1, p2}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor;-><init>(Landroid/content/Context;Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;)V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onLoadItem(Ljava/lang/String;Landroid/service/media/MediaBrowserService$Result;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

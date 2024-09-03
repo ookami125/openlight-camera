@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public sort(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,29 +43,29 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 62
     invoke-static {p1, p0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    :cond_0
+    :cond_5
     return-object p1
 .end method
 
 .method public varargs sort([Ljava/io/File;)[Ljava/io/File;
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 45
     invoke-static {p1, p0}, Ljava/util/Arrays;->sort([Ljava/lang/Object;Ljava/util/Comparator;)V
 
-    :cond_0
+    :cond_5
     return-object p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 74
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;

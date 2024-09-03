@@ -52,7 +52,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 41
     invoke-direct {p0, p1}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;)V
@@ -89,7 +89,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     .line 45
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -188,7 +188,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 59
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -225,24 +225,24 @@
 .end method
 
 .method private calculateRotate(F)V
-    .locals 1
+    .registers 3
 
     .line 284
     iget-object v0, p0, Lopenlight/co/camera/view/grid/RotateController;->mListener:Lopenlight/co/camera/listener/OnRotateImageListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 285
     iget-object p0, p0, Lopenlight/co/camera/view/grid/RotateController;->mListener:Lopenlight/co/camera/listener/OnRotateImageListener;
 
     invoke-interface {p0, p1}, Lopenlight/co/camera/listener/OnRotateImageListener;->setRotate(F)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private isLandScape()Z
-    .locals 1
+    .registers 2
 
     .line 82
     iget-object p0, p0, Lopenlight/co/camera/view/grid/RotateController;->mContext:Landroid/content/Context;
@@ -259,23 +259,23 @@
 
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_11
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_12
     return p0
 .end method
 
 
 # virtual methods
 .method public getRelAngle()I
-    .locals 0
+    .registers 1
 
     .line 67
     iget p0, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
@@ -284,7 +284,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 20
+    .registers 22
 
     move-object/from16 v0, p0
 
@@ -324,7 +324,7 @@
 
     const/high16 v13, 0x42e20000    # 113.0f
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_104
 
     .line 102
     new-instance v1, Ljava/lang/StringBuilder;
@@ -363,8 +363,8 @@
 
     move v6, v2
 
-    :goto_0
-    if-ge v6, v11, :cond_3
+    :goto_49
+    if-ge v6, v11, :cond_ee
 
     .line 107
     iget-object v1, v0, Lopenlight/co/camera/view/grid/RotateController;->paint:Landroid/graphics/Paint;
@@ -382,7 +382,7 @@
 
     invoke-virtual {v1, v9}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    if-ne v6, v12, :cond_0
+    if-ne v6, v12, :cond_a0
 
     const/4 v2, 0x0
 
@@ -460,12 +460,12 @@
 
     invoke-virtual {v7, v14, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    goto :goto_1
+    goto :goto_e8
 
-    :cond_0
+    :cond_a0
     move v9, v6
 
-    if-ge v9, v12, :cond_1
+    if-ge v9, v12, :cond_c5
 
     const/4 v2, 0x0
 
@@ -508,10 +508,10 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    goto :goto_1
+    goto :goto_e8
 
-    :cond_1
-    if-le v9, v12, :cond_2
+    :cond_c5
+    if-le v9, v12, :cond_e8
 
     const/4 v2, 0x0
 
@@ -554,19 +554,19 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    :cond_2
-    :goto_1
+    :cond_e8
+    :goto_e8
     add-int/lit8 v6, v9, 0x1
 
     const/high16 v9, 0x40400000    # 3.0f
 
-    goto/16 :goto_0
+    goto/16 :goto_49
 
     .line 121
-    :cond_3
+    :cond_ee
     iget v1, v0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
-    if-eq v1, v10, :cond_9
+    if-eq v1, v10, :cond_20e
 
     const/4 v1, 0x0
 
@@ -587,10 +587,10 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    goto/16 :goto_5
+    goto/16 :goto_20e
 
     .line 125
-    :cond_4
+    :cond_104
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
     move-result-object v1
@@ -657,8 +657,8 @@
 
     move v6, v2
 
-    :goto_2
-    if-ge v6, v11, :cond_8
+    :goto_144
+    if-ge v6, v11, :cond_1fa
 
     .line 132
     iget-object v1, v0, Lopenlight/co/camera/view/grid/RotateController;->paint:Landroid/graphics/Paint;
@@ -678,7 +678,7 @@
 
     invoke-virtual {v1, v5}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    if-ne v6, v12, :cond_6
+    if-ne v6, v12, :cond_1a6
 
     .line 135
     iget v1, v0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -762,22 +762,22 @@
 
     invoke-virtual {v7, v9, v1, v2, v3}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    :goto_3
+    :goto_1a1
     const/16 v11, 0xd
 
-    :cond_5
+    :cond_1a3
     const/16 v17, 0x1b
 
-    goto :goto_4
+    goto :goto_1f3
 
-    :cond_6
+    :cond_1a6
     move/from16 v16, v5
 
     move v1, v12
 
     move v12, v6
 
-    if-ge v12, v1, :cond_7
+    if-ge v12, v1, :cond_1cc
 
     .line 140
     iget v1, v0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -820,12 +820,12 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    goto :goto_3
+    goto :goto_1a1
 
-    :cond_7
+    :cond_1cc
     move v11, v1
 
-    if-le v12, v11, :cond_5
+    if-le v12, v11, :cond_1a3
 
     .line 142
     iget v1, v0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -872,20 +872,20 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    :goto_4
+    :goto_1f3
     add-int/lit8 v6, v12, 0x1
 
     move v12, v11
 
     move/from16 v11, v17
 
-    goto/16 :goto_2
+    goto/16 :goto_144
 
     .line 147
-    :cond_8
+    :cond_1fa
     iget v1, v0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
-    if-eq v1, v10, :cond_9
+    if-eq v1, v10, :cond_20e
 
     .line 148
     iget v1, v0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
@@ -906,13 +906,13 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    :cond_9
-    :goto_5
+    :cond_20e
+    :goto_20e
     return-void
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
 
     .line 87
     invoke-super/range {p0 .. p5}, Landroid/widget/RelativeLayout;->onLayout(ZIIII)V
@@ -933,7 +933,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 77
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/RelativeLayout;->onSizeChanged(IIII)V
@@ -942,7 +942,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 8
+    .registers 11
 
     .line 179
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
@@ -967,48 +967,48 @@
 
     const/16 v5, 0x71
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1b4
 
-    goto/16 :goto_9
+    goto/16 :goto_1b1
 
     .line 181
-    :pswitch_0
+    :pswitch_18
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->lastPoint:F
 
     cmpl-float p1, p1, v2
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2f
 
     .line 182
     invoke-direct {p0}, Lopenlight/co/camera/view/grid/RotateController;->isLandScape()Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_29
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result p1
 
-    :goto_0
+    :goto_2d
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->lastPoint:F
 
     .line 184
-    :cond_1
+    :cond_2f
     invoke-direct {p0}, Lopenlight/co/camera/view/grid/RotateController;->isLandScape()Z
 
     move-result p1
 
     const/high16 v6, 0x41200000    # 10.0f
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9d
 
     .line 185
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -1026,7 +1026,7 @@
 
     cmpl-float v6, v7, v6
 
-    if-lez v6, :cond_7
+    if-lez v6, :cond_99
 
     .line 187
     iget v6, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
@@ -1044,28 +1044,28 @@
 
     cmpl-float p1, p1, v2
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_56
 
     const/high16 p1, 0x3f000000    # 0.5f
 
-    goto :goto_1
+    goto :goto_58
 
-    :cond_2
+    :cond_56
     const/high16 p1, -0x41000000    # -0.5f
 
-    :goto_1
+    :goto_58
     invoke-interface {v6, p1}, Lopenlight/co/camera/listener/OnRotateImageListener;->setRotate(F)V
 
     .line 189
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
-    if-ge p1, v5, :cond_3
+    if-ge p1, v5, :cond_61
 
     .line 190
     iput v5, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     .line 192
-    :cond_3
+    :cond_61
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     int-to-float p1, p1
@@ -1078,7 +1078,7 @@
 
     cmpl-float p1, p1, v2
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_73
 
     .line 193
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -1092,7 +1092,7 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     .line 195
-    :cond_4
+    :cond_73
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
@@ -1113,7 +1113,7 @@
 
     float-to-int p2, p2
 
-    if-ge p1, p2, :cond_5
+    if-ge p1, p2, :cond_8b
 
     mul-int/lit8 p1, p1, 0x2d
 
@@ -1124,17 +1124,17 @@
 
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_2
+    goto :goto_99
 
-    :cond_5
-    if-ne p1, p2, :cond_6
+    :cond_8b
+    if-ne p1, p2, :cond_90
 
     .line 202
     iput v0, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_2
+    goto :goto_99
 
-    :cond_6
+    :cond_90
     mul-int/lit8 p1, p1, 0x5a
 
     mul-int/lit8 p2, p2, 0x2
@@ -1147,14 +1147,14 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
     .line 205
-    :cond_7
-    :goto_2
+    :cond_99
+    :goto_99
     invoke-virtual {p0}, Lopenlight/co/camera/view/grid/RotateController;->transferYToX()V
 
-    goto :goto_5
+    goto :goto_107
 
     .line 207
-    :cond_8
+    :cond_9d
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result p1
@@ -1170,7 +1170,7 @@
 
     cmpl-float v6, v7, v6
 
-    if-lez v6, :cond_e
+    if-lez v6, :cond_104
 
     .line 209
     iget v6, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
@@ -1188,28 +1188,28 @@
 
     cmpl-float p1, p1, v2
 
-    if-lez p1, :cond_9
+    if-lez p1, :cond_bd
 
     const p1, 0x3dcccccd    # 0.1f
 
-    goto :goto_3
+    goto :goto_c0
 
-    :cond_9
+    :cond_bd
     const p1, -0x42333333    # -0.1f
 
-    :goto_3
+    :goto_c0
     invoke-interface {v6, p1}, Lopenlight/co/camera/listener/OnRotateImageListener;->setRotate(F)V
 
     .line 211
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
-    if-ge p1, v5, :cond_a
+    if-ge p1, v5, :cond_c9
 
     .line 212
     iput v5, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     .line 214
-    :cond_a
+    :cond_c9
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     int-to-float p1, p1
@@ -1222,7 +1222,7 @@
 
     cmpl-float p1, p1, v2
 
-    if-lez p1, :cond_b
+    if-lez p1, :cond_db
 
     .line 215
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -1236,7 +1236,7 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     .line 217
-    :cond_b
+    :cond_db
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result p1
@@ -1257,7 +1257,7 @@
 
     float-to-int p2, p2
 
-    if-ge p1, p2, :cond_c
+    if-ge p1, p2, :cond_f4
 
     mul-int/lit8 p1, p1, -0x2d
 
@@ -1270,20 +1270,20 @@
 
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_4
+    goto :goto_104
 
     .line 223
-    :cond_c
+    :cond_f4
     iget v1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
-    if-ne v1, p2, :cond_d
+    if-ne v1, p2, :cond_fb
 
     .line 224
     iput v0, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_4
+    goto :goto_104
 
-    :cond_d
+    :cond_fb
     mul-int/lit8 p1, p1, 0x5a
 
     mul-int/lit8 p2, p2, 0x2
@@ -1296,12 +1296,12 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
     .line 227
-    :cond_e
-    :goto_4
+    :cond_104
+    :goto_104
     invoke-virtual {p0}, Lopenlight/co/camera/view/grid/RotateController;->transferXToY()V
 
     .line 229
-    :goto_5
+    :goto_107
     invoke-virtual {p0}, Lopenlight/co/camera/view/grid/RotateController;->invalidate()V
 
     .line 230
@@ -1313,21 +1313,21 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/camera/listener/OnRotateImageListener;->setRotate(F)V
 
-    goto/16 :goto_9
+    goto/16 :goto_1b1
 
     .line 234
-    :pswitch_1
+    :pswitch_114
     iput v2, p0, Lopenlight/co/camera/view/grid/RotateController;->lastPoint:F
 
-    goto/16 :goto_9
+    goto/16 :goto_1b1
 
     .line 237
-    :pswitch_2
+    :pswitch_118
     invoke-direct {p0}, Lopenlight/co/camera/view/grid/RotateController;->isLandScape()Z
 
     move-result p1
 
-    if-eqz p1, :cond_13
+    if-eqz p1, :cond_161
 
     .line 239
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -1341,13 +1341,13 @@
     .line 240
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
-    if-ge p1, v5, :cond_f
+    if-ge p1, v5, :cond_12b
 
     .line 241
     iput v5, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     .line 243
-    :cond_f
+    :cond_12b
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     int-to-float p1, p1
@@ -1360,7 +1360,7 @@
 
     cmpl-float p1, p1, p2
 
-    if-lez p1, :cond_10
+    if-lez p1, :cond_13d
 
     .line 244
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -1374,7 +1374,7 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     .line 246
-    :cond_10
+    :cond_13d
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I
 
     sub-int/2addr p1, v5
@@ -1388,7 +1388,7 @@
 
     float-to-int p2, p2
 
-    if-ge p1, p2, :cond_11
+    if-ge p1, p2, :cond_14f
 
     mul-int/lit8 p1, p1, 0x2d
 
@@ -1399,17 +1399,17 @@
 
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_6
+    goto :goto_15d
 
-    :cond_11
-    if-ne p1, p2, :cond_12
+    :cond_14f
+    if-ne p1, p2, :cond_154
 
     .line 251
     iput v0, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_6
+    goto :goto_15d
 
-    :cond_12
+    :cond_154
     mul-int/lit8 p1, p1, 0x5a
 
     mul-int/lit8 p2, p2, 0x2
@@ -1422,13 +1422,13 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
     .line 253
-    :goto_6
+    :goto_15d
     invoke-virtual {p0}, Lopenlight/co/camera/view/grid/RotateController;->transferYToX()V
 
-    goto :goto_8
+    goto :goto_1a6
 
     .line 256
-    :cond_13
+    :cond_161
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
 
     move-result p1
@@ -1440,13 +1440,13 @@
     .line 257
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
-    if-ge p1, v5, :cond_14
+    if-ge p1, v5, :cond_16e
 
     .line 258
     iput v5, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     .line 260
-    :cond_14
+    :cond_16e
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     int-to-float p1, p1
@@ -1459,7 +1459,7 @@
 
     cmpl-float p1, p1, p2
 
-    if-lez p1, :cond_15
+    if-lez p1, :cond_180
 
     .line 261
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->sizeLand:F
@@ -1473,7 +1473,7 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     .line 264
-    :cond_15
+    :cond_180
     iget p1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
     sub-int/2addr p1, v5
@@ -1487,7 +1487,7 @@
 
     float-to-int p2, p2
 
-    if-ge p1, p2, :cond_16
+    if-ge p1, p2, :cond_193
 
     mul-int/lit8 p1, p1, -0x2d
 
@@ -1500,20 +1500,20 @@
 
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_7
+    goto :goto_1a3
 
     .line 268
-    :cond_16
+    :cond_193
     iget v1, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
 
-    if-ne v1, p2, :cond_17
+    if-ne v1, p2, :cond_19a
 
     .line 269
     iput v0, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
-    goto :goto_7
+    goto :goto_1a3
 
-    :cond_17
+    :cond_19a
     mul-int/lit8 p1, p1, 0x5a
 
     mul-int/lit8 p2, p2, 0x2
@@ -1526,11 +1526,11 @@
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
 
     .line 271
-    :goto_7
+    :goto_1a3
     invoke-virtual {p0}, Lopenlight/co/camera/view/grid/RotateController;->transferXToY()V
 
     .line 274
-    :goto_8
+    :goto_1a6
     invoke-virtual {p0}, Lopenlight/co/camera/view/grid/RotateController;->invalidate()V
 
     .line 275
@@ -1542,23 +1542,23 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/camera/listener/OnRotateImageListener;->setRotate(F)V
 
-    :goto_9
+    :goto_1b1
     const/4 p0, 0x1
 
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1b4
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_118
+        :pswitch_114
+        :pswitch_18
     .end packed-switch
 .end method
 
 .method public resetAngel()V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0x1c5
 
@@ -1580,7 +1580,7 @@
 .end method
 
 .method public setListener(Lopenlight/co/camera/listener/OnRotateImageListener;)V
-    .locals 0
+    .registers 2
 
     .line 63
     iput-object p1, p0, Lopenlight/co/camera/view/grid/RotateController;->mListener:Lopenlight/co/camera/listener/OnRotateImageListener;
@@ -1589,7 +1589,7 @@
 .end method
 
 .method public setRelAngle(I)V
-    .locals 0
+    .registers 2
 
     .line 71
     iput p1, p0, Lopenlight/co/camera/view/grid/RotateController;->relAngle:I
@@ -1601,7 +1601,7 @@
 .end method
 
 .method public transferXToY()V
-    .locals 1
+    .registers 2
 
     .line 158
     iget v0, p0, Lopenlight/co/camera/view/grid/RotateController;->currentX:I
@@ -1614,7 +1614,7 @@
 .end method
 
 .method public transferYToX()V
-    .locals 1
+    .registers 2
 
     .line 166
     iget v0, p0, Lopenlight/co/camera/view/grid/RotateController;->currentY:I

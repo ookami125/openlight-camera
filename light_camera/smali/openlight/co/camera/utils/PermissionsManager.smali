@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const-string v0, "android.permission.CAMERA"
 
@@ -46,7 +46,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 17
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 .end method
 
 .method static synthetic access$000()[Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 17
     sget-object v0, Lopenlight/co/camera/utils/PermissionsManager;->CAMERA_PERMISSIONS:[Ljava/lang/String;
@@ -64,17 +64,17 @@
 .end method
 
 .method public static declared-synchronized get()Lopenlight/co/camera/utils/PermissionsManager;
-    .locals 2
+    .registers 2
 
     const-class v0, Lopenlight/co/camera/utils/PermissionsManager;
 
     monitor-enter v0
 
     .line 39
-    :try_start_0
+    :try_start_3
     sget-object v1, Lopenlight/co/camera/utils/PermissionsManager;->sInstance:Lopenlight/co/camera/utils/PermissionsManager;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 40
     new-instance v1, Lopenlight/co/camera/utils/PermissionsManager;
@@ -84,16 +84,16 @@
     sput-object v1, Lopenlight/co/camera/utils/PermissionsManager;->sInstance:Lopenlight/co/camera/utils/PermissionsManager;
 
     .line 42
-    :cond_0
+    :cond_e
     sget-object v1, Lopenlight/co/camera/utils/PermissionsManager;->sInstance:Lopenlight/co/camera/utils/PermissionsManager;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_3 .. :try_end_10} :catchall_12
 
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     .line 38
@@ -103,7 +103,7 @@
 .end method
 
 .method public static hasCameraPermission(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, "android.permission.CAMERA"
 
@@ -112,21 +112,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public static hasLocationPermission(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, "android.permission.ACCESS_FINE_LOCATION"
 
@@ -135,28 +135,28 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method private requestCameraPermissions(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 49
     invoke-direct {p0, p1}, Lopenlight/co/camera/utils/PermissionsManager;->shouldShowRationale(Landroid/app/Activity;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     .line 50
     invoke-static {}, Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;->newInstance()Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;
@@ -171,22 +171,22 @@
 
     invoke-virtual {p0, p1, v0}, Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 53
-    :cond_0
+    :cond_14
     sget-object p0, Lopenlight/co/camera/utils/PermissionsManager;->CAMERA_PERMISSIONS:[Ljava/lang/String;
 
     const/4 v0, 0x1
 
     invoke-virtual {p1, p0, v0}, Landroid/app/Activity;->requestPermissions([Ljava/lang/String;I)V
 
-    :goto_0
+    :goto_1a
     return-void
 .end method
 
 .method private shouldShowRationale(Landroid/app/Activity;)Z
-    .locals 4
+    .registers 6
 
     .line 79
     sget-object p0, Lopenlight/co/camera/utils/PermissionsManager;->CAMERA_PERMISSIONS:[Ljava/lang/String;
@@ -197,8 +197,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_5
+    if-ge v2, v0, :cond_14
 
     aget-object v3, p0, v2
 
@@ -207,25 +207,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_11
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_11
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
+    :cond_14
     return v1
 .end method
 
 
 # virtual methods
 .method public hasAllPermissionsGranted(Landroid/app/Activity;)Z
-    .locals 5
+    .registers 7
 
     .line 62
     sget-object v0, Lopenlight/co/camera/utils/PermissionsManager;->CAMERA_PERMISSIONS:[Ljava/lang/String;
@@ -236,40 +236,40 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_5
+    if-ge v3, v1, :cond_18
 
     aget-object v4, v0, v3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 64
     invoke-static {p1, v4}, Landroid/support/v4/content/ContextCompat;->checkSelfPermission(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     .line 66
     invoke-direct {p0, p1}, Lopenlight/co/camera/utils/PermissionsManager;->requestCameraPermissions(Landroid/app/Activity;)V
 
     return v2
 
-    :cond_0
+    :cond_15
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
+    :cond_18
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public showMissingPermissionError(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const p0, 0x7f0e0100
 
@@ -285,6 +285,6 @@
     .line 93
     invoke-virtual {p1}, Landroid/app/Activity;->finish()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method

@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 57
     new-instance v0, Lorg/apache/commons/io/comparator/SizeFileComparator;
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 80
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
@@ -110,7 +110,7 @@
 .end method
 
 .method public constructor <init>(Z)V
-    .locals 0
+    .registers 2
 
     .line 95
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 5
+    .registers 8
 
     .line 112
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
@@ -133,100 +133,100 @@
 
     const-wide/16 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 113
     iget-boolean v0, p0, Lorg/apache/commons/io/comparator/SizeFileComparator;->sumDirectoryContents:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     invoke-static {p1}, Lorg/apache/commons/io/FileUtils;->sizeOfDirectory(Ljava/io/File;)J
 
     move-result-wide v3
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_17
     move-wide v3, v1
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 115
-    :cond_1
+    :cond_19
     invoke-virtual {p1}, Ljava/io/File;->length()J
 
     move-result-wide v3
 
     .line 118
-    :goto_0
+    :goto_1d
     invoke-virtual {p2}, Ljava/io/File;->isDirectory()Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_34
 
     .line 119
     iget-boolean p0, p0, Lorg/apache/commons/io/comparator/SizeFileComparator;->sumDirectoryContents:Z
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_32
 
     invoke-virtual {p2}, Ljava/io/File;->exists()Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_32
 
     invoke-static {p2}, Lorg/apache/commons/io/FileUtils;->sizeOfDirectory(Ljava/io/File;)J
 
     move-result-wide p0
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_2
+    :cond_32
     move-wide p0, v1
 
-    goto :goto_1
+    goto :goto_38
 
     .line 121
-    :cond_3
+    :cond_34
     invoke-virtual {p2}, Ljava/io/File;->length()J
 
     move-result-wide p0
 
-    :goto_1
+    :goto_38
     const/4 p2, 0x0
 
     sub-long/2addr v3, p0
 
     cmp-long p0, v3, v1
 
-    if-gez p0, :cond_4
+    if-gez p0, :cond_40
 
     const/4 p0, -0x1
 
     return p0
 
-    :cond_4
-    if-lez p0, :cond_5
+    :cond_40
+    if-lez p0, :cond_44
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_5
+    :cond_44
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 52
     check-cast p1, Ljava/io/File;
@@ -241,7 +241,7 @@
 .end method
 
 .method public bridge synthetic sort(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
 
     .line 52
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort(Ljava/util/List;)Ljava/util/List;
@@ -252,7 +252,7 @@
 .end method
 
 .method public bridge synthetic sort([Ljava/io/File;)[Ljava/io/File;
-    .locals 0
+    .registers 2
 
     .line 52
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort([Ljava/io/File;)[Ljava/io/File;
@@ -263,7 +263,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 140
     new-instance v0, Ljava/lang/StringBuilder;

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static execute(Landroid/os/AsyncTask;)V
-    .locals 3
+    .registers 4
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "InlinedApi"
@@ -41,39 +41,39 @@
 
     const/16 v2, 0xc
 
-    if-gt v0, v2, :cond_0
+    if-gt v0, v2, :cond_d
 
     .line 22
     new-array v0, v1, [Ljava/lang/Void;
 
     invoke-virtual {p0, v0}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    goto :goto_1
+    goto :goto_1b
 
     .line 24
-    :cond_0
+    :cond_d
     sget-object v0, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->sCustomExecutor:Ljava/util/concurrent/Executor;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     sget-object v0, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->sCustomExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_14
     sget-object v0, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    :goto_0
+    :goto_16
     new-array v1, v1, [Ljava/lang/Void;
 
     invoke-virtual {p0, v0, v1}, Landroid/os/AsyncTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    :goto_1
+    :goto_1b
     return-void
 .end method
 
 .method public static getCustomExecutor()Ljava/util/concurrent/Executor;
-    .locals 1
+    .registers 1
 
     .line 29
     sget-object v0, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->sCustomExecutor:Ljava/util/concurrent/Executor;
@@ -82,7 +82,7 @@
 .end method
 
 .method public static setCustomExecutor(Ljava/util/concurrent/Executor;)V
-    .locals 0
+    .registers 1
 
     .line 33
     sput-object p0, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->sCustomExecutor:Ljava/util/concurrent/Executor;

@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -47,15 +47,15 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Lco/openlight/lightprocessingservice/IProcessListener;
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     const-string v0, "co.openlight.lightprocessingservice.IProcessListener"
 
     .line 26
@@ -63,12 +63,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 27
     instance-of v1, v0, Lco/openlight/lightprocessingservice/IProcessListener;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 28
     check-cast v0, Lco/openlight/lightprocessingservice/IProcessListener;
@@ -76,7 +76,7 @@
     return-object v0
 
     .line 30
-    :cond_1
+    :cond_13
     new-instance v0, Lco/openlight/lightprocessingservice/IProcessListener$Stub$Proxy;
 
     invoke-direct {v0, p0}, Lco/openlight/lightprocessingservice/IProcessListener$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -87,13 +87,13 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -106,11 +106,11 @@
 
     const/4 v2, 0x1
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v1, :cond_43
 
     const/4 v1, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_48
 
     .line 76
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -120,7 +120,7 @@
     return p0
 
     .line 62
-    :pswitch_0
+    :pswitch_11
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 64
@@ -128,7 +128,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     .line 65
     sget-object p1, Lco/openlight/lightprocessingservice/ProcessRequest;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -142,7 +142,7 @@
     check-cast v1, Lco/openlight/lightprocessingservice/ProcessRequest;
 
     .line 70
-    :cond_0
+    :cond_23
     invoke-virtual {p0, v1}, Lco/openlight/lightprocessingservice/IProcessListener$Stub;->onError(Lco/openlight/lightprocessingservice/ProcessRequest;)V
 
     .line 71
@@ -151,7 +151,7 @@
     return v2
 
     .line 48
-    :pswitch_1
+    :pswitch_2a
     invoke-virtual {p2, v0}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
 
     .line 50
@@ -159,7 +159,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3c
 
     .line 51
     sget-object p1, Lco/openlight/lightprocessingservice/ProcessRequest;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -173,7 +173,7 @@
     check-cast v1, Lco/openlight/lightprocessingservice/ProcessRequest;
 
     .line 56
-    :cond_1
+    :cond_3c
     invoke-virtual {p0, v1}, Lco/openlight/lightprocessingservice/IProcessListener$Stub;->onSuccess(Lco/openlight/lightprocessingservice/ProcessRequest;)V
 
     .line 57
@@ -182,16 +182,16 @@
     return v2
 
     .line 43
-    :cond_2
+    :cond_43
     invoke-virtual {p3, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
     return v2
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_48
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2a
+        :pswitch_11
     .end packed-switch
 .end method

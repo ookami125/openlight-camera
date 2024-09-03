@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Comparator;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -37,7 +37,7 @@
     .line 40
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 44
     iput-object p1, p0, Lorg/apache/commons/io/comparator/ReverseComparator;->delegate:Ljava/util/Comparator;
@@ -45,7 +45,7 @@
     return-void
 
     .line 42
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Delegate comparator is missing"
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 0
+    .registers 3
 
     .line 56
     iget-object p0, p0, Lorg/apache/commons/io/comparator/ReverseComparator;->delegate:Ljava/util/Comparator;
@@ -71,7 +71,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 30
     check-cast p1, Ljava/io/File;
@@ -86,7 +86,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 66
     new-instance v0, Ljava/lang/StringBuilder;

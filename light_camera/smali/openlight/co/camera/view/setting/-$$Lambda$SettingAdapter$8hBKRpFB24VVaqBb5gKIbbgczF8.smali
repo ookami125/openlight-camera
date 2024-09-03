@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/view/setting/SettingAdapter;Lopenlight/co/camera/view/setting/SettingAdapter$SettingHolder;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 1
+    .registers 4
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/-$$Lambda$SettingAdapter$8hBKRpFB24VVaqBb5gKIbbgczF8;->f$0:Lopenlight/co/camera/view/setting/SettingAdapter;
 

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public build()Landroid/view/animation/Animation;
-    .locals 1
+    .registers 2
 
     .line 75
     iget-object v0, p0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory$ResourceAnimationFactory;->context:Landroid/content/Context;

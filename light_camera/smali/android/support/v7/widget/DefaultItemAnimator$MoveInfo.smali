@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/RecyclerView$ViewHolder;IIII)V
-    .locals 0
+    .registers 6
 
     .line 61
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

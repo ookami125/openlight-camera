@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 132
     invoke-direct {p0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatApi16Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getRestrictBackgroundStatus(Landroid/net/ConnectivityManager;)I
-    .locals 0
+    .registers 2
 
     .line 136
     invoke-virtual {p1}, Landroid/net/ConnectivityManager;->getRestrictBackgroundStatus()I

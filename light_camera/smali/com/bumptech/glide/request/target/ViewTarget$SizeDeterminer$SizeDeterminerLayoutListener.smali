@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;)V
-    .locals 1
+    .registers 3
 
     .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 3
+    .registers 4
 
     const-string v0, "ViewTarget"
 
@@ -60,7 +60,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     const-string v0, "ViewTarget"
 
@@ -82,7 +82,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 290
-    :cond_0
+    :cond_1f
     iget-object p0, p0, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer$SizeDeterminerLayoutListener;->sizeDeterminerRef:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -91,12 +91,13 @@
 
     check-cast p0, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2c
 
     .line 292
+    # invokes: Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->checkCurrentDimens()V
     invoke-static {p0}, Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;->access$000(Lcom/bumptech/glide/request/target/ViewTarget$SizeDeterminer;)V
 
-    :cond_1
+    :cond_2c
     const/4 p0, 0x1
 
     return p0

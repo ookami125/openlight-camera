@@ -8,7 +8,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
-    .locals 0
+    .registers 2
 
     .line 15
     invoke-interface {p1}, Lcom/bumptech/glide/manager/LifecycleListener;->onStart()V

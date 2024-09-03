@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;)V
-    .locals 0
+    .registers 3
 
     .line 116
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,12 +41,12 @@
 .end method
 
 .method ensureJobId(I)V
-    .locals 3
+    .registers 5
 
     .line 121
     iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->mHasJobId:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 v0, 0x1
 
@@ -56,19 +56,19 @@
     .line 123
     iput p1, p0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->mJobId:I
 
-    goto :goto_0
+    goto :goto_e
 
     .line 124
-    :cond_0
+    :cond_a
     iget v0, p0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->mJobId:I
 
-    if-ne v0, p1, :cond_1
+    if-ne v0, p1, :cond_f
 
-    :goto_0
+    :goto_e
     return-void
 
     .line 125
-    :cond_1
+    :cond_f
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -99,19 +99,19 @@
 .end method
 
 .method public serviceCreated()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public serviceDestroyed()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public serviceStartReceived()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

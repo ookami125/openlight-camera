@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/SwipeDismissBehavior;)V
-    .locals 0
+    .registers 2
 
     .line 215
     iput-object p1, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
@@ -44,7 +44,7 @@
 .end method
 
 .method private shouldDismiss(Landroid/view/View;F)Z
-    .locals 6
+    .registers 9
 
     const/4 v0, 0x0
 
@@ -54,95 +54,95 @@
 
     const/4 v3, 0x1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_3d
 
     .line 275
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
 
     move-result p1
 
-    if-ne p1, v3, :cond_0
+    if-ne p1, v3, :cond_f
 
     move p1, v3
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move p1, v2
 
     .line 278
-    :goto_0
+    :goto_10
     iget-object v4, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget v4, v4, Landroid/support/design/widget/SwipeDismissBehavior;->mSwipeDirection:I
 
     const/4 v5, 0x2
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_18
 
     return v3
 
     .line 281
-    :cond_1
+    :cond_18
     iget-object v4, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget v4, v4, Landroid/support/design/widget/SwipeDismissBehavior;->mSwipeDirection:I
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_2a
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_26
 
     cmpg-float p0, p2, v0
 
-    if-gez p0, :cond_3
+    if-gez p0, :cond_29
 
-    :goto_1
+    :goto_24
     move v2, v3
 
-    goto :goto_2
+    goto :goto_29
 
-    :cond_2
-    if-lez v1, :cond_3
+    :cond_26
+    if-lez v1, :cond_29
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_3
-    :goto_2
+    :cond_29
+    :goto_29
     return v2
 
     .line 285
-    :cond_4
+    :cond_2a
     iget-object p0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget p0, p0, Landroid/support/design/widget/SwipeDismissBehavior;->mSwipeDirection:I
 
-    if-ne p0, v3, :cond_7
+    if-ne p0, v3, :cond_3c
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_36
 
-    if-lez v1, :cond_6
+    if-lez v1, :cond_3b
 
-    :goto_3
+    :goto_34
     move v2, v3
 
-    goto :goto_4
+    goto :goto_3b
 
-    :cond_5
+    :cond_36
     cmpg-float p0, p2, v0
 
-    if-gez p0, :cond_6
+    if-gez p0, :cond_3b
 
-    goto :goto_3
+    goto :goto_34
 
-    :cond_6
-    :goto_4
+    :cond_3b
+    :goto_3b
     return v2
 
-    :cond_7
+    :cond_3c
     return v2
 
     .line 291
-    :cond_8
+    :cond_3d
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
 
     move-result p2
@@ -173,18 +173,18 @@
 
     move-result p1
 
-    if-lt p1, p0, :cond_9
+    if-lt p1, p0, :cond_59
 
     move v2, v3
 
-    :cond_9
+    :cond_59
     return v2
 .end method
 
 
 # virtual methods
 .method public clampViewPositionHorizontal(Landroid/view/View;II)I
-    .locals 2
+    .registers 6
 
     .line 306
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
@@ -193,24 +193,24 @@
 
     const/4 v0, 0x1
 
-    if-ne p3, v0, :cond_0
+    if-ne p3, v0, :cond_9
 
     move p3, v0
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p3, 0x0
 
     .line 310
-    :goto_0
+    :goto_a
     iget-object v1, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget v1, v1, Landroid/support/design/widget/SwipeDismissBehavior;->mSwipeDirection:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_26
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1c
 
     .line 312
     iget p3, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
@@ -224,10 +224,10 @@
     .line 313
     iget p0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
-    goto :goto_1
+    goto :goto_50
 
     .line 315
-    :cond_1
+    :cond_1c
     iget p3, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
     .line 316
@@ -239,17 +239,17 @@
 
     add-int/2addr p0, p1
 
-    goto :goto_1
+    goto :goto_50
 
     .line 318
-    :cond_2
+    :cond_26
     iget-object v1, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget v1, v1, Landroid/support/design/widget/SwipeDismissBehavior;->mSwipeDirection:I
 
-    if-ne v1, v0, :cond_4
+    if-ne v1, v0, :cond_42
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_38
 
     .line 320
     iget p3, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
@@ -263,10 +263,10 @@
 
     add-int/2addr p0, p1
 
-    goto :goto_1
+    goto :goto_50
 
     .line 323
-    :cond_3
+    :cond_38
     iget p3, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -278,10 +278,10 @@
     .line 324
     iget p0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
-    goto :goto_1
+    goto :goto_50
 
     .line 327
-    :cond_4
+    :cond_42
     iget p3, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -300,7 +300,7 @@
     add-int/2addr p0, p1
 
     .line 331
-    :goto_1
+    :goto_50
     invoke-static {p3, p2, p0}, Landroid/support/design/widget/SwipeDismissBehavior;->clamp(III)I
 
     move-result p0
@@ -309,7 +309,7 @@
 .end method
 
 .method public clampViewPositionVertical(Landroid/view/View;II)I
-    .locals 0
+    .registers 4
 
     .line 336
     invoke-virtual {p1}, Landroid/view/View;->getTop()I
@@ -320,7 +320,7 @@
 .end method
 
 .method public getViewHorizontalDragRange(Landroid/view/View;)I
-    .locals 0
+    .registers 2
 
     .line 301
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -331,7 +331,7 @@
 .end method
 
 .method public onViewCaptured(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
 
     .line 229
     iput p2, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mActivePointerId:I
@@ -348,26 +348,26 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const/4 p1, 0x1
 
     .line 236
     invoke-interface {p0, p1}, Landroid/view/ViewParent;->requestDisallowInterceptTouchEvent(Z)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public onViewDragStateChanged(I)V
-    .locals 1
+    .registers 3
 
     .line 242
     iget-object v0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget-object v0, v0, Landroid/support/design/widget/SwipeDismissBehavior;->mListener:Landroid/support/design/widget/SwipeDismissBehavior$OnDismissListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 243
     iget-object p0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
@@ -376,12 +376,12 @@
 
     invoke-interface {p0, p1}, Landroid/support/design/widget/SwipeDismissBehavior$OnDismissListener;->onDragStateChanged(I)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public onViewPositionChanged(Landroid/view/View;IIII)V
-    .locals 1
+    .registers 7
 
     .line 341
     iget p3, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
@@ -429,27 +429,27 @@
 
     const/high16 p5, 0x3f800000    # 1.0f
 
-    if-gtz p2, :cond_0
+    if-gtz p2, :cond_27
 
     .line 347
     invoke-virtual {p1, p5}, Landroid/view/View;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_0
+    :cond_27
     cmpl-float p2, p0, p4
 
     const/4 v0, 0x0
 
-    if-ltz p2, :cond_1
+    if-ltz p2, :cond_30
 
     .line 349
     invoke-virtual {p1, v0}, Landroid/view/View;->setAlpha(F)V
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 352
-    :cond_1
+    :cond_30
     invoke-static {p3, p4, p0}, Landroid/support/design/widget/SwipeDismissBehavior;->fraction(FFF)F
 
     move-result p0
@@ -463,12 +463,12 @@
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setAlpha(F)V
 
-    :goto_0
+    :goto_3d
     return-void
 .end method
 
 .method public onViewReleased(Landroid/view/View;FF)V
-    .locals 2
+    .registers 6
 
     const/4 p3, -0x1
 
@@ -485,7 +485,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1e
 
     .line 257
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
@@ -494,32 +494,32 @@
 
     iget v0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
-    if-ge p2, v0, :cond_0
+    if-ge p2, v0, :cond_19
 
     iget p2, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
     sub-int/2addr p2, p3
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_19
     iget p2, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
     add-int/2addr p2, p3
 
-    :goto_0
+    :goto_1c
     const/4 p3, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
     .line 263
-    :cond_1
+    :cond_1e
     iget p2, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mOriginalCapturedViewLeft:I
 
     const/4 p3, 0x0
 
     .line 266
-    :goto_1
+    :goto_21
     iget-object v0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget-object v0, v0, Landroid/support/design/widget/SwipeDismissBehavior;->mViewDragHelper:Landroid/support/v4/widget/ViewDragHelper;
@@ -532,7 +532,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3a
 
     .line 267
     new-instance p2, Landroid/support/design/widget/SwipeDismissBehavior$SettleRunnable;
@@ -543,17 +543,17 @@
 
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompat;->postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    goto :goto_2
+    goto :goto_49
 
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_3a
+    if-eqz p3, :cond_49
 
     .line 268
     iget-object p2, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
     iget-object p2, p2, Landroid/support/design/widget/SwipeDismissBehavior;->mListener:Landroid/support/design/widget/SwipeDismissBehavior$OnDismissListener;
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_49
 
     .line 269
     iget-object p0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
@@ -562,20 +562,20 @@
 
     invoke-interface {p0, p1}, Landroid/support/design/widget/SwipeDismissBehavior$OnDismissListener;->onDismiss(Landroid/view/View;)V
 
-    :cond_3
-    :goto_2
+    :cond_49
+    :goto_49
     return-void
 .end method
 
 .method public tryCaptureView(Landroid/view/View;I)Z
-    .locals 1
+    .registers 4
 
     .line 224
     iget p2, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->mActivePointerId:I
 
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_f
 
     iget-object p0, p0, Landroid/support/design/widget/SwipeDismissBehavior$1;->this$0:Landroid/support/design/widget/SwipeDismissBehavior;
 
@@ -583,15 +583,15 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_10
     return p0
 .end method

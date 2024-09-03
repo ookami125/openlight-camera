@@ -54,7 +54,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 326
     new-instance v0, Lltpb/GPSData$ReferenceAltitude;
@@ -89,7 +89,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -106,23 +106,23 @@
 .end method
 
 .method public static fromValue(I)Lltpb/GPSData$ReferenceAltitude;
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 341
-    :cond_0
+    :cond_4
     sget-object p0, Lltpb/GPSData$ReferenceAltitude;->REFERENCE_ALTITUDE_SEA_LEVEL:Lltpb/GPSData$ReferenceAltitude;
 
     return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/GPSData$ReferenceAltitude;
-    .locals 1
+    .registers 2
 
     .line 325
     const-class v0, Lltpb/GPSData$ReferenceAltitude;
@@ -137,7 +137,7 @@
 .end method
 
 .method public static values()[Lltpb/GPSData$ReferenceAltitude;
-    .locals 1
+    .registers 1
 
     .line 325
     sget-object v0, Lltpb/GPSData$ReferenceAltitude;->$VALUES:[Lltpb/GPSData$ReferenceAltitude;
@@ -154,7 +154,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 348
     iget p0, p0, Lltpb/GPSData$ReferenceAltitude;->value:I

@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getCode()I
-    .locals 0
+    .registers 1
 
     .line 17
     iget p0, p0, Lnet/hockeyapp/android/objects/ErrorObject;->mCode:I
@@ -38,7 +38,7 @@
 .end method
 
 .method public getMessage()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lnet/hockeyapp/android/objects/ErrorObject;->mMessage:Ljava/lang/String;
@@ -47,7 +47,7 @@
 .end method
 
 .method public setCode(I)V
-    .locals 0
+    .registers 2
 
     .line 21
     iput p1, p0, Lnet/hockeyapp/android/objects/ErrorObject;->mCode:I
@@ -56,7 +56,7 @@
 .end method
 
 .method public setMessage(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 29
     iput-object p1, p0, Lnet/hockeyapp/android/objects/ErrorObject;->mMessage:Ljava/lang/String;

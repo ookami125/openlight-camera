@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 152
     iput-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment$1;->this$0:Lopenlight/co/camera/ImagePreviewFragment;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 166
     const-class p0, Lopenlight/co/camera/ImagePreviewFragment;
@@ -49,7 +49,7 @@
 .end method
 
 .method public updateFocusROI(II)V
-    .locals 0
+    .registers 3
 
     .line 161
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment$1;->this$0:Lopenlight/co/camera/ImagePreviewFragment;
@@ -62,7 +62,7 @@
 .end method
 
 .method public updateUiAfterTest()V
-    .locals 2
+    .registers 3
 
     .line 155
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment$1;->this$0:Lopenlight/co/camera/ImagePreviewFragment;

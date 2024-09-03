@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "UTF-8"
 
@@ -24,7 +24,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,14 +33,14 @@
 .end method
 
 .method public static arrayRangeEquals([BI[BII)Z
-    .locals 4
+    .registers 9
 
     const/4 v0, 0x0
 
     move v1, v0
 
-    :goto_0
-    if-ge v1, p4, :cond_1
+    :goto_2
+    if-ge v1, p4, :cond_12
 
     add-int v2, v1, p1
 
@@ -51,23 +51,23 @@
 
     aget-byte v3, p2, v3
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_f
 
     return v0
 
-    :cond_0
+    :cond_f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
+    :cond_12
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public static checkOffsetAndCount(JJJ)V
-    .locals 4
+    .registers 10
 
     or-long v0, p2, p4
 
@@ -75,22 +75,22 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     cmp-long v0, p2, p0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_13
 
     sub-long v0, p0, p2
 
     cmp-long v0, v0, p4
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_13
 
     return-void
 
     .line 29
-    :cond_0
+    :cond_13
     new-instance v0, Ljava/lang/ArrayIndexOutOfBoundsException;
 
     const/4 v1, 0x3
@@ -134,7 +134,7 @@
 .end method
 
 .method public static reverseBytesInt(I)I
-    .locals 2
+    .registers 3
 
     const/high16 v0, -0x1000000
 
@@ -168,7 +168,7 @@
 .end method
 
 .method public static reverseBytesLong(J)J
-    .locals 8
+    .registers 10
 
     const-wide/high16 v0, -0x100000000000000L
 
@@ -244,7 +244,7 @@
 .end method
 
 .method public static reverseBytesShort(S)S
-    .locals 1
+    .registers 2
 
     const v0, 0xffff
 
@@ -268,7 +268,7 @@
 .end method
 
 .method public static sneakyRethrow(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 1
 
     .line 65
     invoke-static {p0}, Lokio/Util;->sneakyThrow2(Ljava/lang/Throwable;)V
@@ -277,7 +277,7 @@
 .end method
 
 .method private static sneakyThrow2(Ljava/lang/Throwable;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

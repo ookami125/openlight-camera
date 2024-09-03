@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV9;)V
-    .locals 0
+    .registers 2
 
     .line 1872
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionMenuPresenterCallback;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
-    .locals 0
+    .registers 3
 
     .line 1886
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionMenuPresenterCallback;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -47,7 +47,7 @@
 .end method
 
 .method public onOpenSubMenu(Landroid/support/v7/view/menu/MenuBuilder;)Z
-    .locals 1
+    .registers 3
 
     .line 1877
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionMenuPresenterCallback;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -56,14 +56,14 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     const/16 v0, 0x6c
 
     .line 1879
     invoke-interface {p0, v0, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x1
 
     return p0

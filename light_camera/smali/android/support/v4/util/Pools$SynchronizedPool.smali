@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 149
     invoke-direct {p0, p1}, Landroid/support/v4/util/Pools$SimplePool;-><init>(I)V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public acquire()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -61,7 +61,7 @@
     monitor-enter v0
 
     .line 155
-    :try_start_0
+    :try_start_3
     invoke-super {p0}, Landroid/support/v4/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
 
     move-result-object p0
@@ -70,19 +70,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_9
     move-exception p0
 
     .line 156
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_3 .. :try_end_b} :catchall_9
 
     throw p0
 .end method
 
 .method public release(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -95,7 +95,7 @@
     monitor-enter v0
 
     .line 162
-    :try_start_0
+    :try_start_3
     invoke-super {p0, p1}, Landroid/support/v4/util/Pools$SimplePool;->release(Ljava/lang/Object;)Z
 
     move-result p0
@@ -104,13 +104,13 @@
 
     return p0
 
-    :catchall_0
+    :catchall_9
     move-exception p0
 
     .line 163
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_b
+    .catchall {:try_start_3 .. :try_end_b} :catchall_9
 
     throw p0
 .end method

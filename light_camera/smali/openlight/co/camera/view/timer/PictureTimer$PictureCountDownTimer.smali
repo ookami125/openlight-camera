@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/timer/PictureTimer;JJ)V
-    .locals 0
+    .registers 6
 
     .line 163
     iput-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
@@ -34,20 +34,22 @@
 
 # virtual methods
 .method public onFinish()V
-    .locals 1
+    .registers 2
 
     .line 192
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mOnTimerEventListener:Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
     invoke-static {v0}, Lopenlight/co/camera/view/timer/PictureTimer;->access$300(Lopenlight/co/camera/view/timer/PictureTimer;)Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 193
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mOnTimerEventListener:Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
     invoke-static {v0}, Lopenlight/co/camera/view/timer/PictureTimer;->access$300(Lopenlight/co/camera/view/timer/PictureTimer;)Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
 
     move-result-object v0
@@ -55,9 +57,10 @@
     invoke-interface {v0}, Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;->onTimerComplete()V
 
     .line 195
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mTickCounter:Landroid/os/CountDownTimer;
     invoke-static {v0}, Lopenlight/co/camera/view/timer/PictureTimer;->access$400(Lopenlight/co/camera/view/timer/PictureTimer;)Landroid/os/CountDownTimer;
 
     move-result-object v0
@@ -73,7 +76,7 @@
 .end method
 
 .method public onTick(J)V
-    .locals 4
+    .registers 7
 
     const-wide/16 v0, 0x3e7
 
@@ -89,6 +92,7 @@
     move-result-object v0
 
     .line 177
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/timer/PictureTimer;->access$000()Ljava/lang/String;
 
     move-result-object v1
@@ -118,6 +122,7 @@
     .line 178
     iget-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mText:Ljava/lang/String;
     invoke-static {p1}, Lopenlight/co/camera/view/timer/PictureTimer;->access$100(Lopenlight/co/camera/view/timer/PictureTimer;)Ljava/lang/String;
 
     move-result-object p1
@@ -126,16 +131,18 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_55
 
     .line 179
     iget-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # setter for: Lopenlight/co/camera/view/timer/PictureTimer;->mText:Ljava/lang/String;
     invoke-static {p1, v0}, Lopenlight/co/camera/view/timer/PictureTimer;->access$102(Lopenlight/co/camera/view/timer/PictureTimer;Ljava/lang/String;)Ljava/lang/String;
 
     .line 180
     iget-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mTickerText:Landroid/widget/TextView;
     invoke-static {p1}, Lopenlight/co/camera/view/timer/PictureTimer;->access$200(Lopenlight/co/camera/view/timer/PictureTimer;)Landroid/widget/TextView;
 
     move-result-object p1
@@ -145,21 +152,23 @@
     .line 181
     iget-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mOnTimerEventListener:Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
     invoke-static {p1}, Lopenlight/co/camera/view/timer/PictureTimer;->access$300(Lopenlight/co/camera/view/timer/PictureTimer;)Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_55
 
     .line 182
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;->this$0:Lopenlight/co/camera/view/timer/PictureTimer;
 
+    # getter for: Lopenlight/co/camera/view/timer/PictureTimer;->mOnTimerEventListener:Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
     invoke-static {p0}, Lopenlight/co/camera/view/timer/PictureTimer;->access$300(Lopenlight/co/camera/view/timer/PictureTimer;)Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
 
     move-result-object p0
 
     invoke-interface {p0}, Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;->onTickListener()V
 
-    :cond_0
+    :cond_55
     return-void
 .end method

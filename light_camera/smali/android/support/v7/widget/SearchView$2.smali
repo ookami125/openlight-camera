@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SearchView;)V
-    .locals 0
+    .registers 2
 
     .line 183
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 186
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
 
     iget-object v0, v0, Landroid/support/v7/widget/SearchView;->mSuggestionsAdapter:Landroid/support/v4/widget/CursorAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
 
@@ -51,7 +51,7 @@
 
     instance-of v0, v0, Landroid/support/v7/widget/SuggestionsAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 187
     iget-object p0, p0, Landroid/support/v7/widget/SearchView$2;->this$0:Landroid/support/v7/widget/SearchView;
@@ -62,6 +62,6 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v4/widget/CursorAdapter;->changeCursor(Landroid/database/Cursor;)V
 
-    :cond_0
+    :cond_16
     return-void
 .end method

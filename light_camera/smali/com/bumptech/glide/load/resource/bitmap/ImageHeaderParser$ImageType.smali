@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 28
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
@@ -130,7 +130,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZ)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)V"
@@ -147,7 +147,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
-    .locals 1
+    .registers 2
 
     .line 26
     const-class v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
@@ -162,7 +162,7 @@
 .end method
 
 .method public static values()[Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->$VALUES:[Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
@@ -179,7 +179,7 @@
 
 # virtual methods
 .method public hasAlpha()Z
-    .locals 0
+    .registers 1
 
     .line 44
     iget-boolean p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->hasAlpha:Z

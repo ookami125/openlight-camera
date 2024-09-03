@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/BasePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 387
     iput-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$5;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -33,16 +33,18 @@
 
 # virtual methods
 .method public onBatteryUpdate(II)V
-    .locals 1
+    .registers 4
 
     .line 390
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment$5;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
+    # invokes: Lopenlight/co/camera/BasePreviewFragment;->checkLowBattery(I)V
     invoke-static {v0, p1}, Lopenlight/co/camera/BasePreviewFragment;->access$200(Lopenlight/co/camera/BasePreviewFragment;I)V
 
     .line 391
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$5;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
+    # invokes: Lopenlight/co/camera/BasePreviewFragment;->updateBatteryInfo(II)V
     invoke-static {p0, p1, p2}, Lopenlight/co/camera/BasePreviewFragment;->access$300(Lopenlight/co/camera/BasePreviewFragment;II)V
 
     return-void

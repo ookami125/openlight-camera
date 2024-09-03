@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,13 +23,13 @@
 
 # virtual methods
 .method public clearMemory()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getCurrentSize()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public getMaxSize()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
 .end method
 
 .method public remove(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -85,7 +85,7 @@
 .end method
 
 .method public setResourceRemovedListener(Lcom/bumptech/glide/load/engine/cache/MemoryCache$ResourceRemovedListener;)V
-    .locals 0
+    .registers 2
 
     .line 41
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/cache/MemoryCacheAdapter;->listener:Lcom/bumptech/glide/load/engine/cache/MemoryCache$ResourceRemovedListener;
@@ -94,13 +94,13 @@
 .end method
 
 .method public setSizeMultiplier(F)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public trimMemory(I)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

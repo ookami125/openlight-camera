@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[I)V
-    .locals 0
+    .registers 6
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;[Ljava/lang/String;[II)V
-    .locals 0
+    .registers 7
 
     .line 94
     invoke-direct {p0, p1, p2, p3, p6}, Landroid/support/v4/widget/ResourceCursorAdapter;-><init>(Landroid/content/Context;ILandroid/database/Cursor;I)V
@@ -88,9 +88,9 @@
 .end method
 
 .method private findColumns(Landroid/database/Cursor;[Ljava/lang/String;)V
-    .locals 4
+    .registers 7
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_20
 
     .line 317
     array-length v0, p2
@@ -98,25 +98,25 @@
     .line 318
     iget-object v1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_c
 
     iget-object v1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
 
     array-length v1, v1
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_10
 
     .line 319
-    :cond_0
+    :cond_c
     new-array v1, v0, [I
 
     iput-object v1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
 
-    :cond_1
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_11
+    if-ge v1, v0, :cond_23
 
     .line 322
     iget-object v2, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
@@ -131,22 +131,22 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_2
+    :cond_20
     const/4 p1, 0x0
 
     .line 325
     iput-object p1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mFrom:[I
 
-    :cond_3
+    :cond_23
     return-void
 .end method
 
 
 # virtual methods
 .method public bindView(Landroid/view/View;Landroid/content/Context;Landroid/database/Cursor;)V
-    .locals 8
+    .registers 12
 
     .line 125
     iget-object p2, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mViewBinder:Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;
@@ -166,8 +166,8 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v4, v0, :cond_5
+    :goto_b
+    if-ge v4, v0, :cond_66
 
     .line 131
     aget v5, v2, v4
@@ -176,9 +176,9 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_63
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1e
 
     .line 135
     aget v6, v1, v4
@@ -187,13 +187,13 @@
 
     move-result v6
 
-    goto :goto_1
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     move v6, v3
 
-    :goto_1
-    if-nez v6, :cond_4
+    :goto_1f
+    if-nez v6, :cond_63
 
     .line 139
     aget v6, v1, v4
@@ -202,38 +202,38 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2b
 
     const-string v6, ""
 
     .line 144
-    :cond_1
+    :cond_2b
     instance-of v7, v5, Landroid/widget/TextView;
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_35
 
     .line 145
     check-cast v5, Landroid/widget/TextView;
 
     invoke-virtual {p0, v5, v6}, Landroid/support/v4/widget/SimpleCursorAdapter;->setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_63
 
     .line 146
-    :cond_2
+    :cond_35
     instance-of v7, v5, Landroid/widget/ImageView;
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_3f
 
     .line 147
     check-cast v5, Landroid/widget/ImageView;
 
     invoke-virtual {p0, v5, v6}, Landroid/support/v4/widget/SimpleCursorAdapter;->setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_63
 
     .line 149
-    :cond_3
+    :cond_3f
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -266,18 +266,18 @@
 
     throw p0
 
-    :cond_4
-    :goto_2
+    :cond_63
+    :goto_63
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_5
+    :cond_66
     return-void
 .end method
 
 .method public changeCursorAndColumns(Landroid/database/Cursor;[Ljava/lang/String;[I)V
-    .locals 0
+    .registers 4
 
     .line 350
     iput-object p2, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mOriginalFrom:[Ljava/lang/String;
@@ -297,12 +297,12 @@
 .end method
 
 .method public convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
-    .locals 2
+    .registers 4
 
     .line 298
     iget-object v0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mCursorToStringConverter:Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 299
     iget-object p0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mCursorToStringConverter:Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;
@@ -314,12 +314,12 @@
     return-object p0
 
     .line 300
-    :cond_0
+    :cond_b
     iget v0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mStringConversionColumn:I
 
     const/4 v1, -0x1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_17
 
     .line 301
     iget p0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mStringConversionColumn:I
@@ -331,7 +331,7 @@
     return-object p0
 
     .line 304
-    :cond_1
+    :cond_17
     invoke-super {p0, p1}, Landroid/support/v4/widget/ResourceCursorAdapter;->convertToString(Landroid/database/Cursor;)Ljava/lang/CharSequence;
 
     move-result-object p0
@@ -340,7 +340,7 @@
 .end method
 
 .method public getCursorToStringConverter()Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;
-    .locals 0
+    .registers 1
 
     .line 266
     iget-object p0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mCursorToStringConverter:Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;
@@ -349,7 +349,7 @@
 .end method
 
 .method public getStringConversionColumn()I
-    .locals 0
+    .registers 1
 
     .line 232
     iget p0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mStringConversionColumn:I
@@ -358,7 +358,7 @@
 .end method
 
 .method public getViewBinder()Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;
-    .locals 0
+    .registers 1
 
     .line 166
     iget-object p0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mViewBinder:Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;
@@ -367,7 +367,7 @@
 .end method
 
 .method public setCursorToStringConverter(Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;)V
-    .locals 0
+    .registers 2
 
     .line 282
     iput-object p1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mCursorToStringConverter:Landroid/support/v4/widget/SimpleCursorAdapter$CursorToStringConverter;
@@ -376,7 +376,7 @@
 .end method
 
 .method public setStringConversionColumn(I)V
-    .locals 0
+    .registers 2
 
     .line 250
     iput p1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mStringConversionColumn:I
@@ -385,7 +385,7 @@
 .end method
 
 .method public setViewBinder(Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;)V
-    .locals 0
+    .registers 2
 
     .line 179
     iput-object p1, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mViewBinder:Landroid/support/v4/widget/SimpleCursorAdapter$ViewBinder;
@@ -394,7 +394,7 @@
 .end method
 
 .method public setViewImage(Landroid/widget/ImageView;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 199
     :try_start_0
@@ -403,25 +403,25 @@
     move-result p0
 
     invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setImageResource(I)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_7
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_7} :catch_8
 
-    goto :goto_0
+    goto :goto_f
 
     .line 201
-    :catch_0
+    :catch_8
     invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p0
 
     invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setImageURI(Landroid/net/Uri;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public setViewText(Landroid/widget/TextView;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 217
     invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -430,7 +430,7 @@
 .end method
 
 .method public swapCursor(Landroid/database/Cursor;)Landroid/database/Cursor;
-    .locals 1
+    .registers 3
 
     .line 334
     iget-object v0, p0, Landroid/support/v4/widget/SimpleCursorAdapter;->mOriginalFrom:[Ljava/lang/String;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 38
     invoke-static {p1}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method public final transform(Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2e
 
     .line 51
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
@@ -86,15 +86,15 @@
 
     const/high16 v1, -0x80000000
 
-    if-ne p2, v1, :cond_0
+    if-ne p2, v1, :cond_14
 
     .line 52
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getWidth()I
 
     move-result p2
 
-    :cond_0
-    if-ne p3, v1, :cond_1
+    :cond_14
+    if-ne p3, v1, :cond_1a
 
     .line 53
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->getHeight()I
@@ -102,7 +102,7 @@
     move-result p3
 
     .line 54
-    :cond_1
+    :cond_1a
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     invoke-virtual {p0, v1, v0, p2, p3}, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;->transform(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;II)Landroid/graphics/Bitmap;
@@ -114,23 +114,23 @@
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_27
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 60
-    :cond_2
+    :cond_27
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     invoke-static {p2, p0}, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;->obtain(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
 
     move-result-object p1
 
-    :goto_0
+    :goto_2d
     return-object p1
 
     .line 48
-    :cond_3
+    :cond_2e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;

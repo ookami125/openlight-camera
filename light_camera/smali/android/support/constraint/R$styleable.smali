@@ -252,14 +252,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/16 v0, 0x31
 
     .line 76
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1e
 
     sput-object v0, Landroid/support/constraint/R$styleable;->ConstraintLayout_Layout:[I
 
@@ -268,7 +268,7 @@
     .line 126
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_84
 
     sput-object v0, Landroid/support/constraint/R$styleable;->ConstraintSet:[I
 
@@ -287,7 +287,7 @@
 
     return-void
 
-    :array_0
+    :array_1e
     .array-data 4
         0x10100c4
         0x101011f
@@ -340,7 +340,7 @@
         0x7f040117
     .end array-data
 
-    :array_1
+    :array_84
     .array-data 4
         0x10100c4
         0x10100d0
@@ -410,7 +410,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 74
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

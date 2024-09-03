@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 326
     invoke-direct {p0, p1}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;-><init>(Landroid/content/Context;)V
@@ -31,7 +31,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 330
     invoke-direct {p0, p1, p2}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method protected onMeasure(II)V
-    .locals 5
+    .registers 8
 
     .line 335
     invoke-super {p0, p1, p2}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->onMeasure(II)V
@@ -71,8 +71,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p1, :cond_1
+    :goto_16
+    if-ge v0, p1, :cond_39
 
     .line 343
     invoke-virtual {p0, v0}, Landroid/support/design/widget/Snackbar$SnackbarLayout;->getChildAt(I)Landroid/view/View;
@@ -88,7 +88,7 @@
 
     const/4 v3, -0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_36
 
     const/high16 v2, 0x40000000    # 2.0f
 
@@ -109,11 +109,11 @@
     .line 345
     invoke-virtual {v1, v3, v2}, Landroid/view/View;->measure(II)V
 
-    :cond_0
+    :cond_36
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_39
     return-void
 .end method

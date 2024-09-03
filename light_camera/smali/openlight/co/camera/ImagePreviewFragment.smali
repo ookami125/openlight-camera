@@ -89,13 +89,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 78
     invoke-direct {p0}, Lopenlight/co/camera/BasePreviewFragment;-><init>()V
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/ImagePreviewFragment;Z)V
-    .locals 0
+    .registers 2
 
     .line 78
     invoke-direct {p0, p1}, Lopenlight/co/camera/ImagePreviewFragment;->setHistogramEnabled(Z)V
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 1
 
     .line 78
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeCaptureAnimListenerAndUpdateControls()V
@@ -178,7 +178,7 @@
 .end method
 
 .method private captureBurstStartAnimationAndSound()V
-    .locals 3
+    .registers 4
 
     .line 939
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -213,7 +213,7 @@
 .end method
 
 .method private captureStartAnimationAndSound()V
-    .locals 1
+    .registers 2
 
     .line 931
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mSoundManager:Lopenlight/co/camera/utils/SoundManager;
@@ -231,7 +231,7 @@
 .end method
 
 .method private static chooseOptimalSize([Landroid/util/Size;IIIILandroid/util/Size;)Landroid/util/Size;
-    .locals 9
+    .registers 15
 
     .line 1058
     new-instance v0, Ljava/util/ArrayList;
@@ -260,8 +260,8 @@
 
     move v5, v4
 
-    :goto_0
-    if-ge v5, v3, :cond_2
+    :goto_15
+    if-ge v5, v3, :cond_47
 
     aget-object v6, p0, v5
 
@@ -270,13 +270,13 @@
 
     move-result v7
 
-    if-gt v7, p3, :cond_1
+    if-gt v7, p3, :cond_44
 
     invoke-virtual {v6}, Landroid/util/Size;->getHeight()I
 
     move-result v7
 
-    if-gt v7, p4, :cond_1
+    if-gt v7, p4, :cond_44
 
     .line 1065
     invoke-virtual {v6}, Landroid/util/Size;->getHeight()I
@@ -291,46 +291,46 @@
 
     div-int/2addr v8, v2
 
-    if-ne v7, v8, :cond_1
+    if-ne v7, v8, :cond_44
 
     .line 1066
     invoke-virtual {v6}, Landroid/util/Size;->getWidth()I
 
     move-result v7
 
-    if-lt v7, p1, :cond_0
+    if-lt v7, p1, :cond_41
 
     .line 1067
     invoke-virtual {v6}, Landroid/util/Size;->getHeight()I
 
     move-result v7
 
-    if-lt v7, p2, :cond_0
+    if-lt v7, p2, :cond_41
 
     .line 1068
     invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_44
 
     .line 1070
-    :cond_0
+    :cond_41
     invoke-interface {v1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_1
-    :goto_1
+    :cond_44
+    :goto_44
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 1077
-    :cond_2
+    :cond_47
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result p1
 
     const/4 p2, 0x0
 
-    if-lez p1, :cond_3
+    if-lez p1, :cond_5a
 
     .line 1078
     new-instance p0, Lopenlight/co/camera/ImagePreviewFragment$CompareSizesByArea;
@@ -346,12 +346,12 @@
     return-object p0
 
     .line 1079
-    :cond_3
+    :cond_5a
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result p1
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_6c
 
     .line 1080
     new-instance p0, Lopenlight/co/camera/ImagePreviewFragment$CompareSizesByArea;
@@ -367,7 +367,7 @@
     return-object p0
 
     .line 1082
-    :cond_4
+    :cond_6c
     sget-object p1, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
 
     const-string p2, "Couldn\'t find any suitable preview size"
@@ -381,7 +381,7 @@
 .end method
 
 .method private cleanFailedTimerCapture()V
-    .locals 1
+    .registers 2
 
     .line 883
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -414,7 +414,7 @@
 .end method
 
 .method private closeCamera(Lopenlight/co/camera/managers/CameraManager;)V
-    .locals 2
+    .registers 4
 
     .line 873
     sget-object v0, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
@@ -435,24 +435,24 @@
 .end method
 
 .method private closeFtu()V
-    .locals 1
+    .registers 2
 
     .line 1165
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1166
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->closeFtu()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private getBurstAnimationDelay()J
-    .locals 4
+    .registers 5
 
     .line 1000
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -472,7 +472,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5b
 
     .line 1003
     sget-object v0, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
@@ -543,10 +543,10 @@
 
     invoke-static {v0, v1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_73
 
     .line 1009
-    :cond_0
+    :cond_5b
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->getCaptureResultPerFrame()Landroid/hardware/camera2/CaptureResult;
 
     move-result-object p0
@@ -575,26 +575,26 @@
 
     long-to-float p0, v0
 
-    :goto_0
+    :goto_73
     const/high16 v0, 0x42c80000    # 100.0f
 
     cmpg-float v0, p0, v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_7c
 
     const-wide/16 v0, 0x64
 
-    goto :goto_1
+    goto :goto_7d
 
-    :cond_1
+    :cond_7c
     float-to-long v0, p0
 
-    :goto_1
+    :goto_7d
     return-wide v0
 .end method
 
 .method private getFocusKeepOutArea(ZF)I
-    .locals 1
+    .registers 4
 
     const/high16 p0, 0x3fa00000    # 1.25f
 
@@ -605,7 +605,7 @@
 
     move-result p0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     const/high16 p1, 0x44340000    # 720.0f
 
@@ -616,9 +616,9 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_11
     const/high16 p1, 0x44070000    # 540.0f
 
     mul-float/2addr p0, p1
@@ -629,7 +629,7 @@
     move-result p0
 
     .line 1032
-    :goto_0
+    :goto_18
     sget-object p1, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -652,7 +652,7 @@
 .end method
 
 .method public static synthetic lambda$9b0MMcngQrvrCl3Qx1pJ036MgSc(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->showFocusFailedFtu()V
 
@@ -660,7 +660,7 @@
 .end method
 
 .method public static synthetic lambda$TxvjKQ2AiKYVCF8NvNHBPyY95YI(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 1
 
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->updateRemainingImageCount()V
 
@@ -668,24 +668,24 @@
 .end method
 
 .method public static synthetic lambda$onImageSaved$1(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 1
+    .registers 2
 
     .line 288
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 289
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->stopAnimation()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static synthetic lambda$onYuvImageAvailable$0(Lopenlight/co/camera/ImagePreviewFragment;Z)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -696,7 +696,7 @@
 .end method
 
 .method public static synthetic lambda$updateHandshakeAssist$4(Lopenlight/co/camera/ImagePreviewFragment;Z)V
-    .locals 1
+    .registers 3
 
     int-to-byte p1, p1
 
@@ -713,7 +713,7 @@
 .end method
 
 .method public static synthetic lambda$updateLowLightAssist$2(Lopenlight/co/camera/ImagePreviewFragment;Ljava/lang/Byte;)V
-    .locals 1
+    .registers 3
 
     .line 401
     sget-object v0, Lopenlight/co/camera/view/assistance/AssistController$AssistType;->LOW_LIGHT:Lopenlight/co/camera/view/assistance/AssistController$AssistType;
@@ -724,7 +724,7 @@
 .end method
 
 .method public static synthetic lambda$updateTripodAssist$3(Lopenlight/co/camera/ImagePreviewFragment;Ljava/lang/Byte;)V
-    .locals 1
+    .registers 3
 
     .line 407
     sget-object v0, Lopenlight/co/camera/view/assistance/AssistController$AssistType;->TRIPOD_DETECT:Lopenlight/co/camera/view/assistance/AssistController$AssistType;
@@ -735,7 +735,7 @@
 .end method
 
 .method private pillarBoxingLayoutPaddingChange(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
 
     .line 914
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mLayoutPaddingFrame:Landroid/widget/FrameLayout;
@@ -751,34 +751,34 @@
 
     const v2, 0xca6d
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_10
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_10
     const-string v1, "4:3"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1a
 
     const/4 p1, 0x0
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
-    :goto_0
+    :cond_1a
+    :goto_1a
     const/4 p1, -0x1
 
-    :goto_1
-    if-eqz p1, :cond_2
+    :goto_1b
+    if-eqz p1, :cond_1e
 
-    goto :goto_2
+    goto :goto_2b
 
     .line 917
-    :cond_2
+    :cond_1e
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p1
@@ -792,7 +792,7 @@
     iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
 
     .line 924
-    :goto_2
+    :goto_2b
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mLayoutPaddingFrame:Landroid/widget/FrameLayout;
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -801,7 +801,7 @@
 .end method
 
 .method private registerTestListener()V
-    .locals 2
+    .registers 3
 
     .line 861
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -813,19 +813,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 863
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mTestIntentListener:Lopenlight/co/camera/testintent/TestIntentListener;
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/testintent/TestIntentManager;->registerListener(Lopenlight/co/camera/testintent/TestIntentListener;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method private registerTestReceiver()V
-    .locals 2
+    .registers 3
 
     .line 848
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -836,7 +836,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 849
     new-instance v0, Landroid/content/IntentFilter;
@@ -854,17 +854,17 @@
 
     invoke-virtual {v1, p0, v0}, Landroid/app/Activity;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 .method private removeBurstView()V
-    .locals 2
+    .registers 3
 
     .line 983
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstView:Lopenlight/co/camera/view/burst/BurstView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 984
     sget-object v0, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
@@ -894,24 +894,24 @@
     .line 990
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->addTouchAndOrientationListener()V
 
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method private declared-synchronized removeCaptureAnimListenerAndUpdateControls()V
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 966
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCaptureAnim:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 968
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCaptureAnim:Landroid/animation/Animator;
@@ -935,16 +935,16 @@
 
     .line 975
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->updatePrimaryControl()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_20
 
     .line 977
-    :cond_0
+    :cond_1e
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_20
     move-exception v0
 
     .line 965
@@ -954,7 +954,7 @@
 .end method
 
 .method private removeCaptureAnimMessage()V
-    .locals 2
+    .registers 3
 
     .line 950
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeCaptureAnimListenerAndUpdateControls()V
@@ -984,7 +984,7 @@
 .end method
 
 .method private removeHudMessage()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -1002,12 +1002,12 @@
 .end method
 
 .method private resetTimer()V
-    .locals 1
+    .registers 2
 
     .line 894
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPicTimer:Lopenlight/co/camera/view/timer/PictureTimer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 895
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPicTimer:Lopenlight/co/camera/view/timer/PictureTimer;
@@ -1024,12 +1024,12 @@
     .line 897
     iput-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPicTimer:Lopenlight/co/camera/view/timer/PictureTimer;
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private setHistogramEnabled(Z)V
-    .locals 3
+    .registers 5
 
     .line 907
     sget-object v0, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
@@ -1059,23 +1059,23 @@
     .line 910
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mHistogram:Lopenlight/co/lib/view/HistogramView;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_20
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_20
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_22
     invoke-virtual {p0, p1}, Lopenlight/co/lib/view/HistogramView;->setVisibility(I)V
 
     return-void
 .end method
 
 .method private showAssist(Ljava/lang/Byte;Lopenlight/co/camera/view/assistance/AssistController$AssistType;)V
-    .locals 2
+    .registers 5
 
     .line 1189
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1084,11 +1084,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_36
 
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mAssistController:Lopenlight/co/camera/view/assistance/AssistController;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_36
 
     .line 1191
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -1109,7 +1109,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 1192
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mAssistController:Lopenlight/co/camera/view/assistance/AssistController;
@@ -1118,43 +1118,43 @@
 
     return-void
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_25
+    if-nez p1, :cond_28
 
     return-void
 
     .line 1199
-    :cond_1
+    :cond_28
     invoke-virtual {p1}, Ljava/lang/Byte;->byteValue()B
 
     move-result p1
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_30
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     move v0, v1
 
     .line 1201
-    :goto_0
+    :goto_31
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mAssistController:Lopenlight/co/camera/view/assistance/AssistController;
 
     invoke-virtual {p0, v0, p2}, Lopenlight/co/camera/view/assistance/AssistController;->show(ZLopenlight/co/camera/view/assistance/AssistController$AssistType;)V
 
-    :cond_3
+    :cond_36
     return-void
 .end method
 
 .method private showFocusFailedFtu()V
-    .locals 3
+    .registers 4
 
     .line 1171
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 1172
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1170,17 +1170,17 @@
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->setFtuHelperListener(Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method private showFtu()V
-    .locals 7
+    .registers 8
 
     .line 1154
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 1155
     iget-object v1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1202,12 +1202,12 @@
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->setFtuHelperListener(Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;)V
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method private unregisterTestListener()V
-    .locals 1
+    .registers 2
 
     .line 868
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -1226,7 +1226,7 @@
 .end method
 
 .method private unregisterTestReceiver()V
-    .locals 1
+    .registers 2
 
     .line 855
     invoke-static {}, Lopenlight/co/camera/testintent/TestIntentManager;->get()Lopenlight/co/camera/testintent/TestIntentManager;
@@ -1237,7 +1237,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 856
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -1248,43 +1248,43 @@
 
     invoke-virtual {v0, p0}, Landroid/app/Activity;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method private updateHud(IJZ)V
-    .locals 2
+    .registers 7
 
     .line 1094
     iget-boolean v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCanUpdateHud:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_38
 
     iget v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCurrentIso:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_e
 
     iget-wide v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCurrentShutterSpeed:J
 
     cmp-long v0, v0, p2
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_38
 
     .line 1095
-    :cond_0
+    :cond_e
     iput-wide p2, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCurrentShutterSpeed:J
 
     .line 1096
     iput p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCurrentIso:I
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_17
 
     const-wide/16 p1, 0x0
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 1101
-    :cond_1
+    :cond_17
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
 
     invoke-interface {p1}, Lopenlight/co/camera/utils/Provider;->get()Ljava/lang/Object;
@@ -1301,17 +1301,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2c
 
     const-wide/16 p1, 0x1f4
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_2
+    :cond_2c
     const-wide/16 p1, 0x12c
 
     .line 1103
-    :goto_0
+    :goto_2e
     iget-object p3, p0, Lopenlight/co/camera/ImagePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
 
     const/16 p4, 0x66
@@ -1323,12 +1323,12 @@
     .line 1105
     iput-boolean p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCanUpdateHud:Z
 
-    :cond_3
+    :cond_38
     return-void
 .end method
 
 .method private updateIsoShutterValueInPreference(IJ)V
-    .locals 2
+    .registers 6
 
     .line 1116
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -1358,38 +1358,38 @@
 .end method
 
 .method private updateRemainingImageCount()V
-    .locals 1
+    .registers 2
 
     .line 1133
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1134
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateRemainingImageCount()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 
 # virtual methods
 .method protected addPrimaryControl()V
-    .locals 3
+    .registers 4
 
     .line 569
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_36
 
     .line 571
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 572
     new-instance v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -1410,7 +1410,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->addViewToFragment()V
 
     .line 577
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     iget-object v1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mHistogram:Lopenlight/co/lib/view/HistogramView;
@@ -1438,12 +1438,12 @@
     .line 583
     invoke-super {p0}, Lopenlight/co/camera/BasePreviewFragment;->addPrimaryControl()V
 
-    :cond_1
+    :cond_36
     return-void
 .end method
 
 .method public captureStillPicture()V
-    .locals 2
+    .registers 3
 
     .line 249
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -1467,7 +1467,7 @@
 .end method
 
 .method protected clear()V
-    .locals 2
+    .registers 3
 
     .line 544
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -1537,7 +1537,7 @@
 .end method
 
 .method public disableControls()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -1551,7 +1551,7 @@
 .end method
 
 .method public enableControls()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -1561,7 +1561,7 @@
     .line 378
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 379
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -1571,12 +1571,12 @@
     .line 380
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->updatePrimaryControl()V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public focusFailedUpdateUi()V
-    .locals 2
+    .registers 3
 
     .line 536
     invoke-super {p0}, Lopenlight/co/camera/BasePreviewFragment;->focusFailedUpdateUi()V
@@ -1596,12 +1596,12 @@
 .end method
 
 .method public ftuRemovePrimaryControl()V
-    .locals 1
+    .registers 2
 
     .line 485
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 486
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -1610,12 +1610,12 @@
 
     invoke-virtual {p0, v0, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->manageControlViews(ZZ)V
 
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public ftuRemoveZoomView()V
-    .locals 0
+    .registers 1
 
     .line 477
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeZoomWheelView()V
@@ -1624,7 +1624,7 @@
 .end method
 
 .method public ftuResetZoomOnComplete()V
-    .locals 2
+    .registers 3
 
     .line 522
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -1650,7 +1650,7 @@
 .end method
 
 .method public ftuShowZoomView()V
-    .locals 1
+    .registers 2
 
     .line 469
     sget-object v0, Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;->DISPLAY:Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;
@@ -1661,7 +1661,7 @@
 .end method
 
 .method public ftuUpdateCurrentView(Lopenlight/co/camera/enums/FtuView;)V
-    .locals 2
+    .registers 4
 
     .line 530
     iput-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
@@ -1691,18 +1691,18 @@
 .end method
 
 .method public ftuUpdatePrimaryControl()V
-    .locals 2
+    .registers 3
 
     .line 495
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     .line 496
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->addPrimaryControl()V
 
     .line 498
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     const/4 v1, 0x0
@@ -1720,12 +1720,12 @@
 .end method
 
 .method public ftuUpdatePrimaryControlOnComplete()V
-    .locals 3
+    .registers 4
 
     .line 507
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 508
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -1751,18 +1751,18 @@
 
     invoke-virtual {p0, v2}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateControlsForWheelFtu(Z)V
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 513
-    :cond_0
+    :cond_1c
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->addPrimaryControl()V
 
-    :goto_0
+    :goto_1f
     return-void
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 244
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1777,7 +1777,7 @@
 .end method
 
 .method protected getSizeForConfigureTransform(IIZLandroid/graphics/Point;)Landroid/util/Size;
-    .locals 9
+    .registers 14
 
     .line 612
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
@@ -1804,71 +1804,71 @@
 
     const/4 v4, 0x0
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_37
 
     const v3, 0xca6d
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_2d
 
     const v3, 0x171824
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_23
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_0
+    :cond_23
     const-string v2, "16:9"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_41
 
     move v1, v4
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_1
+    :cond_2d
     const-string v2, "4:3"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_41
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_2
+    :cond_37
     const-string v2, "1:1"
 
     invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_41
 
     const/4 v1, 0x2
 
-    goto :goto_1
+    goto :goto_42
 
-    :cond_3
-    :goto_0
+    :cond_41
+    :goto_41
     const/4 v1, -0x1
 
-    :goto_1
-    packed-switch v1, :pswitch_data_0
+    :goto_42
+    packed-switch v1, :pswitch_data_a2
 
-    :goto_2
+    :goto_45
     move-object v8, v0
 
-    goto :goto_3
+    goto :goto_6a
 
     .line 621
-    :pswitch_0
+    :pswitch_47
     new-instance v0, Landroid/util/Size;
 
     const/4 v1, 0x4
@@ -1887,10 +1887,10 @@
 
     invoke-virtual {v1, v4}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    goto :goto_2
+    goto :goto_45
 
     .line 617
-    :pswitch_1
+    :pswitch_59
     new-instance v0, Landroid/util/Size;
 
     const/16 v1, 0x10
@@ -1906,14 +1906,14 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    goto :goto_2
+    goto :goto_45
 
-    :goto_3
+    :goto_6a
     const/16 v0, 0x438
 
     const/16 v1, 0x780
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_81
 
     .line 641
     iget p3, p4, Landroid/graphics/Point;->y:I
@@ -1933,15 +1933,15 @@
 
     move v4, p2
 
-    :goto_4
+    :goto_7e
     move v6, p3
 
     move v7, p4
 
-    goto :goto_5
+    goto :goto_90
 
     .line 646
-    :cond_4
+    :cond_81
     iget p3, p4, Landroid/graphics/Point;->x:I
 
     invoke-static {p3, v1}, Ljava/lang/Math;->min(II)I
@@ -1959,10 +1959,10 @@
 
     move v5, p2
 
-    goto :goto_4
+    goto :goto_7e
 
     .line 651
-    :goto_5
+    :goto_90
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraInfo:Lopenlight/co/camera/CameraInfo;
 
     .line 652
@@ -1985,15 +1985,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_a2
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_59
+        :pswitch_47
     .end packed-switch
 .end method
 
 .method protected handleMessage(Landroid/os/Message;)V
-    .locals 5
+    .registers 7
     .param p1    # Landroid/os/Message;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2006,22 +2006,22 @@
 
     const/4 v1, 0x1
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_be
 
     const/4 v0, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_ca
 
-    goto/16 :goto_0
+    goto/16 :goto_c9
 
     .line 817
-    :pswitch_0
+    :pswitch_d
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->onDelayedResume()V
 
-    goto/16 :goto_0
+    goto/16 :goto_c9
 
     .line 794
-    :pswitch_1
+    :pswitch_12
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCaptureImage:Landroid/widget/ImageView;
 
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -2078,13 +2078,13 @@
 
     invoke-virtual {p0}, Landroid/animation/Animator;->start()V
 
-    goto/16 :goto_0
+    goto/16 :goto_c9
 
     .line 783
-    :pswitch_2
+    :pswitch_4c
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_59
 
     .line 784
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2096,13 +2096,13 @@
     invoke-virtual {p1, v2, v3, v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateRealTimeHud(JI)V
 
     .line 791
-    :cond_0
+    :cond_59
     iput-boolean v1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCanUpdateHud:Z
 
-    goto :goto_0
+    goto :goto_c9
 
     .line 775
-    :pswitch_3
+    :pswitch_5c
     iget p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstCount:I
 
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCaptureManager:Lopenlight/co/camera/managers/capture/CaptureManager;
@@ -2114,11 +2114,11 @@
 
     add-int/2addr v0, v1
 
-    if-gt p1, v0, :cond_4
+    if-gt p1, v0, :cond_c9
 
     iget p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstCount:I
 
-    if-le p1, v1, :cond_4
+    if-le p1, v1, :cond_c9
 
     .line 777
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mSoundManager:Lopenlight/co/camera/utils/SoundManager;
@@ -2134,13 +2134,13 @@
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_0
+    goto :goto_c9
 
     .line 751
-    :pswitch_4
+    :pswitch_7a
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstView:Lopenlight/co/camera/view/burst/BurstView;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8f
 
     .line 752
     new-instance p1, Lopenlight/co/camera/view/burst/BurstView;
@@ -2160,7 +2160,7 @@
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeTouchAndOrientationListener()V
 
     .line 757
-    :cond_1
+    :cond_8f
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getBurstAnimationDelay()J
 
     move-result-wide v2
@@ -2174,7 +2174,7 @@
 
     move-result v4
 
-    if-gt p1, v4, :cond_2
+    if-gt p1, v4, :cond_b1
 
     .line 759
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstView:Lopenlight/co/camera/view/burst/BurstView;
@@ -2197,10 +2197,10 @@
 
     iput p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstCount:I
 
-    goto :goto_0
+    goto :goto_c9
 
     .line 763
-    :cond_2
+    :cond_b1
     iput v1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mBurstCount:I
 
     .line 764
@@ -2213,13 +2213,13 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/burst/BurstView;->updateBurstView(I)V
 
-    goto :goto_0
+    goto :goto_c9
 
     .line 812
-    :cond_3
+    :cond_be
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_c9
 
     .line 813
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2228,29 +2228,29 @@
 
     invoke-virtual {p1, v1, p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->manageControlViews(ZZ)V
 
-    :cond_4
-    :goto_0
+    :cond_c9
+    :goto_c9
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_ca
     .packed-switch 0x64
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_7a
+        :pswitch_5c
+        :pswitch_4c
+        :pswitch_12
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method protected handleSystemUIChangeListener(Z)V
-    .locals 2
+    .registers 4
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     .line 831
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 833
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2262,16 +2262,16 @@
     invoke-virtual {p1, v0, v1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->manageControlViews(ZZ)V
 
     .line 837
-    :cond_0
+    :cond_e
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->hideSystemUIAfterADelay()V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 841
-    :cond_1
+    :cond_12
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_23
 
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
@@ -2279,20 +2279,20 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_23
 
     const-wide/16 v0, 0x15e
 
     .line 842
     invoke-virtual {p0, v0, v1}, Lopenlight/co/camera/ImagePreviewFragment;->showPrimaryControlWithDelay(J)V
 
-    :cond_2
-    :goto_0
+    :cond_23
+    :goto_23
     return-void
 .end method
 
 .method protected isWithinPreview(Landroid/view/MotionEvent;Z)Z
-    .locals 5
+    .registers 8
 
     .line 667
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -2317,7 +2317,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_80
 
     .line 671
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -2326,13 +2326,13 @@
 
     move-result v0
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_61
 
     const/high16 p2, 0x3fa00000    # 1.25f
 
     cmpg-float p2, v0, p2
 
-    if-gez p2, :cond_1
+    if-gez p2, :cond_61
 
     .line 673
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -2350,7 +2350,7 @@
 
     cmpg-float p2, p2, v1
 
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_5f
 
     .line 675
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -2370,7 +2370,7 @@
 
     cmpl-float p2, p2, v1
 
-    if-gtz p2, :cond_0
+    if-gtz p2, :cond_5f
 
     .line 678
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
@@ -2385,7 +2385,7 @@
 
     cmpg-float p2, p2, v1
 
-    if-ltz p2, :cond_0
+    if-ltz p2, :cond_5f
 
     .line 679
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
@@ -2403,18 +2403,18 @@
 
     cmpl-float p0, p1, p0
 
-    if-gtz p0, :cond_0
+    if-gtz p0, :cond_5f
 
-    goto :goto_0
+    goto :goto_60
 
-    :cond_0
+    :cond_5f
     move v3, v4
 
-    :goto_0
+    :goto_60
     return v3
 
     .line 682
-    :cond_1
+    :cond_61
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result p0
@@ -2423,7 +2423,7 @@
 
     cmpg-float p0, p0, p2
 
-    if-ltz p0, :cond_2
+    if-ltz p0, :cond_7e
 
     .line 683
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -2432,7 +2432,7 @@
 
     cmpl-float p0, p0, v2
 
-    if-gtz p0, :cond_2
+    if-gtz p0, :cond_7e
 
     .line 684
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
@@ -2443,17 +2443,17 @@
 
     cmpg-float p0, p0, p1
 
-    if-ltz p0, :cond_2
+    if-ltz p0, :cond_7e
 
-    goto :goto_1
+    goto :goto_7f
 
-    :cond_2
+    :cond_7e
     move v3, v4
 
-    :goto_1
+    :goto_7f
     return v3
 
-    :cond_3
+    :cond_80
     const-string p0, "1:1"
 
     .line 686
@@ -2461,11 +2461,11 @@
 
     move-result p0
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_89
 
     return v4
 
-    :cond_4
+    :cond_89
     const-string p0, "16:9"
 
     .line 688
@@ -2473,7 +2473,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_9c
 
     .line 689
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -2482,22 +2482,22 @@
 
     cmpl-float p0, p0, v2
 
-    if-gtz p0, :cond_5
+    if-gtz p0, :cond_9a
 
-    goto :goto_2
+    goto :goto_9b
 
-    :cond_5
+    :cond_9a
     move v3, v4
 
-    :goto_2
+    :goto_9b
     return v3
 
-    :cond_6
+    :cond_9c
     return v3
 .end method
 
 .method public onCaptureComplete()V
-    .locals 2
+    .registers 3
 
     .line 354
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -2518,17 +2518,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 358
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeFocusCrossHair()V
 
     .line 360
-    :cond_0
+    :cond_1b
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mSmartAFTriggerMgr:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->stillCaptureCompleted()V
@@ -2537,7 +2537,7 @@
 .end method
 
 .method public onCaptureFailure()V
-    .locals 0
+    .registers 1
 
     .line 366
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->closeAllResourcesAndRestartApp()V
@@ -2546,7 +2546,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 0
+    .registers 4
 
     const p0, 0x7f0b0022
 
@@ -2561,7 +2561,7 @@
 .end method
 
 .method protected onDelayedResume()V
-    .locals 3
+    .registers 4
 
     .line 1208
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -2576,7 +2576,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 1209
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getContext()Landroid/content/Context;
@@ -2602,10 +2602,10 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_1
+    goto :goto_65
 
     .line 1212
-    :cond_0
+    :cond_27
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->addTextureView()V
 
     .line 1214
@@ -2635,19 +2635,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 1217
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->showFtu()V
 
-    goto :goto_0
+    goto :goto_4c
 
     .line 1219
-    :cond_1
+    :cond_49
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->addPrimaryControl()V
 
     .line 1223
-    :goto_0
+    :goto_4c
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->resetThumbNailPath()V
 
     const/4 v0, 0x1
@@ -2674,19 +2674,19 @@
     .line 1233
     invoke-super {p0}, Lopenlight/co/camera/BasePreviewFragment;->onDelayedResume()V
 
-    :goto_1
+    :goto_65
     return-void
 .end method
 
 .method public onImageSaved(ILjava/lang/String;I)V
-    .locals 1
+    .registers 5
 
     .line 286
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p3
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_12
 
     .line 287
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -2699,15 +2699,15 @@
 
     invoke-virtual {p3, v0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :cond_0
+    :cond_12
     const/16 p3, 0x100
 
-    if-ne p1, p3, :cond_2
+    if-ne p1, p3, :cond_2d
 
     .line 295
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     .line 296
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2715,12 +2715,12 @@
     invoke-virtual {p1, p2}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->setThumbnailPath(Ljava/lang/String;)V
 
     .line 299
-    :cond_1
+    :cond_1f
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraPref:Lopenlight/co/lib/content/Prefs;
 
     instance-of p1, p1, Lopenlight/co/camera/utils/CameraPreferences;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_43
 
     .line 300
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -2729,19 +2729,19 @@
 
     invoke-virtual {p0, p2}, Lopenlight/co/camera/utils/CameraPreferences;->addLockedName(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_2
+    :cond_2d
     const/16 p2, 0x23
 
-    if-ne p1, p2, :cond_3
+    if-ne p1, p2, :cond_43
 
     .line 303
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_43
 
     .line 304
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -2754,13 +2754,13 @@
 
     invoke-virtual {p1, p2}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :cond_3
-    :goto_0
+    :cond_43
+    :goto_43
     return-void
 .end method
 
 .method public onPause()V
-    .locals 0
+    .registers 1
 
     .line 237
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->clear()V
@@ -2775,7 +2775,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 229
     invoke-super {p0}, Lopenlight/co/camera/BasePreviewFragment;->onResume()V
@@ -2794,7 +2794,7 @@
 .end method
 
 .method public onStartAnimationForBurstCapture()V
-    .locals 0
+    .registers 1
 
     .line 348
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->captureBurstStartAnimationAndSound()V
@@ -2803,7 +2803,7 @@
 .end method
 
 .method public onStartAnimationForSingleCapture()V
-    .locals 0
+    .registers 1
 
     .line 343
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->captureStartAnimationAndSound()V
@@ -2812,7 +2812,7 @@
 .end method
 
 .method public onStartTimerForCapture(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x0
 
@@ -2822,7 +2822,7 @@
     .line 321
     iget-object v1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 322
     iget-object v1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2833,7 +2833,7 @@
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->updatePrimaryControl()V
 
     .line 327
-    :cond_0
+    :cond_f
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v1
@@ -2887,7 +2887,7 @@
 .end method
 
 .method public onTickListener()V
-    .locals 0
+    .registers 1
 
     .line 264
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mSoundManager:Lopenlight/co/camera/utils/SoundManager;
@@ -2898,7 +2898,7 @@
 .end method
 
 .method public onTimerComplete()V
-    .locals 1
+    .registers 2
 
     .line 256
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->resetTimer()V
@@ -2920,7 +2920,7 @@
 .end method
 
 .method public onUpdateCaptureImageVisiblity(I)V
-    .locals 0
+    .registers 2
 
     .line 338
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCaptureImage:Landroid/widget/ImageView;
@@ -2931,12 +2931,12 @@
 .end method
 
 .method public onUpdateUiForCapture()V
-    .locals 2
+    .registers 3
 
     .line 312
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 313
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2950,12 +2950,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->hideWheelWhileCapture()V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public onViewCreated(Landroid/view/View;Landroid/os/Bundle;)V
-    .locals 2
+    .registers 5
 
     .line 198
     move-object p2, p1
@@ -3084,7 +3084,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_a8
 
     invoke-static {p2, v0, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -3130,7 +3130,7 @@
 
     return-void
 
-    :array_0
+    :array_a8
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -3138,29 +3138,29 @@
 .end method
 
 .method public onYuvImageAvailable(Landroid/media/ImageReader;)V
-    .locals 2
+    .registers 4
 
     .line 269
     invoke-virtual {p1}, Landroid/media/ImageReader;->acquireLatestImage()Landroid/media/Image;
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     return-void
 
     .line 273
-    :cond_0
+    :cond_7
     iget-boolean v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mAcceptStart:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_f
 
     .line 274
     invoke-virtual {p1}, Landroid/media/Image;->close()V
 
     return-void
 
-    :cond_1
+    :cond_f
     const/4 v0, 0x0
 
     .line 277
@@ -3179,7 +3179,7 @@
 .end method
 
 .method protected processHardKeyCapture(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
-    .locals 3
+    .registers 5
 
     .line 704
     sget-object v0, Lopenlight/co/camera/ImagePreviewFragment$4;->$SwitchMap$light$co$camera$listener$HardKeyManager$KeyAction:[I
@@ -3194,29 +3194,29 @@
 
     const/4 v1, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_62
 
-    goto :goto_1
+    goto :goto_60
 
     .line 727
-    :pswitch_0
+    :pswitch_e
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_61
 
     iget-boolean p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mSystemUiVisible:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_61
 
     .line 728
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->restoreViewsOnCaptureRequestComplete()V
 
-    goto :goto_2
+    goto :goto_61
 
     .line 706
-    :pswitch_1
+    :pswitch_1c
     sget-object p1, Lopenlight/co/camera/ImagePreviewFragment$4;->$SwitchMap$light$co$camera$utils$CameraState$StillCaptureMode:[I
 
     iget-object v2, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraState:Lopenlight/co/camera/utils/CameraState;
@@ -3231,7 +3231,7 @@
 
     aget p1, p1, v2
 
-    packed-switch p1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_6c
 
     .line 717
     sget-object p1, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
@@ -3242,10 +3242,10 @@
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_56
 
     .line 709
-    :pswitch_2
+    :pswitch_36
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->HARD_KEY_PRESS_PROCESS:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -3279,42 +3279,42 @@
     invoke-virtual {p1, v1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
     .line 720
-    :goto_0
+    :goto_56
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_61
 
     .line 721
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->hideViewsOnCaptureRequest()V
 
-    goto :goto_2
+    goto :goto_61
 
-    :goto_1
-    :pswitch_3
+    :goto_60
+    :pswitch_60
     move v0, v1
 
-    :cond_0
-    :goto_2
+    :cond_61
+    :goto_61
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_62
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_3
+        :pswitch_1c
+        :pswitch_e
+        :pswitch_60
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_6c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_2
+        :pswitch_36
+        :pswitch_36
     .end packed-switch
 .end method
 
 .method public updateAspectRatio(Z)V
-    .locals 2
+    .registers 4
 
     .line 431
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -3325,7 +3325,7 @@
 
     check-cast v0, Lopenlight/co/camera/managers/CameraManager;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5b
 
     .line 434
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeFocusCrossHair()V
@@ -3359,7 +3359,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_54
 
     const/4 p1, 0x1
 
@@ -3385,16 +3385,16 @@
 
     const/16 v1, 0x438
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_46
 
     const/16 p1, 0x780
 
     .line 446
     invoke-virtual {p0, p1, v1}, Lopenlight/co/camera/ImagePreviewFragment;->configureTransform(II)V
 
-    goto :goto_0
+    goto :goto_5b
 
-    :cond_0
+    :cond_46
     const-string v0, "4:3"
 
     .line 447
@@ -3402,30 +3402,30 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5b
 
     const/16 p1, 0x5a0
 
     .line 448
     invoke-virtual {p0, p1, v1}, Lopenlight/co/camera/ImagePreviewFragment;->configureTransform(II)V
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 451
-    :cond_1
+    :cond_54
     iget-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
     iget-object p0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mSurfaceTextureListener:Landroid/view/TextureView$SurfaceTextureListener;
 
     invoke-virtual {p1, p0}, Lopenlight/co/camera/AutoFitTextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
-    :cond_2
-    :goto_0
+    :cond_5b
+    :goto_5b
     return-void
 .end method
 
 .method public updateHandshakeAssist(Z)V
-    .locals 2
+    .registers 4
 
     .line 412
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -3442,7 +3442,7 @@
 .end method
 
 .method public updateHistogram()V
-    .locals 2
+    .registers 3
 
     .line 418
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mImageReaderManager:Lopenlight/co/camera/ImageReaderManager;
@@ -3469,25 +3469,25 @@
 .end method
 
 .method public updateHudInfo(IJZ)V
-    .locals 2
+    .registers 7
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_b
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_b
 
     .line 394
     invoke-direct {p0, p1, p2, p3, p4}, Lopenlight/co/camera/ImagePreviewFragment;->updateHud(IJZ)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public updateLowLightAssist(Ljava/lang/Byte;)V
-    .locals 2
+    .registers 4
 
     .line 400
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -3504,7 +3504,7 @@
 .end method
 
 .method public updateModeChange()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -3518,7 +3518,7 @@
 .end method
 
 .method public updatePreference()V
-    .locals 3
+    .registers 4
 
     .line 461
     iget v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mCurrentIso:I
@@ -3531,12 +3531,12 @@
 .end method
 
 .method protected updateRotateHistogramView(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 4
+    .registers 6
 
     .line 589
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mHistogram:Lopenlight/co/lib/view/HistogramView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment;->mHistogram:Lopenlight/co/lib/view/HistogramView;
 
@@ -3544,7 +3544,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2d
 
     .line 590
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -3577,12 +3577,12 @@
 
     invoke-static {p0, v0, p1}, Lopenlight/co/lib/utils/AnimationUtils;->rotateOnOrientationChange(Landroid/view/View;II)V
 
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 .method public updateTripodAssist(Ljava/lang/Byte;)V
-    .locals 2
+    .registers 4
 
     .line 406
     invoke-virtual {p0}, Lopenlight/co/camera/ImagePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -3599,7 +3599,7 @@
 .end method
 
 .method public updateUiOnCaptureComplete()V
-    .locals 0
+    .registers 1
 
     .line 371
     invoke-direct {p0}, Lopenlight/co/camera/ImagePreviewFragment;->removeBurstView()V

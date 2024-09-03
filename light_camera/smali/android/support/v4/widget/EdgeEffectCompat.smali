@@ -22,14 +22,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 38
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 39
     new-instance v0, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectApi21Impl;
@@ -38,22 +38,22 @@
 
     sput-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectBaseImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 41
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectBaseImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public static onPull(Landroid/widget/EdgeEffect;FF)V
-    .locals 1
+    .registers 4
 
     .line 174
     sget-object v0, Landroid/support/v4/widget/EdgeEffectCompat;->IMPL:Landroid/support/v4/widget/EdgeEffectCompat$EdgeEffectBaseImpl;
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public finish()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public isFinished()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public onAbsorb(I)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public onPull(F)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -157,7 +157,7 @@
 .end method
 
 .method public onPull(FF)Z
-    .locals 1
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -174,7 +174,7 @@
 .end method
 
 .method public onRelease()Z
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public setSize(II)V
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

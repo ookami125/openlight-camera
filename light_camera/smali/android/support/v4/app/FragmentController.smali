@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/support/v4/app/FragmentHostCallback;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -35,7 +35,7 @@
 .end method
 
 .method public static final createController(Landroid/support/v4/app/FragmentHostCallback;)Landroid/support/v4/app/FragmentController;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public attachHost(Landroid/support/v4/app/Fragment;)V
-    .locals 2
+    .registers 4
 
     .line 95
     iget-object v0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -73,7 +73,7 @@
 .end method
 
 .method public dispatchActivityCreated()V
-    .locals 0
+    .registers 1
 
     .line 192
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -86,7 +86,7 @@
 .end method
 
 .method public dispatchConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 2
 
     .line 295
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -99,7 +99,7 @@
 .end method
 
 .method public dispatchContextItemSelected(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     .line 357
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -114,7 +114,7 @@
 .end method
 
 .method public dispatchCreate()V
-    .locals 0
+    .registers 1
 
     .line 181
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -127,7 +127,7 @@
 .end method
 
 .method public dispatchCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)Z
-    .locals 0
+    .registers 3
 
     .line 319
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -142,7 +142,7 @@
 .end method
 
 .method public dispatchDestroy()V
-    .locals 0
+    .registers 1
 
     .line 262
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -155,7 +155,7 @@
 .end method
 
 .method public dispatchDestroyView()V
-    .locals 0
+    .registers 1
 
     .line 251
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -168,7 +168,7 @@
 .end method
 
 .method public dispatchLowMemory()V
-    .locals 0
+    .registers 1
 
     .line 307
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -181,7 +181,7 @@
 .end method
 
 .method public dispatchMultiWindowModeChanged(Z)V
-    .locals 0
+    .registers 2
 
     .line 273
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -194,7 +194,7 @@
 .end method
 
 .method public dispatchOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 2
 
     .line 344
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -209,7 +209,7 @@
 .end method
 
 .method public dispatchOptionsMenuClosed(Landroid/view/Menu;)V
-    .locals 0
+    .registers 2
 
     .line 368
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -222,7 +222,7 @@
 .end method
 
 .method public dispatchPause()V
-    .locals 0
+    .registers 1
 
     .line 225
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -235,7 +235,7 @@
 .end method
 
 .method public dispatchPictureInPictureModeChanged(Z)V
-    .locals 0
+    .registers 2
 
     .line 284
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -248,7 +248,7 @@
 .end method
 
 .method public dispatchPrepareOptionsMenu(Landroid/view/Menu;)Z
-    .locals 0
+    .registers 2
 
     .line 331
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -263,7 +263,7 @@
 .end method
 
 .method public dispatchReallyStop()V
-    .locals 0
+    .registers 1
 
     .line 240
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -276,7 +276,7 @@
 .end method
 
 .method public dispatchResume()V
-    .locals 0
+    .registers 1
 
     .line 214
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -289,7 +289,7 @@
 .end method
 
 .method public dispatchStart()V
-    .locals 0
+    .registers 1
 
     .line 203
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -302,7 +302,7 @@
 .end method
 
 .method public dispatchStop()V
-    .locals 0
+    .registers 1
 
     .line 236
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -315,7 +315,7 @@
 .end method
 
 .method public doLoaderDestroy()V
-    .locals 0
+    .registers 1
 
     .line 411
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -326,7 +326,7 @@
 .end method
 
 .method public doLoaderRetain()V
-    .locals 0
+    .registers 1
 
     .line 404
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -337,7 +337,7 @@
 .end method
 
 .method public doLoaderStart()V
-    .locals 0
+    .registers 1
 
     .line 386
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -348,7 +348,7 @@
 .end method
 
 .method public doLoaderStop(Z)V
-    .locals 0
+    .registers 2
 
     .line 397
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -359,7 +359,7 @@
 .end method
 
 .method public dumpLoaders(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
+    .registers 5
 
     .line 443
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -370,7 +370,7 @@
 .end method
 
 .method public execPendingActions()Z
-    .locals 0
+    .registers 1
 
     .line 379
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -385,7 +385,7 @@
 .end method
 
 .method public findFragmentByWho(Ljava/lang/String;)Landroid/support/v4/app/Fragment;
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -402,7 +402,7 @@
 .end method
 
 .method public getActiveFragments(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -428,7 +428,7 @@
 .end method
 
 .method public getActiveFragmentsCount()I
-    .locals 0
+    .registers 1
 
     .line 80
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -443,7 +443,7 @@
 .end method
 
 .method public getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
-    .locals 0
+    .registers 1
 
     .line 58
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -456,7 +456,7 @@
 .end method
 
 .method public getSupportLoaderManager()Landroid/support/v4/app/LoaderManager;
-    .locals 0
+    .registers 1
 
     .line 65
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -469,7 +469,7 @@
 .end method
 
 .method public noteStateNotSaved()V
-    .locals 0
+    .registers 1
 
     .line 118
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -482,7 +482,7 @@
 .end method
 
 .method public onCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
-    .locals 0
+    .registers 5
 
     .line 111
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -497,7 +497,7 @@
 .end method
 
 .method public reportLoaderStart()V
-    .locals 0
+    .registers 1
 
     .line 418
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -508,7 +508,7 @@
 .end method
 
 .method public restoreAllState(Landroid/os/Parcelable;Landroid/support/v4/app/FragmentManagerNonConfig;)V
-    .locals 0
+    .registers 3
 
     .line 149
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -521,7 +521,7 @@
 .end method
 
 .method public restoreAllState(Landroid/os/Parcelable;Ljava/util/List;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -552,7 +552,7 @@
 .end method
 
 .method public restoreLoaderNonConfig(Landroid/support/v4/util/SimpleArrayMap;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -572,7 +572,7 @@
 .end method
 
 .method public retainLoaderNonConfig()Landroid/support/v4/util/SimpleArrayMap;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -594,7 +594,7 @@
 .end method
 
 .method public retainNestedNonConfig()Landroid/support/v4/app/FragmentManagerNonConfig;
-    .locals 0
+    .registers 1
 
     .line 170
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;
@@ -609,7 +609,7 @@
 .end method
 
 .method public retainNonConfig()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -631,24 +631,24 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     .line 162
     invoke-virtual {p0}, Landroid/support/v4/app/FragmentManagerNonConfig;->getFragments()Ljava/util/List;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_10
     return-object p0
 .end method
 
 .method public saveAllState()Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
 
     .line 125
     iget-object p0, p0, Landroid/support/v4/app/FragmentController;->mHost:Landroid/support/v4/app/FragmentHostCallback;

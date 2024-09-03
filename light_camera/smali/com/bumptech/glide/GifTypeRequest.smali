@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/GenericRequestBuilder;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/RequestManager$OptionsApplier;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 .end method
 
 .method private static buildProvider(Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/provider/FixedLoadProvider;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -101,14 +101,14 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
-    if-nez p3, :cond_1
+    :cond_4
+    if-nez p3, :cond_c
 
     .line 32
     const-class p3, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
@@ -118,7 +118,7 @@
     move-result-object p3
 
     .line 34
-    :cond_1
+    :cond_c
     const-class p2, Ljava/io/InputStream;
 
     const-class v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public toBytes()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -165,7 +165,7 @@
 .end method
 
 .method public transcode(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Ljava/lang/Class;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",

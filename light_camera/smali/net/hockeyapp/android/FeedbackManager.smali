@@ -18,13 +18,13 @@
 
 .field private static final SCREENSHOT_NOTIFICATION_ID:I = 0x1
 
-.field private static currentActivity:Landroid/app/Activity;
+.field private static currentActivity:Landroid/app/Activity; = null
 
-.field private static identifier:Ljava/lang/String;
+.field private static identifier:Ljava/lang/String; = null
 
-.field private static lastListener:Lnet/hockeyapp/android/FeedbackManagerListener;
+.field private static lastListener:Lnet/hockeyapp/android/FeedbackManagerListener; = null
 
-.field private static notificationActive:Z
+.field private static notificationActive:Z = false
 
 .field private static receiver:Landroid/content/BroadcastReceiver;
 
@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 84
     sget-object v0, Lnet/hockeyapp/android/objects/FeedbackUserDataElement;->REQUIRED:Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/Context;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-static {p0}, Lnet/hockeyapp/android/FeedbackManager;->getURLString(Landroid/content/Context;)Ljava/lang/String;
@@ -82,7 +82,7 @@
 .end method
 
 .method public static checkForAnswersAndNotify(Landroid/content/Context;)V
-    .locals 14
+    .registers 15
 
     .line 210
     invoke-static {}, Lnet/hockeyapp/android/utils/PrefsUtil;->getInstance()Lnet/hockeyapp/android/utils/PrefsUtil;
@@ -93,11 +93,11 @@
 
     move-result-object v9
 
-    if-nez v9, :cond_0
+    if-nez v9, :cond_b
 
     return-void
 
-    :cond_0
+    :cond_b
     const-string v0, "net.hockeyapp.android.feedback"
 
     const/4 v12, 0x0
@@ -158,7 +158,7 @@
 .end method
 
 .method private static endNotification()V
-    .locals 2
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -192,7 +192,7 @@
 .end method
 
 .method public static getLastListener()Lnet/hockeyapp/android/FeedbackManagerListener;
-    .locals 1
+    .registers 1
 
     .line 242
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->lastListener:Lnet/hockeyapp/android/FeedbackManagerListener;
@@ -201,7 +201,7 @@
 .end method
 
 .method public static getRequireUserEmail()Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
-    .locals 1
+    .registers 1
 
     .line 279
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->requireUserEmail:Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
@@ -210,7 +210,7 @@
 .end method
 
 .method public static getRequireUserName()Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
-    .locals 1
+    .registers 1
 
     .line 261
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->requireUserName:Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
@@ -219,7 +219,7 @@
 .end method
 
 .method private static getURLString(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 252
     new-instance p0, Ljava/lang/StringBuilder;
@@ -250,21 +250,21 @@
 .end method
 
 .method public static register(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
 
     .line 107
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->getAppIdentifier(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 108
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     .line 111
     invoke-static {p0, v0}, Lnet/hockeyapp/android/FeedbackManager;->register(Landroid/content/Context;Ljava/lang/String;)V
@@ -272,7 +272,7 @@
     return-void
 
     .line 109
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "HockeyApp app identifier was not configured correctly in manifest or build configuration."
@@ -283,7 +283,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -294,9 +294,9 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/FeedbackManagerListener;)V
-    .locals 0
+    .registers 4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     .line 145
     invoke-static {p2}, Lnet/hockeyapp/android/utils/Util;->sanitizeAppIdentifier(Ljava/lang/String;)Ljava/lang/String;
@@ -314,12 +314,12 @@
     .line 149
     invoke-static {p0}, Lnet/hockeyapp/android/Constants;->loadFromContext(Landroid/content/Context;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/FeedbackManagerListener;)V
-    .locals 1
+    .registers 4
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -330,7 +330,7 @@
 .end method
 
 .method public static setActivityForScreenshot(Landroid/app/Activity;)V
-    .locals 0
+    .registers 1
 
     .line 316
     sput-object p0, Lnet/hockeyapp/android/FeedbackManager;->currentActivity:Landroid/app/Activity;
@@ -338,17 +338,17 @@
     .line 318
     sget-boolean p0, Lnet/hockeyapp/android/FeedbackManager;->notificationActive:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_9
 
     .line 319
     invoke-static {}, Lnet/hockeyapp/android/FeedbackManager;->startNotification()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static setRequireUserEmail(Lnet/hockeyapp/android/objects/FeedbackUserDataElement;)V
-    .locals 0
+    .registers 1
 
     .line 288
     sput-object p0, Lnet/hockeyapp/android/FeedbackManager;->requireUserEmail:Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
@@ -357,7 +357,7 @@
 .end method
 
 .method public static setRequireUserName(Lnet/hockeyapp/android/objects/FeedbackUserDataElement;)V
-    .locals 0
+    .registers 1
 
     .line 270
     sput-object p0, Lnet/hockeyapp/android/FeedbackManager;->requireUserName:Lnet/hockeyapp/android/objects/FeedbackUserDataElement;
@@ -366,7 +366,7 @@
 .end method
 
 .method public static setUserEmail(Ljava/lang/String;)V
-    .locals 0
+    .registers 1
 
     .line 306
     sput-object p0, Lnet/hockeyapp/android/FeedbackManager;->userEmail:Ljava/lang/String;
@@ -375,7 +375,7 @@
 .end method
 
 .method public static setUserName(Ljava/lang/String;)V
-    .locals 0
+    .registers 1
 
     .line 297
     sput-object p0, Lnet/hockeyapp/android/FeedbackManager;->userName:Ljava/lang/String;
@@ -384,16 +384,16 @@
 .end method
 
 .method public static varargs showFeedbackActivity(Landroid/content/Context;Landroid/os/Bundle;[Landroid/net/Uri;)V
-    .locals 4
+    .registers 7
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_5c
 
     const/4 v0, 0x0
 
     .line 180
     sget-object v1, Lnet/hockeyapp/android/FeedbackManager;->lastListener:Lnet/hockeyapp/android/FeedbackManagerListener;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     .line 181
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->lastListener:Lnet/hockeyapp/android/FeedbackManagerListener;
@@ -402,17 +402,17 @@
 
     move-result-object v0
 
-    :cond_0
-    if-nez v0, :cond_1
+    :cond_d
+    if-nez v0, :cond_11
 
     .line 184
     const-class v0, Lnet/hockeyapp/android/FeedbackActivity;
 
     .line 186
-    :cond_1
+    :cond_11
     sget-object v1, Lnet/hockeyapp/android/FeedbackManager;->lastListener:Lnet/hockeyapp/android/FeedbackManagerListener;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     sget-object v1, Lnet/hockeyapp/android/FeedbackManager;->lastListener:Lnet/hockeyapp/android/FeedbackManagerListener;
 
@@ -420,34 +420,34 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1f
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_2
+    :cond_1f
     const/4 v1, 0x0
 
     .line 188
-    :goto_0
+    :goto_20
     new-instance v2, Landroid/content/Intent;
 
     invoke-direct {v2}, Landroid/content/Intent;-><init>()V
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_30
 
     .line 189
     invoke-virtual {p1}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_30
 
     .line 190
     invoke-virtual {v2, p1}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
-    :cond_3
+    :cond_30
     const/high16 p1, 0x10000000
 
     .line 192
@@ -492,12 +492,12 @@
     .line 199
     invoke-virtual {p0, v2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    :cond_4
+    :cond_5c
     return-void
 .end method
 
 .method public static varargs showFeedbackActivity(Landroid/content/Context;[Landroid/net/Uri;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -508,7 +508,7 @@
 .end method
 
 .method private static startNotification()V
-    .locals 7
+    .registers 7
 
     const/4 v0, 0x1
 
@@ -579,7 +579,7 @@
     .line 406
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->receiver:Landroid/content/BroadcastReceiver;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_47
 
     .line 407
     new-instance v0, Lnet/hockeyapp/android/FeedbackManager$3;
@@ -589,7 +589,7 @@
     sput-object v0, Lnet/hockeyapp/android/FeedbackManager;->receiver:Landroid/content/BroadcastReceiver;
 
     .line 414
-    :cond_0
+    :cond_47
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->currentActivity:Landroid/app/Activity;
 
     sget-object v1, Lnet/hockeyapp/android/FeedbackManager;->receiver:Landroid/content/BroadcastReceiver;
@@ -606,7 +606,7 @@
 .end method
 
 .method public static takeScreenshot(Landroid/content/Context;)V
-    .locals 8
+    .registers 9
 
     .line 344
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->currentActivity:Landroid/app/Activity;
@@ -663,12 +663,12 @@
     move v5, v1
 
     .line 352
-    :goto_0
+    :goto_33
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_59
 
     .line 353
     new-instance v4, Ljava/io/File;
@@ -697,10 +697,10 @@
 
     add-int/2addr v5, v1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 357
-    :cond_0
+    :cond_59
     new-instance v2, Lnet/hockeyapp/android/FeedbackManager$2;
 
     invoke-direct {v2, v0, p0}, Lnet/hockeyapp/android/FeedbackManager$2;-><init>(Landroid/graphics/Bitmap;Landroid/content/Context;)V
@@ -772,7 +772,7 @@
 .end method
 
 .method public static unregister()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -783,21 +783,21 @@
 .end method
 
 .method public static unsetCurrentActivityForScreenshot(Landroid/app/Activity;)V
-    .locals 1
+    .registers 2
 
     .line 329
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->currentActivity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     sget-object v0, Lnet/hockeyapp/android/FeedbackManager;->currentActivity:Landroid/app/Activity;
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_9
 
-    goto :goto_0
+    goto :goto_10
 
     .line 333
-    :cond_0
+    :cond_9
     invoke-static {}, Lnet/hockeyapp/android/FeedbackManager;->endNotification()V
 
     const/4 p0, 0x0
@@ -807,7 +807,7 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     return-void
 .end method

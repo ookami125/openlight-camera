@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(Lopenlight/co/camera/view/statusbar/StatusAdapter;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 217
     iput-object p1, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;->this$0:Lopenlight/co/camera/view/statusbar/StatusAdapter;
@@ -45,7 +45,7 @@
 .end method
 
 .method synthetic constructor <init>(Lopenlight/co/camera/view/statusbar/StatusAdapter;Landroid/view/View;Lopenlight/co/camera/view/statusbar/StatusAdapter$1;)V
-    .locals 0
+    .registers 4
 
     .line 214
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;-><init>(Lopenlight/co/camera/view/statusbar/StatusAdapter;Landroid/view/View;)V

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/fihtdc/UploadAgentService/UploadAgent;)V
-    .locals 0
+    .registers 2
 
     .line 137
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -33,26 +33,26 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .registers 6
 
     .line 140
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/16 v1, 0x63
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_ae
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_c2
 
     .line 186
     invoke-super {p0, p1}, Landroid/os/Handler;->handleMessage(Landroid/os/Message;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_c0
 
     .line 172
-    :pswitch_0
+    :pswitch_f
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object p1
@@ -66,7 +66,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     .line 174
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -82,18 +82,18 @@
 
     invoke-virtual {p0, p1}, Lcom/fihtdc/UploadAgentService/UploadAgent;->onCompleteWrite([Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_c0
 
     .line 177
-    :cond_0
+    :cond_2c
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     invoke-virtual {p0, v1}, Lcom/fihtdc/UploadAgentService/UploadAgent;->onCompleteWrite([Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_c0
 
     .line 146
-    :pswitch_1
+    :pswitch_33
     iget-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -102,10 +102,10 @@
 
     invoke-virtual {p1, p0}, Lcom/fihtdc/UploadAgentService/UploadAgent;->sendPrepareUploadFiles(Ljava/util/HashMap;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_c0
 
     .line 149
-    :pswitch_2
+    :pswitch_3e
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v0, v0, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -117,21 +117,21 @@
     .line 150
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c0
 
     .line 151
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     instance-of v0, v0, Landroid/os/ParcelFileDescriptor;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c0
 
     .line 152
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object v0, v0, Lcom/fihtdc/UploadAgentService/UploadAgent;->uploadFiles:Ljava/util/HashMap;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c0
 
     .line 153
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -142,14 +142,14 @@
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_c0
 
     .line 154
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_c0
 
     .line 155
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -170,6 +170,7 @@
     .line 157
     iget-object v2, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
+    # getter for: Lcom/fihtdc/UploadAgentService/UploadAgent;->writeFilesHM:Ljava/util/HashMap;
     invoke-static {v2}, Lcom/fihtdc/UploadAgentService/UploadAgent;->access$0(Lcom/fihtdc/UploadAgentService/UploadAgent;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -187,6 +188,7 @@
     .line 159
     iget-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
+    # getter for: Lcom/fihtdc/UploadAgentService/UploadAgent;->writeFilesHM:Ljava/util/HashMap;
     invoke-static {p1}, Lcom/fihtdc/UploadAgentService/UploadAgent;->access$0(Lcom/fihtdc/UploadAgentService/UploadAgent;)Ljava/util/HashMap;
 
     move-result-object p1
@@ -221,10 +223,10 @@
 
     invoke-virtual {p1, p0, v0, v1}, Lcom/fihtdc/UploadAgentService/UploadAgent;->deliverMessage(Landroid/os/Messenger;ILandroid/os/Bundle;)V
 
-    goto :goto_0
+    goto :goto_c0
 
     .line 181
-    :cond_1
+    :cond_ae
     iget-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
     iget-object p1, p1, Lcom/fihtdc/UploadAgentService/UploadAgent;->TAG:Ljava/lang/String;
@@ -241,20 +243,21 @@
     .line 183
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$uploadHandler;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
 
+    # invokes: Lcom/fihtdc/UploadAgentService/UploadAgent;->onAgentServiceOff()V
     invoke-static {p0}, Lcom/fihtdc/UploadAgentService/UploadAgent;->access$2(Lcom/fihtdc/UploadAgentService/UploadAgent;)V
 
-    :cond_2
-    :goto_0
-    :pswitch_3
+    :cond_c0
+    :goto_c0
+    :pswitch_c0
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c2
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_c0
+        :pswitch_3e
+        :pswitch_33
+        :pswitch_f
     .end packed-switch
 .end method

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;)V
-    .locals 0
+    .registers 2
 
     .line 102
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
 
     .line 108
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -46,7 +46,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
 
@@ -57,7 +57,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 111
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
@@ -71,33 +71,33 @@
     .line 112
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$LayoutManager;->onInitializeAccessibilityNodeInfoForItem(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
 
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
 
     .line 118
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 p0, 0x1
 
     return p0
 
     .line 121
-    :cond_0
+    :cond_8
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;->shouldIgnore()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_27
 
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
 
@@ -108,7 +108,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 123
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->mRecyclerViewDelegate:Landroid/support/v7/widget/RecyclerViewAccessibilityDelegate;
@@ -126,7 +126,7 @@
 
     return p0
 
-    :cond_1
+    :cond_27
     const/4 p0, 0x0
 
     return p0

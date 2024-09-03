@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/fihtdc/UploadAgentService/UploadAgent;)V
-    .locals 0
+    .registers 2
 
     .line 863
     iput-object p1, p0, Lcom/fihtdc/UploadAgentService/UploadAgent$LongComparator;->this$0:Lcom/fihtdc/UploadAgentService/UploadAgent;
@@ -45,16 +45,16 @@
 
 # virtual methods
 .method public compare(Ljava/lang/Long;Ljava/lang/Long;)I
-    .locals 2
+    .registers 5
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_4
 
     const/4 p0, 0x0
 
     return p0
 
     .line 870
-    :cond_0
+    :cond_4
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
 
     move-result-wide p0
@@ -65,20 +65,20 @@
 
     cmp-long p0, p0, v0
 
-    if-lez p0, :cond_1
+    if-lez p0, :cond_12
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_12
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 1
     check-cast p1, Ljava/lang/Long;

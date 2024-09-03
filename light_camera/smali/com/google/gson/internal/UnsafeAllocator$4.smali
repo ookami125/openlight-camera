@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 101
     invoke-direct {p0}, Lcom/google/gson/internal/UnsafeAllocator;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public newInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

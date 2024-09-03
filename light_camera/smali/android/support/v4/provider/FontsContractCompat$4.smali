@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Landroid/os/Handler;Landroid/support/v4/provider/FontsContractCompat$FontRequestCallback;)V
-    .locals 0
+    .registers 5
 
     .line 477
     iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$context:Landroid/content/Context;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 6
+    .registers 7
 
     .line 483
     :try_start_0
@@ -61,22 +61,22 @@
     invoke-static {v0, v2, v1}, Landroid/support/v4/provider/FontsContractCompat;->fetchFonts(Landroid/content/Context;Landroid/os/CancellationSignal;Landroid/support/v4/provider/FontRequest;)Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_9} :catch_95
 
     .line 495
     invoke-virtual {v0}, Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult;->getStatusCode()I
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_37
 
     .line 496
     invoke-virtual {v0}, Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult;->getStatusCode()I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_a0
 
     .line 517
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
@@ -90,7 +90,7 @@
     return-void
 
     .line 507
-    :pswitch_0
+    :pswitch_21
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/support/v4/provider/FontsContractCompat$4$3;
@@ -102,7 +102,7 @@
     return-void
 
     .line 498
-    :pswitch_1
+    :pswitch_2c
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/support/v4/provider/FontsContractCompat$4$2;
@@ -114,28 +114,28 @@
     return-void
 
     .line 528
-    :cond_0
+    :cond_37
     invoke-virtual {v0}, Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult;->getFonts()[Landroid/support/v4/provider/FontsContractCompat$FontInfo;
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8a
 
     .line 529
     array-length v1, v0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_41
 
-    goto :goto_2
+    goto :goto_8a
 
     .line 539
-    :cond_1
+    :cond_41
     array-length v1, v0
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v1, :cond_4
+    :goto_43
+    if-ge v3, v1, :cond_6c
 
     aget-object v4, v0, v3
 
@@ -144,14 +144,14 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_69
 
     .line 543
     invoke-virtual {v4}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->getResultCode()I
 
     move-result v0
 
-    if-gez v0, :cond_2
+    if-gez v0, :cond_5e
 
     .line 547
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
@@ -162,10 +162,10 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_1
+    goto :goto_68
 
     .line 555
-    :cond_2
+    :cond_5e
     iget-object v1, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v2, Landroid/support/v4/provider/FontsContractCompat$4$7;
@@ -174,23 +174,23 @@
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :goto_1
+    :goto_68
     return-void
 
-    :cond_3
+    :cond_69
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_43
 
     .line 566
-    :cond_4
+    :cond_6c
     iget-object v1, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$context:Landroid/content/Context;
 
     invoke-static {v1, v2, v0}, Landroid/support/v4/provider/FontsContractCompat;->buildTypeface(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_7f
 
     .line 571
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
@@ -204,7 +204,7 @@
     return-void
 
     .line 581
-    :cond_5
+    :cond_7f
     iget-object v1, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v2, Landroid/support/v4/provider/FontsContractCompat$4$9;
@@ -216,8 +216,8 @@
     return-void
 
     .line 530
-    :cond_6
-    :goto_2
+    :cond_8a
+    :goto_8a
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/support/v4/provider/FontsContractCompat$4$5;
@@ -229,7 +229,7 @@
     return-void
 
     .line 485
-    :catch_0
+    :catch_95
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$4;->val$callerThreadHandler:Landroid/os/Handler;
 
     new-instance v1, Landroid/support/v4/provider/FontsContractCompat$4$1;
@@ -240,9 +240,9 @@
 
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_a0
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_2c
+        :pswitch_21
     .end packed-switch
 .end method

@@ -50,13 +50,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 27
     invoke-direct {p0}, Landroid/app/ListActivity;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method private createAdapter()V
-    .locals 3
+    .registers 4
 
     .line 121
     new-instance v0, Lopenlight/co/camera/LogViewerActivity$3;
@@ -98,7 +98,7 @@
 
 # virtual methods
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
 
     .line 64
     invoke-super {p0, p1}, Landroid/app/ListActivity;->onCreate(Landroid/os/Bundle;)V
@@ -157,7 +157,7 @@
 .end method
 
 .method onFilterChanged()V
-    .locals 4
+    .registers 5
 
     .line 115
     iget-object v0, p0, Lopenlight/co/camera/LogViewerActivity;->mHandler:Landroid/os/Handler;
@@ -168,7 +168,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 116
     iget-object p0, p0, Lopenlight/co/camera/LogViewerActivity;->mHandler:Landroid/os/Handler;
@@ -177,12 +177,12 @@
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onLogChanged()V
-    .locals 4
+    .registers 5
 
     .line 108
     iget-object v0, p0, Lopenlight/co/camera/LogViewerActivity;->mHandler:Landroid/os/Handler;
@@ -193,7 +193,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 109
     iget-object p0, p0, Lopenlight/co/camera/LogViewerActivity;->mHandler:Landroid/os/Handler;
@@ -202,12 +202,12 @@
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method protected onPause()V
-    .locals 0
+    .registers 1
 
     .line 101
     invoke-super {p0}, Landroid/app/ListActivity;->onPause()V
@@ -219,7 +219,7 @@
 .end method
 
 .method protected onResume()V
-    .locals 1
+    .registers 2
 
     .line 94
     invoke-super {p0}, Landroid/app/ListActivity;->onResume()V
@@ -236,11 +236,11 @@
 .end method
 
 .method refresh(Z)V
-    .locals 9
+    .registers 11
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_39
 
     .line 149
     iget-object v1, p0, Lopenlight/co/camera/LogViewerActivity;->mAdapter:Landroid/widget/ArrayAdapter;
@@ -261,14 +261,14 @@
 
     const/4 v3, 0x2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_17
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 153
-    :cond_0
+    :cond_17
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -277,7 +277,7 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_1f
     iput-object v1, p0, Lopenlight/co/camera/LogViewerActivity;->mTagPattern:Ljava/util/regex/Pattern;
 
     .line 154
@@ -292,14 +292,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2f
 
     move-object v1, v0
 
-    goto :goto_1
+    goto :goto_37
 
     .line 157
-    :cond_1
+    :cond_2f
     invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
@@ -308,23 +308,23 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_37
     iput-object v1, p0, Lopenlight/co/camera/LogViewerActivity;->mMessagePattern:Ljava/util/regex/Pattern;
 
     .line 161
-    :cond_2
+    :cond_39
     iget-object v1, p0, Lopenlight/co/camera/LogViewerActivity;->mAdapter:Landroid/widget/ArrayAdapter;
 
     invoke-virtual {v1}, Landroid/widget/ArrayAdapter;->getCount()I
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_42
 
-    goto :goto_2
+    goto :goto_4c
 
     .line 162
-    :cond_3
+    :cond_42
     iget-object v0, p0, Lopenlight/co/camera/LogViewerActivity;->mAdapter:Landroid/widget/ArrayAdapter;
 
     add-int/lit8 v1, v1, -0x1
@@ -335,21 +335,21 @@
 
     check-cast v0, Lopenlight/co/lib/utils/LogUtil$Entry;
 
-    :goto_2
+    :goto_4c
     const/4 v1, -0x1
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_51
 
     move v0, v1
 
-    goto :goto_3
+    goto :goto_53
 
     .line 163
-    :cond_4
+    :cond_51
     iget v0, v0, Lopenlight/co/lib/utils/LogUtil$Entry;->id:I
 
     .line 164
-    :goto_3
+    :goto_53
     invoke-static {v0}, Lopenlight/co/lib/utils/LogUtil;->getEntries(I)[Lopenlight/co/lib/utils/LogUtil$Entry;
 
     move-result-object v0
@@ -362,14 +362,14 @@
     .line 168
     array-length v3, v0
 
-    :cond_5
+    :cond_5d
     add-int/2addr v3, v1
 
     const/4 v4, 0x0
 
     const v5, 0xc350
 
-    if-ltz v3, :cond_8
+    if-ltz v3, :cond_93
 
     .line 169
     aget-object v6, v0, v3
@@ -377,7 +377,7 @@
     .line 170
     iget-object v7, p0, Lopenlight/co/camera/LogViewerActivity;->mTagPattern:Ljava/util/regex/Pattern;
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_78
 
     iget-object v7, p0, Lopenlight/co/camera/LogViewerActivity;->mTagPattern:Ljava/util/regex/Pattern;
 
@@ -391,12 +391,12 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_5d
 
-    :cond_6
+    :cond_78
     iget-object v7, p0, Lopenlight/co/camera/LogViewerActivity;->mMessagePattern:Ljava/util/regex/Pattern;
 
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_8a
 
     iget-object v7, p0, Lopenlight/co/camera/LogViewerActivity;->mMessagePattern:Ljava/util/regex/Pattern;
 
@@ -411,10 +411,10 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_5d
 
     .line 172
-    :cond_7
+    :cond_8a
     invoke-virtual {v2, v4, v6}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
     .line 173
@@ -422,10 +422,10 @@
 
     move-result v6
 
-    if-ne v6, v5, :cond_5
+    if-ne v6, v5, :cond_5d
 
     .line 180
-    :cond_8
+    :cond_93
     iget-object v0, p0, Lopenlight/co/camera/LogViewerActivity;->mAdapter:Landroid/widget/ArrayAdapter;
 
     invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->getCount()I
@@ -440,20 +440,20 @@
 
     sub-int/2addr v0, v5
 
-    if-lt v0, v5, :cond_9
+    if-lt v0, v5, :cond_a7
 
     .line 183
     iget-object v0, p0, Lopenlight/co/camera/LogViewerActivity;->mEntries:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    goto :goto_5
+    goto :goto_b2
 
-    :cond_9
+    :cond_a7
     move v1, v4
 
-    :goto_4
-    if-ge v1, v0, :cond_a
+    :goto_a8
+    if-ge v1, v0, :cond_b2
 
     .line 187
     iget-object v3, p0, Lopenlight/co/camera/LogViewerActivity;->mEntries:Ljava/util/ArrayList;
@@ -462,11 +462,11 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_4
+    goto :goto_a8
 
     .line 190
-    :cond_a
-    :goto_5
+    :cond_b2
+    :goto_b2
     iget-object v0, p0, Lopenlight/co/camera/LogViewerActivity;->mEntries:Ljava/util/ArrayList;
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
@@ -476,7 +476,7 @@
 
     invoke-virtual {v0}, Landroid/widget/ArrayAdapter;->notifyDataSetChanged()V
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_cd
 
     .line 195
     invoke-virtual {p0}, Lopenlight/co/camera/LogViewerActivity;->getListView()Landroid/widget/ListView;
@@ -493,6 +493,6 @@
 
     invoke-virtual {p1, p0}, Landroid/widget/ListView;->setSelection(I)V
 
-    :cond_b
+    :cond_cd
     return-void
 .end method

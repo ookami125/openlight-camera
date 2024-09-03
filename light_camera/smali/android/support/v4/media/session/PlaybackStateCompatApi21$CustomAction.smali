@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static getAction(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 81
     check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getExtras(Ljava/lang/Object;)Landroid/os/Bundle;
-    .locals 0
+    .registers 1
 
     .line 92
     check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getIcon(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 89
     check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
@@ -64,7 +64,7 @@
 .end method
 
 .method public static getName(Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     .line 85
     check-cast p0, Landroid/media/session/PlaybackState$CustomAction;
@@ -77,7 +77,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/CharSequence;ILandroid/os/Bundle;)Ljava/lang/Object;
-    .locals 1
+    .registers 5
 
     .line 97
     new-instance v0, Landroid/media/session/PlaybackState$CustomAction$Builder;

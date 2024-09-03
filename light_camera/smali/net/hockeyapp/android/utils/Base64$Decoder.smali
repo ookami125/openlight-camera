@@ -34,21 +34,21 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const/16 v0, 0x100
 
     .line 162
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_12
 
     sput-object v1, Lnet/hockeyapp/android/utils/Base64$Decoder;->DECODE:[I
 
     .line 185
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_216
 
     sput-object v0, Lnet/hockeyapp/android/utils/Base64$Decoder;->DECODE_WEBSAFE:[I
 
@@ -56,7 +56,7 @@
 
     nop
 
-    :array_0
+    :array_12
     .array-data 4
         -0x1
         -0x1
@@ -316,7 +316,7 @@
         -0x1
     .end array-data
 
-    :array_1
+    :array_216
     .array-data 4
         -0x1
         -0x1
@@ -578,7 +578,7 @@
 .end method
 
 .method public constructor <init>(I[B)V
-    .locals 0
+    .registers 3
 
     .line 224
     invoke-direct {p0}, Lnet/hockeyapp/android/utils/Base64$Coder;-><init>()V
@@ -588,17 +588,17 @@
 
     and-int/lit8 p1, p1, 0x8
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 227
     sget-object p1, Lnet/hockeyapp/android/utils/Base64$Decoder;->DECODE:[I
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_c
     sget-object p1, Lnet/hockeyapp/android/utils/Base64$Decoder;->DECODE_WEBSAFE:[I
 
-    :goto_0
+    :goto_e
     iput-object p1, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->alphabet:[I
 
     const/4 p1, 0x0
@@ -615,7 +615,7 @@
 
 # virtual methods
 .method public maxOutputSize(I)I
-    .locals 0
+    .registers 2
 
     mul-int/lit8 p1, p1, 0x3
 
@@ -628,7 +628,7 @@
 .end method
 
 .method public process([BIIZ)Z
-    .locals 11
+    .registers 16
 
     .line 247
     iget v0, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
@@ -637,11 +637,11 @@
 
     const/4 v2, 0x6
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_7
 
     return v1
 
-    :cond_0
+    :cond_7
     add-int/2addr p3, p2
 
     .line 257
@@ -660,17 +660,17 @@
 
     move v3, v1
 
-    :goto_0
+    :goto_12
     const/4 v7, 0x4
 
-    if-ge p2, p3, :cond_b
+    if-ge p2, p3, :cond_e2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_5c
 
-    :goto_1
+    :goto_17
     add-int/lit8 v8, p2, 0x4
 
-    if-gt v8, p3, :cond_1
+    if-gt v8, p3, :cond_58
 
     .line 279
     aget-byte v6, p1, p2
@@ -715,7 +715,7 @@
 
     or-int/2addr v6, v9
 
-    if-ltz v6, :cond_1
+    if-ltz v6, :cond_58
 
     add-int/lit8 p2, v3, 0x2
 
@@ -744,14 +744,14 @@
 
     move p2, v8
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    if-lt p2, p3, :cond_2
+    :cond_58
+    if-lt p2, p3, :cond_5c
 
-    goto/16 :goto_5
+    goto/16 :goto_e2
 
-    :cond_2
+    :cond_5c
     add-int/lit8 v8, p2, 0x1
 
     .line 298
@@ -765,38 +765,38 @@
 
     const/4 v10, -0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_114
 
-    goto/16 :goto_4
+    goto/16 :goto_df
 
-    :pswitch_0
-    if-eq p2, v10, :cond_a
+    :pswitch_6b
+    if-eq p2, v10, :cond_df
 
     .line 369
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :pswitch_1
-    if-ne p2, v9, :cond_3
+    :pswitch_70
+    if-ne p2, v9, :cond_77
 
     add-int/lit8 p2, v0, 0x1
 
-    :goto_2
+    :goto_74
     move v0, p2
 
-    goto/16 :goto_4
+    goto/16 :goto_df
 
-    :cond_3
-    if-eq p2, v10, :cond_a
+    :cond_77
+    if-eq p2, v10, :cond_df
 
     .line 362
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :pswitch_2
-    if-ltz p2, :cond_4
+    :pswitch_7c
+    if-ltz p2, :cond_97
 
     shl-int/lit8 v0, v6, 0x6
 
@@ -831,10 +831,10 @@
 
     move v0, v1
 
-    goto :goto_4
+    goto :goto_df
 
-    :cond_4
-    if-ne p2, v9, :cond_5
+    :cond_97
+    if-ne p2, v9, :cond_a9
 
     add-int/lit8 p2, v3, 0x1
 
@@ -856,18 +856,18 @@
 
     const/4 p2, 0x5
 
-    goto :goto_2
+    goto :goto_74
 
-    :cond_5
-    if-eq p2, v10, :cond_a
+    :cond_a9
+    if-eq p2, v10, :cond_df
 
     .line 353
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :pswitch_3
-    if-ltz p2, :cond_6
+    :pswitch_ae
+    if-ltz p2, :cond_b6
 
     shl-int/lit8 v6, v6, 0x6
 
@@ -875,10 +875,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_d8
 
-    :cond_6
-    if-ne p2, v9, :cond_7
+    :cond_b6
+    if-ne p2, v9, :cond_c2
 
     add-int/lit8 p2, v3, 0x1
 
@@ -893,18 +893,18 @@
 
     move v0, v7
 
-    goto :goto_4
+    goto :goto_df
 
-    :cond_7
-    if-eq p2, v10, :cond_a
+    :cond_c2
+    if-eq p2, v10, :cond_df
 
     .line 331
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :pswitch_4
-    if-ltz p2, :cond_8
+    :pswitch_c7
+    if-ltz p2, :cond_cf
 
     shl-int/lit8 v6, v6, 0x6
 
@@ -912,45 +912,45 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_3
+    goto :goto_d8
 
-    :cond_8
-    if-eq p2, v10, :cond_a
+    :cond_cf
+    if-eq p2, v10, :cond_df
 
     .line 316
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :pswitch_5
-    if-ltz p2, :cond_9
+    :pswitch_d4
+    if-ltz p2, :cond_da
 
     add-int/lit8 v0, v0, 0x1
 
-    :goto_3
+    :goto_d8
     move v6, p2
 
-    goto :goto_4
+    goto :goto_df
 
-    :cond_9
-    if-eq p2, v10, :cond_a
+    :cond_da
+    if-eq p2, v10, :cond_df
 
     .line 306
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :cond_a
-    :goto_4
+    :cond_df
+    :goto_df
     move p2, v8
 
-    goto/16 :goto_0
+    goto/16 :goto_12
 
-    :cond_b
-    :goto_5
+    :cond_e2
+    :goto_e2
     const/4 p1, 0x1
 
-    if-nez p4, :cond_c
+    if-nez p4, :cond_ec
 
     .line 379
     iput v0, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
@@ -963,18 +963,18 @@
 
     return p1
 
-    :cond_c
-    packed-switch v0, :pswitch_data_1
+    :cond_ec
+    packed-switch v0, :pswitch_data_124
 
-    goto :goto_6
+    goto :goto_10e
 
     .line 410
-    :pswitch_6
+    :pswitch_f0
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
-    :pswitch_7
+    :pswitch_f3
     add-int/lit8 p2, v3, 0x1
 
     shr-int/lit8 p3, v6, 0xa
@@ -993,9 +993,9 @@
     .line 406
     aput-byte p3, v4, p2
 
-    goto :goto_6
+    goto :goto_10e
 
-    :pswitch_8
+    :pswitch_102
     add-int/lit8 p2, v3, 0x1
 
     shr-int/lit8 p3, v6, 0x4
@@ -1007,17 +1007,17 @@
 
     move v3, p2
 
-    goto :goto_6
+    goto :goto_10e
 
     .line 395
-    :pswitch_9
+    :pswitch_10b
     iput v2, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     return v1
 
     .line 418
-    :goto_6
-    :pswitch_a
+    :goto_10e
+    :pswitch_10e
     iput v0, p0, Lnet/hockeyapp/android/utils/Base64$Decoder;->state:I
 
     .line 419
@@ -1027,22 +1027,22 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_114
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_d4
+        :pswitch_c7
+        :pswitch_ae
+        :pswitch_7c
+        :pswitch_70
+        :pswitch_6b
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_124
     .packed-switch 0x0
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
+        :pswitch_10e
+        :pswitch_10b
+        :pswitch_102
+        :pswitch_f3
+        :pswitch_f0
     .end packed-switch
 .end method

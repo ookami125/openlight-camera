@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 11
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method private getIntentFilter()Landroid/content/IntentFilter;
-    .locals 1
+    .registers 2
 
     .line 64
     new-instance p0, Landroid/content/IntentFilter;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getBatteryLevel()I
-    .locals 0
+    .registers 1
 
     .line 48
     iget p0, p0, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->mBatteryLevel:I
@@ -57,7 +57,7 @@
 .end method
 
 .method public getChargingStatus()I
-    .locals 0
+    .registers 1
 
     .line 52
     iget p0, p0, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->mChargingStatus:I
@@ -69,14 +69,14 @@
 .end method
 
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 4
+    .registers 7
 
     .line 21
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_34
 
     const-string v0, "android.intent.action.BATTERY_CHANGED"
 
@@ -85,7 +85,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_34
 
     const-string p1, "level"
 
@@ -107,43 +107,43 @@
 
     const/4 v2, 0x1
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_26
 
     .line 29
     iget v3, p0, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->mBatteryLevel:I
 
-    if-eq v3, p1, :cond_0
+    if-eq v3, p1, :cond_26
 
     .line 31
     iput p1, p0, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->mBatteryLevel:I
 
     move v1, v2
 
-    :cond_0
-    if-eq p2, v0, :cond_1
+    :cond_26
+    if-eq p2, v0, :cond_2f
 
     .line 34
     iget v0, p0, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->mChargingStatus:I
 
-    if-eq v0, p2, :cond_1
+    if-eq v0, p2, :cond_2f
 
     .line 36
     iput p2, p0, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->mChargingStatus:I
 
     move v1, v2
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_2f
+    if-eqz v1, :cond_34
 
     .line 40
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->onBatteryUpdate(II)V
 
-    :cond_2
+    :cond_34
     return-void
 .end method
 
 .method public register(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 56
     invoke-direct {p0}, Lopenlight/co/camera/view/notification/BatteryStatusMonitor;->getIntentFilter()Landroid/content/IntentFilter;
@@ -156,7 +156,7 @@
 .end method
 
 .method public unregister(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 60
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V

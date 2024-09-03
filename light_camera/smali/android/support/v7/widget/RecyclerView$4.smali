@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/RecyclerView;)V
-    .locals 0
+    .registers 2
 
     .line 518
     iput-object p1, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public processAppeared(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)V
-    .locals 0
+    .registers 4
 
     .line 528
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;
@@ -47,7 +47,7 @@
 .end method
 
 .method public processDisappeared(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)V
-    .locals 1
+    .registers 5
     .param p2    # Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public processPersistent(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)V
-    .locals 1
+    .registers 5
     .param p2    # Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -93,7 +93,7 @@
 
     iget-boolean v0, v0, Landroid/support/v7/widget/RecyclerView;->mDataSetHasChangedAfterLayout:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 539
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;
@@ -104,17 +104,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_29
 
     .line 541
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->postAnimationRunner()V
 
-    goto :goto_0
+    goto :goto_29
 
     .line 543
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;
 
     iget-object v0, v0, Landroid/support/v7/widget/RecyclerView;->mItemAnimator:Landroid/support/v7/widget/RecyclerView$ItemAnimator;
@@ -123,20 +123,20 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_29
 
     .line 544
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView;->postAnimationRunner()V
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     return-void
 .end method
 
 .method public unused(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 1
+    .registers 3
 
     .line 549
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$4;->this$0:Landroid/support/v7/widget/RecyclerView;

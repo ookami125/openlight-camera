@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/File;)V
-    .locals 0
+    .registers 2
 
     .line 3138
     iput-object p1, p0, Lorg/apache/commons/io/FileUtils$1;->val$canon:Ljava/io/File;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 0
+    .registers 2
 
     .line 3140
     iget-object p0, p0, Lorg/apache/commons/io/FileUtils$1;->val$canon:Ljava/io/File;

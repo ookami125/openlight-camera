@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TabLayout;)V
-    .locals 0
+    .registers 2
 
     .line 2202
     iput-object p1, p0, Landroid/support/design/widget/TabLayout$AdapterChangeListener;->this$0:Landroid/support/design/widget/TabLayout;
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public onAdapterChanged(Landroid/support/v4/view/ViewPager;Landroid/support/v4/view/PagerAdapter;Landroid/support/v4/view/PagerAdapter;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/support/v4/view/ViewPager;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -57,7 +57,7 @@
 
     iget-object p2, p2, Landroid/support/design/widget/TabLayout;->mViewPager:Landroid/support/v4/view/ViewPager;
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_d
 
     .line 2209
     iget-object p1, p0, Landroid/support/design/widget/TabLayout$AdapterChangeListener;->this$0:Landroid/support/design/widget/TabLayout;
@@ -66,12 +66,12 @@
 
     invoke-virtual {p1, p3, p0}, Landroid/support/design/widget/TabLayout;->setPagerAdapter(Landroid/support/v4/view/PagerAdapter;Z)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method setAutoRefresh(Z)V
-    .locals 0
+    .registers 2
 
     .line 2214
     iput-boolean p1, p0, Landroid/support/design/widget/TabLayout$AdapterChangeListener;->mAutoRefresh:Z

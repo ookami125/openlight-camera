@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;)V
-    .locals 0
+    .registers 2
 
     .line 277
     invoke-direct {p0, p1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi16Impl;-><init>(Landroid/app/ActivityOptions;)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public requestUsageTimeReport(Landroid/app/PendingIntent;)V
-    .locals 0
+    .registers 2
 
     .line 282
     iget-object p0, p0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi23Impl;->mActivityOptions:Landroid/app/ActivityOptions;

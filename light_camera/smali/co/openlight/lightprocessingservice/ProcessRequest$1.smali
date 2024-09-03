@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 57
     new-instance p0, Lco/openlight/lightprocessingservice/ProcessRequest;
@@ -50,7 +50,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 54
     invoke-virtual {p0, p1}, Lco/openlight/lightprocessingservice/ProcessRequest$1;->createFromParcel(Landroid/os/Parcel;)Lco/openlight/lightprocessingservice/ProcessRequest;
@@ -61,7 +61,7 @@
 .end method
 
 .method public newArray(I)[Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 62
     new-array p0, p1, [Lco/openlight/lightprocessingservice/ProcessRequest;
@@ -70,7 +70,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 54
     invoke-virtual {p0, p1}, Lco/openlight/lightprocessingservice/ProcessRequest$1;->newArray(I)[Lco/openlight/lightprocessingservice/ProcessRequest;

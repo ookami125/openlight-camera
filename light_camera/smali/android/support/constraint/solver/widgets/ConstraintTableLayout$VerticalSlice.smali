@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/constraint/solver/widgets/ConstraintTableLayout;)V
-    .locals 0
+    .registers 2
 
     .line 45
     iput-object p1, p0, Landroid/support/constraint/solver/widgets/ConstraintTableLayout$VerticalSlice;->this$0:Landroid/support/constraint/solver/widgets/ConstraintTableLayout;

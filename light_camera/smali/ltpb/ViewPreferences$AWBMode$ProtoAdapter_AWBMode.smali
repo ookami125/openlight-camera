@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 717
     const-class v0, Lltpb/ViewPreferences$AWBMode;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic fromValue(I)Lcom/squareup/wire/WireEnum;
-    .locals 0
+    .registers 2
 
     .line 715
     invoke-virtual {p0, p1}, Lltpb/ViewPreferences$AWBMode$ProtoAdapter_AWBMode;->fromValue(I)Lltpb/ViewPreferences$AWBMode;
@@ -48,7 +48,7 @@
 .end method
 
 .method protected fromValue(I)Lltpb/ViewPreferences$AWBMode;
-    .locals 0
+    .registers 2
 
     .line 722
     invoke-static {p1}, Lltpb/ViewPreferences$AWBMode;->fromValue(I)Lltpb/ViewPreferences$AWBMode;

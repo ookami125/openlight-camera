@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;Landroid/util/AttributeSet;)V
-    .locals 4
+    .registers 8
 
     .line 81
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -174,7 +174,7 @@
     move-result-object p1
 
     .line 97
-    :try_start_0
+    :try_start_61
     invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p2
@@ -256,8 +256,8 @@
     iget-object p3, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumb:Landroid/graphics/Paint;
 
     invoke-virtual {p3, p2}, Landroid/graphics/Paint;->setColor(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_aa
+    .catchall {:try_start_61 .. :try_end_aa} :catchall_c6
 
     .line 109
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -281,15 +281,15 @@
     .line 138
     iget-boolean p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c5
 
     .line 139
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->postAutoHideDelayed()V
 
-    :cond_0
+    :cond_c5
     return-void
 
-    :catchall_0
+    :catchall_c6
     move-exception p0
 
     .line 109
@@ -300,7 +300,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Z
-    .locals 0
+    .registers 1
 
     .line 32
     iget-boolean p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mIsDragging:Z
@@ -309,7 +309,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Landroid/animation/Animator;
-    .locals 0
+    .registers 1
 
     .line 32
     iget-object p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
@@ -318,7 +318,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/setting/scroll/FastScroller;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 0
+    .registers 2
 
     .line 32
     iput-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
@@ -327,7 +327,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
-    .locals 0
+    .registers 1
 
     .line 32
     iget-object p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
@@ -336,7 +336,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/setting/scroll/FastScroller;)I
-    .locals 0
+    .registers 1
 
     .line 32
     iget p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mWidth:I
@@ -345,7 +345,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/camera/view/setting/scroll/FastScroller;Z)Z
-    .locals 0
+    .registers 2
 
     .line 32
     iput-boolean p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAnimatingShow:Z
@@ -354,7 +354,7 @@
 .end method
 
 .method private isNearPoint(II)Z
-    .locals 6
+    .registers 9
 
     .line 230
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mTmpRect:Landroid/graphics/Rect;
@@ -407,12 +407,12 @@
 
 # virtual methods
 .method protected cancelAutoHide()V
-    .locals 1
+    .registers 2
 
     .line 311
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 312
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
@@ -421,30 +421,30 @@
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public draw(Landroid/graphics/Canvas;)V
-    .locals 7
+    .registers 9
 
     .line 198
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-ltz v0, :cond_3
+    if-ltz v0, :cond_70
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_d
 
-    goto :goto_2
+    goto :goto_70
 
     .line 207
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->x:I
@@ -509,7 +509,7 @@
 
     div-int/lit8 v5, v5, 0x2
 
-    if-le v4, v5, :cond_1
+    if-le v4, v5, :cond_4c
 
     .line 212
     iget v4, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbMarginTop:I
@@ -521,10 +521,10 @@
 
     sub-int/2addr v3, v4
 
-    goto :goto_0
+    goto :goto_52
 
     .line 215
-    :cond_1
+    :cond_4c
     iget v4, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbMarginTop:I
 
     add-int/2addr v2, v4
@@ -535,10 +535,10 @@
     add-int/2addr v3, v4
 
     .line 218
-    :goto_0
+    :goto_52
     iget-object v4, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->drawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_61
 
     .line 219
     iget-object v4, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->drawable:Landroid/graphics/drawable/Drawable;
@@ -550,9 +550,9 @@
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_1
+    goto :goto_6f
 
-    :cond_2
+    :cond_61
     int-to-float v4, v0
 
     int-to-float v2, v2
@@ -576,16 +576,16 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    :goto_1
+    :goto_6f
     return-void
 
-    :cond_3
-    :goto_2
+    :cond_70
+    :goto_70
     return-void
 .end method
 
 .method public getOffsetX()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Keep;
     .end annotation
 
@@ -598,7 +598,7 @@
 .end method
 
 .method public getThumbHeight()I
-    .locals 0
+    .registers 1
 
     .line 144
     iget p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbHeight:I
@@ -607,7 +607,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 0
+    .registers 1
 
     .line 148
     iget p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mWidth:I
@@ -616,7 +616,7 @@
 .end method
 
 .method public handleTouchEvent(Landroid/view/MotionEvent;IIILopenlight/co/camera/view/setting/scroll/OnFastScrollStateChangeListener;)V
-    .locals 2
+    .registers 8
 
     .line 161
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
@@ -641,21 +641,21 @@
 
     float-to-int p1, p1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_62
 
-    goto :goto_0
+    goto :goto_60
 
     .line 173
-    :pswitch_0
+    :pswitch_17
     iget-boolean v1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mIsDragging:Z
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_60
 
     invoke-direct {p0, p2, p3}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->isNearPoint(II)Z
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_60
 
     sub-int/2addr p1, p3
 
@@ -668,7 +668,7 @@
 
     move-result p2
 
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_60
 
     .line 175
     iget-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
@@ -693,14 +693,14 @@
 
     iput p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mTouchOffset:I
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_60
 
     .line 179
     invoke-interface {p5}, Lopenlight/co/camera/view/setting/scroll/OnFastScrollStateChangeListener;->onFastScrollStart()V
 
-    goto :goto_0
+    goto :goto_60
 
-    :pswitch_1
+    :pswitch_44
     const/4 p1, 0x0
 
     .line 185
@@ -709,25 +709,25 @@
     .line 186
     iget-boolean p2, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mIsDragging:Z
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_60
 
     .line 187
     iput-boolean p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mIsDragging:Z
 
-    if-eqz p5, :cond_0
+    if-eqz p5, :cond_60
 
     .line 189
     invoke-interface {p5}, Lopenlight/co/camera/view/setting/scroll/OnFastScrollStateChangeListener;->onFastScrollStop()V
 
-    goto :goto_0
+    goto :goto_60
 
     .line 167
-    :pswitch_2
+    :pswitch_53
     invoke-direct {p0, p2, p3}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->isNearPoint(II)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_60
 
     .line 168
     iget-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -738,23 +738,23 @@
 
     iput p3, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mTouchOffset:I
 
-    :cond_0
-    :goto_0
+    :cond_60
+    :goto_60
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_62
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_53
+        :pswitch_44
+        :pswitch_17
+        :pswitch_44
     .end packed-switch
 .end method
 
 .method public isDragging()Z
-    .locals 0
+    .registers 1
 
     .line 152
     iget-boolean p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mIsDragging:Z
@@ -763,12 +763,12 @@
 .end method
 
 .method protected postAutoHideDelayed()V
-    .locals 4
+    .registers 5
 
     .line 304
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 305
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->cancelAutoHide()V
@@ -784,12 +784,12 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public setAutoHideDelay(I)V
-    .locals 0
+    .registers 2
 
     .line 327
     iput p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideDelay:I
@@ -797,38 +797,38 @@
     .line 328
     iget-boolean p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 329
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->postAutoHideDelayed()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setAutoHideEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 334
     iput-boolean p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 336
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->postAutoHideDelayed()V
 
-    goto :goto_0
+    goto :goto_b
 
     .line 338
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->cancelAutoHide()V
 
-    :goto_0
+    :goto_b
     return-void
 .end method
 
 .method public setMarginRight(I)V
-    .locals 0
+    .registers 2
 
     .line 69
     iput p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mMarginRight:I
@@ -837,25 +837,25 @@
 .end method
 
 .method public setOffset(II)V
-    .locals 6
+    .registers 9
 
     .line 250
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mOffset:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_d
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mOffset:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     return-void
 
     .line 254
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mInvalidateRect:Landroid/graphics/Rect;
 
     iget-object v1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -968,7 +968,7 @@
 .end method
 
 .method public setOffsetX(I)V
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/Keep;
     .end annotation
 
@@ -983,7 +983,7 @@
 .end method
 
 .method public setThumbColor(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
@@ -1005,25 +1005,25 @@
 .end method
 
 .method public setThumbPosition(II)V
-    .locals 6
+    .registers 9
 
     .line 237
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_d
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
 
     iget v0, v0, Landroid/graphics/Point;->y:I
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_d
 
     return-void
 
     .line 241
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mInvalidateRect:Landroid/graphics/Rect;
 
     iget-object v1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mThumbPosition:Landroid/graphics/Point;
@@ -1136,7 +1136,7 @@
 .end method
 
 .method public setTrackColor(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
@@ -1158,24 +1158,24 @@
 .end method
 
 .method public show()V
-    .locals 4
+    .registers 5
 
     .line 273
     iget-boolean v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAnimatingShow:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3d
 
     .line 274
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 275
     iget-object v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideAnimator:Landroid/animation/Animator;
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
-    :cond_0
+    :cond_d
     const-string v0, "offsetX"
 
     const/4 v1, 0x1
@@ -1227,20 +1227,20 @@
     invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     .line 296
-    :cond_1
+    :cond_3d
     iget-boolean v0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller;->mAutoHideEnabled:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     .line 297
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->postAutoHideDelayed()V
 
-    goto :goto_0
+    goto :goto_48
 
     .line 299
-    :cond_2
+    :cond_45
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->cancelAutoHide()V
 
-    :goto_0
+    :goto_48
     return-void
 .end method

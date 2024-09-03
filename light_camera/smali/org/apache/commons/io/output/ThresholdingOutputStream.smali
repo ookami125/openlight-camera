@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 74
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected checkThreshold(I)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -37,7 +37,7 @@
     .line 221
     iget-boolean v0, p0, Lorg/apache/commons/io/output/ThresholdingOutputStream;->thresholdExceeded:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     iget-wide v0, p0, Lorg/apache/commons/io/output/ThresholdingOutputStream;->written:J
 
@@ -51,7 +51,7 @@
 
     cmp-long p1, v0, v2
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_15
 
     const/4 p1, 0x1
 
@@ -61,12 +61,12 @@
     .line 224
     invoke-virtual {p0}, Lorg/apache/commons/io/output/ThresholdingOutputStream;->thresholdReached()V
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -76,11 +76,11 @@
     .line 158
     :try_start_0
     invoke-virtual {p0}, Lorg/apache/commons/io/output/ThresholdingOutputStream;->flush()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_3
 
     .line 164
-    :catch_0
+    :catch_3
     invoke-virtual {p0}, Lorg/apache/commons/io/output/ThresholdingOutputStream;->getStream()Ljava/io/OutputStream;
 
     move-result-object p0
@@ -91,7 +91,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getByteCount()J
-    .locals 2
+    .registers 3
 
     .line 189
     iget-wide v0, p0, Lorg/apache/commons/io/output/ThresholdingOutputStream;->written:J
@@ -126,7 +126,7 @@
 .end method
 
 .method public getThreshold()I
-    .locals 0
+    .registers 1
 
     .line 178
     iget p0, p0, Lorg/apache/commons/io/output/ThresholdingOutputStream;->threshold:I
@@ -135,7 +135,7 @@
 .end method
 
 .method public isThresholdExceeded()Z
-    .locals 4
+    .registers 5
 
     .line 202
     iget-wide v0, p0, Lorg/apache/commons/io/output/ThresholdingOutputStream;->written:J
@@ -146,21 +146,21 @@
 
     cmp-long p0, v0, v2
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_b
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method protected resetByteCount()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -176,7 +176,7 @@
 .end method
 
 .method protected setByteCount(J)V
-    .locals 0
+    .registers 3
 
     .line 248
     iput-wide p1, p0, Lorg/apache/commons/io/output/ThresholdingOutputStream;->written:J
@@ -193,7 +193,7 @@
 .end method
 
 .method public write(I)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -225,7 +225,7 @@
 .end method
 
 .method public write([B)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -259,7 +259,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

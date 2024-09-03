@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "content://openlight.co.theatermode.provider/settings"
 
@@ -97,7 +97,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -135,7 +135,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->TAG:Ljava/lang/String;
@@ -144,7 +144,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/TheaterMode/TheaterModeSettings;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/TheaterMode/TheaterModeSettings;->readSettings()V
@@ -153,7 +153,7 @@
 .end method
 
 .method static synthetic access$1000()Ljava/util/List;
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sListeners:Ljava/util/List;
@@ -162,7 +162,7 @@
 .end method
 
 .method static synthetic access$300()Landroid/net/Uri;
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->THEATER_MODE_URI:Landroid/net/Uri;
@@ -171,7 +171,7 @@
 .end method
 
 .method static synthetic access$400()Z
-    .locals 1
+    .registers 1
 
     .line 21
     sget-boolean v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
@@ -180,7 +180,7 @@
 .end method
 
 .method static synthetic access$402(Z)Z
-    .locals 0
+    .registers 1
 
     .line 21
     sput-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
@@ -189,7 +189,7 @@
 .end method
 
 .method static synthetic access$502(Z)Z
-    .locals 0
+    .registers 1
 
     .line 21
     sput-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sHapticFeedbackEnabled:Z
@@ -198,7 +198,7 @@
 .end method
 
 .method static synthetic access$602(Z)Z
-    .locals 0
+    .registers 1
 
     .line 21
     sput-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sAudioEnabled:Z
@@ -207,7 +207,7 @@
 .end method
 
 .method static synthetic access$702(Z)Z
-    .locals 0
+    .registers 1
 
     .line 21
     sput-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sPocketDetectionEnabled:Z
@@ -216,7 +216,7 @@
 .end method
 
 .method static synthetic access$802(Z)Z
-    .locals 0
+    .registers 1
 
     .line 21
     sput-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sLensBlockedAlertEnabled:Z
@@ -225,7 +225,7 @@
 .end method
 
 .method static synthetic access$902(Z)Z
-    .locals 0
+    .registers 1
 
     .line 21
     sput-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sFlashLightEnabled:Z
@@ -234,7 +234,7 @@
 .end method
 
 .method public static get()Lopenlight/co/TheaterMode/TheaterModeSettings;
-    .locals 1
+    .registers 1
 
     .line 67
     sget-object v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sInstance:Lopenlight/co/TheaterMode/TheaterModeSettings;
@@ -243,12 +243,12 @@
 .end method
 
 .method public static init()V
-    .locals 1
+    .registers 1
 
     .line 57
     sget-object v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sInstance:Lopenlight/co/TheaterMode/TheaterModeSettings;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 58
     new-instance v0, Lopenlight/co/TheaterMode/TheaterModeSettings;
@@ -257,12 +257,12 @@
 
     sput-object v0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sInstance:Lopenlight/co/TheaterMode/TheaterModeSettings;
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method private readSettings()V
-    .locals 1
+    .registers 2
 
     .line 122
     new-instance p0, Lopenlight/co/TheaterMode/TheaterModeSettings$ReadSettingsTask;
@@ -284,7 +284,7 @@
 
 # virtual methods
 .method public addListener(Lopenlight/co/TheaterMode/TheaterModeListener;)V
-    .locals 0
+    .registers 2
 
     .line 71
     sget-object p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sListeners:Ljava/util/List;
@@ -295,122 +295,122 @@
 .end method
 
 .method public isAudioDisabled()Z
-    .locals 0
+    .registers 1
 
     .line 107
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sAudioEnabled:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public isFlashLightDisabled()Z
-    .locals 0
+    .registers 1
 
     .line 115
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sFlashLightEnabled:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public isHapticFeedbackDisabled()Z
-    .locals 0
+    .registers 1
 
     .line 83
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sHapticFeedbackEnabled:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public isLensBlockedAlertDisabled()Z
-    .locals 0
+    .registers 1
 
     .line 99
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sLensBlockedAlertEnabled:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public isPocketDetectionDisabled()Z
-    .locals 0
+    .registers 1
 
     .line 91
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sTheaterModeEnabled:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     sget-boolean p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sPocketDetectionEnabled:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public removeListener(Lopenlight/co/TheaterMode/TheaterModeListener;)V
-    .locals 0
+    .registers 2
 
     .line 75
     sget-object p0, Lopenlight/co/TheaterMode/TheaterModeSettings;->sListeners:Ljava/util/List;

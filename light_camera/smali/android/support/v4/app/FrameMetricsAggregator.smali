@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
 
     .line 214
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_11
 
     .line 216
     new-instance v0, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsApi24Impl;
@@ -95,10 +95,10 @@
 
     iput-object v0, p0, Landroid/support/v4/app/FrameMetricsAggregator;->mInstance:Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 218
-    :cond_0
+    :cond_11
     new-instance p1, Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
     const/4 v0, 0x0
@@ -107,14 +107,14 @@
 
     iput-object p1, p0, Landroid/support/v4/app/FrameMetricsAggregator;->mInstance:Landroid/support/v4/app/FrameMetricsAggregator$FrameMetricsBaseImpl;
 
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 
 # virtual methods
 .method public add(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -129,7 +129,7 @@
 .end method
 
 .method public getMetrics()[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -144,7 +144,7 @@
 .end method
 
 .method public remove(Landroid/app/Activity;)[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/app/Activity;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -163,7 +163,7 @@
 .end method
 
 .method public reset()[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -178,7 +178,7 @@
 .end method
 
 .method public stop()[Landroid/util/SparseIntArray;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 

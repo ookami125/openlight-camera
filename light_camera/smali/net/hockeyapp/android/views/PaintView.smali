@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;II)V
-    .locals 3
+    .registers 8
 
     .line 129
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
@@ -148,7 +148,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/content/ContentResolver;Landroid/net/Uri;II)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -164,7 +164,7 @@
 .end method
 
 .method private static calculateInSampleSize(Landroid/graphics/BitmapFactory$Options;II)I
-    .locals 3
+    .registers 6
 
     .line 73
     iget v0, p0, Landroid/graphics/BitmapFactory$Options;->outHeight:I
@@ -174,37 +174,37 @@
 
     const/4 v1, 0x1
 
-    if-gt v0, p2, :cond_0
+    if-gt v0, p2, :cond_9
 
-    if-le p0, p1, :cond_1
+    if-le p0, p1, :cond_18
 
     .line 79
-    :cond_0
+    :cond_9
     div-int/lit8 v0, v0, 0x2
 
     .line 80
     div-int/lit8 p0, p0, 0x2
 
     .line 84
-    :goto_0
+    :goto_d
     div-int v2, v0, v1
 
-    if-le v2, p2, :cond_1
+    if-le v2, p2, :cond_18
 
     div-int v2, p0, v1
 
-    if-le v2, p1, :cond_1
+    if-le v2, p1, :cond_18
 
     mul-int/lit8 v1, v1, 0x2
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_1
+    :cond_18
     return v1
 .end method
 
 .method private static decodeSampledBitmapFromResource(Landroid/content/ContentResolver;Landroid/net/Uri;II)Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -257,7 +257,7 @@
 .end method
 
 .method public static determineOrientation(Landroid/content/ContentResolver;Landroid/net/Uri;)I
-    .locals 2
+    .registers 4
 
     .line 43
     new-instance v0, Landroid/graphics/BitmapFactory$Options;
@@ -270,7 +270,7 @@
     iput-boolean v1, v0, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
     .line 47
-    :try_start_0
+    :try_start_8
     invoke-virtual {p0, p1}, Landroid/content/ContentResolver;->openInputStream(Landroid/net/Uri;)Ljava/io/InputStream;
 
     move-result-object p0
@@ -286,8 +286,8 @@
     int-to-float p0, p0
 
     iget p1, v0, Landroid/graphics/BitmapFactory$Options;->outHeight:I
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_15} :catch_1f
 
     int-to-float p1, p1
 
@@ -297,14 +297,14 @@
 
     cmpl-float p0, p0, p1
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_1e
 
     const/4 v1, 0x0
 
-    :cond_0
+    :cond_1e
     return v1
 
-    :catch_0
+    :catch_1f
     move-exception p0
 
     const-string p1, "Unable to determine necessary screen orientation."
@@ -316,7 +316,7 @@
 .end method
 
 .method private touchMove(FF)V
-    .locals 6
+    .registers 9
 
     .line 211
     iget v0, p0, Lnet/hockeyapp/android/views/PaintView;->mX:F
@@ -340,14 +340,14 @@
 
     cmpl-float v0, v0, v2
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1a
 
     cmpl-float v0, v1, v2
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_31
 
     .line 214
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->path:Landroid/graphics/Path;
 
     iget v1, p0, Lnet/hockeyapp/android/views/PaintView;->mX:F
@@ -376,12 +376,12 @@
     .line 216
     iput p2, p0, Lnet/hockeyapp/android/views/PaintView;->mY:F
 
-    :cond_1
+    :cond_31
     return-void
 .end method
 
 .method private touchStart(FF)V
-    .locals 1
+    .registers 4
 
     .line 204
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->path:Landroid/graphics/Path;
@@ -403,7 +403,7 @@
 .end method
 
 .method private touchUp()V
-    .locals 3
+    .registers 4
 
     .line 221
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->path:Landroid/graphics/Path;
@@ -434,7 +434,7 @@
 
 # virtual methods
 .method public clearImage()V
-    .locals 1
+    .registers 2
 
     .line 175
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->paths:Ljava/util/Stack;
@@ -448,7 +448,7 @@
 .end method
 
 .method public isClear()Z
-    .locals 0
+    .registers 1
 
     .line 187
     iget-object p0, p0, Lnet/hockeyapp/android/views/PaintView;->paths:Ljava/util/Stack;
@@ -461,7 +461,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 3
+    .registers 5
 
     .line 192
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onDraw(Landroid/graphics/Canvas;)V
@@ -473,12 +473,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_9
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -491,10 +491,10 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_9
 
     .line 200
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->path:Landroid/graphics/Path;
 
     iget-object p0, p0, Lnet/hockeyapp/android/views/PaintView;->paint:Landroid/graphics/Paint;
@@ -505,7 +505,7 @@
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 2
+    .registers 4
 
     .line 228
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -522,50 +522,50 @@
 
     move-result p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_26
 
-    goto :goto_0
+    goto :goto_24
 
     .line 237
-    :pswitch_0
+    :pswitch_10
     invoke-direct {p0, v0, v1}, Lnet/hockeyapp/android/views/PaintView;->touchMove(FF)V
 
     .line 238
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/PaintView;->invalidate()V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 241
-    :pswitch_1
+    :pswitch_17
     invoke-direct {p0}, Lnet/hockeyapp/android/views/PaintView;->touchUp()V
 
     .line 242
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/PaintView;->invalidate()V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 233
-    :pswitch_2
+    :pswitch_1e
     invoke-direct {p0, v0, v1}, Lnet/hockeyapp/android/views/PaintView;->touchStart(FF)V
 
     .line 234
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/PaintView;->invalidate()V
 
-    :goto_0
+    :goto_24
     const/4 p0, 0x1
 
     return p0
 
-    :pswitch_data_0
+    :pswitch_data_26
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_17
+        :pswitch_10
     .end packed-switch
 .end method
 
 .method public undo()V
-    .locals 1
+    .registers 2
 
     .line 180
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->paths:Ljava/util/Stack;
@@ -574,7 +574,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 181
     iget-object v0, p0, Lnet/hockeyapp/android/views/PaintView;->paths:Ljava/util/Stack;
@@ -584,6 +584,6 @@
     .line 182
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/PaintView;->invalidate()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method

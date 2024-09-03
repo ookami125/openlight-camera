@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/MenuPopupHelper;)V
-    .locals 0
+    .registers 2
 
     .line 332
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuPopupHelper$1;->this$0:Landroid/support/v7/view/menu/MenuPopupHelper;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onDismiss()V
-    .locals 0
+    .registers 1
 
     .line 335
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuPopupHelper$1;->this$0:Landroid/support/v7/view/menu/MenuPopupHelper;

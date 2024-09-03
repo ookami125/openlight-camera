@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/ResourceDecoder;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -78,7 +78,7 @@
 
 # virtual methods
 .method public decode(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -101,21 +101,21 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 39
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageVideoBitmapDecoder;->streamDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
     invoke-interface {v1, v0, p2, p3}, Lcom/bumptech/glide/load/ResourceDecoder;->decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :catch_0
+    :catch_d
     move-exception v0
 
     const-string v1, "ImageVideoDecoder"
@@ -127,7 +127,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1e
 
     const-string v1, "ImageVideoDecoder"
 
@@ -136,18 +136,18 @@
     .line 42
     invoke-static {v1, v2, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_1e
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_1f
+    if-nez v0, :cond_2d
 
     .line 48
     invoke-virtual {p1}, Lcom/bumptech/glide/load/model/ImageVideoWrapper;->getFileDescriptor()Landroid/os/ParcelFileDescriptor;
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2d
 
     .line 50
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageVideoBitmapDecoder;->fileDescriptorDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
@@ -156,12 +156,12 @@
 
     move-result-object v0
 
-    :cond_1
+    :cond_2d
     return-object v0
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -179,7 +179,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "ImageVideoBitmapDecoder.com.bumptech.glide.load.resource.bitmap"
 

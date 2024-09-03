@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method static synthetic access$000(Lnet/hockeyapp/android/LoginActivity;)V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Lnet/hockeyapp/android/LoginActivity;->performAuthentication()V
@@ -53,14 +53,14 @@
 .end method
 
 .method private configureView()V
-    .locals 3
+    .registers 4
 
     .line 136
     iget v0, p0, Lnet/hockeyapp/android/LoginActivity;->mMode:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_11
 
     .line 137
     sget v0, Lnet/hockeyapp/android/R$id;->input_password:I
@@ -77,7 +77,7 @@
     invoke-virtual {v0, v2}, Landroid/widget/EditText;->setVisibility(I)V
 
     .line 141
-    :cond_0
+    :cond_11
     sget v0, Lnet/hockeyapp/android/R$id;->text_headline:I
 
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/LoginActivity;->findViewById(I)Landroid/view/View;
@@ -89,16 +89,16 @@
     .line 142
     iget v2, p0, Lnet/hockeyapp/android/LoginActivity;->mMode:I
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_20
 
     sget v1, Lnet/hockeyapp/android/R$string;->hockeyapp_login_headline_text_email_only:I
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_20
     sget v1, Lnet/hockeyapp/android/R$string;->hockeyapp_login_headline_text:I
 
-    :goto_0
+    :goto_22
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     .line 144
@@ -125,7 +125,7 @@
 .end method
 
 .method private initLoginHandler()V
-    .locals 1
+    .registers 2
 
     .line 154
     new-instance v0, Lnet/hockeyapp/android/LoginActivity$LoginHandler;
@@ -138,7 +138,7 @@
 .end method
 
 .method private performAuthentication()V
-    .locals 9
+    .registers 10
 
     .line 158
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->isConnectedToNetwork(Landroid/content/Context;)Z
@@ -147,7 +147,7 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 159
     sget v0, Lnet/hockeyapp/android/R$string;->hockeyapp_error_no_network_message:I
@@ -162,7 +162,7 @@
     return-void
 
     .line 164
-    :cond_0
+    :cond_11
     sget v0, Lnet/hockeyapp/android/R$id;->input_email:I
 
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/LoginActivity;->findViewById(I)Landroid/view/View;
@@ -206,7 +206,7 @@
 
     const/4 v4, 0x0
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_61
 
     .line 171
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -243,32 +243,32 @@
 
     invoke-interface {v8, v2, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_7d
 
     .line 174
-    :cond_1
+    :cond_61
     iget v3, p0, Lnet/hockeyapp/android/LoginActivity;->mMode:I
 
     const/4 v5, 0x2
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_7d
 
     .line 175
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_73
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_73
 
     move v4, v1
 
-    :cond_2
+    :cond_73
     const-string v3, "email"
 
     .line 176
@@ -279,9 +279,9 @@
     .line 177
     invoke-interface {v8, v0, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_3
-    :goto_0
-    if-eqz v4, :cond_4
+    :cond_7d
+    :goto_7d
+    if-eqz v4, :cond_94
 
     .line 181
     new-instance v0, Lnet/hockeyapp/android/tasks/LoginTask;
@@ -305,10 +305,10 @@
 
     invoke-static {p0}, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->execute(Landroid/os/AsyncTask;)V
 
-    goto :goto_1
+    goto :goto_a1
 
     .line 184
-    :cond_4
+    :cond_94
     sget v0, Lnet/hockeyapp/android/R$string;->hockeyapp_login_missing_credentials_toast:I
 
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/LoginActivity;->getString(I)Ljava/lang/String;
@@ -321,14 +321,14 @@
 
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    :goto_1
+    :goto_a1
     return-void
 .end method
 
 
 # virtual methods
 .method public md5(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
 
     :try_start_0
     const-string p0, "MD5"
@@ -360,8 +360,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_18
+    if-ge v1, v0, :cond_41
 
     aget-byte v2, p0, v1
 
@@ -373,14 +373,14 @@
     move-result-object v2
 
     .line 199
-    :goto_1
+    :goto_22
     invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v3
 
     const/4 v4, 0x2
 
-    if-ge v3, v4, :cond_0
+    if-ge v3, v4, :cond_3b
 
     .line 200
     new-instance v3, Ljava/lang/StringBuilder;
@@ -397,27 +397,27 @@
 
     move-result-object v2
 
-    goto :goto_1
+    goto :goto_22
 
     .line 201
-    :cond_0
+    :cond_3b
     invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
     .line 203
-    :cond_1
+    :cond_41
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_45
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_45} :catch_46
 
     return-object p0
 
-    :catch_0
+    :catch_46
     move-exception p0
 
     .line 206
@@ -429,7 +429,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
 
     .line 81
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -448,7 +448,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2a
 
     const-string v0, "url"
 
@@ -478,7 +478,7 @@
     iput p1, p0, Lnet/hockeyapp/android/LoginActivity;->mMode:I
 
     .line 91
-    :cond_0
+    :cond_2a
     invoke-direct {p0}, Lnet/hockeyapp/android/LoginActivity;->configureView()V
 
     .line 92
@@ -489,7 +489,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_41
 
     .line 97
     check-cast p1, Lnet/hockeyapp/android/tasks/LoginTask;
@@ -503,31 +503,31 @@
 
     invoke-virtual {p1, p0, v0}, Lnet/hockeyapp/android/tasks/LoginTask;->attach(Landroid/content/Context;Landroid/os/Handler;)V
 
-    :cond_1
+    :cond_41
     return-void
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x4
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_23
 
     .line 121
     sget-object v0, Lnet/hockeyapp/android/LoginManager;->listener:Lnet/hockeyapp/android/LoginManagerListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 122
     sget-object v0, Lnet/hockeyapp/android/LoginManager;->listener:Lnet/hockeyapp/android/LoginManagerListener;
 
     invoke-virtual {v0}, Lnet/hockeyapp/android/LoginManagerListener;->onBack()V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 124
-    :cond_0
+    :cond_d
     new-instance p1, Landroid/content/Intent;
 
     sget-object p2, Lnet/hockeyapp/android/LoginManager;->mainActivity:Ljava/lang/Class;
@@ -552,8 +552,8 @@
     return v0
 
     .line 132
-    :cond_1
-    :goto_0
+    :cond_23
+    :goto_23
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result p0
@@ -562,12 +562,12 @@
 .end method
 
 .method public onRetainNonConfigurationInstance()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lnet/hockeyapp/android/LoginActivity;->mLoginTask:Lnet/hockeyapp/android/tasks/LoginTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 112
     iget-object v0, p0, Lnet/hockeyapp/android/LoginActivity;->mLoginTask:Lnet/hockeyapp/android/tasks/LoginTask;
@@ -575,7 +575,7 @@
     invoke-virtual {v0}, Lnet/hockeyapp/android/tasks/LoginTask;->detach()V
 
     .line 115
-    :cond_0
+    :cond_9
     iget-object p0, p0, Lnet/hockeyapp/android/LoginActivity;->mLoginTask:Lnet/hockeyapp/android/tasks/LoginTask;
 
     return-object p0

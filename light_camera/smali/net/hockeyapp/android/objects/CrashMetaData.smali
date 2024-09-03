@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public getUserDescription()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 13
     iget-object p0, p0, Lnet/hockeyapp/android/objects/CrashMetaData;->mUserDescription:Ljava/lang/String;
@@ -33,7 +33,7 @@
 .end method
 
 .method public getUserEmail()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 21
     iget-object p0, p0, Lnet/hockeyapp/android/objects/CrashMetaData;->mUserEmail:Ljava/lang/String;
@@ -42,7 +42,7 @@
 .end method
 
 .method public getUserID()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 29
     iget-object p0, p0, Lnet/hockeyapp/android/objects/CrashMetaData;->mUserID:Ljava/lang/String;
@@ -51,7 +51,7 @@
 .end method
 
 .method public setUserDescription(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 17
     iput-object p1, p0, Lnet/hockeyapp/android/objects/CrashMetaData;->mUserDescription:Ljava/lang/String;
@@ -60,7 +60,7 @@
 .end method
 
 .method public setUserEmail(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 25
     iput-object p1, p0, Lnet/hockeyapp/android/objects/CrashMetaData;->mUserEmail:Ljava/lang/String;
@@ -69,7 +69,7 @@
 .end method
 
 .method public setUserID(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 33
     iput-object p1, p0, Lnet/hockeyapp/android/objects/CrashMetaData;->mUserID:Ljava/lang/String;
@@ -78,7 +78,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 38
     new-instance v0, Ljava/lang/StringBuilder;

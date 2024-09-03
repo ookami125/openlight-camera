@@ -12,12 +12,12 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 18
     iput-object p1, p0, Lcom/bumptech/glide/signature/StringSignature;->signature:Ljava/lang/String;
@@ -25,7 +25,7 @@
     return-void
 
     .line 16
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Signature cannot be null!"
@@ -38,16 +38,16 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 2
+    .registers 4
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
-    if-eqz p1, :cond_2
+    :cond_4
+    if-eqz p1, :cond_1c
 
     .line 26
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -58,12 +58,12 @@
 
     move-result-object v1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_11
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 30
-    :cond_1
+    :cond_11
     check-cast p1, Lcom/bumptech/glide/signature/StringSignature;
 
     .line 32
@@ -77,15 +77,15 @@
 
     return p0
 
-    :cond_2
-    :goto_0
+    :cond_1c
+    :goto_1c
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lcom/bumptech/glide/signature/StringSignature;->signature:Ljava/lang/String;
@@ -98,7 +98,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 47
     new-instance v0, Ljava/lang/StringBuilder;
@@ -129,7 +129,7 @@
 .end method
 
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;

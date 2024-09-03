@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 61
     invoke-direct {p0}, Landroid/support/v4/app/FragmentActivity;-><init>()V
@@ -32,20 +32,20 @@
 .end method
 
 .method private performMenuItemShortcut(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
 
     .line 551
     sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v0, 0x1a
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_3e
 
     invoke-virtual {p2}, Landroid/view/KeyEvent;->isCtrlPressed()Z
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3e
 
     .line 552
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getMetaState()I
@@ -56,14 +56,14 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3e
 
     .line 553
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getRepeatCount()I
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3e
 
     .line 554
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getKeyCode()I
@@ -74,21 +74,21 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3e
 
     .line 555
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getWindow()Landroid/view/Window;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3e
 
     .line 556
     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3e
 
     .line 557
     invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
@@ -100,13 +100,13 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3e
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_3e
     const/4 p0, 0x0
 
     return p0
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 3
 
     .line 154
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -128,7 +128,7 @@
 .end method
 
 .method public closeOptionsMenu()V
-    .locals 3
+    .registers 4
 
     .line 585
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getSupportActionBar()Landroid/support/v7/app/ActionBar;
@@ -146,27 +146,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 587
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar;->closeOptionsMenu()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 588
-    :cond_0
+    :cond_17
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->closeOptionsMenu()V
 
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 5
 
     .line 528
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
@@ -180,23 +180,23 @@
 
     const/16 v2, 0x52
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_16
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     .line 531
     invoke-virtual {v1, p1}, Landroid/support/v7/app/ActionBar;->onMenuKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const/4 p0, 0x1
 
     return p0
 
     .line 534
-    :cond_0
+    :cond_16
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result p0
@@ -205,7 +205,7 @@
 .end method
 
 .method public findViewById(I)Landroid/view/View;
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
@@ -231,14 +231,14 @@
 .end method
 
 .method public getDelegate()Landroid/support/v7/app/AppCompatDelegate;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
     .line 518
     iget-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 519
     invoke-static {p0, p0}, Landroid/support/v7/app/AppCompatDelegate;->create(Landroid/app/Activity;Landroid/support/v7/app/AppCompatCallback;)Landroid/support/v7/app/AppCompatDelegate;
@@ -248,14 +248,14 @@
     iput-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
     .line 521
-    :cond_0
+    :cond_a
     iget-object p0, p0, Landroid/support/v7/app/AppCompatActivity;->mDelegate:Landroid/support/v7/app/AppCompatDelegate;
 
     return-object p0
 .end method
 
 .method public getDrawerToggleDelegate()Landroid/support/v7/app/ActionBarDrawerToggle$Delegate;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -272,7 +272,7 @@
 .end method
 
 .method public getMenuInflater()Landroid/view/MenuInflater;
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -287,18 +287,18 @@
 .end method
 
 .method public getResources()Landroid/content/res/Resources;
-    .locals 2
+    .registers 3
 
     .line 539
     iget-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mResources:Landroid/content/res/Resources;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     invoke-static {}, Landroid/support/v7/widget/VectorEnabledTintResources;->shouldBeUsed()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 540
     new-instance v0, Landroid/support/v7/widget/VectorEnabledTintResources;
@@ -312,26 +312,26 @@
     iput-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mResources:Landroid/content/res/Resources;
 
     .line 542
-    :cond_0
+    :cond_15
     iget-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mResources:Landroid/content/res/Resources;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1e
 
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1e
     iget-object p0, p0, Landroid/support/v7/app/AppCompatActivity;->mResources:Landroid/content/res/Resources;
 
-    :goto_0
+    :goto_20
     return-object p0
 .end method
 
 .method public getSupportActionBar()Landroid/support/v7/app/ActionBar;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -348,7 +348,7 @@
 .end method
 
 .method public getSupportParentActivityIntent()Landroid/content/Intent;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -361,7 +361,7 @@
 .end method
 
 .method public invalidateOptionsMenu()V
-    .locals 0
+    .registers 1
 
     .line 244
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -374,7 +374,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 1
+    .registers 3
 
     .line 159
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -389,7 +389,7 @@
     .line 161
     iget-object v0, p0, Landroid/support/v7/app/AppCompatActivity;->mResources:Landroid/content/res/Resources;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 164
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->getResources()Landroid/content/res/Resources;
@@ -405,12 +405,12 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/content/res/Resources;->updateConfiguration(Landroid/content/res/Configuration;Landroid/util/DisplayMetrics;)V
 
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method public onContentChanged()V
-    .locals 0
+    .registers 1
 
     .line 469
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->onSupportContentChanged()V
@@ -419,7 +419,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .registers 5
     .param p1    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -441,18 +441,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     iget v0, p0, Landroid/support/v7/app/AppCompatActivity;->mThemeId:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 78
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_25
 
     .line 79
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getTheme()Landroid/content/res/Resources$Theme;
@@ -465,24 +465,24 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/support/v7/app/AppCompatActivity;->onApplyThemeResource(Landroid/content/res/Resources$Theme;IZ)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 81
-    :cond_0
+    :cond_25
     iget v0, p0, Landroid/support/v7/app/AppCompatActivity;->mThemeId:I
 
     invoke-virtual {p0, v0}, Landroid/support/v7/app/AppCompatActivity;->setTheme(I)V
 
     .line 84
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onCreate(Landroid/os/Bundle;)V
 
     return-void
 .end method
 
 .method public onCreateSupportNavigateUpTaskStack(Landroid/support/v4/app/TaskStackBuilder;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v4/app/TaskStackBuilder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -495,7 +495,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 0
+    .registers 1
 
     .line 209
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->onDestroy()V
@@ -511,21 +511,21 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
 
     .line 568
     invoke-direct {p0, p1, p2}, Landroid/support/v7/app/AppCompatActivity;->performMenuItemShortcut(ILandroid/view/KeyEvent;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 p0, 0x1
 
     return p0
 
     .line 571
-    :cond_0
+    :cond_8
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/FragmentActivity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result p0
@@ -534,21 +534,21 @@
 .end method
 
 .method public final onMenuItemSelected(ILandroid/view/MenuItem;)Z
-    .locals 1
+    .registers 4
 
     .line 195
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/FragmentActivity;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     const/4 p0, 0x1
 
     return p0
 
     .line 199
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getSupportActionBar()Landroid/support/v7/app/ActionBar;
 
     move-result-object p1
@@ -560,9 +560,9 @@
 
     const v0, 0x102002c
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_24
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     .line 201
     invoke-virtual {p1}, Landroid/support/v7/app/ActionBar;->getDisplayOptions()I
@@ -571,7 +571,7 @@
 
     and-int/lit8 p1, p1, 0x4
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     .line 202
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->onSupportNavigateUp()Z
@@ -580,14 +580,14 @@
 
     return p0
 
-    :cond_1
+    :cond_24
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public onMenuOpened(ILandroid/view/Menu;)Z
-    .locals 0
+    .registers 3
 
     .line 493
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/FragmentActivity;->onMenuOpened(ILandroid/view/Menu;)Z
@@ -598,7 +598,7 @@
 .end method
 
 .method public onPanelClosed(ILandroid/view/Menu;)V
-    .locals 0
+    .registers 3
 
     .line 504
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/FragmentActivity;->onPanelClosed(ILandroid/view/Menu;)V
@@ -607,7 +607,7 @@
 .end method
 
 .method protected onPostCreate(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -627,7 +627,7 @@
 .end method
 
 .method protected onPostResume()V
-    .locals 0
+    .registers 1
 
     .line 171
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->onPostResume()V
@@ -643,7 +643,7 @@
 .end method
 
 .method public onPrepareSupportNavigateUpTaskStack(Landroid/support/v4/app/TaskStackBuilder;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v4/app/TaskStackBuilder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -653,7 +653,7 @@
 .end method
 
 .method protected onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 0
+    .registers 2
 
     .line 509
     invoke-super {p0, p1}, Landroid/support/v4/app/FragmentActivity;->onSaveInstanceState(Landroid/os/Bundle;)V
@@ -669,7 +669,7 @@
 .end method
 
 .method protected onStart()V
-    .locals 0
+    .registers 1
 
     .line 177
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->onStart()V
@@ -685,7 +685,7 @@
 .end method
 
 .method protected onStop()V
-    .locals 0
+    .registers 1
 
     .line 183
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->onStop()V
@@ -701,7 +701,7 @@
 .end method
 
 .method public onSupportActionModeFinished(Landroid/support/v7/view/ActionMode;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/view/ActionMode;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -713,7 +713,7 @@
 .end method
 
 .method public onSupportActionModeStarted(Landroid/support/v7/view/ActionMode;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/view/ActionMode;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -725,7 +725,7 @@
 .end method
 
 .method public onSupportContentChanged()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -733,21 +733,21 @@
 .end method
 
 .method public onSupportNavigateUp()Z
-    .locals 2
+    .registers 3
 
     .line 392
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getSupportParentActivityIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_26
 
     .line 395
     invoke-virtual {p0, v0}, Landroid/support/v7/app/AppCompatActivity;->supportShouldUpRecreateTask(Landroid/content/Intent;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     .line 396
     invoke-static {p0}, Landroid/support/v4/app/TaskStackBuilder;->create(Landroid/content/Context;)Landroid/support/v4/app/TaskStackBuilder;
@@ -764,36 +764,36 @@
     invoke-virtual {v0}, Landroid/support/v4/app/TaskStackBuilder;->startActivities()V
 
     .line 402
-    :try_start_0
+    :try_start_19
     invoke-static {p0}, Landroid/support/v4/app/ActivityCompat;->finishAffinity(Landroid/app/Activity;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/lang/IllegalStateException; {:try_start_19 .. :try_end_1c} :catch_1d
 
-    goto :goto_0
+    goto :goto_24
 
     .line 406
-    :catch_0
+    :catch_1d
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->finish()V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 411
-    :cond_0
+    :cond_21
     invoke-virtual {p0, v0}, Landroid/support/v7/app/AppCompatActivity;->supportNavigateUpTo(Landroid/content/Intent;)V
 
-    :goto_0
+    :goto_24
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_26
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method protected onTitleChanged(Ljava/lang/CharSequence;I)V
-    .locals 0
+    .registers 3
 
     .line 215
     invoke-super {p0, p1, p2}, Landroid/support/v4/app/FragmentActivity;->onTitleChanged(Ljava/lang/CharSequence;I)V
@@ -809,7 +809,7 @@
 .end method
 
 .method public onWindowStartingSupportActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/view/ActionMode$Callback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -823,7 +823,7 @@
 .end method
 
 .method public openOptionsMenu()V
-    .locals 3
+    .registers 4
 
     .line 576
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getSupportActionBar()Landroid/support/v7/app/ActionBar;
@@ -841,27 +841,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 578
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar;->openOptionsMenu()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     .line 579
-    :cond_0
+    :cond_17
     invoke-super {p0}, Landroid/support/v4/app/FragmentActivity;->openOptionsMenu()V
 
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public setContentView(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/LayoutRes;
         .end annotation
@@ -878,7 +878,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 144
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -891,7 +891,7 @@
 .end method
 
 .method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 3
 
     .line 149
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -904,7 +904,7 @@
 .end method
 
 .method public setSupportActionBar(Landroid/support/v7/widget/Toolbar;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/widget/Toolbar;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -921,7 +921,7 @@
 .end method
 
 .method public setSupportProgress(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -929,7 +929,7 @@
 .end method
 
 .method public setSupportProgressBarIndeterminate(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -937,7 +937,7 @@
 .end method
 
 .method public setSupportProgressBarIndeterminateVisibility(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -945,7 +945,7 @@
 .end method
 
 .method public setSupportProgressBarVisibility(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -953,7 +953,7 @@
 .end method
 
 .method public setTheme(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/StyleRes;
         .end annotation
@@ -969,7 +969,7 @@
 .end method
 
 .method public startSupportActionMode(Landroid/support/v7/view/ActionMode$Callback;)Landroid/support/v7/view/ActionMode;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/view/ActionMode$Callback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -990,7 +990,7 @@
 .end method
 
 .method public supportInvalidateOptionsMenu()V
-    .locals 0
+    .registers 1
 
     .line 239
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -1003,7 +1003,7 @@
 .end method
 
 .method public supportNavigateUpTo(Landroid/content/Intent;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/Intent;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1016,7 +1016,7 @@
 .end method
 
 .method public supportRequestWindowFeature(I)Z
-    .locals 0
+    .registers 2
 
     .line 234
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatActivity;->getDelegate()Landroid/support/v7/app/AppCompatDelegate;
@@ -1031,7 +1031,7 @@
 .end method
 
 .method public supportShouldUpRecreateTask(Landroid/content/Intent;)Z
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/Intent;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

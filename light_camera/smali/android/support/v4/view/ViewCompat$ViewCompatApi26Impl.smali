@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1525
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi24Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -57,7 +57,7 @@
 .end method
 
 .method public getNextClusterForwardId(Landroid/view/View;)I
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -72,7 +72,7 @@
 .end method
 
 .method public hasExplicitFocusable(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -87,7 +87,7 @@
 .end method
 
 .method public isFocusedByDefault(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -102,7 +102,7 @@
 .end method
 
 .method public isKeyboardNavigationCluster(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -117,7 +117,7 @@
 .end method
 
 .method public keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
-    .locals 0
+    .registers 4
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -132,7 +132,7 @@
 .end method
 
 .method public restoreDefaultFocus(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -147,7 +147,7 @@
 .end method
 
 .method public setFocusedByDefault(Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -160,7 +160,7 @@
 .end method
 
 .method public setKeyboardNavigationCluster(Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -173,7 +173,7 @@
 .end method
 
 .method public setNextClusterForwardId(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -186,7 +186,7 @@
 .end method
 
 .method public setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
 
     .line 1528
     invoke-virtual {p1, p2}, Landroid/view/View;->setTooltipText(Ljava/lang/CharSequence;)V

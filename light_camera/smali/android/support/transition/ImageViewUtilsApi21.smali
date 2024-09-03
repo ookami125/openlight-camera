@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,17 +31,17 @@
 .end method
 
 .method private fetchAnimateTransformMethod()V
-    .locals 5
+    .registers 6
 
     .line 61
     sget-boolean p0, Landroid/support/transition/ImageViewUtilsApi21;->sAnimateTransformMethodFetched:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_26
 
     const/4 p0, 0x1
 
     .line 63
-    :try_start_0
+    :try_start_5
     const-class v0, Landroid/widget/ImageView;
 
     const-string v1, "animateTransform"
@@ -64,12 +64,12 @@
     sget-object v0, Landroid/support/transition/ImageViewUtilsApi21;->sAnimateTransformMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_0
+    :catch_1c
     move-exception v0
 
     const-string v1, "ImageViewUtilsApi21"
@@ -80,17 +80,17 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 69
-    :goto_0
+    :goto_24
     sput-boolean p0, Landroid/support/transition/ImageViewUtilsApi21;->sAnimateTransformMethodFetched:Z
 
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 
 # virtual methods
 .method public animateTransform(Landroid/widget/ImageView;Landroid/graphics/Matrix;)V
-    .locals 2
+    .registers 5
 
     .line 43
     invoke-direct {p0}, Landroid/support/transition/ImageViewUtilsApi21;->fetchAnimateTransformMethod()V
@@ -98,10 +98,10 @@
     .line 44
     sget-object p0, Landroid/support/transition/ImageViewUtilsApi21;->sAnimateTransformMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1e
 
     .line 46
-    :try_start_0
+    :try_start_7
     sget-object p0, Landroid/support/transition/ImageViewUtilsApi21;->sAnimateTransformMethod:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x1
@@ -113,13 +113,13 @@
     aput-object p2, v0, v1
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_12
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_12} :catch_1e
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_12} :catch_13
 
-    goto :goto_0
+    goto :goto_1e
 
-    :catch_0
+    :catch_13
     move-exception p0
 
     .line 50
@@ -133,20 +133,20 @@
 
     throw p1
 
-    :catch_1
-    :cond_0
-    :goto_0
+    :catch_1e
+    :cond_1e
+    :goto_1e
     return-void
 .end method
 
 .method public reserveEndAnimateTransform(Landroid/widget/ImageView;Landroid/animation/Animator;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public startAnimateTransform(Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

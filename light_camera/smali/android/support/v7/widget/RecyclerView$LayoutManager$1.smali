@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
-    .locals 0
+    .registers 2
 
     .line 6991
     iput-object p1, p0, Landroid/support/v7/widget/RecyclerView$LayoutManager$1;->this$0:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getChildAt(I)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 7004
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$LayoutManager$1;->this$0:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -49,7 +49,7 @@
 .end method
 
 .method public getChildCount()I
-    .locals 0
+    .registers 1
 
     .line 6994
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$LayoutManager$1;->this$0:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -62,7 +62,7 @@
 .end method
 
 .method public getChildEnd(Landroid/view/View;)I
-    .locals 1
+    .registers 3
 
     .line 7027
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -86,7 +86,7 @@
 .end method
 
 .method public getChildStart(Landroid/view/View;)I
-    .locals 1
+    .registers 3
 
     .line 7020
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -110,7 +110,7 @@
 .end method
 
 .method public getParent()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 6999
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$LayoutManager$1;->this$0:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -121,7 +121,7 @@
 .end method
 
 .method public getParentEnd()I
-    .locals 1
+    .registers 2
 
     .line 7014
     iget-object v0, p0, Landroid/support/v7/widget/RecyclerView$LayoutManager$1;->this$0:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -142,7 +142,7 @@
 .end method
 
 .method public getParentStart()I
-    .locals 0
+    .registers 1
 
     .line 7009
     iget-object p0, p0, Landroid/support/v7/widget/RecyclerView$LayoutManager$1;->this$0:Landroid/support/v7/widget/RecyclerView$LayoutManager;

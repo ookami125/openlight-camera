@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 25
     const-class v0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(ILandroid/content/Context;)V
-    .locals 2
+    .registers 5
 
     .line 43
     invoke-direct {p0}, Lopenlight/co/camera/view/dragger/DraggerModel;-><init>()V
@@ -83,7 +83,7 @@
     .line 47
     iget-boolean p1, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2b
 
     .line 48
     iget-object p1, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mItemsLabel:[Ljava/lang/String;
@@ -94,7 +94,7 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mItemsLabel:[Ljava/lang/String;
 
-    :cond_0
+    :cond_2b
     const p1, 0x7f0e0055
 
     .line 50
@@ -132,7 +132,7 @@
 
 # virtual methods
 .method public indexOfSelectedItem()I
-    .locals 0
+    .registers 1
 
     .line 80
     iget-object p0, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -145,7 +145,7 @@
 .end method
 
 .method public initialPositionFromSubject()F
-    .locals 2
+    .registers 3
 
     .line 85
     sget v0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->LAST_INDEX:I
@@ -171,7 +171,7 @@
 .end method
 
 .method public positionFromSubject()F
-    .locals 2
+    .registers 3
 
     .line 59
     iget-wide v0, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mPositionFromDragging:D
@@ -182,13 +182,13 @@
 .end method
 
 .method public release()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public updateHudInfoInPreview()V
-    .locals 5
+    .registers 6
 
     .line 99
     iget-object v0, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -204,7 +204,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_46
 
     .line 102
     iget-object v1, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -261,12 +261,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
-    :cond_0
+    :cond_46
     return-void
 .end method
 
 .method public updateSubject(F)V
-    .locals 3
+    .registers 5
 
     .line 64
     invoke-static {}, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->maxIndex()I
@@ -276,7 +276,7 @@
     .line 65
     iget-boolean v1, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     sget v1, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->LAST_INDEX:I
 
@@ -291,9 +291,9 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_12
     sget v0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->LAST_INDEX:I
 
     int-to-float v0, v0
@@ -306,7 +306,7 @@
     move-result v0
 
     .line 68
-    :goto_0
+    :goto_1a
     invoke-static {}, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->values()[Lopenlight/co/camera/utils/Constants$ExposureCompValues;
 
     move-result-object v1
@@ -326,13 +326,13 @@
     .line 73
     iget p1, p0, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->mPreviousCalculatedIndex:I
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_30
 
     const/4 p1, 0x0
 
     .line 74
     invoke-virtual {p0, v0, p1}, Lopenlight/co/camera/view/dragger/ExposureCompensationDraggerModel;->sendMessageDelayed(II)V
 
-    :cond_1
+    :cond_30
     return-void
 .end method

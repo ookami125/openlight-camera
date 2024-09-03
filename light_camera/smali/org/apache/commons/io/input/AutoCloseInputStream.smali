@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
 
     .line 47
     invoke-direct {p0, p1}, Lorg/apache/commons/io/input/ProxyInputStream;-><init>(Ljava/io/InputStream;)V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method protected afterRead(I)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -25,17 +25,17 @@
 
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_6
 
     .line 79
     invoke-virtual {p0}, Lorg/apache/commons/io/input/AutoCloseInputStream;->close()V
 
-    :cond_0
+    :cond_6
     return-void
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -58,7 +58,7 @@
 .end method
 
 .method protected finalize()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Throwable;

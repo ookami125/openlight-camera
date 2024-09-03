@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/ToolbarActionBar;)V
-    .locals 0
+    .registers 2
 
     .line 583
     iput-object p1, p0, Landroid/support/v7/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onMenuItemSelected(Landroid/support/v7/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x0
 
@@ -44,14 +44,14 @@
 .end method
 
 .method public onMenuModeChange(Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 4
+    .registers 6
 
     .line 593
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     iget-object v0, v0, Landroid/support/v7/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 594
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -64,7 +64,7 @@
 
     const/16 v1, 0x6c
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 595
     iget-object p0, p0, Landroid/support/v7/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -73,10 +73,10 @@
 
     invoke-interface {p0, v1, p1}, Landroid/view/Window$Callback;->onPanelClosed(ILandroid/view/Menu;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 596
-    :cond_0
+    :cond_1a
     iget-object v0, p0, Landroid/support/v7/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
 
     iget-object v0, v0, Landroid/support/v7/app/ToolbarActionBar;->mWindowCallback:Landroid/view/Window$Callback;
@@ -89,7 +89,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     .line 598
     iget-object p0, p0, Landroid/support/v7/app/ToolbarActionBar$MenuBuilderCallback;->this$0:Landroid/support/v7/app/ToolbarActionBar;
@@ -98,7 +98,7 @@
 
     invoke-interface {p0, v1, p1}, Landroid/view/Window$Callback;->onMenuOpened(ILandroid/view/Menu;)Z
 
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     return-void
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 141
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static getDescription(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 148
     check-cast p0, Landroid/media/browse/MediaBrowser$MediaItem;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getFlags(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 144
     check-cast p0, Landroid/media/browse/MediaBrowser$MediaItem;

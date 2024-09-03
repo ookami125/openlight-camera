@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 139
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 139
     check-cast p1, Lorg/apache/commons/io/ByteOrderMark;
@@ -54,7 +54,7 @@
 .end method
 
 .method public compare(Lorg/apache/commons/io/ByteOrderMark;Lorg/apache/commons/io/ByteOrderMark;)I
-    .locals 0
+    .registers 3
 
     .line 142
     invoke-virtual {p1}, Lorg/apache/commons/io/ByteOrderMark;->length()I
@@ -66,20 +66,20 @@
 
     move-result p1
 
-    if-le p0, p1, :cond_0
+    if-le p0, p1, :cond_c
 
     const/4 p0, -0x1
 
     return p0
 
-    :cond_0
-    if-le p1, p0, :cond_1
+    :cond_c
+    if-le p1, p0, :cond_10
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_10
     const/4 p0, 0x0
 
     return p0

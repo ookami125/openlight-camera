@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/SharedPreferences;)V
-    .locals 1
+    .registers 3
 
     .line 463
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -97,14 +97,14 @@
 .end method
 
 .method private broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
-    .locals 4
+    .registers 7
 
     .line 449
     invoke-virtual {p0}, Lopenlight/co/lib/content/LocalPrefs;->getActionPrefChanged()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_50
 
     .line 451
     new-instance v1, Landroid/content/Intent;
@@ -173,12 +173,12 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_50
     return-void
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/lib/content/LocalPrefs;Landroid/content/SharedPreferences;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 42
     iget-object p1, p0, Lopenlight/co/lib/content/LocalPrefs;->mListeners:Ljava/util/HashSet;
@@ -187,12 +187,12 @@
 
     move-result-object p1
 
-    :goto_0
+    :goto_6
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -203,16 +203,16 @@
     .line 43
     invoke-interface {v0, p0, p2}, Lopenlight/co/lib/content/Prefs$OnPreferenceChangeListener;->onPreferenceChanged(Lopenlight/co/lib/content/Prefs;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 
 # virtual methods
 .method protected createDefaultValue(Ljava/lang/String;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -229,7 +229,7 @@
 .end method
 
 .method protected getActionPrefChanged()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -237,7 +237,7 @@
 .end method
 
 .method public getBooleanValue(Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
 
     .line 205
     invoke-virtual {p0, p1}, Lopenlight/co/lib/content/LocalPrefs;->getDefaultBooleanValue(Ljava/lang/String;)Z
@@ -255,7 +255,7 @@
 .end method
 
 .method protected getDefaultBooleanValue(Ljava/lang/String;)Z
-    .locals 2
+    .registers 4
 
     .line 408
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
@@ -266,81 +266,81 @@
 
     const/4 v1, 0x0
 
-    if-eq p0, v0, :cond_2
+    if-eq p0, v0, :cond_29
 
     const v0, -0x757b5fcd
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_1f
 
     const v0, -0x36be5ff8    # -793088.5f
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_15
 
-    goto :goto_0
+    goto :goto_33
 
-    :cond_0
+    :cond_15
     const-string p0, "ftu_edit_user"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_33
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_1
+    :cond_1f
     const-string p0, "gallery_show_tutorial"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_33
 
     move p0, v1
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_2
+    :cond_29
     const-string p0, "use_metric_units"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_33
 
     const/4 p0, 0x2
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_3
-    :goto_0
+    :cond_33
+    :goto_33
     const/4 p0, -0x1
 
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    :goto_34
+    packed-switch p0, :pswitch_data_3a
 
     return v1
 
-    :pswitch_0
+    :pswitch_38
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3a
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_38
+        :pswitch_38
+        :pswitch_38
     .end packed-switch
 .end method
 
 .method protected getDefaultFloatValue(Ljava/lang/String;)F
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -348,7 +348,7 @@
 .end method
 
 .method protected getDefaultIntValue(Ljava/lang/String;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -356,7 +356,7 @@
 .end method
 
 .method protected getDefaultLongValue(Ljava/lang/String;)J
-    .locals 0
+    .registers 2
 
     const-wide/16 p0, 0x0
 
@@ -364,141 +364,141 @@
 .end method
 
 .method protected getDefaultStringValue(Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 289
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result p0
 
-    sparse-switch p0, :sswitch_data_0
+    sparse-switch p0, :sswitch_data_50
 
-    goto :goto_0
+    goto :goto_3a
 
-    :sswitch_0
+    :sswitch_8
     const-string p0, "image_encryption_setting"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3a
 
     const/4 p0, 0x4
 
-    goto :goto_1
+    goto :goto_3b
 
-    :sswitch_1
+    :sswitch_12
     const-string p0, "dream_processing_setting"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3a
 
     const/4 p0, 0x3
 
-    goto :goto_1
+    goto :goto_3b
 
-    :sswitch_2
+    :sswitch_1c
     const-string p0, "device_haptic_setting"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3a
 
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_3b
 
-    :sswitch_3
+    :sswitch_26
     const-string p0, "locked_names"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3a
 
     const/4 p0, 0x2
 
-    goto :goto_1
+    goto :goto_3b
 
-    :sswitch_4
+    :sswitch_30
     const-string p0, "qualityFtuState"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3a
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_0
-    :goto_0
+    :cond_3a
+    :goto_3a
     const/4 p0, -0x1
 
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    :goto_3b
+    packed-switch p0, :pswitch_data_66
 
     const-string p0, ""
 
     return-object p0
 
-    :pswitch_0
+    :pswitch_41
     const-string p0, "off"
 
     return-object p0
 
-    :pswitch_1
+    :pswitch_44
     const-string p0, "on"
 
     return-object p0
 
-    :pswitch_2
+    :pswitch_47
     const/4 p0, 0x0
 
     return-object p0
 
-    :pswitch_3
+    :pswitch_49
     const-string p0, "start"
 
     return-object p0
 
-    :pswitch_4
+    :pswitch_4c
     const-string p0, "normal"
 
     return-object p0
 
     nop
 
-    :sswitch_data_0
+    :sswitch_data_50
     .sparse-switch
-        -0x7970ba77 -> :sswitch_4
-        -0x72c5822d -> :sswitch_3
-        -0x39c0264f -> :sswitch_2
-        0x291a62e0 -> :sswitch_1
-        0x7657c2f8 -> :sswitch_0
+        -0x7970ba77 -> :sswitch_30
+        -0x72c5822d -> :sswitch_26
+        -0x39c0264f -> :sswitch_1c
+        0x291a62e0 -> :sswitch_12
+        0x7657c2f8 -> :sswitch_8
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_66
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4c
+        :pswitch_49
+        :pswitch_47
+        :pswitch_44
+        :pswitch_41
     .end packed-switch
 .end method
 
 .method protected getDefaultValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -517,7 +517,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 350
     iget-object p0, p0, Lopenlight/co/lib/content/LocalPrefs;->mDefaultsCache:Ljava/util/Map;
@@ -529,14 +529,14 @@
     return-object p0
 
     .line 355
-    :cond_0
+    :cond_f
     invoke-virtual {p0, p1}, Lopenlight/co/lib/content/LocalPrefs;->createDefaultValue(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_46
 
-    :try_start_0
+    :try_start_15
     const-string v1, "CREATOR"
 
     .line 360
@@ -553,7 +553,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     .line 362
     invoke-virtual {v1}, Ljava/lang/reflect/Field;->getType()Ljava/lang/Class;
@@ -566,7 +566,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_46
 
     const/4 v2, 0x0
 
@@ -581,15 +581,15 @@
     invoke-interface {v1, p1}, Lopenlight/co/lib/content/LocalPrefs$Creator;->createForKey(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_15 .. :try_end_3c} :catch_3e
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_15 .. :try_end_3c} :catch_3e
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_46
 
-    :catch_0
+    :catch_3e
     move-exception v1
 
     const-string v2, "LocalPrefs"
@@ -599,22 +599,22 @@
     .line 368
     invoke-static {v2, v3, v1}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :cond_1
-    :goto_0
-    if-nez v0, :cond_2
+    :cond_46
+    :goto_46
+    if-nez v0, :cond_55
 
     .line 375
-    :try_start_1
+    :try_start_48
     invoke-virtual {p2}, Ljava/lang/Class;->newInstance()Ljava/lang/Object;
 
     move-result-object p2
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/InstantiationException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_4c
+    .catch Ljava/lang/IllegalAccessException; {:try_start_48 .. :try_end_4c} :catch_4d
+    .catch Ljava/lang/InstantiationException; {:try_start_48 .. :try_end_4c} :catch_4d
 
-    goto :goto_1
+    goto :goto_56
 
-    :catch_1
+    :catch_4d
     move-exception p2
 
     const-string v1, "LocalPrefs"
@@ -624,11 +624,11 @@
     .line 377
     invoke-static {v1, v2, p2}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :cond_2
+    :cond_55
     move-object p2, v0
 
     .line 382
-    :goto_1
+    :goto_56
     iget-object p0, p0, Lopenlight/co/lib/content/LocalPrefs;->mDefaultsCache:Ljava/util/Map;
 
     invoke-interface {p0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
@@ -637,7 +637,7 @@
 .end method
 
 .method public getFloatValue(Ljava/lang/String;)F
-    .locals 1
+    .registers 3
 
     .line 193
     invoke-virtual {p0, p1}, Lopenlight/co/lib/content/LocalPrefs;->getDefaultFloatValue(Ljava/lang/String;)F
@@ -655,7 +655,7 @@
 .end method
 
 .method public getIntValue(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
 
     .line 169
     invoke-virtual {p0, p1}, Lopenlight/co/lib/content/LocalPrefs;->getDefaultIntValue(Ljava/lang/String;)I
@@ -673,7 +673,7 @@
 .end method
 
 .method public getLongValue(Ljava/lang/String;)J
-    .locals 2
+    .registers 4
 
     .line 181
     invoke-virtual {p0, p1}, Lopenlight/co/lib/content/LocalPrefs;->getDefaultLongValue(Ljava/lang/String;)J
@@ -691,7 +691,7 @@
 .end method
 
 .method protected getPermissionPrefChanged()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -699,7 +699,7 @@
 .end method
 
 .method public getStringValue(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 157
     invoke-virtual {p0, p1}, Lopenlight/co/lib/content/LocalPrefs;->getDefaultStringValue(Ljava/lang/String;)Ljava/lang/String;
@@ -717,7 +717,7 @@
 .end method
 
 .method public getValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -739,7 +739,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 221
     invoke-virtual {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->getDefaultValue(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
@@ -749,13 +749,13 @@
     return-object p0
 
     .line 223
-    :cond_0
+    :cond_f
     iget-object p1, p0, Lopenlight/co/lib/content/LocalPrefs;->mGson:Lcom/google/gson/Gson;
 
     monitor-enter p1
 
     .line 224
-    :try_start_0
+    :try_start_12
     iget-object p0, p0, Lopenlight/co/lib/content/LocalPrefs;->mGson:Lcom/google/gson/Gson;
 
     invoke-virtual {p0, v0, p2}, Lcom/google/gson/Gson;->fromJson(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;
@@ -766,19 +766,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_1a
     move-exception p0
 
     .line 225
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_12 .. :try_end_1c} :catchall_1a
 
     throw p0
 .end method
 
 .method public putValue(Ljava/lang/String;F)V
-    .locals 1
+    .registers 4
 
     .line 115
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -796,7 +796,7 @@
     .line 116
     iget-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 117
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -805,12 +805,12 @@
 
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public putValue(Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
 
     .line 89
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -828,7 +828,7 @@
     .line 90
     iget-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 91
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -837,12 +837,12 @@
 
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public putValue(Ljava/lang/String;J)V
-    .locals 1
+    .registers 5
 
     .line 102
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -860,7 +860,7 @@
     .line 103
     iget-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 104
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -869,12 +869,12 @@
 
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public putValue(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
 
     .line 143
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mGson:Lcom/google/gson/Gson;
@@ -882,7 +882,7 @@
     monitor-enter v0
 
     .line 144
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lopenlight/co/lib/content/LocalPrefs;->mGson:Lcom/google/gson/Gson;
 
     invoke-virtual {v1, p2}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
@@ -891,28 +891,28 @@
 
     .line 145
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_3 .. :try_end_a} :catchall_e
 
     .line 146
     invoke-virtual {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 
-    :catchall_0
+    :catchall_e
     move-exception p0
 
     .line 145
-    :try_start_1
+    :try_start_f
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10
+    .catchall {:try_start_f .. :try_end_10} :catchall_e
 
     throw p0
 .end method
 
 .method public putValue(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 76
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -930,17 +930,17 @@
     .line 77
     iget-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 78
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public putValue(Ljava/lang/String;Z)V
-    .locals 1
+    .registers 4
 
     .line 129
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -958,7 +958,7 @@
     .line 130
     iget-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 131
     invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -967,12 +967,12 @@
 
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/content/LocalPrefs;->broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public registerChangeListener(Lopenlight/co/lib/content/Prefs$OnPreferenceChangeListener;)V
-    .locals 1
+    .registers 3
 
     .line 246
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mListeners:Ljava/util/HashSet;
@@ -981,7 +981,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     .line 249
     iget-object p1, p0, Lopenlight/co/lib/content/LocalPrefs;->mListeners:Ljava/util/HashSet;
@@ -992,7 +992,7 @@
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_18
 
     .line 250
     iget-object p1, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -1001,12 +1001,12 @@
 
     invoke-interface {p1, p0}, Landroid/content/SharedPreferences;->registerOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public removeValue(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 234
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -1024,19 +1024,19 @@
     .line 235
     iget-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     const/4 v0, 0x0
 
     .line 236
     invoke-direct {p0, p1, v0}, Lopenlight/co/lib/content/LocalPrefs;->broadcastPrefChanged(Ljava/lang/String;Ljava/io/Serializable;)V
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method protected tag()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "LocalPrefs"
 
@@ -1044,7 +1044,7 @@
 .end method
 
 .method public unregisterChangeListener(Lopenlight/co/lib/content/Prefs$OnPreferenceChangeListener;)V
-    .locals 1
+    .registers 3
 
     .line 260
     iget-object v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mListeners:Ljava/util/HashSet;
@@ -1053,7 +1053,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_17
 
     .line 261
     iget-object p1, p0, Lopenlight/co/lib/content/LocalPrefs;->mListeners:Ljava/util/HashSet;
@@ -1062,7 +1062,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_17
 
     .line 263
     iget-object p1, p0, Lopenlight/co/lib/content/LocalPrefs;->mPrefs:Landroid/content/SharedPreferences;
@@ -1071,32 +1071,32 @@
 
     invoke-interface {p1, p0}, Landroid/content/SharedPreferences;->unregisterOnSharedPreferenceChangeListener(Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;)V
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public withBroadcast(Ljava/lang/Runnable;)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     .line 275
-    :try_start_0
+    :try_start_2
     iput-boolean v0, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
     .line 276
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_2 .. :try_end_7} :catchall_a
 
     .line 278
     iput-boolean v1, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p1
 
     iput-boolean v1, p0, Lopenlight/co/lib/content/LocalPrefs;->mBroadcastingChanges:Z

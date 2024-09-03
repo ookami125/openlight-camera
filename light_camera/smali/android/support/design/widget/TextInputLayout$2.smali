@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TextInputLayout;)V
-    .locals 0
+    .registers 2
 
     .line 739
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout$2;->this$0:Landroid/support/design/widget/TextInputLayout;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 742
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout$2;->this$0:Landroid/support/design/widget/TextInputLayout;

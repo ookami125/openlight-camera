@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelCache;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public getResourceFetcher(Lcom/bumptech/glide/load/model/GlideUrl;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
     .line 52
     iget-object p2, p0, Lcom/bumptech/glide/load/model/stream/HttpUrlGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_16
 
     .line 53
     iget-object p2, p0, Lcom/bumptech/glide/load/model/stream/HttpUrlGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
@@ -101,21 +101,21 @@
 
     check-cast p2, Lcom/bumptech/glide/load/model/GlideUrl;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_15
 
     .line 55
     iget-object p0, p0, Lcom/bumptech/glide/load/model/stream/HttpUrlGlideUrlLoader;->modelCache:Lcom/bumptech/glide/load/model/ModelCache;
 
     invoke-virtual {p0, p1, p3, p3, p1}, Lcom/bumptech/glide/load/model/ModelCache;->put(Ljava/lang/Object;IILjava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     move-object p1, p2
 
     .line 59
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     new-instance p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;
 
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/data/HttpUrlFetcher;-><init>(Lcom/bumptech/glide/load/model/GlideUrl;)V
@@ -124,7 +124,7 @@
 .end method
 
 .method public bridge synthetic getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
 
     .line 19
     check-cast p1, Lcom/bumptech/glide/load/model/GlideUrl;

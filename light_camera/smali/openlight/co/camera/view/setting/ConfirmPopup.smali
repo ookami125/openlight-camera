@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 4
 
     .line 56
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -48,17 +48,17 @@
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 4
+    .registers 5
 
     .line 64
     iget-object v0, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mContext:Landroid/content/Context;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 67
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
@@ -163,7 +163,7 @@
 .end method
 
 .method public closeAll()V
-    .locals 0
+    .registers 1
 
     .line 101
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/ConfirmPopup;->removeModeSelection()V
@@ -172,13 +172,13 @@
 .end method
 
 .method public initChildView()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 33
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -187,19 +187,19 @@
 
     const v0, 0x7f09003f
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_1b
 
     const v0, 0x7f09004d
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_f
 
-    goto :goto_0
+    goto :goto_26
 
     .line 41
-    :cond_0
+    :cond_f
     iget-object p1, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mSettingsActionListener:Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_26
 
     .line 42
     iget-object p1, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mSettingsActionListener:Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;
@@ -208,13 +208,13 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;->onOk(Lopenlight/co/camera/view/setting/SettingModel;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 36
-    :cond_1
+    :cond_1b
     iget-object p1, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mSettingsActionListener:Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_26
 
     .line 37
     iget-object p1, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mSettingsActionListener:Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;
@@ -223,22 +223,22 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;->onCancel(Lopenlight/co/camera/view/setting/SettingModel;)V
 
-    :cond_2
-    :goto_0
+    :cond_26
+    :goto_26
     return-void
 .end method
 
 .method public removeModeSelection()V
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mParentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mPopupLayout:Landroid/widget/RelativeLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 95
     iget-object v0, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mParentView:Landroid/view/ViewGroup;
@@ -247,12 +247,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method setSettingsActionListener(Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;)V
-    .locals 0
+    .registers 2
 
     .line 110
     iput-object p1, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mSettingsActionListener:Lopenlight/co/camera/view/setting/ConfirmPopup$SettingsConfirmListener;
@@ -261,21 +261,21 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 106
     iget-object p0, p0, Lopenlight/co/camera/view/setting/ConfirmPopup;->mPopupLayout:Landroid/widget/RelativeLayout;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
     return-void

@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 135
     :try_start_0
@@ -79,15 +79,15 @@
     move-result-object v0
 
     sput-object v0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->sInvalidateChildInParentFastMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_1c} :catch_1c
 
-    :catch_0
+    :catch_1c
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/ViewOverlayApi14;)V
-    .locals 0
+    .registers 5
 
     .line 159
     invoke-direct {p0, p1}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;)V
@@ -127,7 +127,7 @@
 .end method
 
 .method private getOffset([I)V
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x2
 
@@ -175,12 +175,12 @@
 
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
 
     .line 175
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 177
     new-instance v0, Ljava/util/ArrayList;
@@ -190,14 +190,14 @@
     iput-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
     .line 179
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     .line 181
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
@@ -214,12 +214,12 @@
     .line 183
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    :cond_1
+    :cond_22
     return-void
 .end method
 
 .method public add(Landroid/view/View;)V
-    .locals 6
+    .registers 8
 
     .line 201
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -230,7 +230,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     .line 202
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -242,20 +242,20 @@
     .line 203
     iget-object v2, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mHostView:Landroid/view/ViewGroup;
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_3d
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     .line 204
     invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3d
 
     const/4 v2, 0x2
 
@@ -294,7 +294,7 @@
     invoke-static {p1, v3}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
     .line 214
-    :cond_0
+    :cond_3d
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 220
@@ -302,13 +302,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_49
 
     .line 221
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 224
-    :cond_1
+    :cond_49
     invoke-virtual {p0}, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->getChildCount()I
 
     move-result v0
@@ -321,7 +321,7 @@
 .end method
 
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 235
     invoke-virtual {p0}, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->removeAllViews()V
@@ -329,19 +329,19 @@
     .line 236
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 237
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x2
 
@@ -411,21 +411,21 @@
     .line 262
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3d
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_0
+    :cond_3d
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_43
+    if-ge v2, v0, :cond_53
 
     .line 264
     iget-object v1, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
@@ -440,14 +440,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_1
+    :cond_53
     return-void
 .end method
 
 .method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -455,12 +455,12 @@
 .end method
 
 .method public invalidateChildFast(Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 3
+    .registers 6
 
     .line 292
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mHostView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 296
     invoke-virtual {p1}, Landroid/view/View;->getLeft()I
@@ -500,17 +500,17 @@
 
     invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->invalidate(Landroid/graphics/Rect;)V
 
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public invalidateChildInParent([ILandroid/graphics/Rect;)Landroid/view/ViewParent;
-    .locals 4
+    .registers 7
 
     .line 331
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mHostView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     const/4 v0, 0x0
 
@@ -528,7 +528,7 @@
 
     instance-of v1, v1, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_29
 
     .line 334
     aput v0, p1, v0
@@ -559,17 +559,17 @@
     return-object p0
 
     .line 342
-    :cond_0
+    :cond_29
     invoke-virtual {p0, p2}, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->invalidate(Landroid/graphics/Rect;)V
 
-    :cond_1
+    :cond_2c
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method protected invalidateChildInParentFast(IILandroid/graphics/Rect;)Landroid/view/ViewParent;
-    .locals 4
+    .registers 8
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -581,16 +581,16 @@
 
     instance-of v0, v0, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     sget-object v0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->sInvalidateChildInParentFastMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     const/4 v0, 0x2
 
     .line 316
-    :try_start_0
+    :try_start_b
     new-array v1, v0, [I
 
     .line 317
@@ -624,35 +624,35 @@
     aput-object p3, v2, v0
 
     invoke-virtual {v1, p0, v2}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/IllegalAccessException; {:try_start_b .. :try_end_2a} :catch_30
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_b .. :try_end_2a} :catch_2b
 
-    goto :goto_0
+    goto :goto_34
 
-    :catch_0
+    :catch_2b
     move-exception p0
 
     .line 322
     invoke-virtual {p0}, Ljava/lang/reflect/InvocationTargetException;->printStackTrace()V
 
-    goto :goto_0
+    goto :goto_34
 
-    :catch_1
+    :catch_30
     move-exception p0
 
     .line 320
     invoke-virtual {p0}, Ljava/lang/IllegalAccessException;->printStackTrace()V
 
-    :cond_0
-    :goto_0
+    :cond_34
+    :goto_34
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -669,18 +669,18 @@
 .end method
 
 .method isEmpty()Z
-    .locals 1
+    .registers 2
 
     .line 242
     invoke-virtual {p0}, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->getChildCount()I
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
@@ -689,33 +689,33 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_14
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 0
+    .registers 6
 
     return-void
 .end method
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
 
     .line 188
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 189
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
@@ -734,12 +734,12 @@
     .line 191
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public remove(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 228
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
@@ -749,19 +749,19 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     .line 230
     iget-object p1, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mHostView:Landroid/view/ViewGroup;
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method protected verifyDrawable(Landroid/graphics/drawable/Drawable;)Z
-    .locals 1
+    .registers 3
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -772,11 +772,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi14$OverlayViewGroup;->mDrawables:Ljava/util/ArrayList;
 
@@ -784,19 +784,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_13
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_16
     return p0
 .end method

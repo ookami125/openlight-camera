@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,9 +26,9 @@
 .end method
 
 .method static newIVTElement([I)Lcom/immersion/IVTElement;
-    .locals 21
+    .registers 22
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7e
 
     const/4 v1, 0x0
 
@@ -53,12 +53,12 @@
 
     const/4 v10, 0x1
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_80
 
-    goto/16 :goto_0
+    goto/16 :goto_7e
 
     .line 69
-    :pswitch_0
+    :pswitch_15
     new-instance v1, Lcom/immersion/IVTWaveformElement;
 
     aget v2, p0, v10
@@ -83,10 +83,10 @@
 
     invoke-direct {v1, v2, v3}, Lcom/immersion/IVTWaveformElement;-><init>(ILcom/immersion/WaveformEffectDefinition;)V
 
-    goto :goto_1
+    goto :goto_7f
 
     .line 73
-    :pswitch_1
+    :pswitch_2e
     new-instance v1, Lcom/immersion/IVTRepeatElement;
 
     aget v2, p0, v10
@@ -97,10 +97,10 @@
 
     invoke-direct {v1, v2, v3, v0}, Lcom/immersion/IVTRepeatElement;-><init>(III)V
 
-    goto :goto_1
+    goto :goto_7f
 
     .line 61
-    :pswitch_2
+    :pswitch_3a
     new-instance v1, Lcom/immersion/IVTMagSweepElement;
 
     aget v10, p0, v10
@@ -133,10 +133,10 @@
 
     invoke-direct {v1, v10, v0}, Lcom/immersion/IVTMagSweepElement;-><init>(ILcom/immersion/MagSweepEffectDefinition;)V
 
-    goto :goto_1
+    goto :goto_7f
 
     .line 65
-    :pswitch_3
+    :pswitch_5a
     new-instance v1, Lcom/immersion/IVTPeriodicElement;
 
     aget v10, p0, v10
@@ -173,28 +173,28 @@
 
     invoke-direct {v1, v10, v0}, Lcom/immersion/IVTPeriodicElement;-><init>(ILcom/immersion/PeriodicEffectDefinition;)V
 
-    goto :goto_1
+    goto :goto_7f
 
-    :cond_0
-    :goto_0
+    :cond_7e
+    :goto_7e
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_7f
     return-object v1
 
-    :pswitch_data_0
+    :pswitch_data_80
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5a
+        :pswitch_3a
+        :pswitch_2e
+        :pswitch_15
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public getBuffer()[I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -202,7 +202,7 @@
 .end method
 
 .method public getTime()I
-    .locals 0
+    .registers 1
 
     .line 131
     iget p0, p0, Lcom/immersion/IVTElement;->time:I
@@ -211,7 +211,7 @@
 .end method
 
 .method public getType()I
-    .locals 0
+    .registers 1
 
     .line 109
     iget p0, p0, Lcom/immersion/IVTElement;->type:I
@@ -220,7 +220,7 @@
 .end method
 
 .method public setTime(I)V
-    .locals 0
+    .registers 2
 
     .line 120
     iput p1, p0, Lcom/immersion/IVTElement;->time:I
@@ -229,7 +229,7 @@
 .end method
 
 .method setType(I)V
-    .locals 0
+    .registers 2
 
     .line 93
     iput p1, p0, Lcom/immersion/IVTElement;->type:I

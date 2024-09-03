@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl;Landroid/view/inputmethod/InputConnection;ZLandroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)V
-    .locals 0
+    .registers 5
 
     .line 89
     iput-object p1, p0, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl$1;->this$0:Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
-    .locals 1
+    .registers 4
 
     .line 92
     iget-object v0, p0, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl$1;->val$listener:Landroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;
@@ -46,14 +46,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/4 p0, 0x1
 
     return p0
 
     .line 96
-    :cond_0
+    :cond_a
     invoke-super {p0, p1, p2}, Landroid/view/inputmethod/InputConnectionWrapper;->performPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;)Z
 
     move-result p0

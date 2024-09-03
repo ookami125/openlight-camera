@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public bridge synthetic getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
 
     .line 14
     check-cast p1, Ljava/net/URL;
@@ -69,7 +69,7 @@
 .end method
 
 .method public getResourceFetcher(Ljava/net/URL;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

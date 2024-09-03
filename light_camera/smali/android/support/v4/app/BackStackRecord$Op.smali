@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 200
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method constructor <init>(ILandroid/support/v4/app/Fragment;)V
-    .locals 0
+    .registers 3
 
     .line 203
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

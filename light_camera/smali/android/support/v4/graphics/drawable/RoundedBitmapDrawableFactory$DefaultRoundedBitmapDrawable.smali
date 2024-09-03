@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 3
 
     .line 38
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 6
+    .registers 12
 
     const/4 v5, 0x0
 
@@ -48,12 +48,12 @@
 .end method
 
 .method public hasMipMap()Z
-    .locals 1
+    .registers 2
 
     .line 51
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -61,26 +61,26 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method public setMipMap(Z)V
-    .locals 1
+    .registers 3
 
     .line 43
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 44
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -90,6 +90,6 @@
     .line 45
     invoke-virtual {p0}, Landroid/support/v4/graphics/drawable/RoundedBitmapDrawableFactory$DefaultRoundedBitmapDrawable;->invalidateSelf()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method

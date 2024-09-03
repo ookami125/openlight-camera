@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 7
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method protected get()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -75,19 +75,19 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 14
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;->create()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
 
     move-result-object v0
 
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method public offer(Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -103,13 +103,13 @@
 
     const/16 v1, 0x14
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_f
 
     .line 21
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;->keyPool:Ljava/util/Queue;
 
     invoke-interface {p0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_f
     return-void
 .end method

@@ -12,7 +12,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/v7/widget/CardViewBaseImpl;)Landroid/graphics/RectF;
-    .locals 0
+    .registers 1
 
     .line 26
     iget-object p0, p0, Landroid/support/v7/widget/CardViewBaseImpl;->mCornerRect:Landroid/graphics/RectF;
@@ -37,7 +37,7 @@
 .end method
 
 .method private createBackground(Landroid/content/Context;Landroid/content/res/ColorStateList;FFF)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
-    .locals 6
+    .registers 12
 
     .line 91
     new-instance p0, Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -62,7 +62,7 @@
 .end method
 
 .method private getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
-    .locals 0
+    .registers 2
 
     .line 169
     invoke-interface {p1}, Landroid/support/v7/widget/CardViewDelegate;->getCardBackground()Landroid/graphics/drawable/Drawable;
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public getBackgroundColor(Landroid/support/v7/widget/CardViewDelegate;)Landroid/content/res/ColorStateList;
-    .locals 0
+    .registers 2
 
     .line 123
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -92,7 +92,7 @@
 .end method
 
 .method public getElevation(Landroid/support/v7/widget/CardViewDelegate;)F
-    .locals 0
+    .registers 2
 
     .line 144
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -107,7 +107,7 @@
 .end method
 
 .method public getMaxElevation(Landroid/support/v7/widget/CardViewDelegate;)F
-    .locals 0
+    .registers 2
 
     .line 155
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -122,7 +122,7 @@
 .end method
 
 .method public getMinHeight(Landroid/support/v7/widget/CardViewDelegate;)F
-    .locals 0
+    .registers 2
 
     .line 165
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -137,7 +137,7 @@
 .end method
 
 .method public getMinWidth(Landroid/support/v7/widget/CardViewDelegate;)F
-    .locals 0
+    .registers 2
 
     .line 160
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -152,7 +152,7 @@
 .end method
 
 .method public getRadius(Landroid/support/v7/widget/CardViewDelegate;)F
-    .locals 0
+    .registers 2
 
     .line 134
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -167,7 +167,7 @@
 .end method
 
 .method public initStatic()V
-    .locals 1
+    .registers 2
 
     .line 35
     new-instance v0, Landroid/support/v7/widget/CardViewBaseImpl$1;
@@ -180,7 +180,7 @@
 .end method
 
 .method public initialize(Landroid/support/v7/widget/CardViewDelegate;Landroid/content/Context;Landroid/content/res/ColorStateList;FFF)V
-    .locals 6
+    .registers 13
 
     move-object v0, p0
 
@@ -216,13 +216,13 @@
 .end method
 
 .method public onCompatPaddingChanged(Landroid/support/v7/widget/CardViewDelegate;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onPreventCornerOverlapChanged(Landroid/support/v7/widget/CardViewDelegate;)V
-    .locals 2
+    .registers 4
 
     .line 112
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -242,7 +242,7 @@
 .end method
 
 .method public setBackgroundColor(Landroid/support/v7/widget/CardViewDelegate;Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 3
     .param p2    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -259,7 +259,7 @@
 .end method
 
 .method public setElevation(Landroid/support/v7/widget/CardViewDelegate;F)V
-    .locals 0
+    .registers 3
 
     .line 139
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -272,7 +272,7 @@
 .end method
 
 .method public setMaxElevation(Landroid/support/v7/widget/CardViewDelegate;F)V
-    .locals 1
+    .registers 4
 
     .line 149
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -288,7 +288,7 @@
 .end method
 
 .method public setRadius(Landroid/support/v7/widget/CardViewDelegate;F)V
-    .locals 1
+    .registers 4
 
     .line 128
     invoke-direct {p0, p1}, Landroid/support/v7/widget/CardViewBaseImpl;->getShadowBackground(Landroid/support/v7/widget/CardViewDelegate;)Landroid/support/v7/widget/RoundRectDrawableWithShadow;
@@ -304,7 +304,7 @@
 .end method
 
 .method public updatePadding(Landroid/support/v7/widget/CardViewDelegate;)V
-    .locals 4
+    .registers 6
 
     .line 97
     new-instance v0, Landroid/graphics/Rect;

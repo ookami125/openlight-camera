@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public encode(Ljava/io/InputStream;Ljava/io/OutputStream;)Z
-    .locals 3
+    .registers 6
 
     .line 20
     invoke-static {}, Lcom/bumptech/glide/util/ByteArrayPool;->get()Lcom/bumptech/glide/util/ByteArrayPool;
@@ -45,28 +45,28 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_8
     const/4 v0, 0x0
 
     .line 23
-    :try_start_0
+    :try_start_9
     invoke-virtual {p1, p0}, Ljava/io/InputStream;->read([B)I
 
     move-result v1
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_14
 
     .line 24
     invoke-virtual {p2, p0, v0, v1}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_13} :catch_1f
+    .catchall {:try_start_9 .. :try_end_13} :catchall_1d
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_14
     const/4 p1, 0x1
 
     .line 33
@@ -78,15 +78,15 @@
 
     return p1
 
-    :catchall_0
+    :catchall_1d
     move-exception p1
 
-    goto :goto_1
+    goto :goto_38
 
-    :catch_0
+    :catch_1f
     move-exception p1
 
-    :try_start_1
+    :try_start_20
     const-string p2, "StreamEncoder"
 
     const/4 v1, 0x3
@@ -96,7 +96,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_30
 
     const-string p2, "StreamEncoder"
 
@@ -104,11 +104,11 @@
 
     .line 29
     invoke-static {p2, v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catchall {:try_start_20 .. :try_end_30} :catchall_1d
 
     .line 33
-    :cond_1
+    :cond_30
     invoke-static {}, Lcom/bumptech/glide/util/ByteArrayPool;->get()Lcom/bumptech/glide/util/ByteArrayPool;
 
     move-result-object p1
@@ -117,7 +117,7 @@
 
     return v0
 
-    :goto_1
+    :goto_38
     invoke-static {}, Lcom/bumptech/glide/util/ByteArrayPool;->get()Lcom/bumptech/glide/util/ByteArrayPool;
 
     move-result-object p2
@@ -128,7 +128,7 @@
 .end method
 
 .method public bridge synthetic encode(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
 
     .line 15
     check-cast p1, Ljava/io/InputStream;
@@ -141,7 +141,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, ""
 

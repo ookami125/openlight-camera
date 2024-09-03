@@ -41,13 +41,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;J)V
-    .locals 0
+    .registers 5
 
     .line 71
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lopenlight/co/camera/view/timer/PictureTimer;->TAG:Ljava/lang/String;
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/timer/PictureTimer;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mText:Ljava/lang/String;
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/timer/PictureTimer;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 37
     iput-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mText:Ljava/lang/String;
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/timer/PictureTimer;)Landroid/widget/TextView;
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mTickerText:Landroid/widget/TextView;
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/timer/PictureTimer;)Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mOnTimerEventListener:Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
@@ -125,7 +125,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/timer/PictureTimer;)Landroid/os/CountDownTimer;
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mTickCounter:Landroid/os/CountDownTimer;
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 3
+    .registers 4
 
     .line 83
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -180,7 +180,7 @@
 .end method
 
 .method public closeAll()V
-    .locals 1
+    .registers 2
 
     .line 126
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mTickerLayout:Lopenlight/co/camera/view/rotate/RotateLayout;
@@ -194,7 +194,7 @@
 .end method
 
 .method public endTimer()V
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mTickCounter:Landroid/os/CountDownTimer;
@@ -210,7 +210,7 @@
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 143
     const-class p0, Lopenlight/co/camera/view/timer/PictureTimer;
@@ -223,7 +223,7 @@
 .end method
 
 .method public initChildView()V
-    .locals 6
+    .registers 7
 
     .line 96
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mPictureTimerView:Landroid/view/View;
@@ -298,7 +298,7 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 1
+    .registers 3
 
     .line 137
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mTickerLayout:Lopenlight/co/camera/view/rotate/RotateLayout;
@@ -317,12 +317,12 @@
 .end method
 
 .method public removeModeSelection()V
-    .locals 2
+    .registers 3
 
     .line 118
     iget-object v0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mImageFragmentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 119
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -342,12 +342,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public setOnTimerEventListener(Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;)V
-    .locals 0
+    .registers 2
 
     .line 147
     iput-object p1, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mOnTimerEventListener:Lopenlight/co/camera/view/timer/PictureTimer$OnTimerEventListener;
@@ -356,28 +356,28 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 132
     iget-object p0, p0, Lopenlight/co/camera/view/timer/PictureTimer;->mPictureTimerView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public startTimer()V
-    .locals 7
+    .registers 8
 
     .line 105
     new-instance v6, Lopenlight/co/camera/view/timer/PictureTimer$PictureCountDownTimer;

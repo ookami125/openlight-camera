@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 676
     invoke-direct {p0, p1}, Landroid/support/v4/util/LruCache;-><init>(I)V
@@ -34,7 +34,7 @@
 .end method
 
 .method private static generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
-    .locals 1
+    .registers 3
 
     const/16 v0, 0x1f
 
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method get(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
-    .locals 0
+    .registers 3
 
     .line 680
     invoke-static {p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;->generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I
@@ -76,7 +76,7 @@
 .end method
 
 .method put(ILandroid/graphics/PorterDuff$Mode;Landroid/graphics/PorterDuffColorFilter;)Landroid/graphics/PorterDuffColorFilter;
-    .locals 0
+    .registers 4
 
     .line 684
     invoke-static {p1, p2}, Landroid/support/v7/widget/AppCompatDrawableManager$ColorFilterLruCache;->generateCacheKey(ILandroid/graphics/PorterDuff$Mode;)I

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/ViewGroupUtilsApi14;)V
-    .locals 0
+    .registers 2
 
     .line 53
     iput-object p1, p0, Landroid/support/transition/ViewGroupUtilsApi14$1;->this$0:Landroid/support/transition/ViewGroupUtilsApi14;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public isChangingLayout()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

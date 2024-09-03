@@ -9,12 +9,12 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Timeout;)V
-    .locals 0
+    .registers 2
 
     .line 25
     invoke-direct {p0}, Lokio/Timeout;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 27
     iput-object p1, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -22,7 +22,7 @@
     return-void
 
     .line 26
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "delegate == null"
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public clearDeadline()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 66
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -48,7 +48,7 @@
 .end method
 
 .method public clearTimeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 62
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -61,7 +61,7 @@
 .end method
 
 .method public deadlineNanoTime()J
-    .locals 2
+    .registers 3
 
     .line 54
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -74,7 +74,7 @@
 .end method
 
 .method public deadlineNanoTime(J)Lokio/Timeout;
-    .locals 0
+    .registers 3
 
     .line 58
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -87,7 +87,7 @@
 .end method
 
 .method public final delegate()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 32
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -96,7 +96,7 @@
 .end method
 
 .method public hasDeadline()Z
-    .locals 0
+    .registers 1
 
     .line 50
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -109,9 +109,9 @@
 .end method
 
 .method public final setDelegate(Lokio/Timeout;)Lokio/ForwardingTimeout;
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 37
     iput-object p1, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -119,7 +119,7 @@
     return-object p0
 
     .line 36
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "delegate == null"
@@ -130,7 +130,7 @@
 .end method
 
 .method public throwIfReached()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -146,7 +146,7 @@
 .end method
 
 .method public timeout(JLjava/util/concurrent/TimeUnit;)Lokio/Timeout;
-    .locals 0
+    .registers 4
 
     .line 42
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;
@@ -159,7 +159,7 @@
 .end method
 
 .method public timeoutNanos()J
-    .locals 2
+    .registers 3
 
     .line 46
     iget-object p0, p0, Lokio/ForwardingTimeout;->delegate:Lokio/Timeout;

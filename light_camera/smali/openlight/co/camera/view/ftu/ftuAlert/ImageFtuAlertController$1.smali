@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 92
     invoke-static {}, Lopenlight/co/camera/enums/FtuView;->values()[Lopenlight/co/camera/enums/FtuView;
@@ -33,7 +33,7 @@
 
     sput-object v0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController$1;->$SwitchMap$light$co$camera$enums$FtuView:[I
 
-    :try_start_0
+    :try_start_9
     sget-object v0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController$1;->$SwitchMap$light$co$camera$enums$FtuView:[I
 
     sget-object v1, Lopenlight/co/camera/enums/FtuView;->FOCUS_FAILED:Lopenlight/co/camera/enums/FtuView;
@@ -45,9 +45,9 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_14
 
-    :catch_0
+    :catch_14
     return-void
 .end method

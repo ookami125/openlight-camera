@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 114
     invoke-direct {p0, p1, p1}, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;-><init>(II)V
@@ -35,7 +35,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 1
+    .registers 4
 
     .line 122
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,9 +45,9 @@
     .line 107
     iput v0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->weight:I
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_17
 
-    if-lez p2, :cond_0
+    if-lez p2, :cond_f
 
     .line 129
     iput p1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->width:I
@@ -58,7 +58,7 @@
     return-void
 
     .line 127
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Height must be > 0"
@@ -68,7 +68,7 @@
     throw p0
 
     .line 124
-    :cond_1
+    :cond_17
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Width must be > 0"
@@ -81,7 +81,7 @@
 
 # virtual methods
 .method build()Lcom/bumptech/glide/load/engine/prefill/PreFillType;
-    .locals 4
+    .registers 5
 
     .line 169
     new-instance v0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;
@@ -100,7 +100,7 @@
 .end method
 
 .method getConfig()Landroid/graphics/Bitmap$Config;
-    .locals 0
+    .registers 1
 
     .line 147
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->config:Landroid/graphics/Bitmap$Config;
@@ -109,7 +109,7 @@
 .end method
 
 .method public setConfig(Landroid/graphics/Bitmap$Config;)Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;
-    .locals 0
+    .registers 2
 
     .line 139
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->config:Landroid/graphics/Bitmap$Config;
@@ -118,9 +118,9 @@
 .end method
 
 .method public setWeight(I)Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;
-    .locals 0
+    .registers 2
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_5
 
     .line 161
     iput p1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->weight:I
@@ -128,7 +128,7 @@
     return-object p0
 
     .line 159
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Weight must be > 0"

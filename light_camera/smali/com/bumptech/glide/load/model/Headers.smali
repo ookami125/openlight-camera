@@ -14,7 +14,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 18
     new-instance v0, Lcom/bumptech/glide/load/model/Headers$1;

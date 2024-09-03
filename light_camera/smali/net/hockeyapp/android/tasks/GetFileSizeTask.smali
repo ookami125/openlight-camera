@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/listeners/DownloadFileListener;)V
-    .locals 0
+    .registers 4
 
     .line 22
     invoke-direct {p0, p1, p2, p3}, Lnet/hockeyapp/android/tasks/DownloadFileTask;-><init>(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/listeners/DownloadFileListener;)V
@@ -20,7 +20,7 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Long;
-    .locals 1
+    .registers 3
 
     .line 28
     :try_start_0
@@ -49,12 +49,12 @@
     invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_17} :catch_18
 
     return-object p0
 
-    :catch_0
+    :catch_18
     move-exception p0
 
     .line 32
@@ -71,7 +71,7 @@
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 18
     check-cast p1, [Ljava/lang/Void;
@@ -84,7 +84,7 @@
 .end method
 
 .method public getSize()J
-    .locals 2
+    .registers 3
 
     .line 53
     iget-wide v0, p0, Lnet/hockeyapp/android/tasks/GetFileSizeTask;->mSize:J
@@ -93,7 +93,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Long;)V
-    .locals 4
+    .registers 6
 
     .line 44
     invoke-virtual {p1}, Ljava/lang/Long;->longValue()J
@@ -109,17 +109,17 @@
 
     cmp-long p1, v0, v2
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_14
 
     .line 46
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/GetFileSizeTask;->mNotifier:Lnet/hockeyapp/android/listeners/DownloadFileListener;
 
     invoke-virtual {p1, p0}, Lnet/hockeyapp/android/listeners/DownloadFileListener;->downloadSuccessful(Lnet/hockeyapp/android/tasks/DownloadFileTask;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 48
-    :cond_0
+    :cond_14
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/GetFileSizeTask;->mNotifier:Lnet/hockeyapp/android/listeners/DownloadFileListener;
 
     const/4 v0, 0x0
@@ -130,12 +130,12 @@
 
     invoke-virtual {p1, p0, v0}, Lnet/hockeyapp/android/listeners/DownloadFileListener;->downloadFailed(Lnet/hockeyapp/android/tasks/DownloadFileTask;Ljava/lang/Boolean;)V
 
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 18
     check-cast p1, Ljava/lang/Long;
@@ -146,13 +146,13 @@
 .end method
 
 .method protected varargs onProgressUpdate([Ljava/lang/Integer;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method protected bridge synthetic onProgressUpdate([Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 18
     check-cast p1, [Ljava/lang/Integer;

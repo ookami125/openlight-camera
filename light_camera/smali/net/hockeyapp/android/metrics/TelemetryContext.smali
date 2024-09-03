@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     .line 111
     invoke-direct {p0}, Lnet/hockeyapp/android/metrics/TelemetryContext;-><init>()V
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method protected configApplicationContext()V
-    .locals 6
+    .registers 7
 
     const-string v0, "HockeyApp-Metrics"
 
@@ -147,7 +147,7 @@
     iput-object v1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mPackageName:Ljava/lang/String;
 
     .line 166
-    :try_start_0
+    :try_start_d
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -171,7 +171,7 @@
     .line 170
     iget-object v2, v1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_26
 
     .line 171
     iget-object v2, v1, Landroid/content/pm/PackageInfo;->packageName:Ljava/lang/String;
@@ -179,7 +179,7 @@
     iput-object v2, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mPackageName:Ljava/lang/String;
 
     .line 174
-    :cond_0
+    :cond_26
     iget v2, v1, Landroid/content/pm/PackageInfo;->versionCode:I
 
     invoke-static {v2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -204,35 +204,35 @@
     invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_d .. :try_end_3c} :catch_42
+    .catchall {:try_start_d .. :try_end_3c} :catchall_40
 
     .line 179
     invoke-virtual {p0, v1}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setAppVersion(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_4c
 
-    :catchall_0
+    :catchall_40
     move-exception v1
 
-    goto :goto_1
+    goto :goto_63
 
-    :catch_0
-    :try_start_1
+    :catch_42
+    :try_start_42
     const-string v1, "HockeyApp-Metrics"
 
     const-string v2, "Could not get application context"
 
     .line 177
     invoke-static {v1, v2}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_49
+    .catchall {:try_start_42 .. :try_end_49} :catchall_40
 
     .line 179
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setAppVersion(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_4c
     const-string v0, "4.1.2"
 
     .line 184
@@ -255,14 +255,14 @@
     return-void
 
     .line 179
-    :goto_1
+    :goto_63
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setAppVersion(Ljava/lang/String;)V
 
     throw v1
 .end method
 
 .method protected configDeviceContext()V
-    .locals 2
+    .registers 3
 
     const-string v0, "HockeyApp-Metrics"
 
@@ -338,28 +338,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4f
 
     const-string v0, "Phone"
 
     .line 215
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setDeviceType(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_54
 
-    :cond_0
+    :cond_4f
     const-string v0, "Tablet"
 
     .line 217
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setDeviceType(Ljava/lang/String;)V
 
     .line 221
-    :goto_0
+    :goto_54
     invoke-static {}, Lnet/hockeyapp/android/utils/Util;->isEmulator()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_74
 
     .line 222
     new-instance v0, Ljava/lang/StringBuilder;
@@ -384,12 +384,12 @@
 
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setDeviceModel(Ljava/lang/String;)V
 
-    :cond_1
+    :cond_74
     return-void
 .end method
 
 .method protected configInternalContext()V
-    .locals 3
+    .registers 4
 
     const-string v0, "4.1.2"
 
@@ -414,7 +414,7 @@
 .end method
 
 .method protected configSessionContext(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
 
     const-string v0, "HockeyApp-Metrics"
 
@@ -456,7 +456,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3d
 
     const-string v0, "SESSION_IS_FIRST"
 
@@ -480,9 +480,9 @@
     .line 148
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_49
 
-    :cond_0
+    :cond_3d
     const-string p1, "false"
 
     .line 150
@@ -495,12 +495,12 @@
     .line 151
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_49
     return-void
 .end method
 
 .method protected configUserId()V
-    .locals 2
+    .registers 3
 
     const-string v0, "HockeyApp-Metrics"
 
@@ -523,7 +523,7 @@
 .end method
 
 .method public getAnonymousUserId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 359
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mUser:Lnet/hockeyapp/android/metrics/model/User;
@@ -531,7 +531,7 @@
     monitor-enter v0
 
     .line 360
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mUser:Lnet/hockeyapp/android/metrics/model/User;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/User;->getId()Ljava/lang/String;
@@ -542,19 +542,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 361
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getAppVersion()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 347
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mApplication:Lnet/hockeyapp/android/metrics/model/Application;
@@ -562,7 +562,7 @@
     monitor-enter v0
 
     .line 348
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mApplication:Lnet/hockeyapp/android/metrics/model/Application;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Application;->getVer()Ljava/lang/String;
@@ -573,19 +573,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 349
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method protected getContextTags()Ljava/util/Map;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -607,15 +607,15 @@
     monitor-enter v1
 
     .line 304
-    :try_start_0
+    :try_start_8
     iget-object v2, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mApplication:Lnet/hockeyapp/android/metrics/model/Application;
 
     invoke-virtual {v2, v0}, Lnet/hockeyapp/android/metrics/model/Application;->addToHashMap(Ljava/util/Map;)V
 
     .line 305
     monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_4
+    :try_end_e
+    .catchall {:try_start_8 .. :try_end_e} :catchall_3f
 
     .line 306
     iget-object v2, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -623,15 +623,15 @@
     monitor-enter v2
 
     .line 307
-    :try_start_1
+    :try_start_11
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/metrics/model/Device;->addToHashMap(Ljava/util/Map;)V
 
     .line 308
     monitor-exit v2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
+    :try_end_17
+    .catchall {:try_start_11 .. :try_end_17} :catchall_3c
 
     .line 309
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -639,15 +639,15 @@
     monitor-enter v1
 
     .line 310
-    :try_start_2
+    :try_start_1a
     iget-object v2, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {v2, v0}, Lnet/hockeyapp/android/metrics/model/Session;->addToHashMap(Ljava/util/Map;)V
 
     .line 311
     monitor-exit v1
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    :try_end_20
+    .catchall {:try_start_1a .. :try_end_20} :catchall_39
 
     .line 312
     iget-object v2, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mUser:Lnet/hockeyapp/android/metrics/model/User;
@@ -655,15 +655,15 @@
     monitor-enter v2
 
     .line 313
-    :try_start_3
+    :try_start_23
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mUser:Lnet/hockeyapp/android/metrics/model/User;
 
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/metrics/model/User;->addToHashMap(Ljava/util/Map;)V
 
     .line 314
     monitor-exit v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_29
+    .catchall {:try_start_23 .. :try_end_29} :catchall_36
 
     .line 315
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInternal:Lnet/hockeyapp/android/metrics/model/Internal;
@@ -671,7 +671,7 @@
     monitor-enter v1
 
     .line 316
-    :try_start_4
+    :try_start_2c
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInternal:Lnet/hockeyapp/android/metrics/model/Internal;
 
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/model/Internal;->addToHashMap(Ljava/util/Map;)V
@@ -681,62 +681,62 @@
 
     return-object v0
 
-    :catchall_0
+    :catchall_33
     move-exception p0
 
     monitor-exit v1
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_35
+    .catchall {:try_start_2c .. :try_end_35} :catchall_33
 
     throw p0
 
-    :catchall_1
+    :catchall_36
     move-exception p0
 
     .line 314
-    :try_start_5
+    :try_start_37
     monitor-exit v2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_38
+    .catchall {:try_start_37 .. :try_end_38} :catchall_36
 
     throw p0
 
-    :catchall_2
+    :catchall_39
     move-exception p0
 
     .line 311
-    :try_start_6
+    :try_start_3a
     monitor-exit v1
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    :try_end_3b
+    .catchall {:try_start_3a .. :try_end_3b} :catchall_39
 
     throw p0
 
-    :catchall_3
+    :catchall_3c
     move-exception p0
 
     .line 308
-    :try_start_7
+    :try_start_3d
     monitor-exit v2
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+    :try_end_3e
+    .catchall {:try_start_3d .. :try_end_3e} :catchall_3c
 
     throw p0
 
-    :catchall_4
+    :catchall_3f
     move-exception p0
 
     .line 305
-    :try_start_8
+    :try_start_40
     monitor-exit v1
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_4
+    :try_end_41
+    .catchall {:try_start_40 .. :try_end_41} :catchall_3f
 
     throw p0
 .end method
 
 .method public getDeviceId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 491
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -749,7 +749,7 @@
 .end method
 
 .method public getDeviceModel()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 443
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -757,7 +757,7 @@
     monitor-enter v0
 
     .line 444
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getModel()Ljava/lang/String;
@@ -768,19 +768,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 445
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getDeviceOemName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 455
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -788,7 +788,7 @@
     monitor-enter v0
 
     .line 456
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getOemName()Ljava/lang/String;
@@ -799,19 +799,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 457
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getDeviceType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 501
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -824,7 +824,7 @@
 .end method
 
 .method public getInstrumentationKey()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 323
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->IKEY_LOCK:Ljava/lang/Object;
@@ -832,26 +832,26 @@
     monitor-enter v0
 
     .line 324
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInstrumentationKey:Ljava/lang/String;
 
     monitor-exit v0
 
     return-object p0
 
-    :catchall_0
+    :catchall_7
     move-exception p0
 
     .line 325
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_7
 
     throw p0
 .end method
 
 .method public getIsFirstSession()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 395
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -859,7 +859,7 @@
     monitor-enter v0
 
     .line 396
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Session;->getIsFirst()Ljava/lang/String;
@@ -870,19 +870,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 397
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getIsNewSession()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 407
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -890,7 +890,7 @@
     monitor-enter v0
 
     .line 408
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Session;->getIsNew()Ljava/lang/String;
@@ -901,19 +901,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 409
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getOSLanguage()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 479
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -921,7 +921,7 @@
     monitor-enter v0
 
     .line 480
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getLanguage()Ljava/lang/String;
@@ -932,19 +932,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 481
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getOsLocale()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 467
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -952,7 +952,7 @@
     monitor-enter v0
 
     .line 468
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getLocale()Ljava/lang/String;
@@ -963,19 +963,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 469
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getOsName()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 431
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -983,7 +983,7 @@
     monitor-enter v0
 
     .line 432
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getOs()Ljava/lang/String;
@@ -994,19 +994,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 433
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getOsVersion()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 419
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1014,7 +1014,7 @@
     monitor-enter v0
 
     .line 420
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getOsVersion()Ljava/lang/String;
@@ -1025,19 +1025,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 421
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method protected getPackageName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 297
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mPackageName:Ljava/lang/String;
@@ -1046,7 +1046,7 @@
 .end method
 
 .method public getScreenResolution()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 335
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1054,7 +1054,7 @@
     monitor-enter v0
 
     .line 336
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Device;->getScreenResolution()Ljava/lang/String;
@@ -1065,19 +1065,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 337
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getSdkVersion()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 371
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInternal:Lnet/hockeyapp/android/metrics/model/Internal;
@@ -1085,7 +1085,7 @@
     monitor-enter v0
 
     .line 372
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInternal:Lnet/hockeyapp/android/metrics/model/Internal;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Internal;->getSdkVersion()Ljava/lang/String;
@@ -1096,19 +1096,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 373
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public getSessionId()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 383
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -1116,7 +1116,7 @@
     monitor-enter v0
 
     .line 384
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/model/Session;->getId()Ljava/lang/String;
@@ -1127,19 +1127,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 385
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method protected renewSessionContext(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 128
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/TelemetryContext;->configSessionContext(Ljava/lang/String;)V
@@ -1148,7 +1148,7 @@
 .end method
 
 .method public setAnonymousUserId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 365
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mUser:Lnet/hockeyapp/android/metrics/model/User;
@@ -1156,7 +1156,7 @@
     monitor-enter v0
 
     .line 366
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mUser:Lnet/hockeyapp/android/metrics/model/User;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/User;->setId(Ljava/lang/String;)V
@@ -1166,18 +1166,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setAppVersion(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 353
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mApplication:Lnet/hockeyapp/android/metrics/model/Application;
@@ -1185,7 +1185,7 @@
     monitor-enter v0
 
     .line 354
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mApplication:Lnet/hockeyapp/android/metrics/model/Application;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Application;->setVer(Ljava/lang/String;)V
@@ -1195,18 +1195,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setDeviceId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 495
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1214,7 +1214,7 @@
     monitor-enter v0
 
     .line 496
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setId(Ljava/lang/String;)V
@@ -1224,18 +1224,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setDeviceModel(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 449
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1243,7 +1243,7 @@
     monitor-enter v0
 
     .line 450
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setModel(Ljava/lang/String;)V
@@ -1253,18 +1253,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setDeviceOemName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 461
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1272,7 +1272,7 @@
     monitor-enter v0
 
     .line 462
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setOemName(Ljava/lang/String;)V
@@ -1282,18 +1282,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setDeviceType(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 505
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1301,7 +1301,7 @@
     monitor-enter v0
 
     .line 506
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setType(Ljava/lang/String;)V
@@ -1311,58 +1311,58 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public declared-synchronized setInstrumentationKey(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     .line 329
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->IKEY_LOCK:Ljava/lang/Object;
 
     monitor-enter v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_4
+    .catchall {:try_start_1 .. :try_end_4} :catchall_c
 
     .line 330
-    :try_start_1
+    :try_start_4
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInstrumentationKey:Ljava/lang/String;
 
     .line 331
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_7
+    .catchall {:try_start_4 .. :try_end_7} :catchall_9
 
     .line 332
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_9
     move-exception p1
 
     .line 331
-    :try_start_2
+    :try_start_a
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_b
+    .catchall {:try_start_a .. :try_end_b} :catchall_9
 
-    :try_start_3
+    :try_start_b
     throw p1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_c
+    .catchall {:try_start_b .. :try_end_c} :catchall_c
 
-    :catchall_1
+    :catchall_c
     move-exception p1
 
     .line 328
@@ -1372,7 +1372,7 @@
 .end method
 
 .method public setIsFirstSession(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 401
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -1380,7 +1380,7 @@
     monitor-enter v0
 
     .line 402
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Session;->setIsFirst(Ljava/lang/String;)V
@@ -1390,18 +1390,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setIsNewSession(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 413
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -1409,7 +1409,7 @@
     monitor-enter v0
 
     .line 414
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Session;->setIsNew(Ljava/lang/String;)V
@@ -1419,18 +1419,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setOsLanguage(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 485
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1438,7 +1438,7 @@
     monitor-enter v0
 
     .line 486
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setLanguage(Ljava/lang/String;)V
@@ -1448,18 +1448,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setOsLocale(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 473
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1467,7 +1467,7 @@
     monitor-enter v0
 
     .line 474
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setLocale(Ljava/lang/String;)V
@@ -1477,18 +1477,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setOsName(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 437
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1496,7 +1496,7 @@
     monitor-enter v0
 
     .line 438
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setOs(Ljava/lang/String;)V
@@ -1506,18 +1506,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setOsVersion(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 425
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1525,7 +1525,7 @@
     monitor-enter v0
 
     .line 426
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setOsVersion(Ljava/lang/String;)V
@@ -1535,18 +1535,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setScreenResolution(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 341
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
@@ -1554,7 +1554,7 @@
     monitor-enter v0
 
     .line 342
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mDevice:Lnet/hockeyapp/android/metrics/model/Device;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Device;->setScreenResolution(Ljava/lang/String;)V
@@ -1564,18 +1564,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setSdkVersion(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 377
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInternal:Lnet/hockeyapp/android/metrics/model/Internal;
@@ -1583,7 +1583,7 @@
     monitor-enter v0
 
     .line 378
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mInternal:Lnet/hockeyapp/android/metrics/model/Internal;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Internal;->setSdkVersion(Ljava/lang/String;)V
@@ -1593,18 +1593,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public setSessionId(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 389
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
@@ -1612,7 +1612,7 @@
     monitor-enter v0
 
     .line 390
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mSession:Lnet/hockeyapp/android/metrics/model/Session;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/model/Session;->setId(Ljava/lang/String;)V
@@ -1622,18 +1622,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method protected updateScreenResolution()V
-    .locals 6
+    .registers 7
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "NewApi",
@@ -1644,7 +1644,7 @@
     .line 233
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_c0
 
     .line 234
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/TelemetryContext;->mContext:Landroid/content/Context;
@@ -1664,7 +1664,7 @@
 
     const/4 v3, 0x0
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_2c
 
     .line 237
     new-instance v1, Landroid/graphics/Point;
@@ -1676,7 +1676,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 240
     invoke-virtual {v0, v1}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
@@ -1687,23 +1687,23 @@
     .line 242
     iget v0, v1, Landroid/graphics/Point;->y:I
 
-    goto/16 :goto_1
+    goto/16 :goto_a1
 
-    :cond_0
+    :cond_29
     move v0, v3
 
-    goto/16 :goto_1
+    goto/16 :goto_a1
 
     .line 248
-    :cond_1
+    :cond_2c
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0xd
 
-    if-lt v1, v2, :cond_3
+    if-lt v1, v2, :cond_95
 
     .line 253
-    :try_start_0
+    :try_start_32
     const-class v1, Landroid/view/Display;
 
     const-string v2, "getRawWidth"
@@ -1755,16 +1755,16 @@
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_62
+    .catch Ljava/lang/Exception; {:try_start_32 .. :try_end_62} :catch_65
 
     move v3, v1
 
     move v0, v2
 
-    goto :goto_1
+    goto :goto_a1
 
-    :catch_0
+    :catch_65
     move-exception v1
 
     .line 259
@@ -1777,7 +1777,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_79
 
     .line 262
     invoke-virtual {v0, v2}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
@@ -1788,12 +1788,12 @@
     .line 264
     iget v0, v2, Landroid/graphics/Point;->y:I
 
-    goto :goto_0
+    goto :goto_7a
 
-    :cond_2
+    :cond_79
     move v0, v3
 
-    :goto_0
+    :goto_7a
     const-string v2, "HockeyApp-Metrics"
 
     .line 269
@@ -1817,10 +1817,10 @@
 
     invoke-static {v2, v1}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_a1
 
     .line 274
-    :cond_3
+    :cond_95
     invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
 
     move-result-object v0
@@ -1836,7 +1836,7 @@
     move-result v0
 
     .line 279
-    :goto_1
+    :goto_a1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1864,6 +1864,6 @@
     .line 281
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/TelemetryContext;->setScreenResolution(Ljava/lang/String;)V
 
-    :cond_4
+    :cond_c0
     return-void
 .end method

@@ -118,13 +118,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 217
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -170,7 +170,7 @@
 .end method
 
 .method private checkAutoFocusSupport(Landroid/hardware/camera2/CameraCharacteristics;)Z
-    .locals 0
+    .registers 2
 
     .line 399
     sget-object p0, Landroid/hardware/camera2/CameraCharacteristics;->LENS_INFO_MINIMUM_FOCUS_DISTANCE:Landroid/hardware/camera2/CameraCharacteristics$Key;
@@ -182,7 +182,7 @@
 
     check-cast p0, Ljava/lang/Float;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_16
 
     .line 402
     invoke-virtual {p0}, Ljava/lang/Float;->floatValue()F
@@ -193,25 +193,25 @@
 
     cmpl-float p0, p0, p1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_17
     return p0
 .end method
 
 .method private static doesCameraSupportRaw(Landroid/hardware/camera2/CameraCharacteristics;)Z
-    .locals 7
+    .registers 8
 
     .line 456
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->REQUEST_AVAILABLE_CAPABILITIES:Landroid/hardware/camera2/CameraCharacteristics$Key;
@@ -224,15 +224,15 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2f
 
     .line 458
     array-length v1, p0
 
     move v2, v0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_d
+    if-ge v2, v1, :cond_2f
 
     aget v3, p0, v2
 
@@ -257,33 +257,33 @@
 
     const/4 v4, 0x3
 
-    if-ne v3, v4, :cond_0
+    if-ne v3, v4, :cond_2c
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_2c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_1
+    :cond_2f
     return v0
 .end method
 
 .method public static declared-synchronized get()Lopenlight/co/camera/CameraInfo;
-    .locals 2
+    .registers 2
 
     const-class v0, Lopenlight/co/camera/CameraInfo;
 
     monitor-enter v0
 
     .line 211
-    :try_start_0
+    :try_start_3
     sget-object v1, Lopenlight/co/camera/CameraInfo;->sInstance:Lopenlight/co/camera/CameraInfo;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 212
     new-instance v1, Lopenlight/co/camera/CameraInfo;
@@ -293,16 +293,16 @@
     sput-object v1, Lopenlight/co/camera/CameraInfo;->sInstance:Lopenlight/co/camera/CameraInfo;
 
     .line 214
-    :cond_0
+    :cond_e
     sget-object v1, Lopenlight/co/camera/CameraInfo;->sInstance:Lopenlight/co/camera/CameraInfo;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_3 .. :try_end_10} :catchall_12
 
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     .line 210
@@ -312,14 +312,14 @@
 .end method
 
 .method private static getRawSensorFormatType()I
-    .locals 6
+    .registers 6
 
     const-string v0, ""
 
     const/4 v1, 0x0
 
     .line 423
-    :try_start_0
+    :try_start_3
     new-instance v2, Ljava/io/BufferedReader;
 
     new-instance v3, Ljava/io/FileReader;
@@ -329,56 +329,56 @@
     invoke-direct {v3, v4}, Ljava/io/FileReader;-><init>(Ljava/lang/String;)V
 
     invoke-direct {v2, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_f
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_f} :catch_2e
+    .catchall {:try_start_3 .. :try_end_f} :catchall_2c
 
     .line 426
-    :goto_0
-    :try_start_1
+    :goto_f
+    :try_start_f
     invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     .line 427
     invoke-virtual {v0, v1}, Ljava/lang/String;->concat(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_f .. :try_end_19} :catch_27
+    .catchall {:try_start_f .. :try_end_19} :catchall_24
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 434
-    :cond_0
-    :try_start_2
+    :cond_1b
+    :try_start_1b
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_1e
+    .catch Ljava/io/IOException; {:try_start_1b .. :try_end_1e} :catch_1f
 
-    goto :goto_2
+    goto :goto_37
 
-    :catch_0
+    :catch_1f
     move-exception v1
 
     .line 436
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_37
 
-    :catchall_0
+    :catchall_24
     move-exception v0
 
     move-object v1, v2
 
-    goto :goto_3
+    goto :goto_45
 
-    :catch_1
+    :catch_27
     move-exception v1
 
     move-object v5, v2
@@ -387,33 +387,33 @@
 
     move-object v1, v5
 
-    goto :goto_1
+    goto :goto_2f
 
-    :catchall_1
+    :catchall_2c
     move-exception v0
 
-    goto :goto_3
+    goto :goto_45
 
-    :catch_2
+    :catch_2e
     move-exception v2
 
     .line 430
-    :goto_1
-    :try_start_3
+    :goto_2f
+    :try_start_2f
     invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_32
+    .catchall {:try_start_2f .. :try_end_32} :catchall_2c
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_37
 
     .line 434
-    :try_start_4
+    :try_start_34
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+    :try_end_37
+    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_37} :catch_1f
 
-    :cond_1
-    :goto_2
+    :cond_37
+    :goto_37
     const-string v1, "LFC"
 
     .line 441
@@ -421,42 +421,42 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     const/16 v0, 0x30
 
     return v0
 
-    :cond_2
+    :cond_42
     const/16 v0, 0x20
 
     return v0
 
-    :goto_3
-    if-eqz v1, :cond_3
+    :goto_45
+    if-eqz v1, :cond_4f
 
     .line 434
-    :try_start_5
+    :try_start_47
     invoke-virtual {v1}, Ljava/io/BufferedReader;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_4a
+    .catch Ljava/io/IOException; {:try_start_47 .. :try_end_4a} :catch_4b
 
-    goto :goto_4
+    goto :goto_4f
 
-    :catch_3
+    :catch_4b
     move-exception v1
 
     .line 436
     invoke-virtual {v1}, Ljava/io/IOException;->printStackTrace()V
 
     .line 438
-    :cond_3
-    :goto_4
+    :cond_4f
+    :goto_4f
     throw v0
 .end method
 
 .method private loadCameraCapabilities()Z
-    .locals 16
+    .registers 17
 
     move-object/from16 v0, p0
 
@@ -486,7 +486,7 @@
     const/4 v1, 0x0
 
     .line 226
-    :try_start_0
+    :try_start_1d
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
 
     move-result-object v2
@@ -499,7 +499,7 @@
 
     check-cast v2, Landroid/hardware/camera2/CameraManager;
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_33
 
     .line 228
     sget-object v0, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
@@ -511,7 +511,7 @@
     return v1
 
     .line 232
-    :cond_0
+    :cond_33
     invoke-virtual {v2}, Landroid/hardware/camera2/CameraManager;->getCameraIdList()[Ljava/lang/String;
 
     move-result-object v3
@@ -520,8 +520,8 @@
 
     move v5, v1
 
-    :goto_0
-    if-ge v5, v4, :cond_d
+    :goto_39
+    if-ge v5, v4, :cond_352
 
     aget-object v6, v3, v5
 
@@ -561,24 +561,24 @@
 
     const/4 v9, 0x2
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_86
 
     .line 241
     invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
     move-result v10
 
-    if-eqz v10, :cond_1
+    if-eqz v10, :cond_6e
 
     .line 243
     invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
     move-result v8
 
-    if-ne v8, v9, :cond_2
+    if-ne v8, v9, :cond_86
 
     .line 244
-    :cond_1
+    :cond_6e
     sget-object v7, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
 
     new-instance v8, Ljava/lang/StringBuilder;
@@ -597,15 +597,15 @@
 
     invoke-static {v7, v6}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_257
 
     .line 249
-    :cond_2
+    :cond_86
     invoke-static {v7}, Lopenlight/co/camera/CameraInfo;->doesCameraSupportRaw(Landroid/hardware/camera2/CameraCharacteristics;)Z
 
     move-result v8
 
-    if-nez v8, :cond_3
+    if-nez v8, :cond_a4
 
     .line 250
     sget-object v7, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
@@ -626,10 +626,10 @@
 
     invoke-static {v7, v6}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_257
 
     .line 254
-    :cond_3
+    :cond_a4
     invoke-direct {v0, v7}, Lopenlight/co/camera/CameraInfo;->checkAutoFocusSupport(Landroid/hardware/camera2/CameraCharacteristics;)Z
 
     move-result v8
@@ -657,7 +657,7 @@
 
     check-cast v8, Ljava/lang/Float;
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_c4
 
     .line 260
     invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
@@ -667,7 +667,7 @@
     iput v8, v0, Lopenlight/co/camera/CameraInfo;->mMaxDigitalZoom:F
 
     .line 262
-    :cond_4
+    :cond_c4
     sget-object v8, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
 
     new-instance v10, Ljava/lang/StringBuilder;
@@ -736,7 +736,7 @@
 
     check-cast v8, Ljava/lang/Integer;
 
-    if-eqz v8, :cond_5
+    if-eqz v8, :cond_10e
 
     .line 274
     invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
@@ -746,7 +746,7 @@
     iput v8, v0, Lopenlight/co/camera/CameraInfo;->mMaxNumOfFaces:I
 
     .line 277
-    :cond_5
+    :cond_10e
     iget-object v8, v0, Lopenlight/co/camera/CameraInfo;->mLensesFocalLengths:[F
 
     aget v8, v8, v1
@@ -767,7 +767,7 @@
 
     const/4 v10, 0x1
 
-    if-le v8, v10, :cond_6
+    if-le v8, v10, :cond_13b
 
     .line 280
     iget-object v8, v0, Lopenlight/co/camera/CameraInfo;->mLensesFocalLengths:[F
@@ -802,7 +802,7 @@
     iput v8, v0, Lopenlight/co/camera/CameraInfo;->mMaxToMinZoomRatio:F
 
     .line 286
-    :cond_6
+    :cond_13b
     sget-object v8, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -881,7 +881,7 @@
 
     const/4 v11, 0x0
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_1ab
 
     .line 300
     iget-object v8, v0, Lopenlight/co/camera/CameraInfo;->mStreamConfigurationMap:Landroid/hardware/camera2/params/StreamConfigurationMap;
@@ -911,7 +911,7 @@
     iput-object v8, v0, Lopenlight/co/camera/CameraInfo;->mLargestJpegOutputSize:Landroid/util/Size;
 
     .line 306
-    :cond_7
+    :cond_1ab
     invoke-static {}, Lopenlight/co/camera/CameraInfo;->getRawSensorFormatType()I
 
     move-result v8
@@ -998,8 +998,8 @@
 
     move v12, v1
 
-    :goto_1
-    if-ge v12, v11, :cond_9
+    :goto_1fe
+    if-ge v12, v11, :cond_24c
 
     aget-object v13, v8, v12
 
@@ -1045,7 +1045,7 @@
 
     const/16 v14, 0x500
 
-    if-gt v1, v14, :cond_8
+    if-gt v1, v14, :cond_248
 
     invoke-virtual {v13}, Landroid/util/Size;->getHeight()I
 
@@ -1053,7 +1053,7 @@
 
     const/16 v14, 0x2d0
 
-    if-gt v1, v14, :cond_8
+    if-gt v1, v14, :cond_248
 
     .line 322
     new-instance v1, Landroid/util/Size;
@@ -1070,21 +1070,21 @@
 
     iput-object v1, v0, Lopenlight/co/camera/CameraInfo;->mLargestYuvOutputSize:Landroid/util/Size;
 
-    goto :goto_2
+    goto :goto_24c
 
-    :cond_8
+    :cond_248
     add-int/lit8 v12, v12, 0x1
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_1fe
 
     .line 327
-    :cond_9
-    :goto_2
+    :cond_24c
+    :goto_24c
     iget-object v1, v0, Lopenlight/co/camera/CameraInfo;->mLargestYuvOutputSize:Landroid/util/Size;
 
-    if-nez v1, :cond_a
+    if-nez v1, :cond_25c
 
     .line 328
     sget-object v1, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
@@ -1093,15 +1093,15 @@
 
     invoke-static {v1, v6}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_3
+    :goto_257
     add-int/lit8 v5, v5, 0x1
 
     const/4 v1, 0x0
 
-    goto/16 :goto_0
+    goto/16 :goto_39
 
     .line 332
-    :cond_a
+    :cond_25c
     sget-object v1, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1149,7 +1149,7 @@
 
     const/high16 v4, 0x41200000    # 10.0f
 
-    if-le v1, v10, :cond_b
+    if-le v1, v10, :cond_2b9
 
     .line 336
     iget-object v1, v0, Lopenlight/co/camera/CameraInfo;->mLensesFocalLengths:[F
@@ -1206,10 +1206,10 @@
     iput v1, v0, Lopenlight/co/camera/CameraInfo;->mImageResolutionABFactor:I
 
     .line 348
-    :cond_b
+    :cond_2b9
     iget v1, v0, Lopenlight/co/camera/CameraInfo;->mNumberOfLenses:I
 
-    if-le v1, v9, :cond_c
+    if-le v1, v9, :cond_2f3
 
     .line 349
     iget-object v1, v0, Lopenlight/co/camera/CameraInfo;->mLensesFocalLengths:[F
@@ -1281,7 +1281,7 @@
     iput v1, v0, Lopenlight/co/camera/CameraInfo;->mImageResolutionBCFactor:I
 
     .line 362
-    :cond_c
+    :cond_2f3
     sget-object v1, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1368,13 +1368,13 @@
 
     .line 378
     iput-object v6, v0, Lopenlight/co/camera/CameraInfo;->mCameraId:Ljava/lang/String;
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_349
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_1d .. :try_end_349} :catch_34a
+    .catch Ljava/lang/NullPointerException; {:try_start_1d .. :try_end_349} :catch_34a
 
     return v10
 
-    :catch_0
+    :catch_34a
     move-exception v0
 
     .line 382
@@ -1385,7 +1385,7 @@
     invoke-static {v1, v2, v0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
     .line 385
-    :cond_d
+    :cond_352
     sget-object v0, Lopenlight/co/camera/CameraInfo;->TAG:Ljava/lang/String;
 
     const-string v1, "This device doesn\'t support the configurations we need."
@@ -1400,7 +1400,7 @@
 
 # virtual methods
 .method public getABZoomStepSize()F
-    .locals 0
+    .registers 1
 
     .line 561
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mABZoomStepSize:F
@@ -1409,7 +1409,7 @@
 .end method
 
 .method public getBACamerasFocalLengthRatio()F
-    .locals 0
+    .registers 1
 
     .line 537
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mBAFocalLengthRatio:F
@@ -1418,7 +1418,7 @@
 .end method
 
 .method public getBCZoomStepSize()F
-    .locals 0
+    .registers 1
 
     .line 565
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mBCZoomStepSize:F
@@ -1427,7 +1427,7 @@
 .end method
 
 .method public getCACamerasFocalLengthRatio()F
-    .locals 0
+    .registers 1
 
     .line 541
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mCAFocalLengthRatio:F
@@ -1436,7 +1436,7 @@
 .end method
 
 .method public getCBCamerasFocalLengthRatio()F
-    .locals 0
+    .registers 1
 
     .line 545
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mCBFocalLengthRatio:F
@@ -1445,7 +1445,7 @@
 .end method
 
 .method public getCameraCharacteristics()Landroid/hardware/camera2/CameraCharacteristics;
-    .locals 0
+    .registers 1
 
     .line 529
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mCameraCharacteristics:Landroid/hardware/camera2/CameraCharacteristics;
@@ -1454,7 +1454,7 @@
 .end method
 
 .method public getCameraId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 525
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mCameraId:Ljava/lang/String;
@@ -1463,7 +1463,7 @@
 .end method
 
 .method public getDefaultToMinFocalLengthRatio()F
-    .locals 0
+    .registers 1
 
     .line 549
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mDefaultToMinFocalLengthRatio:F
@@ -1472,7 +1472,7 @@
 .end method
 
 .method public getFinalCaptureResolution(F)I
-    .locals 3
+    .registers 5
 
     const/high16 v0, 0x41200000    # 10.0f
 
@@ -1487,7 +1487,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_17
 
     .line 596
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mImageResolutionBCFactor:I
@@ -1505,7 +1505,7 @@
     return p0
 
     .line 598
-    :cond_0
+    :cond_17
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mImageResolutionABFactor:I
 
     int-to-float p0, p0
@@ -1522,7 +1522,7 @@
 .end method
 
 .method public getLargestJpegOutputSize()Landroid/util/Size;
-    .locals 0
+    .registers 1
 
     .line 493
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mLargestJpegOutputSize:Landroid/util/Size;
@@ -1531,7 +1531,7 @@
 .end method
 
 .method public getLargestRawOutputSize()Landroid/util/Size;
-    .locals 0
+    .registers 1
 
     .line 497
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mLargestRawOutputSize:Landroid/util/Size;
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public getLargestYuvOutputSize()Landroid/util/Size;
-    .locals 0
+    .registers 1
 
     .line 501
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mLargestYuvOutputSize:Landroid/util/Size;
@@ -1549,7 +1549,7 @@
 .end method
 
 .method public getLensesFocalLengths()[F
-    .locals 0
+    .registers 1
 
     .line 513
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mLensesFocalLengths:[F
@@ -1558,7 +1558,7 @@
 .end method
 
 .method public getMaxDigitalZoom()F
-    .locals 0
+    .registers 1
 
     .line 485
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMaxDigitalZoom:F
@@ -1567,7 +1567,7 @@
 .end method
 
 .method public getMaxFocalLengthLens()F
-    .locals 0
+    .registers 1
 
     .line 521
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMaxFocalLengthLens:F
@@ -1576,7 +1576,7 @@
 .end method
 
 .method public getMaxNumOfFaces()I
-    .locals 0
+    .registers 1
 
     .line 579
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMaxNumOfFaces:I
@@ -1585,7 +1585,7 @@
 .end method
 
 .method public getMaxToDefaultFocalLengthRatio()F
-    .locals 0
+    .registers 1
 
     .line 569
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMaxToDefaultFocalLengthRatio:F
@@ -1594,7 +1594,7 @@
 .end method
 
 .method public getMaxToMinZoomRatio()F
-    .locals 0
+    .registers 1
 
     .line 489
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMaxToMinZoomRatio:F
@@ -1603,7 +1603,7 @@
 .end method
 
 .method public getMinFocalLengthLens()F
-    .locals 0
+    .registers 1
 
     .line 517
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMinFocalLengthLens:F
@@ -1612,7 +1612,7 @@
 .end method
 
 .method public getNumberOfLenses()I
-    .locals 0
+    .registers 1
 
     .line 509
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mNumberOfLenses:I
@@ -1621,7 +1621,7 @@
 .end method
 
 .method public getRawFormat()I
-    .locals 0
+    .registers 1
 
     .line 505
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mRawFormat:I
@@ -1630,7 +1630,7 @@
 .end method
 
 .method public getSensorActiveArraySize()Landroid/graphics/Rect;
-    .locals 0
+    .registers 1
 
     .line 473
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mSensorActiveArraySize:Landroid/graphics/Rect;
@@ -1639,7 +1639,7 @@
 .end method
 
 .method public getSimulatedPrimeFocalLengthRatios()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1656,7 +1656,7 @@
 .end method
 
 .method public getStreamConfigurationMap()Landroid/hardware/camera2/params/StreamConfigurationMap;
-    .locals 0
+    .registers 1
 
     .line 533
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mStreamConfigurationMap:Landroid/hardware/camera2/params/StreamConfigurationMap;
@@ -1665,7 +1665,7 @@
 .end method
 
 .method public getSupportedAERange()Landroid/util/Range;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1682,7 +1682,7 @@
 .end method
 
 .method public getSupportedAeStep()Landroid/util/Rational;
-    .locals 0
+    .registers 1
 
     .line 481
     iget-object p0, p0, Lopenlight/co/camera/CameraInfo;->mSupportedAeStep:Landroid/util/Rational;
@@ -1691,7 +1691,7 @@
 .end method
 
 .method public isAutoFocusSupported()Z
-    .locals 0
+    .registers 1
 
     .line 411
     iget-boolean p0, p0, Lopenlight/co/camera/CameraInfo;->mIsAutoFocusSupported:Z
@@ -1700,7 +1700,7 @@
 .end method
 
 .method public isCapableCameraAvailable()Z
-    .locals 0
+    .registers 1
 
     .line 469
     iget-boolean p0, p0, Lopenlight/co/camera/CameraInfo;->mCapableCameraAvailable:Z
@@ -1709,7 +1709,7 @@
 .end method
 
 .method public isOpticalZoomCapable()Z
-    .locals 1
+    .registers 2
 
     .line 557
     iget p0, p0, Lopenlight/co/camera/CameraInfo;->mMaxToMinZoomRatio:F
@@ -1718,15 +1718,15 @@
 
     cmpl-float p0, p0, v0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static alphaAppear(Landroid/view/View;)Landroid/animation/ObjectAnimator;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -32,7 +32,7 @@
     .line 55
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_1e
 
     invoke-static {p0, v0, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -52,7 +52,7 @@
 
     return-object p0
 
-    :array_0
+    :array_1e
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -60,7 +60,7 @@
 .end method
 
 .method public static alphaDisappear(Landroid/view/View;)Landroid/animation/ObjectAnimator;
-    .locals 2
+    .registers 3
 
     const-string v0, "alpha"
 
@@ -69,7 +69,7 @@
     .line 62
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_1a
 
     invoke-static {p0, v0, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -89,7 +89,7 @@
 
     return-object p0
 
-    :array_0
+    :array_1a
     .array-data 4
         0x3f800000    # 1.0f
         0x0
@@ -97,7 +97,7 @@
 .end method
 
 .method public static appearFromBottom(Landroid/view/View;FF)Landroid/animation/ObjectAnimator;
-    .locals 3
+    .registers 6
 
     const-string v0, "translationY"
 
@@ -127,7 +127,7 @@
 .end method
 
 .method public static blinkAnimation(Landroid/view/View;)V
-    .locals 4
+    .registers 5
 
     const-string v0, "alpha"
 
@@ -136,7 +136,7 @@
     .line 70
     new-array v2, v1, [F
 
-    fill-array-data v2, :array_0
+    fill-array-data v2, :array_24
 
     invoke-static {p0, v0, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -167,7 +167,7 @@
 
     return-void
 
-    :array_0
+    :array_24
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -175,7 +175,7 @@
 .end method
 
 .method public static disappearToBottom(Landroid/view/View;FF)Landroid/animation/ObjectAnimator;
-    .locals 3
+    .registers 6
 
     const-string v0, "translationY"
 
@@ -205,7 +205,7 @@
 .end method
 
 .method public static hideAnimation(Landroid/view/View;)V
-    .locals 4
+    .registers 5
 
     const-string v0, "alpha"
 
@@ -251,7 +251,7 @@
 .end method
 
 .method public static rotateOnOrientationChange(Landroid/view/View;II)V
-    .locals 3
+    .registers 6
 
     const-string v0, "rotation"
 
@@ -289,7 +289,7 @@
 .end method
 
 .method public static rotateOnOrientationChange(Ljava/util/List;II)V
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -309,12 +309,12 @@
     move v2, v1
 
     .line 99
-    :goto_0
+    :goto_7
     invoke-interface {p0}, Ljava/util/List;->size()I
 
     move-result v3
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_31
 
     .line 100
     invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -355,10 +355,10 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 106
-    :cond_0
+    :cond_31
     new-instance p0, Landroid/animation/AnimatorSet;
 
     invoke-direct {p0}, Landroid/animation/AnimatorSet;-><init>()V
@@ -373,7 +373,7 @@
 .end method
 
 .method public static scaleIn(Landroid/view/View;ILandroid/animation/Animator$AnimatorListener;F)V
-    .locals 6
+    .registers 10
 
     const/high16 v3, 0x3f000000    # 0.5f
 
@@ -394,7 +394,7 @@
 .end method
 
 .method public static scaleIn(Landroid/view/View;ILandroid/animation/Animator$AnimatorListener;FFF)V
-    .locals 1
+    .registers 7
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -455,7 +455,7 @@
 .end method
 
 .method public static scaleInButton(Landroid/view/View;Landroid/view/animation/Animation$AnimationListener;)V
-    .locals 10
+    .registers 12
 
     .line 161
     new-instance v9, Landroid/view/animation/ScaleAnimation;
@@ -500,7 +500,7 @@
 .end method
 
 .method public static scaleOut(Landroid/view/View;ILandroid/animation/Animator$AnimatorListener;)V
-    .locals 1
+    .registers 4
 
     const/high16 v0, 0x3f000000    # 0.5f
 
@@ -511,7 +511,7 @@
 .end method
 
 .method public static scaleOut(Landroid/view/View;ILandroid/animation/Animator$AnimatorListener;FF)V
-    .locals 1
+    .registers 6
 
     const/4 v0, 0x0
 
@@ -574,16 +574,16 @@
 .end method
 
 .method public static scaleView(Landroid/view/View;FFFFILandroid/view/animation/Animation$AnimationListener;)V
-    .locals 11
+    .registers 18
 
     move-object v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4
 
     return-void
 
     .line 187
-    :cond_0
+    :cond_4
     new-instance v10, Landroid/view/animation/ScaleAnimation;
 
     const/4 v6, 0x1
@@ -625,7 +625,7 @@
 .end method
 
 .method public static translateAnimationView(Landroid/view/View;FFFFLandroid/view/animation/Animation$AnimationListener;I)V
-    .locals 10
+    .registers 17
 
     .line 152
     new-instance v9, Landroid/view/animation/TranslateAnimation;
@@ -671,16 +671,16 @@
 .end method
 
 .method public static translateView(Landroid/view/View;FFFFILandroid/view/animation/Animation$AnimationListener;)V
-    .locals 11
+    .registers 18
 
     move-object v0, p0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_4
 
     return-void
 
     .line 211
-    :cond_0
+    :cond_4
     new-instance v10, Landroid/view/animation/TranslateAnimation;
 
     const/4 v2, 0x1

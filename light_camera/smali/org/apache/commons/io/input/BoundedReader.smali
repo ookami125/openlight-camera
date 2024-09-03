@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/Reader;I)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,7 +69,7 @@
 .end method
 
 .method public mark(I)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,7 +97,7 @@
 .end method
 
 .method public read()I
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -111,15 +111,15 @@
 
     const/4 v2, -0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     return v2
 
     .line 120
-    :cond_0
+    :cond_8
     iget v0, p0, Lorg/apache/commons/io/input/BoundedReader;->markedAt:I
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_16
 
     iget v0, p0, Lorg/apache/commons/io/input/BoundedReader;->charsRead:I
 
@@ -129,12 +129,12 @@
 
     iget v1, p0, Lorg/apache/commons/io/input/BoundedReader;->readAheadLimit:I
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_16
 
     return v2
 
     .line 123
-    :cond_1
+    :cond_16
     iget v0, p0, Lorg/apache/commons/io/input/BoundedReader;->charsRead:I
 
     add-int/lit8 v0, v0, 0x1
@@ -152,7 +152,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -161,8 +161,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p3, :cond_1
+    :goto_1
+    if-ge v0, p3, :cond_13
 
     .line 140
     invoke-virtual {p0}, Lorg/apache/commons/io/input/BoundedReader;->read()I
@@ -171,11 +171,11 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_b
 
     return v0
 
-    :cond_0
+    :cond_b
     add-int v2, p2, v0
 
     int-to-char v1, v1
@@ -185,14 +185,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_13
     return p3
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

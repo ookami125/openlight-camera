@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/IntentSender;)V
-    .locals 0
+    .registers 2
 
     .line 107
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutManagerCompat$1;->val$callback:Landroid/content/IntentSender;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .registers 9
 
     .line 111
     :try_start_0
@@ -50,9 +50,9 @@
     move-object v1, p1
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/IntentSender;->sendIntent(Landroid/content/Context;ILandroid/content/Intent;Landroid/content/IntentSender$OnFinished;Landroid/os/Handler;)V
-    :try_end_0
-    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Landroid/content/IntentSender$SendIntentException; {:try_start_0 .. :try_end_a} :catch_a
 
-    :catch_0
+    :catch_a
     return-void
 .end method

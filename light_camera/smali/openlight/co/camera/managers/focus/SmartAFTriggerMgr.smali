@@ -99,7 +99,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 102
     const-class v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
@@ -230,7 +230,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 811
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -327,7 +327,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;Z)Z
-    .locals 0
+    .registers 2
 
     .line 100
     iput-boolean p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mPauseFaceProcessingPostFaceFocusTrigger:Z
@@ -336,7 +336,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;)V
-    .locals 0
+    .registers 1
 
     .line 100
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->initSignificantMotionDetector()V
@@ -345,7 +345,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;)V
-    .locals 0
+    .registers 2
 
     .line 100
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocusAtCenter(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;)V
@@ -354,18 +354,18 @@
 .end method
 
 .method private changeInFaceCountBasedFocusTrigger(Landroid/hardware/camera2/params/Face;I)V
-    .locals 2
+    .registers 5
 
     const/4 v0, 0x1
 
-    if-lt p2, v0, :cond_2
+    if-lt p2, v0, :cond_47
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4f
 
     .line 658
     iget-object p2, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2d
 
     iget-object p2, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
@@ -378,12 +378,12 @@
 
     move-result v0
 
-    if-eq p2, v0, :cond_0
+    if-eq p2, v0, :cond_16
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 663
-    :cond_0
+    :cond_16
     sget-object p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -402,11 +402,11 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 660
-    :cond_1
-    :goto_0
+    :cond_2d
+    :goto_2d
     sget-object p2, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -428,10 +428,10 @@
     .line 661
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocusWithFace(Landroid/hardware/camera2/params/Face;)V
 
-    goto :goto_1
+    goto :goto_4f
 
     .line 673
-    :cond_2
+    :cond_47
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMainLooperHandler:Landroid/os/Handler;
 
     const/4 p1, 0x3
@@ -440,13 +440,13 @@
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_3
-    :goto_1
+    :cond_4f
+    :goto_4f
     return-void
 .end method
 
 .method private cleanupLocalState()V
-    .locals 2
+    .registers 3
 
     .line 284
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMainLooperHandler:Landroid/os/Handler;
@@ -484,14 +484,14 @@
 .end method
 
 .method private faceAreaOrPositionChangeFocusTrigger(Landroid/hardware/camera2/params/Face;)V
-    .locals 7
+    .registers 9
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_a2
 
     .line 609
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 610
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
@@ -499,7 +499,7 @@
     return-void
 
     .line 613
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Landroid/hardware/camera2/params/Face;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
@@ -580,7 +580,7 @@
 
     cmpl-float v3, v1, v4
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_6e
 
     .line 633
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
@@ -612,10 +612,10 @@
     .line 635
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocusWithFace(Landroid/hardware/camera2/params/Face;)V
 
-    goto :goto_0
+    goto :goto_a2
 
     .line 637
-    :cond_1
+    :cond_6e
     iget v1, v0, Landroid/graphics/Rect;->left:I
 
     iget v3, v2, Landroid/graphics/Rect;->left:I
@@ -649,7 +649,7 @@
 
     cmpl-double v0, v0, v2
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_a2
 
     .line 641
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
@@ -675,13 +675,13 @@
     .line 643
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocusWithFace(Landroid/hardware/camera2/params/Face;)V
 
-    :cond_2
-    :goto_0
+    :cond_a2
+    :goto_a2
     return-void
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
-    .locals 1
+    .registers 1
 
     .line 251
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->sInstance:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
@@ -690,7 +690,7 @@
 .end method
 
 .method private getQualifiedFace(Ljava/util/List;)Landroid/hardware/camera2/params/Face;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -706,7 +706,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_16
 
     const/4 p0, 0x0
 
@@ -724,27 +724,27 @@
 
     sget v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->MINIMUM_FACE_SCORE_FOR_FOCUS_TRIGGER:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_16
 
     return-object p0
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private initSignificantMotionDetector()V
-    .locals 2
+    .registers 3
 
     .line 733
     iget-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mAfdModeEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     iget-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mSignificantMotionDetectorRegistered:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 734
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
@@ -763,12 +763,12 @@
     .line 736
     iput-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mSignificantMotionDetectorRegistered:Z
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method private isFaceStationary(Landroid/graphics/Rect;Landroid/graphics/Rect;)Z
-    .locals 1
+    .registers 4
 
     .line 547
     iget p0, p2, Landroid/graphics/Rect;->left:I
@@ -783,7 +783,7 @@
 
     sget v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->MAX_ALLOWED_INTER_FRAME_FACE_MOVEMENT:I
 
-    if-ge p0, v0, :cond_0
+    if-ge p0, v0, :cond_1c
 
     iget p0, p2, Landroid/graphics/Rect;->top:I
 
@@ -798,26 +798,26 @@
 
     sget p1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->MAX_ALLOWED_INTER_FRAME_FACE_MOVEMENT:I
 
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_1c
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1d
     return p0
 .end method
 
 .method private releaseSignificantMotionDetector()V
-    .locals 2
+    .registers 3
 
     .line 741
     iget-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mSignificantMotionDetectorRegistered:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 742
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
@@ -843,12 +843,12 @@
     .line 745
     iput-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mSignificantMotionDetectorRegistered:Z
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method private resetTriggerSourceAndEnableAfd()V
-    .locals 5
+    .registers 6
 
     .line 803
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->SYSTEM:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -880,7 +880,7 @@
 .end method
 
 .method private triggerFocus(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;II)V
-    .locals 0
+    .registers 4
 
     .line 717
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -900,7 +900,7 @@
 .end method
 
 .method private triggerFocusAtCenter(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;)V
-    .locals 0
+    .registers 2
 
     .line 726
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -920,7 +920,7 @@
 .end method
 
 .method private triggerFocusWithFace(Landroid/hardware/camera2/params/Face;)V
-    .locals 3
+    .registers 5
 
     .line 679
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMainLooperHandler:Landroid/os/Handler;
@@ -992,7 +992,7 @@
 
 # virtual methods
 .method public checkAndUpdateAfMode()Z
-    .locals 1
+    .registers 2
 
     const-string p0, "cam_caf_mode_afd"
 
@@ -1009,31 +1009,31 @@
 .end method
 
 .method public focusComplete()V
-    .locals 2
+    .registers 3
 
     .line 424
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_HW:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 425
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->resetTriggerSourceAndEnableAfd()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public focusFailed()V
-    .locals 2
+    .registers 3
 
     .line 584
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->isAfModeSettingAfd()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     const/4 v0, 0x0
 
@@ -1067,33 +1067,33 @@
 
     iput-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public getCurrentAfMode()Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
-    .locals 0
+    .registers 1
 
     .line 793
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->isAfModeSettingAfd()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     sget-object p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;->AFD:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     sget-object p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;->AFS:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$AutoFocusMode;
 
-    :goto_0
+    :goto_b
     return-object p0
 .end method
 
 .method public getFocusTriggerType()I
-    .locals 0
+    .registers 1
 
     .line 414
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -1106,28 +1106,28 @@
 .end method
 
 .method public getLastFocusTriggeredFace()Landroid/hardware/camera2/params/Face;
-    .locals 2
+    .registers 3
 
     .line 377
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->FACE_DETECTION:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return-object p0
 .end method
 
 .method public init()V
-    .locals 1
+    .registers 2
 
     .line 260
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->checkAndUpdateAfMode()Z
@@ -1139,7 +1139,7 @@
     .line 262
     iget-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mAfdModeEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 263
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->cleanupLocalState()V
@@ -1147,18 +1147,18 @@
     .line 264
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->initSignificantMotionDetector()V
 
-    goto :goto_0
+    goto :goto_14
 
     .line 266
-    :cond_0
+    :cond_11
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->releaseSignificantMotionDetector()V
 
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public isAfModeSettingAfd()Z
-    .locals 0
+    .registers 1
 
     .line 780
     iget-boolean p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mAfdModeEnabled:Z
@@ -1167,92 +1167,92 @@
 .end method
 
 .method public isFaceBasedTriggerAppropriate()Z
-    .locals 2
+    .registers 3
 
     .line 307
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_SCREEN_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_HW_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_14
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method public isFocusLocked()Z
-    .locals 2
+    .registers 3
 
     .line 574
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_SCREEN_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_f
 
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_HW_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method public isScreenBasedFocusLocked()Z
-    .locals 1
+    .registers 2
 
     .line 789
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_SCREEN_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public onMotionDetected()V
-    .locals 2
+    .registers 3
 
     .line 756
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -1268,7 +1268,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 759
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->SIGNIFICATION_MOTION:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -1280,12 +1280,12 @@
     .line 762
     iput v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mNumberOfFacesSeenPreviously:I
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method public processFaces(Ljava/util/List;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1298,13 +1298,13 @@
     .line 455
     iget-boolean v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mAfdModeEnabled:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_86
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->isFaceBasedTriggerAppropriate()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_86
 
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
@@ -1312,14 +1312,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_86
 
     .line 457
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 461
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->initSignificantMotionDetector()V
@@ -1327,25 +1327,25 @@
     .line 465
     iget-object v1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_23
 
     return-void
 
     .line 470
-    :cond_0
+    :cond_20
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->releaseSignificantMotionDetector()V
 
     .line 475
-    :cond_1
+    :cond_23
     iget-boolean v1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mPauseFaceProcessingPostFaceFocusTrigger:Z
 
-    if-nez v1, :cond_8
+    if-nez v1, :cond_86
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->isFaceBasedTriggerAppropriate()Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_86
 
     .line 477
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->getQualifiedFace(Ljava/util/List;)Landroid/hardware/camera2/params/Face;
@@ -1357,7 +1357,7 @@
 
     const/4 v2, 0x0
 
-    if-eq v1, v0, :cond_4
+    if-eq v1, v0, :cond_52
 
     .line 479
     iput v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mNumberOfFacesSeenPreviously:I
@@ -1365,12 +1365,12 @@
     .line 480
     iput v2, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mFacesBatchCount:I
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_4c
 
     .line 486
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4f
 
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
@@ -1383,29 +1383,29 @@
 
     move-result v1
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_4f
 
-    :cond_2
+    :cond_4c
     const/4 v0, 0x0
 
     .line 490
     iput-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
     .line 492
-    :cond_3
+    :cond_4f
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastQualifiedFace:Landroid/hardware/camera2/params/Face;
 
-    goto :goto_1
+    goto :goto_86
 
-    :cond_4
+    :cond_52
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_68
 
     .line 495
     iget-object v3, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastQualifiedFace:Landroid/hardware/camera2/params/Face;
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_68
 
     .line 496
     iget-object v2, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastQualifiedFace:Landroid/hardware/camera2/params/Face;
@@ -1425,19 +1425,19 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_6b
 
-    :cond_5
-    if-nez v0, :cond_6
+    :cond_68
+    if-nez v0, :cond_6b
 
     move v2, v1
 
     .line 507
-    :cond_6
-    :goto_0
+    :cond_6b
+    :goto_6b
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastQualifiedFace:Landroid/hardware/camera2/params/Face;
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_86
 
     .line 510
     iget v2, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mFacesBatchCount:I
@@ -1451,31 +1451,31 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_7
+    if-ne v1, v2, :cond_7d
 
     .line 515
     invoke-direct {p0, p1, v0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->changeInFaceCountBasedFocusTrigger(Landroid/hardware/camera2/params/Face;I)V
 
-    goto :goto_1
+    goto :goto_86
 
     .line 517
-    :cond_7
+    :cond_7d
     iget v1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mFacesBatchCount:I
 
-    if-le v1, v2, :cond_8
+    if-le v1, v2, :cond_86
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_86
 
     .line 523
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->faceAreaOrPositionChangeFocusTrigger(Landroid/hardware/camera2/params/Face;)V
 
-    :cond_8
-    :goto_1
+    :cond_86
+    :goto_86
     return-void
 .end method
 
 .method public processHardKeyFocus(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)V
-    .locals 3
+    .registers 5
 
     .line 385
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
@@ -1505,12 +1505,12 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_4c
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 401
-    :pswitch_0
+    :pswitch_22
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->releaseSignificantMotionDetector()V
 
     .line 402
@@ -1525,23 +1525,23 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 395
-    :pswitch_1
+    :pswitch_31
     iget-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_HW_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_4a
 
     .line 396
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->resetTriggerSourceAndEnableAfd()V
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 390
-    :pswitch_2
+    :pswitch_3b
     sget-object p1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_HW:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -1557,22 +1557,22 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->triggerAeFocusAtLastPoint()V
 
-    :cond_0
-    :goto_0
+    :cond_4a
+    :goto_4a
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_3b
+        :pswitch_31
+        :pswitch_22
     .end packed-switch
 .end method
 
 .method public processScreenLongPress(FF)V
-    .locals 1
+    .registers 4
 
     .line 563
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->releaseSignificantMotionDetector()V
@@ -1602,7 +1602,7 @@
 .end method
 
 .method public processSystemTrigger()V
-    .locals 2
+    .registers 3
 
     .line 316
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -1631,7 +1631,7 @@
 .end method
 
 .method public processTest(II)V
-    .locals 2
+    .registers 5
 
     .line 363
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -1640,29 +1640,29 @@
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/utils/TimingLoggerUtil;->captureTiming(Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;)V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_11
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_11
 
     .line 365
     sget-object p1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->TEST:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     invoke-direct {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocusAtCenter(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 367
-    :cond_0
+    :cond_11
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->TEST:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     invoke-direct {p0, v0, p1, p2}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocus(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;II)V
 
-    :goto_0
+    :goto_16
     return-void
 .end method
 
 .method public processUserTap(FF)V
-    .locals 2
+    .registers 5
 
     .line 347
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->releaseSignificantMotionDetector()V
@@ -1696,18 +1696,18 @@
 .end method
 
 .method public processZoomTrigger()V
-    .locals 2
+    .registers 3
 
     .line 328
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mLastFocusTriggeredFace:Landroid/hardware/camera2/params/Face;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->FACE_DETECTION:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     .line 330
     sget-object p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->TAG:Ljava/lang/String;
@@ -1716,10 +1716,10 @@
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 333
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->INTERNAL_TRIGGER:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -1731,12 +1731,12 @@
 
     invoke-direct {p0, v0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->triggerFocusAtCenter(Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;)V
 
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public release()V
-    .locals 1
+    .registers 2
 
     .line 275
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->updateAndRelease()V
@@ -1753,28 +1753,28 @@
 .end method
 
 .method public stillCaptureCompleted()V
-    .locals 2
+    .registers 3
 
     .line 435
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->USER_SCREEN_LOCK:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_16
 
     .line 438
     iget-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     sget-object v1, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->FACE_DETECTION:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     .line 439
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->SYSTEM:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
     iput-object v0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->mMostRecentFocusTriggerSource:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     .line 442
@@ -1783,12 +1783,12 @@
     .line 443
     invoke-direct {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->initSignificantMotionDetector()V
 
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method public updateAndRelease()V
-    .locals 1
+    .registers 2
 
     .line 297
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->checkAndUpdateAfMode()Z

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1936
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
 
     .line 1993
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
@@ -49,17 +49,17 @@
 
     move-result p0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_16
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
     .line 1997
-    :goto_0
+    :goto_17
     invoke-virtual {p2, p0}, Landroid/view/accessibility/AccessibilityEvent;->setScrollable(Z)V
 
     .line 1998
@@ -94,7 +94,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 4
 
     .line 1974
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -116,14 +116,14 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_34
 
     .line 1978
     invoke-virtual {p1}, Landroid/support/v4/widget/NestedScrollView;->getScrollRange()I
 
     move-result p0
 
-    if-lez p0, :cond_1
+    if-lez p0, :cond_34
 
     const/4 v0, 0x1
 
@@ -135,7 +135,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_29
 
     const/16 v0, 0x2000
 
@@ -143,24 +143,24 @@
     invoke-virtual {p2, v0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
     .line 1984
-    :cond_0
+    :cond_29
     invoke-virtual {p1}, Landroid/support/v4/widget/NestedScrollView;->getScrollY()I
 
     move-result p1
 
-    if-ge p1, p0, :cond_1
+    if-ge p1, p0, :cond_34
 
     const/16 p0, 0x1000
 
     .line 1985
     invoke-virtual {p2, p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->addAction(I)V
 
-    :cond_1
+    :cond_34
     return-void
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
 
     .line 1939
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
@@ -169,12 +169,12 @@
 
     const/4 p3, 0x1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     return p3
 
     .line 1942
-    :cond_0
+    :cond_8
     check-cast p1, Landroid/support/v4/widget/NestedScrollView;
 
     .line 1943
@@ -184,23 +184,23 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_12
 
     return v0
 
-    :cond_1
+    :cond_12
     const/16 p0, 0x1000
 
-    if-eq p2, p0, :cond_4
+    if-eq p2, p0, :cond_3d
 
     const/16 p0, 0x2000
 
-    if-eq p2, p0, :cond_2
+    if-eq p2, p0, :cond_1b
 
     return v0
 
     .line 1959
-    :cond_2
+    :cond_1b
     invoke-virtual {p1}, Landroid/support/v4/widget/NestedScrollView;->getHeight()I
 
     move-result p0
@@ -234,18 +234,18 @@
 
     move-result p2
 
-    if-eq p0, p2, :cond_3
+    if-eq p0, p2, :cond_3c
 
     .line 1963
     invoke-virtual {p1, v0, p0}, Landroid/support/v4/widget/NestedScrollView;->smoothScrollTo(II)V
 
     return p3
 
-    :cond_3
+    :cond_3c
     return v0
 
     .line 1948
-    :cond_4
+    :cond_3d
     invoke-virtual {p1}, Landroid/support/v4/widget/NestedScrollView;->getHeight()I
 
     move-result p0
@@ -285,13 +285,13 @@
 
     move-result p2
 
-    if-eq p0, p2, :cond_5
+    if-eq p0, p2, :cond_62
 
     .line 1953
     invoke-virtual {p1, v0, p0}, Landroid/support/v4/widget/NestedScrollView;->smoothScrollTo(II)V
 
     return p3
 
-    :cond_5
+    :cond_62
     return v0
 .end method

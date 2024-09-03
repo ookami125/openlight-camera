@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/dragger/DraggerModel;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
 
     .line 94
     iput-object p1, p0, Lopenlight/co/camera/view/dragger/DraggerModel$1;->this$0:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -33,17 +33,17 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .registers 6
 
     .line 97
     iget v0, p1, Landroid/os/Message;->what:I
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_62
 
-    goto :goto_0
+    goto :goto_55
 
     .line 108
-    :pswitch_0
+    :pswitch_6
     iget v0, p1, Landroid/os/Message;->arg1:I
 
     invoke-static {v0}, Lopenlight/co/camera/CameraMode;->forIndex(I)Lopenlight/co/camera/CameraMode;
@@ -55,6 +55,7 @@
     move-result-object v0
 
     .line 109
+    # getter for: Lopenlight/co/camera/view/dragger/DraggerModel;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/dragger/DraggerModel;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -76,6 +77,7 @@
     invoke-static {v1, v2}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 110
+    # getter for: Lopenlight/co/camera/view/dragger/DraggerModel;->mCamPrefs:Lopenlight/co/lib/content/Prefs;
     invoke-static {}, Lopenlight/co/camera/view/dragger/DraggerModel;->access$000()Lopenlight/co/lib/content/Prefs;
 
     move-result-object v1
@@ -84,10 +86,11 @@
 
     invoke-interface {v1, v2, v0}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 105
-    :pswitch_1
+    :pswitch_32
+    # getter for: Lopenlight/co/camera/view/dragger/DraggerModel;->mCamPrefs:Lopenlight/co/lib/content/Prefs;
     invoke-static {}, Lopenlight/co/camera/view/dragger/DraggerModel;->access$000()Lopenlight/co/lib/content/Prefs;
 
     move-result-object v0
@@ -98,10 +101,11 @@
 
     invoke-interface {v0, v1, v2}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 102
-    :pswitch_2
+    :pswitch_3e
+    # getter for: Lopenlight/co/camera/view/dragger/DraggerModel;->mCamPrefs:Lopenlight/co/lib/content/Prefs;
     invoke-static {}, Lopenlight/co/camera/view/dragger/DraggerModel;->access$000()Lopenlight/co/lib/content/Prefs;
 
     move-result-object v0
@@ -112,10 +116,11 @@
 
     invoke-interface {v0, v1, v2}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 99
-    :pswitch_3
+    :pswitch_4a
+    # getter for: Lopenlight/co/camera/view/dragger/DraggerModel;->mCamPrefs:Lopenlight/co/lib/content/Prefs;
     invoke-static {}, Lopenlight/co/camera/view/dragger/DraggerModel;->access$000()Lopenlight/co/lib/content/Prefs;
 
     move-result-object v0
@@ -127,7 +132,7 @@
     invoke-interface {v0, v1, v2}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;I)V
 
     .line 113
-    :goto_0
+    :goto_55
     iget-object v0, p0, Lopenlight/co/camera/view/dragger/DraggerModel$1;->this$0:Lopenlight/co/camera/view/dragger/DraggerModel;
 
     iget p1, p1, Landroid/os/Message;->arg1:I
@@ -143,11 +148,11 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_62
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4a
+        :pswitch_3e
+        :pswitch_32
+        :pswitch_6
     .end packed-switch
 .end method

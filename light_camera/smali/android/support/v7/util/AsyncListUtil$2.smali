@@ -50,7 +50,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/util/AsyncListUtil;)V
-    .locals 0
+    .registers 2
 
     .line 290
     iput-object p1, p0, Landroid/support/v7/util/AsyncListUtil$2;->this$0:Landroid/support/v7/util/AsyncListUtil;
@@ -68,7 +68,7 @@
 .end method
 
 .method private acquireTile()Landroid/support/v7/util/TileList$Tile;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -80,7 +80,7 @@
     .line 388
     iget-object v0, p0, Landroid/support/v7/util/AsyncListUtil$2;->mRecycledRoot:Landroid/support/v7/util/TileList$Tile;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 389
     iget-object v0, p0, Landroid/support/v7/util/AsyncListUtil$2;->mRecycledRoot:Landroid/support/v7/util/TileList$Tile;
@@ -95,7 +95,7 @@
     return-object v0
 
     .line 393
-    :cond_0
+    :cond_d
     new-instance v0, Landroid/support/v7/util/TileList$Tile;
 
     iget-object v1, p0, Landroid/support/v7/util/AsyncListUtil$2;->this$0:Landroid/support/v7/util/AsyncListUtil;
@@ -112,7 +112,7 @@
 .end method
 
 .method private addTile(Landroid/support/v7/util/TileList$Tile;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -143,7 +143,7 @@
 .end method
 
 .method private flushTileCache(I)V
-    .locals 7
+    .registers 9
 
     .line 417
     iget-object v0, p0, Landroid/support/v7/util/AsyncListUtil$2;->this$0:Landroid/support/v7/util/AsyncListUtil;
@@ -155,14 +155,14 @@
     move-result v0
 
     .line 418
-    :goto_0
+    :goto_8
     iget-object v1, p0, Landroid/support/v7/util/AsyncListUtil$2;->mLoadedTiles:Landroid/util/SparseBooleanArray;
 
     invoke-virtual {v1}, Landroid/util/SparseBooleanArray;->size()I
 
     move-result v1
 
-    if-lt v1, v0, :cond_4
+    if-lt v1, v0, :cond_42
 
     .line 419
     iget-object v1, p0, Landroid/support/v7/util/AsyncListUtil$2;->mLoadedTiles:Landroid/util/SparseBooleanArray;
@@ -200,42 +200,42 @@
 
     sub-int v5, v2, v5
 
-    if-lez v3, :cond_1
+    if-lez v3, :cond_37
 
-    if-ge v3, v5, :cond_0
+    if-ge v3, v5, :cond_33
 
     const/4 v6, 0x2
 
-    if-ne p1, v6, :cond_1
+    if-ne p1, v6, :cond_37
 
     .line 425
-    :cond_0
+    :cond_33
     invoke-direct {p0, v1}, Landroid/support/v7/util/AsyncListUtil$2;->removeTile(I)V
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
-    if-lez v5, :cond_3
+    :cond_37
+    if-lez v5, :cond_41
 
-    if-lt v3, v5, :cond_2
+    if-lt v3, v5, :cond_3d
 
-    if-ne p1, v4, :cond_3
+    if-ne p1, v4, :cond_41
 
     .line 428
-    :cond_2
+    :cond_3d
     invoke-direct {p0, v2}, Landroid/support/v7/util/AsyncListUtil$2;->removeTile(I)V
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_3
+    :cond_41
     return-void
 
-    :cond_4
+    :cond_42
     return-void
 .end method
 
 .method private getTileStart(I)I
-    .locals 0
+    .registers 2
 
     .line 346
     iget-object p0, p0, Landroid/support/v7/util/AsyncListUtil$2;->this$0:Landroid/support/v7/util/AsyncListUtil;
@@ -250,7 +250,7 @@
 .end method
 
 .method private isTileLoaded(I)Z
-    .locals 0
+    .registers 2
 
     .line 397
     iget-object p0, p0, Landroid/support/v7/util/AsyncListUtil$2;->mLoadedTiles:Landroid/util/SparseBooleanArray;
@@ -263,7 +263,7 @@
 .end method
 
 .method private varargs log(Ljava/lang/String;[Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
 
     const-string p0, "AsyncListUtil"
 
@@ -292,7 +292,7 @@
 .end method
 
 .method private removeTile(I)V
-    .locals 1
+    .registers 3
 
     .line 409
     iget-object v0, p0, Landroid/support/v7/util/AsyncListUtil$2;->mLoadedTiles:Landroid/util/SparseBooleanArray;
@@ -312,26 +312,26 @@
 .end method
 
 .method private requestTiles(IIIZ)V
-    .locals 3
+    .registers 8
 
     move v0, p1
 
-    :goto_0
-    if-gt v0, p2, :cond_1
+    :goto_1
+    if-gt v0, p2, :cond_17
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_9
 
     add-int v1, p2, p1
 
     sub-int/2addr v1, v0
 
-    goto :goto_1
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move v1, v0
 
     .line 356
-    :goto_1
+    :goto_a
     iget-object v2, p0, Landroid/support/v7/util/AsyncListUtil$2;->this$0:Landroid/support/v7/util/AsyncListUtil;
 
     iget-object v2, v2, Landroid/support/v7/util/AsyncListUtil;->mBackgroundProxy:Landroid/support/v7/util/ThreadUtil$BackgroundCallback;
@@ -345,28 +345,28 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_17
     return-void
 .end method
 
 
 # virtual methods
 .method public loadTile(II)V
-    .locals 4
+    .registers 7
 
     .line 362
     invoke-direct {p0, p1}, Landroid/support/v7/util/AsyncListUtil$2;->isTileLoaded(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 368
-    :cond_0
+    :cond_7
     invoke-direct {p0}, Landroid/support/v7/util/AsyncListUtil$2;->acquireTile()Landroid/support/v7/util/TileList$Tile;
 
     move-result-object v0
@@ -414,7 +414,7 @@
 .end method
 
 .method public recycleTile(Landroid/support/v7/util/TileList$Tile;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -446,7 +446,7 @@
 .end method
 
 .method public refresh(I)V
-    .locals 1
+    .registers 3
 
     .line 304
     iput p1, p0, Landroid/support/v7/util/AsyncListUtil$2;->mGeneration:I
@@ -482,14 +482,14 @@
 .end method
 
 .method public updateRange(IIIII)V
-    .locals 0
+    .registers 6
 
-    if-le p1, p2, :cond_0
+    if-le p1, p2, :cond_3
 
     return-void
 
     .line 322
-    :cond_0
+    :cond_3
     invoke-direct {p0, p1}, Landroid/support/v7/util/AsyncListUtil$2;->getTileStart(I)I
 
     move-result p1
@@ -517,7 +517,7 @@
 
     const/4 p4, 0x1
 
-    if-ne p5, p4, :cond_1
+    if-ne p5, p4, :cond_2b
 
     .line 335
     iget p1, p0, Landroid/support/v7/util/AsyncListUtil$2;->mFirstRequiredTileStart:I
@@ -535,10 +535,10 @@
 
     invoke-direct {p0, p2, p1, p5, p3}, Landroid/support/v7/util/AsyncListUtil$2;->requestTiles(IIIZ)V
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 339
-    :cond_1
+    :cond_2b
     iget p2, p0, Landroid/support/v7/util/AsyncListUtil$2;->mLastRequiredTileStart:I
 
     invoke-direct {p0, p1, p2, p5, p3}, Landroid/support/v7/util/AsyncListUtil$2;->requestTiles(IIIZ)V
@@ -554,6 +554,6 @@
 
     invoke-direct {p0, p2, p1, p5, p4}, Landroid/support/v7/util/AsyncListUtil$2;->requestTiles(IIIZ)V
 
-    :goto_0
+    :goto_3a
     return-void
 .end method

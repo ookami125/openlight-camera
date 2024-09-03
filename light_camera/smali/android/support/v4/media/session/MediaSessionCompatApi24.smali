@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static createCallback(Landroid/support/v4/media/session/MediaSessionCompatApi24$Callback;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 33
     new-instance v0, Landroid/support/v4/media/session/MediaSessionCompatApi24$CallbackProxy;
@@ -42,13 +42,13 @@
 .end method
 
 .method public static getCallingPackage(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 37
     check-cast p0, Landroid/media/session/MediaSession;
 
     .line 39
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -71,14 +71,14 @@
     move-result-object p0
 
     check-cast p0, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_17} :catch_18
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_2 .. :try_end_17} :catch_18
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_17} :catch_18
 
     return-object p0
 
-    :catch_0
+    :catch_18
     move-exception p0
 
     const-string v0, "MediaSessionCompatApi24"

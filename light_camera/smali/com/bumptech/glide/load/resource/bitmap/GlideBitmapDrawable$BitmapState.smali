@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 141
     new-instance v0, Landroid/graphics/Paint;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Bitmap;)V
-    .locals 1
+    .registers 3
 
     .line 149
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -64,7 +64,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;)V
-    .locals 1
+    .registers 3
 
     .line 155
     iget-object v0, p1, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->bitmap:Landroid/graphics/Bitmap;
@@ -82,7 +82,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -90,14 +90,14 @@
 .end method
 
 .method mutatePaint()V
-    .locals 2
+    .registers 3
 
     .line 172
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->DEFAULT_PAINT:Landroid/graphics/Paint;
 
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->paint:Landroid/graphics/Paint;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 173
     new-instance v0, Landroid/graphics/Paint;
@@ -108,12 +108,12 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->paint:Landroid/graphics/Paint;
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 179
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;
@@ -126,7 +126,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
 
     .line 184
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;
@@ -137,7 +137,7 @@
 .end method
 
 .method setAlpha(I)V
-    .locals 0
+    .registers 2
 
     .line 165
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->mutatePaint()V
@@ -151,7 +151,7 @@
 .end method
 
 .method setColorFilter(Landroid/graphics/ColorFilter;)V
-    .locals 0
+    .registers 2
 
     .line 160
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable$BitmapState;->mutatePaint()V

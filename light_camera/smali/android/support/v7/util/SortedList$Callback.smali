@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 684
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public onChanged(IILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 710
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/util/SortedList$Callback;->onChanged(II)V

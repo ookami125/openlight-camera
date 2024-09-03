@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 444
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public build()Landroid/support/v4/media/MediaDescriptionCompat;
-    .locals 10
+    .registers 11
 
     .line 545
     new-instance v9, Landroid/support/v4/media/MediaDescriptionCompat;
@@ -74,7 +74,7 @@
 .end method
 
 .method public setDescription(Ljava/lang/CharSequence;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -87,7 +87,7 @@
 .end method
 
 .method public setExtras(Landroid/os/Bundle;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/os/Bundle;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -100,7 +100,7 @@
 .end method
 
 .method public setIconBitmap(Landroid/graphics/Bitmap;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/Bitmap;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -113,7 +113,7 @@
 .end method
 
 .method public setIconUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -126,7 +126,7 @@
 .end method
 
 .method public setMediaId(Ljava/lang/String;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -139,7 +139,7 @@
 .end method
 
 .method public setMediaUri(Landroid/net/Uri;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -152,7 +152,7 @@
 .end method
 
 .method public setSubtitle(Ljava/lang/CharSequence;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -165,7 +165,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)Landroid/support/v4/media/MediaDescriptionCompat$Builder;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation

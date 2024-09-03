@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 21
     new-instance v0, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -228,7 +228,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -242,7 +242,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
-    .locals 1
+    .registers 2
 
     .line 20
     const-class v0, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
@@ -257,7 +257,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;
-    .locals 1
+    .registers 1
 
     .line 20
     sget-object v0, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;->$VALUES:[Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToCaptureSplits;

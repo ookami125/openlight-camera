@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/ripple/RippleViewOnClick;)V
-    .locals 0
+    .registers 2
 
     .line 117
     iput-object p1, p0, Lopenlight/co/camera/view/ripple/RippleViewOnClick$2;->this$0:Lopenlight/co/camera/view/ripple/RippleViewOnClick;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 1
+    .registers 3
 
     .line 120
     invoke-super {p0, p1}, Landroid/view/GestureDetector$SimpleOnGestureListener;->onLongPress(Landroid/view/MotionEvent;)V
@@ -52,13 +52,14 @@
 
     move-result-object p1
 
+    # invokes: Lopenlight/co/camera/view/ripple/RippleViewOnClick;->sendClickEvent(Ljava/lang/Boolean;)V
     invoke-static {p0, p1}, Lopenlight/co/camera/view/ripple/RippleViewOnClick;->access$000(Lopenlight/co/camera/view/ripple/RippleViewOnClick;Ljava/lang/Boolean;)V
 
     return-void
 .end method
 
 .method public onSingleTapConfirmed(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 
@@ -66,7 +67,7 @@
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 

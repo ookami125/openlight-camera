@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/Fragment;)V
-    .locals 0
+    .registers 2
 
     .line 2165
     iput-object p1, p0, Landroid/support/v4/app/Fragment$1;->this$0:Landroid/support/v4/app/Fragment;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 2168
     iget-object p0, p0, Landroid/support/v4/app/Fragment$1;->this$0:Landroid/support/v4/app/Fragment;
 
+    # invokes: Landroid/support/v4/app/Fragment;->callStartTransitionListener()V
     invoke-static {p0}, Landroid/support/v4/app/Fragment;->access$800(Landroid/support/v4/app/Fragment;)V
 
     return-void

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getMaxScrollX(Landroid/view/accessibility/AccessibilityRecord;)I
-    .locals 0
+    .registers 2
 
     .line 57
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getMaxScrollX()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public getMaxScrollY(Landroid/view/accessibility/AccessibilityRecord;)I
-    .locals 0
+    .registers 2
 
     .line 62
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityRecord;->getMaxScrollY()I
@@ -53,7 +53,7 @@
 .end method
 
 .method public setMaxScrollX(Landroid/view/accessibility/AccessibilityRecord;I)V
-    .locals 0
+    .registers 3
 
     .line 67
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityRecord;->setMaxScrollX(I)V
@@ -62,7 +62,7 @@
 .end method
 
 .method public setMaxScrollY(Landroid/view/accessibility/AccessibilityRecord;I)V
-    .locals 0
+    .registers 3
 
     .line 72
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityRecord;->setMaxScrollY(I)V

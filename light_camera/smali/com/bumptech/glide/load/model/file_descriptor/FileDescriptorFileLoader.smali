@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 38
     const-class v0, Landroid/net/Uri;
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

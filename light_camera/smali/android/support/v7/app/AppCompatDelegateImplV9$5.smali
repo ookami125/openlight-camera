@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV9;)V
-    .locals 0
+    .registers 2
 
     .line 778
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 781
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -67,7 +67,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_42
 
     .line 787
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -106,10 +106,10 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setListener(Landroid/support/v4/view/ViewPropertyAnimatorListener;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
-    goto :goto_0
+    goto :goto_50
 
     .line 803
-    :cond_0
+    :cond_42
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
 
     iget-object v0, v0, Landroid/support/v7/app/AppCompatDelegateImplV9;->mActionModeView:Landroid/support/v7/widget/ActionBarContextView;
@@ -123,6 +123,6 @@
 
     invoke-virtual {p0, v2}, Landroid/support/v7/widget/ActionBarContextView;->setVisibility(I)V
 
-    :goto_0
+    :goto_50
     return-void
 .end method

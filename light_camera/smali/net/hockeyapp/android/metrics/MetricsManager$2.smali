@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/metrics/MetricsManager;Lnet/hockeyapp/android/metrics/model/SessionState;)V
-    .locals 0
+    .registers 3
 
     .line 427
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/MetricsManager$2;->this$0:Lnet/hockeyapp/android/metrics/MetricsManager;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 427
     check-cast p1, [Ljava/lang/Void;
@@ -60,7 +60,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 0
+    .registers 2
 
     .line 430
     new-instance p1, Lnet/hockeyapp/android/metrics/model/SessionStateData;
@@ -78,6 +78,7 @@
     move-result-object p0
 
     .line 433
+    # getter for: Lnet/hockeyapp/android/metrics/MetricsManager;->sChannel:Lnet/hockeyapp/android/metrics/Channel;
     invoke-static {}, Lnet/hockeyapp/android/metrics/MetricsManager;->access$000()Lnet/hockeyapp/android/metrics/Channel;
 
     move-result-object p1

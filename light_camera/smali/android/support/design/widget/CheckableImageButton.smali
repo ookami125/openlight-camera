@@ -24,7 +24,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     .line 48
     sget v0, Landroid/support/v7/appcompat/R$attr;->imageButtonStyle:I
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 52
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/widget/AppCompatImageButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -83,7 +83,7 @@
 
 # virtual methods
 .method public isChecked()Z
-    .locals 0
+    .registers 1
 
     .line 83
     iget-boolean p0, p0, Landroid/support/design/widget/CheckableImageButton;->mChecked:Z
@@ -92,12 +92,12 @@
 .end method
 
 .method public onCreateDrawableState(I)[I
-    .locals 1
+    .registers 3
 
     .line 93
     iget-boolean v0, p0, Landroid/support/design/widget/CheckableImageButton;->mChecked:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 94
     sget-object v0, Landroid/support/design/widget/CheckableImageButton;->DRAWABLE_STATE_CHECKED:[I
@@ -121,7 +121,7 @@
     return-object p0
 
     .line 98
-    :cond_0
+    :cond_13
     invoke-super {p0, p1}, Landroid/support/v7/widget/AppCompatImageButton;->onCreateDrawableState(I)[I
 
     move-result-object p0
@@ -130,12 +130,12 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 1
+    .registers 3
 
     .line 73
     iget-boolean v0, p0, Landroid/support/design/widget/CheckableImageButton;->mChecked:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_e
 
     .line 74
     iput-boolean p1, p0, Landroid/support/design/widget/CheckableImageButton;->mChecked:Z
@@ -148,12 +148,12 @@
     .line 76
     invoke-virtual {p0, p1}, Landroid/support/design/widget/CheckableImageButton;->sendAccessibilityEvent(I)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method public toggle()V
-    .locals 1
+    .registers 2
 
     .line 88
     iget-boolean v0, p0, Landroid/support/design/widget/CheckableImageButton;->mChecked:Z

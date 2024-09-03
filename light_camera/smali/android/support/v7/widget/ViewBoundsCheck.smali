@@ -63,7 +63,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ViewBoundsCheck$Callback;)V
-    .locals 0
+    .registers 2
 
     .line 130
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -84,7 +84,7 @@
 
 # virtual methods
 .method findOneViewWithinBoundFlags(IIII)Landroid/view/View;
-    .locals 8
+    .registers 13
 
     .line 216
     iget-object v0, p0, Landroid/support/v7/widget/ViewBoundsCheck;->mCallback:Landroid/support/v7/widget/ViewBoundsCheck$Callback;
@@ -100,20 +100,20 @@
 
     move-result v1
 
-    if-le p2, p1, :cond_0
+    if-le p2, p1, :cond_10
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v2, -0x1
 
-    :goto_0
+    :goto_11
     const/4 v3, 0x0
 
-    :goto_1
-    if-eq p1, p2, :cond_3
+    :goto_12
+    if-eq p1, p2, :cond_57
 
     .line 221
     iget-object v4, p0, Landroid/support/v7/widget/ViewBoundsCheck;->mCallback:Landroid/support/v7/widget/ViewBoundsCheck$Callback;
@@ -141,7 +141,7 @@
 
     invoke-virtual {v7, v0, v1, v5, v6}, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->setBounds(IIII)V
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_40
 
     .line 226
     iget-object v5, p0, Landroid/support/v7/widget/ViewBoundsCheck;->mBoundFlags:Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;
@@ -160,12 +160,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_40
 
     return-object v4
 
-    :cond_1
-    if-eqz p4, :cond_2
+    :cond_40
+    if-eqz p4, :cond_55
 
     .line 234
     iget-object v5, p0, Landroid/support/v7/widget/ViewBoundsCheck;->mBoundFlags:Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;
@@ -184,21 +184,21 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_55
 
     move-object v3, v4
 
-    :cond_2
+    :cond_55
     add-int/2addr p1, v2
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_3
+    :cond_57
     return-object v3
 .end method
 
 .method isViewWithinBoundFlags(Landroid/view/View;I)Z
-    .locals 5
+    .registers 8
 
     .line 251
     iget-object v0, p0, Landroid/support/v7/widget/ViewBoundsCheck;->mBoundFlags:Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;
@@ -231,7 +231,7 @@
     .line 251
     invoke-virtual {v0, v1, v2, v3, p1}, Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;->setBounds(IIII)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_30
 
     .line 254
     iget-object p1, p0, Landroid/support/v7/widget/ViewBoundsCheck;->mBoundFlags:Landroid/support/v7/widget/ViewBoundsCheck$BoundFlags;
@@ -252,7 +252,7 @@
 
     return p0
 
-    :cond_0
+    :cond_30
     const/4 p0, 0x0
 
     return p0

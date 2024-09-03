@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>([Lokio/ByteString;)V
-    .locals 0
+    .registers 2
 
     .line 25
     invoke-direct {p0}, Ljava/util/AbstractList;-><init>()V
@@ -35,7 +35,7 @@
 .end method
 
 .method public static varargs of([Lokio/ByteString;)Lokio/Options;
-    .locals 1
+    .registers 2
 
     .line 30
     new-instance v0, Lokio/Options;
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public bridge synthetic get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 22
     invoke-virtual {p0, p1}, Lokio/Options;->get(I)Lokio/ByteString;
@@ -65,7 +65,7 @@
 .end method
 
 .method public get(I)Lokio/ByteString;
-    .locals 0
+    .registers 2
 
     .line 34
     iget-object p0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;
@@ -76,7 +76,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 38
     iget-object p0, p0, Lokio/Options;->byteStrings:[Lokio/ByteString;

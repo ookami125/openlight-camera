@@ -17,7 +17,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 24
     const-class v0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Lopenlight/co/camera/utils/Constants$SensitivityValues;Landroid/content/Context;)V
-    .locals 2
+    .registers 5
 
     .line 43
     invoke-direct {p0}, Lopenlight/co/camera/view/dragger/DraggerModel;-><init>()V
@@ -74,7 +74,7 @@
     .line 47
     iget-boolean p1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     .line 48
     iget-object p1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mItemsLabel:[Ljava/lang/String;
@@ -85,7 +85,7 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mItemsLabel:[Ljava/lang/String;
 
-    :cond_0
+    :cond_24
     const p1, 0x7f0e00da
 
     .line 50
@@ -123,7 +123,7 @@
 
 # virtual methods
 .method public indexOfSelectedItem()I
-    .locals 0
+    .registers 1
 
     .line 92
     iget-object p0, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -136,7 +136,7 @@
 .end method
 
 .method public initialPositionFromSubject()F
-    .locals 2
+    .registers 3
 
     .line 64
     sget v0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->LAST_INDEX:I
@@ -162,7 +162,7 @@
 .end method
 
 .method public positionFromSubject()F
-    .locals 2
+    .registers 3
 
     .line 59
     iget-wide v0, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mPositionFromDragging:D
@@ -173,13 +173,13 @@
 .end method
 
 .method public release()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public updateHudInfoInPreview()V
-    .locals 5
+    .registers 6
 
     .line 100
     invoke-static {}, Lopenlight/co/camera/utils/Constants$SensitivityValues;->maxIndex()I
@@ -189,7 +189,7 @@
     .line 101
     iget-boolean v1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_10
 
     iget-object v1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$SensitivityValues;
 
@@ -200,9 +200,9 @@
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mSubject:Lopenlight/co/camera/utils/Constants$SensitivityValues;
 
     .line 103
@@ -211,7 +211,7 @@
     move-result v0
 
     .line 105
-    :goto_0
+    :goto_16
     iget-object v1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mCameraManager:Lopenlight/co/camera/utils/Provider;
 
     invoke-interface {v1}, Lopenlight/co/camera/utils/Provider;->get()Ljava/lang/Object;
@@ -225,7 +225,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_53
 
     .line 108
     invoke-static {v0}, Lopenlight/co/camera/utils/Constants$SensitivityValues;->forIndex(I)Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -273,12 +273,12 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
-    :cond_1
+    :cond_53
     return-void
 .end method
 
 .method public updateSubject(F)V
-    .locals 4
+    .registers 6
 
     .line 75
     invoke-static {}, Lopenlight/co/camera/utils/Constants$SensitivityValues;->maxIndex()I
@@ -308,16 +308,16 @@
     .line 78
     iget-boolean v2, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mIsWheelReverseScroll:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1a
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move v0, v1
 
-    :goto_0
+    :goto_1b
     float-to-double v2, p1
 
     .line 80
@@ -329,13 +329,13 @@
     .line 85
     iget p1, p0, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->mPreviousCalculatedIndex:I
 
-    if-eq v1, p1, :cond_1
+    if-eq v1, p1, :cond_29
 
     const/4 p1, 0x1
 
     .line 86
     invoke-virtual {p0, v0, p1}, Lopenlight/co/camera/view/dragger/SensitivityDraggerModel;->sendMessageDelayed(II)V
 
-    :cond_1
+    :cond_29
     return-void
 .end method

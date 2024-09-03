@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,14 +31,14 @@
 .end method
 
 .method public static configureMenuItem(Landroid/view/Menu;ILandroid/support/v4/app/ShareCompat$IntentBuilder;)V
-    .locals 1
+    .registers 4
 
     .line 179
     invoke-interface {p0, p1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
     .line 184
     invoke-static {p0, p2}, Landroid/support/v4/app/ShareCompat;->configureMenuItem(Landroid/view/MenuItem;Landroid/support/v4/app/ShareCompat$IntentBuilder;)V
@@ -46,7 +46,7 @@
     return-void
 
     .line 181
-    :cond_0
+    :cond_a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -73,7 +73,7 @@
 .end method
 
 .method public static configureMenuItem(Landroid/view/MenuItem;Landroid/support/v4/app/ShareCompat$IntentBuilder;)V
-    .locals 3
+    .registers 5
 
     .line 151
     invoke-interface {p0}, Landroid/view/MenuItem;->getActionProvider()Landroid/view/ActionProvider;
@@ -83,7 +83,7 @@
     .line 153
     instance-of v1, v0, Landroid/widget/ShareActionProvider;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 154
     new-instance v0, Landroid/widget/ShareActionProvider;
@@ -94,14 +94,14 @@
 
     invoke-direct {v0, v1}, Landroid/widget/ShareActionProvider;-><init>(Landroid/content/Context;)V
 
-    goto :goto_0
+    goto :goto_14
 
     .line 156
-    :cond_0
+    :cond_12
     check-cast v0, Landroid/widget/ShareActionProvider;
 
     .line 158
-    :goto_0
+    :goto_14
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -147,14 +147,14 @@
 
     const/16 v1, 0x10
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_51
 
     .line 164
     invoke-interface {p0}, Landroid/view/MenuItem;->hasSubMenu()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_51
 
     .line 165
     invoke-virtual {p1}, Landroid/support/v4/app/ShareCompat$IntentBuilder;->createChooserIntent()Landroid/content/Intent;
@@ -163,19 +163,19 @@
 
     invoke-interface {p0, p1}, Landroid/view/MenuItem;->setIntent(Landroid/content/Intent;)Landroid/view/MenuItem;
 
-    :cond_1
+    :cond_51
     return-void
 .end method
 
 .method public static getCallingActivity(Landroid/app/Activity;)Landroid/content/ComponentName;
-    .locals 1
+    .registers 2
 
     .line 117
     invoke-virtual {p0}, Landroid/app/Activity;->getCallingActivity()Landroid/content/ComponentName;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 119
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
@@ -192,19 +192,19 @@
 
     check-cast v0, Landroid/content/ComponentName;
 
-    :cond_0
+    :cond_13
     return-object v0
 .end method
 
 .method public static getCallingPackage(Landroid/app/Activity;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 97
     invoke-virtual {p0}, Landroid/app/Activity;->getCallingPackage()Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 99
     invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
@@ -217,6 +217,6 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_10
     return-object v0
 .end method

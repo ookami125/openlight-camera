@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 44
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawableTransformation;->wrapped:Lcom/bumptech/glide/load/Transformation;
@@ -73,7 +73,7 @@
 .end method
 
 .method public transform(Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,7 +130,7 @@
 
     move-result p3
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_36
 
     .line 36
     new-instance p1, Lcom/bumptech/glide/load/resource/gif/GifDrawableResource;
@@ -145,6 +145,6 @@
 
     return-object p1
 
-    :cond_0
+    :cond_36
     return-object p1
 .end method

@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 235
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public notifyAll(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 242
     invoke-virtual {p1}, Ljava/lang/Object;->notifyAll()V
@@ -36,7 +36,7 @@
 .end method
 
 .method public waitForTimeout(Ljava/lang/Object;J)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;

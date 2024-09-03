@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;ILandroid/view/View;ILandroid/view/ViewPropertyAnimator;)V
-    .locals 0
+    .registers 7
 
     .line 292
     iput-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
@@ -53,14 +53,14 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 300
     iget p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->val$deltaX:I
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 301
     iget-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->val$view:Landroid/view/View;
@@ -68,22 +68,22 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->setTranslationX(F)V
 
     .line 303
-    :cond_0
+    :cond_a
     iget p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->val$deltaY:I
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_13
 
     .line 304
     iget-object p0, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->val$view:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setTranslationY(F)V
 
-    :cond_1
+    :cond_13
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 310
     iget-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->val$animation:Landroid/view/ViewPropertyAnimator;
@@ -117,7 +117,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 295
     iget-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$6;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;

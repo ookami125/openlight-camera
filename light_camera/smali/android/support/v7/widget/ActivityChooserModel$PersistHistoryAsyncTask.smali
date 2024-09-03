@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActivityChooserModel;)V
-    .locals 0
+    .registers 2
 
     .line 1039
     iput-object p1, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1037
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->doInBackground([Ljava/lang/Object;)Ljava/lang/Void;
@@ -54,7 +54,7 @@
 .end method
 
 .method public varargs doInBackground([Ljava/lang/Object;)Ljava/lang/Void;
-    .locals 11
+    .registers 13
 
     const/4 v0, 0x0
 
@@ -73,7 +73,7 @@
     const/4 v3, 0x0
 
     .line 1051
-    :try_start_0
+    :try_start_b
     iget-object v4, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     iget-object v4, v4, Landroid/support/v7/widget/ActivityChooserModel;->mContext:Landroid/content/Context;
@@ -81,8 +81,8 @@
     invoke-virtual {v4, p1, v0}, Landroid/content/Context;->openFileOutput(Ljava/lang/String;I)Ljava/io/FileOutputStream;
 
     move-result-object v4
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_5
+    :try_end_13
+    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_13} :catch_e8
 
     .line 1057
     invoke-static {}, Landroid/util/Xml;->newSerializer()Lorg/xmlpull/v1/XmlSerializer;
@@ -90,7 +90,7 @@
     move-result-object p1
 
     .line 1060
-    :try_start_1
+    :try_start_17
     invoke-interface {p1, v4, v3}, Lorg/xmlpull/v1/XmlSerializer;->setOutput(Ljava/io/OutputStream;Ljava/lang/String;)V
 
     const-string v5, "UTF-8"
@@ -114,8 +114,8 @@
 
     move v6, v0
 
-    :goto_0
-    if-ge v6, v5, :cond_0
+    :goto_2d
+    if-ge v6, v5, :cond_63
 
     .line 1066
     invoke-interface {v1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -171,9 +171,9 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_63
     const-string v0, "historical-records"
 
     .line 1078
@@ -181,38 +181,38 @@
 
     .line 1079
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlSerializer;->endDocument()V
-    :try_end_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_6b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_17 .. :try_end_6b} :catch_bb
+    .catch Ljava/lang/IllegalStateException; {:try_start_17 .. :try_end_6b} :catch_99
+    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_6b} :catch_77
+    .catchall {:try_start_17 .. :try_end_6b} :catchall_75
 
     .line 1091
     iget-object p0, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     iput-boolean v2, p0, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_dd
 
     .line 1094
-    :goto_1
-    :try_start_2
+    :goto_71
+    :try_start_71
     invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_74
+    .catch Ljava/io/IOException; {:try_start_71 .. :try_end_74} :catch_dd
 
-    goto :goto_2
+    goto :goto_dd
 
-    :catchall_0
+    :catchall_75
     move-exception p1
 
-    goto :goto_3
+    goto :goto_de
 
-    :catch_0
+    :catch_77
     move-exception p1
 
     .line 1089
-    :try_start_3
+    :try_start_78
     sget-object v0, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -234,23 +234,23 @@
     move-result-object v1
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_92
+    .catchall {:try_start_78 .. :try_end_92} :catchall_75
 
     .line 1091
     iget-object p0, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     iput-boolean v2, p0, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_dd
 
-    goto :goto_1
+    goto :goto_71
 
-    :catch_1
+    :catch_99
     move-exception p1
 
     .line 1087
-    :try_start_4
+    :try_start_9a
     sget-object v0, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -272,23 +272,23 @@
     move-result-object v1
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_b4
+    .catchall {:try_start_9a .. :try_end_b4} :catchall_75
 
     .line 1091
     iget-object p0, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     iput-boolean v2, p0, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_dd
 
-    goto :goto_1
+    goto :goto_71
 
-    :catch_2
+    :catch_bb
     move-exception p1
 
     .line 1085
-    :try_start_5
+    :try_start_bc
     sget-object v0, Landroid/support/v7/widget/ActivityChooserModel;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -310,42 +310,42 @@
     move-result-object v1
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+    :try_end_d6
+    .catchall {:try_start_bc .. :try_end_d6} :catchall_75
 
     .line 1091
     iget-object p0, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     iput-boolean v2, p0, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_dd
 
-    goto :goto_1
+    goto :goto_71
 
-    :catch_3
-    :cond_1
-    :goto_2
+    :catch_dd
+    :cond_dd
+    :goto_dd
     return-object v3
 
-    :goto_3
+    :goto_de
     iget-object p0, p0, Landroid/support/v7/widget/ActivityChooserModel$PersistHistoryAsyncTask;->this$0:Landroid/support/v7/widget/ActivityChooserModel;
 
     iput-boolean v2, p0, Landroid/support/v7/widget/ActivityChooserModel;->mCanReadHistoricalData:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_e7
 
     .line 1094
-    :try_start_6
+    :try_start_e4
     invoke-virtual {v4}, Ljava/io/FileOutputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_4
+    :try_end_e7
+    .catch Ljava/io/IOException; {:try_start_e4 .. :try_end_e7} :catch_e7
 
     .line 1097
-    :catch_4
-    :cond_2
+    :catch_e7
+    :cond_e7
     throw p1
 
-    :catch_5
+    :catch_e8
     move-exception p0
 
     .line 1053

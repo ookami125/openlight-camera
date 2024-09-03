@@ -17,7 +17,7 @@
 
 # direct methods
 .method protected constructor <init>(Ljava/lang/Class;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public final decode(Lcom/squareup/wire/ProtoReader;)Lcom/squareup/wire/WireEnum;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,12 +62,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     return-object v0
 
     .line 40
-    :cond_0
+    :cond_b
     new-instance v0, Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException;
 
     iget-object p0, p0, Lcom/squareup/wire/EnumAdapter;->javaType:Ljava/lang/Class;
@@ -78,7 +78,7 @@
 .end method
 
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -94,7 +94,7 @@
 .end method
 
 .method public final encode(Lcom/squareup/wire/ProtoWriter;Lcom/squareup/wire/WireEnum;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -120,7 +120,7 @@
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -136,7 +136,7 @@
 .end method
 
 .method public final encodedSize(Lcom/squareup/wire/WireEnum;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)I"
@@ -156,7 +156,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 23
     check-cast p1, Lcom/squareup/wire/WireEnum;

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;)V
-    .locals 0
+    .registers 2
 
     .line 823
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup$2;->this$1:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onGlobalLayout()V
-    .locals 2
+    .registers 3
 
     .line 826
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup$2;->this$1:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
@@ -49,17 +49,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 827
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup$2;->this$1:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
 
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->dismiss()V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 829
-    :cond_0
+    :cond_12
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup$2;->this$1:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->computeContentWidth()V
@@ -67,8 +67,9 @@
     .line 833
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup$2;->this$1:Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;
 
+    # invokes: Landroid/support/v7/widget/ListPopupWindow;->show()V
     invoke-static {p0}, Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;->access$301(Landroid/support/v7/widget/AppCompatSpinner$DropdownPopup;)V
 
-    :goto_0
+    :goto_1c
     return-void
 .end method

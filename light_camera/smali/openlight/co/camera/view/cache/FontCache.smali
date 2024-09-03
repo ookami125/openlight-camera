@@ -28,13 +28,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,17 +55,17 @@
 .end method
 
 .method public static declared-synchronized get()Lopenlight/co/camera/view/cache/FontCache;
-    .locals 2
+    .registers 2
 
     const-class v0, Lopenlight/co/camera/view/cache/FontCache;
 
     monitor-enter v0
 
     .line 32
-    :try_start_0
+    :try_start_3
     sget-object v1, Lopenlight/co/camera/view/cache/FontCache;->sInstance:Lopenlight/co/camera/view/cache/FontCache;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 33
     new-instance v1, Lopenlight/co/camera/view/cache/FontCache;
@@ -75,16 +75,16 @@
     sput-object v1, Lopenlight/co/camera/view/cache/FontCache;->sInstance:Lopenlight/co/camera/view/cache/FontCache;
 
     .line 35
-    :cond_0
+    :cond_e
     sget-object v1, Lopenlight/co/camera/view/cache/FontCache;->sInstance:Lopenlight/co/camera/view/cache/FontCache;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_3 .. :try_end_10} :catchall_12
 
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     .line 31
@@ -94,7 +94,7 @@
 .end method
 
 .method private getTypeface(Ljava/lang/String;)Landroid/graphics/Typeface;
-    .locals 1
+    .registers 3
 
     .line 47
     iget-object v0, p0, Lopenlight/co/camera/view/cache/FontCache;->mFontCache:Ljava/util/Map;
@@ -105,10 +105,10 @@
 
     check-cast v0, Landroid/graphics/Typeface;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     .line 50
-    :try_start_0
+    :try_start_a
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
 
     move-result-object v0
@@ -120,17 +120,17 @@
     invoke-static {v0, p1}, Landroid/graphics/Typeface;->createFromAsset(Landroid/content/res/AssetManager;Ljava/lang/String;)Landroid/graphics/Typeface;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_16} :catch_1c
 
     .line 55
     iget-object p0, p0, Lopenlight/co/camera/view/cache/FontCache;->mFontCache:Ljava/util/Map;
 
     invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_26
 
-    :catch_0
+    :catch_1c
     move-exception p0
 
     .line 52
@@ -144,15 +144,15 @@
 
     return-object p0
 
-    :cond_0
-    :goto_0
+    :cond_26
+    :goto_26
     return-object v0
 .end method
 
 
 # virtual methods
 .method public getHarmoniaBold()Landroid/graphics/Typeface;
-    .locals 1
+    .registers 2
 
     const-string v0, "harmonia-semibold.ttf"
 
@@ -165,7 +165,7 @@
 .end method
 
 .method public getHarmoniaRegular()Landroid/graphics/Typeface;
-    .locals 1
+    .registers 2
 
     const-string v0, "harmonia-regular.ttf"
 

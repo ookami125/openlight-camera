@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/view/menu/MenuItemWrapperICS;Landroid/content/Context;Landroid/view/ActionProvider;)V
-    .locals 0
+    .registers 4
 
     .line 423
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperICS;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public hasSubMenu()Z
-    .locals 0
+    .registers 1
 
     .line 440
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
@@ -52,7 +52,7 @@
 .end method
 
 .method public onCreateActionView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 430
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
@@ -65,7 +65,7 @@
 .end method
 
 .method public onPerformDefaultAction()Z
-    .locals 0
+    .registers 1
 
     .line 435
     iget-object p0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;
@@ -78,7 +78,7 @@
 .end method
 
 .method public onPrepareSubMenu(Landroid/view/SubMenu;)V
-    .locals 1
+    .registers 3
 
     .line 445
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$ActionProviderWrapper;->mInner:Landroid/view/ActionProvider;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 124
     invoke-direct {p0}, Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
-    .locals 0
+    .registers 2
 
     .line 127
     invoke-virtual {p1}, Landroid/net/ConnectivityManager;->isActiveNetworkMetered()Z

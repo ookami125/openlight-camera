@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$AuthenticationCallback;)V
-    .locals 0
+    .registers 2
 
     .line 109
     iput-object p1, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$1;->val$callback:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$AuthenticationCallback;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAuthenticationError(ILjava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
 
     .line 112
     iget-object p0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$1;->val$callback:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$AuthenticationCallback;
@@ -44,7 +44,7 @@
 .end method
 
 .method public onAuthenticationFailed()V
-    .locals 0
+    .registers 1
 
     .line 128
     iget-object p0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$1;->val$callback:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$AuthenticationCallback;
@@ -55,7 +55,7 @@
 .end method
 
 .method public onAuthenticationHelp(ILjava/lang/CharSequence;)V
-    .locals 0
+    .registers 3
 
     .line 117
     iget-object p0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$1;->val$callback:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$AuthenticationCallback;
@@ -66,7 +66,7 @@
 .end method
 
 .method public onAuthenticationSucceeded(Landroid/hardware/fingerprint/FingerprintManager$AuthenticationResult;)V
-    .locals 1
+    .registers 3
 
     .line 122
     iget-object p0, p0, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$1;->val$callback:Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$AuthenticationCallback;
@@ -78,6 +78,7 @@
 
     move-result-object p1
 
+    # invokes: Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23;->unwrapCryptoObject(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;
     invoke-static {p1}, Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23;->access$000(Landroid/hardware/fingerprint/FingerprintManager$CryptoObject;)Landroid/support/v4/hardware/fingerprint/FingerprintManagerCompatApi23$CryptoObject;
 
     move-result-object p1

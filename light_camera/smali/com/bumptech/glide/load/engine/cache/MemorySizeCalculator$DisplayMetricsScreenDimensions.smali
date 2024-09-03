@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/util/DisplayMetrics;)V
-    .locals 0
+    .registers 2
 
     .line 105
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public getHeightPixels()I
-    .locals 0
+    .registers 1
 
     .line 116
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator$DisplayMetricsScreenDimensions;->displayMetrics:Landroid/util/DisplayMetrics;
@@ -48,7 +48,7 @@
 .end method
 
 .method public getWidthPixels()I
-    .locals 0
+    .registers 1
 
     .line 111
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator$DisplayMetricsScreenDimensions;->displayMetrics:Landroid/util/DisplayMetrics;

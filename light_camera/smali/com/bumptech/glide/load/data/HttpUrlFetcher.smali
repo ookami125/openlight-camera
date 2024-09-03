@@ -46,7 +46,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 23
     new-instance v0, Lcom/bumptech/glide/load/data/HttpUrlFetcher$DefaultHttpUrlConnectionFactory;
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/model/GlideUrl;)V
-    .locals 1
+    .registers 3
 
     .line 33
     sget-object v0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->DEFAULT_CONNECTION_FACTORY:Lcom/bumptech/glide/load/data/HttpUrlFetcher$HttpUrlConnectionFactory;
@@ -72,7 +72,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/model/GlideUrl;Lcom/bumptech/glide/load/data/HttpUrlFetcher$HttpUrlConnectionFactory;)V
-    .locals 0
+    .registers 3
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method private getStreamForSuccessfulRequest(Ljava/net/HttpURLConnection;)Ljava/io/InputStream;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -103,7 +103,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 97
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->getContentLength()I
@@ -123,9 +123,9 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->stream:Ljava/io/InputStream;
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_0
+    :cond_1a
     const-string v0, "HttpUrlFetcher"
 
     const/4 v1, 0x3
@@ -135,7 +135,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3d
 
     const-string v0, "HttpUrlFetcher"
 
@@ -161,7 +161,7 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 103
-    :cond_1
+    :cond_3d
     invoke-virtual {p1}, Ljava/net/HttpURLConnection;->getInputStream()Ljava/io/InputStream;
 
     move-result-object p1
@@ -169,14 +169,14 @@
     iput-object p1, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->stream:Ljava/io/InputStream;
 
     .line 105
-    :goto_0
+    :goto_43
     iget-object p0, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->stream:Ljava/io/InputStream;
 
     return-object p0
 .end method
 
 .method private loadDataWithRedirects(Ljava/net/URL;ILjava/net/URL;Ljava/util/Map;)Ljava/io/InputStream;
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -199,12 +199,12 @@
 
     const/4 v0, 0x5
 
-    if-ge p2, v0, :cond_8
+    if-ge p2, v0, :cond_d3
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_1c
 
     .line 55
-    :try_start_0
+    :try_start_5
     invoke-virtual {p1}, Ljava/net/URL;->toURI()Ljava/net/URI;
 
     move-result-object v0
@@ -217,12 +217,12 @@
 
     move-result p3
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_14
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 56
-    :cond_0
+    :cond_14
     new-instance p3, Ljava/io/IOException;
 
     const-string v0, "In re-direct loop"
@@ -230,13 +230,13 @@
     invoke-direct {p3, v0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
 
     throw p3
-    :try_end_0
-    .catch Ljava/net/URISyntaxException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/net/URISyntaxException; {:try_start_5 .. :try_end_1c} :catch_1c
 
     .line 62
-    :catch_0
-    :cond_1
-    :goto_0
+    :catch_1c
+    :cond_1c
+    :goto_1c
     iget-object p3, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->connectionFactory:Lcom/bumptech/glide/load/data/HttpUrlFetcher$HttpUrlConnectionFactory;
 
     invoke-interface {p3, p1}, Lcom/bumptech/glide/load/data/HttpUrlFetcher$HttpUrlConnectionFactory;->build(Ljava/net/URL;)Ljava/net/HttpURLConnection;
@@ -254,12 +254,12 @@
 
     move-result-object p3
 
-    :goto_1
+    :goto_2c
     invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4a
 
     invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -284,10 +284,10 @@
 
     invoke-virtual {v1, v2, v0}, Ljava/net/HttpURLConnection;->addRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 66
-    :cond_2
+    :cond_4a
     iget-object p3, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->urlConnection:Ljava/net/HttpURLConnection;
 
     const/16 v0, 0x9c4
@@ -321,14 +321,14 @@
     .line 73
     iget-boolean p3, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->isCancelled:Z
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_6d
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 76
-    :cond_3
+    :cond_6d
     iget-object p3, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->urlConnection:Ljava/net/HttpURLConnection;
 
     invoke-virtual {p3}, Ljava/net/HttpURLConnection;->getResponseCode()I
@@ -340,7 +340,7 @@
 
     const/4 v2, 0x2
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_7f
 
     .line 78
     iget-object p1, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->urlConnection:Ljava/net/HttpURLConnection;
@@ -351,10 +351,10 @@
 
     return-object p0
 
-    :cond_4
+    :cond_7f
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_6
+    if-ne v1, v2, :cond_a3
 
     .line 80
     iget-object p3, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->urlConnection:Ljava/net/HttpURLConnection;
@@ -370,7 +370,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_5
+    if-nez v1, :cond_9b
 
     .line 84
     new-instance v1, Ljava/net/URL;
@@ -387,7 +387,7 @@
     return-object p0
 
     .line 82
-    :cond_5
+    :cond_9b
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Received empty or null redirect url"
@@ -396,10 +396,10 @@
 
     throw p0
 
-    :cond_6
+    :cond_a3
     const/4 p1, -0x1
 
-    if-ne p3, p1, :cond_7
+    if-ne p3, p1, :cond_ae
 
     .line 88
     new-instance p0, Ljava/io/IOException;
@@ -411,7 +411,7 @@
     throw p0
 
     .line 90
-    :cond_7
+    :cond_ae
     new-instance p1, Ljava/io/IOException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -445,7 +445,7 @@
     throw p1
 
     .line 50
-    :cond_8
+    :cond_d3
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Too many (> 5) redirects!"
@@ -458,7 +458,7 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -469,39 +469,39 @@
 .end method
 
 .method public cleanup()V
-    .locals 1
+    .registers 2
 
     .line 110
     iget-object v0, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->stream:Ljava/io/InputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 112
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->stream:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_9} :catch_9
 
     .line 117
-    :catch_0
-    :cond_0
+    :catch_9
+    :cond_9
     iget-object v0, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->urlConnection:Ljava/net/HttpURLConnection;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 118
     iget-object p0, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->urlConnection:Ljava/net/HttpURLConnection;
 
     invoke-virtual {p0}, Ljava/net/HttpURLConnection;->disconnect()V
 
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 124
     iget-object p0, p0, Lcom/bumptech/glide/load/data/HttpUrlFetcher;->glideUrl:Lcom/bumptech/glide/load/model/GlideUrl;
@@ -514,7 +514,7 @@
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;)Ljava/io/InputStream;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -546,7 +546,7 @@
 .end method
 
 .method public bridge synthetic loadData(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

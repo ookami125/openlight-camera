@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/DecodeFormat;)V
-    .locals 2
+    .registers 6
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method private static getSizeInBytes(Lcom/bumptech/glide/load/engine/prefill/PreFillType;)I
-    .locals 2
+    .registers 3
 
     .line 79
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->getWidth()I
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method generateAllocationOrder([Lcom/bumptech/glide/load/engine/prefill/PreFillType;)Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
-    .locals 6
+    .registers 8
 
     .line 58
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
@@ -105,8 +105,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v2, p0, :cond_0
+    :goto_18
+    if-ge v2, p0, :cond_24
 
     aget-object v4, p1, v2
 
@@ -119,9 +119,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_24
     int-to-float p0, v0
 
     int-to-float v0, v3
@@ -136,8 +136,8 @@
     .line 68
     array-length v2, p1
 
-    :goto_1
-    if-ge v1, v2, :cond_1
+    :goto_2d
+    if-ge v1, v2, :cond_4a
 
     aget-object v3, p1, v1
 
@@ -171,10 +171,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_2d
 
     .line 75
-    :cond_1
+    :cond_4a
     new-instance p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;-><init>(Ljava/util/Map;)V
@@ -183,12 +183,12 @@
 .end method
 
 .method public varargs preFill([Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;)V
-    .locals 5
+    .registers 7
 
     .line 36
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;->current:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 37
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;->current:Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;
@@ -196,7 +196,7 @@
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner;->cancel()V
 
     .line 40
-    :cond_0
+    :cond_9
     array-length v0, p1
 
     new-array v0, v0, [Lcom/bumptech/glide/load/engine/prefill/PreFillType;
@@ -204,10 +204,10 @@
     const/4 v1, 0x0
 
     .line 41
-    :goto_0
+    :goto_d
     array-length v2, p1
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_36
 
     .line 42
     aget-object v2, p1, v1
@@ -217,37 +217,37 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_2d
 
     .line 44
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;->defaultFormat:Lcom/bumptech/glide/load/DecodeFormat;
 
     sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->ALWAYS_ARGB_8888:Lcom/bumptech/glide/load/DecodeFormat;
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_28
 
     iget-object v3, p0, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;->defaultFormat:Lcom/bumptech/glide/load/DecodeFormat;
 
     sget-object v4, Lcom/bumptech/glide/load/DecodeFormat;->PREFER_ARGB_8888:Lcom/bumptech/glide/load/DecodeFormat;
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_25
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_1
+    :cond_25
     sget-object v3, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
-    goto :goto_2
+    goto :goto_2a
 
-    :cond_2
-    :goto_1
+    :cond_28
+    :goto_28
     sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    :goto_2
+    :goto_2a
     invoke-virtual {v2, v3}, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->setConfig(Landroid/graphics/Bitmap$Config;)Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;
 
     .line 48
-    :cond_3
+    :cond_2d
     invoke-virtual {v2}, Lcom/bumptech/glide/load/engine/prefill/PreFillType$Builder;->build()Lcom/bumptech/glide/load/engine/prefill/PreFillType;
 
     move-result-object v2
@@ -256,10 +256,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 51
-    :cond_4
+    :cond_36
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFiller;->generateAllocationOrder([Lcom/bumptech/glide/load/engine/prefill/PreFillType;)Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;
 
     move-result-object p1

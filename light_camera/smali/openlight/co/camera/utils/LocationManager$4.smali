@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/LocationManager;)V
-    .locals 0
+    .registers 2
 
     .line 178
     iput-object p1, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onNmeaReceived(JLjava/lang/String;)V
-    .locals 6
+    .registers 10
 
     const-string v0, "$GPGGA"
 
@@ -45,9 +45,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_fe
 
     .line 183
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/LocationManager;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -95,7 +96,7 @@
 
     move-result p3
 
-    if-nez p3, :cond_4
+    if-nez p3, :cond_fe
 
     const/4 p3, 0x2
 
@@ -107,7 +108,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_fe
 
     const-string v0, "N"
 
@@ -124,25 +125,27 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_55
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_56
 
-    :cond_0
+    :cond_55
     move v0, v1
 
     .line 193
-    :goto_0
+    :goto_56
     iget-object v3, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
     iget-object v4, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # invokes: Lopenlight/co/camera/utils/LocationManager;->nmeaCoordToDouble(Ljava/lang/String;)D
     invoke-static {v4, p3}, Lopenlight/co/camera/utils/LocationManager;->access$500(Lopenlight/co/camera/utils/LocationManager;Ljava/lang/String;)D
 
     move-result-wide v4
 
+    # invokes: Lopenlight/co/camera/utils/LocationManager;->box(D)I
     invoke-static {v3, v4, v5}, Lopenlight/co/camera/utils/LocationManager;->access$600(Lopenlight/co/camera/utils/LocationManager;D)I
 
     move-result p3
@@ -160,12 +163,12 @@
 
     move-result p3
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_6f
 
     move v1, v2
 
     .line 195
-    :cond_1
+    :cond_6f
     iget-object p3, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
     iget-object v2, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
@@ -174,10 +177,12 @@
 
     aget-object p1, p1, v3
 
+    # invokes: Lopenlight/co/camera/utils/LocationManager;->nmeaCoordToDouble(Ljava/lang/String;)D
     invoke-static {v2, p1}, Lopenlight/co/camera/utils/LocationManager;->access$500(Lopenlight/co/camera/utils/LocationManager;Ljava/lang/String;)D
 
     move-result-wide v2
 
+    # invokes: Lopenlight/co/camera/utils/LocationManager;->box(D)I
     invoke-static {p3, v2, v3}, Lopenlight/co/camera/utils/LocationManager;->access$600(Lopenlight/co/camera/utils/LocationManager;D)I
 
     move-result p1
@@ -192,6 +197,7 @@
     .line 199
     iget-object p2, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->mPoints:Ljava/util/HashMap;
     invoke-static {p2}, Lopenlight/co/camera/utils/LocationManager;->access$100(Lopenlight/co/camera/utils/LocationManager;)Ljava/util/HashMap;
 
     move-result-object p2
@@ -199,9 +205,10 @@
     monitor-enter p2
 
     .line 201
-    :try_start_0
+    :try_start_8a
     iget-object p3, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->mPoints:Ljava/util/HashMap;
     invoke-static {p3}, Lopenlight/co/camera/utils/LocationManager;->access$100(Lopenlight/co/camera/utils/LocationManager;)Ljava/util/HashMap;
 
     move-result-object p3
@@ -216,7 +223,7 @@
 
     check-cast p3, Ljava/util/HashMap;
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_ae
 
     .line 204
     new-instance p3, Ljava/util/HashMap;
@@ -226,6 +233,7 @@
     .line 205
     iget-object v2, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->mPoints:Ljava/util/HashMap;
     invoke-static {v2}, Lopenlight/co/camera/utils/LocationManager;->access$100(Lopenlight/co/camera/utils/LocationManager;)Ljava/util/HashMap;
 
     move-result-object v2
@@ -237,7 +245,7 @@
     invoke-virtual {v2, v3, p3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 208
-    :cond_2
+    :cond_ae
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
@@ -248,7 +256,7 @@
 
     check-cast v2, Lopenlight/co/camera/utils/LocationManager$GeodeticInfo;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_c9
 
     .line 211
     new-instance v2, Lopenlight/co/camera/utils/LocationManager$GeodeticInfo;
@@ -267,10 +275,11 @@
     invoke-virtual {p3, v3, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 215
-    :cond_3
+    :cond_c9
     invoke-virtual {v2, p1}, Lopenlight/co/camera/utils/LocationManager$GeodeticInfo;->apply(F)V
 
     .line 216
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/LocationManager;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -306,23 +315,24 @@
     .line 219
     iget-object p0, p0, Lopenlight/co/camera/utils/LocationManager$4;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # invokes: Lopenlight/co/camera/utils/LocationManager;->scheduleSave()V
     invoke-static {p0}, Lopenlight/co/camera/utils/LocationManager;->access$800(Lopenlight/co/camera/utils/LocationManager;)V
 
     .line 220
     monitor-exit p2
 
-    goto :goto_1
+    goto :goto_fe
 
-    :catchall_0
+    :catchall_fb
     move-exception p0
 
     monitor-exit p2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_fd
+    .catchall {:try_start_8a .. :try_end_fd} :catchall_fb
 
     throw p0
 
-    :cond_4
-    :goto_1
+    :cond_fe
+    :goto_fe
     return-void
 .end method

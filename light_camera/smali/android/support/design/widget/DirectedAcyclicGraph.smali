@@ -57,7 +57,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -96,7 +96,7 @@
 .end method
 
 .method private dfs(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/HashSet;)V
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -112,17 +112,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 163
-    :cond_0
+    :cond_7
     invoke-virtual {p3, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_32
 
     .line 167
     invoke-virtual {p3, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
@@ -136,7 +136,7 @@
 
     check-cast v0, Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2b
 
     const/4 v1, 0x0
 
@@ -145,8 +145,8 @@
 
     move-result v2
 
-    :goto_0
-    if-ge v1, v2, :cond_1
+    :goto_1f
+    if-ge v1, v2, :cond_2b
 
     .line 172
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -157,10 +157,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 176
-    :cond_1
+    :cond_2b
     invoke-virtual {p3, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     .line 178
@@ -169,7 +169,7 @@
     return-void
 
     .line 164
-    :cond_2
+    :cond_32
     new-instance p0, Ljava/lang/RuntimeException;
 
     const-string p1, "This graph contains cyclic dependencies"
@@ -180,7 +180,7 @@
 .end method
 
 .method private getEmptyList()Ljava/util/ArrayList;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -201,19 +201,19 @@
 
     check-cast p0, Ljava/util/ArrayList;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_f
 
     .line 192
     new-instance p0, Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
 
-    :cond_0
+    :cond_f
     return-object p0
 .end method
 
 .method private poolList(Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/util/ArrayList;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -240,7 +240,7 @@
 
 # virtual methods
 .method addEdge(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -262,7 +262,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     iget-object v0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
 
@@ -270,7 +270,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 73
     iget-object v0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -281,7 +281,7 @@
 
     check-cast v0, Ljava/util/ArrayList;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 76
     invoke-direct {p0}, Landroid/support/design/widget/DirectedAcyclicGraph;->getEmptyList()Ljava/util/ArrayList;
@@ -294,13 +294,13 @@
     invoke-virtual {p0, p1, v0}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 80
-    :cond_0
+    :cond_23
     invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 
     .line 69
-    :cond_1
+    :cond_27
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "All nodes must be present in the graph before being added as an edge"
@@ -311,7 +311,7 @@
 .end method
 
 .method addNode(Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -329,7 +329,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 47
     iget-object p0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -338,12 +338,12 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method clear()V
-    .locals 3
+    .registers 4
 
     .line 128
     iget-object v0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -354,8 +354,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_7
+    if-ge v1, v0, :cond_19
 
     .line 129
     iget-object v2, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -366,18 +366,18 @@
 
     check-cast v2, Ljava/util/ArrayList;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_16
 
     .line 131
     invoke-direct {p0, v2}, Landroid/support/design/widget/DirectedAcyclicGraph;->poolList(Ljava/util/ArrayList;)V
 
-    :cond_0
+    :cond_16
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 134
-    :cond_1
+    :cond_19
     iget-object p0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
 
     invoke-virtual {p0}, Landroid/support/v4/util/SimpleArrayMap;->clear()V
@@ -386,7 +386,7 @@
 .end method
 
 .method contains(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -408,7 +408,7 @@
 .end method
 
 .method getIncomingEdges(Ljava/lang/Object;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -436,7 +436,7 @@
 .end method
 
 .method getOutgoingEdges(Ljava/lang/Object;)Ljava/util/List;
-    .locals 4
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -463,8 +463,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_8
+    if-ge v2, v0, :cond_2d
 
     .line 103
     iget-object v3, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -475,16 +475,16 @@
 
     check-cast v3, Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
     .line 104
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2a
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_21
 
     .line 106
     new-instance v1, Ljava/util/ArrayList;
@@ -492,7 +492,7 @@
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     .line 108
-    :cond_0
+    :cond_21
     iget-object v3, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
 
     invoke-virtual {v3, v2}, Landroid/support/v4/util/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
@@ -501,17 +501,17 @@
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_2a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_2
+    :cond_2d
     return-object v1
 .end method
 
 .method getSortedList()Ljava/util/ArrayList;
-    .locals 5
+    .registers 6
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -542,8 +542,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_11
+    if-ge v1, v0, :cond_23
 
     .line 152
     iget-object v2, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -560,17 +560,17 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 155
-    :cond_0
+    :cond_23
     iget-object p0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mSortResult:Ljava/util/ArrayList;
 
     return-object p0
 .end method
 
 .method hasOutgoingEdges(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .param p1    # Ljava/lang/Object;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -592,8 +592,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_8
+    if-ge v2, v0, :cond_1f
 
     .line 116
     iget-object v3, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;
@@ -604,30 +604,30 @@
 
     check-cast v3, Ljava/util/ArrayList;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     .line 117
     invoke-virtual {v3, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1c
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_1c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_1f
     return v1
 .end method
 
 .method size()I
-    .locals 0
+    .registers 1
 
     .line 185
     iget-object p0, p0, Landroid/support/design/widget/DirectedAcyclicGraph;->mGraph:Landroid/support/v4/util/SimpleArrayMap;

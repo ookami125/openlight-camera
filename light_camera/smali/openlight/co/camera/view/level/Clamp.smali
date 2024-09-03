@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,17 +14,17 @@
 .end method
 
 .method public static clamp(III)I
-    .locals 0
+    .registers 3
 
-    if-le p0, p2, :cond_0
+    if-le p0, p2, :cond_3
 
     return p2
 
-    :cond_0
-    if-ge p0, p1, :cond_1
+    :cond_3
+    if-ge p0, p1, :cond_6
 
     return p1
 
-    :cond_1
+    :cond_6
     return p0
 .end method

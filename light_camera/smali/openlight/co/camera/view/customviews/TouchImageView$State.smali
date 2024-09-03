@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 91
     new-instance v0, Lopenlight/co/camera/view/customviews/TouchImageView$State;
@@ -121,7 +121,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -135,7 +135,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/customviews/TouchImageView$State;
-    .locals 1
+    .registers 2
 
     .line 91
     const-class v0, Lopenlight/co/camera/view/customviews/TouchImageView$State;
@@ -150,7 +150,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/customviews/TouchImageView$State;
-    .locals 1
+    .registers 1
 
     .line 91
     sget-object v0, Lopenlight/co/camera/view/customviews/TouchImageView$State;->$VALUES:[Lopenlight/co/camera/view/customviews/TouchImageView$State;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ActionMenuPresenter;)V
-    .locals 0
+    .registers 2
 
     .line 813
     iput-object p1, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionMenuPopupCallback;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
@@ -33,14 +33,14 @@
 
 # virtual methods
 .method public getPopup()Landroid/support/v7/view/menu/ShowableListMenu;
-    .locals 1
+    .registers 2
 
     .line 818
     iget-object v0, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionMenuPopupCallback;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionMenuPresenter;->mActionButtonPopup:Landroid/support/v7/widget/ActionMenuPresenter$ActionButtonSubmenu;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     iget-object p0, p0, Landroid/support/v7/widget/ActionMenuPresenter$ActionMenuPopupCallback;->this$0:Landroid/support/v7/widget/ActionMenuPresenter;
 
@@ -50,11 +50,11 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_10
     return-object p0
 .end method

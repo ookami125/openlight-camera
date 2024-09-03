@@ -45,7 +45,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/design/widget/BaseTransientBottomBar$ContentViewCallback;)V
-    .locals 0
+    .registers 4
 
     .line 112
     invoke-direct {p0, p1, p2, p3}, Landroid/support/design/widget/BaseTransientBottomBar;-><init>(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/design/widget/BaseTransientBottomBar$ContentViewCallback;)V
@@ -54,17 +54,17 @@
 .end method
 
 .method private static findSuitableParent(Landroid/view/View;)Landroid/view/ViewGroup;
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
     move-object v1, v0
 
     .line 176
-    :cond_0
+    :cond_2
     instance-of v2, p0, Landroid/support/design/widget/CoordinatorLayout;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_9
 
     .line 178
     check-cast p0, Landroid/view/ViewGroup;
@@ -72,10 +72,10 @@
     return-object p0
 
     .line 179
-    :cond_1
+    :cond_9
     instance-of v2, p0, Landroid/widget/FrameLayout;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_1c
 
     .line 180
     invoke-virtual {p0}, Landroid/view/View;->getId()I
@@ -84,7 +84,7 @@
 
     const v2, 0x1020002
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_19
 
     .line 183
     check-cast p0, Landroid/view/ViewGroup;
@@ -92,13 +92,13 @@
     return-object p0
 
     .line 186
-    :cond_2
+    :cond_19
     move-object v1, p0
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    :cond_3
-    if-eqz p0, :cond_5
+    :cond_1c
+    if-eqz p0, :cond_2a
 
     .line 192
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -108,24 +108,24 @@
     .line 193
     instance-of v2, p0, Landroid/view/View;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_29
 
     check-cast p0, Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_4
+    :cond_29
     move-object p0, v0
 
-    :cond_5
-    :goto_0
-    if-nez p0, :cond_0
+    :cond_2a
+    :goto_2a
+    if-nez p0, :cond_2
 
     return-object v1
 .end method
 
 .method public static make(Landroid/view/View;II)Landroid/support/design/widget/Snackbar;
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -154,7 +154,7 @@
 .end method
 
 .method public static make(Landroid/view/View;Ljava/lang/CharSequence;I)Landroid/support/design/widget/Snackbar;
-    .locals 3
+    .registers 6
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -171,7 +171,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_23
 
     .line 141
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -208,7 +208,7 @@
     return-object v1
 
     .line 137
-    :cond_0
+    :cond_23
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "No suitable parent found from the given view. Please provide a valid view."
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public setAction(ILandroid/view/View$OnClickListener;)Landroid/support/design/widget/Snackbar;
-    .locals 1
+    .registers 4
     .param p1    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
@@ -246,7 +246,7 @@
 .end method
 
 .method public setAction(Ljava/lang/CharSequence;Landroid/view/View$OnClickListener;)Landroid/support/design/widget/Snackbar;
-    .locals 3
+    .registers 6
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -271,14 +271,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_25
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_16
 
-    goto :goto_0
+    goto :goto_25
 
     .line 250
-    :cond_0
+    :cond_16
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 251
@@ -291,10 +291,10 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     const/16 p1, 0x8
 
     .line 247
@@ -305,12 +305,12 @@
     .line 248
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :goto_1
+    :goto_2e
     return-object p0
 .end method
 
 .method public setActionTextColor(I)Landroid/support/design/widget/Snackbar;
-    .locals 2
+    .registers 4
     .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
@@ -341,7 +341,7 @@
 .end method
 
 .method public setActionTextColor(Landroid/content/res/ColorStateList;)Landroid/support/design/widget/Snackbar;
-    .locals 2
+    .registers 4
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -368,7 +368,7 @@
 .end method
 
 .method public setCallback(Landroid/support/design/widget/Snackbar$Callback;)Landroid/support/design/widget/Snackbar;
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -378,28 +378,28 @@
     .line 305
     iget-object v0, p0, Landroid/support/design/widget/Snackbar;->mCallback:Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 306
     iget-object v0, p0, Landroid/support/design/widget/Snackbar;->mCallback:Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;
 
     invoke-virtual {p0, v0}, Landroid/support/design/widget/Snackbar;->removeCallback(Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;)Landroid/support/design/widget/BaseTransientBottomBar;
 
-    :cond_0
-    if-eqz p1, :cond_1
+    :cond_9
+    if-eqz p1, :cond_e
 
     .line 309
     invoke-virtual {p0, p1}, Landroid/support/design/widget/Snackbar;->addCallback(Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;)Landroid/support/design/widget/BaseTransientBottomBar;
 
     .line 313
-    :cond_1
+    :cond_e
     iput-object p1, p0, Landroid/support/design/widget/Snackbar;->mCallback:Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;
 
     return-object p0
 .end method
 
 .method public setText(I)Landroid/support/design/widget/Snackbar;
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
@@ -424,7 +424,7 @@
 .end method
 
 .method public setText(Ljava/lang/CharSequence;)Landroid/support/design/widget/Snackbar;
-    .locals 2
+    .registers 4
     .param p1    # Ljava/lang/CharSequence;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 829
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method findReferenceIndexFromCache(I)I
-    .locals 4
+    .registers 6
 
     .line 940
     iget-object v0, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
@@ -58,8 +58,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-gt v1, v0, :cond_1
+    :goto_9
+    if-gt v1, v0, :cond_1f
 
     add-int v2, v1, v0
 
@@ -72,25 +72,25 @@
 
     move-result v3
 
-    if-ge v3, p1, :cond_0
+    if-ge v3, p1, :cond_1b
 
     add-int/lit8 v2, v2, 0x1
 
     move v1, v2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_1b
     add-int/lit8 v2, v2, -0x1
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_1
+    :cond_1f
     add-int/lit8 v1, v1, -0x1
 
-    if-ltz v1, :cond_2
+    if-ltz v1, :cond_32
 
     .line 952
     iget-object p1, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
@@ -99,7 +99,7 @@
 
     move-result p1
 
-    if-ge v1, p1, :cond_2
+    if-ge v1, p1, :cond_32
 
     .line 953
     iget-object p0, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
@@ -110,19 +110,19 @@
 
     return p0
 
-    :cond_2
+    :cond_32
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method getCachedSpanIndex(II)I
-    .locals 2
+    .registers 5
 
     .line 872
     iget-boolean v0, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanIndices:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 873
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->getSpanIndex(II)I
@@ -132,7 +132,7 @@
     return p0
 
     .line 875
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
 
     const/4 v1, -0x1
@@ -141,12 +141,12 @@
 
     move-result v0
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_13
 
     return v0
 
     .line 879
-    :cond_1
+    :cond_13
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->getSpanIndex(II)I
 
     move-result p2
@@ -160,7 +160,7 @@
 .end method
 
 .method public getSpanGroupIndex(II)I
-    .locals 6
+    .registers 9
 
     .line 971
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->getSpanSize(I)I
@@ -175,8 +175,8 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v2, p1, :cond_2
+    :goto_8
+    if-ge v2, p1, :cond_1d
 
     .line 973
     invoke-virtual {p0, v2}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->getSpanSize(I)I
@@ -185,40 +185,40 @@
 
     add-int/2addr v3, v5
 
-    if-ne v3, p2, :cond_0
+    if-ne v3, p2, :cond_15
 
     add-int/lit8 v4, v4, 0x1
 
     move v3, v1
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_0
-    if-le v3, p2, :cond_1
+    :cond_15
+    if-le v3, p2, :cond_1a
 
     add-int/lit8 v4, v4, 0x1
 
     move v3, v5
 
-    :cond_1
-    :goto_1
+    :cond_1a
+    :goto_1a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_2
+    :cond_1d
     add-int/2addr v3, v0
 
-    if-le v3, p2, :cond_3
+    if-le v3, p2, :cond_22
 
     add-int/lit8 v4, v4, 0x1
 
-    :cond_3
+    :cond_22
     return v4
 .end method
 
 .method public getSpanIndex(II)I
-    .locals 5
+    .registers 8
 
     .line 908
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->getSpanSize(I)I
@@ -227,15 +227,15 @@
 
     const/4 v1, 0x0
 
-    if-ne v0, p2, :cond_0
+    if-ne v0, p2, :cond_8
 
     return v1
 
     .line 915
-    :cond_0
+    :cond_8
     iget-boolean v2, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanIndices:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_28
 
     iget-object v2, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
 
@@ -243,14 +243,14 @@
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_28
 
     .line 916
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->findReferenceIndexFromCache(I)I
 
     move-result v2
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_28
 
     .line 918
     iget-object v3, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
@@ -267,15 +267,15 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_1
+    :cond_28
     move v2, v1
 
     move v3, v2
 
-    :goto_0
-    if-ge v2, p1, :cond_4
+    :goto_2a
+    if-ge v2, p1, :cond_3b
 
     .line 923
     invoke-virtual {p0, v2}, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->getSpanSize(I)I
@@ -284,31 +284,31 @@
 
     add-int/2addr v3, v4
 
-    if-ne v3, p2, :cond_2
+    if-ne v3, p2, :cond_35
 
     move v3, v1
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_2
-    if-le v3, p2, :cond_3
+    :cond_35
+    if-le v3, p2, :cond_38
 
     move v3, v4
 
-    :cond_3
-    :goto_1
+    :cond_38
+    :goto_38
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
-    :cond_4
+    :cond_3b
     add-int/2addr v0, v3
 
-    if-gt v0, p2, :cond_5
+    if-gt v0, p2, :cond_3f
 
     return v3
 
-    :cond_5
+    :cond_3f
     return v1
 .end method
 
@@ -316,7 +316,7 @@
 .end method
 
 .method public invalidateSpanIndexCache()V
-    .locals 0
+    .registers 1
 
     .line 859
     iget-object p0, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mSpanIndexCache:Landroid/util/SparseIntArray;
@@ -327,7 +327,7 @@
 .end method
 
 .method public isSpanIndexCacheEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 868
     iget-boolean p0, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanIndices:Z
@@ -336,7 +336,7 @@
 .end method
 
 .method public setSpanIndexCacheEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 851
     iput-boolean p1, p0, Landroid/support/v7/widget/GridLayoutManager$SpanSizeLookup;->mCacheSpanIndices:Z

@@ -23,14 +23,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 85
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 86
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatApi16Impl;
@@ -39,15 +39,15 @@
 
     sput-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 87
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xf
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 88
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatApi15Impl;
@@ -56,22 +56,22 @@
 
     sput-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 90
-    :cond_1
+    :cond_1c
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
 
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public static getMaxScrollX(Landroid/view/accessibility/AccessibilityRecord;)I
-    .locals 1
+    .registers 2
 
     .line 541
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
@@ -100,7 +100,7 @@
 .end method
 
 .method public static getMaxScrollY(Landroid/view/accessibility/AccessibilityRecord;)I
-    .locals 1
+    .registers 2
 
     .line 585
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
@@ -113,7 +113,7 @@
 .end method
 
 .method public static obtain()Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;
-    .locals 2
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -130,7 +130,7 @@
 .end method
 
 .method public static obtain(Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;)Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public static setMaxScrollX(Landroid/view/accessibility/AccessibilityRecord;I)V
-    .locals 1
+    .registers 3
 
     .line 563
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
@@ -160,7 +160,7 @@
 .end method
 
 .method public static setMaxScrollY(Landroid/view/accessibility/AccessibilityRecord;I)V
-    .locals 1
+    .registers 3
 
     .line 607
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatBaseImpl;
@@ -171,7 +171,7 @@
 .end method
 
 .method public static setSource(Landroid/view/accessibility/AccessibilityRecord;Landroid/view/View;I)V
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/accessibility/AccessibilityRecord;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -188,25 +188,25 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_8
 
     return v1
 
     .line 816
-    :cond_1
+    :cond_8
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v2
@@ -215,28 +215,28 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_13
 
     return v1
 
     .line 819
-    :cond_2
+    :cond_13
     check-cast p1, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;
 
     .line 820
     iget-object v2, p0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->mRecord:Landroid/view/accessibility/AccessibilityRecord;
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_1e
 
     .line 821
     iget-object p0, p1, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->mRecord:Landroid/view/accessibility/AccessibilityRecord;
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_29
 
     return v1
 
     .line 824
-    :cond_3
+    :cond_1e
     iget-object p0, p0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->mRecord:Landroid/view/accessibility/AccessibilityRecord;
 
     iget-object p1, p1, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->mRecord:Landroid/view/accessibility/AccessibilityRecord;
@@ -245,16 +245,16 @@
 
     move-result p0
 
-    if-nez p0, :cond_4
+    if-nez p0, :cond_29
 
     return v1
 
-    :cond_4
+    :cond_29
     return v0
 .end method
 
 .method public getAddedCount()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -269,7 +269,7 @@
 .end method
 
 .method public getBeforeText()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -284,7 +284,7 @@
 .end method
 
 .method public getClassName()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public getContentDescription()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -314,7 +314,7 @@
 .end method
 
 .method public getCurrentItemIndex()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -329,7 +329,7 @@
 .end method
 
 .method public getFromIndex()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -344,7 +344,7 @@
 .end method
 
 .method public getImpl()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -355,7 +355,7 @@
 .end method
 
 .method public getItemCount()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -370,7 +370,7 @@
 .end method
 
 .method public getMaxScrollX()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -385,7 +385,7 @@
 .end method
 
 .method public getMaxScrollY()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -400,7 +400,7 @@
 .end method
 
 .method public getParcelableData()Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -415,7 +415,7 @@
 .end method
 
 .method public getRemovedCount()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -430,7 +430,7 @@
 .end method
 
 .method public getScrollX()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -445,7 +445,7 @@
 .end method
 
 .method public getScrollY()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -460,7 +460,7 @@
 .end method
 
 .method public getSource()Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -479,7 +479,7 @@
 .end method
 
 .method public getText()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -503,7 +503,7 @@
 .end method
 
 .method public getToIndex()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -518,7 +518,7 @@
 .end method
 
 .method public getWindowId()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -533,32 +533,32 @@
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     .line 801
     iget-object v0, p0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->mRecord:Landroid/view/accessibility/AccessibilityRecord;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_6
     iget-object p0, p0, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat;->mRecord:Landroid/view/accessibility/AccessibilityRecord;
 
     invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
     move-result p0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public isChecked()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -573,7 +573,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -588,7 +588,7 @@
 .end method
 
 .method public isFullScreen()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -603,7 +603,7 @@
 .end method
 
 .method public isPassword()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -618,7 +618,7 @@
 .end method
 
 .method public isScrollable()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -633,7 +633,7 @@
 .end method
 
 .method public recycle()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -646,7 +646,7 @@
 .end method
 
 .method public setAddedCount(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -659,7 +659,7 @@
 .end method
 
 .method public setBeforeText(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public setChecked(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -685,7 +685,7 @@
 .end method
 
 .method public setClassName(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -698,7 +698,7 @@
 .end method
 
 .method public setContentDescription(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -711,7 +711,7 @@
 .end method
 
 .method public setCurrentItemIndex(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -724,7 +724,7 @@
 .end method
 
 .method public setEnabled(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -737,7 +737,7 @@
 .end method
 
 .method public setFromIndex(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -750,7 +750,7 @@
 .end method
 
 .method public setFullScreen(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -763,7 +763,7 @@
 .end method
 
 .method public setItemCount(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -776,7 +776,7 @@
 .end method
 
 .method public setMaxScrollX(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -789,7 +789,7 @@
 .end method
 
 .method public setMaxScrollY(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -802,7 +802,7 @@
 .end method
 
 .method public setParcelableData(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -815,7 +815,7 @@
 .end method
 
 .method public setPassword(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -828,7 +828,7 @@
 .end method
 
 .method public setRemovedCount(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -841,7 +841,7 @@
 .end method
 
 .method public setScrollX(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -854,7 +854,7 @@
 .end method
 
 .method public setScrollY(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -867,7 +867,7 @@
 .end method
 
 .method public setScrollable(Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -880,7 +880,7 @@
 .end method
 
 .method public setSource(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -893,7 +893,7 @@
 .end method
 
 .method public setSource(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -906,7 +906,7 @@
 .end method
 
 .method public setToIndex(I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

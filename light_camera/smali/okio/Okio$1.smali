@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lokio/Timeout;Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 3
 
     .line 71
     iput-object p1, p0, Lokio/Okio$1;->val$timeout:Lokio/Timeout;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -56,7 +56,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -72,7 +72,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 100
     iget-object p0, p0, Lokio/Okio$1;->val$timeout:Lokio/Timeout;
@@ -81,7 +81,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 104
     new-instance v0, Ljava/lang/StringBuilder;
@@ -108,7 +108,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 6
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -124,13 +124,13 @@
 
     invoke-static/range {v0 .. v5}, Lokio/Util;->checkOffsetAndCount(JJJ)V
 
-    :cond_0
-    :goto_0
+    :cond_8
+    :goto_8
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_45
 
     .line 75
     iget-object v0, p0, Lokio/Okio$1;->val$timeout:Lokio/Timeout;
@@ -187,7 +187,7 @@
 
     iget v2, v0, Lokio/Segment;->limit:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_8
 
     .line 85
     invoke-virtual {v0}, Lokio/Segment;->pop()Lokio/Segment;
@@ -199,8 +199,8 @@
     .line 86
     invoke-static {v0}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_45
     return-void
 .end method

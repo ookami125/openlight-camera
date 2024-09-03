@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 88
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -117,7 +117,7 @@
 .end method
 
 .method static synthetic access$000()Lopenlight/co/lib/content/Prefs;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lopenlight/co/camera/view/dragger/DraggerModel;->mCamPrefs:Lopenlight/co/lib/content/Prefs;
@@ -126,7 +126,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lopenlight/co/camera/view/dragger/DraggerModel;->TAG:Ljava/lang/String;
@@ -149,7 +149,7 @@
 .end method
 
 .method protected sendMessageDelayed(II)V
-    .locals 1
+    .registers 4
 
     .line 168
     iget-object v0, p0, Lopenlight/co/camera/view/dragger/DraggerModel;->mDelayHandler:Landroid/os/Handler;
@@ -178,7 +178,7 @@
 .end method
 
 .method public setOnControlCompleteListener(Lopenlight/co/camera/listener/ControlCompleteListener;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
@@ -187,7 +187,7 @@
 .end method
 
 .method protected updatePositionFromSubject()V
-    .locals 1
+    .registers 2
 
     .line 181
     invoke-virtual {p0}, Lopenlight/co/camera/view/dragger/DraggerModel;->positionFromSubject()F

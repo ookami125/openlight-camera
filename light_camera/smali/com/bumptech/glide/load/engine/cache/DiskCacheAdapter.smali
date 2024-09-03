@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,19 +19,19 @@
 
 # virtual methods
 .method public clear()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public delete(Lcom/bumptech/glide/load/Key;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public get(Lcom/bumptech/glide/load/Key;)Ljava/io/File;
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -39,7 +39,7 @@
 .end method
 
 .method public put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/cache/DiskCache$Writer;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method

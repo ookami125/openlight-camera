@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 3492
     sget-object v0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$800(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
-    .locals 0
+    .registers 1
 
     .line 3491
     iget p0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
-    .locals 0
+    .registers 1
 
     .line 3491
     iget p0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -159,7 +159,7 @@
 .end method
 
 .method public peek()I
-    .locals 0
+    .registers 1
 
     .line 3532
     iget p0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
@@ -168,7 +168,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -193,7 +193,7 @@
 .end method
 
 .method public readBoolean()Z
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -218,7 +218,7 @@
 .end method
 
 .method public readByte()B
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -237,7 +237,7 @@
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_1c
 
     .line 3604
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -246,14 +246,14 @@
 
     move-result p0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_16
 
     int-to-byte p0, p0
 
     return p0
 
     .line 3606
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -261,7 +261,7 @@
     throw p0
 
     .line 3602
-    :cond_1
+    :cond_1c
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -270,7 +270,7 @@
 .end method
 
 .method public readChar()C
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -295,7 +295,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -315,7 +315,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -335,7 +335,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -356,7 +356,7 @@
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_20
 
     .line 3593
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -371,12 +371,12 @@
 
     array-length p1, p1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_18
 
     return-void
 
     .line 3594
-    :cond_0
+    :cond_18
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Couldn\'t read up to the length of buffer"
@@ -386,7 +386,7 @@
     throw p0
 
     .line 3591
-    :cond_1
+    :cond_20
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -395,7 +395,7 @@
 .end method
 
 .method public readFully([BII)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -414,7 +414,7 @@
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_1
+    if-gt v0, v1, :cond_1c
 
     .line 3582
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -423,12 +423,12 @@
 
     move-result p0
 
-    if-ne p0, p3, :cond_0
+    if-ne p0, p3, :cond_14
 
     return-void
 
     .line 3583
-    :cond_0
+    :cond_14
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Couldn\'t read up to the length of buffer"
@@ -438,7 +438,7 @@
     throw p0
 
     .line 3580
-    :cond_1
+    :cond_1c
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -447,7 +447,7 @@
 .end method
 
 .method public readInt()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -466,7 +466,7 @@
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_69
 
     .line 3636
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -502,14 +502,14 @@
 
     or-int/2addr v4, v3
 
-    if-ltz v4, :cond_2
+    if-ltz v4, :cond_63
 
     .line 3643
     iget-object v4, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v5, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v4, v5, :cond_0
+    if-ne v4, v5, :cond_3a
 
     shl-int/lit8 p0, v3, 0x18
 
@@ -526,12 +526,12 @@
     return p0
 
     .line 3645
-    :cond_0
+    :cond_3a
     iget-object v4, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v5, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_4a
 
     shl-int/lit8 p0, v0, 0x18
 
@@ -548,7 +548,7 @@
     return p0
 
     .line 3648
-    :cond_1
+    :cond_4a
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -572,7 +572,7 @@
     throw v0
 
     .line 3641
-    :cond_2
+    :cond_63
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -580,7 +580,7 @@
     throw p0
 
     .line 3634
-    :cond_3
+    :cond_69
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -589,7 +589,7 @@
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -609,7 +609,7 @@
 .end method
 
 .method public readLong()J
-    .locals 19
+    .registers 20
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -632,7 +632,7 @@
 
     iget v3, v0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v1, v3, :cond_3
+    if-gt v1, v3, :cond_bb
 
     .line 3690
     iget-object v1, v0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -704,7 +704,7 @@
 
     or-int/2addr v10, v9
 
-    if-ltz v10, :cond_2
+    if-ltz v10, :cond_b5
 
     .line 3701
     iget-object v10, v0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
@@ -723,7 +723,7 @@
 
     const/16 v17, 0x38
 
-    if-ne v10, v11, :cond_0
+    if-ne v10, v11, :cond_7a
 
     int-to-long v9, v9
 
@@ -777,7 +777,7 @@
 
     return-wide v9
 
-    :cond_0
+    :cond_7a
     move v2, v3
 
     .line 3705
@@ -785,7 +785,7 @@
 
     sget-object v10, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v3, v10, :cond_1
+    if-ne v3, v10, :cond_9c
 
     int-to-long v0, v1
 
@@ -836,7 +836,7 @@
     return-wide v0
 
     .line 3710
-    :cond_1
+    :cond_9c
     new-instance v1, Ljava/io/IOException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -860,7 +860,7 @@
     throw v1
 
     .line 3699
-    :cond_2
+    :cond_b5
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -868,7 +868,7 @@
     throw v0
 
     .line 3688
-    :cond_3
+    :cond_bb
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
@@ -877,7 +877,7 @@
 .end method
 
 .method public readShort()S
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -896,7 +896,7 @@
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_51
 
     .line 3617
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -914,14 +914,14 @@
 
     or-int v2, v0, v1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_4b
 
     .line 3622
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_27
 
     shl-int/lit8 p0, v1, 0x8
 
@@ -932,12 +932,12 @@
     return p0
 
     .line 3624
-    :cond_0
+    :cond_27
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_32
 
     shl-int/lit8 p0, v0, 0x8
 
@@ -948,7 +948,7 @@
     return p0
 
     .line 3627
-    :cond_1
+    :cond_32
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -972,7 +972,7 @@
     throw v0
 
     .line 3620
-    :cond_2
+    :cond_4b
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -980,7 +980,7 @@
     throw p0
 
     .line 3615
-    :cond_3
+    :cond_51
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -989,7 +989,7 @@
 .end method
 
 .method public readUTF()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1014,7 +1014,7 @@
 .end method
 
 .method public readUnsignedByte()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1039,7 +1039,7 @@
 .end method
 
 .method public readUnsignedInt()J
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1080,7 +1080,7 @@
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_4f
 
     .line 3667
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -1098,14 +1098,14 @@
 
     or-int v2, v0, v1
 
-    if-ltz v2, :cond_2
+    if-ltz v2, :cond_49
 
     .line 3672
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_26
 
     shl-int/lit8 p0, v1, 0x8
 
@@ -1114,12 +1114,12 @@
     return p0
 
     .line 3674
-    :cond_0
+    :cond_26
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v3, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v2, v3, :cond_1
+    if-ne v2, v3, :cond_30
 
     shl-int/lit8 p0, v0, 0x8
 
@@ -1128,7 +1128,7 @@
     return p0
 
     .line 3677
-    :cond_1
+    :cond_30
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1152,7 +1152,7 @@
     throw v0
 
     .line 3670
-    :cond_2
+    :cond_49
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -1160,7 +1160,7 @@
     throw p0
 
     .line 3665
-    :cond_3
+    :cond_4f
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -1169,7 +1169,7 @@
 .end method
 
 .method public seek(J)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1183,7 +1183,7 @@
 
     cmp-long v0, v0, p1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_17
 
     const/4 v0, 0x0
 
@@ -1202,17 +1202,17 @@
 
     invoke-virtual {v0, v1}, Ljava/io/DataInputStream;->mark(I)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 3523
-    :cond_0
+    :cond_17
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
 
     int-to-long v0, v0
 
     sub-long/2addr p1, v0
 
-    :goto_0
+    :goto_1b
     long-to-int p1, p1
 
     .line 3526
@@ -1220,12 +1220,12 @@
 
     move-result p0
 
-    if-ne p0, p1, :cond_1
+    if-ne p0, p1, :cond_23
 
     return-void
 
     .line 3527
-    :cond_1
+    :cond_23
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Couldn\'t seek up to the byteCount"
@@ -1236,7 +1236,7 @@
 .end method
 
 .method public setByteOrder(Ljava/nio/ByteOrder;)V
-    .locals 0
+    .registers 2
 
     .line 3514
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mByteOrder:Ljava/nio/ByteOrder;
@@ -1245,7 +1245,7 @@
 .end method
 
 .method public skipBytes(I)I
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1265,8 +1265,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_a
+    if-ge v0, p1, :cond_16
 
     .line 3656
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mDataInputStream:Ljava/io/DataInputStream;
@@ -1279,10 +1279,10 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 3658
-    :cond_0
+    :cond_16
     iget p1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
 
     add-int/2addr p1, v0

@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/Bitmap;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
 
     .line 357
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackManager$2;->val$bitmap:Landroid/graphics/Bitmap;
@@ -47,12 +47,12 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/io/File;)Ljava/lang/Boolean;
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x0
 
     .line 361
-    :try_start_0
+    :try_start_1
     new-instance v1, Ljava/io/FileOutputStream;
 
     aget-object p1, p1, v0
@@ -77,12 +77,12 @@
     invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_19} :catch_1a
 
     return-object p0
 
-    :catch_0
+    :catch_1a
     move-exception p0
 
     const-string p1, "Could not save screenshot."
@@ -99,7 +99,7 @@
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 357
     check-cast p1, [Ljava/io/File;
@@ -112,14 +112,14 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Boolean;)V
-    .locals 1
+    .registers 3
 
     .line 373
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_12
 
     .line 374
     iget-object p0, p0, Lnet/hockeyapp/android/FeedbackManager$2;->val$context:Landroid/content/Context;
@@ -135,12 +135,12 @@
     .line 375
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 357
     check-cast p1, Ljava/lang/Boolean;

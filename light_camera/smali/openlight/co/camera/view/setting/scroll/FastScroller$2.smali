@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/setting/scroll/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 127
     iput-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$2;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onScrolled(Landroid/support/v7/widget/RecyclerView;II)V
-    .locals 0
+    .registers 4
 
     .line 130
     invoke-super {p0, p1, p2, p3}, Landroid/support/v7/widget/RecyclerView$OnScrollListener;->onScrolled(Landroid/support/v7/widget/RecyclerView;II)V
@@ -41,6 +41,7 @@
     .line 132
     iget-object p1, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$2;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
+    # getter for: Lopenlight/co/camera/view/setting/scroll/FastScroller;->mRecyclerView:Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
     invoke-static {p1}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->access$200(Lopenlight/co/camera/view/setting/scroll/FastScroller;)Lopenlight/co/camera/view/setting/scroll/FastScrollRecycler;
 
     move-result-object p1
@@ -49,13 +50,13 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_14
 
     .line 133
     iget-object p0, p0, Lopenlight/co/camera/view/setting/scroll/FastScroller$2;->this$0:Lopenlight/co/camera/view/setting/scroll/FastScroller;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/scroll/FastScroller;->show()V
 
-    :cond_0
+    :cond_14
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 505
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method public static obtain(IIZ)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;
-    .locals 2
+    .registers 5
 
     .line 501
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;
@@ -57,7 +57,7 @@
 .end method
 
 .method public static obtain(IIZI)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;
-    .locals 2
+    .registers 6
 
     .line 486
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$CollectionInfoCompat;
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public getColumnCount()I
-    .locals 1
+    .registers 2
 
     .line 515
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;
@@ -91,7 +91,7 @@
 .end method
 
 .method public getRowCount()I
-    .locals 1
+    .registers 2
 
     .line 524
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;
@@ -106,7 +106,7 @@
 .end method
 
 .method public getSelectionMode()I
-    .locals 1
+    .registers 2
 
     .line 547
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;
@@ -121,7 +121,7 @@
 .end method
 
 .method public isHierarchical()Z
-    .locals 1
+    .registers 2
 
     .line 533
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;

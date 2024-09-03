@@ -68,7 +68,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 739
     new-instance v0, Lltpb/GPSData$Altitude$ProtoAdapter_Altitude;
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Double;Lltpb/GPSData$ReferenceAltitude;)V
-    .locals 1
+    .registers 4
 
     .line 765
     sget-object v0, Lokio/ByteString;->EMPTY:Lokio/ByteString;
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Double;Lltpb/GPSData$ReferenceAltitude;Lokio/ByteString;)V
-    .locals 1
+    .registers 5
 
     .line 769
     sget-object v0, Lltpb/GPSData$Altitude;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
@@ -125,26 +125,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 786
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/GPSData$Altitude;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 787
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/GPSData$Altitude;
 
     .line 788
@@ -160,7 +160,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object v1, p0, Lltpb/GPSData$Altitude;->value:Ljava/lang/Double;
 
@@ -171,7 +171,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object p0, p0, Lltpb/GPSData$Altitude;->ref:Lltpb/GPSData$ReferenceAltitude;
 
@@ -182,24 +182,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     move v0, v2
 
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 795
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 797
     invoke-virtual {p0}, Lltpb/GPSData$Altitude;->unknownFields()Lokio/ByteString;
@@ -235,12 +235,12 @@
     .line 800
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_0
+    :cond_20
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 738
     invoke-virtual {p0}, Lltpb/GPSData$Altitude;->newBuilder()Lltpb/GPSData$Altitude$Builder;
@@ -251,7 +251,7 @@
 .end method
 
 .method public newBuilder()Lltpb/GPSData$Altitude$Builder;
-    .locals 2
+    .registers 3
 
     .line 776
     new-instance v0, Lltpb/GPSData$Altitude$Builder;
@@ -279,7 +279,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 807
     new-instance v0, Ljava/lang/StringBuilder;

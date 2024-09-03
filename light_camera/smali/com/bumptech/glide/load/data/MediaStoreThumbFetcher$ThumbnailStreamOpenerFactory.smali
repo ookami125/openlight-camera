@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 250
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,32 +27,34 @@
 
 # virtual methods
 .method public build(Landroid/net/Uri;II)Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpener;
-    .locals 0
+    .registers 4
 
     .line 253
+    # invokes: Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->isMediaStoreUri(Landroid/net/Uri;)Z
     invoke-static {p1}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->access$000(Landroid/net/Uri;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2b
 
     const/16 p0, 0x200
 
-    if-gt p2, p0, :cond_2
+    if-gt p2, p0, :cond_2b
 
     const/16 p0, 0x180
 
-    if-le p3, p0, :cond_0
+    if-le p3, p0, :cond_f
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 255
-    :cond_0
+    :cond_f
+    # invokes: Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->isMediaStoreVideo(Landroid/net/Uri;)Z
     invoke-static {p1}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->access$100(Landroid/net/Uri;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_20
 
     .line 256
     new-instance p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpener;
@@ -66,7 +68,7 @@
     return-object p0
 
     .line 258
-    :cond_1
+    :cond_20
     new-instance p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpener;
 
     new-instance p1, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ImageThumbnailQuery;
@@ -77,8 +79,8 @@
 
     return-object p0
 
-    :cond_2
-    :goto_0
+    :cond_2b
+    :goto_2b
     const/4 p0, 0x0
 
     return-object p0

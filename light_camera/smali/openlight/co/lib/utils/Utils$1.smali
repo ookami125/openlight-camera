@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/lib/utils/Utils;ZLopenlight/co/lib/utils/VoidCallback1;)V
-    .locals 0
+    .registers 4
 
     .line 559
     iput-object p1, p0, Lopenlight/co/lib/utils/Utils$1;->this$0:Lopenlight/co/lib/utils/Utils;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 562
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils$1;->this$0:Lopenlight/co/lib/utils/Utils;
@@ -53,15 +53,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 563
     iget-boolean v1, p0, Lopenlight/co/lib/utils/Utils$1;->val$runLockedNow:Z
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_15
 
     .line 564
-    :cond_0
+    :cond_c
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils$1;->val$callback:Lopenlight/co/lib/utils/VoidCallback1;
 
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
@@ -70,6 +70,6 @@
 
     invoke-interface {p0, v0}, Lopenlight/co/lib/utils/VoidCallback1;->call(Ljava/lang/Object;)V
 
-    :cond_1
+    :cond_15
     return-void
 .end method

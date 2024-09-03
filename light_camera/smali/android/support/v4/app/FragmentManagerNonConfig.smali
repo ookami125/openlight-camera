@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method getChildNonConfigs()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -72,7 +72,7 @@
 .end method
 
 .method getFragments()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

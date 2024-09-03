@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/BasePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 325
     iput-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$2;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onInPocket()V
-    .locals 3
+    .registers 4
 
     .line 341
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment$2;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -63,6 +63,7 @@
     invoke-virtual {p0, v1}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->setVisibility(Z)V
 
     .line 346
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/BasePreviewFragment;->access$000()Ljava/lang/String;
 
     move-result-object p0
@@ -75,11 +76,12 @@
 .end method
 
 .method public onNoObstruction()V
-    .locals 0
+    .registers 1
 
     .line 334
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$2;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->mProximityNotification:Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
     invoke-static {p0}, Lopenlight/co/camera/BasePreviewFragment;->access$100(Lopenlight/co/camera/BasePreviewFragment;)Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
 
     move-result-object p0
@@ -90,7 +92,7 @@
 .end method
 
 .method public onObstruction(Ljava/util/List;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,6 +114,7 @@
     .line 329
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment$2;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->mProximityNotification:Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
     invoke-static {v0}, Lopenlight/co/camera/BasePreviewFragment;->access$100(Lopenlight/co/camera/BasePreviewFragment;)Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
 
     move-result-object v0
@@ -126,7 +129,7 @@
 .end method
 
 .method public onOutOfPocket()V
-    .locals 1
+    .registers 2
 
     .line 351
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$2;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -136,6 +139,7 @@
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->clearActivityFinish()V
 
     .line 352
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/BasePreviewFragment;->access$000()Ljava/lang/String;
 
     move-result-object p0

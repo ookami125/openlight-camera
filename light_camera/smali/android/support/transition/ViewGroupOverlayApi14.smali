@@ -14,7 +14,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 0
+    .registers 4
 
     .line 29
     invoke-direct {p0, p1, p2, p3}, Landroid/support/transition/ViewOverlayApi14;-><init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/View;)V
@@ -23,7 +23,7 @@
 .end method
 
 .method static createFrom(Landroid/view/ViewGroup;)Landroid/support/transition/ViewGroupOverlayApi14;
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-static {p0}, Landroid/support/transition/ViewOverlayApi14;->createFrom(Landroid/view/View;)Landroid/support/transition/ViewOverlayApi14;
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public add(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -53,7 +53,7 @@
 .end method
 
 .method public remove(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

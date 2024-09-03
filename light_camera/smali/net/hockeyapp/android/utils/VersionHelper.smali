@@ -27,7 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/UpdateInfoListener;)V
-    .locals 0
+    .registers 4
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,19 +45,19 @@
 .end method
 
 .method public static compareVersionStrings(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_56
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
-    goto :goto_0
+    goto :goto_56
 
     .line 247
-    :cond_0
-    :try_start_0
+    :cond_6
+    :try_start_6
     new-instance v1, Ljava/util/Scanner;
 
     const-string v2, "\\-.*"
@@ -94,7 +94,7 @@
     invoke-virtual {p0, p1}, Ljava/util/Scanner;->useDelimiter(Ljava/lang/String;)Ljava/util/Scanner;
 
     .line 253
-    :cond_1
+    :cond_2a
     invoke-virtual {v1}, Ljava/util/Scanner;->hasNextInt()Z
 
     move-result p1
@@ -103,13 +103,13 @@
 
     const/4 v3, 0x1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_46
 
     invoke-virtual {p0}, Ljava/util/Scanner;->hasNextInt()Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_46
 
     .line 254
     invoke-virtual {v1}, Ljava/util/Scanner;->nextInt()I
@@ -121,84 +121,84 @@
 
     move-result v4
 
-    if-ge p1, v4, :cond_2
+    if-ge p1, v4, :cond_43
 
     return v2
 
-    :cond_2
-    if-le p1, v4, :cond_1
+    :cond_43
+    if-le p1, v4, :cond_2a
 
     return v3
 
     .line 264
-    :cond_3
+    :cond_46
     invoke-virtual {v1}, Ljava/util/Scanner;->hasNextInt()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_4d
 
     return v3
 
     .line 268
-    :cond_4
+    :cond_4d
     invoke-virtual {p0}, Ljava/util/Scanner;->hasNextInt()Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_51
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_51} :catch_55
 
-    if-eqz p0, :cond_5
+    if-eqz p0, :cond_54
 
     return v2
 
-    :cond_5
+    :cond_54
     return v0
 
-    :catch_0
+    :catch_55
     return v0
 
-    :cond_6
-    :goto_0
+    :cond_56
+    :goto_56
     return v0
 .end method
 
 .method private static failSafeGetLongFromJSON(Lorg/json/JSONObject;Ljava/lang/String;J)J
-    .locals 0
+    .registers 4
 
     .line 119
     :try_start_0
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->getLong(Ljava/lang/String;)J
 
     move-result-wide p0
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-wide p0
 
-    :catch_0
+    :catch_5
     return-wide p2
 .end method
 
 .method private static failSafeGetStringFromJSON(Lorg/json/JSONObject;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 3
 
     .line 111
     :try_start_0
     invoke-virtual {p0, p1}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_4} :catch_5
 
     return-object p0
 
-    :catch_0
+    :catch_5
     return-object p2
 .end method
 
 .method private getRestoreButton(ILorg/json/JSONObject;)Ljava/lang/String;
-    .locals 1
+    .registers 4
 
     .line 154
     new-instance p1, Ljava/lang/StringBuilder;
@@ -215,7 +215,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_28
 
     .line 158
     new-instance p2, Ljava/lang/StringBuilder;
@@ -239,7 +239,7 @@
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 161
-    :cond_0
+    :cond_28
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -248,7 +248,7 @@
 .end method
 
 .method private getSeparator()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     const-string p0, "<hr style=\'border-top: 1px solid #c8c8c8; border-bottom: 0px; margin: 40px 10px 0px 10px;\' />"
 
@@ -256,7 +256,7 @@
 .end method
 
 .method private getVersionCode(Lorg/json/JSONObject;)I
-    .locals 0
+    .registers 2
 
     :try_start_0
     const-string p0, "version"
@@ -265,41 +265,41 @@
     invoke-virtual {p1, p0}, Lorg/json/JSONObject;->getInt(Ljava/lang/String;)I
 
     move-result p0
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_0
+    :catch_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     return p0
 .end method
 
 .method private getVersionID(Lorg/json/JSONObject;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     const-string p0, ""
 
-    :try_start_0
+    :try_start_2
     const-string v0, "id"
 
     .line 167
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_8} :catch_9
 
     move-object p0, p1
 
-    :catch_0
+    :catch_9
     return-object p0
 .end method
 
 .method private getVersionLine(ILorg/json/JSONObject;)Ljava/lang/String;
-    .locals 4
+    .registers 7
 
     .line 174
     new-instance v0, Ljava/lang/StringBuilder;
@@ -328,17 +328,17 @@
     .line 180
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_20
 
     const-string p0, "Newest version:"
 
     .line 182
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_4f
 
     .line 184
-    :cond_0
+    :cond_20
     new-instance p1, Ljava/lang/StringBuilder;
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
@@ -365,12 +365,12 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eq v2, v1, :cond_1
+    if-eq v2, v1, :cond_4f
 
     .line 185
     iget p1, p0, Lnet/hockeyapp/android/utils/VersionHelper;->mCurrentVersionCode:I
 
-    if-ne v2, p1, :cond_1
+    if-ne v2, p1, :cond_4f
 
     const/4 p1, -0x1
 
@@ -382,8 +382,8 @@
     .line 187
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1
-    :goto_0
+    :cond_4f
+    :goto_4f
     const-string p0, "</strong></div>"
 
     .line 190
@@ -398,28 +398,28 @@
 .end method
 
 .method private getVersionName(Lorg/json/JSONObject;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     const-string p0, ""
 
-    :try_start_0
+    :try_start_2
     const-string v0, "shortversion"
 
     .line 207
     invoke-virtual {p1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_8} :catch_9
 
     move-object p0, p1
 
-    :catch_0
+    :catch_9
     return-object p0
 .end method
 
 .method private getVersionNotes(ILorg/json/JSONObject;)Ljava/lang/String;
-    .locals 1
+    .registers 4
 
     .line 214
     new-instance p0, Ljava/lang/StringBuilder;
@@ -449,20 +449,20 @@
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_22
 
     const-string p1, "<em>No information.</em>"
 
     .line 219
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_25
 
     .line 221
-    :cond_0
+    :cond_22
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_0
+    :goto_25
     const-string p1, "</div>"
 
     .line 223
@@ -477,17 +477,17 @@
 .end method
 
 .method public static isNewerThanLastUpdateTime(Landroid/content/Context;J)Z
-    .locals 5
+    .registers 8
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return v0
 
     .line 295
-    :cond_0
-    :try_start_0
+    :cond_4
+    :try_start_4
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -516,8 +516,8 @@
     const-wide/16 v3, 0x3e8
 
     div-long/2addr v1, v3
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_1e} :catch_27
 
     const-wide/16 v3, 0x708
 
@@ -525,14 +525,14 @@
 
     cmp-long p0, p1, v1
 
-    if-lez p0, :cond_1
+    if-lez p0, :cond_26
 
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_26
     return v0
 
-    :catch_0
+    :catch_27
     move-exception p0
 
     .line 305
@@ -542,7 +542,7 @@
 .end method
 
 .method private loadVersions(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 8
+    .registers 11
 
     .line 47
     new-instance v0, Lorg/json/JSONObject;
@@ -568,7 +568,7 @@
     iput v0, p0, Lnet/hockeyapp/android/utils/VersionHelper;->mCurrentVersionCode:I
 
     .line 52
-    :try_start_0
+    :try_start_16
     new-instance v0, Lorg/json/JSONArray;
 
     invoke-direct {v0, p2}, Lorg/json/JSONArray;-><init>(Ljava/lang/String;)V
@@ -587,12 +587,12 @@
     move p2, v1
 
     .line 55
-    :goto_0
+    :goto_24
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    if-ge p2, v3, :cond_4
+    if-ge p2, v3, :cond_64
 
     .line 56
     invoke-virtual {v0, p2}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -608,16 +608,16 @@
 
     const/4 v5, 0x1
 
-    if-le v4, v2, :cond_0
+    if-le v4, v2, :cond_39
 
     move v4, v5
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_0
+    :cond_39
     move v4, v1
 
-    :goto_1
+    :goto_3a
     const-string v6, "version"
 
     .line 58
@@ -625,7 +625,7 @@
 
     move-result v6
 
-    if-ne v6, v2, :cond_1
+    if-ne v6, v2, :cond_4f
 
     const-string v6, "timestamp"
 
@@ -637,20 +637,20 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_4f
 
-    goto :goto_2
+    goto :goto_50
 
-    :cond_1
+    :cond_4f
     move v5, v1
 
-    :goto_2
-    if-nez v4, :cond_2
+    :goto_50
+    if-nez v4, :cond_54
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_5c
 
     .line 61
-    :cond_2
+    :cond_54
     iput-object v3, p0, Lnet/hockeyapp/android/utils/VersionHelper;->mNewest:Lorg/json/JSONObject;
 
     const-string v2, "version"
@@ -661,27 +661,27 @@
     move-result v2
 
     .line 64
-    :cond_3
+    :cond_5c
     iget-object v4, p0, Lnet/hockeyapp/android/utils/VersionHelper;->mSortedVersions:Ljava/util/ArrayList;
 
     invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_61
+    .catch Lorg/json/JSONException; {:try_start_16 .. :try_end_61} :catch_64
+    .catch Ljava/lang/NullPointerException; {:try_start_16 .. :try_end_61} :catch_64
 
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_0
-    :cond_4
+    :catch_64
+    :cond_64
     return-void
 .end method
 
 .method public static mapGoogleVersion(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_2d
 
     const-string v0, "L"
 
@@ -690,11 +690,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_b
     const-string v0, "M"
 
     .line 322
@@ -702,13 +702,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     const-string p0, "6.0"
 
     return-object p0
 
-    :cond_1
+    :cond_16
     const-string v0, "N"
 
     .line 324
@@ -716,13 +716,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     const-string p0, "7.0"
 
     return-object p0
 
-    :cond_2
+    :cond_21
     const-string v0, "^[a-zA-Z]+"
 
     .line 326
@@ -730,24 +730,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     const-string p0, "99.0"
 
     return-object p0
 
-    :cond_3
+    :cond_2c
     return-object p0
 
-    :cond_4
-    :goto_0
+    :cond_2d
+    :goto_2d
     const-string p0, "5.0"
 
     return-object p0
 .end method
 
 .method private sortVersions()V
-    .locals 2
+    .registers 3
 
     .line 72
     iget-object v0, p0, Lnet/hockeyapp/android/utils/VersionHelper;->mSortedVersions:Ljava/util/ArrayList;
@@ -764,7 +764,7 @@
 
 # virtual methods
 .method public getFileDateString()Ljava/lang/String;
-    .locals 4
+    .registers 5
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "SimpleDateFormat"
@@ -807,7 +807,7 @@
 .end method
 
 .method public getFileSizeBytes()J
-    .locals 6
+    .registers 7
 
     .line 100
     iget-object v0, p0, Lnet/hockeyapp/android/utils/VersionHelper;->mNewest:Lorg/json/JSONObject;
@@ -839,20 +839,20 @@
 
     move-result-wide v4
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     cmp-long p0, v4, v2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_24
 
     const-wide/16 v4, -0x1
 
-    :cond_0
+    :cond_24
     return-wide v4
 .end method
 
 .method public getReleaseNotes(Z)Ljava/lang/String;
-    .locals 5
+    .registers 7
 
     .line 126
     new-instance v0, Ljava/lang/StringBuilder;
@@ -878,12 +878,12 @@
 
     const/4 v2, 0x0
 
-    :goto_0
+    :goto_16
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_45
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -891,7 +891,7 @@
 
     check-cast v3, Lorg/json/JSONObject;
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_34
 
     .line 133
     invoke-direct {p0}, Lnet/hockeyapp/android/utils/VersionHelper;->getSeparator()Ljava/lang/Object;
@@ -900,7 +900,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_34
 
     .line 135
     invoke-direct {p0, v2, v3}, Lnet/hockeyapp/android/utils/VersionHelper;->getRestoreButton(ILorg/json/JSONObject;)Ljava/lang/String;
@@ -910,7 +910,7 @@
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 138
-    :cond_0
+    :cond_34
     invoke-direct {p0, v2, v3}, Lnet/hockeyapp/android/utils/VersionHelper;->getVersionLine(ILorg/json/JSONObject;)Ljava/lang/String;
 
     move-result-object v4
@@ -926,9 +926,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_45
     const-string p0, "</body>"
 
     .line 143
@@ -948,7 +948,7 @@
 .end method
 
 .method public getVersionString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 88
     new-instance v0, Ljava/lang/StringBuilder;

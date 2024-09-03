@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method static copyViewImage(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;)Landroid/view/View;
-    .locals 6
+    .registers 9
 
     .line 43
     new-instance v0, Landroid/graphics/Matrix;
@@ -127,12 +127,12 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5c
 
     .line 58
     invoke-virtual {v4, p0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    :cond_0
+    :cond_5c
     sub-int p0, v2, p2
 
     const/high16 p1, 0x40000000    # 2.0f
@@ -159,7 +159,7 @@
 .end method
 
 .method private static createViewBitmap(Landroid/view/View;Landroid/graphics/Matrix;Landroid/graphics/RectF;)Landroid/graphics/Bitmap;
-    .locals 5
+    .registers 8
 
     .line 83
     invoke-virtual {p2}, Landroid/graphics/RectF;->width()F
@@ -179,9 +179,9 @@
 
     move-result v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_44
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_44
 
     const/high16 v2, 0x3f800000    # 1.0f
 
@@ -242,29 +242,29 @@
     .line 94
     invoke-virtual {p0, v0}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_44
     const/4 p2, 0x0
 
-    :goto_0
+    :goto_45
     return-object p2
 .end method
 
 .method static mergeAnimators(Landroid/animation/Animator;Landroid/animation/Animator;)Landroid/animation/Animator;
-    .locals 3
+    .registers 5
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_3
 
     return-object p1
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_3
+    if-nez p1, :cond_6
 
     return-object p0
 
     .line 105
-    :cond_1
+    :cond_6
     new-instance v0, Landroid/animation/AnimatorSet;
 
     invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V

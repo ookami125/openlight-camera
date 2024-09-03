@@ -11,7 +11,7 @@
 
 # direct methods
 .method protected constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public appendEnhancedWaveformEffect(Lcom/immersion/EnhancedWaveformEffectDefinition;)V
-    .locals 8
+    .registers 10
 
     .line 578
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -75,7 +75,7 @@
 .end method
 
 .method public appendWaveformEffect(Lcom/immersion/WaveformEffectDefinition;)V
-    .locals 8
+    .registers 10
 
     .line 188
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -122,7 +122,7 @@
 .end method
 
 .method public destroyStreamingEffect()V
-    .locals 2
+    .registers 3
 
     .line 508
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -139,7 +139,7 @@
 .end method
 
 .method public getRemainingDuration()I
-    .locals 2
+    .registers 3
 
     .line 685
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -158,7 +158,7 @@
 .end method
 
 .method public getState()I
-    .locals 2
+    .registers 3
 
     .line 261
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -177,7 +177,7 @@
 .end method
 
 .method public isPaused()Z
-    .locals 1
+    .registers 2
 
     .line 311
     invoke-virtual {p0}, Lcom/immersion/EffectHandle;->getState()I
@@ -186,21 +186,21 @@
 
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_9
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return p0
 .end method
 
 .method public isPlaying()Z
-    .locals 1
+    .registers 2
 
     .line 286
     invoke-virtual {p0}, Lcom/immersion/EffectHandle;->getState()I
@@ -209,19 +209,19 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method
 
 .method public modifyPlayingInterpolatedEffectInterpolant(I)V
-    .locals 2
+    .registers 4
 
     .line 232
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -238,7 +238,7 @@
 .end method
 
 .method public modifyPlayingMagSweepEffect(Lcom/immersion/MagSweepEffectDefinition;)V
-    .locals 10
+    .registers 12
 
     .line 66
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -291,7 +291,7 @@
 .end method
 
 .method public modifyPlayingPeriodicEffect(Lcom/immersion/PeriodicEffectDefinition;)V
-    .locals 11
+    .registers 13
 
     .line 109
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -349,7 +349,7 @@
 .end method
 
 .method public pause()V
-    .locals 2
+    .registers 3
 
     .line 340
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -366,7 +366,7 @@
 .end method
 
 .method public playStreamingSample([BI)V
-    .locals 2
+    .registers 5
 
     .line 432
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -383,7 +383,7 @@
 .end method
 
 .method public playStreamingSampleWithOffset([BII)V
-    .locals 6
+    .registers 10
 
     .line 481
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -406,7 +406,7 @@
 .end method
 
 .method public replaceEnhancedWaveformEffect(Lcom/immersion/EnhancedWaveformEffectDefinition;)V
-    .locals 8
+    .registers 10
 
     .line 654
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -453,7 +453,7 @@
 .end method
 
 .method public resume()V
-    .locals 2
+    .registers 3
 
     .line 367
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -470,7 +470,7 @@
 .end method
 
 .method public stop()V
-    .locals 2
+    .registers 3
 
     .line 389
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;

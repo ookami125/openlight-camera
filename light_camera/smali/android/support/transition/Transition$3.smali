@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/Transition;)V
-    .locals 0
+    .registers 2
 
     .line 1905
     iput-object p1, p0, Landroid/support/transition/Transition$3;->this$0:Landroid/support/transition/Transition;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 1908
     iget-object v0, p0, Landroid/support/transition/Transition$3;->this$0:Landroid/support/transition/Transition;

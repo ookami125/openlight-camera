@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v13/view/DragStartHelper;)V
-    .locals 0
+    .registers 2
 
     .line 190
     iput-object p1, p0, Landroid/support/v13/view/DragStartHelper$2;->this$0:Landroid/support/v13/view/DragStartHelper;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 3
 
     .line 193
     iget-object p0, p0, Landroid/support/v13/view/DragStartHelper$2;->this$0:Landroid/support/v13/view/DragStartHelper;

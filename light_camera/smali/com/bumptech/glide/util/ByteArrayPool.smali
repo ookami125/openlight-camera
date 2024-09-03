@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 19
     new-instance v0, Lcom/bumptech/glide/util/ByteArrayPool;
@@ -41,7 +41,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 28
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public static get()Lcom/bumptech/glide/util/ByteArrayPool;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lcom/bumptech/glide/util/ByteArrayPool;->BYTE_ARRAY_POOL:Lcom/bumptech/glide/util/ByteArrayPool;
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 34
     iget-object v0, p0, Lcom/bumptech/glide/util/ByteArrayPool;->tempQueue:Ljava/util/Queue;
@@ -78,7 +78,7 @@
     monitor-enter v0
 
     .line 35
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lcom/bumptech/glide/util/ByteArrayPool;->tempQueue:Ljava/util/Queue;
 
     invoke-interface {p0}, Ljava/util/Queue;->clear()V
@@ -88,18 +88,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_a
 
     throw p0
 .end method
 
 .method public getBytes()[B
-    .locals 2
+    .registers 3
 
     .line 45
     iget-object v0, p0, Lcom/bumptech/glide/util/ByteArrayPool;->tempQueue:Ljava/util/Queue;
@@ -107,7 +107,7 @@
     monitor-enter v0
 
     .line 46
-    :try_start_0
+    :try_start_3
     iget-object p0, p0, Lcom/bumptech/glide/util/ByteArrayPool;->tempQueue:Ljava/util/Queue;
 
     invoke-interface {p0}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -118,10 +118,10 @@
 
     .line 47
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_3 .. :try_end_c} :catchall_23
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_22
 
     const/high16 p0, 0x10000
 
@@ -137,7 +137,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     const-string v0, "ByteArrayPool"
 
@@ -146,23 +146,23 @@
     .line 51
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_22
     return-object p0
 
-    :catchall_0
+    :catchall_23
     move-exception p0
 
     .line 47
-    :try_start_1
+    :try_start_24
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_24 .. :try_end_25} :catchall_23
 
     throw p0
 .end method
 
 .method public releaseBytes([B)Z
-    .locals 4
+    .registers 6
 
     .line 64
     array-length v0, p1
@@ -171,18 +171,18 @@
 
     const/high16 v2, 0x10000
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_7
 
     return v1
 
     .line 69
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/bumptech/glide/util/ByteArrayPool;->tempQueue:Ljava/util/Queue;
 
     monitor-enter v0
 
     .line 70
-    :try_start_0
+    :try_start_a
     iget-object v2, p0, Lcom/bumptech/glide/util/ByteArrayPool;->tempQueue:Ljava/util/Queue;
 
     invoke-interface {v2}, Ljava/util/Queue;->size()I
@@ -191,7 +191,7 @@
 
     const/16 v3, 0x20
 
-    if-ge v2, v3, :cond_1
+    if-ge v2, v3, :cond_1a
 
     const/4 v1, 0x1
 
@@ -201,17 +201,17 @@
     invoke-interface {p0, p1}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
     .line 74
-    :cond_1
+    :cond_1a
     monitor-exit v0
 
     return v1
 
-    :catchall_0
+    :catchall_1c
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_a .. :try_end_1e} :catchall_1c
 
     throw p0
 .end method

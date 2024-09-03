@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/ListPreloader;)V
-    .locals 0
+    .registers 2
 
     .line 114
     iput-object p1, p0, Lcom/bumptech/glide/ListPreloader$2;->this$0:Lcom/bumptech/glide/ListPreloader;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getPreloadSize(Ljava/lang/Object;II)[I
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;II)[I"

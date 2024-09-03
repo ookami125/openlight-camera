@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable$ConstantState;)V
-    .locals 0
+    .registers 2
 
     .line 889
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public canApplyTheme()Z
-    .locals 0
+    .registers 1
 
     .line 917
     iget-object p0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
@@ -51,7 +51,7 @@
 .end method
 
 .method public getChangingConfigurations()I
-    .locals 0
+    .registers 1
 
     .line 922
     iget-object p0, p0, Landroid/support/graphics/drawable/VectorDrawableCompat$VectorDrawableDelegateState;->mDelegateState:Landroid/graphics/drawable/Drawable$ConstantState;
@@ -64,7 +64,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 895
     new-instance v0, Landroid/support/graphics/drawable/VectorDrawableCompat;
@@ -86,7 +86,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
 
     .line 902
     new-instance v0, Landroid/support/graphics/drawable/VectorDrawableCompat;
@@ -108,7 +108,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 4
 
     .line 909
     new-instance v0, Landroid/support/graphics/drawable/VectorDrawableCompat;

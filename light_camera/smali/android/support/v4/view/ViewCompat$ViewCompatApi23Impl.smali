@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1461
     invoke-direct {p0}, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getScrollIndicators(Landroid/view/View;)I
-    .locals 0
+    .registers 2
 
     .line 1474
     invoke-virtual {p1}, Landroid/view/View;->getScrollIndicators()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public offsetLeftAndRight(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
 
     .line 1480
     invoke-virtual {p1, p2}, Landroid/view/View;->offsetLeftAndRight(I)V
@@ -51,7 +51,7 @@
 .end method
 
 .method public offsetTopAndBottom(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
 
     .line 1485
     invoke-virtual {p1, p2}, Landroid/view/View;->offsetTopAndBottom(I)V
@@ -60,7 +60,7 @@
 .end method
 
 .method public setScrollIndicators(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
 
     .line 1464
     invoke-virtual {p1, p2}, Landroid/view/View;->setScrollIndicators(I)V
@@ -69,7 +69,7 @@
 .end method
 
 .method public setScrollIndicators(Landroid/view/View;II)V
-    .locals 0
+    .registers 4
 
     .line 1469
     invoke-virtual {p1, p2, p3}, Landroid/view/View;->setScrollIndicators(II)V

@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 22
     new-instance v0, Lcom/squareup/wire/FieldEncoding;
@@ -103,7 +103,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -120,7 +120,7 @@
 .end method
 
 .method static get(I)Lcom/squareup/wire/FieldEncoding;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -129,9 +129,9 @@
 
     const/4 v0, 0x5
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_26
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_2a
 
     .line 37
     new-instance v0, Ljava/net/ProtocolException;
@@ -155,41 +155,41 @@
     throw v0
 
     .line 34
-    :pswitch_0
+    :pswitch_1d
     sget-object p0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
 
     return-object p0
 
     .line 33
-    :pswitch_1
+    :pswitch_20
     sget-object p0, Lcom/squareup/wire/FieldEncoding;->FIXED64:Lcom/squareup/wire/FieldEncoding;
 
     return-object p0
 
     .line 32
-    :pswitch_2
+    :pswitch_23
     sget-object p0, Lcom/squareup/wire/FieldEncoding;->VARINT:Lcom/squareup/wire/FieldEncoding;
 
     return-object p0
 
     .line 35
-    :cond_0
+    :cond_26
     sget-object p0, Lcom/squareup/wire/FieldEncoding;->FIXED32:Lcom/squareup/wire/FieldEncoding;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_23
+        :pswitch_20
+        :pswitch_1d
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/squareup/wire/FieldEncoding;
-    .locals 1
+    .registers 2
 
     .line 21
     const-class v0, Lcom/squareup/wire/FieldEncoding;
@@ -204,7 +204,7 @@
 .end method
 
 .method public static values()[Lcom/squareup/wire/FieldEncoding;
-    .locals 1
+    .registers 1
 
     .line 21
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->$VALUES:[Lcom/squareup/wire/FieldEncoding;
@@ -221,7 +221,7 @@
 
 # virtual methods
 .method public rawProtoAdapter()Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -239,7 +239,7 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_1e
 
     .line 56
     new-instance p0, Ljava/lang/AssertionError;
@@ -249,36 +249,36 @@
     throw p0
 
     .line 54
-    :pswitch_0
+    :pswitch_11
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->BYTES:Lcom/squareup/wire/ProtoAdapter;
 
     return-object p0
 
     .line 52
-    :pswitch_1
+    :pswitch_14
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->FIXED64:Lcom/squareup/wire/ProtoAdapter;
 
     return-object p0
 
     .line 50
-    :pswitch_2
+    :pswitch_17
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->FIXED32:Lcom/squareup/wire/ProtoAdapter;
 
     return-object p0
 
     .line 48
-    :pswitch_3
+    :pswitch_1a
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->UINT64:Lcom/squareup/wire/ProtoAdapter;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a
+        :pswitch_17
+        :pswitch_14
+        :pswitch_11
     .end packed-switch
 .end method

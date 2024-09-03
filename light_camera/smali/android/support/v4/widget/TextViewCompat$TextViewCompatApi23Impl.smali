@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 309
     invoke-direct {p0}, Landroid/support/v4/widget/TextViewCompat$TextViewCompatApi18Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public setTextAppearance(Landroid/widget/TextView;I)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/widget/TextView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

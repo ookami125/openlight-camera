@@ -47,7 +47,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/net/Uri;Z)V
-    .locals 0
+    .registers 5
 
     .line 70
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Lnet/hockeyapp/android/objects/FeedbackAttachment;Z)V
-    .locals 2
+    .registers 7
 
     .line 101
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
@@ -173,7 +173,7 @@
 .end method
 
 .method static synthetic access$000(Lnet/hockeyapp/android/views/AttachmentView;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Lnet/hockeyapp/android/views/AttachmentView;->loadImageThumbnail()Landroid/graphics/Bitmap;
@@ -184,7 +184,7 @@
 .end method
 
 .method static synthetic access$100(Lnet/hockeyapp/android/views/AttachmentView;Landroid/graphics/Bitmap;Z)V
-    .locals 0
+    .registers 3
 
     .line 37
     invoke-direct {p0, p1, p2}, Lnet/hockeyapp/android/views/AttachmentView;->configureViewForThumbnail(Landroid/graphics/Bitmap;Z)V
@@ -193,7 +193,7 @@
 .end method
 
 .method static synthetic access$200(Lnet/hockeyapp/android/views/AttachmentView;Z)V
-    .locals 0
+    .registers 2
 
     .line 37
     invoke-direct {p0, p1}, Lnet/hockeyapp/android/views/AttachmentView;->configureViewForPlaceholder(Z)V
@@ -202,7 +202,7 @@
 .end method
 
 .method static synthetic access$300(Lnet/hockeyapp/android/views/AttachmentView;)Landroid/net/Uri;
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mAttachmentUri:Landroid/net/Uri;
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$400(Lnet/hockeyapp/android/views/AttachmentView;)Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 37
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mContext:Landroid/content/Context;
@@ -220,7 +220,7 @@
 .end method
 
 .method private calculateDimensions(I)V
-    .locals 3
+    .registers 5
 
     .line 171
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentView;->getResources()Landroid/content/res/Resources;
@@ -302,7 +302,7 @@
 .end method
 
 .method private configureViewForPlaceholder(Z)V
-    .locals 3
+    .registers 5
 
     .line 272
     iget-object v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mTextView:Landroid/widget/TextView;
@@ -400,37 +400,37 @@
 .end method
 
 .method private configureViewForThumbnail(Landroid/graphics/Bitmap;Z)V
-    .locals 6
+    .registers 9
 
     .line 241
     iget v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mOrientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     iget v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mWidthLandscape:I
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     iget v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mWidthPortrait:I
 
     .line 242
-    :goto_0
+    :goto_a
     iget v2, p0, Lnet/hockeyapp/android/views/AttachmentView;->mOrientation:I
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_11
 
     iget v2, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightLandscape:I
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
+    :cond_11
     iget v2, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightPortrait:I
 
     .line 245
-    :goto_1
+    :goto_13
     iget-object v3, p0, Lnet/hockeyapp/android/views/AttachmentView;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setMaxWidth(I)V
@@ -496,14 +496,14 @@
 .end method
 
 .method private getSystemIcon(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 6
 
     .line 313
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_21
 
     .line 314
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentView;->getResources()Landroid/content/res/Resources;
@@ -537,7 +537,7 @@
     return-object p0
 
     .line 317
-    :cond_0
+    :cond_21
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/AttachmentView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -562,7 +562,7 @@
 .end method
 
 .method private initializeView(Landroid/content/Context;Z)V
-    .locals 9
+    .registers 12
 
     .line 193
     new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
@@ -672,7 +672,7 @@
 
     invoke-virtual {v6, v7}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_95
 
     .line 219
     new-instance p2, Landroid/widget/ImageButton;
@@ -712,7 +712,7 @@
     invoke-virtual {v0, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
     .line 235
-    :cond_0
+    :cond_95
     iget-object p1, p0, Lnet/hockeyapp/android/views/AttachmentView;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
@@ -729,7 +729,7 @@
 .end method
 
 .method private loadImageThumbnail()Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 4
 
     .line 300
     :try_start_0
@@ -748,30 +748,30 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     iget v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mWidthLandscape:I
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     iget v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mWidthPortrait:I
 
     .line 302
-    :goto_0
+    :goto_14
     iget v2, p0, Lnet/hockeyapp/android/views/AttachmentView;->mOrientation:I
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_1b
 
     iget v1, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightLandscape:I
 
-    goto :goto_1
+    goto :goto_1d
 
-    :cond_1
+    :cond_1b
     iget v1, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightPortrait:I
 
     .line 305
-    :goto_1
+    :goto_1d
     iget-object v2, p0, Lnet/hockeyapp/android/views/AttachmentView;->mContext:Landroid/content/Context;
 
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mAttachmentUri:Landroid/net/Uri;
@@ -779,12 +779,12 @@
     invoke-static {v2, p0, v0, v1}, Lnet/hockeyapp/android/utils/ImageUtils;->decodeSampledBitmap(Landroid/content/Context;Landroid/net/Uri;II)Landroid/graphics/Bitmap;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_25} :catch_26
 
     return-object p0
 
-    :catch_0
+    :catch_26
     const/4 p0, 0x0
 
     return-object p0
@@ -793,7 +793,7 @@
 
 # virtual methods
 .method public getAttachment()Lnet/hockeyapp/android/objects/FeedbackAttachment;
-    .locals 0
+    .registers 1
 
     .line 119
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mAttachment:Lnet/hockeyapp/android/objects/FeedbackAttachment;
@@ -802,7 +802,7 @@
 .end method
 
 .method public getAttachmentUri()Landroid/net/Uri;
-    .locals 0
+    .registers 1
 
     .line 123
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mAttachmentUri:Landroid/net/Uri;
@@ -811,28 +811,28 @@
 .end method
 
 .method public getEffectiveMaxHeight()I
-    .locals 2
+    .registers 3
 
     .line 147
     iget v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mOrientation:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_8
 
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightLandscape:I
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_8
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightPortrait:I
 
-    :goto_0
+    :goto_a
     return p0
 .end method
 
 .method public getGap()I
-    .locals 0
+    .registers 1
 
     .line 143
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mGap:I
@@ -841,7 +841,7 @@
 .end method
 
 .method public getMaxHeightLandscape()I
-    .locals 0
+    .registers 1
 
     .line 139
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightLandscape:I
@@ -850,7 +850,7 @@
 .end method
 
 .method public getMaxHeightPortrait()I
-    .locals 0
+    .registers 1
 
     .line 131
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mMaxHeightPortrait:I
@@ -859,7 +859,7 @@
 .end method
 
 .method public getWidthLandscape()I
-    .locals 0
+    .registers 1
 
     .line 135
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mWidthLandscape:I
@@ -868,7 +868,7 @@
 .end method
 
 .method public getWidthPortrait()I
-    .locals 0
+    .registers 1
 
     .line 127
     iget p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mWidthPortrait:I
@@ -877,7 +877,7 @@
 .end method
 
 .method public remove()V
-    .locals 1
+    .registers 2
 
     .line 151
     iget-object v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mParent:Landroid/view/ViewGroup;
@@ -888,7 +888,7 @@
 .end method
 
 .method public setImage(Landroid/graphics/Bitmap;I)V
-    .locals 2
+    .registers 5
 
     .line 155
     iget-object v0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mTextView:Landroid/widget/TextView;
@@ -902,23 +902,23 @@
 
     const/4 p2, 0x1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_10
 
     .line 159
     invoke-direct {p0, p2}, Lnet/hockeyapp/android/views/AttachmentView;->configureViewForPlaceholder(Z)V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 162
-    :cond_0
+    :cond_10
     invoke-direct {p0, p1, p2}, Lnet/hockeyapp/android/views/AttachmentView;->configureViewForThumbnail(Landroid/graphics/Bitmap;Z)V
 
-    :goto_0
+    :goto_13
     return-void
 .end method
 
 .method public signalImageLoadingError()V
-    .locals 1
+    .registers 2
 
     .line 167
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView;->mTextView:Landroid/widget/TextView;

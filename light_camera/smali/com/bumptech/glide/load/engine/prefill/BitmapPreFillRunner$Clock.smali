@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 156
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public now()J
-    .locals 2
+    .registers 3
 
     .line 158
     invoke-static {}, Landroid/os/SystemClock;->currentThreadTimeMillis()J

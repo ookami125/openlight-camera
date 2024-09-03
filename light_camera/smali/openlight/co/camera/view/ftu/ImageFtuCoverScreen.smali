@@ -26,13 +26,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -70,7 +70,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -90,13 +90,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2b
 
     .line 87
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -114,7 +114,7 @@
     const/16 p2, 0xc
 
     .line 90
-    :try_start_0
+    :try_start_f
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object p2
@@ -136,15 +136,15 @@
     move-result-object p2
 
     iput-object p2, p0, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->mBodyText:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_f .. :try_end_22} :catchall_26
 
     .line 94
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_2b
 
-    :catchall_0
+    :catchall_26
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -153,8 +153,8 @@
     throw p0
 
     .line 98
-    :cond_0
-    :goto_0
+    :cond_2b
+    :goto_2b
     invoke-virtual {p0, p0}, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
@@ -163,7 +163,7 @@
 
 # virtual methods
 .method public getImageView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -171,28 +171,28 @@
 .end method
 
 .method public hideView(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 54
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->mConfirmButton:Landroid/widget/TextView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     .line 55
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->onButtonClick()V
 
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 66
     invoke-super {p0}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->onFinishInflate()V
@@ -256,7 +256,7 @@
     .line 75
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->mBodyText:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4d
 
     .line 76
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->mBody:Landroid/widget/TextView;
@@ -273,7 +273,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 80
-    :cond_0
+    :cond_4d
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->mConfirmButton:Landroid/widget/TextView;
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
@@ -282,7 +282,7 @@
 .end method
 
 .method public setOnFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 61
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;->setFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V

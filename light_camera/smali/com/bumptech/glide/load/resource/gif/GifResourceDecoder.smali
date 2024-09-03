@@ -47,7 +47,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 28
     new-instance v0, Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder$GifHeaderParserPool;
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 38
     invoke-static {p1}, Lcom/bumptech/glide/Glide;->get(Landroid/content/Context;)Lcom/bumptech/glide/Glide;
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 2
+    .registers 5
 
     .line 42
     sget-object v0, Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder;->PARSER_POOL:Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder$GifHeaderParserPool;
@@ -97,7 +97,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder$GifHeaderParserPool;Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder$GifDecoderPool;)V
-    .locals 0
+    .registers 5
 
     .line 47
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -125,7 +125,7 @@
 .end method
 
 .method private decode([BIILcom/bumptech/glide/gifdecoder/GifHeaderParser;Lcom/bumptech/glide/gifdecoder/GifDecoder;)Lcom/bumptech/glide/load/resource/gif/GifDrawableResource;
-    .locals 10
+    .registers 16
 
     .line 69
     invoke-virtual {p4}, Lcom/bumptech/glide/gifdecoder/GifHeaderParser;->parseHeader()Lcom/bumptech/glide/gifdecoder/GifHeader;
@@ -139,28 +139,28 @@
 
     const/4 v0, 0x0
 
-    if-lez p4, :cond_2
+    if-lez p4, :cond_32
 
     invoke-virtual {v7}, Lcom/bumptech/glide/gifdecoder/GifHeader;->getStatus()I
 
     move-result p4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_12
 
-    goto :goto_0
+    goto :goto_32
 
     .line 75
-    :cond_0
+    :cond_12
     invoke-direct {p0, p5, v7, p1}, Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder;->decodeFirstFrame(Lcom/bumptech/glide/gifdecoder/GifDecoder;Lcom/bumptech/glide/gifdecoder/GifHeader;[B)Landroid/graphics/Bitmap;
 
     move-result-object v9
 
-    if-nez v9, :cond_1
+    if-nez v9, :cond_19
 
     return-object v0
 
     .line 80
-    :cond_1
+    :cond_19
     invoke-static {}, Lcom/bumptech/glide/load/resource/UnitTransformation;->get()Lcom/bumptech/glide/load/resource/UnitTransformation;
 
     move-result-object v4
@@ -191,13 +191,13 @@
 
     return-object p0
 
-    :cond_2
-    :goto_0
+    :cond_32
+    :goto_32
     return-object v0
 .end method
 
 .method private decodeFirstFrame(Lcom/bumptech/glide/gifdecoder/GifDecoder;Lcom/bumptech/glide/gifdecoder/GifHeader;[B)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 4
 
     .line 89
     invoke-virtual {p1, p2, p3}, Lcom/bumptech/glide/gifdecoder/GifDecoder;->setData(Lcom/bumptech/glide/gifdecoder/GifHeader;[B)V
@@ -214,7 +214,7 @@
 .end method
 
 .method private static inputStreamToBytes(Ljava/io/InputStream;)[B
-    .locals 4
+    .registers 5
 
     .line 101
     new-instance v0, Ljava/io/ByteArrayOutputStream;
@@ -224,35 +224,35 @@
     invoke-direct {v0, v1}, Ljava/io/ByteArrayOutputStream;-><init>(I)V
 
     .line 104
-    :try_start_0
+    :try_start_7
     new-array v1, v1, [B
 
     .line 105
-    :goto_0
+    :goto_9
     invoke-virtual {p0, v1}, Ljava/io/InputStream;->read([B)I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_15
 
     const/4 v3, 0x0
 
     .line 106
     invoke-virtual {v0, v1, v3, v2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_9
 
     .line 108
-    :cond_0
+    :cond_15
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->flush()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_18} :catch_19
 
-    goto :goto_1
+    goto :goto_21
 
-    :catch_0
+    :catch_19
     move-exception p0
 
     const-string v1, "GifResourceDecoder"
@@ -263,7 +263,7 @@
     invoke-static {v1, v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 113
-    :goto_1
+    :goto_21
     invoke-virtual {v0}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
 
     move-result-object p0
@@ -274,7 +274,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -292,7 +292,7 @@
 .end method
 
 .method public decode(Ljava/io/InputStream;II)Lcom/bumptech/glide/load/resource/gif/GifDrawableResource;
-    .locals 7
+    .registers 11
 
     .line 57
     invoke-static {p1}, Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder;->inputStreamToBytes(Ljava/io/InputStream;)[B
@@ -326,12 +326,12 @@
     move-object v5, v6
 
     .line 61
-    :try_start_0
+    :try_start_17
     invoke-direct/range {v0 .. v5}, Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder;->decode([BIILcom/bumptech/glide/gifdecoder/GifHeaderParser;Lcom/bumptech/glide/gifdecoder/GifDecoder;)Lcom/bumptech/glide/load/resource/gif/GifDrawableResource;
 
     move-result-object p2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_17 .. :try_end_1b} :catchall_26
 
     .line 63
     iget-object p3, p0, Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder;->parserPool:Lcom/bumptech/glide/load/resource/gif/GifResourceDecoder$GifHeaderParserPool;
@@ -345,7 +345,7 @@
 
     return-object p2
 
-    :catchall_0
+    :catchall_26
     move-exception p2
 
     .line 63
@@ -362,7 +362,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, ""
 

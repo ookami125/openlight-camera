@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 2
 
     .line 77
     invoke-direct {p0, p1}, Lorg/apache/commons/io/output/ProxyOutputStream;-><init>(Ljava/io/OutputStream;)V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method protected handleIOException(Ljava/io/IOException;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -45,7 +45,7 @@
 .end method
 
 .method public isCauseOf(Ljava/lang/Exception;)Z
-    .locals 0
+    .registers 2
 
     .line 88
     iget-object p0, p0, Lorg/apache/commons/io/output/TaggedOutputStream;->tag:Ljava/io/Serializable;
@@ -58,7 +58,7 @@
 .end method
 
 .method public throwIfCauseOf(Ljava/lang/Exception;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

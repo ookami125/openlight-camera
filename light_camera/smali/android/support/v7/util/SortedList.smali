@@ -76,7 +76,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;Landroid/support/v7/util/SortedList$Callback;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -96,7 +96,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Landroid/support/v7/util/SortedList$Callback;I)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,7 +134,7 @@
 .end method
 
 .method private add(Ljava/lang/Object;Z)I
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;Z)I"
@@ -162,17 +162,17 @@
 
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_12
 
     const/4 v0, 0x0
 
-    goto :goto_0
+    goto :goto_39
 
     .line 395
-    :cond_0
+    :cond_12
     iget v2, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
-    if-ge v0, v2, :cond_2
+    if-ge v0, v2, :cond_39
 
     .line 396
     iget-object v2, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -186,7 +186,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_39
 
     .line 398
     iget-object p2, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -195,7 +195,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2f
 
     .line 400
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -205,7 +205,7 @@
     return v0
 
     .line 403
-    :cond_1
+    :cond_2f
     iget-object p2, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     aput-object p1, p2, v0
@@ -218,23 +218,23 @@
     return v0
 
     .line 409
-    :cond_2
-    :goto_0
+    :cond_39
+    :goto_39
     invoke-direct {p0, v0, p1}, Landroid/support/v7/util/SortedList;->addToData(ILjava/lang/Object;)V
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_43
 
     .line 411
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {p0, v0, v1}, Landroid/support/v7/util/SortedList$Callback;->onInserted(II)V
 
-    :cond_3
+    :cond_43
     return v0
 .end method
 
 .method private addAllInternal([Ljava/lang/Object;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)V"
@@ -248,23 +248,23 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     move v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_a
+    if-eqz v0, :cond_f
 
     .line 191
     invoke-virtual {p0}, Landroid/support/v7/util/SortedList;->beginBatchedUpdates()V
 
     .line 194
-    :cond_1
+    :cond_f
     iget-object v2, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     iput-object v2, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
@@ -290,7 +290,7 @@
     .line 201
     iget v3, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_32
 
     .line 202
     iput-object p1, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -306,29 +306,29 @@
 
     invoke-virtual {p1, v1, v2}, Landroid/support/v7/util/SortedList$Callback;->onInserted(II)V
 
-    goto :goto_1
+    goto :goto_35
 
     .line 207
-    :cond_2
+    :cond_32
     invoke-direct {p0, p1, v2}, Landroid/support/v7/util/SortedList;->merge([Ljava/lang/Object;I)V
 
-    :goto_1
+    :goto_35
     const/4 p1, 0x0
 
     .line 210
     iput-object p1, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     .line 213
     invoke-virtual {p0}, Landroid/support/v7/util/SortedList;->endBatchedUpdates()V
 
-    :cond_3
+    :cond_3d
     return-void
 .end method
 
 .method private addToData(ILjava/lang/Object;)V
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;)V"
@@ -338,7 +338,7 @@
     .line 643
     iget v0, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
-    if-gt p1, v0, :cond_1
+    if-gt p1, v0, :cond_44
 
     .line 647
     iget v0, p0, Landroid/support/v7/util/SortedList;->mSize:I
@@ -347,7 +347,7 @@
 
     array-length v1, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2d
 
     .line 649
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mTClass:Ljava/lang/Class;
@@ -388,10 +388,10 @@
     .line 653
     iput-object v0, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 656
-    :cond_0
+    :cond_2d
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     iget-object v1, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -410,7 +410,7 @@
     aput-object p2, v0, p1
 
     .line 659
-    :goto_0
+    :goto_3d
     iget p1, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
     add-int/lit8 p1, p1, 0x1
@@ -420,7 +420,7 @@
     return-void
 
     .line 644
-    :cond_1
+    :cond_44
     new-instance p2, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -451,7 +451,7 @@
 .end method
 
 .method private deduplicate([Ljava/lang/Object;)I
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)I"
@@ -461,7 +461,7 @@
     .line 224
     array-length v0, p1
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_3d
 
     const/4 v0, 0x0
 
@@ -470,10 +470,10 @@
     move v2, v1
 
     .line 233
-    :goto_0
+    :goto_6
     array-length v3, p1
 
-    if-ge v1, v3, :cond_5
+    if-ge v1, v3, :cond_3c
 
     .line 234
     aget-object v3, p1, v1
@@ -487,9 +487,9 @@
 
     move-result v4
 
-    if-gtz v4, :cond_4
+    if-gtz v4, :cond_34
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_28
 
     .line 243
     invoke-direct {p0, v3, p1, v0, v2}, Landroid/support/v7/util/SortedList;->findSameItem(Ljava/lang/Object;[Ljava/lang/Object;II)I
@@ -498,31 +498,31 @@
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_21
 
     .line 246
     aput-object v3, p1, v4
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_0
-    if-eq v2, v1, :cond_1
+    :cond_21
+    if-eq v2, v1, :cond_25
 
     .line 250
     aput-object v3, p1, v2
 
-    :cond_1
+    :cond_25
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_31
 
-    :cond_2
-    if-eq v2, v1, :cond_3
+    :cond_28
+    if-eq v2, v1, :cond_2c
 
     .line 257
     aput-object v3, p1, v2
 
-    :cond_3
+    :cond_2c
     add-int/lit8 v0, v2, 0x1
 
     move v6, v2
@@ -531,13 +531,13 @@
 
     move v0, v6
 
-    :goto_1
+    :goto_31
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 238
-    :cond_4
+    :cond_34
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Input must be sorted in ascending order."
@@ -546,11 +546,11 @@
 
     throw p0
 
-    :cond_5
+    :cond_3c
     return v2
 
     .line 225
-    :cond_6
+    :cond_3d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Input array must be non-empty"
@@ -561,7 +561,7 @@
 .end method
 
 .method private findIndexOf(Ljava/lang/Object;[Ljava/lang/Object;III)I
-    .locals 5
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;[TT;III)I"
@@ -573,7 +573,7 @@
 
     const/4 v1, 0x1
 
-    if-ge p3, p4, :cond_5
+    if-ge p3, p4, :cond_2e
 
     add-int v2, p3, p4
 
@@ -590,7 +590,7 @@
 
     move-result v4
 
-    if-gez v4, :cond_0
+    if-gez v4, :cond_16
 
     add-int/lit8 v2, v2, 0x1
 
@@ -598,8 +598,8 @@
 
     goto :goto_0
 
-    :cond_0
-    if-nez v4, :cond_4
+    :cond_16
+    if-nez v4, :cond_2c
 
     .line 600
     iget-object p2, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -608,47 +608,47 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_21
 
     return v2
 
     .line 603
-    :cond_1
+    :cond_21
     invoke-direct {p0, p1, v2, p3, p4}, Landroid/support/v7/util/SortedList;->linearEqualitySearch(Ljava/lang/Object;III)I
 
     move-result p0
 
-    if-ne p5, v1, :cond_3
+    if-ne p5, v1, :cond_2b
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_2a
 
     move p0, v2
 
-    :cond_2
+    :cond_2a
     return p0
 
-    :cond_3
+    :cond_2b
     return p0
 
-    :cond_4
+    :cond_2c
     move p4, v2
 
     goto :goto_0
 
-    :cond_5
-    if-ne p5, v1, :cond_6
+    :cond_2e
+    if-ne p5, v1, :cond_31
 
-    goto :goto_1
+    goto :goto_32
 
-    :cond_6
+    :cond_31
     move p3, v0
 
-    :goto_1
+    :goto_32
     return p3
 .end method
 
 .method private findSameItem(Ljava/lang/Object;[Ljava/lang/Object;II)I
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;[TT;II)I"
@@ -656,7 +656,7 @@
     .end annotation
 
     :goto_0
-    if-ge p3, p4, :cond_1
+    if-ge p3, p4, :cond_10
 
     .line 268
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -667,23 +667,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     return p3
 
-    :cond_0
+    :cond_d
     add-int/lit8 p3, p3, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_10
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method private linearEqualitySearch(Ljava/lang/Object;III)I
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;III)I"
@@ -692,8 +692,8 @@
 
     add-int/lit8 v0, p2, -0x1
 
-    :goto_0
-    if-lt v0, p3, :cond_2
+    :goto_2
+    if-lt v0, p3, :cond_1d
 
     .line 620
     iget-object v1, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -707,32 +707,32 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
-    goto :goto_1
+    goto :goto_1d
 
     .line 625
-    :cond_0
+    :cond_11
     iget-object v2, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {v2, v1, p1}, Landroid/support/v7/util/SortedList$Callback;->areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1a
 
     return v0
 
-    :cond_1
+    :cond_1a
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_2
-    :goto_1
+    :cond_1d
+    :goto_1d
     add-int/lit8 p2, p2, 0x1
 
-    if-ge p2, p4, :cond_4
+    if-ge p2, p4, :cond_37
 
     .line 630
     iget-object p3, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -746,31 +746,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2e
 
-    goto :goto_2
+    goto :goto_37
 
     .line 635
-    :cond_3
+    :cond_2e
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {v0, p3, p1}, Landroid/support/v7/util/SortedList$Callback;->areItemsTheSame(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_1d
 
     return p2
 
-    :cond_4
-    :goto_2
+    :cond_37
+    :goto_37
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method private merge([Ljava/lang/Object;I)V
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;I)V"
@@ -801,23 +801,23 @@
     iput v0, p0, Landroid/support/v7/util/SortedList;->mMergedSize:I
 
     .line 284
-    :cond_0
-    :goto_0
+    :cond_12
+    :goto_12
     iget v1, p0, Landroid/support/v7/util/SortedList;->mOldDataStart:I
 
     iget v2, p0, Landroid/support/v7/util/SortedList;->mOldDataSize:I
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_1a
 
-    if-ge v0, p2, :cond_3
+    if-ge v0, p2, :cond_52
 
     .line 285
-    :cond_1
+    :cond_1a
     iget v1, p0, Landroid/support/v7/util/SortedList;->mOldDataStart:I
 
     iget v2, p0, Landroid/support/v7/util/SortedList;->mOldDataSize:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_3b
 
     sub-int/2addr p2, v0
 
@@ -851,10 +851,10 @@
 
     invoke-virtual {p1, p0, p2}, Landroid/support/v7/util/SortedList$Callback;->onInserted(II)V
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_2
-    if-ne v0, p2, :cond_4
+    :cond_3b
+    if-ne v0, p2, :cond_53
 
     .line 297
     iget p1, p0, Landroid/support/v7/util/SortedList;->mOldDataSize:I
@@ -881,12 +881,12 @@
 
     iput p2, p0, Landroid/support/v7/util/SortedList;->mMergedSize:I
 
-    :cond_3
-    :goto_1
+    :cond_52
+    :goto_52
     return-void
 
     .line 303
-    :cond_4
+    :cond_53
     iget-object v1, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
 
     iget v2, p0, Landroid/support/v7/util/SortedList;->mOldDataStart:I
@@ -905,7 +905,7 @@
 
     const/4 v4, 0x1
 
-    if-lez v3, :cond_5
+    if-lez v3, :cond_7e
 
     .line 308
     iget-object v1, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -936,10 +936,10 @@
 
     invoke-virtual {v1, v2, v4}, Landroid/support/v7/util/SortedList$Callback;->onInserted(II)V
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_5
-    if-nez v3, :cond_6
+    :cond_7e
+    if-nez v3, :cond_ab
 
     .line 312
     iget-object v3, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -948,7 +948,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_ab
 
     .line 314
     iget-object v3, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -977,7 +977,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 318
     iget-object v1, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -988,10 +988,10 @@
 
     invoke-virtual {v1, v2, v4}, Landroid/support/v7/util/SortedList$Callback;->onChanged(II)V
 
-    goto/16 :goto_0
+    goto/16 :goto_12
 
     .line 323
-    :cond_6
+    :cond_ab
     iget-object v2, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     iget v3, p0, Landroid/support/v7/util/SortedList;->mMergedSize:I
@@ -1009,11 +1009,11 @@
 
     iput v1, p0, Landroid/support/v7/util/SortedList;->mOldDataStart:I
 
-    goto/16 :goto_0
+    goto/16 :goto_12
 .end method
 
 .method private remove(Ljava/lang/Object;Z)Z
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;Z)Z"
@@ -1039,14 +1039,14 @@
 
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_11
 
     const/4 p0, 0x0
 
     return p0
 
     .line 447
-    :cond_0
+    :cond_11
     invoke-direct {p0, p1, p2}, Landroid/support/v7/util/SortedList;->removeItemAtIndex(IZ)V
 
     const/4 p0, 0x1
@@ -1055,7 +1055,7 @@
 .end method
 
 .method private removeItemAtIndex(IZ)V
-    .locals 5
+    .registers 8
 
     .line 452
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -1090,29 +1090,29 @@
 
     aput-object v2, v0, v1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_21
 
     .line 456
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {p0, p1, v4}, Landroid/support/v7/util/SortedList$Callback;->onRemoved(II)V
 
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method private throwIfMerging()V
-    .locals 1
+    .registers 2
 
     .line 330
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     return-void
 
     .line 331
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Cannot call this method from within addAll"
@@ -1125,7 +1125,7 @@
 
 # virtual methods
 .method public add(Ljava/lang/Object;)I
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
@@ -1146,7 +1146,7 @@
 .end method
 
 .method public addAll(Ljava/util/Collection;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1181,7 +1181,7 @@
 .end method
 
 .method public varargs addAll([Ljava/lang/Object;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;)V"
@@ -1197,7 +1197,7 @@
 .end method
 
 .method public addAll([Ljava/lang/Object;Z)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([TT;Z)V"
@@ -1210,20 +1210,20 @@
     .line 152
     array-length v0, p1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-void
 
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_7
+    if-eqz p2, :cond_d
 
     .line 156
     invoke-direct {p0, p1}, Landroid/support/v7/util/SortedList;->addAllInternal([Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 158
-    :cond_1
+    :cond_d
     iget-object p2, p0, Landroid/support/v7/util/SortedList;->mTClass:Ljava/lang/Class;
 
     array-length v0, p1
@@ -1244,12 +1244,12 @@
     .line 160
     invoke-direct {p0, p2}, Landroid/support/v7/util/SortedList;->addAllInternal([Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_1e
     return-void
 .end method
 
 .method public beginBatchedUpdates()V
-    .locals 2
+    .registers 3
 
     .line 368
     invoke-direct {p0}, Landroid/support/v7/util/SortedList;->throwIfMerging()V
@@ -1259,15 +1259,15 @@
 
     instance-of v0, v0, Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return-void
 
     .line 372
-    :cond_0
+    :cond_a
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
     .line 373
     new-instance v0, Landroid/support/v7/util/SortedList$BatchedCallback;
@@ -1279,7 +1279,7 @@
     iput-object v0, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
 
     .line 375
-    :cond_1
+    :cond_17
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
 
     iput-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -1288,7 +1288,7 @@
 .end method
 
 .method public clear()V
-    .locals 4
+    .registers 5
 
     .line 666
     invoke-direct {p0}, Landroid/support/v7/util/SortedList;->throwIfMerging()V
@@ -1296,12 +1296,12 @@
     .line 667
     iget v0, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     return-void
 
     .line 670
-    :cond_0
+    :cond_8
     iget v0, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
     .line 671
@@ -1325,7 +1325,7 @@
 .end method
 
 .method public endBatchedUpdates()V
-    .locals 2
+    .registers 3
 
     .line 382
     invoke-direct {p0}, Landroid/support/v7/util/SortedList;->throwIfMerging()V
@@ -1335,7 +1335,7 @@
 
     instance-of v0, v0, Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 384
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -1345,12 +1345,12 @@
     invoke-virtual {v0}, Landroid/support/v7/util/SortedList$BatchedCallback;->dispatchLastEvent()V
 
     .line 386
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     iget-object v1, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1c
 
     .line 387
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mBatchedCallback:Landroid/support/v7/util/SortedList$BatchedCallback;
@@ -1359,12 +1359,12 @@
 
     iput-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
-    :cond_1
+    :cond_1c
     return-void
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -1380,19 +1380,19 @@
     .line 555
     iget v0, p0, Landroid/support/v7/util/SortedList;->mSize:I
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_1e
 
-    if-ltz p1, :cond_1
+    if-ltz p1, :cond_1e
 
     .line 559
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 562
     iget v0, p0, Landroid/support/v7/util/SortedList;->mMergedSize:I
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_19
 
     .line 563
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
@@ -1410,7 +1410,7 @@
     return-object p0
 
     .line 566
-    :cond_0
+    :cond_19
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     aget-object p0, p0, p1
@@ -1418,7 +1418,7 @@
     return-object p0
 
     .line 556
-    :cond_1
+    :cond_1e
     new-instance v0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1449,7 +1449,7 @@
 .end method
 
 .method public indexOf(Ljava/lang/Object;)I
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)I"
@@ -1459,7 +1459,7 @@
     .line 578
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2b
 
     .line 579
     iget-object v3, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
@@ -1480,12 +1480,12 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
     return v0
 
     .line 583
-    :cond_0
+    :cond_14
     iget-object v4, p0, Landroid/support/v7/util/SortedList;->mOldData:[Ljava/lang/Object;
 
     iget v5, p0, Landroid/support/v7/util/SortedList;->mOldDataStart:I
@@ -1502,7 +1502,7 @@
 
     move-result p1
 
-    if-eq p1, v1, :cond_1
+    if-eq p1, v1, :cond_2a
 
     .line 585
     iget v0, p0, Landroid/support/v7/util/SortedList;->mOldDataStart:I
@@ -1515,11 +1515,11 @@
 
     return p1
 
-    :cond_1
+    :cond_2a
     return v1
 
     .line 589
-    :cond_2
+    :cond_2b
     iget-object v2, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     const/4 v3, 0x0
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public recalculatePositionOfItemAt(I)V
-    .locals 2
+    .registers 4
 
     .line 535
     invoke-direct {p0}, Landroid/support/v7/util/SortedList;->throwIfMerging()V
@@ -1560,19 +1560,19 @@
 
     move-result v0
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_16
 
     .line 541
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {p0, p1, v0}, Landroid/support/v7/util/SortedList$Callback;->onMoved(II)V
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public remove(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
@@ -1593,7 +1593,7 @@
 .end method
 
 .method public removeItemAt(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -1617,7 +1617,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 105
     iget p0, p0, Landroid/support/v7/util/SortedList;->mSize:I
@@ -1626,7 +1626,7 @@
 .end method
 
 .method public updateItemAt(ILjava/lang/Object;)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;)V"
@@ -1645,7 +1645,7 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, p2, :cond_1
+    if-eq v0, p2, :cond_16
 
     .line 484
     iget-object v3, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -1654,21 +1654,21 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_14
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     move v3, v1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
-    :goto_0
+    :cond_16
+    :goto_16
     move v3, v2
 
-    :goto_1
-    if-eq v0, p2, :cond_3
+    :goto_17
+    if-eq v0, p2, :cond_2d
 
     .line 487
     iget-object v4, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -1677,25 +1677,25 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2d
 
     .line 489
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mData:[Ljava/lang/Object;
 
     aput-object p2, v0, p1
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_2c
 
     .line 491
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {p0, p1, v2}, Landroid/support/v7/util/SortedList$Callback;->onChanged(II)V
 
-    :cond_2
+    :cond_2c
     return-void
 
-    :cond_3
-    if-eqz v3, :cond_4
+    :cond_2d
+    if-eqz v3, :cond_34
 
     .line 497
     iget-object v0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
@@ -1703,7 +1703,7 @@
     invoke-virtual {v0, p1, v2}, Landroid/support/v7/util/SortedList$Callback;->onChanged(II)V
 
     .line 500
-    :cond_4
+    :cond_34
     invoke-direct {p0, p1, v1}, Landroid/support/v7/util/SortedList;->removeItemAtIndex(IZ)V
 
     .line 501
@@ -1711,13 +1711,13 @@
 
     move-result p2
 
-    if-eq p1, p2, :cond_5
+    if-eq p1, p2, :cond_42
 
     .line 503
     iget-object p0, p0, Landroid/support/v7/util/SortedList;->mCallback:Landroid/support/v7/util/SortedList$Callback;
 
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/util/SortedList$Callback;->onMoved(II)V
 
-    :cond_5
+    :cond_42
     return-void
 .end method

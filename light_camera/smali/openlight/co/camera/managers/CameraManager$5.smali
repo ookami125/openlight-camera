@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 457
     invoke-static {}, Lopenlight/co/camera/utils/CameraState$SessionState;->values()[Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -33,7 +33,7 @@
 
     sput-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
-    :try_start_0
+    :try_start_9
     sget-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->PREVIEW:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -45,11 +45,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_14} :catch_14
 
-    :catch_0
-    :try_start_1
+    :catch_14
+    :try_start_14
     sget-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->WAITING_FOR_FOCUS_TRIGGER:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -61,11 +61,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_1f} :catch_1f
 
-    :catch_1
-    :try_start_2
+    :catch_1f
+    :try_start_1f
     sget-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->WAITING_FOR_FOCUS_ACHIEVED:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -77,11 +77,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_2a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1f .. :try_end_2a} :catch_2a
 
-    :catch_2
-    :try_start_3
+    :catch_2a
+    :try_start_2a
     sget-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->WAITING_FOR_STILL_CAPTURE_COMPLETION:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -93,11 +93,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_35
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2a .. :try_end_35} :catch_35
 
-    :catch_3
-    :try_start_4
+    :catch_35
+    :try_start_35
     sget-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->WAITING_FOR_BURST_CAPTURE_COMPLETION:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -109,11 +109,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_40
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_40
 
-    :catch_4
-    :try_start_5
+    :catch_40
+    :try_start_40
     sget-object v0, Lopenlight/co/camera/managers/CameraManager$5;->$SwitchMap$light$co$camera$utils$CameraState$SessionState:[I
 
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->WAITING_FOR_3A_CONVERGENCE:Lopenlight/co/camera/utils/CameraState$SessionState;
@@ -125,9 +125,9 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_4b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_40 .. :try_end_4b} :catch_4b
 
-    :catch_5
+    :catch_4b
     return-void
 .end method

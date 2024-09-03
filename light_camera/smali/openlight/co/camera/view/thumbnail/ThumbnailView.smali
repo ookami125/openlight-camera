@@ -37,13 +37,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Lopenlight/co/camera/listener/OnSwipeTouchListener;)V
-    .locals 1
+    .registers 5
 
     .line 66
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -102,7 +102,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/util/TimingLogger;
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumbnailTiming:Landroid/util/TimingLogger;
@@ -111,7 +111,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/util/TimingLogger;)Landroid/util/TimingLogger;
-    .locals 0
+    .registers 2
 
     .line 40
     iput-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumbnailTiming:Landroid/util/TimingLogger;
@@ -120,7 +120,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
@@ -129,7 +129,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 40
     iput-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
@@ -138,7 +138,7 @@
 .end method
 
 .method static synthetic access$200()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->TAG:Ljava/lang/String;
@@ -147,7 +147,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/widget/ImageView;
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
@@ -156,7 +156,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/widget/ImageView;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 40
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setThumbImage(Landroid/widget/ImageView;Ljava/lang/String;)V
@@ -165,7 +165,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/util/TimingLogger;)V
-    .locals 0
+    .registers 2
 
     .line 40
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->addAnimationAfterCapture(Landroid/util/TimingLogger;)V
@@ -174,7 +174,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Z
-    .locals 0
+    .registers 1
 
     .line 40
     iget-boolean p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mIsAncillaryToolbarShown:Z
@@ -183,7 +183,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mParentView:Landroid/view/View;
@@ -192,12 +192,12 @@
 .end method
 
 .method private addAnimationAfterCapture(Landroid/util/TimingLogger;)V
-    .locals 3
+    .registers 5
 
     .line 246
     iget-boolean v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mNeedAnimationAfterCapture:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 247
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mParentView:Landroid/view/View;
@@ -217,12 +217,12 @@
     .line 265
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setNeedAnimationAfterCapture(Z)V
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method private init()V
-    .locals 2
+    .registers 3
 
     .line 110
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mParentView:Landroid/view/View;
@@ -291,7 +291,7 @@
 .end method
 
 .method private setThumbImage(Landroid/widget/ImageView;Ljava/lang/String;)V
-    .locals 6
+    .registers 9
 
     .line 192
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mParentView:Landroid/view/View;
@@ -311,9 +311,9 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1f
 
     .line 194
     iget-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
@@ -325,10 +325,10 @@
 
     invoke-virtual {p0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_64
 
     .line 197
-    :cond_0
+    :cond_1f
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -338,7 +338,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_5e
 
     .line 200
     new-instance v0, Ljava/io/File;
@@ -391,24 +391,24 @@
 
     invoke-virtual {p2, v0}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Lcom/bumptech/glide/request/target/Target;)Lcom/bumptech/glide/request/target/Target;
 
-    goto :goto_0
+    goto :goto_64
 
     .line 214
-    :cond_1
+    :cond_5e
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
 
     const/4 p1, 0x0
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    :goto_0
+    :goto_64
     return-void
 .end method
 
 .method private updateThumb(Landroid/widget/ImageView;Landroid/view/View;)V
-    .locals 1
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     const/16 v0, 0xff
 
@@ -430,8 +430,8 @@
     .line 228
     invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_15
+    if-eqz p2, :cond_27
 
     const/4 p1, 0x0
 
@@ -446,19 +446,19 @@
     .line 234
     iget-boolean p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mIsAncillaryToolbarShown:Z
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_27
 
     .line 235
     invoke-static {p2}, Lopenlight/co/lib/utils/AnimationUtils;->hideAnimation(Landroid/view/View;)V
 
-    :cond_1
+    :cond_27
     return-void
 .end method
 
 
 # virtual methods
 .method public enableIcon(Z)V
-    .locals 1
+    .registers 3
 
     .line 79
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mParentView:Landroid/view/View;
@@ -474,7 +474,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 100
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
@@ -483,7 +483,7 @@
 .end method
 
 .method public loadAndAnimateGalleryThumbnail()V
-    .locals 2
+    .registers 3
 
     .line 123
     new-instance v0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$1;
@@ -503,7 +503,7 @@
 .end method
 
 .method public resetPath()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -517,7 +517,7 @@
 .end method
 
 .method public setAncillaryToolbarShown(Z)V
-    .locals 0
+    .registers 2
 
     .line 104
     iput-boolean p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mIsAncillaryToolbarShown:Z
@@ -526,7 +526,7 @@
 .end method
 
 .method public setIconAlpha(F)V
-    .locals 0
+    .registers 2
 
     .line 84
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
@@ -537,7 +537,7 @@
 .end method
 
 .method public setNeedAnimationAfterCapture(Z)V
-    .locals 0
+    .registers 2
 
     .line 241
     iput-boolean p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mNeedAnimationAfterCapture:Z
@@ -546,7 +546,7 @@
 .end method
 
 .method public setPath(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 93
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
@@ -555,7 +555,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 94
     iput-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
@@ -563,26 +563,26 @@
     .line 95
     invoke-virtual {p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->loadAndAnimateGalleryThumbnail()V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public showThumbnailLoading(Z)V
-    .locals 0
+    .registers 2
 
     .line 183
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mProgressSpinner:Landroid/widget/ImageView;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     return-void

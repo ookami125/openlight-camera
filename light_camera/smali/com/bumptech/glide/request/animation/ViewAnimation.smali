@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/request/animation/ViewAnimation$AnimationFactory;)V
-    .locals 0
+    .registers 2
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public animate(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation$ViewAdapter;)Z
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TR;",
@@ -59,7 +59,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 38
     invoke-virtual {p1}, Landroid/view/View;->clearAnimation()V
@@ -74,7 +74,7 @@
     .line 40
     invoke-virtual {p1, p0}, Landroid/view/View;->startAnimation(Landroid/view/animation/Animation;)V
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
     return p0

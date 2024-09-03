@@ -23,14 +23,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 105
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 106
     new-instance v0, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi21Impl;
@@ -39,15 +39,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 107
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 108
     new-instance v0, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi18Impl;
@@ -56,22 +56,22 @@
 
     sput-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_23
 
     .line 110
-    :cond_1
+    :cond_1c
     new-instance v0, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
 
-    :goto_0
+    :goto_23
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 117
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -80,7 +80,7 @@
 .end method
 
 .method public static getLayoutMode(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 2
 
     .line 179
     sget-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
@@ -93,7 +93,7 @@
 .end method
 
 .method public static getNestedScrollAxes(Landroid/view/ViewGroup;)I
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -110,7 +110,7 @@
 .end method
 
 .method public static isTransitionGroup(Landroid/view/ViewGroup;)Z
-    .locals 1
+    .registers 2
 
     .line 213
     sget-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
@@ -123,7 +123,7 @@
 .end method
 
 .method public static onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -136,7 +136,7 @@
 .end method
 
 .method public static setLayoutMode(Landroid/view/ViewGroup;I)V
-    .locals 1
+    .registers 3
 
     .line 192
     sget-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;
@@ -147,7 +147,7 @@
 .end method
 
 .method public static setMotionEventSplittingEnabled(Landroid/view/ViewGroup;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -158,7 +158,7 @@
 .end method
 
 .method public static setTransitionGroup(Landroid/view/ViewGroup;Z)V
-    .locals 1
+    .registers 3
 
     .line 204
     sget-object v0, Landroid/support/v4/view/ViewGroupCompat;->IMPL:Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;

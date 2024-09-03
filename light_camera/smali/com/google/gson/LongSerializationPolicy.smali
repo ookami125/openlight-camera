@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 34
     new-instance v0, Lcom/google/gson/LongSerializationPolicy$1;
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -80,7 +80,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/gson/LongSerializationPolicy$1;)V
-    .locals 0
+    .registers 4
 
     .line 27
     invoke-direct {p0, p1, p2}, Lcom/google/gson/LongSerializationPolicy;-><init>(Ljava/lang/String;I)V
@@ -89,7 +89,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/gson/LongSerializationPolicy;
-    .locals 1
+    .registers 2
 
     .line 27
     const-class v0, Lcom/google/gson/LongSerializationPolicy;
@@ -104,7 +104,7 @@
 .end method
 
 .method public static values()[Lcom/google/gson/LongSerializationPolicy;
-    .locals 1
+    .registers 1
 
     .line 27
     sget-object v0, Lcom/google/gson/LongSerializationPolicy;->$VALUES:[Lcom/google/gson/LongSerializationPolicy;

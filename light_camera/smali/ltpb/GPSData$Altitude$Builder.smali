@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 818
     invoke-direct {p0}, Lcom/squareup/wire/Message$Builder;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public bridge synthetic build()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
 
     .line 813
     invoke-virtual {p0}, Lltpb/GPSData$Altitude$Builder;->build()Lltpb/GPSData$Altitude;
@@ -53,16 +53,16 @@
 .end method
 
 .method public build()Lltpb/GPSData$Altitude;
-    .locals 3
+    .registers 4
 
     .line 836
     iget-object v0, p0, Lltpb/GPSData$Altitude$Builder;->value:Ljava/lang/Double;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     iget-object v0, p0, Lltpb/GPSData$Altitude$Builder;->ref:Lltpb/GPSData$ReferenceAltitude;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 841
     new-instance v0, Lltpb/GPSData$Altitude;
@@ -79,7 +79,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_16
     const/4 v0, 0x4
 
     .line 838
@@ -117,7 +117,7 @@
 .end method
 
 .method public ref(Lltpb/GPSData$ReferenceAltitude;)Lltpb/GPSData$Altitude$Builder;
-    .locals 0
+    .registers 2
 
     .line 830
     iput-object p1, p0, Lltpb/GPSData$Altitude$Builder;->ref:Lltpb/GPSData$ReferenceAltitude;
@@ -126,7 +126,7 @@
 .end method
 
 .method public value(Ljava/lang/Double;)Lltpb/GPSData$Altitude$Builder;
-    .locals 0
+    .registers 2
 
     .line 825
     iput-object p1, p0, Lltpb/GPSData$Altitude$Builder;->value:Ljava/lang/Double;

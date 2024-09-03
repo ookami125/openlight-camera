@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lnet/hockeyapp/android/FeedbackActivity;)V
-    .locals 1
+    .registers 3
 
     .line 793
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 8
+    .registers 10
 
     .line 800
     new-instance v0, Lnet/hockeyapp/android/objects/ErrorObject;
@@ -62,21 +62,21 @@
 
     check-cast v1, Lnet/hockeyapp/android/FeedbackActivity;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_10
 
     return-void
 
-    :cond_0
+    :cond_10
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_7b
 
     .line 807
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7b
 
     .line 808
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
@@ -113,9 +113,9 @@
 
     const/4 v6, 0x1
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_4c
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_42
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -123,10 +123,10 @@
 
     const/16 v7, 0xc9
 
-    if-eq v5, v7, :cond_2
+    if-eq v5, v7, :cond_4c
 
     .line 814
-    :cond_1
+    :cond_42
     sget p1, Lnet/hockeyapp/android/R$string;->hockeyapp_feedback_send_generic_error:I
 
     invoke-virtual {v1, p1}, Lnet/hockeyapp/android/FeedbackActivity;->getString(I)Ljava/lang/String;
@@ -135,9 +135,9 @@
 
     invoke-virtual {v0, p1}, Lnet/hockeyapp/android/objects/ErrorObject;->setMessage(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_84
 
-    :cond_2
+    :cond_4c
     const-string v5, "fetch"
 
     .line 815
@@ -145,9 +145,9 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_6a
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_6a
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -155,7 +155,7 @@
 
     const/16 v7, 0x194
 
-    if-eq v5, v7, :cond_3
+    if-eq v5, v7, :cond_66
 
     invoke-static {v4}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
@@ -163,27 +163,29 @@
 
     const/16 v5, 0x1a6
 
-    if-ne v4, v5, :cond_4
+    if-ne v4, v5, :cond_6a
 
     .line 817
-    :cond_3
+    :cond_66
+    # invokes: Lnet/hockeyapp/android/FeedbackActivity;->resetFeedbackView()V
     invoke-static {v1}, Lnet/hockeyapp/android/FeedbackActivity;->access$600(Lnet/hockeyapp/android/FeedbackActivity;)V
 
-    goto :goto_0
+    goto :goto_6f
 
-    :cond_4
-    if-eqz v3, :cond_5
+    :cond_6a
+    if-eqz v3, :cond_71
 
     .line 820
+    # invokes: Lnet/hockeyapp/android/FeedbackActivity;->startParseFeedbackTask(Ljava/lang/String;Ljava/lang/String;)V
     invoke-static {v1, v3, p1}, Lnet/hockeyapp/android/FeedbackActivity;->access$700(Lnet/hockeyapp/android/FeedbackActivity;Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_6f
     move v2, v6
 
-    goto :goto_1
+    goto :goto_84
 
     .line 823
-    :cond_5
+    :cond_71
     sget p1, Lnet/hockeyapp/android/R$string;->hockeyapp_feedback_send_network_error:I
 
     invoke-virtual {v1, p1}, Lnet/hockeyapp/android/FeedbackActivity;->getString(I)Ljava/lang/String;
@@ -192,10 +194,10 @@
 
     invoke-virtual {v0, p1}, Lnet/hockeyapp/android/objects/ErrorObject;->setMessage(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_84
 
     .line 826
-    :cond_6
+    :cond_7b
     sget p1, Lnet/hockeyapp/android/R$string;->hockeyapp_feedback_send_generic_error:I
 
     invoke-virtual {v1, p1}, Lnet/hockeyapp/android/FeedbackActivity;->getString(I)Ljava/lang/String;
@@ -205,10 +207,11 @@
     invoke-virtual {v0, p1}, Lnet/hockeyapp/android/objects/ErrorObject;->setMessage(Ljava/lang/String;)V
 
     .line 829
-    :goto_1
+    :goto_84
+    # setter for: Lnet/hockeyapp/android/FeedbackActivity;->mError:Lnet/hockeyapp/android/objects/ErrorObject;
     invoke-static {v1, v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$002(Lnet/hockeyapp/android/FeedbackActivity;Lnet/hockeyapp/android/objects/ErrorObject;)Lnet/hockeyapp/android/objects/ErrorObject;
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_91
 
     .line 832
     new-instance p1, Lnet/hockeyapp/android/FeedbackActivity$FeedbackHandler$1;
@@ -218,7 +221,7 @@
     invoke-virtual {v1, p1}, Lnet/hockeyapp/android/FeedbackActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     .line 843
-    :cond_7
+    :cond_91
     invoke-virtual {v1, v2}, Lnet/hockeyapp/android/FeedbackActivity;->onSendFeedbackResult(Z)V
 
     return-void

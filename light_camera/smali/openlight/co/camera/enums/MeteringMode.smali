@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 13
+    .registers 13
 
     .line 10
     new-instance v6, Lopenlight/co/camera/enums/MeteringMode;
@@ -113,8 +113,8 @@
 
     array-length v1, v0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_40
+    if-ge v2, v1, :cond_4e
 
     aget-object v3, v0, v2
 
@@ -127,14 +127,14 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_0
+    :cond_4e
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;II)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -159,7 +159,7 @@
 .end method
 
 .method public static forTag(Ljava/lang/String;)Lopenlight/co/camera/enums/MeteringMode;
-    .locals 1
+    .registers 2
 
     .line 48
     sget-object v0, Lopenlight/co/camera/enums/MeteringMode;->sTagToMode:Ljava/util/HashMap;
@@ -174,7 +174,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/MeteringMode;
-    .locals 1
+    .registers 2
 
     .line 8
     const-class v0, Lopenlight/co/camera/enums/MeteringMode;
@@ -189,7 +189,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/MeteringMode;
-    .locals 1
+    .registers 1
 
     .line 8
     sget-object v0, Lopenlight/co/camera/enums/MeteringMode;->$VALUES:[Lopenlight/co/camera/enums/MeteringMode;
@@ -206,7 +206,7 @@
 
 # virtual methods
 .method public getMeteringIcon()I
-    .locals 0
+    .registers 1
 
     .line 35
     iget p0, p0, Lopenlight/co/camera/enums/MeteringMode;->mMeteringIcon:I
@@ -215,7 +215,7 @@
 .end method
 
 .method public getMeteringSelectedIcon()I
-    .locals 0
+    .registers 1
 
     .line 39
     iget p0, p0, Lopenlight/co/camera/enums/MeteringMode;->mMeteringSelectedIcon:I

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;I)V
-    .locals 6
+    .registers 10
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;III)V
-    .locals 9
+    .registers 15
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public dismiss()V
-    .locals 0
+    .registers 1
 
     .line 242
     iget-object p0, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
@@ -173,14 +173,14 @@
 .end method
 
 .method public getDragToOpenListener()Landroid/view/View$OnTouchListener;
-    .locals 2
+    .registers 3
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
     .line 169
     iget-object v0, p0, Landroid/support/v7/widget/PopupMenu;->mDragListener:Landroid/view/View$OnTouchListener;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 170
     new-instance v0, Landroid/support/v7/widget/PopupMenu$3;
@@ -192,14 +192,14 @@
     iput-object v0, p0, Landroid/support/v7/widget/PopupMenu;->mDragListener:Landroid/view/View$OnTouchListener;
 
     .line 191
-    :cond_0
+    :cond_d
     iget-object p0, p0, Landroid/support/v7/widget/PopupMenu;->mDragListener:Landroid/view/View$OnTouchListener;
 
     return-object p0
 .end method
 
 .method public getGravity()I
-    .locals 0
+    .registers 1
 
     .line 148
     iget-object p0, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
@@ -212,7 +212,7 @@
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -223,7 +223,7 @@
 .end method
 
 .method public getMenuInflater()Landroid/view/MenuInflater;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -238,7 +238,7 @@
 .end method
 
 .method public inflate(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/MenuRes;
         .end annotation
@@ -257,7 +257,7 @@
 .end method
 
 .method public setGravity(I)V
-    .locals 0
+    .registers 2
 
     .line 140
     iget-object p0, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;
@@ -268,7 +268,7 @@
 .end method
 
 .method public setOnDismissListener(Landroid/support/v7/widget/PopupMenu$OnDismissListener;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/widget/PopupMenu$OnDismissListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -281,7 +281,7 @@
 .end method
 
 .method public setOnMenuItemClickListener(Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/widget/PopupMenu$OnMenuItemClickListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -294,7 +294,7 @@
 .end method
 
 .method public show()V
-    .locals 0
+    .registers 1
 
     .line 233
     iget-object p0, p0, Landroid/support/v7/widget/PopupMenu;->mPopup:Landroid/support/v7/view/menu/MenuPopupHelper;

@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 49
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v4/content/pm/ShortcutInfoCompat$1;)V
-    .locals 0
+    .registers 2
 
     .line 35
     invoke-direct {p0}, Landroid/support/v4/content/pm/ShortcutInfoCompat;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/v4/content/pm/ShortcutInfoCompat;)Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 35
     iget-object p0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
@@ -58,7 +58,7 @@
 .end method
 
 .method static synthetic access$102(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/Context;)Landroid/content/Context;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mContext:Landroid/content/Context;
@@ -67,7 +67,7 @@
 .end method
 
 .method static synthetic access$202(Landroid/support/v4/content/pm/ShortcutInfoCompat;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mId:Ljava/lang/String;
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$300(Landroid/support/v4/content/pm/ShortcutInfoCompat;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     .line 35
     iget-object p0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLabel:Ljava/lang/CharSequence;
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$302(Landroid/support/v4/content/pm/ShortcutInfoCompat;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLabel:Ljava/lang/CharSequence;
@@ -94,7 +94,7 @@
 .end method
 
 .method static synthetic access$402(Landroid/support/v4/content/pm/ShortcutInfoCompat;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
@@ -103,7 +103,7 @@
 .end method
 
 .method static synthetic access$502(Landroid/support/v4/content/pm/ShortcutInfoCompat;Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
@@ -112,7 +112,7 @@
 .end method
 
 .method static synthetic access$600(Landroid/support/v4/content/pm/ShortcutInfoCompat;)[Landroid/content/Intent;
-    .locals 0
+    .registers 1
 
     .line 35
     iget-object p0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -121,7 +121,7 @@
 .end method
 
 .method static synthetic access$602(Landroid/support/v4/content/pm/ShortcutInfoCompat;[Landroid/content/Intent;)[Landroid/content/Intent;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIntents:[Landroid/content/Intent;
@@ -130,7 +130,7 @@
 .end method
 
 .method static synthetic access$702(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/support/v4/graphics/drawable/IconCompat;)Landroid/support/v4/graphics/drawable/IconCompat;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
@@ -139,7 +139,7 @@
 .end method
 
 .method static synthetic access$802(Landroid/support/v4/content/pm/ShortcutInfoCompat;Landroid/content/ComponentName;)Landroid/content/ComponentName;
-    .locals 0
+    .registers 2
 
     .line 35
     iput-object p1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
@@ -150,7 +150,7 @@
 
 # virtual methods
 .method addToIntent(Landroid/content/Intent;)Landroid/content/Intent;
-    .locals 3
+    .registers 5
 
     const-string v0, "android.intent.extra.shortcut.INTENT"
 
@@ -183,19 +183,19 @@
     .line 74
     iget-object v0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 75
     iget-object p0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
     invoke-virtual {p0, p1}, Landroid/support/v4/graphics/drawable/IconCompat;->addToShortcutIntent(Landroid/content/Intent;)V
 
-    :cond_0
+    :cond_23
     return-object p1
 .end method
 
 .method public getActivity()Landroid/content/ComponentName;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public getDisabledMessage()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -217,7 +217,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -228,7 +228,7 @@
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -247,7 +247,7 @@
 .end method
 
 .method public getIntents()[Landroid/content/Intent;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -268,7 +268,7 @@
 .end method
 
 .method public getLongLabel()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -279,7 +279,7 @@
 .end method
 
 .method public getShortLabel()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -290,7 +290,7 @@
 .end method
 
 .method toShortcutInfo()Landroid/content/pm/ShortcutInfo;
-    .locals 3
+    .registers 4
     .annotation build Landroid/support/annotation/RequiresApi;
         value = 0x1a
     .end annotation
@@ -321,7 +321,7 @@
     .line 56
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_22
 
     .line 57
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mIcon:Landroid/support/v4/graphics/drawable/IconCompat;
@@ -333,14 +333,14 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setIcon(Landroid/graphics/drawable/Icon;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 59
-    :cond_0
+    :cond_22
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     .line 60
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mLongLabel:Ljava/lang/CharSequence;
@@ -348,14 +348,14 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setLongLabel(Ljava/lang/CharSequence;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 62
-    :cond_1
+    :cond_2f
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3c
 
     .line 63
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mDisabledMessage:Ljava/lang/CharSequence;
@@ -363,10 +363,10 @@
     invoke-virtual {v0, v1}, Landroid/content/pm/ShortcutInfo$Builder;->setDisabledMessage(Ljava/lang/CharSequence;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 65
-    :cond_2
+    :cond_3c
     iget-object v1, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_45
 
     .line 66
     iget-object p0, p0, Landroid/support/v4/content/pm/ShortcutInfoCompat;->mActivity:Landroid/content/ComponentName;
@@ -374,7 +374,7 @@
     invoke-virtual {v0, p0}, Landroid/content/pm/ShortcutInfo$Builder;->setActivity(Landroid/content/ComponentName;)Landroid/content/pm/ShortcutInfo$Builder;
 
     .line 68
-    :cond_3
+    :cond_45
     invoke-virtual {v0}, Landroid/content/pm/ShortcutInfo$Builder;->build()Landroid/content/pm/ShortcutInfo;
 
     move-result-object p0

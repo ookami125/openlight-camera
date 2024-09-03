@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method public add(ILjava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;)V"
@@ -97,7 +97,7 @@
 
     iget-object v1, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->immutableList:Ljava/util/List;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 52
     new-instance v0, Ljava/util/ArrayList;
@@ -109,7 +109,7 @@
     iput-object v0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     .line 54
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     invoke-interface {p0, p1, p2}, Ljava/util/List;->add(ILjava/lang/Object;)V
@@ -118,7 +118,7 @@
 .end method
 
 .method public get(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -136,7 +136,7 @@
 .end method
 
 .method public remove(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -148,7 +148,7 @@
 
     iget-object v1, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->immutableList:Ljava/util/List;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 59
     new-instance v0, Ljava/util/ArrayList;
@@ -160,7 +160,7 @@
     iput-object v0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     .line 61
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     invoke-interface {p0, p1}, Ljava/util/List;->remove(I)Ljava/lang/Object;
@@ -171,7 +171,7 @@
 .end method
 
 .method public set(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITT;)TT;"
@@ -183,7 +183,7 @@
 
     iget-object v1, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->immutableList:Ljava/util/List;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 45
     new-instance v0, Ljava/util/ArrayList;
@@ -195,7 +195,7 @@
     iput-object v0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     .line 47
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;
 
     invoke-interface {p0, p1, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
@@ -206,7 +206,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lcom/squareup/wire/internal/MutableOnWriteList;->mutableList:Ljava/util/List;

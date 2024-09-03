@@ -41,7 +41,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/EngineRunnable$EngineRunnableManager;Lcom/bumptech/glide/load/engine/DecodeJob;Lcom/bumptech/glide/Priority;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -74,7 +74,7 @@
 .end method
 
 .method private decode()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 99
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->decodeFromCache()Lcom/bumptech/glide/load/engine/Resource;
@@ -104,7 +104,7 @@
     return-object p0
 
     .line 101
-    :cond_0
+    :cond_b
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->decodeFromSource()Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object p0
@@ -113,7 +113,7 @@
 .end method
 
 .method private decodeFromCache()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -135,12 +135,12 @@
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/DecodeJob;->decodeResultFromCache()Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_6} :catch_7
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_0
+    :catch_7
     move-exception v0
 
     const-string v1, "EngineRunnable"
@@ -152,7 +152,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_27
 
     const-string v1, "EngineRunnable"
 
@@ -173,11 +173,11 @@
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_27
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_28
+    if-nez v0, :cond_30
 
     .line 116
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->decodeJob:Lcom/bumptech/glide/load/engine/DecodeJob;
@@ -186,12 +186,12 @@
 
     move-result-object v0
 
-    :cond_1
+    :cond_30
     return-object v0
 .end method
 
 .method private decodeFromSource()Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -217,28 +217,28 @@
 .end method
 
 .method private isDecodingFromCache()Z
-    .locals 1
+    .registers 2
 
     .line 81
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->stage:Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;
 
     sget-object v0, Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;->CACHE:Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method private onLoadComplete(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 0
+    .registers 2
 
     .line 85
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->manager:Lcom/bumptech/glide/load/engine/EngineRunnable$EngineRunnableManager;
@@ -249,14 +249,14 @@
 .end method
 
 .method private onLoadFailed(Ljava/lang/Exception;)V
-    .locals 1
+    .registers 3
 
     .line 89
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->isDecodingFromCache()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 90
     sget-object p1, Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;->SOURCE:Lcom/bumptech/glide/load/engine/EngineRunnable$Stage;
@@ -268,22 +268,22 @@
 
     invoke-interface {p1, p0}, Lcom/bumptech/glide/load/engine/EngineRunnable$EngineRunnableManager;->submitForSource(Lcom/bumptech/glide/load/engine/EngineRunnable;)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 93
-    :cond_0
+    :cond_10
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->manager:Lcom/bumptech/glide/load/engine/EngineRunnable$EngineRunnableManager;
 
     invoke-interface {p0, p1}, Lcom/bumptech/glide/load/engine/EngineRunnable$EngineRunnableManager;->onException(Ljava/lang/Exception;)V
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 
 # virtual methods
 .method public cancel()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -299,7 +299,7 @@
 .end method
 
 .method public getPriority()I
-    .locals 0
+    .registers 1
 
     .line 127
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->priority:Lcom/bumptech/glide/Priority;
@@ -312,25 +312,25 @@
 .end method
 
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 51
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->isCancelled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 58
-    :try_start_0
+    :try_start_6
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->decode()Lcom/bumptech/glide/load/engine/Resource;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_a} :catch_e
 
     move-object v4, v1
 
@@ -338,9 +338,9 @@
 
     move-object v0, v4
 
-    goto :goto_0
+    goto :goto_1f
 
-    :catch_0
+    :catch_e
     move-exception v1
 
     const-string v2, "EngineRunnable"
@@ -352,7 +352,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     const-string v2, "EngineRunnable"
 
@@ -362,32 +362,32 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 66
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     iget-boolean v2, p0, Lcom/bumptech/glide/load/engine/EngineRunnable;->isCancelled:Z
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_29
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 68
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    :cond_2
+    :cond_28
     return-void
 
-    :cond_3
-    if-nez v0, :cond_4
+    :cond_29
+    if-nez v0, :cond_2f
 
     .line 74
     invoke-direct {p0, v1}, Lcom/bumptech/glide/load/engine/EngineRunnable;->onLoadFailed(Ljava/lang/Exception;)V
 
-    goto :goto_1
+    goto :goto_32
 
     .line 76
-    :cond_4
+    :cond_2f
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->onLoadComplete(Lcom/bumptech/glide/load/engine/Resource;)V
 
-    :goto_1
+    :goto_32
     return-void
 .end method

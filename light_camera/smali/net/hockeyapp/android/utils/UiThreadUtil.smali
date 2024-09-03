@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method synthetic constructor <init>(Lnet/hockeyapp/android/utils/UiThreadUtil$1;)V
-    .locals 0
+    .registers 2
 
     .line 9
     invoke-direct {p0}, Lnet/hockeyapp/android/utils/UiThreadUtil;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static getInstance()Lnet/hockeyapp/android/utils/UiThreadUtil;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lnet/hockeyapp/android/utils/UiThreadUtil$WbUtilHolder;->INSTANCE:Lnet/hockeyapp/android/utils/UiThreadUtil;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public dismissLoading(Ljava/lang/ref/WeakReference;Landroid/app/ProgressDialog;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 51
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -63,7 +63,7 @@
 
     check-cast p1, Landroid/app/Activity;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 53
     new-instance v0, Lnet/hockeyapp/android/utils/UiThreadUtil$2;
@@ -72,12 +72,12 @@
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public dismissLoadingDialogAndDisplayError(Ljava/lang/ref/WeakReference;Landroid/app/ProgressDialog;I)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -89,7 +89,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 31
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -98,7 +98,7 @@
 
     check-cast p1, Landroid/app/Activity;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 33
     new-instance v0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;
@@ -107,12 +107,12 @@
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public displayToastMessage(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -124,7 +124,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 68
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -133,7 +133,7 @@
 
     check-cast p1, Landroid/app/Activity;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 70
     new-instance v0, Lnet/hockeyapp/android/utils/UiThreadUtil$3;
@@ -142,6 +142,6 @@
 
     invoke-virtual {p1, v0}, Landroid/app/Activity;->runOnUiThread(Ljava/lang/Runnable;)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method

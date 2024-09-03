@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 64
     new-instance v0, Ljava/util/WeakHashMap;
@@ -58,7 +58,7 @@
 .end method
 
 .method private constructor <init>(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 1
+    .registers 3
 
     .line 265
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,14 +74,14 @@
 .end method
 
 .method public static get(Landroid/hardware/camera2/CaptureRequest$Builder;)Lopenlight/co/lightsdk/camera2/CaptureRequest$Builder;
-    .locals 2
+    .registers 3
 
     .line 78
     invoke-static {}, Lopenlight/co/lightsdk/camera2/Light;->isInitalized()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 82
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Builder;->mBuilderMap:Ljava/util/WeakHashMap;
@@ -90,7 +90,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 83
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Builder;->mBuilderMap:Ljava/util/WeakHashMap;
@@ -104,7 +104,7 @@
     return-object p0
 
     .line 85
-    :cond_0
+    :cond_17
     new-instance v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Builder;
 
     invoke-direct {v0, p0}, Lopenlight/co/lightsdk/camera2/CaptureRequest$Builder;-><init>(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -117,7 +117,7 @@
     return-object v0
 
     .line 79
-    :cond_1
+    :cond_22
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Light.init() must be first called before any other operations"
@@ -130,7 +130,7 @@
 
 # virtual methods
 .method public build()Landroid/hardware/camera2/CaptureRequest;
-    .locals 0
+    .registers 1
 
     .line 262
     iget-object p0, p0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Builder;->mBaseCaptureRequestBuilder:Ljava/lang/ref/WeakReference;
@@ -149,7 +149,7 @@
 .end method
 
 .method public enableStackedCaptureState(Z)V
-    .locals 1
+    .registers 3
 
     .line 214
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;->CONTROL_STACKED_CAPTURE_STATE:Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -164,7 +164,7 @@
 .end method
 
 .method set(Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
-    .locals 4
+    .registers 7
     .param p1    # Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -232,18 +232,18 @@
 .end method
 
 .method public setBurstFps(I)V
-    .locals 1
+    .registers 3
 
     .line 229
     invoke-static {}, Lopenlight/co/lightsdk/camera2/Util;->isLightDevice()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     const/4 v0, 0x2
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_13
 
     .line 231
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;->CONTROL_BURST_FPS:Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -257,7 +257,7 @@
     return-void
 
     .line 233
-    :cond_0
+    :cond_13
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Minimum supported burst fps is 2"
@@ -267,7 +267,7 @@
     throw p0
 
     .line 237
-    :cond_1
+    :cond_1b
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "This operation is not supported for the current device"
@@ -278,14 +278,14 @@
 .end method
 
 .method public setFocusType(I)V
-    .locals 1
+    .registers 3
 
     .line 192
     invoke-static {}, Lopenlight/co/lightsdk/camera2/Util;->isLightDevice()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 193
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;->CONTROL_FOCUS_TYPE:Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -299,7 +299,7 @@
     return-void
 
     .line 195
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "This operation is not supported for the current device"
@@ -310,14 +310,14 @@
 .end method
 
 .method public setIsoPriority(II)V
-    .locals 1
+    .registers 4
 
     .line 108
     invoke-static {}, Lopenlight/co/lightsdk/camera2/Util;->isLightDevice()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 109
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;->CONTROL_ISO_PRIORITY_MIN_KEY:Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -340,7 +340,7 @@
     return-void
 
     .line 112
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "This operation is not supported for the current device"
@@ -351,14 +351,14 @@
 .end method
 
 .method public setShutterPriority(JJ)V
-    .locals 1
+    .registers 6
 
     .line 139
     invoke-static {}, Lopenlight/co/lightsdk/camera2/Util;->isLightDevice()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 140
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;->CONTROL_SHUTTER_PRIORITY_MIN_KEY:Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -381,7 +381,7 @@
     return-void
 
     .line 143
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "This operation is not supported for the current device"
@@ -392,14 +392,14 @@
 .end method
 
 .method public setZoomFactor(F)V
-    .locals 1
+    .registers 3
 
     .line 160
     invoke-static {}, Lopenlight/co/lightsdk/camera2/Util;->isLightDevice()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 161
     sget-object v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;->CONTROL_ZOOM_FACTOR:Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -413,7 +413,7 @@
     return-void
 
     .line 163
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string p1, "This operation is not supported for the current device"

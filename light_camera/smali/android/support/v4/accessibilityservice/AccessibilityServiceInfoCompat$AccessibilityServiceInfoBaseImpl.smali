@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,27 +27,27 @@
 
 # virtual methods
 .method public getCapabilities(Landroid/accessibilityservice/AccessibilityServiceInfo;)I
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-static {p1}, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat;->getCanRetrieveWindowContent(Landroid/accessibilityservice/AccessibilityServiceInfo;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public loadDescription(Landroid/accessibilityservice/AccessibilityServiceInfo;Landroid/content/pm/PackageManager;)Ljava/lang/String;
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x0
 

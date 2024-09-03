@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 19
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder$MediaMetadataRetrieverFactory;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 25
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder;->DEFAULT_FACTORY:Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder$MediaMetadataRetrieverFactory;
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     .line 29
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder;->DEFAULT_FACTORY:Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder$MediaMetadataRetrieverFactory;
@@ -78,7 +78,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder$MediaMetadataRetrieverFactory;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, -0x1
 
@@ -89,7 +89,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder$MediaMetadataRetrieverFactory;I)V
-    .locals 0
+    .registers 3
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -104,14 +104,14 @@
 .end method
 
 .method private static checkValidFrame(I)I
-    .locals 1
+    .registers 2
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_3
 
     return p0
 
     .line 72
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Requested frame must be non-negative"
@@ -124,7 +124,7 @@
 
 # virtual methods
 .method public decode(Landroid/os/ParcelFileDescriptor;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;IILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -148,7 +148,7 @@
     .line 48
     iget p3, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder;->frame:I
 
-    if-ltz p3, :cond_0
+    if-ltz p3, :cond_19
 
     .line 49
     iget p0, p0, Lcom/bumptech/glide/load/resource/bitmap/VideoBitmapDecoder;->frame:I
@@ -159,16 +159,16 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 51
-    :cond_0
+    :cond_19
     invoke-virtual {p2}, Landroid/media/MediaMetadataRetriever;->getFrameAtTime()Landroid/graphics/Bitmap;
 
     move-result-object p0
 
     .line 53
-    :goto_0
+    :goto_1d
     invoke-virtual {p2}, Landroid/media/MediaMetadataRetriever;->release()V
 
     .line 54
@@ -178,7 +178,7 @@
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;IILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -196,7 +196,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "VideoBitmapDecoder.com.bumptech.glide.load.resource.bitmap"
 

@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public applyOptions(Landroid/content/Context;Lcom/bumptech/glide/GlideBuilder;)V
-    .locals 4
+    .registers 7
 
     .line 19
     new-instance p0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory;
@@ -82,7 +82,7 @@
 .end method
 
 .method public registerComponents(Landroid/content/Context;Lcom/bumptech/glide/Glide;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method

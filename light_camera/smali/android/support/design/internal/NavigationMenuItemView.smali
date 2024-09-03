@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -72,7 +72,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
 
     .line 94
     invoke-direct {p0, p1, p2, p3}, Landroid/support/design/internal/ForegroundLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -151,14 +151,14 @@
 .end method
 
 .method private adjustAppearance()V
-    .locals 2
+    .registers 3
 
     .line 132
     invoke-direct {p0}, Landroid/support/design/internal/NavigationMenuItemView;->shouldExpandActionArea()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 134
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
@@ -170,7 +170,7 @@
     .line 135
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 136
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
@@ -191,10 +191,10 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 141
-    :cond_0
+    :cond_22
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
 
     const/4 v1, 0x0
@@ -204,7 +204,7 @@
     .line 142
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 143
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
@@ -225,13 +225,13 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_1
-    :goto_0
+    :cond_3c
+    :goto_3c
     return-void
 .end method
 
 .method private createDefaultBackground()Landroid/graphics/drawable/StateListDrawable;
-    .locals 3
+    .registers 4
 
     .line 169
     new-instance v0, Landroid/util/TypedValue;
@@ -255,7 +255,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_33
 
     .line 172
     new-instance p0, Landroid/graphics/drawable/StateListDrawable;
@@ -286,21 +286,21 @@
 
     return-object p0
 
-    :cond_0
+    :cond_33
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private setActionView(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_20
 
     .line 159
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 160
     sget v0, Landroid/support/design/R$id;->design_menu_item_action_area_stub:I
@@ -321,7 +321,7 @@
     iput-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
 
     .line 163
-    :cond_0
+    :cond_16
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->removeAllViews()V
@@ -331,12 +331,12 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
-    :cond_1
+    :cond_20
     return-void
 .end method
 
 .method private shouldExpandActionArea()Z
-    .locals 1
+    .registers 2
 
     .line 126
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -345,7 +345,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
 
@@ -354,7 +354,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
 
@@ -363,23 +363,23 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1b
     return p0
 .end method
 
 
 # virtual methods
 .method public getItemData()Landroid/support/v7/view/menu/MenuItemImpl;
-    .locals 0
+    .registers 1
 
     .line 182
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -388,7 +388,7 @@
 .end method
 
 .method public initialize(Landroid/support/v7/view/menu/MenuItemImpl;I)V
-    .locals 0
+    .registers 3
 
     .line 106
     iput-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -398,16 +398,16 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     const/4 p2, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_a
     const/16 p2, 0x8
 
-    :goto_0
+    :goto_c
     invoke-virtual {p0, p2}, Landroid/support/design/internal/NavigationMenuItemView;->setVisibility(I)V
 
     .line 110
@@ -415,7 +415,7 @@
 
     move-result-object p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_1c
 
     .line 111
     invoke-direct {p0}, Landroid/support/design/internal/NavigationMenuItemView;->createDefaultBackground()Landroid/graphics/drawable/StateListDrawable;
@@ -425,7 +425,7 @@
     invoke-static {p0, p2}, Landroid/support/v4/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
 
     .line 114
-    :cond_1
+    :cond_1c
     invoke-virtual {p1}, Landroid/support/v7/view/menu/MenuItemImpl;->isCheckable()Z
 
     move-result p2
@@ -488,7 +488,7 @@
 .end method
 
 .method protected onCreateDrawableState(I)[I
-    .locals 1
+    .registers 3
 
     add-int/lit8 p1, p1, 0x1
 
@@ -500,7 +500,7 @@
     .line 245
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
 
@@ -508,7 +508,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
 
@@ -516,19 +516,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1f
 
     .line 246
     sget-object p0, Landroid/support/design/internal/NavigationMenuItemView;->CHECKED_STATE_SET:[I
 
     invoke-static {p1, p0}, Landroid/support/design/internal/NavigationMenuItemView;->mergeDrawableStates([I[I)[I
 
-    :cond_0
+    :cond_1f
     return-object p1
 .end method
 
 .method public prefersCondensedTitle()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -536,12 +536,12 @@
 .end method
 
 .method public recycle()V
-    .locals 1
+    .registers 2
 
     .line 151
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 152
     iget-object v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mActionArea:Landroid/widget/FrameLayout;
@@ -549,7 +549,7 @@
     invoke-virtual {v0}, Landroid/widget/FrameLayout;->removeAllViews()V
 
     .line 154
-    :cond_0
+    :cond_9
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
 
     const/4 v0, 0x0
@@ -560,7 +560,7 @@
 .end method
 
 .method public setCheckable(Z)V
-    .locals 1
+    .registers 3
 
     .line 192
     invoke-virtual {p0}, Landroid/support/design/internal/NavigationMenuItemView;->refreshDrawableState()V
@@ -568,7 +568,7 @@
     .line 193
     iget-boolean v0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mCheckable:Z
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_12
 
     .line 194
     iput-boolean p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mCheckable:Z
@@ -582,12 +582,12 @@
 
     invoke-virtual {p1, p0, v0}, Landroid/support/v4/view/AccessibilityDelegateCompat;->sendAccessibilityEvent(Landroid/view/View;I)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setChecked(Z)V
-    .locals 0
+    .registers 2
 
     .line 202
     invoke-virtual {p0}, Landroid/support/design/internal/NavigationMenuItemView;->refreshDrawableState()V
@@ -601,33 +601,33 @@
 .end method
 
 .method public setIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_27
 
     .line 213
     iget-boolean v1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mHasIconTintList:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1f
 
     .line 214
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
-    goto :goto_0
+    goto :goto_12
 
     .line 215
-    :cond_0
+    :cond_e
     invoke-virtual {v1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    :goto_0
+    :goto_12
     invoke-static {p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
@@ -642,25 +642,25 @@
     invoke-static {p1, v1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 218
-    :cond_1
+    :cond_1f
     iget v1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mIconSize:I
 
     iget v2, p0, Landroid/support/design/internal/NavigationMenuItemView;->mIconSize:I
 
     invoke-virtual {p1, v0, v0, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    goto :goto_1
+    goto :goto_52
 
     .line 219
-    :cond_2
+    :cond_27
     iget-boolean v1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mNeedsEmptyIcon:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_52
 
     .line 220
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mEmptyDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_50
 
     .line 221
     invoke-virtual {p0}, Landroid/support/design/internal/NavigationMenuItemView;->getResources()Landroid/content/res/Resources;
@@ -688,7 +688,7 @@
     .line 223
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mEmptyDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_50
 
     .line 224
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mEmptyDrawable:Landroid/graphics/drawable/Drawable;
@@ -700,12 +700,12 @@
     invoke-virtual {p1, v0, v0, v1, v2}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
     .line 227
-    :cond_3
+    :cond_50
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mEmptyDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 229
-    :cond_4
-    :goto_1
+    :cond_52
+    :goto_52
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
 
     const/4 v0, 0x0
@@ -716,7 +716,7 @@
 .end method
 
 .method setIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
 
     .line 252
     iput-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mIconTintList:Landroid/content/res/ColorStateList;
@@ -724,22 +724,22 @@
     .line 253
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mIconTintList:Landroid/content/res/ColorStateList;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_9
     iput-boolean p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mHasIconTintList:Z
 
     .line 254
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
     .line 256
     iget-object p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mItemData:Landroid/support/v7/view/menu/MenuItemImpl;
@@ -750,12 +750,12 @@
 
     invoke-virtual {p0, p1}, Landroid/support/design/internal/NavigationMenuItemView;->setIcon(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_1
+    :cond_18
     return-void
 .end method
 
 .method public setNeedsEmptyIcon(Z)V
-    .locals 0
+    .registers 2
 
     .line 269
     iput-boolean p1, p0, Landroid/support/design/internal/NavigationMenuItemView;->mNeedsEmptyIcon:Z
@@ -764,13 +764,13 @@
 .end method
 
 .method public setShortcut(ZC)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public setTextAppearance(I)V
-    .locals 0
+    .registers 2
 
     .line 261
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
@@ -781,7 +781,7 @@
 .end method
 
 .method public setTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
 
     .line 265
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
@@ -792,7 +792,7 @@
 .end method
 
 .method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 187
     iget-object p0, p0, Landroid/support/design/internal/NavigationMenuItemView;->mTextView:Landroid/widget/CheckedTextView;
@@ -803,7 +803,7 @@
 .end method
 
 .method public showsIcon()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/request/animation/GlideAnimation;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public animate(Landroid/graphics/drawable/Drawable;Lcom/bumptech/glide/request/animation/GlideAnimation$ViewAdapter;)Z
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -74,7 +74,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 46
     new-instance v2, Landroid/graphics/drawable/TransitionDrawable;
@@ -105,7 +105,7 @@
     return v0
 
     .line 52
-    :cond_0
+    :cond_20
     iget-object p0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;->defaultAnimation:Lcom/bumptech/glide/request/animation/GlideAnimation;
 
     invoke-interface {p0, p1, p2}, Lcom/bumptech/glide/request/animation/GlideAnimation;->animate(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation$ViewAdapter;)Z
@@ -114,7 +114,7 @@
 .end method
 
 .method public bridge synthetic animate(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation$ViewAdapter;)Z
-    .locals 0
+    .registers 3
 
     .line 14
     check-cast p1, Landroid/graphics/drawable/Drawable;

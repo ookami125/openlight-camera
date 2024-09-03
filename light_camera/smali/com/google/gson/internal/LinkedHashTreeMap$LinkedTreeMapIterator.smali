@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/LinkedHashTreeMap;)V
-    .locals 0
+    .registers 2
 
     .line 765
     iput-object p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public final hasNext()Z
-    .locals 1
+    .registers 2
 
     .line 769
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$LinkedTreeMapIterator;->next:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -97,21 +97,21 @@
 
     iget-object p0, p0, Lcom/google/gson/internal/LinkedHashTreeMap;->header:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eq v0, p0, :cond_0
+    if-eq v0, p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method final nextNode()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -128,7 +128,7 @@
 
     iget-object v1, v1, Lcom/google/gson/internal/LinkedHashTreeMap;->header:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     .line 777
     iget-object v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -137,7 +137,7 @@
 
     iget v2, p0, Lcom/google/gson/internal/LinkedHashTreeMap$LinkedTreeMapIterator;->expectedModCount:I
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_17
 
     .line 780
     iget-object v1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->next:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -150,7 +150,7 @@
     return-object v0
 
     .line 778
-    :cond_0
+    :cond_17
     new-instance p0, Ljava/util/ConcurrentModificationException;
 
     invoke-direct {p0}, Ljava/util/ConcurrentModificationException;-><init>()V
@@ -158,7 +158,7 @@
     throw p0
 
     .line 775
-    :cond_1
+    :cond_1d
     new-instance p0, Ljava/util/NoSuchElementException;
 
     invoke-direct {p0}, Ljava/util/NoSuchElementException;-><init>()V
@@ -167,12 +167,12 @@
 .end method
 
 .method public final remove()V
-    .locals 3
+    .registers 4
 
     .line 785
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$LinkedTreeMapIterator;->lastReturned:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 788
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$LinkedTreeMapIterator;->this$0:Lcom/google/gson/internal/LinkedHashTreeMap;
@@ -198,7 +198,7 @@
     return-void
 
     .line 786
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V

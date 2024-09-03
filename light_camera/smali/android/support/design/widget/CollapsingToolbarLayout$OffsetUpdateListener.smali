@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/CollapsingToolbarLayout;)V
-    .locals 0
+    .registers 2
 
     .line 1267
     iput-object p1, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onOffsetChanged(Landroid/support/design/widget/AppBarLayout;I)V
-    .locals 7
+    .registers 10
 
     .line 1272
     iget-object p1, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
@@ -50,7 +50,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     iget-object p1, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
 
@@ -60,13 +60,13 @@
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     move p1, v0
 
     .line 1276
-    :goto_0
+    :goto_15
     iget-object v1, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
 
     invoke-virtual {v1}, Landroid/support/design/widget/CollapsingToolbarLayout;->getChildCount()I
@@ -75,8 +75,8 @@
 
     move v2, v0
 
-    :goto_1
-    if-ge v2, v1, :cond_1
+    :goto_1c
+    if-ge v2, v1, :cond_52
 
     .line 1277
     iget-object v3, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
@@ -100,11 +100,11 @@
     .line 1281
     iget v6, v4, Landroid/support/design/widget/CollapsingToolbarLayout$LayoutParams;->mCollapseMode:I
 
-    packed-switch v6, :pswitch_data_0
+    packed-switch v6, :pswitch_data_82
 
-    goto :goto_2
+    goto :goto_4f
 
-    :pswitch_0
+    :pswitch_34
     neg-int v3, p2
 
     int-to-float v3, v3
@@ -122,9 +122,9 @@
     .line 1287
     invoke-virtual {v5, v3}, Landroid/support/design/widget/ViewOffsetHelper;->setTopAndBottomOffset(I)Z
 
-    goto :goto_2
+    goto :goto_4f
 
-    :pswitch_1
+    :pswitch_41
     neg-int v4, p2
 
     .line 1283
@@ -142,13 +142,13 @@
 
     invoke-virtual {v5, v3}, Landroid/support/design/widget/ViewOffsetHelper;->setTopAndBottomOffset(I)Z
 
-    :goto_2
+    :goto_4f
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 1294
-    :cond_1
+    :cond_52
     iget-object v0, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
 
     invoke-virtual {v0}, Landroid/support/design/widget/CollapsingToolbarLayout;->updateScrimVisibility()V
@@ -158,9 +158,9 @@
 
     iget-object v0, v0, Landroid/support/design/widget/CollapsingToolbarLayout;->mStatusBarScrim:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_64
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_64
 
     .line 1297
     iget-object v0, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
@@ -168,7 +168,7 @@
     invoke-static {v0}, Landroid/support/v4/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
 
     .line 1301
-    :cond_2
+    :cond_64
     iget-object v0, p0, Landroid/support/design/widget/CollapsingToolbarLayout$OffsetUpdateListener;->this$0:Landroid/support/design/widget/CollapsingToolbarLayout;
 
     invoke-virtual {v0}, Landroid/support/design/widget/CollapsingToolbarLayout;->getHeight()I
@@ -208,9 +208,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_82
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_41
+        :pswitch_34
     .end packed-switch
 .end method

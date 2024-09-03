@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/ObjectConstructor;Ljava/util/Map;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,7 +76,7 @@
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -98,7 +98,7 @@
 
     sget-object v1, Lcom/google/gson/stream/JsonToken;->NULL:Lcom/google/gson/stream/JsonToken;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     .line 206
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextNull()V
@@ -108,7 +108,7 @@
     return-object p0
 
     .line 210
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;->constructor:Lcom/google/gson/internal/ObjectConstructor;
 
     invoke-interface {v0}, Lcom/google/gson/internal/ObjectConstructor;->construct()Ljava/lang/Object;
@@ -116,16 +116,16 @@
     move-result-object v0
 
     .line 213
-    :try_start_0
+    :try_start_13
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->beginObject()V
 
     .line 214
-    :goto_0
+    :goto_16
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_37
 
     .line 215
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->nextName()Ljava/lang/String;
@@ -141,38 +141,38 @@
 
     check-cast v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_33
 
     .line 217
     iget-boolean v2, v1, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->deserialized:Z
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2f
 
-    goto :goto_1
+    goto :goto_33
 
     .line 220
-    :cond_1
+    :cond_2f
     invoke-virtual {v1, p1, v0}, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->read(Lcom/google/gson/stream/JsonReader;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_16
 
     .line 218
-    :cond_2
-    :goto_1
+    :cond_33
+    :goto_33
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->skipValue()V
-    :try_end_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_36
+    .catch Ljava/lang/IllegalStateException; {:try_start_13 .. :try_end_36} :catch_42
+    .catch Ljava/lang/IllegalAccessException; {:try_start_13 .. :try_end_36} :catch_3b
 
-    goto :goto_0
+    goto :goto_16
 
     .line 228
-    :cond_3
+    :cond_37
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->endObject()V
 
     return-object v0
 
-    :catch_0
+    :catch_3b
     move-exception p0
 
     .line 226
@@ -182,7 +182,7 @@
 
     throw p1
 
-    :catch_1
+    :catch_42
     move-exception p0
 
     .line 224
@@ -194,7 +194,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -209,7 +209,7 @@
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     .line 234
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->nullValue()Lcom/google/gson/stream/JsonWriter;
@@ -217,11 +217,11 @@
     return-void
 
     .line 238
-    :cond_0
+    :cond_6
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->beginObject()Lcom/google/gson/stream/JsonWriter;
 
     .line 240
-    :try_start_0
+    :try_start_9
     iget-object p0, p0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$Adapter;->boundFields:Ljava/util/Map;
 
     invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
@@ -232,13 +232,13 @@
 
     move-result-object p0
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2e
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -251,7 +251,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 242
     iget-object v1, v0, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->name:Ljava/lang/String;
@@ -260,18 +260,18 @@
 
     .line 243
     invoke-virtual {v0, p1, p2}, Lcom/google/gson/internal/bind/ReflectiveTypeAdapterFactory$BoundField;->write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_9 .. :try_end_2d} :catch_32
 
-    goto :goto_0
+    goto :goto_13
 
     .line 249
-    :cond_2
+    :cond_2e
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->endObject()Lcom/google/gson/stream/JsonWriter;
 
     return-void
 
-    :catch_0
+    :catch_32
     move-exception p0
 
     .line 247

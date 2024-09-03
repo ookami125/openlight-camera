@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 15
+    .registers 15
 
     .line 583
     new-instance v7, Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -196,7 +196,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IIIII)V
-    .locals 0
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IIII)V"
@@ -222,7 +222,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/hud/HudLayout$HudValue;
-    .locals 1
+    .registers 2
 
     .line 582
     const-class v0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -237,7 +237,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/hud/HudLayout$HudValue;
-    .locals 1
+    .registers 1
 
     .line 582
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->$VALUES:[Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -254,7 +254,7 @@
 
 # virtual methods
 .method public getHudElementLayoutResourceId()I
-    .locals 0
+    .registers 1
 
     .line 609
     iget p0, p0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->mHudElementLayoutResourceId:I
@@ -263,7 +263,7 @@
 .end method
 
 .method public getHudElementTitle()I
-    .locals 0
+    .registers 1
 
     .line 605
     iget p0, p0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->mHudElementTitleResourceId:I
@@ -272,7 +272,7 @@
 .end method
 
 .method public getHudElementValueResourceId()I
-    .locals 0
+    .registers 1
 
     .line 613
     iget p0, p0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->mHudElementValueResourceId:I
@@ -281,7 +281,7 @@
 .end method
 
 .method public getHudUnitTextResourceId()I
-    .locals 0
+    .registers 1
 
     .line 617
     iget p0, p0, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->mHudUnitTextResourceId:I

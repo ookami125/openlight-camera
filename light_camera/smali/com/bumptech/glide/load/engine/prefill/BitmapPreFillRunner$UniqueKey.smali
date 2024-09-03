@@ -19,7 +19,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 147
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$1;)V
-    .locals 0
+    .registers 2
 
     .line 147
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/prefill/BitmapPreFillRunner$UniqueKey;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public updateDiskCacheKey(Ljava/security/MessageDigest;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;

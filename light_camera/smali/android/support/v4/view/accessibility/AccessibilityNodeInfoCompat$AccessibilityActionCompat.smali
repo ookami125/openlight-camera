@@ -82,7 +82,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 49
     new-instance v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
@@ -400,7 +400,7 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/CharSequence;)V
-    .locals 1
+    .registers 4
 
     .line 419
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;
@@ -415,7 +415,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 422
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -429,7 +429,7 @@
 
 # virtual methods
 .method public getId()I
-    .locals 1
+    .registers 2
 
     .line 432
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;
@@ -444,7 +444,7 @@
 .end method
 
 .method public getLabel()Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 442
     sget-object v0, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->IMPL:Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoBaseImpl;

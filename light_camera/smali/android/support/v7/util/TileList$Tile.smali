@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/Class;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,12 +75,12 @@
 
 # virtual methods
 .method containsPosition(I)Z
-    .locals 1
+    .registers 3
 
     .line 98
     iget v0, p0, Landroid/support/v7/util/TileList$Tile;->mStartPosition:I
 
-    if-gt v0, p1, :cond_0
+    if-gt v0, p1, :cond_d
 
     iget v0, p0, Landroid/support/v7/util/TileList$Tile;->mStartPosition:I
 
@@ -88,21 +88,21 @@
 
     add-int/2addr v0, p0
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_d
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_e
     return p0
 .end method
 
 .method getByPosition(I)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"

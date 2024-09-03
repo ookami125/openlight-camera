@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 237
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public onHockeyEvent(Lnet/hockeyapp/android/PrivateEventManager$Event;)V
-    .locals 0
+    .registers 2
 
     .line 240
     invoke-virtual {p1}, Lnet/hockeyapp/android/PrivateEventManager$Event;->getType()I
@@ -39,15 +39,16 @@
 
     const/4 p1, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_e
 
     .line 241
+    # getter for: Lnet/hockeyapp/android/metrics/MetricsManager;->sChannel:Lnet/hockeyapp/android/metrics/Channel;
     invoke-static {}, Lnet/hockeyapp/android/metrics/MetricsManager;->access$000()Lnet/hockeyapp/android/metrics/Channel;
 
     move-result-object p0
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Channel;->synchronize()V
 
-    :cond_0
+    :cond_e
     return-void
 .end method

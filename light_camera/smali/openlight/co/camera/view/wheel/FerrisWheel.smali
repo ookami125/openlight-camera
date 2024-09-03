@@ -87,13 +87,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 262
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -165,7 +165,7 @@
 
     new-array p2, p2, [F
 
-    fill-array-data p2, :array_0
+    fill-array-data p2, :array_56
 
     invoke-direct {p1, p2}, Landroid/graphics/ColorMatrix;-><init>([F)V
 
@@ -198,7 +198,7 @@
 
     nop
 
-    :array_0
+    :array_56
     .array-data 4
         -0x40800000    # -1.0f
         0x0
@@ -224,7 +224,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lopenlight/co/camera/view/dragger/DraggerModel;Landroid/graphics/Typeface;)V
-    .locals 2
+    .registers 6
 
     .line 228
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -296,7 +296,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_ae
 
     invoke-direct {v0, v1}, Landroid/graphics/ColorMatrix;-><init>([F)V
 
@@ -426,7 +426,7 @@
 
     nop
 
-    :array_0
+    :array_ae
     .array-data 4
         -0x40800000    # -1.0f
         0x0
@@ -452,7 +452,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/view/wheel/FerrisWheel;I)I
-    .locals 0
+    .registers 2
 
     .line 34
     iput p1, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPrevIndex:I
@@ -461,7 +461,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/wheel/FerrisWheel;)Lopenlight/co/camera/view/dragger/DraggerModel;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -470,7 +470,7 @@
 .end method
 
 .method private drawItem(I)V
-    .locals 20
+    .registers 22
 
     move-object/from16 v6, p0
 
@@ -495,7 +495,7 @@
 
     add-int v7, v3, v0
 
-    if-ltz v7, :cond_e
+    if-ltz v7, :cond_1b9
 
     .line 413
     iget-object v3, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -504,7 +504,7 @@
 
     array-length v3, v3
 
-    if-ge v7, v3, :cond_e
+    if-ge v7, v3, :cond_1b9
 
     .line 414
     iget-wide v3, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mAngleBetweenItemsInRadians:D
@@ -522,7 +522,7 @@
 
     cmpl-float v3, v3, v4
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_36
 
     iget v3, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mWheelAlpha:F
 
@@ -530,9 +530,9 @@
 
     cmpl-float v3, v3, v5
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_36
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_36
 
     const-wide/16 v1, 0x0
 
@@ -540,7 +540,7 @@
     invoke-direct {v6, v7}, Lopenlight/co/camera/view/wheel/FerrisWheel;->updatePositionOfMidSubject(I)V
 
     .line 421
-    :cond_0
+    :cond_36
     invoke-static {v1, v2}, Ljava/lang/Math;->cos(D)D
 
     move-result-wide v8
@@ -596,47 +596,47 @@
 
     const/4 v14, 0x1
 
-    if-eq v0, v5, :cond_4
+    if-eq v0, v5, :cond_77
 
     const/4 v5, 0x2
 
-    if-ne v0, v5, :cond_1
+    if-ne v0, v5, :cond_68
 
-    goto :goto_1
+    goto :goto_77
 
-    :cond_1
+    :cond_68
     const/4 v5, -0x1
 
-    if-eq v0, v5, :cond_3
+    if-eq v0, v5, :cond_72
 
-    if-ne v0, v14, :cond_2
+    if-ne v0, v14, :cond_6e
 
-    goto :goto_0
+    goto :goto_72
 
-    :cond_2
-    if-nez v0, :cond_5
+    :cond_6e
+    if-nez v0, :cond_7b
 
     mul-float/2addr v3, v4
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_3
-    :goto_0
+    :cond_72
+    :goto_72
     const v4, 0x3f80a3d7    # 1.005f
 
     mul-float/2addr v3, v4
 
-    goto :goto_2
+    goto :goto_7b
 
-    :cond_4
-    :goto_1
+    :cond_77
+    :goto_77
     const v4, 0x3f8147ae    # 1.01f
 
     mul-float/2addr v3, v4
 
     .line 438
-    :cond_5
-    :goto_2
+    :cond_7b
+    :goto_7b
     iget-object v4, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPaint:Landroid/graphics/Paint;
 
     invoke-virtual {v4, v3}, Landroid/graphics/Paint;->setTextScaleX(F)V
@@ -650,22 +650,22 @@
 
     double-to-float v4, v4
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_8c
 
     .line 444
     iget v5, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCenterAlpha:F
 
-    goto :goto_3
+    goto :goto_8e
 
-    :cond_6
+    :cond_8c
     iget v5, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mWheelAlpha:F
 
-    :goto_3
+    :goto_8e
     double-to-float v8, v8
 
     mul-float/2addr v8, v5
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_98
 
     const v5, 0x3f4ccccd    # 0.8f
 
@@ -673,19 +673,19 @@
 
     move v9, v5
 
-    goto :goto_4
+    goto :goto_99
 
-    :cond_7
+    :cond_98
     move v9, v8
 
-    :goto_4
-    if-eqz v0, :cond_8
+    :goto_99
+    if-eqz v0, :cond_9f
 
     const v5, 0x3e99999a    # 0.3f
 
     mul-float/2addr v8, v5
 
-    :cond_8
+    :cond_9f
     const/high16 v5, 0x42000000    # 32.0f
 
     mul-float/2addr v5, v10
@@ -757,11 +757,11 @@
 
     const/high16 v17, 0x42480000    # 50.0f
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_dc
 
     add-float v3, v3, v17
 
-    :cond_9
+    :cond_dc
     move/from16 v18, v3
 
     const-string v2, "-"
@@ -771,7 +771,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_f2
 
     const-string v2, "+"
 
@@ -780,31 +780,31 @@
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_ef
 
-    goto :goto_6
+    goto :goto_f2
 
-    :cond_a
-    :goto_5
+    :cond_ef
+    :goto_ef
     move/from16 v19, v1
 
-    goto :goto_7
+    goto :goto_f6
 
-    :cond_b
-    :goto_6
+    :cond_f2
+    :goto_f2
     const/high16 v2, 0x41a00000    # 20.0f
 
     sub-float/2addr v1, v2
 
-    goto :goto_5
+    goto :goto_ef
 
-    :goto_7
-    if-nez v0, :cond_c
+    :goto_f6
+    if-nez v0, :cond_105
 
     .line 474
     iget v0, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPrevMidIndex:I
 
-    if-eq v0, v7, :cond_c
+    if-eq v0, v7, :cond_105
 
     .line 475
     iput v7, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPrevMidIndex:I
@@ -817,7 +817,7 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/haptic/PlayHaptic;->playHaptic(Lopenlight/co/camera/haptic/Immersion;)V
 
     .line 481
-    :cond_c
+    :cond_105
     iget v0, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mStartWheelX:I
 
     int-to-float v0, v0
@@ -862,7 +862,7 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_d
+    if-le v0, v1, :cond_187
 
     .line 488
     aget-object v11, v11, v1
@@ -980,14 +980,14 @@
     invoke-direct/range {v0 .. v5}, Lopenlight/co/camera/view/wheel/FerrisWheel;->drawTextOnCanvas(Ljava/lang/String;FFLandroid/graphics/Paint$Style;I)V
 
     .line 506
-    :cond_d
+    :cond_187
     iget v0, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPrevIndex:I
 
-    if-ne v7, v0, :cond_e
+    if-ne v7, v0, :cond_1b9
 
     iget-object v0, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPreviousPointer:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_1b9
 
     .line 513
     iget-object v0, v6, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCanvas:Landroid/graphics/Canvas;
@@ -1042,12 +1042,12 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    :cond_e
+    :cond_1b9
     return-void
 .end method
 
 .method private drawLabel()V
-    .locals 11
+    .registers 12
 
     .line 378
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -1125,14 +1125,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_4f
 
     .line 387
     iget v1, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCenterX:I
 
     div-int/lit8 v1, v1, 0x4
 
-    :cond_0
+    :cond_4f
     move v8, v1
 
     int-to-float v9, v8
@@ -1245,7 +1245,7 @@
 .end method
 
 .method private drawTextOnCanvas(Ljava/lang/String;FFLandroid/graphics/Paint$Style;I)V
-    .locals 1
+    .registers 7
 
     .line 320
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPaint:Landroid/graphics/Paint;
@@ -1264,7 +1264,7 @@
 
     move-result p4
 
-    if-eqz p4, :cond_0
+    if-eqz p4, :cond_19
 
     .line 323
     iget-object p4, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPaint:Landroid/graphics/Paint;
@@ -1274,7 +1274,7 @@
     invoke-virtual {p4, p5}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
     .line 325
-    :cond_0
+    :cond_19
     iget-object p4, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCanvas:Landroid/graphics/Canvas;
 
     iget-object p0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mPaint:Landroid/graphics/Paint;
@@ -1285,7 +1285,7 @@
 .end method
 
 .method private fillColor(F)I
-    .locals 0
+    .registers 2
 
     const/high16 p0, 0x437f0000    # 255.0f
 
@@ -1304,7 +1304,7 @@
 .end method
 
 .method private getMainText(Ljava/lang/String;)[Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     const-string p0, " "
 
@@ -1317,7 +1317,7 @@
 .end method
 
 .method private getPointerBitmap()V
-    .locals 4
+    .registers 5
 
     .line 272
     invoke-virtual {p0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->getResources()Landroid/content/res/Resources;
@@ -1363,7 +1363,7 @@
 .end method
 
 .method private strokeColor(F)I
-    .locals 0
+    .registers 2
 
     const/high16 p0, 0x437f0000    # 255.0f
 
@@ -1382,7 +1382,7 @@
 .end method
 
 .method private updateAngleOfFirstItem()V
-    .locals 4
+    .registers 5
 
     .line 164
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -1417,7 +1417,7 @@
 .end method
 
 .method private updatePositionOfMidSubject(I)V
-    .locals 6
+    .registers 8
 
     .line 368
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
@@ -1456,7 +1456,7 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 2
+    .registers 4
 
     .line 292
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -1464,11 +1464,11 @@
     .line 293
     iget v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCenterX:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     iget v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCenterY:I
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_44
 
     iget v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCenterAlpha:F
 
@@ -1476,18 +1476,18 @@
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
     iget v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mWheelAlpha:F
 
     cmpl-float v0, v0, v1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_19
 
-    goto :goto_0
+    goto :goto_44
 
     .line 297
-    :cond_0
+    :cond_19
     iput-object p1, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCanvas:Landroid/graphics/Canvas;
 
     .line 298
@@ -1539,13 +1539,13 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_44
+    :goto_44
     return-void
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 285
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -1564,7 +1564,7 @@
 .end method
 
 .method public setDragComplete(FF)V
-    .locals 0
+    .registers 3
 
     .line 213
     iput p1, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mCenterAlpha:F
@@ -1579,7 +1579,7 @@
 
     cmpl-float p1, p1, p2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_16
 
     iget p1, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mWheelAlpha:F
 
@@ -1587,17 +1587,17 @@
 
     cmpl-float p1, p1, p2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_16
 
     .line 216
     invoke-virtual {p0}, Lopenlight/co/camera/view/wheel/FerrisWheel;->invalidate()V
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public updateDragPosition(F)V
-    .locals 3
+    .registers 5
 
     .line 345
     sget-object v0, Lopenlight/co/camera/view/wheel/FerrisWheel;->TAG:Ljava/lang/String;
@@ -1624,22 +1624,22 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_1f
 
     move p1, v0
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_1f
     cmpl-float v0, p1, v2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_24
 
     move p1, v2
 
     .line 351
-    :cond_1
-    :goto_0
+    :cond_24
+    :goto_24
     iget-object v0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mDraggerModel:Lopenlight/co/camera/view/dragger/DraggerModel;
 
     invoke-virtual {v0, p1}, Lopenlight/co/camera/view/dragger/DraggerModel;->updateSubject(F)V
@@ -1651,7 +1651,7 @@
 .end method
 
 .method public updatePreviousIndexValue()V
-    .locals 0
+    .registers 1
 
     .line 359
     iget-object p0, p0, Lopenlight/co/camera/view/wheel/FerrisWheel;->mUpdatePreviousIndex:Ljava/lang/Runnable;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-direct {p0}, Lcom/google/gson/reflect/TypeToken;-><init>()V

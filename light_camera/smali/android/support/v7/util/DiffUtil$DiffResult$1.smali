@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/util/DiffUtil$DiffResult;Landroid/support/v7/widget/RecyclerView$Adapter;)V
-    .locals 0
+    .registers 3
 
     .line 659
     iput-object p1, p0, Landroid/support/v7/util/DiffUtil$DiffResult$1;->this$0:Landroid/support/v7/util/DiffUtil$DiffResult;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onChanged(IILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 677
     iget-object p0, p0, Landroid/support/v7/util/DiffUtil$DiffResult$1;->val$adapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -51,7 +51,7 @@
 .end method
 
 .method public onInserted(II)V
-    .locals 0
+    .registers 3
 
     .line 662
     iget-object p0, p0, Landroid/support/v7/util/DiffUtil$DiffResult$1;->val$adapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -62,7 +62,7 @@
 .end method
 
 .method public onMoved(II)V
-    .locals 0
+    .registers 3
 
     .line 672
     iget-object p0, p0, Landroid/support/v7/util/DiffUtil$DiffResult$1;->val$adapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -73,7 +73,7 @@
 .end method
 
 .method public onRemoved(II)V
-    .locals 0
+    .registers 3
 
     .line 667
     iget-object p0, p0, Landroid/support/v7/util/DiffUtil$DiffResult$1;->val$adapter:Landroid/support/v7/widget/RecyclerView$Adapter;

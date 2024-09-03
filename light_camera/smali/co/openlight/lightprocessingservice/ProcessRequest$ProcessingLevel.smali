@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 763
     new-instance v0, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -113,7 +113,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
-    .locals 1
+    .registers 2
 
     .line 759
     const-class v0, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
@@ -128,7 +128,7 @@
 .end method
 
 .method public static values()[Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
-    .locals 1
+    .registers 1
 
     .line 759
     sget-object v0, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;->$VALUES:[Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public getNumber()I
-    .locals 0
+    .registers 1
 
     .line 777
     iget p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;->mLevel:I

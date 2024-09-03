@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/LinearLayoutManager;)V
-    .locals 0
+    .registers 2
 
     .line 2377
     iput-object p1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
@@ -44,12 +44,12 @@
 
 # virtual methods
 .method assignCoordinateFromPadding()V
-    .locals 1
+    .registers 2
 
     .line 2393
     iget-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
 
@@ -60,9 +60,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
 
     iget-object v0, v0, Landroid/support/v7/widget/LinearLayoutManager;->mOrientationHelper:Landroid/support/v7/widget/OrientationHelper;
@@ -72,19 +72,19 @@
 
     move-result v0
 
-    :goto_0
+    :goto_15
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     return-void
 .end method
 
 .method public assignFromView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 2462
     iget-boolean v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mLayoutFromEnd:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 2463
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
@@ -108,10 +108,10 @@
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    goto :goto_0
+    goto :goto_22
 
     .line 2466
-    :cond_0
+    :cond_18
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
 
     iget-object v0, v0, Landroid/support/v7/widget/LinearLayoutManager;->mOrientationHelper:Landroid/support/v7/widget/OrientationHelper;
@@ -123,7 +123,7 @@
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
     .line 2469
-    :goto_0
+    :goto_22
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
 
     invoke-virtual {v0, p1}, Landroid/support/v7/widget/LinearLayoutManager;->getPosition(Landroid/view/View;)I
@@ -136,7 +136,7 @@
 .end method
 
 .method public assignFromViewAndKeepVisibleRect(Landroid/view/View;)V
-    .locals 5
+    .registers 7
 
     .line 2415
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
@@ -147,7 +147,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     .line 2417
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->assignFromView(Landroid/view/View;)V
@@ -155,7 +155,7 @@
     return-void
 
     .line 2420
-    :cond_0
+    :cond_e
     iget-object v1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
 
     invoke-virtual {v1, p1}, Landroid/support/v7/widget/LinearLayoutManager;->getPosition(Landroid/view/View;)I
@@ -169,7 +169,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_69
 
     .line 2422
     iget-object v1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
@@ -206,7 +206,7 @@
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_b4
 
     .line 2428
     iget-object v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
@@ -251,7 +251,7 @@
 
     sub-int/2addr v3, v0
 
-    if-gez v3, :cond_2
+    if-gez v3, :cond_b4
 
     .line 2437
     iget p1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
@@ -266,10 +266,10 @@
 
     iput p1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    goto :goto_0
+    goto :goto_b4
 
     .line 2441
-    :cond_1
+    :cond_69
     iget-object v1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
 
     iget-object v1, v1, Landroid/support/v7/widget/LinearLayoutManager;->mOrientationHelper:Landroid/support/v7/widget/OrientationHelper;
@@ -292,7 +292,7 @@
     .line 2443
     iput v1, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_b4
 
     .line 2445
     iget-object v4, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->this$0:Landroid/support/v7/widget/LinearLayoutManager;
@@ -347,7 +347,7 @@
 
     sub-int/2addr p1, v1
 
-    if-gez p1, :cond_2
+    if-gez p1, :cond_b4
 
     .line 2455
     iget v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
@@ -362,13 +362,13 @@
 
     iput v0, p0, Landroid/support/v7/widget/LinearLayoutManager$AnchorInfo;->mCoordinate:I
 
-    :cond_2
-    :goto_0
+    :cond_b4
+    :goto_b4
     return-void
 .end method
 
 .method isViewValidAsAnchor(Landroid/view/View;Landroid/support/v7/widget/RecyclerView$State;)Z
-    .locals 0
+    .registers 3
 
     .line 2409
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -382,13 +382,13 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1e
 
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
 
     move-result p1
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_1e
 
     .line 2411
     invoke-virtual {p0}, Landroid/support/v7/widget/RecyclerView$LayoutParams;->getViewLayoutPosition()I
@@ -399,21 +399,21 @@
 
     move-result p1
 
-    if-ge p0, p1, :cond_0
+    if-ge p0, p1, :cond_1e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1f
     return p0
 .end method
 
 .method reset()V
-    .locals 1
+    .registers 2
 
     const/4 v0, -0x1
 
@@ -437,7 +437,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 2400
     new-instance v0, Ljava/lang/StringBuilder;

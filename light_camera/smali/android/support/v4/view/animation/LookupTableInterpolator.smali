@@ -14,7 +14,7 @@
 
 # direct methods
 .method public constructor <init>([F)V
-    .locals 1
+    .registers 3
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,27 +43,27 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 4
+    .registers 6
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v1, p1, v0
 
-    if-ltz v1, :cond_0
+    if-ltz v1, :cond_7
 
     return v0
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
     cmpg-float v1, p1, v0
 
-    if-gtz v1, :cond_1
+    if-gtz v1, :cond_d
 
     return v0
 
     .line 46
-    :cond_1
+    :cond_d
     iget-object v0, p0, Landroid/support/v4/view/animation/LookupTableInterpolator;->mValues:[F
 
     array-length v0, v0

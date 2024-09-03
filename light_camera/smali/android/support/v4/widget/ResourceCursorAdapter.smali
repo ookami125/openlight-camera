@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;)V
-    .locals 0
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;I)V
-    .locals 0
+    .registers 5
 
     .line 99
     invoke-direct {p0, p1, p3, p4}, Landroid/support/v4/widget/CursorAdapter;-><init>(Landroid/content/Context;Landroid/database/Cursor;I)V
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/database/Cursor;Z)V
-    .locals 0
+    .registers 5
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public newDropDownView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 0
+    .registers 4
 
     .line 117
     iget-object p1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -111,7 +111,7 @@
 .end method
 
 .method public newView(Landroid/content/Context;Landroid/database/Cursor;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 0
+    .registers 4
 
     .line 112
     iget-object p1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mInflater:Landroid/view/LayoutInflater;
@@ -128,7 +128,7 @@
 .end method
 
 .method public setDropDownViewResource(I)V
-    .locals 0
+    .registers 2
 
     .line 135
     iput p1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mDropDownLayout:I
@@ -137,7 +137,7 @@
 .end method
 
 .method public setViewResource(I)V
-    .locals 0
+    .registers 2
 
     .line 126
     iput p1, p0, Landroid/support/v4/widget/ResourceCursorAdapter;->mLayout:I

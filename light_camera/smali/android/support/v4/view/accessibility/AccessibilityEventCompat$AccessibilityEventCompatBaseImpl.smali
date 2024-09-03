@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public getAction(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -35,7 +35,7 @@
 .end method
 
 .method public getContentChangeTypes(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public getMovementGranularity(Landroid/view/accessibility/AccessibilityEvent;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -51,19 +51,19 @@
 .end method
 
 .method public setAction(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public setContentChangeTypes(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public setMovementGranularity(Landroid/view/accessibility/AccessibilityEvent;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method

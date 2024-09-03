@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/net/DatagramSocket;Ljava/io/FileDescriptor;)V
-    .locals 0
+    .registers 3
 
     .line 40
     invoke-direct {p0}, Ljava/net/SocketImpl;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected accept(Ljava/net/SocketImpl;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -53,7 +53,7 @@
 .end method
 
 .method protected available()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -69,7 +69,7 @@
 .end method
 
 .method protected bind(Ljava/net/InetAddress;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -85,7 +85,7 @@
 .end method
 
 .method protected close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -101,7 +101,7 @@
 .end method
 
 .method protected connect(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -117,7 +117,7 @@
 .end method
 
 .method protected connect(Ljava/net/InetAddress;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -133,7 +133,7 @@
 .end method
 
 .method protected connect(Ljava/net/SocketAddress;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -149,7 +149,7 @@
 .end method
 
 .method protected create(Z)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -165,7 +165,7 @@
 .end method
 
 .method protected getInputStream()Ljava/io/InputStream;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -181,7 +181,7 @@
 .end method
 
 .method public getOption(I)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -197,7 +197,7 @@
 .end method
 
 .method protected getOutputStream()Ljava/io/OutputStream;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -213,7 +213,7 @@
 .end method
 
 .method protected listen(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -229,7 +229,7 @@
 .end method
 
 .method protected sendUrgentData(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -245,7 +245,7 @@
 .end method
 
 .method public setOption(ILjava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;

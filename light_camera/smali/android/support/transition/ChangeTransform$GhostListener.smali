@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;Landroid/support/transition/GhostViewImpl;)V
-    .locals 0
+    .registers 3
 
     .line 514
     invoke-direct {p0}, Landroid/support/transition/TransitionListenerAdapter;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroid/support/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -73,7 +73,7 @@
 .end method
 
 .method public onTransitionPause(Landroid/support/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -90,7 +90,7 @@
 .end method
 
 .method public onTransitionResume(Landroid/support/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

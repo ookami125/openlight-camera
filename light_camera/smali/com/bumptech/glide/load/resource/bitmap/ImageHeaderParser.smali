@@ -49,14 +49,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/16 v0, 0xd
 
     .line 62
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_18
 
     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->BYTES_PER_FORMAT:[I
 
@@ -65,7 +65,7 @@
     .line 67
     new-array v0, v0, [B
 
-    :try_start_0
+    :try_start_c
     const-string v1, "Exif\u0000\u0000"
 
     const-string v2, "UTF-8"
@@ -74,18 +74,18 @@
     invoke-virtual {v1, v2}, Ljava/lang/String;->getBytes(Ljava/lang/String;)[B
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_c .. :try_end_14} :catch_15
 
     move-object v0, v1
 
     .line 73
-    :catch_0
+    :catch_15
     sput-object v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->JPEG_EXIF_SEGMENT_PREAMBLE_BYTES:[B
 
     return-void
 
-    :array_0
+    :array_18
     .array-data 4
         0x0
         0x1
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 1
+    .registers 3
 
     .line 76
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -120,7 +120,7 @@
 .end method
 
 .method private static calcTagOffset(II)I
-    .locals 0
+    .registers 2
 
     add-int/lit8 p0, p0, 0x2
 
@@ -132,7 +132,7 @@
 .end method
 
 .method private getExifSegment()[B
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -153,7 +153,7 @@
 
     const/4 v3, 0x0
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_2b
 
     const-string p0, "ImageHeaderParser"
 
@@ -162,7 +162,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2a
 
     const-string p0, "ImageHeaderParser"
 
@@ -183,11 +183,11 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
+    :cond_2a
     return-object v3
 
     .line 159
-    :cond_2
+    :cond_2b
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->streamReader:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$StreamReader;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$StreamReader;->getUInt8()S
@@ -196,14 +196,14 @@
 
     const/16 v1, 0xda
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_36
 
     return-object v3
 
-    :cond_3
+    :cond_36
     const/16 v1, 0xd9
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_4a
 
     const-string p0, "ImageHeaderParser"
 
@@ -212,7 +212,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_49
 
     const-string p0, "ImageHeaderParser"
 
@@ -221,11 +221,11 @@
     .line 165
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_49
     return-object v3
 
     .line 171
-    :cond_5
+    :cond_4a
     iget-object v1, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->streamReader:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$StreamReader;
 
     invoke-virtual {v1}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$StreamReader;->getUInt16()I
@@ -236,7 +236,7 @@
 
     const/16 v4, 0xe1
 
-    if-eq v0, v4, :cond_7
+    if-eq v0, v4, :cond_90
 
     .line 174
     iget-object v4, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->streamReader:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$StreamReader;
@@ -258,7 +258,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_6
+    if-eqz p0, :cond_8f
 
     const-string p0, "ImageHeaderParser"
 
@@ -291,11 +291,11 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_8f
     return-object v3
 
     .line 185
-    :cond_7
+    :cond_90
     new-array v4, v1, [B
 
     .line 186
@@ -305,7 +305,7 @@
 
     move-result p0
 
-    if-eq p0, v1, :cond_9
+    if-eq p0, v1, :cond_c9
 
     const-string v4, "ImageHeaderParser"
 
@@ -314,7 +314,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_c8
 
     const-string v2, "ImageHeaderParser"
 
@@ -347,47 +347,47 @@
 
     invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
+    :cond_c8
     return-object v3
 
-    :cond_9
+    :cond_c9
     return-object v4
 .end method
 
 .method private static handles(I)Z
-    .locals 2
+    .registers 3
 
     const v0, 0xffd8
 
     and-int v1, p0, v0
 
-    if-eq v1, v0, :cond_1
+    if-eq v1, v0, :cond_12
 
     const/16 v0, 0x4d4d
 
-    if-eq p0, v0, :cond_1
+    if-eq p0, v0, :cond_12
 
     const/16 v0, 0x4949
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_10
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_10
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_13
     return p0
 .end method
 
 .method private static parseExifSegment(Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;)I
-    .locals 11
+    .registers 12
 
     const-string v0, "Exif\u0000\u0000"
 
@@ -405,24 +405,24 @@
 
     const/16 v3, 0x4d4d
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_12
 
     .line 208
     sget-object v1, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_12
     const/16 v3, 0x4949
 
-    if-ne v1, v3, :cond_1
+    if-ne v1, v3, :cond_19
 
     .line 210
     sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_1
+    :cond_19
     const-string v3, "ImageHeaderParser"
 
     .line 212
@@ -430,7 +430,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_37
 
     const-string v3, "ImageHeaderParser"
 
@@ -452,11 +452,11 @@
     invoke-static {v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 215
-    :cond_2
+    :cond_37
     sget-object v1, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
     .line 218
-    :goto_0
+    :goto_39
     invoke-virtual {p0, v1}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->order(Ljava/nio/ByteOrder;)V
 
     add-int/lit8 v1, v0, 0x4
@@ -475,8 +475,8 @@
 
     const/4 v3, 0x0
 
-    :goto_1
-    if-ge v3, v0, :cond_e
+    :goto_48
+    if-ge v3, v0, :cond_160
 
     .line 225
     invoke-static {v1, v3}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->calcTagOffset(II)I
@@ -490,11 +490,11 @@
 
     const/16 v6, 0x112
 
-    if-eq v5, v6, :cond_3
+    if-eq v5, v6, :cond_58
 
-    goto/16 :goto_5
+    goto/16 :goto_15c
 
-    :cond_3
+    :cond_58
     add-int/lit8 v6, v4, 0x2
 
     .line 234
@@ -504,15 +504,15 @@
 
     const/4 v7, 0x1
 
-    if-lt v6, v7, :cond_c
+    if-lt v6, v7, :cond_13e
 
     const/16 v7, 0xc
 
-    if-le v6, v7, :cond_4
+    if-le v6, v7, :cond_67
 
-    goto/16 :goto_4
+    goto/16 :goto_13e
 
-    :cond_4
+    :cond_67
     add-int/lit8 v7, v4, 0x4
 
     .line 244
@@ -520,7 +520,7 @@
 
     move-result v7
 
-    if-gez v7, :cond_5
+    if-gez v7, :cond_80
 
     const-string v4, "ImageHeaderParser"
 
@@ -529,7 +529,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_15c
 
     const-string v4, "ImageHeaderParser"
 
@@ -538,9 +538,9 @@
     .line 248
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_5
+    goto/16 :goto_15c
 
-    :cond_5
+    :cond_80
     const-string v8, "ImageHeaderParser"
 
     .line 253
@@ -548,7 +548,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_b6
 
     const-string v8, "ImageHeaderParser"
 
@@ -588,7 +588,7 @@
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 258
-    :cond_6
+    :cond_b6
     sget-object v8, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->BYTES_PER_FORMAT:[I
 
     aget v8, v8, v6
@@ -597,7 +597,7 @@
 
     const/4 v8, 0x4
 
-    if-le v7, v8, :cond_7
+    if-le v7, v8, :cond_de
 
     const-string v4, "ImageHeaderParser"
 
@@ -606,7 +606,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_15c
 
     const-string v4, "ImageHeaderParser"
 
@@ -627,24 +627,24 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_5
+    goto/16 :goto_15c
 
-    :cond_7
+    :cond_de
     add-int/lit8 v4, v4, 0x8
 
-    if-ltz v4, :cond_b
+    if-ltz v4, :cond_117
 
     .line 269
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->length()I
 
     move-result v6
 
-    if-le v4, v6, :cond_8
+    if-le v4, v6, :cond_e9
 
-    goto :goto_3
+    goto :goto_117
 
-    :cond_8
-    if-ltz v7, :cond_a
+    :cond_e9
+    if-ltz v7, :cond_f8
 
     add-int/2addr v7, v4
 
@@ -653,20 +653,20 @@
 
     move-result v6
 
-    if-le v7, v6, :cond_9
+    if-le v7, v6, :cond_f3
 
-    goto :goto_2
+    goto :goto_f8
 
     .line 284
-    :cond_9
+    :cond_f3
     invoke-virtual {p0, v4}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;->getInt16(I)S
 
     move-result p0
 
     return p0
 
-    :cond_a
-    :goto_2
+    :cond_f8
+    :goto_f8
     const-string v4, "ImageHeaderParser"
 
     .line 277
@@ -674,7 +674,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_15c
 
     const-string v4, "ImageHeaderParser"
 
@@ -695,10 +695,10 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_15c
 
-    :cond_b
-    :goto_3
+    :cond_117
+    :goto_117
     const-string v6, "ImageHeaderParser"
 
     .line 270
@@ -706,7 +706,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_d
+    if-eqz v6, :cond_15c
 
     const-string v6, "ImageHeaderParser"
 
@@ -733,10 +733,10 @@
 
     invoke-static {v6, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_5
+    goto :goto_15c
 
-    :cond_c
-    :goto_4
+    :cond_13e
+    :goto_13e
     const-string v4, "ImageHeaderParser"
 
     .line 238
@@ -744,7 +744,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_15c
 
     const-string v4, "ImageHeaderParser"
 
@@ -765,13 +765,13 @@
 
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_d
-    :goto_5
+    :cond_15c
+    :goto_15c
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_48
 
-    :cond_e
+    :cond_160
     const/4 p0, -0x1
 
     return p0
@@ -780,7 +780,7 @@
 
 # virtual methods
 .method public getOrientation()I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -801,19 +801,19 @@
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     return v1
 
     .line 125
-    :cond_0
+    :cond_e
     invoke-direct {p0}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->getExifSegment()[B
 
     move-result-object p0
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1d
 
     .line 126
     array-length v2, p0
@@ -822,27 +822,27 @@
 
     array-length v3, v3
 
-    if-le v2, v3, :cond_1
+    if-le v2, v3, :cond_1d
 
     const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_1
+    :cond_1d
     move v2, v0
 
-    :goto_0
-    if-eqz v2, :cond_3
+    :goto_1e
+    if-eqz v2, :cond_32
 
     move v3, v0
 
     .line 130
-    :goto_1
+    :goto_21
     sget-object v4, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->JPEG_EXIF_SEGMENT_PREAMBLE_BYTES:[B
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_3
+    if-ge v3, v4, :cond_32
 
     .line 131
     aget-byte v4, p0, v3
@@ -851,20 +851,20 @@
 
     aget-byte v5, v5, v3
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_2f
 
-    goto :goto_2
+    goto :goto_33
 
-    :cond_2
+    :cond_2f
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_3
+    :cond_32
     move v0, v2
 
-    :goto_2
-    if-eqz v0, :cond_4
+    :goto_33
+    if-eqz v0, :cond_3f
 
     .line 139
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$RandomAccessReader;
@@ -877,12 +877,12 @@
 
     return p0
 
-    :cond_4
+    :cond_3f
     return v1
 .end method
 
 .method public getType()Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -898,14 +898,14 @@
 
     const v1, 0xffd8
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     .line 91
     sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->JPEG:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
 
     return-object p0
 
-    :cond_0
+    :cond_e
     shl-int/lit8 v0, v0, 0x10
 
     const/high16 v1, -0x10000
@@ -927,7 +927,7 @@
 
     const v1, -0x76afb1b9
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_39
 
     .line 98
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->streamReader:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$StreamReader;
@@ -945,25 +945,25 @@
 
     const/4 v0, 0x3
 
-    if-lt p0, v0, :cond_1
+    if-lt p0, v0, :cond_36
 
     .line 101
     sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->PNG_A:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
 
-    goto :goto_0
+    goto :goto_38
 
-    :cond_1
+    :cond_36
     sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->PNG:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
 
-    :goto_0
+    :goto_38
     return-object p0
 
-    :cond_2
+    :cond_39
     shr-int/lit8 p0, v0, 0x8
 
     const v0, 0x474946
 
-    if-ne p0, v0, :cond_3
+    if-ne p0, v0, :cond_43
 
     .line 106
     sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->GIF:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
@@ -971,14 +971,14 @@
     return-object p0
 
     .line 109
-    :cond_3
+    :cond_43
     sget-object p0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->UNKNOWN:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
 
     return-object p0
 .end method
 
 .method public hasAlpha()Z
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 36
     new-instance v0, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType$1;
@@ -87,7 +87,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;F)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -114,7 +114,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;FLopenlight/co/camera/listener/SignificantMotionDetector$1;)V
-    .locals 0
+    .registers 6
 
     .line 34
     invoke-direct {p0, p1, p2, p3, p4}, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;-><init>(Ljava/lang/String;ILjava/lang/String;F)V
@@ -123,7 +123,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
-    .locals 1
+    .registers 2
 
     .line 34
     const-class v0, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
@@ -138,7 +138,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
-    .locals 1
+    .registers 1
 
     .line 34
     sget-object v0, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;->$VALUES:[Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;
@@ -155,7 +155,7 @@
 
 # virtual methods
 .method public getThreshold()F
-    .locals 0
+    .registers 1
 
     .line 65
     iget p0, p0, Lopenlight/co/camera/listener/SignificantMotionDetector$SensorType;->mThreshold:F

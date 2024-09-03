@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 5
     invoke-direct {p0}, Ljava/util/TreeMap;-><init>()V
@@ -30,7 +30,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 8
     new-instance v0, Ljava/lang/StringBuilder;
@@ -51,12 +51,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_12
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3c
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -89,15 +89,15 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_12
 
     .line 13
-    :cond_0
+    :cond_3c
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/PrettyPrintTreeMap;->isEmpty()Z
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_51
 
     .line 14
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
@@ -114,7 +114,7 @@
 
     invoke-virtual {v0, p0, v1, v2}, Ljava/lang/StringBuilder;->replace(IILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_51
     const-string p0, " )"
 
     .line 16

@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(ILcom/immersion/WaveformEffectDefinition;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x3
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getBuffer()[I
-    .locals 4
+    .registers 5
 
     const/16 v0, 0x8
 
@@ -113,7 +113,7 @@
 .end method
 
 .method public getDefinition()Lcom/immersion/WaveformEffectDefinition;
-    .locals 0
+    .registers 1
 
     .line 54
     iget-object p0, p0, Lcom/immersion/IVTWaveformElement;->definition:Lcom/immersion/WaveformEffectDefinition;
@@ -122,7 +122,7 @@
 .end method
 
 .method public setDefinition(Lcom/immersion/WaveformEffectDefinition;)V
-    .locals 0
+    .registers 2
 
     .line 44
     iput-object p1, p0, Lcom/immersion/IVTWaveformElement;->definition:Lcom/immersion/WaveformEffectDefinition;

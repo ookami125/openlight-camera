@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/lib/content/Prefs;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lopenlight/co/lib/utils/-$$Lambda$Utils$0AADH8bJ5MWxZydd9DRTGMCJbqU;->f$0:Lopenlight/co/lib/content/Prefs;
 

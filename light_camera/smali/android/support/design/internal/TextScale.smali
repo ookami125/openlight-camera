@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Landroid/support/transition/Transition;-><init>()V
@@ -30,14 +30,14 @@
 .end method
 
 .method private captureValues(Landroid/support/transition/TransitionValues;)V
-    .locals 1
+    .registers 3
 
     .line 49
     iget-object p0, p1, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
 
     instance-of p0, p0, Landroid/widget/TextView;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_19
 
     .line 50
     iget-object p0, p1, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
@@ -59,14 +59,14 @@
 
     invoke-interface {p1, v0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 
 # virtual methods
 .method public captureEndValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
 
     .line 45
     invoke-direct {p0, p1}, Landroid/support/design/internal/TextScale;->captureValues(Landroid/support/transition/TransitionValues;)V
@@ -75,7 +75,7 @@
 .end method
 
 .method public captureStartValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
 
     .line 40
     invoke-direct {p0, p1}, Landroid/support/design/internal/TextScale;->captureValues(Landroid/support/transition/TransitionValues;)V
@@ -84,31 +84,31 @@
 .end method
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 3
+    .registers 7
 
     const/4 p1, 0x0
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_61
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_61
 
     .line 58
     iget-object v0, p2, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
 
     instance-of v0, v0, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_61
 
     iget-object v0, p3, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
 
     instance-of v0, v0, Landroid/widget/TextView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
-    goto :goto_1
+    goto :goto_61
 
     .line 62
-    :cond_0
+    :cond_12
     iget-object v0, p3, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
 
     check-cast v0, Landroid/widget/TextView;
@@ -128,7 +128,7 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_31
 
     const-string v1, "android:textscale:scale"
 
@@ -142,12 +142,12 @@
 
     move-result p2
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     move p2, v2
 
-    :goto_0
+    :goto_32
     const-string v1, "android:textscale:scale"
 
     .line 67
@@ -155,7 +155,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_46
 
     const-string v1, "android:textscale:scale"
 
@@ -169,14 +169,14 @@
 
     move-result v2
 
-    :cond_2
+    :cond_46
     cmpl-float p3, p2, v2
 
-    if-nez p3, :cond_3
+    if-nez p3, :cond_4b
 
     return-object p1
 
-    :cond_3
+    :cond_4b
     const/4 p1, 0x2
 
     .line 73
@@ -203,7 +203,7 @@
 
     return-object p1
 
-    :cond_4
-    :goto_1
+    :cond_61
+    :goto_61
     return-object p1
 .end method

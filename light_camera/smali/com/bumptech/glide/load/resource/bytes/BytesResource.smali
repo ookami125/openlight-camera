@@ -22,12 +22,12 @@
 
 # direct methods
 .method public constructor <init>([B)V
-    .locals 0
+    .registers 2
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 15
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/bytes/BytesResource;->bytes:[B
@@ -35,7 +35,7 @@
     return-void
 
     .line 13
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Bytes must not be null"
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/bytes/BytesResource;->get()[B
@@ -59,7 +59,7 @@
 .end method
 
 .method public get()[B
-    .locals 0
+    .registers 1
 
     .line 20
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bytes/BytesResource;->bytes:[B
@@ -68,7 +68,7 @@
 .end method
 
 .method public getSize()I
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bytes/BytesResource;->bytes:[B
@@ -79,7 +79,7 @@
 .end method
 
 .method public recycle()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method

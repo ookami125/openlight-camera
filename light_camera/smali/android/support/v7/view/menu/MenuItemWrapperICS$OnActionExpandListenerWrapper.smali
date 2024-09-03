@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnActionExpandListener;)V
-    .locals 0
+    .registers 3
 
     .line 405
     iput-object p1, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->this$0:Landroid/support/v7/view/menu/MenuItemWrapperICS;
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
 
     .line 416
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->mWrappedObject:Ljava/lang/Object;
@@ -67,7 +67,7 @@
 .end method
 
 .method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
-    .locals 1
+    .registers 3
 
     .line 411
     iget-object v0, p0, Landroid/support/v7/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->mWrappedObject:Ljava/lang/Object;

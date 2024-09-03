@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/lib/utils/SystemUiHelper;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lopenlight/co/lib/utils/-$$Lambda$SystemUiHelper$9YGHZ_E6NkhiP_XOD34ENT-PesA;->f$0:Lopenlight/co/lib/utils/SystemUiHelper;
 

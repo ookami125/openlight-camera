@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 0
+    .registers 2
 
     .line 40
     invoke-direct {p0, p1}, Lorg/apache/commons/io/output/ProxyOutputStream;-><init>(Ljava/io/OutputStream;)V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     .line 50
     new-instance v0, Lorg/apache/commons/io/output/ClosedOutputStream;

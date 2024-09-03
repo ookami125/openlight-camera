@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
-    .locals 0
+    .registers 4
 
     .line 74
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/view/primarycontrol/BaseControl;-><init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;I)V
-    .locals 0
+    .registers 2
 
     .line 39
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->updateListRotation(I)V
@@ -68,7 +68,7 @@
 .end method
 
 .method private animateAndRotateObject(Landroid/animation/ObjectAnimator;J)V
-    .locals 0
+    .registers 4
 
     .line 345
     invoke-virtual {p1, p2, p3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
@@ -87,7 +87,7 @@
 .end method
 
 .method private getGridOptions()[Lopenlight/co/camera/models/AncillaryModel;
-    .locals 10
+    .registers 11
 
     .line 375
     invoke-static {}, Lopenlight/co/camera/enums/GridMode;->values()[Lopenlight/co/camera/enums/GridMode;
@@ -118,8 +118,8 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_16
+    if-ge v3, v2, :cond_43
 
     aget-object v5, v1, v3
 
@@ -167,14 +167,14 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_43
     return-object v0
 .end method
 
 .method private hideChoiceHintView()V
-    .locals 2
+    .registers 3
 
     .line 392
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mChoiceHintView:Landroid/widget/TextView;
@@ -197,7 +197,7 @@
 .end method
 
 .method private updateListRotation(I)V
-    .locals 4
+    .registers 6
 
     .line 361
     new-instance v0, Ljava/util/ArrayList;
@@ -213,8 +213,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_c
+    if-ge v2, v1, :cond_1a
 
     .line 364
     iget-object v3, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mListLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
@@ -227,9 +227,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_1a
     const/16 p0, 0xa
 
     .line 366
@@ -241,7 +241,7 @@
 
 # virtual methods
 .method protected getCaf()Lopenlight/co/camera/models/AncillaryModel;
-    .locals 2
+    .registers 3
 
     .line 210
     invoke-virtual {p0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->getCafPrefsKeyByMode()Ljava/lang/String;
@@ -276,7 +276,7 @@
 .end method
 
 .method getCafOptions()[Lopenlight/co/camera/models/AncillaryModel;
-    .locals 10
+    .registers 11
 
     .line 256
     invoke-static {}, Lopenlight/co/camera/enums/CafMode;->values()[Lopenlight/co/camera/enums/CafMode;
@@ -307,8 +307,8 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_16
+    if-ge v3, v2, :cond_43
 
     aget-object v5, v1, v3
 
@@ -356,14 +356,14 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_43
     return-object v0
 .end method
 
 .method getCafPrefsKeyByMode()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 334
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -377,30 +377,30 @@
     .line 335
     sget-object v0, Lopenlight/co/camera/CameraMode;->VIDEO:Lopenlight/co/camera/CameraMode;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_f
 
     const-string p0, "cam_video_mode_caf"
 
     return-object p0
 
     .line 337
-    :cond_0
+    :cond_f
     sget-object v0, Lopenlight/co/camera/CameraMode;->MANUAL:Lopenlight/co/camera/CameraMode;
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_16
 
     const-string p0, "cam_manual_mode_caf"
 
     return-object p0
 
-    :cond_1
+    :cond_16
     const-string p0, "cam_auto_mode_caf"
 
     return-object p0
 .end method
 
 .method protected getGrid()Lopenlight/co/camera/models/AncillaryModel;
-    .locals 2
+    .registers 3
 
     .line 191
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -438,7 +438,7 @@
 .end method
 
 .method getSecondLevelTitleResId()I
-    .locals 2
+    .registers 3
 
     .line 295
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mSelectedSettingKey:Ljava/lang/String;
@@ -449,120 +449,120 @@
 
     const/4 v1, -0x1
 
-    sparse-switch v0, :sswitch_data_0
+    sparse-switch v0, :sswitch_data_4e
 
-    goto :goto_0
+    goto :goto_3d
 
-    :sswitch_0
+    :sswitch_b
     const-string v0, "cam_video_mode_caf"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3d
 
     const/4 p0, 0x1
 
-    goto :goto_1
+    goto :goto_3e
 
-    :sswitch_1
+    :sswitch_15
     const-string v0, "cam_manual_mode_caf"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3d
 
     const/4 p0, 0x2
 
-    goto :goto_1
+    goto :goto_3e
 
-    :sswitch_2
+    :sswitch_1f
     const-string v0, "cam_auto_mode_caf"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3d
 
     const/4 p0, 0x3
 
-    goto :goto_1
+    goto :goto_3e
 
-    :sswitch_3
+    :sswitch_29
     const-string v0, "quality_profile"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3d
 
     const/4 p0, 0x4
 
-    goto :goto_1
+    goto :goto_3e
 
-    :sswitch_4
+    :sswitch_33
     const-string v0, "grid_setting"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3d
 
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_0
-    :goto_0
+    :cond_3d
+    :goto_3d
     move p0, v1
 
-    :goto_1
-    packed-switch p0, :pswitch_data_0
+    :goto_3e
+    packed-switch p0, :pswitch_data_64
 
     return v1
 
-    :pswitch_0
+    :pswitch_42
     const p0, 0x7f0e0133
 
     return p0
 
-    :pswitch_1
+    :pswitch_46
     const p0, 0x7f0e003e
 
     return p0
 
-    :pswitch_2
+    :pswitch_4a
     const p0, 0x7f0e0088
 
     return p0
 
-    :sswitch_data_0
+    :sswitch_data_4e
     .sparse-switch
-        -0x79e565a9 -> :sswitch_4
-        -0x2ba67d97 -> :sswitch_3
-        -0x1a875cb4 -> :sswitch_2
-        0x43af5f15 -> :sswitch_1
-        0x7438cce0 -> :sswitch_0
+        -0x79e565a9 -> :sswitch_33
+        -0x2ba67d97 -> :sswitch_29
+        -0x1a875cb4 -> :sswitch_1f
+        0x43af5f15 -> :sswitch_15
+        0x7438cce0 -> :sswitch_b
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_64
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4a
+        :pswitch_46
+        :pswitch_46
+        :pswitch_46
+        :pswitch_42
     .end packed-switch
 .end method
 
 .method protected getSettings()Lopenlight/co/camera/models/AncillaryModel;
-    .locals 2
+    .registers 3
 
     .line 201
     new-instance p0, Lopenlight/co/camera/models/AncillaryModel$Builder;
@@ -582,7 +582,7 @@
 .end method
 
 .method initView()V
-    .locals 4
+    .registers 5
 
     .line 220
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mBaseControlView:Landroid/view/View;
@@ -696,7 +696,7 @@
 .end method
 
 .method public isFromFirstLevel()Z
-    .locals 0
+    .registers 1
 
     .line 112
     iget-boolean p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mFromFirstLevel:Z
@@ -705,7 +705,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 6
+    .registers 8
 
     .line 118
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mChoiceHintView:Landroid/widget/TextView;
@@ -723,20 +723,20 @@
 
     const/4 v3, 0x0
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v2, :cond_43
 
     const v2, 0x7f09004b
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v2, :cond_1d
 
     .line 173
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-interface {p0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_137
 
-    :cond_0
+    :cond_1d
     const/4 v0, 0x0
 
     .line 163
@@ -760,7 +760,7 @@
     .line 167
     iget-boolean v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mFromFirstLevel:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 168
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
@@ -772,22 +772,22 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->updateListItems([Lopenlight/co/camera/models/AncillaryModel;)V
 
     .line 170
-    :cond_1
+    :cond_3c
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mOnClickListener:Landroid/view/View$OnClickListener;
 
     invoke-interface {p0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_137
 
     .line 122
-    :cond_2
+    :cond_43
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_137
 
     .line 124
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getKey()Ljava/lang/String;
@@ -801,149 +801,149 @@
 
     move-result v5
 
-    sparse-switch v5, :sswitch_data_0
+    sparse-switch v5, :sswitch_data_138
 
-    goto/16 :goto_0
+    goto/16 :goto_bd
 
-    :sswitch_0
+    :sswitch_59
     const-string v1, "cam_video_mode_caf"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_1
+    :sswitch_63
     const-string v1, "cam_manual_mode_caf"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x2
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_2
+    :sswitch_6d
     const-string v1, "camera_settings"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x4
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_3
+    :sswitch_77
     const-string v1, "grid_off"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x7
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_4
+    :sswitch_81
     const-string v1, "golden_ratio"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/16 v1, 0x9
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_5
+    :sswitch_8c
     const-string v3, "3x3"
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_bd
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_6
+    :sswitch_95
     const-string v1, "cam_auto_mode_caf"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x3
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_7
+    :sswitch_9f
     const-string v1, "cam_caf_mode_afs"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x5
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_8
+    :sswitch_a9
     const-string v1, "cam_caf_mode_afd"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     const/4 v1, 0x6
 
-    goto :goto_1
+    goto :goto_be
 
-    :sswitch_9
+    :sswitch_b3
     const-string v1, "grid_setting"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     move v1, v3
 
-    goto :goto_1
+    goto :goto_be
 
-    :cond_3
-    :goto_0
+    :cond_bd
+    :goto_bd
     move v1, v4
 
-    :goto_1
-    packed-switch v1, :pswitch_data_0
+    :goto_be
+    packed-switch v1, :pswitch_data_162
 
-    goto/16 :goto_2
+    goto/16 :goto_137
 
     .line 154
-    :pswitch_0
+    :pswitch_c3
     iget-object v1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getItemPosition()I
@@ -964,10 +964,10 @@
 
     invoke-interface {p0, p1}, Landroid/view/View$OnClickListener;->onClick(Landroid/view/View;)V
 
-    goto :goto_2
+    goto :goto_137
 
     .line 146
-    :pswitch_1
+    :pswitch_d9
     iget-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getItemPosition()I
@@ -995,10 +995,10 @@
     .line 149
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->showAndAnimateMessageView(I)V
 
-    goto :goto_2
+    goto :goto_137
 
     .line 140
-    :pswitch_2
+    :pswitch_f7
     iget-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getItemPosition()I
@@ -1026,10 +1026,10 @@
     .line 143
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->showAndAnimateMessageView(I)V
 
-    goto :goto_2
+    goto :goto_137
 
     .line 137
-    :pswitch_3
+    :pswitch_115
     iget-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mContext:Landroid/content/Context;
 
     new-instance v0, Landroid/content/Intent;
@@ -1042,10 +1042,10 @@
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
-    goto :goto_2
+    goto :goto_137
 
     .line 133
-    :pswitch_4
+    :pswitch_124
     iput-object v2, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mSelectedSettingKey:Ljava/lang/String;
 
     .line 134
@@ -1055,10 +1055,10 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->updateListAdapter([Lopenlight/co/camera/models/AncillaryModel;)V
 
-    goto :goto_2
+    goto :goto_137
 
     .line 127
-    :pswitch_5
+    :pswitch_12e
     iput-object v2, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mSelectedSettingKey:Ljava/lang/String;
 
     .line 128
@@ -1068,41 +1068,41 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->updateListAdapter([Lopenlight/co/camera/models/AncillaryModel;)V
 
-    :cond_4
-    :goto_2
+    :cond_137
+    :goto_137
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_138
     .sparse-switch
-        -0x79e565a9 -> :sswitch_9
-        -0x704e62b6 -> :sswitch_8
-        -0x704e62a7 -> :sswitch_7
-        -0x1a875cb4 -> :sswitch_6
-        0xce2e -> :sswitch_5
-        0xaefd55 -> :sswitch_4
-        0x12fa54f6 -> :sswitch_3
-        0x2456e3fd -> :sswitch_2
-        0x43af5f15 -> :sswitch_1
-        0x7438cce0 -> :sswitch_0
+        -0x79e565a9 -> :sswitch_b3
+        -0x704e62b6 -> :sswitch_a9
+        -0x704e62a7 -> :sswitch_9f
+        -0x1a875cb4 -> :sswitch_95
+        0xce2e -> :sswitch_8c
+        0xaefd55 -> :sswitch_81
+        0x12fa54f6 -> :sswitch_77
+        0x2456e3fd -> :sswitch_6d
+        0x43af5f15 -> :sswitch_63
+        0x7438cce0 -> :sswitch_59
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_162
     .packed-switch 0x0
-        :pswitch_5
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_12e
+        :pswitch_124
+        :pswitch_124
+        :pswitch_124
+        :pswitch_115
+        :pswitch_f7
+        :pswitch_d9
+        :pswitch_c3
+        :pswitch_c3
+        :pswitch_c3
     .end packed-switch
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 3
+    .registers 5
 
     .line 79
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -1126,26 +1126,26 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     sget-object v0, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_1e
 
     sget-object v0, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_21
 
     .line 87
-    :cond_0
+    :cond_1e
     invoke-direct {p0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->hideChoiceHintView()V
 
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method public resetItems()V
-    .locals 1
+    .registers 2
 
     .line 182
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
@@ -1160,7 +1160,7 @@
 .end method
 
 .method setSecondLevelTitle()V
-    .locals 2
+    .registers 3
 
     .line 285
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mTitleView:Landroid/widget/TextView;
@@ -1182,7 +1182,7 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 7
+    .registers 9
 
     .line 97
     invoke-super {p0, p1}, Lopenlight/co/camera/view/primarycontrol/BaseControl;->setVisibility(Z)V
@@ -1200,30 +1200,30 @@
 
     const v4, 0x451c4000    # 2500.0f
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     move v5, v4
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     move v5, v3
 
-    :goto_0
+    :goto_13
     const/4 v6, 0x0
 
     aput v5, v2, v6
 
     const/4 v5, 0x1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1a
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_1
+    :cond_1a
     move v3, v4
 
-    :goto_1
+    :goto_1b
     aput v3, v2, v5
 
     invoke-static {v0, v1, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
@@ -1235,7 +1235,7 @@
     .line 100
     invoke-direct {p0, v0, v1, v2}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->animateAndRotateObject(Landroid/animation/ObjectAnimator;J)V
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_2f
 
     .line 103
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mChoiceHintView:Landroid/widget/TextView;
@@ -1244,12 +1244,12 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_2
+    :cond_2f
     return-void
 .end method
 
 .method showAndAnimateMessageView(I)V
-    .locals 2
+    .registers 4
 
     .line 314
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -1263,14 +1263,14 @@
     .line 316
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->LANDSCAPE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->LANDSCAPE_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_24
 
     .line 319
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mChoiceHintView:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(I)V
@@ -1292,12 +1292,12 @@
     .line 324
     invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->start()V
 
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method updateListAdapter([Lopenlight/co/camera/models/AncillaryModel;)V
-    .locals 1
+    .registers 3
 
     .line 275
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;

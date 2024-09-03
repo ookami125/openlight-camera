@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 239
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public add(Landroid/graphics/Bitmap;)V
-    .locals 2
+    .registers 4
 
     .line 244
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$ThrowingBitmapTracker;->bitmaps:Ljava/util/Set;
@@ -62,7 +62,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     .line 248
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$ThrowingBitmapTracker;->bitmaps:Ljava/util/Set;
@@ -72,7 +72,7 @@
     return-void
 
     .line 245
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -119,7 +119,7 @@
 .end method
 
 .method public remove(Landroid/graphics/Bitmap;)V
-    .locals 1
+    .registers 3
 
     .line 253
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$ThrowingBitmapTracker;->bitmaps:Ljava/util/Set;
@@ -128,7 +128,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 256
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/bitmap_recycle/LruBitmapPool$ThrowingBitmapTracker;->bitmaps:Ljava/util/Set;
@@ -138,7 +138,7 @@
     return-void
 
     .line 254
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Cannot remove bitmap not in tracker"

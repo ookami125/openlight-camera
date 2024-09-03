@@ -45,7 +45,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 155
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method static synthetic access$100(Ljava/lang/String;)I
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-static {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->getMeteringIcon(Ljava/lang/String;)I
@@ -78,7 +78,7 @@
 .end method
 
 .method static synthetic access$200(Ljava/lang/String;)I
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-static {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->getBurstIcon(Ljava/lang/String;)I
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$300(Ljava/lang/String;)I
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-static {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->getCafIcon(Ljava/lang/String;)I
@@ -100,7 +100,7 @@
 .end method
 
 .method static synthetic access$400(Ljava/lang/String;)I
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-static {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->getTimerIcon(Ljava/lang/String;)I
@@ -111,7 +111,7 @@
 .end method
 
 .method private static getBurstIcon(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
 
     .line 229
     invoke-static {p0}, Lopenlight/co/camera/enums/BurstMode;->getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/BurstMode;
@@ -121,23 +121,23 @@
     .line 230
     sget-object v0, Lopenlight/co/camera/enums/BurstMode;->OFF:Lopenlight/co/camera/enums/BurstMode;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_a
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lopenlight/co/camera/enums/BurstMode;->getFirstLevelResId()I
 
     move-result p0
 
-    :goto_0
+    :goto_e
     return p0
 .end method
 
 .method private static getCafIcon(Ljava/lang/String;)I
-    .locals 0
+    .registers 1
 
     .line 239
     invoke-static {p0}, Lopenlight/co/camera/enums/CafMode;->getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/CafMode;
@@ -152,7 +152,7 @@
 .end method
 
 .method private static getMeteringIcon(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
 
     .line 224
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -167,24 +167,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_14
 
     .line 225
-    :cond_0
+    :cond_10
     invoke-static {p0}, Lopenlight/co/camera/utils/Util;->getMeteringIcon(Ljava/lang/String;)I
 
     move-result p0
 
-    :goto_0
+    :goto_14
     return p0
 .end method
 
 .method private static getTimerIcon(Ljava/lang/String;)I
-    .locals 1
+    .registers 2
 
     .line 234
     invoke-static {p0}, Lopenlight/co/camera/enums/TimerMode;->getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/TimerMode;
@@ -194,23 +194,23 @@
     .line 235
     sget-object v0, Lopenlight/co/camera/enums/TimerMode;->OFF:Lopenlight/co/camera/enums/TimerMode;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_a
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lopenlight/co/camera/enums/TimerMode;->getFirstLevelResId()I
 
     move-result p0
 
-    :goto_0
+    :goto_e
     return p0
 .end method
 
 .method public static synthetic lambda$onBindViewHolder$0(Lopenlight/co/camera/view/statusbar/StatusAdapter;Lopenlight/co/camera/view/statusbar/StatusModel;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 196
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mListener:Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusOnClickListener;
@@ -231,7 +231,7 @@
 .end method
 
 .method private populateList()V
-    .locals 5
+    .registers 6
 
     .line 168
     invoke-static {}, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->values()[Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;
@@ -242,8 +242,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_1e
 
     aget-object v3, v0, v2
 
@@ -252,27 +252,27 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 170
     invoke-virtual {v3}, Lopenlight/co/camera/view/statusbar/StatusModel;->getIconId()I
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1b
 
     .line 171
     iget-object v4, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mStatusBadgeList:Ljava/util/List;
 
     invoke-interface {v4, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_1b
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 174
-    :cond_1
+    :cond_1e
     invoke-virtual {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->notifyDataSetChanged()V
 
     return-void
@@ -281,30 +281,30 @@
 
 # virtual methods
 .method createModel(Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;)Lopenlight/co/camera/view/statusbar/StatusModel;
-    .locals 0
+    .registers 2
 
     .line 178
     invoke-virtual {p1}, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;->isDisplayed()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_c
 
     new-instance p0, Lopenlight/co/camera/view/statusbar/StatusModel;
 
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/statusbar/StatusModel;-><init>(Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusBadgeId;)V
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_d
     return-object p0
 .end method
 
 .method public getItemCount()I
-    .locals 0
+    .registers 1
 
     .line 207
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mStatusBadgeList:Ljava/util/List;
@@ -317,7 +317,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 31
     check-cast p1, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;
@@ -328,7 +328,7 @@
 .end method
 
 .method public onBindViewHolder(Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;I)V
-    .locals 2
+    .registers 5
 
     .line 191
     iget-object p2, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mStatusBadgeList:Ljava/util/List;
@@ -348,7 +348,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2f
 
     .line 193
     iget-object v0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mContext:Landroid/content/Context;
@@ -380,7 +380,7 @@
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/DrawableRequestBuilder;->into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
 
     .line 195
-    :cond_0
+    :cond_2f
     iget-object v0, p1, Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;->img:Landroid/widget/ImageView;
 
     invoke-virtual {p2}, Lopenlight/co/camera/view/statusbar/StatusModel;->getAlpha()F
@@ -402,7 +402,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 31
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;
@@ -413,7 +413,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusHolder;
-    .locals 2
+    .registers 5
 
     .line 183
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -444,7 +444,7 @@
 .end method
 
 .method public setStatusOnClickListener(Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusOnClickListener;)V
-    .locals 0
+    .registers 2
 
     .line 211
     iput-object p1, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mListener:Lopenlight/co/camera/view/statusbar/StatusAdapter$StatusOnClickListener;
@@ -453,12 +453,12 @@
 .end method
 
 .method updateBadge()V
-    .locals 1
+    .registers 2
 
     .line 161
     iget-object v0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 162
     iget-object v0, p0, Lopenlight/co/camera/view/statusbar/StatusAdapter;->mStatusBadgeList:Ljava/util/List;
@@ -468,6 +468,6 @@
     .line 163
     invoke-direct {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->populateList()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method

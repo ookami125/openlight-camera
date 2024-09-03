@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
 
     const/4 v0, -0x2
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 2218
     invoke-direct {p0, p1, p2}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(II)V
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(III)V
-    .locals 0
+    .registers 4
 
     .line 2223
     invoke-direct {p0, p1, p2}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(II)V
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(Landroid/support/v7/app/ActionBar$LayoutParams;)V
-    .locals 0
+    .registers 2
 
     .line 2238
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/support/v7/app/ActionBar$LayoutParams;)V
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Landroid/support/v7/widget/Toolbar$LayoutParams;)V
-    .locals 1
+    .registers 3
 
     .line 2232
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/support/v7/app/ActionBar$LayoutParams;)V
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 2
 
     .line 2249
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
@@ -142,7 +142,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
 
     .line 2242
     invoke-direct {p0, p1}, Landroid/support/v7/app/ActionBar$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
@@ -161,7 +161,7 @@
 
 # virtual methods
 .method copyMarginsFromCompat(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 1
+    .registers 3
 
     .line 2253
     iget v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I

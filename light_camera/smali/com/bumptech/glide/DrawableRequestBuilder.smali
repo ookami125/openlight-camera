@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/Class;Lcom/bumptech/glide/provider/LoadProvider;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/manager/RequestTracker;Lcom/bumptech/glide/manager/Lifecycle;)V
-    .locals 8
+    .registers 15
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public animate(I)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -91,7 +91,7 @@
 .end method
 
 .method public animate(Landroid/view/animation/Animation;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -112,7 +112,7 @@
 .end method
 
 .method public animate(Lcom/bumptech/glide/request/animation/ViewPropertyAnimation$Animator;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,7 +130,7 @@
 .end method
 
 .method public bridge synthetic animate(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->animate(I)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -141,7 +141,7 @@
 .end method
 
 .method public bridge synthetic animate(Landroid/view/animation/Animation;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->animate(Landroid/view/animation/Animation;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -152,7 +152,7 @@
 .end method
 
 .method public bridge synthetic animate(Lcom/bumptech/glide/request/animation/ViewPropertyAnimation$Animator;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->animate(Lcom/bumptech/glide/request/animation/ViewPropertyAnimation$Animator;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -163,7 +163,7 @@
 .end method
 
 .method applyCenterCrop()V
-    .locals 0
+    .registers 1
 
     .line 458
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->centerCrop()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -172,7 +172,7 @@
 .end method
 
 .method applyFitCenter()V
-    .locals 0
+    .registers 1
 
     .line 453
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->fitCenter()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -181,7 +181,7 @@
 .end method
 
 .method public varargs bitmapTransform([Lcom/bumptech/glide/load/Transformation;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -201,10 +201,10 @@
     const/4 v1, 0x0
 
     .line 211
-    :goto_0
+    :goto_4
     array-length v2, p1
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_19
 
     .line 212
     new-instance v2, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;
@@ -223,10 +223,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 214
-    :cond_0
+    :cond_19
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/DrawableRequestBuilder;->transform([Lcom/bumptech/glide/load/Transformation;)Lcom/bumptech/glide/DrawableRequestBuilder;
 
     move-result-object p0
@@ -235,7 +235,7 @@
 .end method
 
 .method public cacheDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -255,7 +255,7 @@
 .end method
 
 .method public bridge synthetic cacheDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->cacheDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -266,7 +266,7 @@
 .end method
 
 .method public centerCrop()Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -298,7 +298,7 @@
 .end method
 
 .method public bridge synthetic centerCrop()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->centerCrop()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -309,7 +309,7 @@
 .end method
 
 .method public clone()Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -329,7 +329,7 @@
 .end method
 
 .method public bridge synthetic clone()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->clone()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -340,7 +340,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -356,7 +356,7 @@
 .end method
 
 .method public final crossFade()Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -376,7 +376,7 @@
 .end method
 
 .method public crossFade(I)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -396,7 +396,7 @@
 .end method
 
 .method public crossFade(II)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -418,7 +418,7 @@
 .end method
 
 .method public crossFade(Landroid/view/animation/Animation;I)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -443,7 +443,7 @@
 .end method
 
 .method public bridge synthetic crossFade()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->crossFade()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -454,7 +454,7 @@
 .end method
 
 .method public bridge synthetic crossFade(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->crossFade(I)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -465,7 +465,7 @@
 .end method
 
 .method public bridge synthetic crossFade(II)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 3
 
     .line 41
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/DrawableRequestBuilder;->crossFade(II)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -476,7 +476,7 @@
 .end method
 
 .method public bridge synthetic crossFade(Landroid/view/animation/Animation;I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 3
 
     .line 41
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/DrawableRequestBuilder;->crossFade(Landroid/view/animation/Animation;I)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -487,7 +487,7 @@
 .end method
 
 .method public decoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -507,7 +507,7 @@
 .end method
 
 .method public bridge synthetic decoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->decoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -518,7 +518,7 @@
 .end method
 
 .method public diskCacheStrategy(Lcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -536,7 +536,7 @@
 .end method
 
 .method public bridge synthetic diskCacheStrategy(Lcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->diskCacheStrategy(Lcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -547,7 +547,7 @@
 .end method
 
 .method public dontAnimate()Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -563,7 +563,7 @@
 .end method
 
 .method public bridge synthetic dontAnimate()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->dontAnimate()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -574,7 +574,7 @@
 .end method
 
 .method public dontTransform()Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -590,7 +590,7 @@
 .end method
 
 .method public bridge synthetic dontTransform()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->dontTransform()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -601,7 +601,7 @@
 .end method
 
 .method public encoder(Lcom/bumptech/glide/load/ResourceEncoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -620,7 +620,7 @@
 .end method
 
 .method public bridge synthetic encoder(Lcom/bumptech/glide/load/ResourceEncoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->encoder(Lcom/bumptech/glide/load/ResourceEncoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -631,7 +631,7 @@
 .end method
 
 .method public error(I)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -647,7 +647,7 @@
 .end method
 
 .method public error(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -665,7 +665,7 @@
 .end method
 
 .method public bridge synthetic error(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->error(I)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -676,7 +676,7 @@
 .end method
 
 .method public bridge synthetic error(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->error(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -687,7 +687,7 @@
 .end method
 
 .method public fallback(I)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -703,7 +703,7 @@
 .end method
 
 .method public fallback(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -721,7 +721,7 @@
 .end method
 
 .method public bridge synthetic fallback(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->fallback(I)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -732,7 +732,7 @@
 .end method
 
 .method public bridge synthetic fallback(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->fallback(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -743,7 +743,7 @@
 .end method
 
 .method public fitCenter()Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -775,7 +775,7 @@
 .end method
 
 .method public bridge synthetic fitCenter()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-virtual {p0}, Lcom/bumptech/glide/DrawableRequestBuilder;->fitCenter()Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -786,7 +786,7 @@
 .end method
 
 .method public into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -807,7 +807,7 @@
 .end method
 
 .method public listener(Lcom/bumptech/glide/request/RequestListener;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -827,7 +827,7 @@
 .end method
 
 .method public bridge synthetic listener(Lcom/bumptech/glide/request/RequestListener;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->listener(Lcom/bumptech/glide/request/RequestListener;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -838,7 +838,7 @@
 .end method
 
 .method public load(Ljava/lang/Object;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TModelType;)",
@@ -854,7 +854,7 @@
 .end method
 
 .method public bridge synthetic load(Ljava/lang/Object;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->load(Ljava/lang/Object;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -865,7 +865,7 @@
 .end method
 
 .method public override(II)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -881,7 +881,7 @@
 .end method
 
 .method public bridge synthetic override(II)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 3
 
     .line 41
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/DrawableRequestBuilder;->override(II)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -892,7 +892,7 @@
 .end method
 
 .method public placeholder(I)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -908,7 +908,7 @@
 .end method
 
 .method public placeholder(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -926,7 +926,7 @@
 .end method
 
 .method public bridge synthetic placeholder(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->placeholder(I)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -937,7 +937,7 @@
 .end method
 
 .method public bridge synthetic placeholder(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->placeholder(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -948,7 +948,7 @@
 .end method
 
 .method public priority(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -966,7 +966,7 @@
 .end method
 
 .method public bridge synthetic priority(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->priority(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -977,7 +977,7 @@
 .end method
 
 .method public signature(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -995,7 +995,7 @@
 .end method
 
 .method public bridge synthetic signature(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->signature(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1006,7 +1006,7 @@
 .end method
 
 .method public sizeMultiplier(F)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public bridge synthetic sizeMultiplier(F)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->sizeMultiplier(F)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1033,7 +1033,7 @@
 .end method
 
 .method public skipMemoryCache(Z)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -1049,7 +1049,7 @@
 .end method
 
 .method public bridge synthetic skipMemoryCache(Z)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->skipMemoryCache(Z)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1060,7 +1060,7 @@
 .end method
 
 .method public sourceEncoder(Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public bridge synthetic sourceEncoder(Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->sourceEncoder(Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public thumbnail(F)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -1106,7 +1106,7 @@
 .end method
 
 .method public thumbnail(Lcom/bumptech/glide/DrawableRequestBuilder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1124,7 +1124,7 @@
 .end method
 
 .method public thumbnail(Lcom/bumptech/glide/GenericRequestBuilder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1144,7 +1144,7 @@
 .end method
 
 .method public bridge synthetic thumbnail(F)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->thumbnail(F)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1155,7 +1155,7 @@
 .end method
 
 .method public bridge synthetic thumbnail(Lcom/bumptech/glide/GenericRequestBuilder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->thumbnail(Lcom/bumptech/glide/GenericRequestBuilder;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public transcoder(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1186,7 +1186,7 @@
 .end method
 
 .method public bridge synthetic transcoder(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->transcoder(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/DrawableRequestBuilder;
@@ -1197,7 +1197,7 @@
 .end method
 
 .method public varargs transform([Lcom/bumptech/glide/load/Transformation;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1216,7 +1216,7 @@
 .end method
 
 .method public varargs transform([Lcom/bumptech/glide/load/resource/bitmap/BitmapTransformation;)Lcom/bumptech/glide/DrawableRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1236,7 +1236,7 @@
 .end method
 
 .method public bridge synthetic transform([Lcom/bumptech/glide/load/Transformation;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/DrawableRequestBuilder;->transform([Lcom/bumptech/glide/load/Transformation;)Lcom/bumptech/glide/DrawableRequestBuilder;

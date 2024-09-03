@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 447
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -47,7 +47,7 @@
 .end method
 
 .method public getMaxCachedTiles()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/WorkerThread;
     .end annotation
 
@@ -57,7 +57,7 @@
 .end method
 
 .method public recycleData([Ljava/lang/Object;I)V
-    .locals 0
+    .registers 3
     .annotation build Landroid/support/annotation/WorkerThread;
     .end annotation
 

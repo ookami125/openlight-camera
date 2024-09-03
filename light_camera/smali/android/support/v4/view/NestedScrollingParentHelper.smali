@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getNestedScrollAxes()I
-    .locals 0
+    .registers 1
 
     .line 88
     iget p0, p0, Landroid/support/v4/view/NestedScrollingParentHelper;->mNestedScrollAxes:I
@@ -38,7 +38,7 @@
 .end method
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;I)V
-    .locals 1
+    .registers 5
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -57,7 +57,7 @@
 .end method
 
 .method public onNestedScrollAccepted(Landroid/view/View;Landroid/view/View;II)V
-    .locals 0
+    .registers 5
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -74,7 +74,7 @@
 .end method
 
 .method public onStopNestedScroll(Landroid/view/View;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -89,7 +89,7 @@
 .end method
 
 .method public onStopNestedScroll(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

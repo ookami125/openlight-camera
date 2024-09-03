@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 111
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
 # virtual methods
 .method public evaluate(FLandroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/graphics/Matrix;
-    .locals 2
+    .registers 6
 
     .line 121
     iget-object v0, p0, Landroid/support/transition/TransitionUtils$MatrixEvaluator;->mTempStartValues:[F
@@ -80,10 +80,10 @@
 
     const/4 p2, 0x0
 
-    :goto_0
+    :goto_b
     const/16 p3, 0x9
 
-    if-ge p2, p3, :cond_0
+    if-ge p2, p3, :cond_25
 
     .line 124
     iget-object p3, p0, Landroid/support/transition/TransitionUtils$MatrixEvaluator;->mTempEndValues:[F
@@ -111,10 +111,10 @@
 
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
     .line 127
-    :cond_0
+    :cond_25
     iget-object p1, p0, Landroid/support/transition/TransitionUtils$MatrixEvaluator;->mTempMatrix:Landroid/graphics/Matrix;
 
     iget-object p2, p0, Landroid/support/transition/TransitionUtils$MatrixEvaluator;->mTempEndValues:[F
@@ -128,7 +128,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 111
     check-cast p2, Landroid/graphics/Matrix;

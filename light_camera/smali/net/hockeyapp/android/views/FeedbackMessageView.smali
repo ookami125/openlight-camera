@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 28
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 46
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -133,13 +133,13 @@
 
 # virtual methods
 .method public setFeedbackMessage(Lnet/hockeyapp/android/objects/FeedbackMessage;)V
-    .locals 5
+    .registers 7
 
     .line 59
     iput-object p1, p0, Lnet/hockeyapp/android/views/FeedbackMessageView;->mFeedbackMessage:Lnet/hockeyapp/android/objects/FeedbackMessage;
 
     .line 62
-    :try_start_0
+    :try_start_2
     sget-object p1, Lnet/hockeyapp/android/views/FeedbackMessageView;->DATE_FORMAT_IN:Ljava/text/SimpleDateFormat;
 
     iget-object v0, p0, Lnet/hockeyapp/android/views/FeedbackMessageView;->mFeedbackMessage:Lnet/hockeyapp/android/objects/FeedbackMessage;
@@ -162,19 +162,19 @@
     move-result-object p1
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/text/ParseException; {:try_start_2 .. :try_end_19} :catch_1a
 
-    goto :goto_0
+    goto :goto_1e
 
-    :catch_0
+    :catch_1a
     move-exception p1
 
     .line 65
     invoke-virtual {p1}, Ljava/text/ParseException;->printStackTrace()V
 
     .line 68
-    :goto_0
+    :goto_1e
     iget-object p1, p0, Lnet/hockeyapp/android/views/FeedbackMessageView;->mAuthorTextView:Landroid/widget/TextView;
 
     iget-object v0, p0, Lnet/hockeyapp/android/views/FeedbackMessageView;->mFeedbackMessage:Lnet/hockeyapp/android/objects/FeedbackMessage;
@@ -212,12 +212,12 @@
 
     move-result-object p1
 
-    :goto_1
+    :goto_43
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_66
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -248,19 +248,19 @@
 
     invoke-virtual {v0, v1}, Lnet/hockeyapp/android/views/AttachmentListView;->addView(Landroid/view/View;)V
 
-    goto :goto_1
+    goto :goto_43
 
-    :cond_0
+    :cond_66
     return-void
 .end method
 
 .method public setIndex(I)V
-    .locals 2
+    .registers 4
 
     .line 87
     rem-int/lit8 p1, p1, 0x2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_30
 
     .line 89
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/FeedbackMessageView;->getResources()Landroid/content/res/Resources;
@@ -305,10 +305,10 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    goto :goto_0
+    goto :goto_5b
 
     .line 95
-    :cond_0
+    :cond_30
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/FeedbackMessageView;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
@@ -352,7 +352,7 @@
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
     .line 100
-    :goto_0
+    :goto_5b
     iget-object p1, p0, Lnet/hockeyapp/android/views/FeedbackMessageView;->mMessageTextView:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/FeedbackMessageView;->getResources()Landroid/content/res/Resources;

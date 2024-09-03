@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
 
     .line 448
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$5;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 454
     iget-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$5;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -51,7 +51,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 459
     sget-object p1, Landroid/support/design/widget/BaseTransientBottomBar;->sHandler:Landroid/os/Handler;
@@ -62,6 +62,6 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :cond_0
+    :cond_12
     return-void
 .end method

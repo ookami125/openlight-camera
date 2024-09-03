@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/Reader;)V
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x400
 
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;Ljava/lang/String;I)V
-    .locals 0
+    .registers 4
 
     .line 163
     invoke-static {p2}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;Ljava/nio/charset/Charset;)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x400
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;Ljava/nio/charset/Charset;I)V
-    .locals 1
+    .registers 5
 
     .line 137
     invoke-virtual {p2}, Ljava/nio/charset/Charset;->newEncoder()Ljava/nio/charset/CharsetEncoder;
@@ -98,7 +98,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;Ljava/nio/charset/CharsetEncoder;)V
-    .locals 1
+    .registers 4
 
     const/16 v0, 0x400
 
@@ -109,7 +109,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Reader;Ljava/nio/charset/CharsetEncoder;I)V
-    .locals 0
+    .registers 4
 
     .line 120
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -150,7 +150,7 @@
 .end method
 
 .method private fillBuffer()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -160,11 +160,11 @@
     .line 196
     iget-boolean v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->endOfInput:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3f
 
     iget-object v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->lastCoderResult:Ljava/nio/charset/CoderResult;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     iget-object v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->lastCoderResult:Ljava/nio/charset/CoderResult;
 
@@ -172,10 +172,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3f
 
     .line 197
-    :cond_0
+    :cond_10
     iget-object v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderIn:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->compact()Ljava/nio/CharBuffer;
@@ -208,17 +208,17 @@
 
     const/4 v2, -0x1
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_34
 
     const/4 v0, 0x1
 
     .line 204
     iput-boolean v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->endOfInput:Z
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 206
-    :cond_1
+    :cond_34
     iget-object v2, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderIn:Ljava/nio/CharBuffer;
 
     add-int/2addr v0, v1
@@ -226,13 +226,13 @@
     invoke-virtual {v2, v0}, Ljava/nio/CharBuffer;->position(I)Ljava/nio/Buffer;
 
     .line 208
-    :goto_0
+    :goto_3a
     iget-object v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderIn:Ljava/nio/CharBuffer;
 
     invoke-virtual {v0}, Ljava/nio/CharBuffer;->flip()Ljava/nio/Buffer;
 
     .line 210
-    :cond_2
+    :cond_3f
     iget-object v0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderOut:Ljava/nio/ByteBuffer;
 
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->compact()Ljava/nio/ByteBuffer;
@@ -263,7 +263,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -279,7 +279,7 @@
 .end method
 
 .method public read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -294,7 +294,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 279
     iget-object p0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderOut:Ljava/nio/ByteBuffer;
@@ -308,7 +308,7 @@
     return p0
 
     .line 281
-    :cond_1
+    :cond_11
     invoke-direct {p0}, Lorg/apache/commons/io/input/ReaderInputStream;->fillBuffer()V
 
     .line 282
@@ -330,7 +330,7 @@
 .end method
 
 .method public read([B)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -350,35 +350,35 @@
 .end method
 
 .method public read([BII)I
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6b
 
-    if-ltz p3, :cond_4
+    if-ltz p3, :cond_43
 
-    if-ltz p2, :cond_4
+    if-ltz p2, :cond_43
 
     add-int v0, p2, p3
 
     .line 230
     array-length v1, p1
 
-    if-gt v0, v1, :cond_4
+    if-gt v0, v1, :cond_43
 
     const/4 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_f
 
     return v0
 
-    :cond_0
-    :goto_0
-    if-lez p3, :cond_2
+    :cond_f
+    :goto_f
+    if-lez p3, :cond_3b
 
     .line 239
     iget-object v1, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderOut:Ljava/nio/ByteBuffer;
@@ -387,7 +387,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2c
 
     .line 240
     iget-object v1, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderOut:Ljava/nio/ByteBuffer;
@@ -411,16 +411,16 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 246
-    :cond_1
+    :cond_2c
     invoke-direct {p0}, Lorg/apache/commons/io/input/ReaderInputStream;->fillBuffer()V
 
     .line 247
     iget-boolean v1, p0, Lorg/apache/commons/io/input/ReaderInputStream;->endOfInput:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     iget-object v1, p0, Lorg/apache/commons/io/input/ReaderInputStream;->encoderOut:Ljava/nio/ByteBuffer;
 
@@ -428,23 +428,23 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_f
 
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_3b
+    if-nez v0, :cond_42
 
     .line 252
     iget-boolean p0, p0, Lorg/apache/commons/io/input/ReaderInputStream;->endOfInput:Z
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_42
 
     const/4 v0, -0x1
 
-    :cond_3
+    :cond_42
     return v0
 
     .line 231
-    :cond_4
+    :cond_43
     new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -480,7 +480,7 @@
     throw p0
 
     .line 228
-    :cond_5
+    :cond_6b
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Byte array must not be null"

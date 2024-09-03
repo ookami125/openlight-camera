@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
 
     .line 175
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$3;->this$0:Landroid/support/design/widget/BottomSheetDialog;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x1
 

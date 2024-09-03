@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 678
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,7 +51,7 @@
 
     const/16 v2, 0x1a
 
-    if-lt v0, v2, :cond_0
+    if-lt v0, v2, :cond_18
 
     .line 680
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi24;
@@ -68,15 +68,15 @@
     .line 682
     iput-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mToken:Landroid/os/IBinder;
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 683
-    :cond_0
+    :cond_18
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x15
 
-    if-lt v0, v2, :cond_1
+    if-lt v0, v2, :cond_31
 
     .line 684
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback$StubApi21;
@@ -97,10 +97,10 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mToken:Landroid/os/IBinder;
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 688
-    :cond_1
+    :cond_31
     iput-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mSubscriptionCallbackObj:Ljava/lang/Object;
 
     .line 689
@@ -110,12 +110,12 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mToken:Landroid/os/IBinder;
 
-    :goto_0
+    :goto_3a
     return-void
 .end method
 
 .method static synthetic access$000(Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 673
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mToken:Landroid/os/IBinder;
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;Landroid/support/v4/media/MediaBrowserCompat$Subscription;)V
-    .locals 0
+    .registers 2
 
     .line 673
     invoke-direct {p0, p1}, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->setSubscription(Landroid/support/v4/media/MediaBrowserCompat$Subscription;)V
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$200(Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 673
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;->mSubscriptionCallbackObj:Ljava/lang/Object;
@@ -142,7 +142,7 @@
 .end method
 
 .method private setSubscription(Landroid/support/v4/media/MediaBrowserCompat$Subscription;)V
-    .locals 1
+    .registers 3
 
     .line 743
     new-instance v0, Ljava/lang/ref/WeakReference;
@@ -157,7 +157,7 @@
 
 # virtual methods
 .method public onChildrenLoaded(Ljava/lang/String;Ljava/util/List;)V
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -180,7 +180,7 @@
 .end method
 
 .method public onChildrenLoaded(Ljava/lang/String;Ljava/util/List;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -209,7 +209,7 @@
 .end method
 
 .method public onError(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -219,7 +219,7 @@
 .end method
 
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

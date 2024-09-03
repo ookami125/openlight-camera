@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 6
+    .registers 7
 
     .line 2024
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
     const/4 v1, 0x1
 
     .line 2026
-    :try_start_0
+    :try_start_5
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
     const-string v3, "doBeforeTextChanged"
@@ -54,12 +54,12 @@
     iget-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doBeforeTextChanged:Ljava/lang/reflect/Method;
 
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_16} :catch_16
 
     .line 2033
-    :catch_0
-    :try_start_1
+    :catch_16
+    :try_start_16
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
     const-string v3, "doAfterTextChanged"
@@ -77,12 +77,12 @@
     iget-object v2, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
 
     invoke-virtual {v2, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_1
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_27
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_16 .. :try_end_27} :catch_27
 
     .line 2040
-    :catch_1
-    :try_start_2
+    :catch_27
+    :try_start_27
     const-class v2, Landroid/widget/AutoCompleteTextView;
 
     const-string v3, "ensureImeVisible"
@@ -104,25 +104,25 @@
     iget-object p0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->ensureImeVisible:Ljava/lang/reflect/Method;
 
     invoke-virtual {p0, v1}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_2
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_3c
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_27 .. :try_end_3c} :catch_3c
 
-    :catch_2
+    :catch_3c
     return-void
 .end method
 
 
 # virtual methods
 .method doAfterTextChanged(Landroid/widget/AutoCompleteTextView;)V
-    .locals 1
+    .registers 3
 
     .line 2058
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 2060
-    :try_start_0
+    :try_start_4
     iget-object p0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doAfterTextChanged:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x0
@@ -130,24 +130,24 @@
     new-array v0, v0, [Ljava/lang/Object;
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_c} :catch_c
 
-    :catch_0
-    :cond_0
+    :catch_c
+    :cond_c
     return-void
 .end method
 
 .method doBeforeTextChanged(Landroid/widget/AutoCompleteTextView;)V
-    .locals 1
+    .registers 3
 
     .line 2049
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doBeforeTextChanged:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 2051
-    :try_start_0
+    :try_start_4
     iget-object p0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->doBeforeTextChanged:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x0
@@ -155,24 +155,24 @@
     new-array v0, v0, [Ljava/lang/Object;
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_c} :catch_c
 
-    :catch_0
-    :cond_0
+    :catch_c
+    :cond_c
     return-void
 .end method
 
 .method ensureImeVisible(Landroid/widget/AutoCompleteTextView;Z)V
-    .locals 2
+    .registers 5
 
     .line 2067
     iget-object v0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->ensureImeVisible:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 2069
-    :try_start_0
+    :try_start_4
     iget-object p0, p0, Landroid/support/v7/widget/SearchView$AutoCompleteTextViewReflector;->ensureImeVisible:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x1
@@ -188,10 +188,10 @@
     aput-object p2, v0, v1
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_13
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_13} :catch_13
 
-    :catch_0
-    :cond_0
+    :catch_13
+    :cond_13
     return-void
 .end method

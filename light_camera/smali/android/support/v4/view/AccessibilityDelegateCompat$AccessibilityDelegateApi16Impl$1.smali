@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
-    .locals 0
+    .registers 3
 
     .line 111
     iput-object p1, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->this$0:Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public dispatchPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 0
+    .registers 3
 
     .line 115
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -50,7 +50,7 @@
 .end method
 
 .method public getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
-    .locals 0
+    .registers 2
 
     .line 153
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -60,7 +60,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     .line 156
     invoke-virtual {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;->getProvider()Ljava/lang/Object;
@@ -69,17 +69,17 @@
 
     check-cast p0, Landroid/view/accessibility/AccessibilityNodeProvider;
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_10
     return-object p0
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
 
     .line 120
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -90,7 +90,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 0
+    .registers 3
 
     .line 126
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -107,7 +107,7 @@
 .end method
 
 .method public onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
 
     .line 132
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -118,7 +118,7 @@
 .end method
 
 .method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 0
+    .registers 4
 
     .line 138
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -131,7 +131,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 0
+    .registers 4
 
     .line 161
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -144,7 +144,7 @@
 .end method
 
 .method public sendAccessibilityEvent(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
 
     .line 143
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;
@@ -155,7 +155,7 @@
 .end method
 
 .method public sendAccessibilityEventUnchecked(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 3
 
     .line 148
     iget-object p0, p0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;->val$compat:Landroid/support/v4/view/AccessibilityDelegateCompat;

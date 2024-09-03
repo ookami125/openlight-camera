@@ -43,7 +43,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,12 +64,12 @@
 
 # virtual methods
 .method final getMenuItemWrapper(Landroid/view/MenuItem;)Landroid/view/MenuItem;
-    .locals 2
+    .registers 4
 
     .line 42
     instance-of v0, p1, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 43
     move-object v0, p1
@@ -79,7 +79,7 @@
     .line 46
     iget-object v1, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_12
 
     .line 47
     new-instance v1, Landroid/support/v4/util/ArrayMap;
@@ -89,7 +89,7 @@
     iput-object v1, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
     .line 51
-    :cond_0
+    :cond_12
     iget-object v1, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
     invoke-interface {v1, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -98,7 +98,7 @@
 
     check-cast p1, Landroid/view/MenuItem;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_27
 
     .line 55
     iget-object p1, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mContext:Landroid/content/Context;
@@ -112,20 +112,20 @@
 
     invoke-interface {p0, v0, p1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_27
     return-object p1
 
-    :cond_2
+    :cond_28
     return-object p1
 .end method
 
 .method final getSubMenuWrapper(Landroid/view/SubMenu;)Landroid/view/SubMenu;
-    .locals 1
+    .registers 3
 
     .line 65
     instance-of v0, p1, Landroid/support/v4/internal/view/SupportSubMenu;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_27
 
     .line 66
     check-cast p1, Landroid/support/v4/internal/view/SupportSubMenu;
@@ -133,7 +133,7 @@
     .line 69
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mSubMenus:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 70
     new-instance v0, Landroid/support/v4/util/ArrayMap;
@@ -143,7 +143,7 @@
     iput-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mSubMenus:Ljava/util/Map;
 
     .line 73
-    :cond_0
+    :cond_11
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mSubMenus:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -152,7 +152,7 @@
 
     check-cast v0, Landroid/view/SubMenu;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_26
 
     .line 76
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mContext:Landroid/content/Context;
@@ -166,20 +166,20 @@
 
     invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_26
     return-object v0
 
-    :cond_2
+    :cond_27
     return-object p1
 .end method
 
 .method final internalClear()V
-    .locals 1
+    .registers 2
 
     .line 86
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 87
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
@@ -187,32 +187,32 @@
     invoke-interface {v0}, Ljava/util/Map;->clear()V
 
     .line 89
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mSubMenus:Ljava/util/Map;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 90
     iget-object p0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mSubMenus:Ljava/util/Map;
 
     invoke-interface {p0}, Ljava/util/Map;->clear()V
 
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method final internalRemoveGroup(I)V
-    .locals 1
+    .registers 3
 
     .line 95
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 99
-    :cond_0
+    :cond_5
     iget-object p0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
     invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -224,13 +224,13 @@
     move-result-object p0
 
     .line 102
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     .line 103
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -244,29 +244,29 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_f
 
     .line 105
     invoke-interface {p0}, Ljava/util/Iterator;->remove()V
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_25
     return-void
 .end method
 
 .method final internalRemoveItem(I)V
-    .locals 1
+    .registers 3
 
     .line 111
     iget-object v0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 115
-    :cond_0
+    :cond_5
     iget-object p0, p0, Landroid/support/v7/view/menu/BaseMenuWrapper;->mMenuItems:Ljava/util/Map;
 
     invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
@@ -278,12 +278,12 @@
     move-result-object p0
 
     .line 118
-    :cond_1
+    :cond_f
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_24
 
     .line 119
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -297,11 +297,11 @@
 
     move-result v0
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_f
 
     .line 121
     invoke-interface {p0}, Ljava/util/Iterator;->remove()V
 
-    :cond_2
+    :cond_24
     return-void
 .end method

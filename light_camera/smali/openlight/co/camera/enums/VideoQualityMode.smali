@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 13
     new-instance v0, Lopenlight/co/camera/enums/VideoQualityMode;
@@ -148,7 +148,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)V"
@@ -168,7 +168,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/VideoQualityMode;
-    .locals 1
+    .registers 2
 
     .line 11
     const-class v0, Lopenlight/co/camera/enums/VideoQualityMode;
@@ -183,7 +183,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/VideoQualityMode;
-    .locals 1
+    .registers 1
 
     .line 11
     sget-object v0, Lopenlight/co/camera/enums/VideoQualityMode;->$VALUES:[Lopenlight/co/camera/enums/VideoQualityMode;
@@ -200,7 +200,7 @@
 
 # virtual methods
 .method public getQualityProfile()I
-    .locals 0
+    .registers 1
 
     .line 45
     iget p0, p0, Lopenlight/co/camera/enums/VideoQualityMode;->mQualityProfile:I
@@ -209,7 +209,7 @@
 .end method
 
 .method public getResId()I
-    .locals 0
+    .registers 1
 
     .line 53
     iget p0, p0, Lopenlight/co/camera/enums/VideoQualityMode;->mResId:I

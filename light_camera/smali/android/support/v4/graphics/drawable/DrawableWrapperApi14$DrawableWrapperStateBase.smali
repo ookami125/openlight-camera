@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation

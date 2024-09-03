@@ -98,13 +98,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 59
     invoke-direct {p0}, Lopenlight/co/lib/view/LightFragment;-><init>()V
@@ -193,7 +193,7 @@
 .end method
 
 .method static synthetic access$1002(Lopenlight/co/camera/view/setting/SettingsFragment;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 59
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSelectedString:Ljava/lang/String;
@@ -202,7 +202,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/setting/SettingsFragment;I)I
-    .locals 0
+    .registers 2
 
     .line 59
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFirstItem:I
@@ -211,7 +211,7 @@
 .end method
 
 .method static synthetic access$1100(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->handleConfirmUpdated(Lopenlight/co/camera/view/setting/SettingModel;)V
@@ -220,7 +220,7 @@
 .end method
 
 .method static synthetic access$1200(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->addConfirmPopup(Lopenlight/co/camera/view/setting/SettingModel;)V
@@ -229,7 +229,7 @@
 .end method
 
 .method static synthetic access$1300(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->handleConfirmPopupCancelAction(Lopenlight/co/camera/view/setting/SettingModel;)V
@@ -238,7 +238,7 @@
 .end method
 
 .method static synthetic access$1400(Lopenlight/co/camera/view/setting/SettingsFragment;)Landroid/widget/LinearLayout;
-    .locals 0
+    .registers 1
 
     .line 59
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofContainer:Landroid/widget/LinearLayout;
@@ -247,7 +247,7 @@
 .end method
 
 .method static synthetic access$1500(Lopenlight/co/camera/view/setting/SettingsFragment;)F
-    .locals 0
+    .registers 1
 
     .line 59
     iget p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mLastLength:F
@@ -256,7 +256,7 @@
 .end method
 
 .method static synthetic access$1502(Lopenlight/co/camera/view/setting/SettingsFragment;F)F
-    .locals 0
+    .registers 2
 
     .line 59
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mLastLength:F
@@ -265,7 +265,7 @@
 .end method
 
 .method static synthetic access$1600(Lopenlight/co/camera/view/setting/SettingsFragment;F)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->calculateScaleValue(F)V
@@ -274,7 +274,7 @@
 .end method
 
 .method static synthetic access$1700(Lopenlight/co/camera/view/setting/SettingsFragment;Z)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->setGuildTextVisibility(Z)V
@@ -283,7 +283,7 @@
 .end method
 
 .method static synthetic access$1800(Lopenlight/co/camera/view/setting/SettingsFragment;)Landroid/widget/ImageView;
-    .locals 0
+    .registers 1
 
     .line 59
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofHelpIcon:Landroid/widget/ImageView;
@@ -292,7 +292,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/setting/SettingsFragment;)Landroid/support/v7/widget/LinearLayoutManager;
-    .locals 0
+    .registers 1
 
     .line 59
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mLinearLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
@@ -301,7 +301,7 @@
 .end method
 
 .method static synthetic access$302(Lopenlight/co/camera/view/setting/SettingsFragment;I)I
-    .locals 0
+    .registers 2
 
     .line 59
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mOffset:I
@@ -310,7 +310,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->initDofWheelLayout(Lopenlight/co/camera/view/setting/SettingModel;)V
@@ -319,7 +319,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/setting/SettingsFragment;)Lopenlight/co/TheaterMode/TheaterModeSettings;
-    .locals 0
+    .registers 1
 
     .line 59
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mTheaterModeSettings:Lopenlight/co/TheaterMode/TheaterModeSettings;
@@ -328,7 +328,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/setting/SettingsFragment;Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->showAndAnimateMessageView(Ljava/lang/String;)V
@@ -337,7 +337,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/view/setting/SettingsFragment;)Landroid/widget/TextView;
-    .locals 0
+    .registers 1
 
     .line 59
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingDisabledMsgView:Landroid/widget/TextView;
@@ -346,7 +346,7 @@
 .end method
 
 .method static synthetic access$800(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;I)V
-    .locals 0
+    .registers 3
 
     .line 59
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSecondLevelSettingsAdapter(Lopenlight/co/camera/view/setting/SettingModel;I)V
@@ -355,7 +355,7 @@
 .end method
 
 .method static synthetic access$902(Lopenlight/co/camera/view/setting/SettingsFragment;I)I
-    .locals 0
+    .registers 2
 
     .line 59
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentSelectedIndex:I
@@ -364,7 +364,7 @@
 .end method
 
 .method private addConfirmPopup(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 3
+    .registers 5
 
     .line 504
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mParentView:Landroid/view/View;
@@ -409,7 +409,7 @@
 .end method
 
 .method private addDofWheelView(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 4
+    .registers 6
 
     .line 457
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofContainer:Landroid/widget/LinearLayout;
@@ -448,7 +448,7 @@
     move-result-object p1
 
     .line 464
-    :try_start_0
+    :try_start_20
     invoke-static {p1}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
 
     move-result-object p1
@@ -462,12 +462,12 @@
     div-float/2addr p1, v2
 
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentDofValue:F
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2d
+    .catch Ljava/lang/Exception; {:try_start_20 .. :try_end_2d} :catch_2e
 
-    goto :goto_0
+    goto :goto_3a
 
-    :catch_0
+    :catch_2e
     move-exception p1
 
     .line 466
@@ -483,7 +483,7 @@
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentDofValue:F
 
     .line 470
-    :goto_0
+    :goto_3a
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofWheel:Lopenlight/co/camera/view/setting/SettingDofWheel;
 
     iget v2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentDofValue:F
@@ -507,7 +507,7 @@
 .end method
 
 .method private calculateScaleValue(F)V
-    .locals 1
+    .registers 3
 
     .line 492
     iget v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentDofValue:F
@@ -519,7 +519,7 @@
     .line 493
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofWheel:Lopenlight/co/camera/view/setting/SettingDofWheel;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     .line 494
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofWheel:Lopenlight/co/camera/view/setting/SettingDofWheel;
@@ -528,12 +528,12 @@
 
     invoke-virtual {p1, p0}, Lopenlight/co/camera/view/setting/SettingDofWheel;->setScaleValue(F)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method private getMarginDimensWithOrientation()I
-    .locals 2
+    .registers 3
 
     .line 386
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getResources()Landroid/content/res/Resources;
@@ -548,7 +548,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     .line 388
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getActivity()Landroid/app/Activity;
@@ -564,7 +564,7 @@
     return p0
 
     .line 390
-    :cond_0
+    :cond_19
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p0
@@ -579,7 +579,7 @@
 .end method
 
 .method private getSelectedFtuView(Ljava/lang/String;Lopenlight/co/camera/view/setting/SettingModel;)Lopenlight/co/camera/enums/FtuView;
-    .locals 2
+    .registers 5
 
     .line 722
     invoke-virtual {p2}, Lopenlight/co/camera/view/setting/SettingModel;->getResourceList()Ljava/util/List;
@@ -591,12 +591,12 @@
 
     move-result-object p2
 
-    :cond_0
+    :cond_8
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2d
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -608,7 +608,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 724
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getResources()Landroid/content/res/Resources;
@@ -623,7 +623,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     .line 725
     invoke-static {v0}, Lopenlight/co/camera/enums/FtuView;->getFtuViewFromResId(I)Lopenlight/co/camera/enums/FtuView;
@@ -632,16 +632,16 @@
 
     return-object p0
 
-    :cond_1
+    :cond_2d
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private handleConfirmPopupCancelAction(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 2
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 527
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->resetCurrentSelectedItemData()V
@@ -652,29 +652,29 @@
     return-void
 
     .line 531
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingModel;->getType()I
 
     move-result v0
 
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_18
 
     const/4 p1, 0x3
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_14
 
-    goto :goto_0
+    goto :goto_23
 
     .line 536
-    :cond_1
+    :cond_14
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSettingsAdapter()V
 
-    goto :goto_0
+    goto :goto_23
 
     .line 533
-    :cond_2
+    :cond_18
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
 
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingModel;->getSettingsValue()Ljava/lang/String;
@@ -686,16 +686,16 @@
     invoke-virtual {v0, p1, v1}, Lopenlight/co/camera/view/setting/SettingAdapter;->updateItemSelected(Ljava/lang/String;I)V
 
     .line 540
-    :goto_0
+    :goto_23
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->removeConfirmPopup()V
 
     return-void
 .end method
 
 .method private handleConfirmUpdated(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 2
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 549
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->resetCurrentSelectedItemData()V
@@ -706,41 +706,41 @@
     return-void
 
     .line 553
-    :cond_0
+    :cond_9
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingModel;->getType()I
 
     move-result v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_38
 
-    goto :goto_0
+    goto :goto_30
 
     .line 559
-    :pswitch_0
+    :pswitch_11
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->updateSharedPreferences(Lopenlight/co/camera/view/setting/SettingModel;)V
 
     .line 560
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSettingsAdapter()V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 563
-    :pswitch_1
+    :pswitch_18
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingModel;->getSettingsId()Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
 
     move-result-object p1
 
     sget-object v0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->FTU_RESET:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_30
 
     .line 564
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->resetTutorials()V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 555
-    :pswitch_2
+    :pswitch_24
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->updateSharedPreferences(Lopenlight/co/camera/view/setting/SettingModel;)V
 
     .line 556
@@ -753,8 +753,8 @@
     invoke-virtual {p1, v0, v1}, Lopenlight/co/camera/view/setting/SettingAdapter;->updateItemSelected(Ljava/lang/String;I)V
 
     .line 568
-    :cond_1
-    :goto_0
+    :cond_30
+    :goto_30
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->resetCurrentSelectedItemData()V
 
     .line 569
@@ -764,16 +764,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_18
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method private initDofViews()V
-    .locals 4
+    .registers 5
 
     .line 421
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getMarginDimensWithOrientation()I
@@ -835,7 +835,7 @@
 .end method
 
 .method private initDofWheelLayout(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 2
+    .registers 4
 
     .line 440
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
@@ -850,7 +850,7 @@
     .line 442
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 443
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -860,10 +860,10 @@
     invoke-virtual {v0, v1}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
     .line 445
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofWheel:Lopenlight/co/camera/view/setting/SettingDofWheel;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     .line 446
     new-instance v0, Lopenlight/co/camera/view/setting/SettingDofWheel;
@@ -877,7 +877,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofWheel:Lopenlight/co/camera/view/setting/SettingDofWheel;
 
     .line 448
-    :cond_1
+    :cond_22
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mTitleView:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingModel;->getTitle()Ljava/lang/String;
@@ -893,12 +893,12 @@
 .end method
 
 .method private initSecondLevelSettingsAdapter(Lopenlight/co/camera/view/setting/SettingModel;I)V
-    .locals 4
+    .registers 7
 
     .line 352
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSecondLevelSettingsAdapter:Lopenlight/co/camera/view/setting/SettingOptionAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const/4 v0, 0x0
 
@@ -906,7 +906,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSecondLevelSettingsAdapter:Lopenlight/co/camera/view/setting/SettingOptionAdapter;
 
     .line 355
-    :cond_0
+    :cond_7
     iput p2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentSelectedIndex:I
 
     .line 356
@@ -1009,7 +1009,7 @@
 .end method
 
 .method private initSettingsAdapter()V
-    .locals 4
+    .registers 5
 
     .line 272
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->removeDofWheelView()V
@@ -1017,7 +1017,7 @@
     .line 273
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2d
 
     .line 274
     new-instance v0, Lopenlight/co/camera/view/setting/SettingAdapter;
@@ -1055,10 +1055,10 @@
 
     invoke-virtual {v0, p0}, Landroid/support/v7/widget/RecyclerView;->setAdapter(Landroid/support/v7/widget/RecyclerView$Adapter;)V
 
-    goto :goto_0
+    goto :goto_5f
 
     .line 332
-    :cond_0
+    :cond_2d
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     iget-object v1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
@@ -1082,7 +1082,7 @@
 
     const/4 v1, -0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_51
 
     .line 336
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mLinearLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
@@ -1097,14 +1097,14 @@
     iput v1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFirstItem:I
 
     .line 339
-    :cond_1
+    :cond_51
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->isShown()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_5f
 
     .line 340
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -1113,13 +1113,13 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/RecyclerView;->setVisibility(I)V
 
-    :cond_2
-    :goto_0
+    :cond_5f
+    :goto_5f
     return-void
 .end method
 
 .method public static synthetic lambda$initDofViews$5(Lopenlight/co/camera/view/setting/SettingsFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -1137,7 +1137,7 @@
 .end method
 
 .method public static synthetic lambda$initSecondLevelSettingsAdapter$4(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     .line 365
     iput-object p2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSelectedString:Ljava/lang/String;
@@ -1183,7 +1183,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_39
 
     .line 371
     iget-object p2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSelectedString:Ljava/lang/String;
@@ -1194,18 +1194,18 @@
 
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->playTutorial(Lopenlight/co/camera/enums/FtuView;)V
 
-    goto :goto_0
+    goto :goto_3c
 
     .line 374
-    :cond_0
+    :cond_39
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->updateSharedPreferences(Lopenlight/co/camera/view/setting/SettingModel;)V
 
-    :goto_0
+    :goto_3c
     return-void
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/camera/view/setting/SettingsFragment;)V
-    .locals 1
+    .registers 2
 
     .line 112
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingDisabledMsgView:Landroid/widget/TextView;
@@ -1218,12 +1218,12 @@
 .end method
 
 .method public static synthetic lambda$new$1(Lopenlight/co/camera/view/setting/SettingsFragment;)V
-    .locals 1
+    .registers 2
 
     .line 115
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 116
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
@@ -1231,10 +1231,10 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/setting/SettingAdapter;->notifyDataSetChanged()V
 
     .line 118
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingDisabledMsgView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 119
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingDisabledMsgView:Landroid/widget/TextView;
@@ -1243,12 +1243,12 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method public static synthetic lambda$onCreateView$2(Lopenlight/co/camera/view/setting/SettingsFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 179
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingDisabledMsgView:Landroid/widget/TextView;
@@ -1261,7 +1261,7 @@
 .end method
 
 .method public static synthetic lambda$onCreateView$3(Lopenlight/co/camera/view/setting/SettingsFragment;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 181
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->onBackPressed()V
@@ -1270,7 +1270,7 @@
 .end method
 
 .method public static synthetic lambda$updateSharedPreferences$6(Lopenlight/co/camera/view/setting/SettingsFragment;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 588
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -1283,7 +1283,7 @@
 .end method
 
 .method public static newInstance(Ljava/lang/String;Ljava/lang/String;)Lopenlight/co/camera/view/setting/SettingsFragment;
-    .locals 3
+    .registers 5
 
     .line 148
     new-instance v0, Lopenlight/co/camera/view/setting/SettingsFragment;
@@ -1312,12 +1312,12 @@
 .end method
 
 .method private playTutorial(Lopenlight/co/camera/enums/FtuView;)V
-    .locals 7
+    .registers 9
 
     .line 698
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 699
     sget-object p0, Lopenlight/co/camera/view/setting/SettingsFragment;->TAG:Ljava/lang/String;
@@ -1329,10 +1329,10 @@
     return-void
 
     .line 702
-    :cond_0
+    :cond_c
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->IMAGE_QUALITY:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_1a
 
     .line 703
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1343,13 +1343,13 @@
 
     invoke-virtual {p1, v0, p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->showQualityFtu(Landroid/view/ViewGroup;Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 704
-    :cond_1
+    :cond_1a
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->EDIT_IMAGE:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_29
 
     .line 705
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1360,10 +1360,10 @@
 
     invoke-virtual {p1, p0, v0}, Lopenlight/co/camera/view/ftu/FtuHelper;->showEditFtu(Landroid/view/ViewGroup;I)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 707
-    :cond_2
+    :cond_29
     iget-object v1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
     iget-object v2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuContainer:Landroid/view/ViewGroup;
@@ -1378,12 +1378,12 @@
 
     invoke-virtual/range {v1 .. v6}, Lopenlight/co/camera/view/ftu/FtuHelper;->showImageFtu(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Lopenlight/co/camera/enums/FtuView;Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
 
-    :goto_0
+    :goto_37
     return-void
 .end method
 
 .method private removeConfirmPopup()V
-    .locals 2
+    .registers 3
 
     .line 655
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mParentView:Landroid/view/View;
@@ -1395,7 +1395,7 @@
     .line 656
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mConfirmPopup:Lopenlight/co/camera/view/setting/ConfirmPopup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 657
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mConfirmPopup:Lopenlight/co/camera/view/setting/ConfirmPopup;
@@ -1407,21 +1407,21 @@
     .line 658
     iput-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mConfirmPopup:Lopenlight/co/camera/view/setting/ConfirmPopup;
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method private removeDofWheelView()V
-    .locals 2
+    .registers 3
 
     .line 479
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofContainer:Landroid/widget/LinearLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofWheel:Lopenlight/co/camera/view/setting/SettingDofWheel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 480
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofContainer:Landroid/widget/LinearLayout;
@@ -1444,7 +1444,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    :cond_0
+    :cond_1c
     const/4 v0, 0x0
 
     .line 484
@@ -1454,7 +1454,7 @@
 .end method
 
 .method private resetCurrentSelectedItemData()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -1478,7 +1478,7 @@
 .end method
 
 .method private resetTutorials()V
-    .locals 3
+    .registers 4
 
     .line 645
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -1516,28 +1516,28 @@
 .end method
 
 .method private setGuildTextVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 663
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mDofGuildText:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
     return-void
 .end method
 
 .method private showAndAnimateMessageView(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 737
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingDisabledMsgView:Landroid/widget/TextView;
@@ -1581,7 +1581,7 @@
 .end method
 
 .method private updateHud(Lopenlight/co/camera/view/setting/SettingModel;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     const-string v0, "device_exp_info_setting"
 
@@ -1594,7 +1594,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_41
 
     .line 631
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getActivity()Landroid/app/Activity;
@@ -1612,7 +1612,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_27
 
     .line 633
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -1623,10 +1623,10 @@
 
     invoke-interface {p0, p1, p2}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_41
 
     .line 634
-    :cond_0
+    :cond_27
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p1
@@ -1642,7 +1642,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_41
 
     .line 636
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -1653,15 +1653,15 @@
 
     invoke-interface {p0, p1, p2}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     return-void
 .end method
 
 .method private updateSharedPreferences(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 3
+    .registers 5
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_91
 
     .line 587
     invoke-virtual {p1}, Lopenlight/co/camera/view/setting/SettingModel;->getPreferenceKey()Ljava/lang/String;
@@ -1684,114 +1684,114 @@
 
     move-result v2
 
-    sparse-switch v2, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_92
 
-    goto :goto_0
+    goto :goto_54
 
-    :sswitch_0
+    :sswitch_19
     const-string v2, "device_microphone_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     const/4 v1, 0x5
 
-    goto :goto_0
+    goto :goto_54
 
-    :sswitch_1
+    :sswitch_23
     const-string v2, "device_audio_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_54
 
-    :sswitch_2
+    :sswitch_2d
     const-string v2, "dream_processing_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     const/4 v1, 0x2
 
-    goto :goto_0
+    goto :goto_54
 
-    :sswitch_3
+    :sswitch_37
     const-string v2, "lens_blocked_detector_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     const/4 v1, 0x4
 
-    goto :goto_0
+    goto :goto_54
 
-    :sswitch_4
+    :sswitch_41
     const-string v2, "device_haptic_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_54
 
-    :sswitch_5
+    :sswitch_4b
     const-string v2, "inpocket_detection_setting"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_54
 
     const/4 v1, 0x3
 
-    :cond_0
-    :goto_0
-    packed-switch v1, :pswitch_data_0
+    :cond_54
+    :goto_54
+    packed-switch v1, :pswitch_data_ac
 
-    goto :goto_1
+    goto :goto_91
 
     .line 613
-    :pswitch_0
+    :pswitch_58
     invoke-static {}, Lopenlight/co/camera/utils/MicManager;->get()Lopenlight/co/camera/utils/MicManager;
 
     move-result-object p0
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/MicManager;->updateMicFromPrefs()Z
 
-    goto :goto_1
+    goto :goto_91
 
     .line 610
-    :pswitch_1
+    :pswitch_60
     invoke-static {}, Lopenlight/co/camera/utils/LensObstructionDetector;->get()Lopenlight/co/camera/utils/LensObstructionDetector;
 
     move-result-object p0
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/LensObstructionDetector;->onSettingsUpdate()V
 
-    goto :goto_1
+    goto :goto_91
 
     .line 601
-    :pswitch_2
+    :pswitch_68
     invoke-static {}, Lopenlight/co/camera/metrics/Metrics;->get()Lopenlight/co/camera/metrics/Metrics;
 
     move-result-object p0
@@ -1807,73 +1807,73 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_7e
 
     const-string p1, "event_background_processing_turned_on"
 
     .line 603
     invoke-virtual {p0, p1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_91
 
-    :cond_1
+    :cond_7e
     const-string p1, "event_background_processing_turned_off"
 
     .line 605
     invoke-virtual {p0, p1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_91
 
     .line 596
-    :pswitch_3
+    :pswitch_84
     invoke-static {}, Lopenlight/co/camera/utils/SoundManager;->get()Lopenlight/co/camera/utils/SoundManager;
 
     move-result-object p0
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/SoundManager;->checkAndEnableSound()V
 
-    goto :goto_1
+    goto :goto_91
 
     .line 592
-    :pswitch_4
+    :pswitch_8c
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mHaptics:Lopenlight/co/camera/haptic/PlayHaptic;
 
     invoke-virtual {p0}, Lopenlight/co/camera/haptic/PlayHaptic;->checkAndUpdateHapticsStatus()V
 
-    :cond_2
-    :goto_1
+    :cond_91
+    :goto_91
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_92
     .sparse-switch
-        -0x711b21ae -> :sswitch_5
-        -0x39c0264f -> :sswitch_4
-        0x26a28eb -> :sswitch_3
-        0x291a62e0 -> :sswitch_2
-        0x5c883cbe -> :sswitch_1
-        0x7ba2f0c4 -> :sswitch_0
+        -0x711b21ae -> :sswitch_4b
+        -0x39c0264f -> :sswitch_41
+        0x26a28eb -> :sswitch_37
+        0x291a62e0 -> :sswitch_2d
+        0x5c883cbe -> :sswitch_23
+        0x7ba2f0c4 -> :sswitch_19
     .end sparse-switch
 
-    :pswitch_data_0
+    :pswitch_data_ac
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8c
+        :pswitch_84
+        :pswitch_68
+        :pswitch_60
+        :pswitch_60
+        :pswitch_58
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public initSecondLevelSettings(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 402
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 403
     new-instance v0, Lopenlight/co/camera/view/setting/SettingAdapter;
@@ -1887,7 +1887,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
 
     .line 406
-    :cond_0
+    :cond_f
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
 
     invoke-virtual {v0, p1}, Lopenlight/co/camera/view/setting/SettingAdapter;->indexForKey(Ljava/lang/String;)I
@@ -1896,7 +1896,7 @@
 
     const/4 v0, -0x1
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_2c
 
     .line 408
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
@@ -1913,33 +1913,33 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 411
     invoke-direct {p0, v0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSecondLevelSettingsAdapter(Lopenlight/co/camera/view/setting/SettingModel;I)V
 
-    :cond_1
+    :cond_29
     const/4 p1, 0x0
 
     .line 414
     iput-boolean p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mInSecondLevelSettings:Z
 
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method public onBackPressed()V
-    .locals 2
+    .registers 3
 
     .line 250
     iget-boolean v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mInSecondLevelSettings:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
     .line 251
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
 
@@ -1954,56 +1954,56 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1c
 
     .line 253
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
 
     invoke-direct {p0, v0}, Lopenlight/co/camera/view/setting/SettingsFragment;->handleConfirmUpdated(Lopenlight/co/camera/view/setting/SettingModel;)V
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 255
-    :cond_0
+    :cond_1c
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSettingsAdapter()V
 
     .line 258
-    :goto_0
+    :goto_1f
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->resetCurrentSelectedItemData()V
 
-    goto :goto_1
+    goto :goto_38
 
     .line 260
-    :cond_1
+    :cond_23
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ftu/FtuHelper;->isFtuPlaying()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_31
 
     .line 261
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->closeFtu()V
 
-    goto :goto_1
+    goto :goto_38
 
     .line 263
-    :cond_2
+    :cond_31
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :goto_1
+    :goto_38
     return-void
 .end method
 
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
-    .locals 2
+    .registers 6
 
     const v0, 0x7f0b0064
 
@@ -2177,7 +2177,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b7
 
     .line 186
     invoke-virtual {p0, p2}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSecondLevelSettings(Ljava/lang/String;)V
@@ -2190,10 +2190,10 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b7
     const/4 p2, -0x1
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_e9
 
     const-string v0, "selected_item_position"
 
@@ -2218,11 +2218,11 @@
     .line 198
     iget v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentSelectedIndex:I
 
-    if-le v0, p2, :cond_1
+    if-le v0, p2, :cond_e9
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_e9
 
     .line 199
     iget-object p2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
@@ -2249,7 +2249,7 @@
     return-object p0
 
     .line 207
-    :cond_1
+    :cond_e9
     invoke-direct {p0}, Lopenlight/co/camera/view/setting/SettingsFragment;->initSettingsAdapter()V
 
     const-string p3, "settings_scroll_to_index_key"
@@ -2259,7 +2259,7 @@
 
     move-result-object p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_101
 
     .line 210
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSettingsAdapter:Lopenlight/co/camera/view/setting/SettingAdapter;
@@ -2268,7 +2268,7 @@
 
     move-result p3
 
-    if-eq p3, p2, :cond_2
+    if-eq p3, p2, :cond_101
 
     .line 212
     iget-object p2, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -2276,7 +2276,7 @@
     invoke-virtual {p2, p3}, Landroid/support/v7/widget/RecyclerView;->scrollToPosition(I)V
 
     .line 215
-    :cond_2
+    :cond_101
     invoke-virtual {p1}, Landroid/os/Bundle;->clear()V
 
     .line 216
@@ -2286,7 +2286,7 @@
 .end method
 
 .method public onPause()V
-    .locals 1
+    .registers 2
 
     .line 241
     invoke-super {p0}, Lopenlight/co/lib/view/LightFragment;->onPause()V
@@ -2302,7 +2302,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 235
     invoke-super {p0}, Lopenlight/co/lib/view/LightFragment;->onResume()V
@@ -2318,7 +2318,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 221
     invoke-super {p0, p1}, Lopenlight/co/lib/view/LightFragment;->onSaveInstanceState(Landroid/os/Bundle;)V
@@ -2326,13 +2326,13 @@
     .line 224
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentModel:Lopenlight/co/camera/view/setting/SettingModel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_21
 
     iget v0, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentSelectedIndex:I
 
     const/4 v1, -0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_21
 
     const-string v0, "selected_model"
 
@@ -2355,12 +2355,12 @@
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 4
 
     .line 125
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mListener:Landroid/view/GestureDetector;
@@ -2374,7 +2374,7 @@
 
     const/4 p2, 0x1
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_23
 
     const/4 p1, 0x0
 
@@ -2388,7 +2388,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_23
 
     .line 129
     iget p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mCurrentDofValue:F
@@ -2405,6 +2405,6 @@
 
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment;->mSelectedString:Ljava/lang/String;
 
-    :cond_0
+    :cond_23
     return p2
 .end method

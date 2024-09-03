@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10219
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,13 +27,13 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onScrolled(Landroid/support/v7/widget/RecyclerView;II)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method

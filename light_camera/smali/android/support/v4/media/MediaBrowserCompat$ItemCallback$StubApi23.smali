@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;)V
-    .locals 0
+    .registers 2
 
     .line 851
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$StubApi23;->this$0:Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onError(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -51,9 +51,9 @@
 .end method
 
 .method public onItemLoaded(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_9
 
     .line 857
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$StubApi23;->this$0:Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;
@@ -62,9 +62,9 @@
 
     invoke-virtual {p0, p1}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
     .line 859
@@ -88,6 +88,6 @@
 
     invoke-virtual {p0, v0}, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
 
-    :goto_0
+    :goto_1d
     return-void
 .end method

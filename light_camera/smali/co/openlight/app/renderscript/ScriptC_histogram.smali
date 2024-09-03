@@ -179,7 +179,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .locals 5
+    .registers 7
 
     const-string v0, "histogram"
 
@@ -396,7 +396,7 @@
 
 # virtual methods
 .method public forEach_processFrame(Landroid/renderscript/Allocation;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -407,7 +407,7 @@
 .end method
 
 .method public forEach_processFrame(Landroid/renderscript/Allocation;Landroid/renderscript/Script$LaunchOptions;)V
-    .locals 7
+    .registers 10
 
     .line 441
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -424,7 +424,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     const/4 v2, 0x1
 
@@ -448,7 +448,7 @@
     return-void
 
     .line 442
-    :cond_0
+    :cond_1d
     new-instance p0, Landroid/renderscript/RSRuntimeException;
 
     const-string p1, "Type mismatch with U8_4!"
@@ -459,7 +459,7 @@
 .end method
 
 .method public forEach_subtractGhosts(Landroid/renderscript/Allocation;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -470,7 +470,7 @@
 .end method
 
 .method public forEach_subtractGhosts(Landroid/renderscript/Allocation;Landroid/renderscript/Script$LaunchOptions;)V
-    .locals 7
+    .registers 10
 
     .line 458
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -487,7 +487,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     const/4 v2, 0x2
 
@@ -511,7 +511,7 @@
     return-void
 
     .line 459
-    :cond_0
+    :cond_1d
     new-instance p0, Landroid/renderscript/RSRuntimeException;
 
     const-string p1, "Type mismatch with U8_4!"
@@ -522,7 +522,7 @@
 .end method
 
 .method public getFieldID_BLUE_HISTOGRAM_START()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x10
 
@@ -537,7 +537,7 @@
 .end method
 
 .method public getFieldID_BRIGHTNESS_HISTOGRAM_START()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0xd
 
@@ -552,7 +552,7 @@
 .end method
 
 .method public getFieldID_BRIGHTNESS_INDEX()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x11
 
@@ -567,7 +567,7 @@
 .end method
 
 .method public getFieldID_CLIP_HIGH()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x3
 
@@ -582,7 +582,7 @@
 .end method
 
 .method public getFieldID_CLIP_LOW()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x2
 
@@ -597,7 +597,7 @@
 .end method
 
 .method public getFieldID_GREEN_HISTOGRAM_START()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0xf
 
@@ -612,7 +612,7 @@
 .end method
 
 .method public getFieldID_HALF_INTEGER_MAX()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x5
 
@@ -627,7 +627,7 @@
 .end method
 
 .method public getFieldID_HEIGHT()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x14
 
@@ -642,7 +642,7 @@
 .end method
 
 .method public getFieldID_HISTOGRAM_BITSHIFT()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x9
 
@@ -657,7 +657,7 @@
 .end method
 
 .method public getFieldID_HISTOGRAM_BUCKET_COUNT()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0xa
 
@@ -672,7 +672,7 @@
 .end method
 
 .method public getFieldID_HISTOGRAM_BUFFER_SIZE()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0xc
 
@@ -687,7 +687,7 @@
 .end method
 
 .method public getFieldID_HISTOGRAM_FRAME_COUNT()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0xb
 
@@ -702,7 +702,7 @@
 .end method
 
 .method public getFieldID_LOW_4_BITS()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x12
 
@@ -717,7 +717,7 @@
 .end method
 
 .method public getFieldID_MAX_GHOSTS()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x15
 
@@ -732,7 +732,7 @@
 .end method
 
 .method public getFieldID_PIXEL_BLACK()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x6
 
@@ -747,7 +747,7 @@
 .end method
 
 .method public getFieldID_PIXEL_WHITE()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x7
 
@@ -762,7 +762,7 @@
 .end method
 
 .method public getFieldID_RED_HISTOGRAM_START()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0xe
 
@@ -777,7 +777,7 @@
 .end method
 
 .method public getFieldID_STRIPE_WIDTH()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x4
 
@@ -792,7 +792,7 @@
 .end method
 
 .method public getFieldID_WIDTH()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x13
 
@@ -807,7 +807,7 @@
 .end method
 
 .method public getFieldID_ghostIndex()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x17
 
@@ -822,7 +822,7 @@
 .end method
 
 .method public getFieldID_ghostsToSubtract()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x19
 
@@ -837,7 +837,7 @@
 .end method
 
 .method public getFieldID_hasGhosts()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x16
 
@@ -852,7 +852,7 @@
 .end method
 
 .method public getFieldID_inputFrame()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -867,7 +867,7 @@
 .end method
 
 .method public getFieldID_statistics()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -882,7 +882,7 @@
 .end method
 
 .method public getFieldID_subtractCurrentGhost()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x18
 
@@ -897,7 +897,7 @@
 .end method
 
 .method public getFieldID_zebraIsEnabled()Landroid/renderscript/Script$FieldID;
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x8
 
@@ -912,7 +912,7 @@
 .end method
 
 .method public getInvokeID_update_statistics()Landroid/renderscript/Script$InvokeID;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -925,7 +925,7 @@
 .end method
 
 .method public getKernelID_processFrame()Landroid/renderscript/Script$KernelID;
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -942,7 +942,7 @@
 .end method
 
 .method public getKernelID_subtractGhosts()Landroid/renderscript/Script$KernelID;
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -959,7 +959,7 @@
 .end method
 
 .method public get_BLUE_HISTOGRAM_START()S
-    .locals 0
+    .registers 1
 
     .line 283
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_BLUE_HISTOGRAM_START:S
@@ -968,7 +968,7 @@
 .end method
 
 .method public get_BRIGHTNESS_HISTOGRAM_START()S
-    .locals 0
+    .registers 1
 
     .line 250
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_BRIGHTNESS_HISTOGRAM_START:S
@@ -977,7 +977,7 @@
 .end method
 
 .method public get_BRIGHTNESS_INDEX()S
-    .locals 0
+    .registers 1
 
     .line 294
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_BRIGHTNESS_INDEX:S
@@ -986,7 +986,7 @@
 .end method
 
 .method public get_CLIP_HIGH()S
-    .locals 0
+    .registers 1
 
     .line 138
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_CLIP_HIGH:S
@@ -995,7 +995,7 @@
 .end method
 
 .method public get_CLIP_LOW()S
-    .locals 0
+    .registers 1
 
     .line 127
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_CLIP_LOW:S
@@ -1004,7 +1004,7 @@
 .end method
 
 .method public get_GREEN_HISTOGRAM_START()S
-    .locals 0
+    .registers 1
 
     .line 272
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_GREEN_HISTOGRAM_START:S
@@ -1013,7 +1013,7 @@
 .end method
 
 .method public get_HALF_INTEGER_MAX()I
-    .locals 0
+    .registers 1
 
     .line 160
     iget p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_HALF_INTEGER_MAX:I
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public get_HEIGHT()I
-    .locals 0
+    .registers 1
 
     .line 327
     iget p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_HEIGHT:I
@@ -1031,7 +1031,7 @@
 .end method
 
 .method public get_HISTOGRAM_BITSHIFT()S
-    .locals 0
+    .registers 1
 
     .line 206
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_HISTOGRAM_BITSHIFT:S
@@ -1040,7 +1040,7 @@
 .end method
 
 .method public get_HISTOGRAM_BUCKET_COUNT()S
-    .locals 0
+    .registers 1
 
     .line 217
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_HISTOGRAM_BUCKET_COUNT:S
@@ -1049,7 +1049,7 @@
 .end method
 
 .method public get_HISTOGRAM_BUFFER_SIZE()I
-    .locals 0
+    .registers 1
 
     .line 239
     iget p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_HISTOGRAM_BUFFER_SIZE:I
@@ -1058,7 +1058,7 @@
 .end method
 
 .method public get_HISTOGRAM_FRAME_COUNT()S
-    .locals 0
+    .registers 1
 
     .line 228
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_HISTOGRAM_FRAME_COUNT:S
@@ -1067,7 +1067,7 @@
 .end method
 
 .method public get_LOW_4_BITS()J
-    .locals 2
+    .registers 3
 
     .line 305
     iget-wide v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_LOW_4_BITS:J
@@ -1076,7 +1076,7 @@
 .end method
 
 .method public get_MAX_GHOSTS()S
-    .locals 0
+    .registers 1
 
     .line 338
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_MAX_GHOSTS:S
@@ -1085,7 +1085,7 @@
 .end method
 
 .method public get_PIXEL_BLACK()Landroid/renderscript/Short4;
-    .locals 0
+    .registers 1
 
     .line 170
     iget-object p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_PIXEL_BLACK:Landroid/renderscript/Short4;
@@ -1094,7 +1094,7 @@
 .end method
 
 .method public get_PIXEL_WHITE()Landroid/renderscript/Short4;
-    .locals 0
+    .registers 1
 
     .line 180
     iget-object p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_PIXEL_WHITE:Landroid/renderscript/Short4;
@@ -1103,7 +1103,7 @@
 .end method
 
 .method public get_RED_HISTOGRAM_START()S
-    .locals 0
+    .registers 1
 
     .line 261
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_RED_HISTOGRAM_START:S
@@ -1112,7 +1112,7 @@
 .end method
 
 .method public get_STRIPE_WIDTH()S
-    .locals 0
+    .registers 1
 
     .line 149
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_STRIPE_WIDTH:S
@@ -1121,7 +1121,7 @@
 .end method
 
 .method public get_WIDTH()I
-    .locals 0
+    .registers 1
 
     .line 316
     iget p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_WIDTH:I
@@ -1130,7 +1130,7 @@
 .end method
 
 .method public get_ghostIndex()S
-    .locals 0
+    .registers 1
 
     .line 380
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_ghostIndex:S
@@ -1139,7 +1139,7 @@
 .end method
 
 .method public get_ghostsToSubtract()J
-    .locals 2
+    .registers 3
 
     .line 422
     iget-wide v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_ghostsToSubtract:J
@@ -1148,7 +1148,7 @@
 .end method
 
 .method public get_hasGhosts()S
-    .locals 0
+    .registers 1
 
     .line 359
     iget-short p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_hasGhosts:S
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public get_inputFrame()Landroid/renderscript/Allocation;
-    .locals 0
+    .registers 1
 
     .line 101
     iget-object p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_inputFrame:Landroid/renderscript/Allocation;
@@ -1166,7 +1166,7 @@
 .end method
 
 .method public get_statistics()Landroid/renderscript/Allocation;
-    .locals 0
+    .registers 1
 
     .line 116
     iget-object p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_statistics:Landroid/renderscript/Allocation;
@@ -1175,7 +1175,7 @@
 .end method
 
 .method public get_subtractCurrentGhost()B
-    .locals 0
+    .registers 1
 
     .line 401
     iget-byte p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_subtractCurrentGhost:B
@@ -1184,7 +1184,7 @@
 .end method
 
 .method public get_zebraIsEnabled()I
-    .locals 0
+    .registers 1
 
     .line 195
     iget p0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_zebraIsEnabled:I
@@ -1193,7 +1193,7 @@
 .end method
 
 .method public invoke_update_statistics()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -1204,25 +1204,25 @@
 .end method
 
 .method public declared-synchronized set_ghostIndex(S)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 369
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 370
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0}, Landroid/renderscript/FieldPacker;->reset()V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 372
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/renderscript/FieldPacker;
 
     const/4 v1, 0x1
@@ -1232,7 +1232,7 @@
     iput-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
     .line 374
-    :goto_0
+    :goto_13
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0, p1}, Landroid/renderscript/FieldPacker;->addU8(S)V
@@ -1246,15 +1246,15 @@
 
     .line 376
     iput-short p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_ghostIndex:S
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
     .line 377
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 368
@@ -1264,25 +1264,25 @@
 .end method
 
 .method public declared-synchronized set_ghostsToSubtract(J)V
-    .locals 2
+    .registers 5
 
     monitor-enter p0
 
     .line 411
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U32:Landroid/renderscript/FieldPacker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 412
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U32:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0}, Landroid/renderscript/FieldPacker;->reset()V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 414
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/renderscript/FieldPacker;
 
     const/4 v1, 0x4
@@ -1292,7 +1292,7 @@
     iput-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U32:Landroid/renderscript/FieldPacker;
 
     .line 416
-    :goto_0
+    :goto_13
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U32:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0, p1, p2}, Landroid/renderscript/FieldPacker;->addU32(J)V
@@ -1306,15 +1306,15 @@
 
     .line 418
     iput-wide p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_ghostsToSubtract:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
     .line 419
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 410
@@ -1324,25 +1324,25 @@
 .end method
 
 .method public declared-synchronized set_hasGhosts(S)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 348
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 349
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0}, Landroid/renderscript/FieldPacker;->reset()V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 351
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/renderscript/FieldPacker;
 
     const/4 v1, 0x1
@@ -1352,7 +1352,7 @@
     iput-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
     .line 353
-    :goto_0
+    :goto_13
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_U8:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0, p1}, Landroid/renderscript/FieldPacker;->addU8(S)V
@@ -1366,15 +1366,15 @@
 
     .line 355
     iput-short p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_hasGhosts:S
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
     .line 356
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 347
@@ -1384,27 +1384,27 @@
 .end method
 
 .method public declared-synchronized set_inputFrame(Landroid/renderscript/Allocation;)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     const/4 v0, 0x0
 
     .line 96
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0, v0, p1}, Lco/openlight/app/renderscript/ScriptC_histogram;->setVar(ILandroid/renderscript/BaseObj;)V
 
     .line 97
     iput-object p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_inputFrame:Landroid/renderscript/Allocation;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_2 .. :try_end_7} :catchall_9
 
     .line 98
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_9
     move-exception p1
 
     .line 95
@@ -1414,27 +1414,27 @@
 .end method
 
 .method public declared-synchronized set_statistics(Landroid/renderscript/Allocation;)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     const/4 v0, 0x1
 
     .line 111
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0, v0, p1}, Lco/openlight/app/renderscript/ScriptC_histogram;->setVar(ILandroid/renderscript/BaseObj;)V
 
     .line 112
     iput-object p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_statistics:Landroid/renderscript/Allocation;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_2 .. :try_end_7} :catchall_9
 
     .line 113
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_9
     move-exception p1
 
     .line 110
@@ -1444,25 +1444,25 @@
 .end method
 
 .method public declared-synchronized set_subtractCurrentGhost(B)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 390
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_I8:Landroid/renderscript/FieldPacker;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 391
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_I8:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0}, Landroid/renderscript/FieldPacker;->reset()V
 
-    goto :goto_0
+    goto :goto_13
 
     .line 393
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/renderscript/FieldPacker;
 
     const/4 v1, 0x1
@@ -1472,7 +1472,7 @@
     iput-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_I8:Landroid/renderscript/FieldPacker;
 
     .line 395
-    :goto_0
+    :goto_13
     iget-object v0, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->__rs_fp_I8:Landroid/renderscript/FieldPacker;
 
     invoke-virtual {v0, p1}, Landroid/renderscript/FieldPacker;->addI8(B)V
@@ -1486,15 +1486,15 @@
 
     .line 397
     iput-byte p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_subtractCurrentGhost:B
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_21
+    .catchall {:try_start_1 .. :try_end_21} :catchall_23
 
     .line 398
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 389
@@ -1504,27 +1504,27 @@
 .end method
 
 .method public declared-synchronized set_zebraIsEnabled(I)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     const/16 v0, 0x8
 
     .line 190
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0, v0, p1}, Lco/openlight/app/renderscript/ScriptC_histogram;->setVar(II)V
 
     .line 191
     iput p1, p0, Lco/openlight/app/renderscript/ScriptC_histogram;->mExportVar_zebraIsEnabled:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_8
+    .catchall {:try_start_3 .. :try_end_8} :catchall_a
 
     .line 192
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_a
     move-exception p1
 
     .line 189

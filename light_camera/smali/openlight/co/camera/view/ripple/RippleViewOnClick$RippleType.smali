@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 466
     new-instance v0, Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;
@@ -96,7 +96,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -113,7 +113,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;
-    .locals 1
+    .registers 2
 
     .line 465
     const-class v0, Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;
@@ -128,7 +128,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;
-    .locals 1
+    .registers 1
 
     .line 465
     sget-object v0, Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;->$VALUES:[Lopenlight/co/camera/view/ripple/RippleViewOnClick$RippleType;

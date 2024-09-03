@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 29
     sget-object v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->JPEG:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
@@ -100,7 +100,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,25 +109,25 @@
 .end method
 
 .method private static decodeStream(Lcom/bumptech/glide/util/MarkEnforcingInputStream;Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 6
 
     .line 315
     iget-boolean v0, p2, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     const/high16 p1, 0x500000
 
     .line 321
     invoke-virtual {p0, p1}, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->mark(I)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 326
-    :cond_0
+    :cond_a
     invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;->fixMarkLimit()V
 
-    :goto_0
+    :goto_d
     const/4 p1, 0x0
 
     .line 329
@@ -136,19 +136,19 @@
     move-result-object p1
 
     .line 332
-    :try_start_0
+    :try_start_12
     iget-boolean v0, p2, Landroid/graphics/BitmapFactory$Options;->inJustDecodeBounds:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_46
 
     .line 333
     invoke-virtual {p0}, Lcom/bumptech/glide/util/MarkEnforcingInputStream;->reset()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_12 .. :try_end_19} :catch_1a
 
-    goto :goto_1
+    goto :goto_46
 
-    :catch_0
+    :catch_1a
     move-exception p0
 
     const-string v0, "Downsampler"
@@ -160,7 +160,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_46
 
     const-string v0, "Downsampler"
 
@@ -191,13 +191,13 @@
 
     invoke-static {v0, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_1
-    :goto_1
+    :cond_46
+    :goto_46
     return-object p1
 .end method
 
 .method private downsampleWithSize(Lcom/bumptech/glide/util/MarkEnforcingInputStream;Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Landroid/graphics/BitmapFactory$Options;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;IIILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    .locals 2
+    .registers 11
 
     .line 211
     invoke-static {p1, p8}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->getConfig(Ljava/io/InputStream;Lcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap$Config;
@@ -215,20 +215,20 @@
 
     const/4 v0, 0x1
 
-    if-eq p8, v0, :cond_0
+    if-eq p8, v0, :cond_13
 
     const/16 p8, 0x13
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    if-gt p8, v0, :cond_1
+    if-gt p8, v0, :cond_2f
 
-    :cond_0
+    :cond_13
     invoke-static {p1}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->shouldUsePool(Ljava/io/InputStream;)Z
 
     move-result p8
 
-    if-eqz p8, :cond_1
+    if-eqz p8, :cond_2f
 
     int-to-double v0, p5
 
@@ -262,7 +262,7 @@
     invoke-static {p3, p0}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->setInBitmap(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/Bitmap;)V
 
     .line 220
-    :cond_1
+    :cond_2f
     invoke-static {p1, p2, p3}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->decodeStream(Lcom/bumptech/glide/util/MarkEnforcingInputStream;Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Landroid/graphics/BitmapFactory$Options;)Landroid/graphics/Bitmap;
 
     move-result-object p0
@@ -271,26 +271,26 @@
 .end method
 
 .method private static getConfig(Ljava/io/InputStream;Lcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap$Config;
-    .locals 6
+    .registers 8
 
     .line 254
     sget-object v0, Lcom/bumptech/glide/load/DecodeFormat;->ALWAYS_ARGB_8888:Lcom/bumptech/glide/load/DecodeFormat;
 
-    if-eq p1, v0, :cond_6
+    if-eq p1, v0, :cond_88
 
     sget-object v0, Lcom/bumptech/glide/load/DecodeFormat;->PREFER_ARGB_8888:Lcom/bumptech/glide/load/DecodeFormat;
 
-    if-eq p1, v0, :cond_6
+    if-eq p1, v0, :cond_88
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
-    goto/16 :goto_5
+    goto/16 :goto_88
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
     const/16 v1, 0x400
@@ -301,7 +301,7 @@
     const/4 v1, 0x5
 
     .line 263
-    :try_start_0
+    :try_start_17
     new-instance v2, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;
 
     invoke-direct {v2, p0}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;-><init>(Ljava/io/InputStream;)V
@@ -309,19 +309,19 @@
     invoke-virtual {v2}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->hasAlpha()Z
 
     move-result v2
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catch Ljava/io/IOException; {:try_start_17 .. :try_end_20} :catch_38
+    .catchall {:try_start_17 .. :try_end_20} :catchall_36
 
     .line 270
-    :try_start_1
+    :try_start_20
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_23
+    .catch Ljava/io/IOException; {:try_start_20 .. :try_end_23} :catch_24
 
-    goto :goto_0
+    goto :goto_34
 
-    :catch_0
+    :catch_24
     move-exception p0
 
     const-string p1, "Downsampler"
@@ -331,7 +331,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_34
 
     const-string p1, "Downsampler"
 
@@ -340,21 +340,21 @@
     .line 273
     invoke-static {p1, v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_1
-    :goto_0
+    :cond_34
+    :goto_34
     move v0, v2
 
-    goto :goto_1
+    goto :goto_6b
 
-    :catchall_0
+    :catchall_36
     move-exception p1
 
-    goto :goto_3
+    goto :goto_73
 
-    :catch_1
+    :catch_38
     move-exception v2
 
-    :try_start_2
+    :try_start_39
     const-string v3, "Downsampler"
 
     .line 265
@@ -362,7 +362,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_57
 
     const-string v3, "Downsampler"
 
@@ -382,19 +382,19 @@
     move-result-object p1
 
     invoke-static {v3, p1, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_57
+    .catchall {:try_start_39 .. :try_end_57} :catchall_36
 
     .line 270
-    :cond_2
-    :try_start_3
+    :cond_57
+    :try_start_57
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_5a
+    .catch Ljava/io/IOException; {:try_start_57 .. :try_end_5a} :catch_5b
 
-    goto :goto_1
+    goto :goto_6b
 
-    :catch_2
+    :catch_5b
     move-exception p0
 
     const-string p1, "Downsampler"
@@ -404,7 +404,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_6b
 
     const-string p1, "Downsampler"
 
@@ -413,31 +413,31 @@
     .line 273
     invoke-static {p1, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_3
-    :goto_1
-    if-eqz v0, :cond_4
+    :cond_6b
+    :goto_6b
+    if-eqz v0, :cond_70
 
     .line 278
     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
-    goto :goto_2
+    goto :goto_72
 
-    :cond_4
+    :cond_70
     sget-object p0, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
 
-    :goto_2
+    :goto_72
     return-object p0
 
     .line 270
-    :goto_3
-    :try_start_4
+    :goto_73
+    :try_start_73
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_76
+    .catch Ljava/io/IOException; {:try_start_73 .. :try_end_76} :catch_77
 
-    goto :goto_4
+    goto :goto_87
 
-    :catch_3
+    :catch_77
     move-exception p0
 
     const-string v0, "Downsampler"
@@ -447,7 +447,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_87
 
     const-string v0, "Downsampler"
 
@@ -457,20 +457,20 @@
     invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 275
-    :cond_5
-    :goto_4
+    :cond_87
+    :goto_87
     throw p1
 
     .line 256
-    :cond_6
-    :goto_5
+    :cond_88
+    :goto_88
     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     return-object p0
 .end method
 
 .method private static declared-synchronized getDefaultOptions()Landroid/graphics/BitmapFactory$Options;
-    .locals 3
+    .registers 3
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -480,15 +480,15 @@
     monitor-enter v0
 
     .line 355
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->OPTIONS_QUEUE:Ljava/util/Queue;
 
     monitor-enter v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_6
+    .catchall {:try_start_3 .. :try_end_6} :catchall_1e
 
     .line 356
-    :try_start_1
+    :try_start_6
     sget-object v2, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->OPTIONS_QUEUE:Ljava/util/Queue;
 
     invoke-interface {v2}, Ljava/util/Queue;->poll()Ljava/lang/Object;
@@ -499,43 +499,43 @@
 
     .line 357
     monitor-exit v1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_6 .. :try_end_f} :catchall_1b
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_19
 
     .line 359
-    :try_start_2
+    :try_start_11
     new-instance v2, Landroid/graphics/BitmapFactory$Options;
 
     invoke-direct {v2}, Landroid/graphics/BitmapFactory$Options;-><init>()V
 
     .line 360
     invoke-static {v2}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->resetOptions(Landroid/graphics/BitmapFactory$Options;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_19
+    .catchall {:try_start_11 .. :try_end_19} :catchall_1e
 
     .line 363
-    :cond_0
+    :cond_19
     monitor-exit v0
 
     return-object v2
 
-    :catchall_0
+    :catchall_1b
     move-exception v2
 
     .line 357
-    :try_start_3
+    :try_start_1c
     monitor-exit v1
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1c .. :try_end_1d} :catchall_1b
 
-    :try_start_4
+    :try_start_1d
     throw v2
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_1e
+    .catchall {:try_start_1d .. :try_end_1e} :catchall_1e
 
-    :catchall_1
+    :catchall_1e
     move-exception v1
 
     .line 354
@@ -545,59 +545,59 @@
 .end method
 
 .method private getRoundedSampleSize(IIIII)I
-    .locals 1
+    .registers 7
 
     const/high16 v0, -0x80000000
 
-    if-ne p5, v0, :cond_0
+    if-ne p5, v0, :cond_5
 
     move p5, p3
 
-    :cond_0
-    if-ne p4, v0, :cond_1
+    :cond_5
+    if-ne p4, v0, :cond_8
 
     move p4, p2
 
-    :cond_1
+    :cond_8
     const/16 v0, 0x5a
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_16
 
     const/16 v0, 0x10e
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_11
 
-    goto :goto_0
+    goto :goto_16
 
     .line 194
-    :cond_2
+    :cond_11
     invoke-virtual {p0, p2, p3, p4, p5}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->getSampleSize(IIII)I
 
     move-result p0
 
-    goto :goto_1
+    goto :goto_1a
 
     .line 192
-    :cond_3
-    :goto_0
+    :cond_16
+    :goto_16
     invoke-virtual {p0, p3, p2, p4, p5}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->getSampleSize(IIII)I
 
     move-result p0
 
-    :goto_1
-    if-nez p0, :cond_4
+    :goto_1a
+    if-nez p0, :cond_1e
 
     const/4 p0, 0x0
 
-    goto :goto_2
+    goto :goto_22
 
     .line 201
-    :cond_4
+    :cond_1e
     invoke-static {p0}, Ljava/lang/Integer;->highestOneBit(I)I
 
     move-result p0
 
-    :goto_2
+    :goto_22
     const/4 p1, 0x1
 
     .line 204
@@ -609,7 +609,7 @@
 .end method
 
 .method private static releaseOptions(Landroid/graphics/BitmapFactory$Options;)V
-    .locals 2
+    .registers 3
 
     .line 367
     invoke-static {p0}, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->resetOptions(Landroid/graphics/BitmapFactory$Options;)V
@@ -620,7 +620,7 @@
     monitor-enter v0
 
     .line 369
-    :try_start_0
+    :try_start_6
     sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/Downsampler;->OPTIONS_QUEUE:Ljava/util/Queue;
 
     invoke-interface {v1, p0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
@@ -630,18 +630,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_d
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_6 .. :try_end_f} :catchall_d
 
     throw p0
 .end method
 
 .method private static resetOptions(Landroid/graphics/BitmapFactory$Options;)V
-    .locals 4
+    .registers 5
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -684,7 +684,7 @@
 
     const/16 v3, 0xb
 
-    if-gt v3, v1, :cond_0
+    if-gt v3, v1, :cond_1f
 
     .line 386
     iput-object v0, p0, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
@@ -692,12 +692,12 @@
     .line 387
     iput-boolean v2, p0, Landroid/graphics/BitmapFactory$Options;->inMutable:Z
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private static setInBitmap(Landroid/graphics/BitmapFactory$Options;Landroid/graphics/Bitmap;)V
-    .locals 2
+    .registers 4
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -707,30 +707,30 @@
 
     const/16 v1, 0xb
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_8
 
     .line 348
     iput-object p1, p0, Landroid/graphics/BitmapFactory$Options;->inBitmap:Landroid/graphics/Bitmap;
 
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method private static shouldUsePool(Ljava/io/InputStream;)Z
-    .locals 4
+    .registers 5
 
     .line 225
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_8
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_8
     const/16 v0, 0x400
 
     .line 229
@@ -739,7 +739,7 @@
     const/4 v0, 0x5
 
     .line 231
-    :try_start_0
+    :try_start_e
     new-instance v1, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;
 
     invoke-direct {v1, p0}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;-><init>(Ljava/io/InputStream;)V
@@ -754,19 +754,19 @@
     invoke-interface {v2, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catch Ljava/io/IOException; {:try_start_e .. :try_end_1d} :catch_34
+    .catchall {:try_start_e .. :try_end_1d} :catchall_32
 
     .line 241
-    :try_start_1
+    :try_start_1d
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_20
+    .catch Ljava/io/IOException; {:try_start_1d .. :try_end_20} :catch_21
 
-    goto :goto_0
+    goto :goto_31
 
-    :catch_0
+    :catch_21
     move-exception p0
 
     const-string v2, "Downsampler"
@@ -776,7 +776,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     const-string v0, "Downsampler"
 
@@ -785,19 +785,19 @@
     .line 244
     invoke-static {v0, v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     return v1
 
-    :catchall_0
+    :catchall_32
     move-exception v1
 
-    goto :goto_2
+    goto :goto_5a
 
-    :catch_1
+    :catch_34
     move-exception v1
 
-    :try_start_2
+    :try_start_35
     const-string v2, "Downsampler"
 
     .line 236
@@ -805,7 +805,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_44
 
     const-string v2, "Downsampler"
 
@@ -813,19 +813,19 @@
 
     .line 237
     invoke-static {v2, v3, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_44
+    .catchall {:try_start_35 .. :try_end_44} :catchall_32
 
     .line 241
-    :cond_2
-    :try_start_3
+    :cond_44
+    :try_start_44
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_47
+    .catch Ljava/io/IOException; {:try_start_44 .. :try_end_47} :catch_48
 
-    goto :goto_1
+    goto :goto_58
 
-    :catch_2
+    :catch_48
     move-exception p0
 
     const-string v1, "Downsampler"
@@ -835,7 +835,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_58
 
     const-string v0, "Downsampler"
 
@@ -844,22 +844,22 @@
     .line 244
     invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_3
-    :goto_1
+    :cond_58
+    :goto_58
     const/4 p0, 0x0
 
     return p0
 
     .line 241
-    :goto_2
-    :try_start_4
+    :goto_5a
+    :try_start_5a
     invoke-virtual {p0}, Ljava/io/InputStream;->reset()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    :try_end_5d
+    .catch Ljava/io/IOException; {:try_start_5a .. :try_end_5d} :catch_5e
 
-    goto :goto_3
+    goto :goto_6e
 
-    :catch_3
+    :catch_5e
     move-exception p0
 
     const-string v2, "Downsampler"
@@ -869,7 +869,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6e
 
     const-string v0, "Downsampler"
 
@@ -879,15 +879,15 @@
     invoke-static {v0, v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 246
-    :cond_4
-    :goto_3
+    :cond_6e
+    :goto_6e
     throw v1
 .end method
 
 
 # virtual methods
 .method public decode(Ljava/io/InputStream;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;IILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    .locals 18
+    .registers 24
 
     move-object/from16 v10, p2
 
@@ -931,17 +931,17 @@
     const/high16 v0, 0x500000
 
     .line 126
-    :try_start_0
+    :try_start_24
     invoke-virtual {v15, v0}, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->mark(I)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_27
+    .catchall {:try_start_24 .. :try_end_27} :catchall_e6
 
     const/4 v1, 0x0
 
     const/4 v4, 0x5
 
     .line 129
-    :try_start_1
+    :try_start_29
     new-instance v0, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;
 
     invoke-direct {v0, v15}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;-><init>(Ljava/io/InputStream;)V
@@ -949,25 +949,25 @@
     invoke-virtual {v0}, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser;->getOrientation()I
 
     move-result v5
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_32
+    .catch Ljava/io/IOException; {:try_start_29 .. :try_end_32} :catch_4d
+    .catchall {:try_start_29 .. :try_end_32} :catchall_49
 
     .line 136
-    :try_start_2
+    :try_start_32
     invoke-virtual {v15}, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->reset()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_35
+    .catch Ljava/io/IOException; {:try_start_32 .. :try_end_35} :catch_36
+    .catchall {:try_start_32 .. :try_end_35} :catchall_e6
 
-    goto :goto_0
+    goto :goto_47
 
-    :catch_0
+    :catch_36
     move-exception v0
 
     move-object v6, v0
 
-    :try_start_3
+    :try_start_38
     const-string v0, "Downsampler"
 
     .line 138
@@ -975,7 +975,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_47
 
     const-string v0, "Downsampler"
 
@@ -983,26 +983,26 @@
 
     .line 139
     invoke-static {v0, v4, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_47
+    .catchall {:try_start_38 .. :try_end_47} :catchall_e6
 
-    :cond_0
-    :goto_0
+    :cond_47
+    :goto_47
     move v0, v5
 
-    goto :goto_2
+    goto :goto_73
 
-    :catchall_0
+    :catchall_49
     move-exception v0
 
     move-object v1, v0
 
-    goto/16 :goto_3
+    goto/16 :goto_d0
 
-    :catch_1
+    :catch_4d
     move-exception v0
 
-    :try_start_4
+    :try_start_4e
     const-string v5, "Downsampler"
 
     .line 131
@@ -1010,7 +1010,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_5d
 
     const-string v5, "Downsampler"
 
@@ -1018,25 +1018,25 @@
 
     .line 132
     invoke-static {v5, v6, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_5d
+    .catchall {:try_start_4e .. :try_end_5d} :catchall_49
 
     .line 136
-    :cond_1
-    :try_start_5
+    :cond_5d
+    :try_start_5d
     invoke-virtual {v15}, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->reset()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_60
+    .catch Ljava/io/IOException; {:try_start_5d .. :try_end_60} :catch_61
+    .catchall {:try_start_5d .. :try_end_60} :catchall_e6
 
-    goto :goto_1
+    goto :goto_72
 
-    :catch_2
+    :catch_61
     move-exception v0
 
     move-object v5, v0
 
-    :try_start_6
+    :try_start_63
     const-string v0, "Downsampler"
 
     .line 138
@@ -1044,7 +1044,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_72
 
     const-string v0, "Downsampler"
 
@@ -1053,12 +1053,12 @@
     .line 139
     invoke-static {v0, v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_2
-    :goto_1
+    :cond_72
+    :goto_72
     move v0, v1
 
     .line 144
-    :goto_2
+    :goto_73
     iput-object v12, v14, Landroid/graphics/BitmapFactory$Options;->inTempStorage:[B
 
     move-object/from16 v9, p0
@@ -1118,11 +1118,11 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_ca
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bd
 
     .line 167
     invoke-static {v1, v10, v0}, Lcom/bumptech/glide/load/resource/bitmap/TransformationUtils;->rotateImageExif(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;I)Landroid/graphics/Bitmap;
@@ -1134,21 +1134,21 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_bd
 
     invoke-interface {v10, v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;->put(Landroid/graphics/Bitmap;)Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_bd
 
     .line 170
     invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
+    :try_end_bd
+    .catchall {:try_start_63 .. :try_end_bd} :catchall_e6
 
     .line 176
-    :cond_3
+    :cond_bd
     invoke-virtual {v11, v12}, Lcom/bumptech/glide/util/ByteArrayPool;->releaseBytes([B)Z
 
     .line 177
@@ -1163,32 +1163,32 @@
     return-object v2
 
     .line 162
-    :cond_4
-    :try_start_7
+    :cond_ca
+    :try_start_ca
     new-instance v0, Ljava/lang/RuntimeException;
 
     invoke-direct {v0, v2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_1
+    :try_end_d0
+    .catchall {:try_start_ca .. :try_end_d0} :catchall_e6
 
     .line 136
-    :goto_3
-    :try_start_8
+    :goto_d0
+    :try_start_d0
     invoke-virtual {v15}, Lcom/bumptech/glide/util/ExceptionCatchingInputStream;->reset()V
-    :try_end_8
-    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_8} :catch_3
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    :try_end_d3
+    .catch Ljava/io/IOException; {:try_start_d0 .. :try_end_d3} :catch_d4
+    .catchall {:try_start_d0 .. :try_end_d3} :catchall_e6
 
-    goto :goto_4
+    goto :goto_e5
 
-    :catch_3
+    :catch_d4
     move-exception v0
 
     move-object v2, v0
 
-    :try_start_9
+    :try_start_d6
     const-string v0, "Downsampler"
 
     .line 138
@@ -1196,7 +1196,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_e5
 
     const-string v0, "Downsampler"
 
@@ -1206,13 +1206,13 @@
     invoke-static {v0, v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 141
-    :cond_5
-    :goto_4
+    :cond_e5
+    :goto_e5
     throw v1
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_1
+    :try_end_e6
+    .catchall {:try_start_d6 .. :try_end_e6} :catchall_e6
 
-    :catchall_1
+    :catchall_e6
     move-exception v0
 
     .line 176
@@ -1231,7 +1231,7 @@
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;IILcom/bumptech/glide/load/DecodeFormat;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -1249,7 +1249,7 @@
 .end method
 
 .method public getDimensions(Lcom/bumptech/glide/util/MarkEnforcingInputStream;Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;Landroid/graphics/BitmapFactory$Options;)[I
-    .locals 1
+    .registers 5
 
     const/4 p0, 0x1
 

@@ -9,14 +9,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 31
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 32
     new-instance v0, Landroid/support/transition/ViewGroupUtilsApi18;
@@ -25,22 +25,22 @@
 
     sput-object v0, Landroid/support/transition/ViewGroupUtils;->IMPL:Landroid/support/transition/ViewGroupUtilsImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 34
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/transition/ViewGroupUtilsApi14;
 
     invoke-direct {v0}, Landroid/support/transition/ViewGroupUtilsApi14;-><init>()V
 
     sput-object v0, Landroid/support/transition/ViewGroupUtils;->IMPL:Landroid/support/transition/ViewGroupUtilsImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method static getOverlay(Landroid/view/ViewGroup;)Landroid/support/transition/ViewGroupOverlayImpl;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -66,7 +66,7 @@
 .end method
 
 .method static suppressLayout(Landroid/view/ViewGroup;Z)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

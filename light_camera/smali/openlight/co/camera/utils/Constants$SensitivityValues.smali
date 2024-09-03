@@ -66,7 +66,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 180
     new-instance v0, Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -345,7 +345,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)V"
@@ -365,7 +365,7 @@
 .end method
 
 .method public static forIndex(I)Lopenlight/co/camera/utils/Constants$SensitivityValues;
-    .locals 1
+    .registers 2
 
     .line 236
     sget-object v0, Lopenlight/co/camera/utils/Constants$SensitivityValues;->sVals:[Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -376,7 +376,7 @@
 .end method
 
 .method public static maxIndex()I
-    .locals 1
+    .registers 1
 
     .line 225
     sget-object v0, Lopenlight/co/camera/utils/Constants$SensitivityValues;->sVals:[Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -389,7 +389,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/utils/Constants$SensitivityValues;
-    .locals 1
+    .registers 2
 
     .line 179
     const-class v0, Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -404,7 +404,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/utils/Constants$SensitivityValues;
-    .locals 1
+    .registers 1
 
     .line 179
     sget-object v0, Lopenlight/co/camera/utils/Constants$SensitivityValues;->$VALUES:[Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -421,7 +421,7 @@
 
 # virtual methods
 .method public getSensitivityIndex()I
-    .locals 0
+    .registers 1
 
     .line 215
     iget p0, p0, Lopenlight/co/camera/utils/Constants$SensitivityValues;->sensitivityIndex:I
@@ -430,7 +430,7 @@
 .end method
 
 .method public getSensitivityVal()I
-    .locals 0
+    .registers 1
 
     .line 211
     iget p0, p0, Lopenlight/co/camera/utils/Constants$SensitivityValues;->sensitivityVal:I

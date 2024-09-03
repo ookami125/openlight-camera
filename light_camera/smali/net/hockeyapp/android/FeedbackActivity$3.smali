@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/FeedbackActivity;)V
-    .locals 0
+    .registers 2
 
     .line 697
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackActivity$3;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .registers 4
 
     .line 700
     invoke-static {}, Lnet/hockeyapp/android/utils/PrefsUtil;->getInstance()Lnet/hockeyapp/android/utils/PrefsUtil;

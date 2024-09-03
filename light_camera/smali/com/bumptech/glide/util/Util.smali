@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "0123456789abcdef"
 
@@ -42,7 +42,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,19 +51,19 @@
 .end method
 
 .method public static assertBackgroundThread()V
-    .locals 2
+    .registers 2
 
     .line 143
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnBackgroundThread()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 144
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "YOu must call this method on a background thread"
@@ -74,19 +74,19 @@
 .end method
 
 .method public static assertMainThread()V
-    .locals 2
+    .registers 2
 
     .line 134
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnMainThread()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 135
-    :cond_0
+    :cond_7
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "You must call this method on the main thread"
@@ -97,15 +97,15 @@
 .end method
 
 .method private static bytesToHex([B[C)Ljava/lang/String;
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x0
 
     .line 52
-    :goto_0
+    :goto_1
     array-length v1, p0
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1f
 
     .line 53
     aget-byte v1, p0, v0
@@ -136,10 +136,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 57
-    :cond_0
+    :cond_1f
     new-instance p0, Ljava/lang/String;
 
     invoke-direct {p0, p1}, Ljava/lang/String;-><init>([C)V
@@ -148,7 +148,7 @@
 .end method
 
 .method public static createQueue(I)Ljava/util/Queue;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -168,7 +168,7 @@
 .end method
 
 .method public static getBitmapByteSize(IILandroid/graphics/Bitmap$Config;)I
-    .locals 0
+    .registers 3
 
     mul-int/2addr p0, p1
 
@@ -183,7 +183,7 @@
 .end method
 
 .method public static getBitmapByteSize(Landroid/graphics/Bitmap;)I
-    .locals 2
+    .registers 3
     .annotation build Landroid/annotation/TargetApi;
         value = 0x13
     .end annotation
@@ -193,21 +193,21 @@
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 81
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getAllocationByteCount()I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/NullPointerException; {:try_start_6 .. :try_end_a} :catch_b
 
     return v0
 
     .line 86
-    :catch_0
-    :cond_0
+    :catch_b
+    :cond_b
     invoke-virtual {p0}, Landroid/graphics/Bitmap;->getHeight()I
 
     move-result v0
@@ -222,15 +222,15 @@
 .end method
 
 .method private static getBytesPerPixel(Landroid/graphics/Bitmap$Config;)I
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     .line 100
     sget-object p0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
 
     .line 104
-    :cond_0
+    :cond_4
     sget-object v0, Lcom/bumptech/glide/util/Util$1;->$SwitchMap$android$graphics$Bitmap$Config:[I
 
     invoke-virtual {p0}, Landroid/graphics/Bitmap$Config;->ordinal()I
@@ -239,35 +239,35 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_16
 
     const/4 p0, 0x4
 
-    goto :goto_0
+    goto :goto_14
 
-    :pswitch_0
+    :pswitch_11
     const/4 p0, 0x2
 
-    goto :goto_0
+    goto :goto_14
 
-    :pswitch_1
+    :pswitch_13
     const/4 p0, 0x1
 
-    :goto_0
+    :goto_14
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_16
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_13
+        :pswitch_11
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public static getSize(Landroid/graphics/Bitmap;)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -280,7 +280,7 @@
 .end method
 
 .method public static getSnapshot(Ljava/util/Collection;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -307,12 +307,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1b
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -321,14 +321,14 @@
     .line 180
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_1b
     return-object v0
 .end method
 
 .method public static isOnBackgroundThread()Z
-    .locals 1
+    .registers 1
 
     .line 159
     invoke-static {}, Lcom/bumptech/glide/util/Util;->isOnMainThread()Z
@@ -341,7 +341,7 @@
 .end method
 
 .method public static isOnMainThread()Z
-    .locals 2
+    .registers 2
 
     .line 152
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -352,72 +352,72 @@
 
     move-result-object v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_c
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method private static isValidDimension(I)Z
-    .locals 1
+    .registers 2
 
-    if-gtz p0, :cond_1
+    if-gtz p0, :cond_9
 
     const/high16 v0, -0x80000000
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_7
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_a
 
-    :cond_1
-    :goto_0
+    :cond_9
+    :goto_9
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_a
     return p0
 .end method
 
 .method public static isValidDimensions(II)Z
-    .locals 0
+    .registers 2
 
     .line 123
     invoke-static {p0}, Lcom/bumptech/glide/util/Util;->isValidDimension(I)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     invoke-static {p1}, Lcom/bumptech/glide/util/Util;->isValidDimension(I)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method public static sha1BytesToHex([B)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 43
     sget-object v0, Lcom/bumptech/glide/util/Util;->SHA_1_CHARS:[C
@@ -425,7 +425,7 @@
     monitor-enter v0
 
     .line 44
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/bumptech/glide/util/Util;->SHA_1_CHARS:[C
 
     invoke-static {p0, v1}, Lcom/bumptech/glide/util/Util;->bytesToHex([B[C)Ljava/lang/String;
@@ -436,19 +436,19 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 45
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method
 
 .method public static sha256BytesToHex([B)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 34
     sget-object v0, Lcom/bumptech/glide/util/Util;->SHA_256_CHARS:[C
@@ -456,7 +456,7 @@
     monitor-enter v0
 
     .line 35
-    :try_start_0
+    :try_start_3
     sget-object v1, Lcom/bumptech/glide/util/Util;->SHA_256_CHARS:[C
 
     invoke-static {p0, v1}, Lcom/bumptech/glide/util/Util;->bytesToHex([B[C)Ljava/lang/String;
@@ -467,13 +467,13 @@
 
     return-object p0
 
-    :catchall_0
+    :catchall_b
     move-exception p0
 
     .line 36
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_3 .. :try_end_d} :catchall_b
 
     throw p0
 .end method

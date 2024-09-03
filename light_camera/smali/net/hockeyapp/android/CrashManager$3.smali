@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/CrashManagerListener;Ljava/lang/ref/WeakReference;Z)V
-    .locals 0
+    .registers 4
 
     .line 536
     iput-object p1, p0, Lnet/hockeyapp/android/CrashManager$3;->val$listener:Lnet/hockeyapp/android/CrashManagerListener;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .registers 5
 
     .line 538
     sget-object p1, Lnet/hockeyapp/android/objects/CrashManagerUserInput;->CrashManagerUserInputAlwaysSend:Lnet/hockeyapp/android/objects/CrashManagerUserInput;

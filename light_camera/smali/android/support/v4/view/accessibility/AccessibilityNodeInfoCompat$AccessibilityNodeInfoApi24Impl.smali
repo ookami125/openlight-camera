@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1609
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityNodeInfoApi23Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getActionSetProgress()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 1612
     sget-object p0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SET_PROGRESS:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
@@ -40,7 +40,7 @@
 .end method
 
 .method public getDrawingOrder(Landroid/view/accessibility/AccessibilityNodeInfo;)I
-    .locals 0
+    .registers 2
 
     .line 1617
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->getDrawingOrder()I
@@ -51,7 +51,7 @@
 .end method
 
 .method public isImportantForAccessibility(Landroid/view/accessibility/AccessibilityNodeInfo;)Z
-    .locals 0
+    .registers 2
 
     .line 1627
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityNodeInfo;->isImportantForAccessibility()Z
@@ -62,7 +62,7 @@
 .end method
 
 .method public setDrawingOrder(Landroid/view/accessibility/AccessibilityNodeInfo;I)V
-    .locals 0
+    .registers 3
 
     .line 1622
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setDrawingOrder(I)V
@@ -71,7 +71,7 @@
 .end method
 
 .method public setImportantForAccessibility(Landroid/view/accessibility/AccessibilityNodeInfo;Z)V
-    .locals 0
+    .registers 3
 
     .line 1633
     invoke-virtual {p1, p2}, Landroid/view/accessibility/AccessibilityNodeInfo;->setImportantForAccessibility(Z)V

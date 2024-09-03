@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/util/ArraySet;)V
-    .locals 0
+    .registers 2
 
     .line 666
     iput-object p1, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method protected colClear()V
-    .locals 0
+    .registers 1
 
     .line 709
     iget-object p0, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -51,7 +51,7 @@
 .end method
 
 .method protected colGetEntry(II)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 674
     iget-object p0, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -64,7 +64,7 @@
 .end method
 
 .method protected colGetMap()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -84,7 +84,7 @@
 .end method
 
 .method protected colGetSize()I
-    .locals 0
+    .registers 1
 
     .line 669
     iget-object p0, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -95,7 +95,7 @@
 .end method
 
 .method protected colIndexOfKey(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 679
     iget-object p0, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -108,7 +108,7 @@
 .end method
 
 .method protected colIndexOfValue(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 684
     iget-object p0, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -121,7 +121,7 @@
 .end method
 
 .method protected colPut(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;TE;)V"
@@ -137,7 +137,7 @@
 .end method
 
 .method protected colRemoveAt(I)V
-    .locals 0
+    .registers 2
 
     .line 704
     iget-object p0, p0, Landroid/support/v4/util/ArraySet$1;->this$0:Landroid/support/v4/util/ArraySet;
@@ -148,7 +148,7 @@
 .end method
 
 .method protected colSetValue(ILjava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)TE;"

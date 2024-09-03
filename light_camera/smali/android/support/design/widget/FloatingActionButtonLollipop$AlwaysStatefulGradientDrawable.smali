@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 220
     invoke-direct {p0}, Landroid/graphics/drawable/GradientDrawable;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public isStateful()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

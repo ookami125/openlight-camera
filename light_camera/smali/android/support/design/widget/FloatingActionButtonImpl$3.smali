@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/FloatingActionButtonImpl;)V
-    .locals 0
+    .registers 2
 
     .line 372
     iput-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$3;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 0
+    .registers 1
 
     .line 375
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$3;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;

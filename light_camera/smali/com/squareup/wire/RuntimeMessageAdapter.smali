@@ -54,7 +54,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/Class;Ljava/util/Map;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -87,7 +87,7 @@
 .end method
 
 .method static create(Ljava/lang/Class;)Lcom/squareup/wire/RuntimeMessageAdapter;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<M:",
@@ -121,8 +121,8 @@
 
     const/4 v4, 0x0
 
-    :goto_0
-    if-ge v4, v3, :cond_1
+    :goto_f
+    if-ge v4, v3, :cond_30
 
     aget-object v5, v2, v4
 
@@ -135,7 +135,7 @@
 
     check-cast v6, Lcom/squareup/wire/WireField;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2d
 
     .line 41
     invoke-interface {v6}, Lcom/squareup/wire/WireField;->tag()I
@@ -152,13 +152,13 @@
 
     invoke-interface {v1, v7, v8}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_2d
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
     .line 46
-    :cond_1
+    :cond_30
     new-instance v2, Lcom/squareup/wire/RuntimeMessageAdapter;
 
     .line 47
@@ -172,7 +172,7 @@
 .end method
 
 .method private static getBuilderType(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<M:",
@@ -210,13 +210,13 @@
     invoke-static {v0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_19} :catch_1a
 
     return-object v0
 
     .line 80
-    :catch_0
+    :catch_1a
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -246,7 +246,7 @@
 
 # virtual methods
 .method public decode(Lcom/squareup/wire/ProtoReader;)Lcom/squareup/wire/Message;
-    .locals 8
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -272,14 +272,14 @@
     move-result-wide v1
 
     .line 166
-    :goto_0
+    :goto_8
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->nextTag()I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_2
+    if-eq v3, v4, :cond_53
 
     .line 167
     iget-object v4, p0, Lcom/squareup/wire/RuntimeMessageAdapter;->fieldBindings:Ljava/util/Map;
@@ -294,31 +294,31 @@
 
     check-cast v4, Lcom/squareup/wire/FieldBinding;
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_36
 
     .line 170
-    :try_start_0
+    :try_start_1d
     invoke-virtual {v4}, Lcom/squareup/wire/FieldBinding;->isMap()Z
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_28
 
     .line 171
     invoke-virtual {v4}, Lcom/squareup/wire/FieldBinding;->adapter()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v5
 
-    goto :goto_1
+    goto :goto_2c
 
     .line 172
-    :cond_0
+    :cond_28
     invoke-virtual {v4}, Lcom/squareup/wire/FieldBinding;->singleAdapter()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v5
 
     .line 173
-    :goto_1
+    :goto_2c
     invoke-virtual {v5, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
 
     move-result-object v5
@@ -326,15 +326,15 @@
     .line 174
     invoke-virtual {v4, v0, v5}, Lcom/squareup/wire/FieldBinding;->value(Lcom/squareup/wire/Message$Builder;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_0
+    :catch_34
     move-exception v4
 
-    goto :goto_2
+    goto :goto_46
 
     .line 176
-    :cond_1
+    :cond_36
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->peekFieldEncoding()Lcom/squareup/wire/FieldEncoding;
 
     move-result-object v4
@@ -350,13 +350,13 @@
 
     .line 178
     invoke-virtual {v0, v3, v4, v5}, Lcom/squareup/wire/Message$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
-    :try_end_0
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_45
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_1d .. :try_end_45} :catch_34
 
-    goto :goto_0
+    goto :goto_8
 
     .line 182
-    :goto_2
+    :goto_46
     sget-object v5, Lcom/squareup/wire/FieldEncoding;->VARINT:Lcom/squareup/wire/FieldEncoding;
 
     iget v4, v4, Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException;->value:I
@@ -369,10 +369,10 @@
 
     invoke-virtual {v0, v3, v5, v4}, Lcom/squareup/wire/Message$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto :goto_0
+    goto :goto_8
 
     .line 185
-    :cond_2
+    :cond_53
     invoke-virtual {p1, v1, v2}, Lcom/squareup/wire/ProtoReader;->endMessage(J)V
 
     .line 187
@@ -384,7 +384,7 @@
 .end method
 
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -400,7 +400,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Lcom/squareup/wire/Message;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -426,12 +426,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_a
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -444,12 +444,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
-    goto :goto_0
+    goto :goto_a
 
     .line 105
-    :cond_0
+    :cond_1d
     invoke-virtual {v0}, Lcom/squareup/wire/FieldBinding;->adapter()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v2
@@ -458,10 +458,10 @@
 
     invoke-virtual {v2, p1, v0, v1}, Lcom/squareup/wire/ProtoAdapter;->encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_a
 
     .line 107
-    :cond_1
+    :cond_27
     invoke-virtual {p2}, Lcom/squareup/wire/Message;->unknownFields()Lokio/ByteString;
 
     move-result-object p0
@@ -472,7 +472,7 @@
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -488,7 +488,7 @@
 .end method
 
 .method public encodedSize(Lcom/squareup/wire/Message;)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TM;)I"
@@ -498,11 +498,11 @@
     .line 86
     iget v0, p1, Lcom/squareup/wire/Message;->cachedSerializedSize:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return v0
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 90
@@ -516,12 +516,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_10
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -534,12 +534,12 @@
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_23
 
-    goto :goto_0
+    goto :goto_10
 
     .line 93
-    :cond_1
+    :cond_23
     invoke-virtual {v1}, Lcom/squareup/wire/FieldBinding;->adapter()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v3
@@ -552,10 +552,10 @@
 
     add-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_10
 
     .line 95
-    :cond_2
+    :cond_2f
     invoke-virtual {p1}, Lcom/squareup/wire/Message;->unknownFields()Lokio/ByteString;
 
     move-result-object p0
@@ -573,7 +573,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 28
     check-cast p1, Lcom/squareup/wire/Message;
@@ -586,12 +586,12 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 138
     instance-of v0, p1, Lcom/squareup/wire/RuntimeMessageAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     check-cast p1, Lcom/squareup/wire/RuntimeMessageAdapter;
 
@@ -599,21 +599,21 @@
 
     iget-object p0, p0, Lcom/squareup/wire/RuntimeMessageAdapter;->messageType:Ljava/lang/Class;
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method fieldBindings()Ljava/util/Map;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -631,7 +631,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 143
     iget-object p0, p0, Lcom/squareup/wire/RuntimeMessageAdapter;->messageType:Ljava/lang/Class;
@@ -644,7 +644,7 @@
 .end method
 
 .method newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TB;"
@@ -660,13 +660,13 @@
     move-result-object p0
 
     check-cast p0, Lcom/squareup/wire/Message$Builder;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_8} :catch_9
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_8} :catch_9
 
     return-object p0
 
-    :catch_0
+    :catch_9
     move-exception p0
 
     .line 70
@@ -678,7 +678,7 @@
 .end method
 
 .method public redact(Lcom/squareup/wire/Message;)Lcom/squareup/wire/Message;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TM;)TM;"
@@ -701,13 +701,13 @@
 
     move-result-object v0
 
-    :cond_0
-    :goto_0
+    :cond_e
+    :goto_e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_87
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -718,18 +718,18 @@
     .line 113
     iget-boolean v2, v1, Lcom/squareup/wire/FieldBinding;->redacted:Z
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_42
 
     iget-object v2, v1, Lcom/squareup/wire/FieldBinding;->label:Lcom/squareup/wire/WireField$Label;
 
     sget-object v3, Lcom/squareup/wire/WireField$Label;->REQUIRED:Lcom/squareup/wire/WireField$Label;
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_25
 
-    goto :goto_1
+    goto :goto_42
 
     .line 114
-    :cond_1
+    :cond_25
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     const/4 v0, 0x2
@@ -765,8 +765,8 @@
     throw p1
 
     .line 118
-    :cond_2
-    :goto_1
+    :cond_42
+    :goto_42
     const-class v2, Lcom/squareup/wire/Message;
 
     invoke-virtual {v1}, Lcom/squareup/wire/FieldBinding;->singleAdapter()Lcom/squareup/wire/ProtoAdapter;
@@ -782,9 +782,9 @@
     .line 119
     iget-boolean v3, v1, Lcom/squareup/wire/FieldBinding;->redacted:Z
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_75
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_5d
 
     iget-object v3, v1, Lcom/squareup/wire/FieldBinding;->label:Lcom/squareup/wire/WireField$Label;
 
@@ -792,12 +792,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_5d
 
-    goto :goto_2
+    goto :goto_75
 
-    :cond_3
-    if-eqz v2, :cond_0
+    :cond_5d
+    if-eqz v2, :cond_e
 
     .line 125
     iget-object v2, v1, Lcom/squareup/wire/FieldBinding;->label:Lcom/squareup/wire/WireField$Label;
@@ -806,7 +806,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 127
     invoke-virtual {v1, p1}, Lcom/squareup/wire/FieldBinding;->getFromBuilder(Lcom/squareup/wire/Message$Builder;)Ljava/lang/Object;
@@ -823,16 +823,16 @@
     .line 130
     invoke-static {v2, v1}, Lcom/squareup/wire/internal/Internal;->redactElements(Ljava/util/List;Lcom/squareup/wire/ProtoAdapter;)V
 
-    goto :goto_0
+    goto :goto_e
 
     .line 120
-    :cond_4
-    :goto_2
+    :cond_75
+    :goto_75
     invoke-virtual {v1, p1}, Lcom/squareup/wire/FieldBinding;->getFromBuilder(Lcom/squareup/wire/Message$Builder;)Ljava/lang/Object;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     .line 122
     invoke-virtual {v1}, Lcom/squareup/wire/FieldBinding;->adapter()Lcom/squareup/wire/ProtoAdapter;
@@ -846,10 +846,10 @@
     .line 123
     invoke-virtual {v1, p1, v2}, Lcom/squareup/wire/FieldBinding;->set(Lcom/squareup/wire/Message$Builder;Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_e
 
     .line 133
-    :cond_5
+    :cond_87
     invoke-virtual {p1}, Lcom/squareup/wire/Message$Builder;->clearUnknownFields()Lcom/squareup/wire/Message$Builder;
 
     .line 134
@@ -861,7 +861,7 @@
 .end method
 
 .method public bridge synthetic redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 28
     check-cast p1, Lcom/squareup/wire/Message;
@@ -874,7 +874,7 @@
 .end method
 
 .method public toString(Lcom/squareup/wire/Message;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TM;)",
@@ -898,13 +898,13 @@
 
     move-result-object v1
 
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_3a
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -917,7 +917,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_f
 
     const-string v4, ", "
 
@@ -936,17 +936,17 @@
 
     iget-boolean v2, v2, Lcom/squareup/wire/FieldBinding;->redacted:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_36
 
     const-string v3, "\u2588\u2588"
 
     .line 154
-    :cond_1
+    :cond_36
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_2
+    :cond_3a
     const/4 p1, 0x0
 
     const/4 v1, 0x2
@@ -987,7 +987,7 @@
 .end method
 
 .method public bridge synthetic toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 28
     check-cast p1, Lcom/squareup/wire/Message;

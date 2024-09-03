@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/GenericRequestBuilder;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/RequestManager$OptionsApplier;)V
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,7 +99,7 @@
 .end method
 
 .method private static buildProvider(Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/provider/FixedLoadProvider;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -129,16 +129,16 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
-    if-nez p4, :cond_1
+    :cond_6
+    if-nez p4, :cond_e
 
     .line 38
     const-class p4, Landroid/graphics/Bitmap;
@@ -148,7 +148,7 @@
     move-result-object p4
 
     .line 40
-    :cond_1
+    :cond_e
     const-class p3, Lcom/bumptech/glide/load/model/ImageVideoWrapper;
 
     const-class v0, Landroid/graphics/Bitmap;
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public toBytes()Lcom/bumptech/glide/BitmapRequestBuilder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -197,7 +197,7 @@
 .end method
 
 .method public toBytes(Landroid/graphics/Bitmap$CompressFormat;I)Lcom/bumptech/glide/BitmapRequestBuilder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -223,7 +223,7 @@
 .end method
 
 .method public transcode(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Ljava/lang/Class;)Lcom/bumptech/glide/BitmapRequestBuilder;
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<R:",

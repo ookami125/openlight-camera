@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "-_1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,10 +64,10 @@
 
     invoke-direct {v2}, Ljava/util/Random;-><init>()V
 
-    :goto_0
+    :goto_19
     const/16 v3, 0x1e
 
-    if-ge v0, v3, :cond_0
+    if-ge v0, v3, :cond_2e
 
     .line 40
     sget-object v3, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->BOUNDARY_CHARS:[C
@@ -86,10 +86,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
     .line 42
-    :cond_0
+    :cond_2e
     invoke-virtual {v1}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public addPart(Ljava/lang/String;Ljava/io/File;Z)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -124,7 +124,7 @@
 .end method
 
 .method public addPart(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -225,7 +225,7 @@
 .end method
 
 .method public addPart(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;Ljava/lang/String;Z)V
-    .locals 3
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -236,7 +236,7 @@
     invoke-virtual {p0}, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->writeFirstBoundaryIfNeeds()V
 
     .line 90
-    :try_start_0
+    :try_start_3
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -314,14 +314,14 @@
     new-array p1, p1, [B
 
     .line 97
-    :goto_0
+    :goto_58
     invoke-virtual {p3, p1}, Ljava/io/InputStream;->read([B)I
 
     move-result p2
 
     const/4 p4, -0x1
 
-    if-eq p2, p4, :cond_0
+    if-eq p2, p4, :cond_66
 
     .line 98
     iget-object p4, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mOut:Ljava/io/ByteArrayOutputStream;
@@ -330,23 +330,23 @@
 
     invoke-virtual {p4, p1, v0, p2}, Ljava/io/ByteArrayOutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_58
 
     .line 100
-    :cond_0
+    :cond_66
     iget-object p1, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mOut:Ljava/io/ByteArrayOutputStream;
 
     invoke-virtual {p1}, Ljava/io/ByteArrayOutputStream;->flush()V
 
-    if-eqz p5, :cond_1
+    if-eqz p5, :cond_71
 
     .line 104
     invoke-virtual {p0}, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->writeLastBoundaryIfNeeds()V
 
-    goto :goto_1
+    goto :goto_92
 
     .line 108
-    :cond_1
+    :cond_71
     iget-object p1, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mOut:Ljava/io/ByteArrayOutputStream;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -374,51 +374,51 @@
     move-result-object p0
 
     invoke-virtual {p1, p0}, Ljava/io/ByteArrayOutputStream;->write([B)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_92
+    .catchall {:try_start_3 .. :try_end_92} :catchall_9b
 
     .line 113
-    :goto_1
-    :try_start_1
+    :goto_92
+    :try_start_92
     invoke-virtual {p3}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_95
+    .catch Ljava/io/IOException; {:try_start_92 .. :try_end_95} :catch_96
 
-    goto :goto_2
+    goto :goto_9a
 
-    :catch_0
+    :catch_96
     move-exception p0
 
     .line 115
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    :goto_2
+    :goto_9a
     return-void
 
-    :catchall_0
+    :catchall_9b
     move-exception p0
 
     .line 113
-    :try_start_2
+    :try_start_9c
     invoke-virtual {p3}, Ljava/io/InputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+    :try_end_9f
+    .catch Ljava/io/IOException; {:try_start_9c .. :try_end_9f} :catch_a0
 
-    goto :goto_3
+    goto :goto_a4
 
-    :catch_1
+    :catch_a0
     move-exception p1
 
     .line 115
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
     .line 116
-    :goto_3
+    :goto_a4
     throw p0
 .end method
 
 .method public addPart(Ljava/lang/String;Ljava/lang/String;Ljava/io/InputStream;Z)V
-    .locals 6
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -444,7 +444,7 @@
 .end method
 
 .method public getBoundary()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 46
     iget-object p0, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mBoundary:Ljava/lang/String;
@@ -453,7 +453,7 @@
 .end method
 
 .method public getContentLength()J
-    .locals 2
+    .registers 3
 
     .line 121
     invoke-virtual {p0}, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->writeLastBoundaryIfNeeds()V
@@ -473,7 +473,7 @@
 .end method
 
 .method public getContentType()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 126
     new-instance v0, Ljava/lang/StringBuilder;
@@ -498,7 +498,7 @@
 .end method
 
 .method public getOutputStream()Ljava/io/ByteArrayOutputStream;
-    .locals 0
+    .registers 1
 
     .line 130
     invoke-virtual {p0}, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->writeLastBoundaryIfNeeds()V
@@ -510,7 +510,7 @@
 .end method
 
 .method public writeFirstBoundaryIfNeeds()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -520,7 +520,7 @@
     .line 50
     iget-boolean v0, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mIsSetFirst:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 51
     iget-object v0, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mOut:Ljava/io/ByteArrayOutputStream;
@@ -551,7 +551,7 @@
 
     invoke-virtual {v0, v1}, Ljava/io/ByteArrayOutputStream;->write([B)V
 
-    :cond_0
+    :cond_25
     const/4 v0, 0x1
 
     .line 53
@@ -561,18 +561,18 @@
 .end method
 
 .method public writeLastBoundaryIfNeeds()V
-    .locals 3
+    .registers 4
 
     .line 57
     iget-boolean v0, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mIsSetLast:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 61
-    :cond_0
-    :try_start_0
+    :cond_5
+    :try_start_5
     iget-object v0, p0, Lnet/hockeyapp/android/utils/SimpleMultipartEntity;->mOut:Ljava/io/ByteArrayOutputStream;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -600,18 +600,18 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/io/ByteArrayOutputStream;->write([B)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_26} :catch_27
 
-    goto :goto_0
+    goto :goto_2b
 
-    :catch_0
+    :catch_27
     move-exception v0
 
     .line 64
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
 
-    :goto_0
+    :goto_2b
     const/4 v0, 0x1
 
     .line 66

@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 53
     new-instance v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor$ConnectionType;
@@ -73,7 +73,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -87,7 +87,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/widgets/ConstraintAnchor$ConnectionType;
-    .locals 1
+    .registers 2
 
     .line 53
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor$ConnectionType;
@@ -102,7 +102,7 @@
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/widgets/ConstraintAnchor$ConnectionType;
-    .locals 1
+    .registers 1
 
     .line 53
     sget-object v0, Landroid/support/constraint/solver/widgets/ConstraintAnchor$ConnectionType;->$VALUES:[Landroid/support/constraint/solver/widgets/ConstraintAnchor$ConnectionType;

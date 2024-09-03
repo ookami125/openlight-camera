@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0x400
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
 
     .line 90
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -71,13 +71,13 @@
     .line 73
     iput-boolean v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->reuseBuffers:Z
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_18
 
     .line 95
     monitor-enter p0
 
     .line 96
-    :try_start_0
+    :try_start_10
     invoke-direct {p0, p1}, Lorg/apache/commons/io/output/ByteArrayOutputStream;->needNewBuffer(I)V
 
     .line 97
@@ -85,17 +85,17 @@
 
     return-void
 
-    :catchall_0
+    :catchall_15
     move-exception p1
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_17
+    .catchall {:try_start_10 .. :try_end_17} :catchall_15
 
     throw p1
 
     .line 92
-    :cond_0
+    :cond_18
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -118,7 +118,7 @@
 .end method
 
 .method private needNewBuffer(I)V
-    .locals 2
+    .registers 4
 
     .line 107
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBufferIndex:I
@@ -131,7 +131,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_27
 
     .line 109
     iget p1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->filledBufferSum:I
@@ -164,23 +164,23 @@
 
     iput-object p1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
 
-    goto :goto_1
+    goto :goto_54
 
     .line 116
-    :cond_0
+    :cond_27
     iget-object v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2f
 
     const/4 v0, 0x0
 
     .line 118
     iput v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->filledBufferSum:I
 
-    goto :goto_0
+    goto :goto_43
 
     .line 120
-    :cond_1
+    :cond_2f
     iget-object v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
 
     array-length v0, v0
@@ -207,7 +207,7 @@
     iput v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->filledBufferSum:I
 
     .line 126
-    :goto_0
+    :goto_43
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBufferIndex:I
 
     add-int/lit8 v0, v0, 0x1
@@ -226,12 +226,12 @@
 
     invoke-interface {p1, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_1
+    :goto_54
     return-void
 .end method
 
 .method public static toBufferedInputStream(Ljava/io/InputStream;)Ljava/io/InputStream;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -249,7 +249,7 @@
 .end method
 
 .method public static toBufferedInputStream(Ljava/io/InputStream;I)Ljava/io/InputStream;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -275,7 +275,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -286,14 +286,14 @@
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 2
+    .registers 3
 
     monitor-enter p0
 
     const/4 v0, 0x0
 
     .line 234
-    :try_start_0
+    :try_start_2
     iput v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
     .line 235
@@ -305,7 +305,7 @@
     .line 237
     iget-boolean v1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->reuseBuffers:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 238
     iget-object v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->buffers:Ljava/util/List;
@@ -320,9 +320,9 @@
 
     iput-object v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_19
     const/4 v1, 0x0
 
     .line 241
@@ -351,16 +351,16 @@
 
     .line 245
     iput-boolean v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->reuseBuffers:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_30
+    .catchall {:try_start_2 .. :try_end_30} :catchall_32
 
     .line 247
-    :goto_0
+    :goto_30
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_32
     move-exception v0
 
     .line 233
@@ -370,21 +370,21 @@
 .end method
 
 .method public declared-synchronized size()I
-    .locals 1
+    .registers 2
 
     monitor-enter p0
 
     .line 214
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3
+    .catchall {:try_start_1 .. :try_end_3} :catchall_5
 
     monitor-exit p0
 
     return v0
 
-    :catchall_0
+    :catchall_5
     move-exception v0
 
     monitor-exit p0
@@ -393,28 +393,28 @@
 .end method
 
 .method public declared-synchronized toByteArray()[B
-    .locals 7
+    .registers 8
 
     monitor-enter p0
 
     .line 362
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 364
     sget-object v0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->EMPTY_BYTE_ARRAY:[B
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_2d
 
     monitor-exit p0
 
     return-object v0
 
     .line 366
-    :cond_0
-    :try_start_1
+    :cond_9
+    :try_start_9
     new-array v1, v0, [B
 
     .line 368
@@ -428,12 +428,12 @@
 
     move v4, v3
 
-    :cond_1
+    :cond_13
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_2b
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -450,22 +450,22 @@
 
     .line 370
     invoke-static {v5, v3, v1, v4, v6}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_27
+    .catchall {:try_start_9 .. :try_end_27} :catchall_2d
 
     add-int/2addr v4, v6
 
     sub-int/2addr v0, v6
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 377
-    :cond_2
+    :cond_2b
     monitor-exit p0
 
     return-object v1
 
-    :catchall_0
+    :catchall_2d
     move-exception v0
 
     .line 361
@@ -475,30 +475,30 @@
 .end method
 
 .method public declared-synchronized toInputStream()Ljava/io/InputStream;
-    .locals 7
+    .registers 8
 
     monitor-enter p0
 
     .line 337
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 339
     new-instance v0, Lorg/apache/commons/io/input/ClosedInputStream;
 
     invoke-direct {v0}, Lorg/apache/commons/io/input/ClosedInputStream;-><init>()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_47
 
     monitor-exit p0
 
     return-object v0
 
     .line 341
-    :cond_0
-    :try_start_1
+    :cond_c
+    :try_start_c
     new-instance v1, Ljava/util/ArrayList;
 
     iget-object v2, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->buffers:Ljava/util/List;
@@ -516,14 +516,14 @@
 
     move-result-object v2
 
-    :cond_1
+    :cond_1d
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3a
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -547,10 +547,10 @@
 
     sub-int/2addr v0, v5
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     .line 350
-    :cond_2
+    :cond_3a
     iput-boolean v4, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->reuseBuffers:Z
 
     .line 351
@@ -561,14 +561,14 @@
     move-result-object v1
 
     invoke-direct {v0, v1}, Ljava/io/SequenceInputStream;-><init>(Ljava/util/Enumeration;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_45
+    .catchall {:try_start_c .. :try_end_45} :catchall_47
 
     monitor-exit p0
 
     return-object v0
 
-    :catchall_0
+    :catchall_47
     move-exception v0
 
     .line 336
@@ -578,7 +578,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -599,7 +599,7 @@
 .end method
 
 .method public toString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/UnsupportedEncodingException;
@@ -619,7 +619,7 @@
 .end method
 
 .method public toString(Ljava/nio/charset/Charset;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 417
     new-instance v0, Ljava/lang/String;
@@ -634,7 +634,7 @@
 .end method
 
 .method public declared-synchronized write(Ljava/io/InputStream;)I
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -644,7 +644,7 @@
     monitor-enter p0
 
     .line 194
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
     iget v1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->filledBufferSum:I
@@ -670,10 +670,10 @@
 
     move v0, v2
 
-    :goto_0
+    :goto_13
     const/4 v4, -0x1
 
-    if-eq v1, v4, :cond_1
+    if-eq v1, v4, :cond_34
 
     add-int/2addr v0, v1
 
@@ -691,7 +691,7 @@
 
     array-length v1, v1
 
-    if-ne v3, v1, :cond_0
+    if-ne v3, v1, :cond_29
 
     .line 201
     iget-object v1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
@@ -703,7 +703,7 @@
     move v3, v2
 
     .line 204
-    :cond_0
+    :cond_29
     iget-object v1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
 
     iget-object v4, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
@@ -715,18 +715,18 @@
     invoke-virtual {p1, v1, v3, v4}, Ljava/io/InputStream;->read([BII)I
 
     move-result v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_1 .. :try_end_33} :catchall_36
 
-    goto :goto_0
+    goto :goto_13
 
     .line 206
-    :cond_1
+    :cond_34
     monitor-exit p0
 
     return v0
 
-    :catchall_0
+    :catchall_36
     move-exception p1
 
     .line 192
@@ -736,12 +736,12 @@
 .end method
 
 .method public declared-synchronized write(I)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 172
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
     iget v1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->filledBufferSum:I
@@ -753,7 +753,7 @@
 
     array-length v1, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     .line 174
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
@@ -765,7 +765,7 @@
     const/4 v0, 0x0
 
     .line 177
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
 
     int-to-byte p1, p1
@@ -778,15 +778,15 @@
     add-int/lit8 p1, p1, 0x1
 
     iput p1, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_20
 
     .line 179
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_20
     move-exception p1
 
     .line 171
@@ -796,35 +796,35 @@
 .end method
 
 .method public write([BII)V
-    .locals 5
+    .registers 9
 
-    if-ltz p2, :cond_3
+    if-ltz p2, :cond_39
 
     .line 140
     array-length v0, p1
 
-    if-gt p2, v0, :cond_3
+    if-gt p2, v0, :cond_39
 
-    if-ltz p3, :cond_3
+    if-ltz p3, :cond_39
 
     add-int/2addr p2, p3
 
     array-length v0, p1
 
-    if-gt p2, v0, :cond_3
+    if-gt p2, v0, :cond_39
 
-    if-ltz p2, :cond_3
+    if-ltz p2, :cond_39
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_10
 
     return-void
 
     .line 149
-    :cond_0
+    :cond_10
     monitor-enter p0
 
     .line 150
-    :try_start_0
+    :try_start_11
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
     add-int/2addr v0, p3
@@ -836,9 +836,9 @@
 
     sub-int/2addr v1, v2
 
-    :cond_1
-    :goto_0
-    if-lez p3, :cond_2
+    :cond_19
+    :goto_19
+    if-lez p3, :cond_32
 
     .line 154
     iget-object v2, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->currentBuffer:[B
@@ -860,17 +860,17 @@
 
     sub-int/2addr p3, v2
 
-    if-lez p3, :cond_1
+    if-lez p3, :cond_19
 
     .line 158
     invoke-direct {p0, v0}, Lorg/apache/commons/io/output/ByteArrayOutputStream;->needNewBuffer(I)V
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_19
 
     .line 162
-    :cond_2
+    :cond_32
     iput v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
     .line 163
@@ -878,17 +878,17 @@
 
     return-void
 
-    :catchall_0
+    :catchall_36
     move-exception p1
 
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catchall {:try_start_11 .. :try_end_38} :catchall_36
 
     throw p1
 
     .line 145
-    :cond_3
+    :cond_39
     new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     invoke-direct {p0}, Ljava/lang/IndexOutOfBoundsException;-><init>()V
@@ -897,7 +897,7 @@
 .end method
 
 .method public declared-synchronized writeTo(Ljava/io/OutputStream;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -907,7 +907,7 @@
     monitor-enter p0
 
     .line 258
-    :try_start_0
+    :try_start_1
     iget v0, p0, Lorg/apache/commons/io/output/ByteArrayOutputStream;->count:I
 
     .line 259
@@ -917,12 +917,12 @@
 
     move-result-object v1
 
-    :cond_0
+    :cond_9
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_21
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -941,20 +941,20 @@
 
     .line 261
     invoke-virtual {p1, v2, v4, v3}, Ljava/io/OutputStream;->write([BII)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1e
+    .catchall {:try_start_1 .. :try_end_1e} :catchall_23
 
     sub-int/2addr v0, v3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 267
-    :cond_1
+    :cond_21
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 257

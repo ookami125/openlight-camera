@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/LoginActivity;)V
-    .locals 0
+    .registers 2
 
     .line 145
     iput-object p1, p0, Lnet/hockeyapp/android/LoginActivity$1;->this$0:Lnet/hockeyapp/android/LoginActivity;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 148
     iget-object p0, p0, Lnet/hockeyapp/android/LoginActivity$1;->this$0:Lnet/hockeyapp/android/LoginActivity;
 
+    # invokes: Lnet/hockeyapp/android/LoginActivity;->performAuthentication()V
     invoke-static {p0}, Lnet/hockeyapp/android/LoginActivity;->access$000(Lnet/hockeyapp/android/LoginActivity;)V
 
     return-void

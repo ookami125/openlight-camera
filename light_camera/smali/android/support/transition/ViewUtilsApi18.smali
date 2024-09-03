@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Landroid/support/transition/ViewUtilsApi14;-><init>()V
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public getOverlay(Landroid/view/View;)Landroid/support/transition/ViewOverlayImpl;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -37,7 +37,7 @@
 .end method
 
 .method public getWindowId(Landroid/view/View;)Landroid/support/transition/WindowIdImpl;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

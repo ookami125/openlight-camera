@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
 
     .line 479
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$6;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onLayoutChange(Landroid/view/View;IIII)V
-    .locals 0
+    .registers 6
 
     .line 482
     iget-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$6;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -54,21 +54,21 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     .line 486
     iget-object p0, p0, Landroid/support/design/widget/BaseTransientBottomBar$6;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
 
     invoke-virtual {p0}, Landroid/support/design/widget/BaseTransientBottomBar;->animateViewIn()V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 489
-    :cond_0
+    :cond_16
     iget-object p0, p0, Landroid/support/design/widget/BaseTransientBottomBar$6;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
 
     invoke-virtual {p0}, Landroid/support/design/widget/BaseTransientBottomBar;->onViewShown()V
 
-    :goto_0
+    :goto_1b
     return-void
 .end method

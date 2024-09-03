@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 350
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V

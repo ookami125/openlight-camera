@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Collection;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,7 +57,7 @@
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_d
 
     .line 29
     iput-object p1, p0, Lcom/bumptech/glide/load/MultiTransformation;->transformations:Ljava/util/Collection;
@@ -65,7 +65,7 @@
     return-void
 
     .line 27
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "MultiTransformation must contain at least one Transformation"
@@ -76,7 +76,7 @@
 .end method
 
 .method public varargs constructor <init>([Lcom/bumptech/glide/load/Transformation;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -96,7 +96,7 @@
 
     const/4 v1, 0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 22
     invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -108,7 +108,7 @@
     return-void
 
     .line 20
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "MultiTransformation must contain at least one Transformation"
@@ -121,12 +121,12 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 48
     iget-object v0, p0, Lcom/bumptech/glide/load/MultiTransformation;->id:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 49
     new-instance v0, Ljava/lang/StringBuilder;
@@ -140,12 +140,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_f
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -160,10 +160,10 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 53
-    :cond_0
+    :cond_23
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -171,14 +171,14 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/MultiTransformation;->id:Ljava/lang/String;
 
     .line 55
-    :cond_1
+    :cond_29
     iget-object p0, p0, Lcom/bumptech/glide/load/MultiTransformation;->id:Ljava/lang/String;
 
     return-object p0
 .end method
 
 .method public transform(Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,12 +198,12 @@
 
     move-object v0, p1
 
-    :goto_0
+    :goto_7
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -216,29 +216,29 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     .line 38
     invoke-virtual {v0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_28
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_28
 
     .line 39
     invoke-interface {v0}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    :cond_0
+    :cond_28
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_1
+    :cond_2a
     return-object v0
 .end method

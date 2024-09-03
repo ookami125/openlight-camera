@@ -49,7 +49,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 928
     new-instance v0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction$1;
@@ -62,7 +62,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
 
     .line 863
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -103,7 +103,7 @@
 .end method
 
 .method constructor <init>(Ljava/lang/String;Ljava/lang/CharSequence;ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 5
 
     .line 856
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -124,21 +124,21 @@
 .end method
 
 .method public static fromCustomAction(Ljava/lang/Object;)Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;
-    .locals 5
+    .registers 6
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_21
 
     .line 895
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_9
 
-    goto :goto_0
+    goto :goto_21
 
     .line 899
-    :cond_0
+    :cond_9
     new-instance v0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;
 
     .line 900
@@ -168,8 +168,8 @@
 
     return-object v0
 
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     const/4 p0, 0x0
 
     return-object p0
@@ -178,7 +178,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -186,7 +186,7 @@
 .end method
 
 .method public getAction()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 948
     iget-object p0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mAction:Ljava/lang/String;
@@ -195,23 +195,23 @@
 .end method
 
 .method public getCustomAction()Ljava/lang/Object;
-    .locals 4
+    .registers 5
 
     .line 919
     iget-object v0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mCustomActionObj:Ljava/lang/Object;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1c
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_b
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 923
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mAction:Ljava/lang/String;
 
     iget-object v1, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mName:Ljava/lang/CharSequence;
@@ -232,15 +232,15 @@
     return-object p0
 
     .line 920
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     iget-object p0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mCustomActionObj:Ljava/lang/Object;
 
     return-object p0
 .end method
 
 .method public getExtras()Landroid/os/Bundle;
-    .locals 0
+    .registers 1
 
     .line 980
     iget-object p0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mExtras:Landroid/os/Bundle;
@@ -249,7 +249,7 @@
 .end method
 
 .method public getIcon()I
-    .locals 0
+    .registers 1
 
     .line 968
     iget p0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mIcon:I
@@ -258,7 +258,7 @@
 .end method
 
 .method public getName()Ljava/lang/CharSequence;
-    .locals 0
+    .registers 1
 
     .line 957
     iget-object p0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mName:Ljava/lang/CharSequence;
@@ -267,7 +267,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 985
     new-instance v0, Ljava/lang/StringBuilder;
@@ -306,7 +306,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
 
     .line 872
     iget-object v0, p0, Landroid/support/v4/media/session/PlaybackStateCompat$CustomAction;->mAction:Ljava/lang/String;

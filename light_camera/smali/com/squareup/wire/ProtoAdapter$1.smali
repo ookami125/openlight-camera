@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/wire/FieldEncoding;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
 
     .line 212
     invoke-direct {p0, p1, p2}, Lcom/squareup/wire/ProtoAdapter;-><init>(Lcom/squareup/wire/FieldEncoding;Ljava/lang/Class;)V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Boolean;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -47,17 +47,17 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_9
 
     .line 223
     sget-object p0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
     return-object p0
 
-    :cond_0
+    :cond_9
     const/4 p1, 0x1
 
-    if-ne p0, p1, :cond_1
+    if-ne p0, p1, :cond_f
 
     .line 224
     sget-object p0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
@@ -65,7 +65,7 @@
     return-object p0
 
     .line 225
-    :cond_1
+    :cond_f
     new-instance v0, Ljava/io/IOException;
 
     new-array p1, p1, [Ljava/lang/Object;
@@ -90,7 +90,7 @@
 .end method
 
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -106,7 +106,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -124,7 +124,7 @@
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -140,7 +140,7 @@
 .end method
 
 .method public encodedSize(Ljava/lang/Boolean;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 
@@ -148,7 +148,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 212
     check-cast p1, Ljava/lang/Boolean;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 86
     invoke-direct {p0}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatApi18Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getNestedScrollAxes(Landroid/view/ViewGroup;)I
-    .locals 0
+    .registers 2
 
     .line 99
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getNestedScrollAxes()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public isTransitionGroup(Landroid/view/ViewGroup;)Z
-    .locals 0
+    .registers 2
 
     .line 94
     invoke-virtual {p1}, Landroid/view/ViewGroup;->isTransitionGroup()Z
@@ -53,7 +53,7 @@
 .end method
 
 .method public setTransitionGroup(Landroid/view/ViewGroup;Z)V
-    .locals 0
+    .registers 3
 
     .line 89
     invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->setTransitionGroup(Z)V

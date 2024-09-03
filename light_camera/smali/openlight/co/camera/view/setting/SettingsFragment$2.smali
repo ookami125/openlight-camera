@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/setting/SettingsFragment;)V
-    .locals 0
+    .registers 2
 
     .line 507
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingsFragment$2;->this$0:Lopenlight/co/camera/view/setting/SettingsFragment;
@@ -36,22 +36,24 @@
 
 # virtual methods
 .method public onCancel(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 2
 
     .line 515
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment$2;->this$0:Lopenlight/co/camera/view/setting/SettingsFragment;
 
+    # invokes: Lopenlight/co/camera/view/setting/SettingsFragment;->handleConfirmPopupCancelAction(Lopenlight/co/camera/view/setting/SettingModel;)V
     invoke-static {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->access$1300(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
 
     return-void
 .end method
 
 .method public onOk(Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 2
 
     .line 510
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsFragment$2;->this$0:Lopenlight/co/camera/view/setting/SettingsFragment;
 
+    # invokes: Lopenlight/co/camera/view/setting/SettingsFragment;->handleConfirmUpdated(Lopenlight/co/camera/view/setting/SettingModel;)V
     invoke-static {p0, p1}, Lopenlight/co/camera/view/setting/SettingsFragment;->access$1100(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
 
     return-void

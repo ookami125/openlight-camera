@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 903
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,19 +27,19 @@
 
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public onProgressUpdate(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public onResult(Ljava/lang/String;Landroid/os/Bundle;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method

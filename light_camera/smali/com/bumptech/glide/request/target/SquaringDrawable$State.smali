@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/Drawable$ConstantState;I)V
-    .locals 0
+    .registers 3
 
     .line 217
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/request/target/SquaringDrawable$State;)V
-    .locals 1
+    .registers 3
 
     .line 214
     iget-object v0, p1, Lcom/bumptech/glide/request/target/SquaringDrawable$State;->wrapped:Landroid/graphics/drawable/Drawable$ConstantState;
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$000(Lcom/bumptech/glide/request/target/SquaringDrawable$State;)Landroid/graphics/drawable/Drawable$ConstantState;
-    .locals 0
+    .registers 1
 
     .line 209
     iget-object p0, p0, Lcom/bumptech/glide/request/target/SquaringDrawable$State;->wrapped:Landroid/graphics/drawable/Drawable$ConstantState;
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/bumptech/glide/request/target/SquaringDrawable$State;)I
-    .locals 0
+    .registers 1
 
     .line 209
     iget p0, p0, Lcom/bumptech/glide/request/target/SquaringDrawable$State;->side:I
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -78,7 +78,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -91,7 +91,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 4
 
     .line 229
     new-instance v0, Lcom/bumptech/glide/request/target/SquaringDrawable;

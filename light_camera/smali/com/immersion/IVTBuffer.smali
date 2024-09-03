@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     .line 77
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>([B)V
-    .locals 0
+    .registers 2
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 .end method
 
 .method public static deleteHapticTrack(Ljava/lang/String;)V
-    .locals 1
+    .registers 2
 
     .line 662
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -54,7 +54,7 @@
 .end method
 
 .method public static getBuiltInEffects()Lcom/immersion/IVTBuffer;
-    .locals 2
+    .registers 2
 
     .line 38
     new-instance v0, Lcom/immersion/IVTBuffer;
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public getBuffer()[B
-    .locals 0
+    .registers 1
 
     .line 88
     iget-object p0, p0, Lcom/immersion/IVTBuffer;->ivt:[B
@@ -84,7 +84,7 @@
 .end method
 
 .method public getEffectCount()I
-    .locals 1
+    .registers 2
 
     .line 108
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -101,7 +101,7 @@
 .end method
 
 .method public getEffectDuration(I)I
-    .locals 1
+    .registers 3
 
     .line 142
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -118,7 +118,7 @@
 .end method
 
 .method public getEffectIndexFromName(Ljava/lang/String;)I
-    .locals 1
+    .registers 3
 
     .line 172
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -135,7 +135,7 @@
 .end method
 
 .method public getEffectName(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 207
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -152,7 +152,7 @@
 .end method
 
 .method public getEffectType(I)I
-    .locals 1
+    .registers 3
 
     .line 247
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -169,7 +169,7 @@
 .end method
 
 .method public getMagSweepEffectDefinitionAtIndex(I)Lcom/immersion/MagSweepEffectDefinition;
-    .locals 26
+    .registers 28
 
     const/4 v0, 0x1
 
@@ -252,7 +252,7 @@
 .end method
 
 .method public getPeriodicEffectDefinitionAtIndex(I)Lcom/immersion/PeriodicEffectDefinition;
-    .locals 29
+    .registers 31
 
     const/4 v0, 0x1
 
@@ -346,7 +346,7 @@
 .end method
 
 .method public getSize()I
-    .locals 1
+    .registers 2
 
     .line 416
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -363,7 +363,7 @@
 .end method
 
 .method public insertElement(ILcom/immersion/IVTElement;)V
-    .locals 3
+    .registers 6
 
     .line 472
     invoke-virtual {p2}, Lcom/immersion/IVTElement;->getType()I
@@ -372,7 +372,7 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_22
 
     .line 474
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -401,10 +401,10 @@
 
     iput-object p1, p0, Lcom/immersion/IVTBuffer;->ivt:[B
 
-    goto :goto_0
+    goto :goto_33
 
     .line 478
-    :cond_0
+    :cond_22
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
 
     move-result-object v0
@@ -423,12 +423,12 @@
 
     iput-object p1, p0, Lcom/immersion/IVTBuffer;->ivt:[B
 
-    :goto_0
+    :goto_33
     return-void
 .end method
 
 .method public readElement(II)Lcom/immersion/IVTElement;
-    .locals 3
+    .registers 6
 
     .line 592
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -445,7 +445,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 594
     invoke-virtual {v0}, Lcom/immersion/IVTElement;->getType()I
@@ -454,7 +454,7 @@
 
     const/4 v2, 0x3
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2b
 
     .line 596
     move-object v1, v0
@@ -477,12 +477,12 @@
 
     invoke-virtual {v1, p0}, Lcom/immersion/WaveformEffectDefinition;->setData([B)V
 
-    :cond_0
+    :cond_2b
     return-object v0
 .end method
 
 .method public removeElement(II)V
-    .locals 2
+    .registers 5
 
     .line 538
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -501,7 +501,7 @@
 .end method
 
 .method public saveHapticTrack(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 636
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;

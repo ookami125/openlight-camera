@@ -98,7 +98,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 23
     new-instance v0, Lcom/bumptech/glide/load/engine/EngineJob$EngineResourceFactory;
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/Key;Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;ZLcom/bumptech/glide/load/engine/EngineJobListener;)V
-    .locals 7
+    .registers 13
 
     .line 53
     sget-object v6, Lcom/bumptech/glide/load/engine/EngineJob;->DEFAULT_FACTORY:Lcom/bumptech/glide/load/engine/EngineJob$EngineResourceFactory;
@@ -151,7 +151,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/Key;Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;ZLcom/bumptech/glide/load/engine/EngineJobListener;Lcom/bumptech/glide/load/engine/EngineJob$EngineResourceFactory;)V
-    .locals 1
+    .registers 8
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -185,7 +185,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/bumptech/glide/load/engine/EngineJob;)V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineJob;->handleResultOnMainThread()V
@@ -194,7 +194,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/bumptech/glide/load/engine/EngineJob;)V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/EngineJob;->handleExceptionOnMainThread()V
@@ -203,12 +203,12 @@
 .end method
 
 .method private addIgnoredCallback(Lcom/bumptech/glide/request/ResourceCallback;)V
-    .locals 1
+    .registers 3
 
     .line 105
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->ignoredCallbacks:Ljava/util/Set;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 106
     new-instance v0, Ljava/util/HashSet;
@@ -218,7 +218,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->ignoredCallbacks:Ljava/util/Set;
 
     .line 108
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->ignoredCallbacks:Ljava/util/Set;
 
     invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
@@ -227,24 +227,24 @@
 .end method
 
 .method private handleExceptionOnMainThread()V
-    .locals 3
+    .registers 4
 
     .line 172
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->isCancelled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 174
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->cbs:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_37
 
     const/4 v0, 0x1
 
@@ -267,13 +267,13 @@
 
     move-result-object v0
 
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_36
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -286,20 +286,20 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_1e
 
     .line 183
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineJob;->exception:Ljava/lang/Exception;
 
     invoke-interface {v1, v2}, Lcom/bumptech/glide/request/ResourceCallback;->onException(Ljava/lang/Exception;)V
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_2
+    :cond_36
     return-void
 
     .line 175
-    :cond_3
+    :cond_37
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Received an exception without any callbacks to notify"
@@ -310,12 +310,12 @@
 .end method
 
 .method private handleResultOnMainThread()V
-    .locals 3
+    .registers 4
 
     .line 141
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->isCancelled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 142
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->resource:Lcom/bumptech/glide/load/engine/Resource;
@@ -325,14 +325,14 @@
     return-void
 
     .line 144
-    :cond_0
+    :cond_a
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->cbs:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_58
 
     .line 147
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->engineResourceFactory:Lcom/bumptech/glide/load/engine/EngineJob$EngineResourceFactory;
@@ -373,13 +373,13 @@
 
     move-result-object v0
 
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_52
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -392,7 +392,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_35
 
     .line 157
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/EngineJob;->engineResource:Lcom/bumptech/glide/load/engine/EngineResource;
@@ -404,10 +404,10 @@
 
     invoke-interface {v1, v2}, Lcom/bumptech/glide/request/ResourceCallback;->onResourceReady(Lcom/bumptech/glide/load/engine/Resource;)V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 162
-    :cond_2
+    :cond_52
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->engineResource:Lcom/bumptech/glide/load/engine/EngineResource;
 
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/EngineResource;->release()V
@@ -415,7 +415,7 @@
     return-void
 
     .line 145
-    :cond_3
+    :cond_58
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Received a resource without any callbacks to notify"
@@ -426,12 +426,12 @@
 .end method
 
 .method private isInIgnoredCallbacks(Lcom/bumptech/glide/request/ResourceCallback;)Z
-    .locals 1
+    .registers 3
 
     .line 112
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->ignoredCallbacks:Ljava/util/Set;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->ignoredCallbacks:Ljava/util/Set;
 
@@ -439,23 +439,23 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 
 # virtual methods
 .method public addCallback(Lcom/bumptech/glide/request/ResourceCallback;)V
-    .locals 1
+    .registers 3
 
     .line 77
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -463,58 +463,58 @@
     .line 78
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->hasResource:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 79
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->engineResource:Lcom/bumptech/glide/load/engine/EngineResource;
 
     invoke-interface {p1, p0}, Lcom/bumptech/glide/request/ResourceCallback;->onResourceReady(Lcom/bumptech/glide/load/engine/Resource;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 80
-    :cond_0
+    :cond_d
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->hasException:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     .line 81
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->exception:Ljava/lang/Exception;
 
     invoke-interface {p1, p0}, Lcom/bumptech/glide/request/ResourceCallback;->onException(Ljava/lang/Exception;)V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 83
-    :cond_1
+    :cond_17
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->cbs:Ljava/util/List;
 
     invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method cancel()V
-    .locals 2
+    .registers 3
 
     .line 117
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->hasException:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_24
 
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->hasResource:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_24
 
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->isCancelled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_24
 
     .line 120
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->engineRunnable:Lcom/bumptech/glide/load/engine/EngineRunnable;
 
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/EngineRunnable;->cancel()V
@@ -524,13 +524,13 @@
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     .line 123
     invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
 
     .line 125
-    :cond_1
+    :cond_1a
     iput-boolean v1, p0, Lcom/bumptech/glide/load/engine/EngineJob;->isCancelled:Z
 
     .line 126
@@ -542,13 +542,13 @@
 
     return-void
 
-    :cond_2
-    :goto_0
+    :cond_24
+    :goto_24
     return-void
 .end method
 
 .method isCancelled()Z
-    .locals 0
+    .registers 1
 
     .line 131
     iget-boolean p0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->isCancelled:Z
@@ -557,7 +557,7 @@
 .end method
 
 .method public onException(Ljava/lang/Exception;)V
-    .locals 1
+    .registers 3
 
     .line 167
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineJob;->exception:Ljava/lang/Exception;
@@ -577,7 +577,7 @@
 .end method
 
 .method public onResourceReady(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -604,7 +604,7 @@
 .end method
 
 .method public removeCallback(Lcom/bumptech/glide/request/ResourceCallback;)V
-    .locals 1
+    .registers 3
 
     .line 88
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -612,16 +612,16 @@
     .line 89
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->hasResource:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->hasException:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 92
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->cbs:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
@@ -633,25 +633,25 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_20
 
     .line 94
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/EngineJob;->cancel()V
 
-    goto :goto_1
+    goto :goto_20
 
     .line 90
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/EngineJob;->addIgnoredCallback(Lcom/bumptech/glide/request/ResourceCallback;)V
 
-    :cond_2
-    :goto_1
+    :cond_20
+    :goto_20
     return-void
 .end method
 
 .method public start(Lcom/bumptech/glide/load/engine/EngineRunnable;)V
-    .locals 1
+    .registers 3
 
     .line 67
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineJob;->engineRunnable:Lcom/bumptech/glide/load/engine/EngineRunnable;
@@ -669,7 +669,7 @@
 .end method
 
 .method public submitForSource(Lcom/bumptech/glide/load/engine/EngineRunnable;)V
-    .locals 1
+    .registers 3
 
     .line 73
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineJob;->sourceService:Ljava/util/concurrent/ExecutorService;

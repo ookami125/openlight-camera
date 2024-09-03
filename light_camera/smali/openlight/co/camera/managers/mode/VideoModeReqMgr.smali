@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Lopenlight/co/camera/managers/mode/ModeReqMgr;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method protected getAeModeForFlash()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -24,7 +24,7 @@
 .end method
 
 .method getAwbMode()I
-    .locals 0
+    .registers 1
 
     .line 23
     sget-object p0, Lopenlight/co/camera/enums/AwbMode;->AUTO:Lopenlight/co/camera/enums/AwbMode;
@@ -37,7 +37,7 @@
 .end method
 
 .method protected getExposureCompValue()I
-    .locals 0
+    .registers 1
 
     .line 42
     sget-object p0, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->EXPOSURE_COMP_00:Lopenlight/co/camera/utils/Constants$ExposureCompValues;
@@ -61,7 +61,7 @@
 .end method
 
 .method protected setAfMode(Landroid/hardware/camera2/CameraCharacteristics;Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 3
 
     .line 35
     sget-object p0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_MODE:Landroid/hardware/camera2/CaptureRequest$Key;

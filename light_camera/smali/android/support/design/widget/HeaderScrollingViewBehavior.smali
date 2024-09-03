@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 45
     invoke-direct {p0}, Landroid/support/design/widget/ViewOffsetBehavior;-><init>()V
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 48
     invoke-direct {p0, p1, p2}, Landroid/support/design/widget/ViewOffsetBehavior;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -81,13 +81,13 @@
 .end method
 
 .method private static resolveGravity(I)I
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const p0, 0x800033
 
-    :cond_0
+    :cond_5
     return p0
 .end method
 
@@ -106,19 +106,19 @@
 .end method
 
 .method final getOverlapPixelsForOffset(Landroid/view/View;)I
-    .locals 2
+    .registers 4
 
     .line 146
     iget v0, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mOverlayTop:I
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
-    goto :goto_0
+    goto :goto_15
 
     .line 147
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Landroid/support/design/widget/HeaderScrollingViewBehavior;->getOverlapRatioForOffset(Landroid/view/View;)F
 
     move-result p1
@@ -138,12 +138,12 @@
 
     move-result v1
 
-    :goto_0
+    :goto_15
     return v1
 .end method
 
 .method getOverlapRatioForOffset(Landroid/view/View;)F
-    .locals 0
+    .registers 2
 
     const/high16 p0, 0x3f800000    # 1.0f
 
@@ -151,7 +151,7 @@
 .end method
 
 .method public final getOverlayTop()I
-    .locals 0
+    .registers 1
 
     .line 180
     iget p0, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mOverlayTop:I
@@ -160,7 +160,7 @@
 .end method
 
 .method getScrollRange(Landroid/view/View;)I
-    .locals 0
+    .registers 2
 
     .line 157
     invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
@@ -171,7 +171,7 @@
 .end method
 
 .method final getVerticalLayoutGap()I
-    .locals 0
+    .registers 1
 
     .line 164
     iget p0, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mVerticalLayoutGap:I
@@ -180,7 +180,7 @@
 .end method
 
 .method protected layoutChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)V
-    .locals 8
+    .registers 12
 
     .line 103
     invoke-virtual {p1, p2}, Landroid/support/design/widget/CoordinatorLayout;->getDependencies(Landroid/view/View;)Ljava/util/List;
@@ -192,7 +192,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_94
 
     .line 108
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -267,21 +267,21 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_64
 
     .line 117
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_64
 
     .line 118
     invoke-static {p2}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_64
 
     .line 122
     iget p1, v5, Landroid/graphics/Rect;->left:I
@@ -306,7 +306,7 @@
     iput p1, v5, Landroid/graphics/Rect;->right:I
 
     .line 126
-    :cond_0
+    :cond_64
     iget-object p1, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mTempRect2:Landroid/graphics/Rect;
 
     .line 127
@@ -363,10 +363,10 @@
 
     iput p1, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mVerticalLayoutGap:I
 
-    goto :goto_0
+    goto :goto_9a
 
     .line 136
-    :cond_1
+    :cond_94
     invoke-super {p0, p1, p2, p3}, Landroid/support/design/widget/ViewOffsetBehavior;->layoutChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)V
 
     const/4 p1, 0x0
@@ -374,12 +374,12 @@
     .line 137
     iput p1, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mVerticalLayoutGap:I
 
-    :goto_0
+    :goto_9a
     return-void
 .end method
 
 .method public onMeasureChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
-    .locals 12
+    .registers 19
 
     move-object v0, p0
 
@@ -392,14 +392,14 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_d
 
     const/4 v3, -0x2
 
-    if-ne v1, v3, :cond_5
+    if-ne v1, v3, :cond_5d
 
     .line 61
-    :cond_0
+    :cond_d
     invoke-virtual {p1, p2}, Landroid/support/design/widget/CoordinatorLayout;->getDependencies(Landroid/view/View;)Ljava/util/List;
 
     move-result-object v3
@@ -409,7 +409,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_5d
 
     .line 64
     invoke-static {v3}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
@@ -418,14 +418,14 @@
 
     const/4 v5, 0x1
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_32
 
     .line 65
     invoke-static {p2}, Landroid/support/v4/view/ViewCompat;->getFitsSystemWindows(Landroid/view/View;)Z
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_32
 
     move-object v4, p2
 
@@ -437,23 +437,23 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_33
 
     .line 72
     invoke-virtual {p2}, Landroid/view/View;->requestLayout()V
 
     return v5
 
-    :cond_1
+    :cond_32
     move-object v4, p2
 
     .line 77
-    :cond_2
+    :cond_33
     invoke-static/range {p5 .. p5}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_3d
 
     .line 80
     invoke-virtual {p1}, Landroid/support/design/widget/CoordinatorLayout;->getHeight()I
@@ -461,7 +461,7 @@
     move-result v6
 
     .line 83
-    :cond_3
+    :cond_3d
     invoke-virtual {v3}, Landroid/view/View;->getMeasuredHeight()I
 
     move-result v7
@@ -475,17 +475,17 @@
 
     add-int/2addr v6, v0
 
-    if-ne v1, v2, :cond_4
+    if-ne v1, v2, :cond_4c
 
     const/high16 v0, 0x40000000    # 2.0f
 
-    goto :goto_0
+    goto :goto_4e
 
-    :cond_4
+    :cond_4c
     const/high16 v0, -0x80000000
 
     .line 85
-    :goto_0
+    :goto_4e
     invoke-static {v6, v0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v10
@@ -505,14 +505,14 @@
 
     return v5
 
-    :cond_5
+    :cond_5d
     const/4 v0, 0x0
 
     return v0
 .end method
 
 .method public final setOverlayTop(I)V
-    .locals 0
+    .registers 2
 
     .line 173
     iput p1, p0, Landroid/support/design/widget/HeaderScrollingViewBehavior;->mOverlayTop:I

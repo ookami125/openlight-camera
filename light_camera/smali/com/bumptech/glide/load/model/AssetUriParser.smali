@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const-string v0, "file:///android_asset/"
 
@@ -28,7 +28,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method public static isAssetUri(Landroid/net/Uri;)Z
-    .locals 2
+    .registers 3
 
     const-string v0, "file"
 
@@ -52,7 +52,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
@@ -62,7 +62,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_28
 
     const-string v0, "android_asset"
 
@@ -78,16 +78,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_28
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_28
     return v1
 .end method
 
 .method public static toAssetPath(Landroid/net/Uri;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-virtual {p0}, Landroid/net/Uri;->toString()Ljava/lang/String;

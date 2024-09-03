@@ -70,7 +70,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 663
     new-instance v0, Lltpb/ViewPreferences$AWBMode;
@@ -225,7 +225,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -242,84 +242,84 @@
 .end method
 
 .method public static fromValue(I)Lltpb/ViewPreferences$AWBMode;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_20
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 705
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_KELVIN:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 704
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_CUSTOM:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 703
-    :pswitch_2
+    :pswitch_b
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_FLASH:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 702
-    :pswitch_3
+    :pswitch_e
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_FLUORESCENT:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 701
-    :pswitch_4
+    :pswitch_11
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_TUNGSTEN:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 700
-    :pswitch_5
+    :pswitch_14
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_CLOUDY:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 699
-    :pswitch_6
+    :pswitch_17
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_SHADE:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 698
-    :pswitch_7
+    :pswitch_1a
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_DAYLIGHT:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
     .line 697
-    :pswitch_8
+    :pswitch_1d
     sget-object p0, Lltpb/ViewPreferences$AWBMode;->AWB_MODE_AUTO:Lltpb/ViewPreferences$AWBMode;
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_20
     .packed-switch 0x0
+        :pswitch_1d
+        :pswitch_1a
+        :pswitch_17
+        :pswitch_14
+        :pswitch_11
+        :pswitch_e
+        :pswitch_b
         :pswitch_8
-        :pswitch_7
-        :pswitch_6
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/ViewPreferences$AWBMode;
-    .locals 1
+    .registers 2
 
     .line 662
     const-class v0, Lltpb/ViewPreferences$AWBMode;
@@ -334,7 +334,7 @@
 .end method
 
 .method public static values()[Lltpb/ViewPreferences$AWBMode;
-    .locals 1
+    .registers 1
 
     .line 662
     sget-object v0, Lltpb/ViewPreferences$AWBMode;->$VALUES:[Lltpb/ViewPreferences$AWBMode;
@@ -351,7 +351,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 712
     iget p0, p0, Lltpb/ViewPreferences$AWBMode;->value:I

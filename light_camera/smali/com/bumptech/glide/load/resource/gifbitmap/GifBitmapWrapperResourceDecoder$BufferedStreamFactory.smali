@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public build(Ljava/io/InputStream;[B)Ljava/io/InputStream;
-    .locals 0
+    .registers 3
 
     .line 140
     new-instance p0, Lcom/bumptech/glide/load/resource/bitmap/RecyclableBufferedInputStream;

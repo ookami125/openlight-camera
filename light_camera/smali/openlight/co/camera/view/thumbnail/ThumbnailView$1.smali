@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)V
-    .locals 0
+    .registers 2
 
     .line 123
     iput-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$1;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -41,7 +41,7 @@
 .end method
 
 .method private validateThumbnailPath(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     .line 141
     :try_start_0
@@ -49,7 +49,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_11
 
     new-instance p0, Ljava/io/File;
 
@@ -59,10 +59,10 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_3b
 
     .line 142
-    :cond_0
+    :cond_11
     invoke-static {}, Lopenlight/co/camera/utils/MediaFileManager;->get()Lopenlight/co/camera/utils/MediaFileManager;
 
     move-result-object p0
@@ -70,13 +70,13 @@
     invoke-virtual {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getFirstMedia()Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_19
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_19} :catch_3d
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3a
 
     .line 145
-    :try_start_1
+    :try_start_1b
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
 
     move-result-object p1
@@ -88,7 +88,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3a
 
     .line 148
     new-instance v0, Ljava/io/File;
@@ -103,30 +103,30 @@
     invoke-virtual {p1, v0}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result p1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_34
+    .catch Ljava/lang/Exception; {:try_start_1b .. :try_end_34} :catch_38
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_3a
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_3b
 
-    :catch_0
+    :catch_38
     move-exception p1
 
-    goto :goto_1
+    goto :goto_41
 
-    :cond_1
+    :cond_3a
     move-object p1, p0
 
-    :cond_2
-    :goto_0
+    :cond_3b
+    :goto_3b
     move-object p0, p1
 
-    goto :goto_2
+    goto :goto_4a
 
-    :catch_1
+    :catch_3d
     move-exception p0
 
     move-object v2, p1
@@ -136,7 +136,8 @@
     move-object p0, v2
 
     .line 158
-    :goto_1
+    :goto_41
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$200()Ljava/lang/String;
 
     move-result-object v0
@@ -145,14 +146,14 @@
 
     invoke-static {v0, v1, p1}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :goto_2
+    :goto_4a
     return-object p0
 .end method
 
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 123
     check-cast p1, [Ljava/lang/Void;
@@ -165,13 +166,14 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 126
     iget-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$1;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
     const/4 v0, 0x0
 
+    # setter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumbnailTiming:Landroid/util/TimingLogger;
     invoke-static {p1, v0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$002(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/util/TimingLogger;)Landroid/util/TimingLogger;
 
     .line 128
@@ -179,6 +181,7 @@
 
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$1;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
     invoke-static {v0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$100(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Ljava/lang/String;
 
     move-result-object v0
@@ -187,6 +190,7 @@
 
     move-result-object p0
 
+    # setter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mThumbnailPath:Ljava/lang/String;
     invoke-static {p1, p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$102(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
@@ -195,7 +199,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 123
     check-cast p1, Ljava/lang/String;
@@ -206,17 +210,19 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 168
     iget-object v0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$1;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$1;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
     invoke-static {p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$300(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/widget/ImageView;
 
     move-result-object p0
 
+    # invokes: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->setThumbImage(Landroid/widget/ImageView;Ljava/lang/String;)V
     invoke-static {v0, p0, p1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$400(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/widget/ImageView;Ljava/lang/String;)V
 
     return-void

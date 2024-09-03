@@ -50,7 +50,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 117
     new-instance v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -198,7 +198,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -215,7 +215,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
-    .locals 1
+    .registers 2
 
     .line 116
     const-class v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -230,7 +230,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
-    .locals 1
+    .registers 1
 
     .line 116
     sget-object v0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->$VALUES:[Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;
@@ -247,7 +247,7 @@
 
 # virtual methods
 .method public getFocusTriggerId()I
-    .locals 0
+    .registers 1
 
     .line 137
     iget p0, p0, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr$FocusTriggerSource;->mFocusTypeId:I

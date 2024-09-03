@@ -53,7 +53,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 71
     new-instance v0, Lopenlight/co/camera/managers/focus/FocusManager;
@@ -73,7 +73,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 367
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 58
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager;->TAG:Ljava/lang/String;
@@ -159,7 +159,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/managers/focus/FocusManager;)Lopenlight/co/camera/listener/FocusListener;
-    .locals 0
+    .registers 1
 
     .line 58
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusListener:Lopenlight/co/camera/listener/FocusListener;
@@ -168,7 +168,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/managers/focus/FocusManager;)Lopenlight/co/camera/managers/focus/FocusManager$State;
-    .locals 0
+    .registers 1
 
     .line 58
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -177,7 +177,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/managers/focus/FocusManager;Lopenlight/co/camera/managers/focus/FocusManager$State;)Lopenlight/co/camera/managers/focus/FocusManager$State;
-    .locals 0
+    .registers 2
 
     .line 58
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -186,7 +186,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/managers/focus/FocusManager;)Lopenlight/co/camera/utils/Provider;
-    .locals 0
+    .registers 1
 
     .line 58
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -195,7 +195,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/camera/managers/focus/FocusManager;J)J
-    .locals 0
+    .registers 3
 
     .line 58
     iput-wide p1, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusStartTime:J
@@ -204,7 +204,7 @@
 .end method
 
 .method static synthetic access$500()Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
-    .locals 1
+    .registers 1
 
     .line 58
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager;->mSmartAfTriggerMgr:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
@@ -213,7 +213,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/managers/focus/FocusManager;
-    .locals 1
+    .registers 1
 
     .line 97
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager;->sInstance:Lopenlight/co/camera/managers/focus/FocusManager;
@@ -222,7 +222,7 @@
 .end method
 
 .method private getFocalLength()F
-    .locals 1
+    .registers 2
 
     .line 364
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -237,7 +237,7 @@
 .end method
 
 .method private getTorchState()Z
-    .locals 0
+    .registers 1
 
     .line 351
     iget-boolean p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentTorchState:Z
@@ -248,7 +248,7 @@
 
 # virtual methods
 .method public autoTriggerFocus()V
-    .locals 7
+    .registers 8
 
     .line 130
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->FOCUSING:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -269,7 +269,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_be
 
     .line 133
     iget-object v1, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
@@ -299,7 +299,7 @@
     move-result-object v2
 
     .line 140
-    :try_start_0
+    :try_start_29
     iget-object v3, v2, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v3, Landroid/hardware/camera2/params/MeteringRectangle;
@@ -385,7 +385,7 @@
 
     const/4 v4, 0x2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_83
 
     .line 156
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->FLASH_MODE:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -397,7 +397,7 @@
     invoke-virtual {v2, v1, v5}, Landroid/hardware/camera2/CaptureRequest$Builder;->set(Landroid/hardware/camera2/CaptureRequest$Key;Ljava/lang/Object;)V
 
     .line 158
-    :cond_0
+    :cond_83
     sget-object v1, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_TRIGGER:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -447,14 +447,14 @@
 
     .line 163
     invoke-virtual {v1, v2, p0, v0}, Landroid/hardware/camera2/CameraCaptureSession;->capture(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b4
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_29 .. :try_end_b4} :catch_b5
+    .catch Ljava/lang/IllegalStateException; {:try_start_29 .. :try_end_b4} :catch_b5
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_29 .. :try_end_b4} :catch_b5
 
-    goto :goto_0
+    goto :goto_c5
 
-    :catch_0
+    :catch_b5
     move-exception p0
 
     .line 166
@@ -464,22 +464,22 @@
 
     invoke-static {v0, v1, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_0
+    goto :goto_c5
 
     .line 169
-    :cond_1
+    :cond_be
     sget-object p0, Lopenlight/co/camera/managers/focus/FocusManager;->TAG:Ljava/lang/String;
 
     const-string v0, "The camera device is either still not open or is closing, ignore focus request"
 
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_c5
     return-void
 .end method
 
 .method public cancelAfTrigger(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 2
+    .registers 4
 
     .line 116
     sget-object v0, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AF_TRIGGER:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -498,7 +498,7 @@
     move-result-object v0
 
     .line 119
-    :try_start_0
+    :try_start_e
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->getCameraCaptureSession()Landroid/hardware/camera2/CameraCaptureSession;
 
     move-result-object v1
@@ -516,25 +516,25 @@
 
     .line 119
     invoke-virtual {v1, p1, p0, v0}, Landroid/hardware/camera2/CameraCaptureSession;->capture(Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CameraCaptureSession$CaptureCallback;Landroid/os/Handler;)I
-    :try_end_0
-    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Landroid/hardware/camera2/CameraAccessException; {:try_start_e .. :try_end_1f} :catch_20
+    .catch Ljava/lang/IllegalStateException; {:try_start_e .. :try_end_1f} :catch_20
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_e .. :try_end_1f} :catch_20
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_0
+    :catch_20
     move-exception p0
 
     .line 122
     invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_0
+    :goto_24
     return-void
 .end method
 
 .method public getCurrentFocusPoint()Lopenlight/co/camera/models/MeteringPoint;
-    .locals 0
+    .registers 1
 
     .line 355
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusPoint:Lopenlight/co/camera/models/MeteringPoint;
@@ -543,7 +543,7 @@
 .end method
 
 .method public getCurrentState()Lopenlight/co/camera/managers/focus/FocusManager$State;
-    .locals 0
+    .registers 1
 
     .line 342
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -552,7 +552,7 @@
 .end method
 
 .method public getFocusRoi()Landroid/hardware/camera2/params/MeteringRectangle;
-    .locals 0
+    .registers 1
 
     .line 283
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusRoi:Landroid/hardware/camera2/params/MeteringRectangle;
@@ -561,7 +561,7 @@
 .end method
 
 .method public getFocusStartTime()J
-    .locals 2
+    .registers 3
 
     .line 287
     iget-wide v0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusStartTime:J
@@ -570,91 +570,91 @@
 .end method
 
 .method public hasInitialFocusCompleted()Z
-    .locals 1
+    .registers 2
 
     .line 270
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->LOCKED:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isFocusing()Z
-    .locals 1
+    .registers 2
 
     .line 312
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->FOCUSING:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isFocusingFirstTime()Z
-    .locals 1
+    .registers 2
 
     .line 338
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->FOCUSING_FIRST_TIME:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isIdle()Z
-    .locals 1
+    .registers 2
 
     .line 321
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentState:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->IDLE:Lopenlight/co/camera/managers/focus/FocusManager$State;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public resetFocusStateToIdle()V
-    .locals 1
+    .registers 2
 
     .line 278
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->IDLE:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -670,7 +670,7 @@
 .end method
 
 .method public setFocusCompleted()V
-    .locals 1
+    .registers 2
 
     .line 316
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->LOCKED:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -686,7 +686,7 @@
 .end method
 
 .method public setFocusListener(Lopenlight/co/camera/listener/FocusListener;)V
-    .locals 0
+    .registers 2
 
     .line 107
     iput-object p1, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusListener:Lopenlight/co/camera/listener/FocusListener;
@@ -695,7 +695,7 @@
 .end method
 
 .method public setFocusPointToCenter()V
-    .locals 0
+    .registers 1
 
     .line 291
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusPoint:Lopenlight/co/camera/models/MeteringPoint;
@@ -706,22 +706,22 @@
 .end method
 
 .method public setTorchForFlash(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
-    .locals 2
+    .registers 5
 
     .line 256
     iput-boolean p2, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mCurrentTorchState:Z
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_6
 
     const/4 p2, 0x2
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p2, 0x0
 
     .line 258
-    :goto_0
+    :goto_7
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Enable/Disable Torch"
@@ -746,7 +746,7 @@
 .end method
 
 .method public startFirstTimeFocus()V
-    .locals 1
+    .registers 2
 
     .line 329
     sget-object v0, Lopenlight/co/camera/managers/focus/FocusManager$State;->FOCUSING_FIRST_TIME:Lopenlight/co/camera/managers/focus/FocusManager$State;
@@ -757,7 +757,7 @@
 .end method
 
 .method public unregisterFocusListener()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -768,7 +768,7 @@
 .end method
 
 .method public updateFocusPoint(II)V
-    .locals 0
+    .registers 3
 
     .line 308
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusPoint:Lopenlight/co/camera/models/MeteringPoint;
@@ -779,7 +779,7 @@
 .end method
 
 .method public updateFocusPoint(Landroid/view/MotionEvent;)V
-    .locals 1
+    .registers 3
 
     .line 299
     iget-object p0, p0, Lopenlight/co/camera/managers/focus/FocusManager;->mFocusPoint:Lopenlight/co/camera/models/MeteringPoint;

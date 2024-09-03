@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/tasks/AttachmentDownloader;)V
-    .locals 0
+    .registers 2
 
     .line 69
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->this$0:Lnet/hockeyapp/android/tasks/AttachmentDownloader;
@@ -33,11 +33,12 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+    .registers 5
 
     .line 72
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->this$0:Lnet/hockeyapp/android/tasks/AttachmentDownloader;
 
+    # getter for: Lnet/hockeyapp/android/tasks/AttachmentDownloader;->queue:Ljava/util/Queue;
     invoke-static {p1}, Lnet/hockeyapp/android/tasks/AttachmentDownloader;->access$200(Lnet/hockeyapp/android/tasks/AttachmentDownloader;)Ljava/util/Queue;
 
     move-result-object p1
@@ -53,13 +54,13 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_22
 
     invoke-virtual {p1}, Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;->consumeRetry()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 74
     new-instance v0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1$1;
@@ -71,16 +72,18 @@
     invoke-virtual {p0, v0, v1, v2}, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->postDelayed(Ljava/lang/Runnable;J)Z
 
     .line 82
-    :cond_0
+    :cond_22
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->this$0:Lnet/hockeyapp/android/tasks/AttachmentDownloader;
 
     const/4 v0, 0x0
 
+    # setter for: Lnet/hockeyapp/android/tasks/AttachmentDownloader;->downloadRunning:Z
     invoke-static {p1, v0}, Lnet/hockeyapp/android/tasks/AttachmentDownloader;->access$402(Lnet/hockeyapp/android/tasks/AttachmentDownloader;Z)Z
 
     .line 83
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->this$0:Lnet/hockeyapp/android/tasks/AttachmentDownloader;
 
+    # invokes: Lnet/hockeyapp/android/tasks/AttachmentDownloader;->downloadNext()V
     invoke-static {p0}, Lnet/hockeyapp/android/tasks/AttachmentDownloader;->access$300(Lnet/hockeyapp/android/tasks/AttachmentDownloader;)V
 
     return-void

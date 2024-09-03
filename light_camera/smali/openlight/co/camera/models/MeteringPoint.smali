@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 14
     new-instance v0, Lopenlight/co/camera/models/MeteringPoint;
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public getType()Lopenlight/co/camera/models/MeteringPoint$Type;
-    .locals 0
+    .registers 1
 
     .line 69
     iget-object p0, p0, Lopenlight/co/camera/models/MeteringPoint;->mType:Lopenlight/co/camera/models/MeteringPoint$Type;
@@ -71,7 +71,7 @@
 .end method
 
 .method public getX()I
-    .locals 0
+    .registers 1
 
     .line 53
     iget p0, p0, Lopenlight/co/camera/models/MeteringPoint;->mX:I
@@ -80,7 +80,7 @@
 .end method
 
 .method public getY()I
-    .locals 0
+    .registers 1
 
     .line 61
     iget p0, p0, Lopenlight/co/camera/models/MeteringPoint;->mY:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public isCenter()Z
-    .locals 1
+    .registers 2
 
     .line 77
     sget-object v0, Lopenlight/co/camera/models/MeteringPoint$Type;->CENTER:Lopenlight/co/camera/models/MeteringPoint$Type;
@@ -104,7 +104,7 @@
 .end method
 
 .method public resetToCenter()Lopenlight/co/camera/models/MeteringPoint;
-    .locals 1
+    .registers 2
 
     .line 42
     sget-object v0, Lopenlight/co/camera/models/MeteringPoint$Type;->CENTER:Lopenlight/co/camera/models/MeteringPoint$Type;
@@ -123,7 +123,7 @@
 .end method
 
 .method public set(II)Lopenlight/co/camera/models/MeteringPoint;
-    .locals 1
+    .registers 4
 
     .line 31
     sget-object v0, Lopenlight/co/camera/models/MeteringPoint$Type;->OTHER:Lopenlight/co/camera/models/MeteringPoint$Type;
@@ -140,7 +140,7 @@
 .end method
 
 .method public set(Landroid/graphics/Point;)Lopenlight/co/camera/models/MeteringPoint;
-    .locals 1
+    .registers 3
 
     .line 38
     iget v0, p1, Landroid/graphics/Point;->x:I
@@ -155,7 +155,7 @@
 .end method
 
 .method public set(Landroid/view/MotionEvent;)Lopenlight/co/camera/models/MeteringPoint;
-    .locals 1
+    .registers 3
 
     .line 27
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -178,7 +178,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     const-string v0, "MeteringPoint { type=%s, x=%d, y=%d }"
 

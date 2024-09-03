@@ -18,14 +18,14 @@
 
 # direct methods
 .method constructor <init>(Lokio/BufferedSource;Ljava/util/zip/Inflater;)V
-    .locals 0
+    .registers 3
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_14
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_c
 
     .line 51
     iput-object p1, p0, Lokio/InflaterSource;->source:Lokio/BufferedSource;
@@ -36,7 +36,7 @@
     return-void
 
     .line 50
-    :cond_0
+    :cond_c
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "inflater == null"
@@ -46,7 +46,7 @@
     throw p0
 
     .line 49
-    :cond_1
+    :cond_14
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "source == null"
@@ -57,7 +57,7 @@
 .end method
 
 .method public constructor <init>(Lokio/Source;Ljava/util/zip/Inflater;)V
-    .locals 0
+    .registers 3
 
     .line 40
     invoke-static {p1}, Lokio/Okio;->buffer(Lokio/Source;)Lokio/BufferedSource;
@@ -70,7 +70,7 @@
 .end method
 
 .method private releaseInflatedBytes()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -80,12 +80,12 @@
     .line 112
     iget v0, p0, Lokio/InflaterSource;->bufferBytesHeldByInflater:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 113
-    :cond_0
+    :cond_5
     iget v0, p0, Lokio/InflaterSource;->bufferBytesHeldByInflater:I
 
     iget-object v1, p0, Lokio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
@@ -116,7 +116,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -126,12 +126,12 @@
     .line 123
     iget-boolean v0, p0, Lokio/InflaterSource;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 124
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lokio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->end()V
@@ -150,7 +150,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -161,20 +161,20 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_7
+    if-ltz v2, :cond_72
 
     .line 58
     iget-boolean p2, p0, Lokio/InflaterSource;->closed:Z
 
-    if-nez p2, :cond_6
+    if-nez p2, :cond_6a
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
     return-wide v0
 
     .line 62
-    :cond_0
-    :goto_0
+    :cond_d
+    :goto_d
     invoke-virtual {p0}, Lokio/InflaterSource;->refill()Z
 
     move-result p2
@@ -182,7 +182,7 @@
     const/4 p3, 0x1
 
     .line 66
-    :try_start_0
+    :try_start_12
     invoke-virtual {p1, p3}, Lokio/Buffer;->writableSegment(I)Lokio/Segment;
 
     move-result-object p3
@@ -202,7 +202,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_32
 
     .line 69
     iget p0, p3, Lokio/Segment;->limit:I
@@ -223,14 +223,14 @@
     return-wide v0
 
     .line 73
-    :cond_1
+    :cond_32
     iget-object v0, p0, Lokio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
 
     invoke-virtual {v0}, Ljava/util/zip/Inflater;->finished()Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_4e
 
     iget-object v0, p0, Lokio/InflaterSource;->inflater:Ljava/util/zip/Inflater;
 
@@ -238,17 +238,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
-    goto :goto_1
+    goto :goto_4e
 
-    :cond_2
-    if-nez p2, :cond_3
+    :cond_43
+    if-nez p2, :cond_46
 
-    goto :goto_0
+    goto :goto_d
 
     .line 82
-    :cond_3
+    :cond_46
     new-instance p0, Ljava/io/EOFException;
 
     const-string p1, "source exhausted prematurely"
@@ -258,8 +258,8 @@
     throw p0
 
     .line 74
-    :cond_4
-    :goto_1
+    :cond_4e
+    :goto_4e
     invoke-direct {p0}, Lokio/InflaterSource;->releaseInflatedBytes()V
 
     .line 75
@@ -267,7 +267,7 @@
 
     iget p2, p3, Lokio/Segment;->limit:I
 
-    if-ne p0, p2, :cond_5
+    if-ne p0, p2, :cond_60
 
     .line 77
     invoke-virtual {p3}, Lokio/Segment;->pop()Lokio/Segment;
@@ -278,15 +278,15 @@
 
     .line 78
     invoke-static {p3}, Lokio/SegmentPool;->recycle(Lokio/Segment;)V
-    :try_end_0
-    .catch Ljava/util/zip/DataFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_60
+    .catch Ljava/util/zip/DataFormatException; {:try_start_12 .. :try_end_60} :catch_63
 
-    :cond_5
+    :cond_60
     const-wide/16 p0, -0x1
 
     return-wide p0
 
-    :catch_0
+    :catch_63
     move-exception p0
 
     .line 84
@@ -297,7 +297,7 @@
     throw p1
 
     .line 58
-    :cond_6
+    :cond_6a
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "closed"
@@ -307,7 +307,7 @@
     throw p0
 
     .line 57
-    :cond_7
+    :cond_72
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -330,7 +330,7 @@
 .end method
 
 .method public refill()Z
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -346,12 +346,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return v1
 
     .line 97
-    :cond_0
+    :cond_a
     invoke-direct {p0}, Lokio/InflaterSource;->releaseInflatedBytes()V
 
     .line 98
@@ -361,7 +361,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3a
 
     .line 101
     iget-object v0, p0, Lokio/InflaterSource;->source:Lokio/BufferedSource;
@@ -370,14 +370,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     const/4 p0, 0x1
 
     return p0
 
     .line 104
-    :cond_1
+    :cond_1f
     iget-object v0, p0, Lokio/InflaterSource;->source:Lokio/BufferedSource;
 
     invoke-interface {v0}, Lokio/BufferedSource;->buffer()Lokio/Buffer;
@@ -409,7 +409,7 @@
     return v1
 
     .line 98
-    :cond_2
+    :cond_3a
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "?"
@@ -420,7 +420,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 119
     iget-object p0, p0, Lokio/InflaterSource;->source:Lokio/BufferedSource;

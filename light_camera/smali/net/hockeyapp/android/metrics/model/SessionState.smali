@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 7
     new-instance v0, Lnet/hockeyapp/android/metrics/model/SessionState;
@@ -69,7 +69,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -86,7 +86,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lnet/hockeyapp/android/metrics/model/SessionState;
-    .locals 1
+    .registers 2
 
     .line 6
     const-class v0, Lnet/hockeyapp/android/metrics/model/SessionState;
@@ -101,7 +101,7 @@
 .end method
 
 .method public static values()[Lnet/hockeyapp/android/metrics/model/SessionState;
-    .locals 1
+    .registers 1
 
     .line 6
     sget-object v0, Lnet/hockeyapp/android/metrics/model/SessionState;->$VALUES:[Lnet/hockeyapp/android/metrics/model/SessionState;
@@ -118,7 +118,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 16
     iget p0, p0, Lnet/hockeyapp/android/metrics/model/SessionState;->value:I

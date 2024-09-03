@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 16
+    .registers 16
 
     .line 10
     new-instance v0, Lopenlight/co/camera/enums/FtuView;
@@ -280,7 +280,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -297,7 +297,7 @@
 .end method
 
 .method public static getFtuLabelResourceIds()Ljava/util/List;
-    .locals 5
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -321,8 +321,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_b
+    if-ge v3, v2, :cond_1d
 
     aget-object v4, v1, v3
 
@@ -339,14 +339,14 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_1d
     return-object v0
 .end method
 
 .method public static getFtuViewFromResId(I)Lopenlight/co/camera/enums/FtuView;
-    .locals 5
+    .registers 6
 
     .line 42
     invoke-static {}, Lopenlight/co/camera/enums/FtuView;->values()[Lopenlight/co/camera/enums/FtuView;
@@ -357,8 +357,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_14
 
     aget-object v3, v0, v2
 
@@ -367,17 +367,17 @@
 
     move-result v4
 
-    if-ne v4, p0, :cond_0
+    if-ne v4, p0, :cond_11
 
     return-object v3
 
-    :cond_0
+    :cond_11
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 47
-    :cond_1
+    :cond_14
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -400,7 +400,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/FtuView;
-    .locals 1
+    .registers 2
 
     .line 9
     const-class v0, Lopenlight/co/camera/enums/FtuView;
@@ -415,7 +415,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/FtuView;
-    .locals 1
+    .registers 1
 
     .line 9
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->$VALUES:[Lopenlight/co/camera/enums/FtuView;
@@ -432,7 +432,7 @@
 
 # virtual methods
 .method public getNext()Lopenlight/co/camera/enums/FtuView;
-    .locals 3
+    .registers 4
 
     .line 37
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->TAG:Ljava/lang/String;
@@ -470,7 +470,7 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_34
 
     invoke-static {}, Lopenlight/co/camera/enums/FtuView;->values()[Lopenlight/co/camera/enums/FtuView;
 
@@ -484,17 +484,17 @@
 
     aget-object p0, v0, p0
 
-    goto :goto_0
+    goto :goto_35
 
-    :cond_0
+    :cond_34
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_35
     return-object p0
 .end method
 
 .method public getResId()I
-    .locals 0
+    .registers 1
 
     .line 33
     iget p0, p0, Lopenlight/co/camera/enums/FtuView;->mResId:I

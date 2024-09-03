@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -49,18 +49,18 @@
 .end method
 
 .method private getFromValueMethod()Ljava/lang/reflect/Method;
-    .locals 5
+    .registers 6
 
     .line 34
     iget-object v0, p0, Lcom/squareup/wire/RuntimeEnumAdapter;->fromValueMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-object v0
 
     .line 39
-    :cond_0
-    :try_start_0
+    :cond_5
+    :try_start_5
     iget-object v0, p0, Lcom/squareup/wire/RuntimeEnumAdapter;->type:Ljava/lang/Class;
 
     const-string v1, "fromValue"
@@ -80,12 +80,12 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/squareup/wire/RuntimeEnumAdapter;->fromValueMethod:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_17} :catch_18
 
     return-object v0
 
-    :catch_0
+    :catch_18
     move-exception p0
 
     .line 41
@@ -99,12 +99,12 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 1
+    .registers 3
 
     .line 57
     instance-of v0, p1, Lcom/squareup/wire/RuntimeEnumAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     check-cast p1, Lcom/squareup/wire/RuntimeEnumAdapter;
 
@@ -112,21 +112,21 @@
 
     iget-object p0, p0, Lcom/squareup/wire/RuntimeEnumAdapter;->type:Ljava/lang/Class;
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method protected fromValue(I)Lcom/squareup/wire/WireEnum;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TE;"
@@ -158,13 +158,13 @@
     move-result-object p0
 
     check-cast p0, Lcom/squareup/wire/WireEnum;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_15} :catch_16
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_15} :catch_16
 
     return-object p0
 
-    :catch_0
+    :catch_16
     move-exception p0
 
     .line 51
@@ -176,7 +176,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 62
     iget-object p0, p0, Lcom/squareup/wire/RuntimeEnumAdapter;->type:Ljava/lang/Class;

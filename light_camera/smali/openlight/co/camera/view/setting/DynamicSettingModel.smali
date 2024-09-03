@@ -13,7 +13,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Ljava/lang/String;II)V
-    .locals 0
+    .registers 5
 
     .line 171
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/setting/SettingModel;-><init>(Ljava/lang/String;Ljava/lang/String;)V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method getIconId()I
-    .locals 0
+    .registers 1
 
     .line 185
     iget p0, p0, Lopenlight/co/camera/view/setting/DynamicSettingModel;->mIconId:I
@@ -47,7 +47,7 @@
 .end method
 
 .method getSelectedIconId()I
-    .locals 0
+    .registers 1
 
     .line 190
     iget p0, p0, Lopenlight/co/camera/view/setting/DynamicSettingModel;->mSelectedIconId:I
@@ -56,7 +56,7 @@
 .end method
 
 .method initValue()V
-    .locals 1
+    .registers 2
 
     .line 180
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/DynamicSettingModel;->getTitle()Ljava/lang/String;
@@ -69,7 +69,7 @@
 .end method
 
 .method isSelectionHighlighted()Z
-    .locals 0
+    .registers 1
 
     .line 195
     iget-boolean p0, p0, Lopenlight/co/camera/view/setting/DynamicSettingModel;->mIsSelectionHighlighted:Z

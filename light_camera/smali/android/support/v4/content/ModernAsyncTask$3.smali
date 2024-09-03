@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/content/ModernAsyncTask;Ljava/util/concurrent/Callable;)V
-    .locals 0
+    .registers 3
 
     .line 150
     iput-object p1, p0, Landroid/support/v4/content/ModernAsyncTask$3;->this$0:Landroid/support/v4/content/ModernAsyncTask;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method protected done()V
-    .locals 2
+    .registers 3
 
     .line 154
     :try_start_0
@@ -52,15 +52,15 @@
     iget-object v1, p0, Landroid/support/v4/content/ModernAsyncTask$3;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
     invoke-virtual {v1, v0}, Landroid/support/v4/content/ModernAsyncTask;->postResultIfNotInvoked(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_3
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_9} :catch_27
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_9} :catch_1a
+    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_9} :catch_13
+    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catch_0
+    :catch_a
     move-exception p0
 
     .line 165
@@ -73,16 +73,16 @@
     throw v0
 
     .line 163
-    :catch_1
+    :catch_13
     iget-object p0, p0, Landroid/support/v4/content/ModernAsyncTask$3;->this$0:Landroid/support/v4/content/ModernAsyncTask;
 
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Landroid/support/v4/content/ModernAsyncTask;->postResultIfNotInvoked(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catch_2
+    :catch_1a
     move-exception p0
 
     .line 160
@@ -99,7 +99,7 @@
 
     throw v0
 
-    :catch_3
+    :catch_27
     move-exception p0
 
     const-string v0, "AsyncTask"
@@ -107,6 +107,6 @@
     .line 158
     invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
+    :goto_2d
     return-void
 .end method

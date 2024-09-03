@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;Lnet/hockeyapp/android/tasks/AttachmentDownloader$DownloadJob;)V
-    .locals 0
+    .registers 3
 
     .line 74
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1$1;->this$1:Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;
@@ -40,13 +40,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 77
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1$1;->this$1:Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;
 
     iget-object v0, v0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->this$0:Lnet/hockeyapp/android/tasks/AttachmentDownloader;
 
+    # getter for: Lnet/hockeyapp/android/tasks/AttachmentDownloader;->queue:Ljava/util/Queue;
     invoke-static {v0}, Lnet/hockeyapp/android/tasks/AttachmentDownloader;->access$200(Lnet/hockeyapp/android/tasks/AttachmentDownloader;)Ljava/util/Queue;
 
     move-result-object v0
@@ -60,6 +61,7 @@
 
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/AttachmentDownloader$1;->this$0:Lnet/hockeyapp/android/tasks/AttachmentDownloader;
 
+    # invokes: Lnet/hockeyapp/android/tasks/AttachmentDownloader;->downloadNext()V
     invoke-static {p0}, Lnet/hockeyapp/android/tasks/AttachmentDownloader;->access$300(Lnet/hockeyapp/android/tasks/AttachmentDownloader;)V
 
     return-void

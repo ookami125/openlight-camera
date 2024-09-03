@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 35
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method protected attachBaseContext(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 38
     invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V

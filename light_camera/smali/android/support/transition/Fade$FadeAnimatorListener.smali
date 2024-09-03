@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 182
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 197
     iget-object p1, p0, Landroid/support/transition/Fade$FadeAnimatorListener;->mView:Landroid/view/View;
@@ -53,7 +53,7 @@
     .line 198
     iget-boolean p1, p0, Landroid/support/transition/Fade$FadeAnimatorListener;->mLayerTypeChanged:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 199
     iget-object p0, p0, Landroid/support/transition/Fade$FadeAnimatorListener;->mView:Landroid/view/View;
@@ -64,12 +64,12 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 188
     iget-object p1, p0, Landroid/support/transition/Fade$FadeAnimatorListener;->mView:Landroid/view/View;
@@ -78,7 +78,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     iget-object p1, p0, Landroid/support/transition/Fade$FadeAnimatorListener;->mView:Landroid/view/View;
 
@@ -87,7 +87,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1a
 
     const/4 p1, 0x1
 
@@ -103,6 +103,6 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    :cond_0
+    :cond_1a
     return-void
 .end method

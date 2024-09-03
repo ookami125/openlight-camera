@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Lcom/google/gson/JsonNull;
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic deepCopy()Lcom/google/gson/JsonElement;
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-virtual {p0}, Lcom/google/gson/JsonNull;->deepCopy()Lcom/google/gson/JsonNull;
@@ -46,7 +46,7 @@
 .end method
 
 .method public deepCopy()Lcom/google/gson/JsonNull;
-    .locals 0
+    .registers 1
 
     .line 49
     sget-object p0, Lcom/google/gson/JsonNull;->INSTANCE:Lcom/google/gson/JsonNull;
@@ -55,32 +55,32 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_9
 
     .line 65
     instance-of p0, p1, Lcom/google/gson/JsonNull;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_a
 
-    :cond_1
-    :goto_0
+    :cond_9
+    :goto_9
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_a
     return p0
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 57
     const-class p0, Lcom/google/gson/JsonNull;

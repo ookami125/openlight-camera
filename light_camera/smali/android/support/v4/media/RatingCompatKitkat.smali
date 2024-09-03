@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static getPercentRating(Ljava/lang/Object;)F
-    .locals 0
+    .registers 1
 
     .line 65
     check-cast p0, Landroid/media/Rating;
@@ -33,7 +33,7 @@
 .end method
 
 .method public static getRatingStyle(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 49
     check-cast p0, Landroid/media/Rating;
@@ -46,7 +46,7 @@
 .end method
 
 .method public static getStarRating(Ljava/lang/Object;)F
-    .locals 0
+    .registers 1
 
     .line 61
     check-cast p0, Landroid/media/Rating;
@@ -59,7 +59,7 @@
 .end method
 
 .method public static hasHeart(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 1
 
     .line 53
     check-cast p0, Landroid/media/Rating;
@@ -72,7 +72,7 @@
 .end method
 
 .method public static isRated(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 1
 
     .line 45
     check-cast p0, Landroid/media/Rating;
@@ -85,7 +85,7 @@
 .end method
 
 .method public static isThumbUp(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 1
 
     .line 57
     check-cast p0, Landroid/media/Rating;
@@ -98,7 +98,7 @@
 .end method
 
 .method public static newHeartRating(Z)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-static {p0}, Landroid/media/Rating;->newHeartRating(Z)Landroid/media/Rating;
@@ -109,7 +109,7 @@
 .end method
 
 .method public static newPercentageRating(F)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-static {p0}, Landroid/media/Rating;->newPercentageRating(F)Landroid/media/Rating;
@@ -120,7 +120,7 @@
 .end method
 
 .method public static newStarRating(IF)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 37
     invoke-static {p0, p1}, Landroid/media/Rating;->newStarRating(IF)Landroid/media/Rating;
@@ -131,7 +131,7 @@
 .end method
 
 .method public static newThumbRating(Z)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-static {p0}, Landroid/media/Rating;->newThumbRating(Z)Landroid/media/Rating;
@@ -142,7 +142,7 @@
 .end method
 
 .method public static newUnratedRating(I)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-static {p0}, Landroid/media/Rating;->newUnratedRating(I)Landroid/media/Rating;

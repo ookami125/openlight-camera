@@ -20,20 +20,20 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
-    .locals 0
+    .registers 2
 
     .line 45
     invoke-direct {p0}, Ljava/io/Reader;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const-string p1, ""
 
     .line 46
-    :goto_0
+    :goto_8
     iput-object p1, p0, Lorg/apache/commons/io/input/CharSequenceReader;->charSequence:Ljava/lang/CharSequence;
 
     return-void
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public mark(I)V
-    .locals 0
+    .registers 2
 
     .line 65
     iget p1, p0, Lorg/apache/commons/io/input/CharSequenceReader;->idx:I
@@ -67,7 +67,7 @@
 .end method
 
 .method public markSupported()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -75,7 +75,7 @@
 .end method
 
 .method public read()I
-    .locals 3
+    .registers 4
 
     .line 86
     iget v0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->idx:I
@@ -86,14 +86,14 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     const/4 p0, -0x1
 
     return p0
 
     .line 89
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->charSequence:Ljava/lang/CharSequence;
 
     iget v1, p0, Lorg/apache/commons/io/input/CharSequenceReader;->idx:I
@@ -110,7 +110,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 5
+    .registers 9
 
     .line 104
     iget v0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->idx:I
@@ -123,41 +123,41 @@
 
     const/4 v2, -0x1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_c
 
     return v2
 
-    :cond_0
-    if-eqz p1, :cond_4
+    :cond_c
+    if-eqz p1, :cond_55
 
-    if-ltz p3, :cond_3
+    if-ltz p3, :cond_2d
 
-    if-ltz p2, :cond_3
+    if-ltz p2, :cond_2d
 
     add-int v0, p2, p3
 
     .line 110
     array-length v1, p1
 
-    if-gt v0, v1, :cond_3
+    if-gt v0, v1, :cond_2d
 
     const/4 v0, 0x0
 
     move v1, v0
 
-    :goto_0
-    if-ge v0, p3, :cond_2
+    :goto_19
+    if-ge v0, p3, :cond_2c
 
     .line 116
     invoke-virtual {p0}, Lorg/apache/commons/io/input/CharSequenceReader;->read()I
 
     move-result v3
 
-    if-ne v3, v2, :cond_1
+    if-ne v3, v2, :cond_22
 
     return v1
 
-    :cond_1
+    :cond_22
     add-int v4, p2, v0
 
     int-to-char v3, v3
@@ -169,13 +169,13 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_2
+    :cond_2c
     return v1
 
     .line 111
-    :cond_3
+    :cond_2d
     new-instance p0, Ljava/lang/IndexOutOfBoundsException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -211,7 +211,7 @@
     throw p0
 
     .line 108
-    :cond_4
+    :cond_55
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Character array is missing"
@@ -222,7 +222,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     .line 132
     iget v0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->mark:I
@@ -233,13 +233,13 @@
 .end method
 
 .method public skip(J)J
-    .locals 4
+    .registers 7
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2b
 
     .line 147
     iget v0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->idx:I
@@ -250,14 +250,14 @@
 
     move-result v1
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_13
 
     const-wide/16 p0, -0x1
 
     return-wide p0
 
     .line 150
-    :cond_0
+    :cond_13
     iget-object v0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->charSequence:Ljava/lang/CharSequence;
 
     invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
@@ -291,7 +291,7 @@
     return-wide p0
 
     .line 144
-    :cond_1
+    :cond_2b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -314,7 +314,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 164
     iget-object p0, p0, Lorg/apache/commons/io/input/CharSequenceReader;->charSequence:Ljava/lang/CharSequence;

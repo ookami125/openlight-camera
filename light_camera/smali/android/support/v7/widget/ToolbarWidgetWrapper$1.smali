@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ToolbarWidgetWrapper;)V
-    .locals 7
+    .registers 9
 
     .line 181
     iput-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
@@ -67,20 +67,20 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 186
     iget-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     iget-object p1, p1, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mWindowCallback:Landroid/view/Window$Callback;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     iget-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
 
     iget-boolean p1, p1, Landroid/support/v7/widget/ToolbarWidgetWrapper;->mMenuPrepared:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     .line 187
     iget-object p1, p0, Landroid/support/v7/widget/ToolbarWidgetWrapper$1;->this$0:Landroid/support/v7/widget/ToolbarWidgetWrapper;
@@ -93,6 +93,6 @@
 
     invoke-interface {p1, v0, p0}, Landroid/view/Window$Callback;->onMenuItemSelected(ILandroid/view/MenuItem;)Z
 
-    :cond_0
+    :cond_16
     return-void
 .end method

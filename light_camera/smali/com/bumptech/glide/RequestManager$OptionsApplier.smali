@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/RequestManager;)V
-    .locals 0
+    .registers 2
 
     .line 779
     iput-object p1, p0, Lcom/bumptech/glide/RequestManager$OptionsApplier;->this$0:Lcom/bumptech/glide/RequestManager;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public apply(Lcom/bumptech/glide/GenericRequestBuilder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -47,21 +47,23 @@
     .line 782
     iget-object v0, p0, Lcom/bumptech/glide/RequestManager$OptionsApplier;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->options:Lcom/bumptech/glide/RequestManager$DefaultOptions;
     invoke-static {v0}, Lcom/bumptech/glide/RequestManager;->access$800(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/RequestManager$DefaultOptions;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 783
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager$OptionsApplier;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->options:Lcom/bumptech/glide/RequestManager$DefaultOptions;
     invoke-static {p0}, Lcom/bumptech/glide/RequestManager;->access$800(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/RequestManager$DefaultOptions;
 
     move-result-object p0
 
     invoke-interface {p0, p1}, Lcom/bumptech/glide/RequestManager$DefaultOptions;->apply(Lcom/bumptech/glide/GenericRequestBuilder;)V
 
-    :cond_0
+    :cond_11
     return-object p1
 .end method

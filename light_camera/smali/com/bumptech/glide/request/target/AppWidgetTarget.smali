@@ -27,16 +27,16 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViews;IIILandroid/content/ComponentName;)V
-    .locals 0
+    .registers 7
 
     .line 90
     invoke-direct {p0, p4, p5}, Lcom/bumptech/glide/request/target/SimpleTarget;-><init>(II)V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_25
 
-    if-eqz p6, :cond_1
+    if-eqz p6, :cond_1d
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_15
 
     .line 100
     iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
@@ -58,7 +58,7 @@
     return-void
 
     .line 98
-    :cond_0
+    :cond_15
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "RemoteViews object can not be null!"
@@ -68,7 +68,7 @@
     throw p0
 
     .line 95
-    :cond_1
+    :cond_1d
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "ComponentName can not be null!"
@@ -78,7 +78,7 @@
     throw p0
 
     .line 92
-    :cond_2
+    :cond_25
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Context can not be null!"
@@ -89,21 +89,21 @@
 .end method
 
 .method public varargs constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViews;III[I)V
-    .locals 0
+    .registers 7
 
     .line 43
     invoke-direct {p0, p4, p5}, Lcom/bumptech/glide/request/target/SimpleTarget;-><init>(II)V
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_30
 
-    if-eqz p6, :cond_2
+    if-eqz p6, :cond_28
 
     .line 50
     array-length p4, p6
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_20
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_18
 
     .line 56
     iput-object p1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
@@ -125,7 +125,7 @@
     return-void
 
     .line 54
-    :cond_0
+    :cond_18
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "RemoteViews object can not be null!"
@@ -135,7 +135,7 @@
     throw p0
 
     .line 51
-    :cond_1
+    :cond_20
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "WidgetIds must have length > 0"
@@ -145,7 +145,7 @@
     throw p0
 
     .line 48
-    :cond_2
+    :cond_28
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "WidgetIds can not be null!"
@@ -155,7 +155,7 @@
     throw p0
 
     .line 45
-    :cond_3
+    :cond_30
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Context can not be null!"
@@ -166,7 +166,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViews;ILandroid/content/ComponentName;)V
-    .locals 7
+    .registers 12
 
     const/high16 v4, -0x80000000
 
@@ -189,7 +189,7 @@
 .end method
 
 .method public varargs constructor <init>(Landroid/content/Context;Landroid/widget/RemoteViews;I[I)V
-    .locals 7
+    .registers 12
 
     const/high16 v4, -0x80000000
 
@@ -212,7 +212,7 @@
 .end method
 
 .method private update()V
-    .locals 2
+    .registers 3
 
     .line 124
     iget-object v0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->context:Landroid/content/Context;
@@ -224,7 +224,7 @@
     .line 125
     iget-object v1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_12
 
     .line 126
     iget-object v1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->componentName:Landroid/content/ComponentName;
@@ -233,24 +233,24 @@
 
     invoke-virtual {v0, v1, p0}, Landroid/appwidget/AppWidgetManager;->updateAppWidget(Landroid/content/ComponentName;Landroid/widget/RemoteViews;)V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 128
-    :cond_0
+    :cond_12
     iget-object v1, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->widgetIds:[I
 
     iget-object p0, p0, Lcom/bumptech/glide/request/target/AppWidgetTarget;->remoteViews:Landroid/widget/RemoteViews;
 
     invoke-virtual {v0, v1, p0}, Landroid/appwidget/AppWidgetManager;->updateAppWidget([ILandroid/widget/RemoteViews;)V
 
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 
 # virtual methods
 .method public onResourceReady(Landroid/graphics/Bitmap;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -276,7 +276,7 @@
 .end method
 
 .method public bridge synthetic onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
 
     .line 21
     check-cast p1, Landroid/graphics/Bitmap;

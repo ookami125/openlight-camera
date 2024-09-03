@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)V
-    .locals 0
+    .registers 2
 
     .line 101
     iput-object p1, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$1;->this$0:Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;
@@ -33,11 +33,12 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 104
     iget-object p0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$1;->this$0:Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;
 
+    # invokes: Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->translateAnim()V
     invoke-static {p0}, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->access$000(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)V
 
     return-void

@@ -42,14 +42,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const/4 v0, 0x6
 
     .line 159
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_1c
 
     sput-object v0, Lopenlight/co/lib/R$styleable;->FtuScreen:[I
 
@@ -58,7 +58,7 @@
     .line 166
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_2c
 
     sput-object v0, Lopenlight/co/lib/R$styleable;->HistogramView:[I
 
@@ -77,7 +77,7 @@
 
     return-void
 
-    :array_0
+    :array_1c
     .array-data 4
         0x7f0400b7
         0x7f0400b8
@@ -87,7 +87,7 @@
         0x7f0400c9
     .end array-data
 
-    :array_1
+    :array_2c
     .array-data 4
         0x7f04003e
         0x7f0401cb
@@ -95,7 +95,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 157
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

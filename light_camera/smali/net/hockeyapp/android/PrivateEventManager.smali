@@ -28,7 +28,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 10
     new-instance v0, Ljava/util/LinkedList;
@@ -41,7 +41,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 6
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public static addEventListener(Lnet/hockeyapp/android/PrivateEventManager$HockeyEventListener;)V
-    .locals 1
+    .registers 2
 
     .line 13
     sget-object v0, Lnet/hockeyapp/android/PrivateEventManager;->sEventListeners:Ljava/util/List;
@@ -61,7 +61,7 @@
 .end method
 
 .method static postEvent(Lnet/hockeyapp/android/PrivateEventManager$Event;)V
-    .locals 2
+    .registers 3
 
     .line 17
     sget-object v0, Lnet/hockeyapp/android/PrivateEventManager;->sEventListeners:Ljava/util/List;
@@ -70,12 +70,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -86,8 +86,8 @@
     .line 18
     invoke-interface {v1, p0}, Lnet/hockeyapp/android/PrivateEventManager$HockeyEventListener;->onHockeyEvent(Lnet/hockeyapp/android/PrivateEventManager$Event;)V
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_16
     return-void
 .end method

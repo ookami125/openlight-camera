@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/ImageEncipher;Ljava/util/zip/ZipOutputStream;Ljavax/crypto/Cipher;)V
-    .locals 0
+    .registers 4
 
     .line 163
     iput-object p1, p0, Lopenlight/co/camera/utils/ImageEncipher$1;->this$0:Lopenlight/co/camera/utils/ImageEncipher;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -59,10 +59,11 @@
 
     iget-object v2, p0, Lopenlight/co/camera/utils/ImageEncipher$1;->val$secretCipher:Ljavax/crypto/Cipher;
 
+    # invokes: Lopenlight/co/camera/utils/ImageEncipher;->flush(Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V
     invoke-static {v0, v1, v2}, Lopenlight/co/camera/utils/ImageEncipher;->access$100(Lopenlight/co/camera/utils/ImageEncipher;Ljava/io/OutputStream;Ljavax/crypto/Cipher;)V
-    :try_end_0
-    .catch Ljavax/crypto/BadPaddingException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljavax/crypto/IllegalBlockSizeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljavax/crypto/BadPaddingException; {:try_start_0 .. :try_end_9} :catch_1a
+    .catch Ljavax/crypto/IllegalBlockSizeException; {:try_start_0 .. :try_end_9} :catch_1a
 
     .line 177
     iget-object v0, p0, Lopenlight/co/camera/utils/ImageEncipher$1;->val$zipOutputStream:Ljava/util/zip/ZipOutputStream;
@@ -79,11 +80,12 @@
 
     const/4 v0, 0x0
 
+    # setter for: Lopenlight/co/camera/utils/ImageEncipher;->mCopyBuffer:[B
     invoke-static {p0, v0}, Lopenlight/co/camera/utils/ImageEncipher;->access$202(Lopenlight/co/camera/utils/ImageEncipher;[B)[B
 
     return-void
 
-    :catch_0
+    :catch_1a
     move-exception p0
 
     .line 175
@@ -95,7 +97,7 @@
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -109,6 +111,7 @@
 
     iget-object p0, p0, Lopenlight/co/camera/utils/ImageEncipher$1;->val$secretCipher:Ljavax/crypto/Cipher;
 
+    # invokes: Lopenlight/co/camera/utils/ImageEncipher;->writeByteBuffer(Ljava/io/OutputStream;Ljavax/crypto/Cipher;Ljava/nio/ByteBuffer;)I
     invoke-static {v0, v1, p0, p1}, Lopenlight/co/camera/utils/ImageEncipher;->access$000(Lopenlight/co/camera/utils/ImageEncipher;Ljava/io/OutputStream;Ljavax/crypto/Cipher;Ljava/nio/ByteBuffer;)I
 
     move-result p0

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TabLayout$SlidingTabStrip;I)V
-    .locals 0
+    .registers 3
 
     .line 2021
     iput-object p1, p0, Landroid/support/design/widget/TabLayout$SlidingTabStrip$2;->this$1:Landroid/support/design/widget/TabLayout$SlidingTabStrip;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 2024
     iget-object p1, p0, Landroid/support/design/widget/TabLayout$SlidingTabStrip$2;->this$1:Landroid/support/design/widget/TabLayout$SlidingTabStrip;

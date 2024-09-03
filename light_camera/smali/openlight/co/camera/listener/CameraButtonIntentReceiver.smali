@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 18
     const-class v0, Lopenlight/co/camera/listener/CameraButtonIntentReceiver;
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 17
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .registers 6
 
     .line 22
     invoke-static {}, Lopenlight/co/camera/utils/CameraState;->get()Lopenlight/co/camera/utils/CameraState;
@@ -66,7 +66,7 @@
 
     invoke-static {v0, v1}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_39
 
     .line 26
     new-instance p2, Landroid/content/Intent;
@@ -94,7 +94,7 @@
     invoke-virtual {p1, p2}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
     .line 35
-    :cond_0
+    :cond_39
     invoke-virtual {p0}, Lopenlight/co/camera/listener/CameraButtonIntentReceiver;->abortBroadcast()V
 
     return-void

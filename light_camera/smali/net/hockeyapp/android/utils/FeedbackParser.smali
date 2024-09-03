@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method synthetic constructor <init>(Lnet/hockeyapp/android/utils/FeedbackParser$1;)V
-    .locals 0
+    .registers 2
 
     .line 21
     invoke-direct {p0}, Lnet/hockeyapp/android/utils/FeedbackParser;-><init>()V
@@ -31,7 +31,7 @@
 .end method
 
 .method public static getInstance()Lnet/hockeyapp/android/utils/FeedbackParser;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lnet/hockeyapp/android/utils/FeedbackParser$FeedbackParserHolder;->INSTANCE:Lnet/hockeyapp/android/utils/FeedbackParser;
@@ -42,14 +42,14 @@
 
 # virtual methods
 .method public parseFeedbackResponse(Ljava/lang/String;)Lnet/hockeyapp/android/objects/FeedbackResponse;
-    .locals 30
+    .registers 32
 
     move-object/from16 v0, p1
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_270
 
     .line 51
-    :try_start_0
+    :try_start_4
     new-instance v2, Lorg/json/JSONObject;
 
     invoke-direct {v2, v0}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
@@ -78,7 +78,7 @@
 
     move-result v5
 
-    if-lez v5, :cond_3
+    if-lez v5, :cond_1dd
 
     .line 62
     new-instance v5, Ljava/util/ArrayList;
@@ -88,12 +88,12 @@
     const/4 v7, 0x0
 
     .line 64
-    :goto_0
+    :goto_26
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
     move-result v8
 
-    if-ge v7, v8, :cond_2
+    if-ge v7, v8, :cond_1d5
 
     .line 65
     invoke-virtual {v0, v7}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -308,7 +308,7 @@
 
     move-result-object v15
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17a
 
     .line 82
     new-instance v15, Ljava/util/ArrayList;
@@ -322,12 +322,12 @@
     const/4 v7, 0x0
 
     .line 84
-    :goto_1
+    :goto_fe
     invoke-virtual {v0}, Lorg/json/JSONArray;->length()I
 
     move-result v6
 
-    if-ge v7, v6, :cond_0
+    if-ge v7, v6, :cond_175
 
     .line 85
     invoke-virtual {v0, v7}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -447,16 +447,16 @@
 
     move-object/from16 v0, v29
 
-    goto :goto_1
+    goto :goto_fe
 
-    :cond_0
+    :cond_175
     move-object/from16 v25, v1
 
     move-object/from16 v24, v2
 
-    goto :goto_2
+    goto :goto_182
 
-    :cond_1
+    :cond_17a
     move-object/from16 v25, v1
 
     move-object/from16 v24, v2
@@ -465,7 +465,7 @@
 
     move/from16 v22, v7
 
-    :goto_2
+    :goto_182
     move-object/from16 v27, v8
 
     move-object/from16 v26, v9
@@ -548,9 +548,9 @@
 
     move-object/from16 v0, v21
 
-    goto/16 :goto_0
+    goto/16 :goto_26
 
-    :cond_2
+    :cond_1d5
     move-object/from16 v17, v2
 
     move-object/from16 v18, v3
@@ -561,9 +561,9 @@
 
     move-object v1, v4
 
-    goto :goto_3
+    goto :goto_1e3
 
-    :cond_3
+    :cond_1dd
     move-object/from16 v17, v2
 
     move-object/from16 v18, v3
@@ -573,20 +573,20 @@
     const/4 v0, 0x0
 
     .line 122
-    :goto_3
+    :goto_1e3
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/objects/Feedback;->setMessages(Ljava/util/ArrayList;)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_9
+    :try_end_1e6
+    .catch Lorg/json/JSONException; {:try_start_4 .. :try_end_1e6} :catch_268
 
-    :try_start_1
+    :try_start_1e6
     const-string v0, "name"
-    :try_end_1
-    .catch Lorg/json/JSONException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1e8
+    .catch Lorg/json/JSONException; {:try_start_1e6 .. :try_end_1e8} :catch_1f8
 
     move-object/from16 v2, v18
 
     .line 125
-    :try_start_2
+    :try_start_1ea
     invoke-virtual {v2, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -596,30 +596,30 @@
     move-result-object v0
 
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/objects/Feedback;->setName(Ljava/lang/String;)V
-    :try_end_2
-    .catch Lorg/json/JSONException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_1f5
+    .catch Lorg/json/JSONException; {:try_start_1ea .. :try_end_1f5} :catch_1f6
 
-    goto :goto_5
+    goto :goto_1fe
 
-    :catch_0
+    :catch_1f6
     move-exception v0
 
-    goto :goto_4
+    goto :goto_1fb
 
-    :catch_1
+    :catch_1f8
     move-exception v0
 
     move-object/from16 v2, v18
 
     .line 127
-    :goto_4
-    :try_start_3
+    :goto_1fb
+    :try_start_1fb
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
-    :try_end_3
-    .catch Lorg/json/JSONException; {:try_start_3 .. :try_end_3} :catch_9
+    :try_end_1fe
+    .catch Lorg/json/JSONException; {:try_start_1fb .. :try_end_1fe} :catch_268
 
-    :goto_5
-    :try_start_4
+    :goto_1fe
+    :try_start_1fe
     const-string v0, "email"
 
     .line 131
@@ -632,22 +632,22 @@
     move-result-object v0
 
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/objects/Feedback;->setEmail(Ljava/lang/String;)V
-    :try_end_4
-    .catch Lorg/json/JSONException; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_20b
+    .catch Lorg/json/JSONException; {:try_start_1fe .. :try_end_20b} :catch_20c
 
-    goto :goto_6
+    goto :goto_210
 
-    :catch_2
+    :catch_20c
     move-exception v0
 
     .line 133
-    :try_start_5
+    :try_start_20d
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
-    :try_end_5
-    .catch Lorg/json/JSONException; {:try_start_5 .. :try_end_5} :catch_9
+    :try_end_210
+    .catch Lorg/json/JSONException; {:try_start_20d .. :try_end_210} :catch_268
 
-    :goto_6
-    :try_start_6
+    :goto_210
+    :try_start_210
     const-string v0, "id"
 
     .line 137
@@ -656,22 +656,22 @@
     move-result v0
 
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/objects/Feedback;->setId(I)V
-    :try_end_6
-    .catch Lorg/json/JSONException; {:try_start_6 .. :try_end_6} :catch_3
+    :try_end_219
+    .catch Lorg/json/JSONException; {:try_start_210 .. :try_end_219} :catch_21a
 
-    goto :goto_7
+    goto :goto_21e
 
-    :catch_3
+    :catch_21a
     move-exception v0
 
     .line 139
-    :try_start_7
+    :try_start_21b
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
-    :try_end_7
-    .catch Lorg/json/JSONException; {:try_start_7 .. :try_end_7} :catch_9
+    :try_end_21e
+    .catch Lorg/json/JSONException; {:try_start_21b .. :try_end_21e} :catch_268
 
-    :goto_7
-    :try_start_8
+    :goto_21e
+    :try_start_21e
     const-string v0, "created_at"
 
     .line 143
@@ -684,41 +684,41 @@
     move-result-object v0
 
     invoke-virtual {v1, v0}, Lnet/hockeyapp/android/objects/Feedback;->setCreatedAt(Ljava/lang/String;)V
-    :try_end_8
-    .catch Lorg/json/JSONException; {:try_start_8 .. :try_end_8} :catch_4
+    :try_end_22b
+    .catch Lorg/json/JSONException; {:try_start_21e .. :try_end_22b} :catch_22c
 
-    goto :goto_8
+    goto :goto_230
 
-    :catch_4
+    :catch_22c
     move-exception v0
 
     .line 145
-    :try_start_9
+    :try_start_22d
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
 
     .line 148
-    :goto_8
+    :goto_230
     new-instance v2, Lnet/hockeyapp/android/objects/FeedbackResponse;
 
     invoke-direct {v2}, Lnet/hockeyapp/android/objects/FeedbackResponse;-><init>()V
-    :try_end_9
-    .catch Lorg/json/JSONException; {:try_start_9 .. :try_end_9} :catch_9
+    :try_end_235
+    .catch Lorg/json/JSONException; {:try_start_22d .. :try_end_235} :catch_268
 
     .line 149
-    :try_start_a
+    :try_start_235
     invoke-virtual {v2, v1}, Lnet/hockeyapp/android/objects/FeedbackResponse;->setFeedback(Lnet/hockeyapp/android/objects/Feedback;)V
-    :try_end_a
-    .catch Lorg/json/JSONException; {:try_start_a .. :try_end_a} :catch_8
+    :try_end_238
+    .catch Lorg/json/JSONException; {:try_start_235 .. :try_end_238} :catch_265
 
-    :try_start_b
+    :try_start_238
     const-string v0, "status"
-    :try_end_b
-    .catch Lorg/json/JSONException; {:try_start_b .. :try_end_b} :catch_6
+    :try_end_23a
+    .catch Lorg/json/JSONException; {:try_start_238 .. :try_end_23a} :catch_24a
 
     move-object/from16 v1, v17
 
     .line 151
-    :try_start_c
+    :try_start_23c
     invoke-virtual {v1, v0}, Lorg/json/JSONObject;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -728,30 +728,30 @@
     move-result-object v0
 
     invoke-virtual {v2, v0}, Lnet/hockeyapp/android/objects/FeedbackResponse;->setStatus(Ljava/lang/String;)V
-    :try_end_c
-    .catch Lorg/json/JSONException; {:try_start_c .. :try_end_c} :catch_5
+    :try_end_247
+    .catch Lorg/json/JSONException; {:try_start_23c .. :try_end_247} :catch_248
 
-    goto :goto_a
+    goto :goto_250
 
-    :catch_5
+    :catch_248
     move-exception v0
 
-    goto :goto_9
+    goto :goto_24d
 
-    :catch_6
+    :catch_24a
     move-exception v0
 
     move-object/from16 v1, v17
 
     .line 153
-    :goto_9
-    :try_start_d
+    :goto_24d
+    :try_start_24d
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
-    :try_end_d
-    .catch Lorg/json/JSONException; {:try_start_d .. :try_end_d} :catch_8
+    :try_end_250
+    .catch Lorg/json/JSONException; {:try_start_24d .. :try_end_250} :catch_265
 
-    :goto_a
-    :try_start_e
+    :goto_250
+    :try_start_250
     const-string v0, "token"
 
     .line 158
@@ -764,48 +764,48 @@
     move-result-object v0
 
     invoke-virtual {v2, v0}, Lnet/hockeyapp/android/objects/FeedbackResponse;->setToken(Ljava/lang/String;)V
-    :try_end_e
-    .catch Lorg/json/JSONException; {:try_start_e .. :try_end_e} :catch_7
+    :try_end_25d
+    .catch Lorg/json/JSONException; {:try_start_250 .. :try_end_25d} :catch_25e
 
-    goto :goto_b
+    goto :goto_262
 
-    :catch_7
+    :catch_25e
     move-exception v0
 
     .line 160
-    :try_start_f
+    :try_start_25f
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
-    :try_end_f
-    .catch Lorg/json/JSONException; {:try_start_f .. :try_end_f} :catch_8
+    :try_end_262
+    .catch Lorg/json/JSONException; {:try_start_25f .. :try_end_262} :catch_265
 
-    :goto_b
+    :goto_262
     move-object/from16 v16, v2
 
-    goto :goto_d
+    goto :goto_272
 
-    :catch_8
+    :catch_265
     move-exception v0
 
     move-object v1, v2
 
-    goto :goto_c
+    goto :goto_26a
 
-    :catch_9
+    :catch_268
     move-exception v0
 
     const/4 v1, 0x0
 
     .line 163
-    :goto_c
+    :goto_26a
     invoke-virtual {v0}, Lorg/json/JSONException;->printStackTrace()V
 
     move-object/from16 v16, v1
 
-    goto :goto_d
+    goto :goto_272
 
-    :cond_4
+    :cond_270
     const/16 v16, 0x0
 
-    :goto_d
+    :goto_272
     return-object v16
 .end method

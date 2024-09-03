@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 877
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -37,7 +37,7 @@
 .end method
 
 .method public onSearchResult(Ljava/lang/String;Landroid/os/Bundle;Ljava/util/List;)V
-    .locals 0
+    .registers 4
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

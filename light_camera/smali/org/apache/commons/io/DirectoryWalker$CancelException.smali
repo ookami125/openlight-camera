@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/File;I)V
-    .locals 1
+    .registers 4
 
     const-string v0, "Operation Cancelled"
 
@@ -37,7 +37,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;Ljava/io/File;I)V
-    .locals 0
+    .registers 4
 
     .line 619
     invoke-direct {p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getDepth()I
-    .locals 0
+    .registers 1
 
     .line 639
     iget p0, p0, Lorg/apache/commons/io/DirectoryWalker$CancelException;->depth:I
@@ -63,7 +63,7 @@
 .end method
 
 .method public getFile()Ljava/io/File;
-    .locals 0
+    .registers 1
 
     .line 630
     iget-object p0, p0, Lorg/apache/commons/io/DirectoryWalker$CancelException;->file:Ljava/io/File;

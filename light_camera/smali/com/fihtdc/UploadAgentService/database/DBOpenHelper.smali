@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     const-string v0, "uploadagent.db"
 
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/database/sqlite/SQLiteDatabase;)V
-    .locals 0
+    .registers 2
 
     const-string p0, "CREATE TABLE uploadlog (_id integer primary key autoincrement, uploadfilepath varchar(100), sourceid varchar(10), upload_count int(2))"
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public onDowngrade(Landroid/database/sqlite/SQLiteDatabase;II)V
-    .locals 0
+    .registers 4
 
     const-string p2, "DROP TABLE IF EXISTS uploadlog"
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public onUpgrade(Landroid/database/sqlite/SQLiteDatabase;II)V
-    .locals 0
+    .registers 4
 
     const-string p2, "DROP TABLE IF EXISTS uploadlog"
 

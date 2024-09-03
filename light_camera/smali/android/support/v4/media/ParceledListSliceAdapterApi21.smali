@@ -15,7 +15,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     :try_start_0
     const-string v0, "android.content.pm.ParceledListSlice"
@@ -41,24 +41,24 @@
     move-result-object v0
 
     sput-object v0, Landroid/support/v4/media/ParceledListSliceAdapterApi21;->sConstructor:Ljava/lang/reflect/Constructor;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_14} :catch_15
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_19
 
-    :catch_0
+    :catch_15
     move-exception v0
 
     .line 37
     invoke-virtual {v0}, Ljava/lang/Throwable;->printStackTrace()V
 
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,7 +67,7 @@
 .end method
 
 .method static newInstance(Ljava/util/List;)Ljava/lang/Object;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,14 +93,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/reflect/Constructor;->newInstance([Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/InstantiationException; {:try_start_0 .. :try_end_c} :catch_d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_c} :catch_d
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_0
+    :catch_d
     move-exception p0
 
     .line 46
@@ -108,6 +108,6 @@
 
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_12
     return-object p0
 .end method

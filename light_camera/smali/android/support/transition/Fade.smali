@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 96
     invoke-direct {p0}, Landroid/support/transition/Visibility;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 89
     invoke-direct {p0}, Landroid/support/transition/Visibility;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
 
     .line 100
     invoke-direct {p0, p1, p2}, Landroid/support/transition/Visibility;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -83,18 +83,18 @@
 .end method
 
 .method private createAnimation(Landroid/view/View;FF)Landroid/animation/Animator;
-    .locals 2
+    .registers 6
 
     cmpl-float v0, p2, p3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 123
-    :cond_0
+    :cond_6
     invoke-static {p1, p2}, Landroid/support/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
 
     .line 124
@@ -131,9 +131,9 @@
 .end method
 
 .method private static getStartAlpha(Landroid/support/transition/TransitionValues;F)F
-    .locals 1
+    .registers 3
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 169
     iget-object p0, p0, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
@@ -146,21 +146,21 @@
 
     check-cast p0, Ljava/lang/Float;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 171
     invoke-virtual {p0}, Ljava/lang/Float;->floatValue()F
 
     move-result p1
 
-    :cond_0
+    :cond_12
     return p1
 .end method
 
 
 # virtual methods
 .method public captureStartValues(Landroid/support/transition/TransitionValues;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -192,7 +192,7 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 1
+    .registers 6
 
     const/4 p1, 0x0
 
@@ -205,15 +205,15 @@
 
     cmpl-float v0, p3, p4
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move p1, p3
 
     .line 155
-    :goto_0
+    :goto_d
     invoke-direct {p0, p2, p1, p4}, Landroid/support/transition/Fade;->createAnimation(Landroid/view/View;FF)Landroid/animation/Animator;
 
     move-result-object p0
@@ -222,7 +222,7 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 0
+    .registers 5
 
     .line 161
     invoke-static {p2}, Landroid/support/transition/ViewUtils;->saveNonTransitionAlpha(Landroid/view/View;)V

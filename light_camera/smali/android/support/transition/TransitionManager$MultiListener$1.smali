@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/TransitionManager$MultiListener;Landroid/support/v4/util/ArrayMap;)V
-    .locals 0
+    .registers 3
 
     .line 276
     iput-object p1, p0, Landroid/support/transition/TransitionManager$MultiListener$1;->this$0:Landroid/support/transition/TransitionManager$MultiListener;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroid/support/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

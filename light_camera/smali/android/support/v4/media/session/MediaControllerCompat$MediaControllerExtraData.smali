@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaControllerCompat;)V
-    .locals 0
+    .registers 2
 
     .line 104
     invoke-direct {p0}, Landroid/support/v4/app/SupportActivity$ExtraData;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method getMediaController()Landroid/support/v4/media/session/MediaControllerCompat;
-    .locals 0
+    .registers 1
 
     .line 109
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerExtraData;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;

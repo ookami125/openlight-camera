@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;)V
-    .locals 0
+    .registers 2
 
     .line 347
     iput-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar$2;->this$0:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 350
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V

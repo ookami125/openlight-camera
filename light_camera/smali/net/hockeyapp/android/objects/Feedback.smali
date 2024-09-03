@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public getCreatedAt()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 46
     iget-object p0, p0, Lnet/hockeyapp/android/objects/Feedback;->mCreatedAt:Ljava/lang/String;
@@ -52,7 +52,7 @@
 .end method
 
 .method public getEmail()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 30
     iget-object p0, p0, Lnet/hockeyapp/android/objects/Feedback;->mEmail:Ljava/lang/String;
@@ -61,7 +61,7 @@
 .end method
 
 .method public getId()I
-    .locals 0
+    .registers 1
 
     .line 38
     iget p0, p0, Lnet/hockeyapp/android/objects/Feedback;->mId:I
@@ -70,7 +70,7 @@
 .end method
 
 .method public getMessages()Ljava/util/ArrayList;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -87,7 +87,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 22
     iget-object p0, p0, Lnet/hockeyapp/android/objects/Feedback;->mName:Ljava/lang/String;
@@ -96,7 +96,7 @@
 .end method
 
 .method public setCreatedAt(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 50
     iput-object p1, p0, Lnet/hockeyapp/android/objects/Feedback;->mCreatedAt:Ljava/lang/String;
@@ -105,7 +105,7 @@
 .end method
 
 .method public setEmail(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 34
     iput-object p1, p0, Lnet/hockeyapp/android/objects/Feedback;->mEmail:Ljava/lang/String;
@@ -114,7 +114,7 @@
 .end method
 
 .method public setId(I)V
-    .locals 0
+    .registers 2
 
     .line 42
     iput p1, p0, Lnet/hockeyapp/android/objects/Feedback;->mId:I
@@ -123,7 +123,7 @@
 .end method
 
 .method public setMessages(Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -140,7 +140,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 26
     iput-object p1, p0, Lnet/hockeyapp/android/objects/Feedback;->mName:Ljava/lang/String;

@@ -21,7 +21,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method static computeCrcOfCentralDir(Ljava/io/RandomAccessFile;Landroid/support/multidex/ZipUtil$CentralDirectory;)J
-    .locals 9
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -71,10 +71,10 @@
 
     move-result p1
 
-    :goto_0
+    :goto_1c
     const/4 v7, -0x1
 
-    if-eq p1, v7, :cond_1
+    if-eq p1, v7, :cond_35
 
     .line 115
     invoke-virtual {v0, v5, v6, p1}, Ljava/util/zip/CRC32;->update([BII)V
@@ -87,12 +87,12 @@
 
     cmp-long p1, v1, v7
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_2b
 
-    goto :goto_1
+    goto :goto_35
 
     .line 120
-    :cond_0
+    :cond_2b
     invoke-static {v3, v4, v1, v2}, Ljava/lang/Math;->min(JJ)J
 
     move-result-wide v7
@@ -104,11 +104,11 @@
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 123
-    :cond_1
-    :goto_1
+    :cond_35
+    :goto_35
     invoke-virtual {v0}, Ljava/util/zip/CRC32;->getValue()J
 
     move-result-wide p0
@@ -117,7 +117,7 @@
 .end method
 
 .method static findCentralDirectory(Ljava/io/RandomAccessFile;)Landroid/support/multidex/ZipUtil$CentralDirectory;
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -138,7 +138,7 @@
 
     cmp-long v4, v0, v2
 
-    if-ltz v4, :cond_3
+    if-ltz v4, :cond_68
 
     const-wide/32 v4, 0x10000
 
@@ -146,14 +146,14 @@
 
     cmp-long v6, v4, v2
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_17
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     move-wide v2, v4
 
-    :goto_0
+    :goto_18
     const v4, 0x6054b50
 
     .line 78
@@ -162,7 +162,7 @@
     move-result v4
 
     .line 80
-    :goto_1
+    :goto_1f
     invoke-virtual {p0, v0, v1}, Ljava/io/RandomAccessFile;->seek(J)V
 
     .line 81
@@ -170,7 +170,7 @@
 
     move-result v5
 
-    if-ne v5, v4, :cond_1
+    if-ne v5, v4, :cond_58
 
     const/4 v0, 0x2
 
@@ -225,19 +225,19 @@
 
     return-object v0
 
-    :cond_1
+    :cond_58
     const-wide/16 v5, 0x1
 
     sub-long/2addr v0, v5
 
     cmp-long v5, v0, v2
 
-    if-ltz v5, :cond_2
+    if-ltz v5, :cond_60
 
-    goto :goto_1
+    goto :goto_1f
 
     .line 87
-    :cond_2
+    :cond_60
     new-instance p0, Ljava/util/zip/ZipException;
 
     const-string v0, "End Of Central Directory signature not found"
@@ -247,7 +247,7 @@
     throw p0
 
     .line 70
-    :cond_3
+    :cond_68
     new-instance v0, Ljava/util/zip/ZipException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -274,7 +274,7 @@
 .end method
 
 .method static getZipCrc(Ljava/io/File;)J
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -289,7 +289,7 @@
     invoke-direct {v0, p0, v1}, Ljava/io/RandomAccessFile;-><init>(Ljava/io/File;Ljava/lang/String;)V
 
     .line 57
-    :try_start_0
+    :try_start_7
     invoke-static {v0}, Landroid/support/multidex/ZipUtil;->findCentralDirectory(Ljava/io/RandomAccessFile;)Landroid/support/multidex/ZipUtil$CentralDirectory;
 
     move-result-object p0
@@ -298,15 +298,15 @@
     invoke-static {v0, p0}, Landroid/support/multidex/ZipUtil;->computeCrcOfCentralDir(Ljava/io/RandomAccessFile;Landroid/support/multidex/ZipUtil$CentralDirectory;)J
 
     move-result-wide v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_f
+    .catchall {:try_start_7 .. :try_end_f} :catchall_13
 
     .line 61
     invoke-virtual {v0}, Ljava/io/RandomAccessFile;->close()V
 
     return-wide v1
 
-    :catchall_0
+    :catchall_13
     move-exception p0
 
     invoke-virtual {v0}, Ljava/io/RandomAccessFile;->close()V

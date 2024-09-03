@@ -141,7 +141,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/Class;Lcom/bumptech/glide/provider/LoadProvider;Ljava/lang/Class;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/manager/RequestTracker;Lcom/bumptech/glide/manager/Lifecycle;)V
-    .locals 2
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -233,26 +233,26 @@
     .line 102
     iput-object p7, p0, Lcom/bumptech/glide/GenericRequestBuilder;->lifecycle:Lcom/bumptech/glide/manager/Lifecycle;
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_3f
 
     .line 103
     new-instance v0, Lcom/bumptech/glide/provider/ChildLoadProvider;
 
     invoke-direct {v0, p3}, Lcom/bumptech/glide/provider/ChildLoadProvider;-><init>(Lcom/bumptech/glide/provider/LoadProvider;)V
 
-    :cond_0
+    :cond_3f
     iput-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_51
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_50
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_48
 
-    goto :goto_0
+    goto :goto_50
 
     .line 110
-    :cond_1
+    :cond_48
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "LoadProvider must not be null"
@@ -261,12 +261,12 @@
 
     throw p0
 
-    :cond_2
-    :goto_0
+    :cond_50
+    :goto_50
     return-void
 
     .line 107
-    :cond_3
+    :cond_51
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Context can\'t be null"
@@ -277,7 +277,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/provider/LoadProvider;Ljava/lang/Class;Lcom/bumptech/glide/GenericRequestBuilder;)V
-    .locals 8
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -338,7 +338,7 @@
 .end method
 
 .method private buildRequest(Lcom/bumptech/glide/request/target/Target;)Lcom/bumptech/glide/request/Request;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -351,14 +351,14 @@
     .line 787
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->priority:Lcom/bumptech/glide/Priority;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 788
     sget-object v0, Lcom/bumptech/glide/Priority;->NORMAL:Lcom/bumptech/glide/Priority;
 
     iput-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->priority:Lcom/bumptech/glide/Priority;
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 790
@@ -370,7 +370,7 @@
 .end method
 
 .method private buildRequestRecursive(Lcom/bumptech/glide/request/target/Target;Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;)Lcom/bumptech/glide/request/Request;
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -385,12 +385,12 @@
     .line 794
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_74
 
     .line 795
     iget-boolean v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->isThumbnailBuilt:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_6c
 
     .line 800
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
@@ -405,7 +405,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 801
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
@@ -415,12 +415,12 @@
     iput-object v1, v0, Lcom/bumptech/glide/GenericRequestBuilder;->animationFactory:Lcom/bumptech/glide/request/animation/GlideAnimationFactory;
 
     .line 804
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
 
     iget-object v0, v0, Lcom/bumptech/glide/GenericRequestBuilder;->priority:Lcom/bumptech/glide/Priority;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2a
 
     .line 805
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
@@ -432,7 +432,7 @@
     iput-object v1, v0, Lcom/bumptech/glide/GenericRequestBuilder;->priority:Lcom/bumptech/glide/Priority;
 
     .line 808
-    :cond_1
+    :cond_2a
     iget v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->overrideWidth:I
 
     iget v1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->overrideHeight:I
@@ -441,7 +441,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4b
 
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
 
@@ -455,7 +455,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4b
 
     .line 811
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
@@ -467,7 +467,7 @@
     invoke-virtual {v0, v1, v2}, Lcom/bumptech/glide/GenericRequestBuilder;->override(II)Lcom/bumptech/glide/GenericRequestBuilder;
 
     .line 814
-    :cond_2
+    :cond_4b
     new-instance v0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;
 
     invoke-direct {v0, p2}, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;-><init>(Lcom/bumptech/glide/request/RequestCoordinator;)V
@@ -508,7 +508,7 @@
     return-object v0
 
     .line 796
-    :cond_3
+    :cond_6c
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "You cannot use a request as both the main request and a thumbnail, consider using clone() on the request(s) passed to thumbnail()"
@@ -518,10 +518,10 @@
     throw p0
 
     .line 823
-    :cond_4
+    :cond_74
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbSizeMultiplier:Ljava/lang/Float;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_9b
 
     .line 825
     new-instance v0, Lcom/bumptech/glide/request/ThumbnailRequestCoordinator;
@@ -562,7 +562,7 @@
     return-object v0
 
     .line 832
-    :cond_5
+    :cond_9b
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->sizeMultiplier:Ljava/lang/Float;
 
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
@@ -579,43 +579,43 @@
 .end method
 
 .method private getThumbnailPriority()Lcom/bumptech/glide/Priority;
-    .locals 2
+    .registers 3
 
     .line 776
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->priority:Lcom/bumptech/glide/Priority;
 
     sget-object v1, Lcom/bumptech/glide/Priority;->LOW:Lcom/bumptech/glide/Priority;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_9
 
     .line 777
     sget-object p0, Lcom/bumptech/glide/Priority;->NORMAL:Lcom/bumptech/glide/Priority;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 778
-    :cond_0
+    :cond_9
     iget-object p0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->priority:Lcom/bumptech/glide/Priority;
 
     sget-object v0, Lcom/bumptech/glide/Priority;->NORMAL:Lcom/bumptech/glide/Priority;
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_12
 
     .line 779
     sget-object p0, Lcom/bumptech/glide/Priority;->HIGH:Lcom/bumptech/glide/Priority;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 781
-    :cond_1
+    :cond_12
     sget-object p0, Lcom/bumptech/glide/Priority;->IMMEDIATE:Lcom/bumptech/glide/Priority;
 
-    :goto_0
+    :goto_14
     return-object p0
 .end method
 
 .method private obtainRequest(Lcom/bumptech/glide/request/target/Target;FLcom/bumptech/glide/Priority;Lcom/bumptech/glide/request/RequestCoordinator;)Lcom/bumptech/glide/request/Request;
-    .locals 25
+    .registers 30
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -709,7 +709,7 @@
 
 # virtual methods
 .method public animate(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -733,7 +733,7 @@
 .end method
 
 .method public animate(Landroid/view/animation/Animation;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -760,7 +760,7 @@
 .end method
 
 .method animate(Lcom/bumptech/glide/request/animation/GlideAnimationFactory;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -771,7 +771,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 420
     iput-object p1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->animationFactory:Lcom/bumptech/glide/request/animation/GlideAnimationFactory;
@@ -779,7 +779,7 @@
     return-object p0
 
     .line 418
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Animation factory must not be null!"
@@ -790,7 +790,7 @@
 .end method
 
 .method public animate(Lcom/bumptech/glide/request/animation/ViewPropertyAnimation$Animator;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -814,19 +814,19 @@
 .end method
 
 .method applyCenterCrop()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method applyFitCenter()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public cacheDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -841,19 +841,19 @@
     .line 228
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 229
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/provider/ChildLoadProvider;->setCacheDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)V
 
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public clone()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -873,7 +873,7 @@
     .line 626
     iget-object v1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     iget-object p0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
@@ -881,19 +881,19 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_12
     iput-object p0, v0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_14} :catch_15
 
     return-object v0
 
-    :catch_0
+    :catch_15
     move-exception p0
 
     .line 629
@@ -905,7 +905,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -921,7 +921,7 @@
 .end method
 
 .method public decoder(Lcom/bumptech/glide/load/ResourceDecoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -935,19 +935,19 @@
     .line 207
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 208
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/provider/ChildLoadProvider;->setSourceDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)V
 
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public diskCacheStrategy(Lcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -965,7 +965,7 @@
 .end method
 
 .method public dontAnimate()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -988,7 +988,7 @@
 .end method
 
 .method public dontTransform()Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1019,7 +1019,7 @@
 .end method
 
 .method public encoder(Lcom/bumptech/glide/load/ResourceEncoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1033,19 +1033,19 @@
     .line 293
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 294
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/provider/ChildLoadProvider;->setEncoder(Lcom/bumptech/glide/load/ResourceEncoder;)V
 
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public error(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1061,7 +1061,7 @@
 .end method
 
 .method public error(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1079,7 +1079,7 @@
 .end method
 
 .method public fallback(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public fallback(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1113,7 +1113,7 @@
 .end method
 
 .method public into(II)Lcom/bumptech/glide/request/FutureTarget;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -1150,7 +1150,7 @@
 .end method
 
 .method public into(Landroid/widget/ImageView;)Lcom/bumptech/glide/request/target/Target;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1164,18 +1164,18 @@
     .line 676
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_33
 
     .line 681
     iget-boolean v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->isTransformationSet:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_26
 
     invoke-virtual {p1}, Landroid/widget/ImageView;->getScaleType()Landroid/widget/ImageView$ScaleType;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 682
     sget-object v0, Lcom/bumptech/glide/GenericRequestBuilder$2;->$SwitchMap$android$widget$ImageView$ScaleType:[I
@@ -1190,23 +1190,23 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_3c
 
-    goto :goto_0
+    goto :goto_26
 
     .line 689
-    :pswitch_0
+    :pswitch_1f
     invoke-virtual {p0}, Lcom/bumptech/glide/GenericRequestBuilder;->applyFitCenter()V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 684
-    :pswitch_1
+    :pswitch_23
     invoke-virtual {p0}, Lcom/bumptech/glide/GenericRequestBuilder;->applyCenterCrop()V
 
     .line 697
-    :cond_0
-    :goto_0
+    :cond_26
+    :goto_26
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->glide:Lcom/bumptech/glide/Glide;
 
     iget-object v1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->transcodeClass:Ljava/lang/Class;
@@ -1222,7 +1222,7 @@
     return-object p0
 
     .line 678
-    :cond_1
+    :cond_33
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You must pass in a non null View"
@@ -1233,17 +1233,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3c
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_23
+        :pswitch_1f
+        :pswitch_1f
+        :pswitch_1f
     .end packed-switch
 .end method
 
 .method public into(Lcom/bumptech/glide/request/target/Target;)Lcom/bumptech/glide/request/target/Target;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Y::",
@@ -1255,19 +1255,19 @@
     .line 642
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_34
 
     .line 646
     iget-boolean v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->isModelSet:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2c
 
     .line 650
     invoke-interface {p1}, Lcom/bumptech/glide/request/target/Target;->getRequest()Lcom/bumptech/glide/request/Request;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
     .line 653
     invoke-interface {v0}, Lcom/bumptech/glide/request/Request;->clear()V
@@ -1281,7 +1281,7 @@
     invoke-interface {v0}, Lcom/bumptech/glide/request/Request;->recycle()V
 
     .line 658
-    :cond_0
+    :cond_1a
     invoke-direct {p0, p1}, Lcom/bumptech/glide/GenericRequestBuilder;->buildRequest(Lcom/bumptech/glide/request/target/Target;)Lcom/bumptech/glide/request/Request;
 
     move-result-object v0
@@ -1302,7 +1302,7 @@
     return-object p1
 
     .line 647
-    :cond_1
+    :cond_2c
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You must first set a model (try #load())"
@@ -1312,7 +1312,7 @@
     throw p0
 
     .line 644
-    :cond_2
+    :cond_34
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You must pass in a non null Target"
@@ -1323,7 +1323,7 @@
 .end method
 
 .method public listener(Lcom/bumptech/glide/request/RequestListener;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1341,7 +1341,7 @@
 .end method
 
 .method public load(Ljava/lang/Object;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TModelType;)",
@@ -1362,7 +1362,7 @@
 .end method
 
 .method public override(II)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -1376,7 +1376,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 566
     iput p1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->overrideWidth:I
@@ -1387,7 +1387,7 @@
     return-object p0
 
     .line 564
-    :cond_0
+    :cond_b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Width and height must be Target#SIZE_ORIGINAL or > 0"
@@ -1398,7 +1398,7 @@
 .end method
 
 .method public placeholder(I)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -1414,7 +1414,7 @@
 .end method
 
 .method public placeholder(Landroid/graphics/drawable/Drawable;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1432,7 +1432,7 @@
 .end method
 
 .method public preload()Lcom/bumptech/glide/request/target/Target;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1452,7 +1452,7 @@
 .end method
 
 .method public preload(II)Lcom/bumptech/glide/request/target/Target;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -1475,7 +1475,7 @@
 .end method
 
 .method public priority(Lcom/bumptech/glide/Priority;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1493,7 +1493,7 @@
 .end method
 
 .method public signature(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1504,7 +1504,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 590
     iput-object p1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->signature:Lcom/bumptech/glide/load/Key;
@@ -1512,7 +1512,7 @@
     return-object p0
 
     .line 588
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Signature must not be null"
@@ -1523,7 +1523,7 @@
 .end method
 
 .method public sizeMultiplier(F)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -1536,13 +1536,13 @@
 
     cmpg-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_12
 
     .line 188
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -1554,7 +1554,7 @@
     return-object p0
 
     .line 186
-    :cond_0
+    :cond_12
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "sizeMultiplier must be between 0 and 1"
@@ -1565,7 +1565,7 @@
 .end method
 
 .method public skipMemoryCache(Z)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z)",
@@ -1583,7 +1583,7 @@
 .end method
 
 .method public sourceEncoder(Lcom/bumptech/glide/load/Encoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1597,19 +1597,19 @@
     .line 246
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 247
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/provider/ChildLoadProvider;->setSourceEncoder(Lcom/bumptech/glide/load/Encoder;)V
 
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public thumbnail(F)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)",
@@ -1622,13 +1622,13 @@
 
     cmpg-float v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, p1, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_12
 
     .line 170
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -1640,7 +1640,7 @@
     return-object p0
 
     .line 168
-    :cond_0
+    :cond_12
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "sizeMultiplier must be between 0 and 1"
@@ -1651,7 +1651,7 @@
 .end method
 
 .method public thumbnail(Lcom/bumptech/glide/GenericRequestBuilder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1667,7 +1667,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     .line 135
     iput-object p1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->thumbnailRequestBuilder:Lcom/bumptech/glide/GenericRequestBuilder;
@@ -1675,7 +1675,7 @@
     return-object p0
 
     .line 132
-    :cond_0
+    :cond_9
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "You cannot set a request as a thumbnail for itself. Consider using clone() on the request you are passing to thumbnail()"
@@ -1686,7 +1686,7 @@
 .end method
 
 .method public transcoder(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1700,19 +1700,19 @@
     .line 355
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 356
     iget-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->loadProvider:Lcom/bumptech/glide/provider/ChildLoadProvider;
 
     invoke-virtual {v0, p1}, Lcom/bumptech/glide/provider/ChildLoadProvider;->setTranscoder(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)V
 
-    :cond_0
+    :cond_9
     return-object p0
 .end method
 
 .method public varargs transform([Lcom/bumptech/glide/load/Transformation;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1731,7 +1731,7 @@
     .line 323
     array-length v1, p1
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_c
 
     const/4 v0, 0x0
 
@@ -1740,16 +1740,16 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/GenericRequestBuilder;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    goto :goto_0
+    goto :goto_13
 
     .line 326
-    :cond_0
+    :cond_c
     new-instance v0, Lcom/bumptech/glide/load/MultiTransformation;
 
     invoke-direct {v0, p1}, Lcom/bumptech/glide/load/MultiTransformation;-><init>([Lcom/bumptech/glide/load/Transformation;)V
 
     iput-object v0, p0, Lcom/bumptech/glide/GenericRequestBuilder;->transformation:Lcom/bumptech/glide/load/Transformation;
 
-    :goto_0
+    :goto_13
     return-object p0
 .end method

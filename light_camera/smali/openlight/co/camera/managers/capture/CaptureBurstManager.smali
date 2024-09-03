@@ -35,7 +35,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,7 +78,7 @@
     .line 57
     iget-boolean v0, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mIsBurstDisabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 58
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -87,22 +87,22 @@
 
     invoke-interface {p0, v0}, Lopenlight/co/lib/content/Prefs;->removeValue(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_2b
     return-void
 .end method
 
 .method public static declared-synchronized get()Lopenlight/co/camera/managers/capture/CaptureBurstManager;
-    .locals 2
+    .registers 2
 
     const-class v0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;
 
     monitor-enter v0
 
     .line 50
-    :try_start_0
+    :try_start_3
     sget-object v1, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->sInstance:Lopenlight/co/camera/managers/capture/CaptureBurstManager;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 51
     new-instance v1, Lopenlight/co/camera/managers/capture/CaptureBurstManager;
@@ -112,16 +112,16 @@
     sput-object v1, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->sInstance:Lopenlight/co/camera/managers/capture/CaptureBurstManager;
 
     .line 53
-    :cond_0
+    :cond_e
     sget-object v1, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->sInstance:Lopenlight/co/camera/managers/capture/CaptureBurstManager;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_10
+    .catchall {:try_start_3 .. :try_end_10} :catchall_12
 
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_12
     move-exception v1
 
     .line 49
@@ -133,7 +133,7 @@
 
 # virtual methods
 .method public getBurstOrientation()I
-    .locals 0
+    .registers 1
 
     .line 121
     iget p0, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mBurstOrientation:I
@@ -142,7 +142,7 @@
 .end method
 
 .method public getIfFetchRequest()Z
-    .locals 0
+    .registers 1
 
     .line 112
     iget-boolean p0, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mIsFetchRequest:Z
@@ -151,7 +151,7 @@
 .end method
 
 .method public getPendingUserCaptureCount()I
-    .locals 1
+    .registers 2
 
     .line 70
     iget-object p0, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -175,33 +175,33 @@
 
     aget p0, v0, p0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_1e
 
     const/4 p0, 0x0
 
     return p0
 
-    :pswitch_0
+    :pswitch_19
     const/4 p0, 0x3
 
     return p0
 
-    :pswitch_1
+    :pswitch_1b
     const/4 p0, 0x6
 
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1b
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method public setBurstOrientation(I)V
-    .locals 0
+    .registers 2
 
     .line 117
     iput p1, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mBurstOrientation:I
@@ -210,7 +210,7 @@
 .end method
 
 .method setCaptureRequestForBurst(Landroid/hardware/camera2/CaptureRequest$Builder;I)V
-    .locals 2
+    .registers 5
 
     .line 92
     iget-object v0, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -241,40 +241,40 @@
 
     const/4 v1, 0x0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_38
 
-    goto :goto_0
+    goto :goto_2c
 
-    :pswitch_0
+    :pswitch_1c
     const/4 v0, 0x3
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_2c
 
     .line 103
     iput-boolean v1, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mIsFetchRequest:Z
 
     const/16 p0, 0xd
 
-    goto :goto_1
+    goto :goto_2e
 
-    :pswitch_1
+    :pswitch_24
     const/4 v0, 0x6
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_2c
 
     .line 97
     iput-boolean v1, p0, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->mIsFetchRequest:Z
 
     const/16 p0, 0xc
 
-    goto :goto_1
+    goto :goto_2e
 
-    :cond_0
-    :goto_0
+    :cond_2c
+    :goto_2c
     const/16 p0, 0xb
 
     .line 108
-    :goto_1
+    :goto_2e
     sget-object p2, Landroid/hardware/camera2/CaptureRequest;->CONTROL_CAPTURE_INTENT:Landroid/hardware/camera2/CaptureRequest$Key;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -285,9 +285,9 @@
 
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_38
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24
+        :pswitch_1c
     .end packed-switch
 .end method

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/Fade;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 131
     iput-object p1, p0, Landroid/support/transition/Fade$1;->this$0:Landroid/support/transition/Fade;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onTransitionEnd(Landroid/support/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

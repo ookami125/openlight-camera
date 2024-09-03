@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 125
     invoke-direct {p0, p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
@@ -67,7 +67,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 113
     iput-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mKey:Ljava/lang/String;
@@ -76,7 +76,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;I)I
-    .locals 0
+    .registers 2
 
     .line 113
     iput p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mConfirmationResId:I
@@ -85,7 +85,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;I)I
-    .locals 0
+    .registers 2
 
     .line 113
     iput p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mItemPosition:I
@@ -96,7 +96,7 @@
 
 # virtual methods
 .method public getConfirmationResId()I
-    .locals 0
+    .registers 1
 
     .line 141
     iget p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mConfirmationResId:I
@@ -105,7 +105,7 @@
 .end method
 
 .method public getItemPosition()I
-    .locals 0
+    .registers 1
 
     .line 137
     iget p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mItemPosition:I
@@ -114,7 +114,7 @@
 .end method
 
 .method public getKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 133
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mKey:Ljava/lang/String;

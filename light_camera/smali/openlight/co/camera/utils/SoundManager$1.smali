@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/SoundManager;)V
-    .locals 0
+    .registers 2
 
     .line 256
     iput-object p1, p0, Lopenlight/co/camera/utils/SoundManager$1;->this$0:Lopenlight/co/camera/utils/SoundManager;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public onLoadComplete(Landroid/media/SoundPool;II)V
-    .locals 0
+    .registers 4
 
     .line 261
     iget-object p1, p0, Lopenlight/co/camera/utils/SoundManager$1;->this$0:Lopenlight/co/camera/utils/SoundManager;
 
+    # operator++ for: Lopenlight/co/camera/utils/SoundManager;->mNumSoundsLoaded:I
     invoke-static {p1}, Lopenlight/co/camera/utils/SoundManager;->access$008(Lopenlight/co/camera/utils/SoundManager;)I
 
     .line 262
@@ -52,13 +53,15 @@
 
     iget-object p2, p0, Lopenlight/co/camera/utils/SoundManager$1;->this$0:Lopenlight/co/camera/utils/SoundManager;
 
+    # getter for: Lopenlight/co/camera/utils/SoundManager;->mNumSoundsLoaded:I
     invoke-static {p2}, Lopenlight/co/camera/utils/SoundManager;->access$000(Lopenlight/co/camera/utils/SoundManager;)I
 
     move-result p2
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_21
 
     .line 263
+    # getter for: Lopenlight/co/camera/utils/SoundManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/SoundManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -72,8 +75,9 @@
 
     const/4 p1, 0x1
 
+    # setter for: Lopenlight/co/camera/utils/SoundManager;->mSoundPoolLoaded:Z
     invoke-static {p0, p1}, Lopenlight/co/camera/utils/SoundManager;->access$202(Lopenlight/co/camera/utils/SoundManager;Z)Z
 
-    :cond_0
+    :cond_21
     return-void
 .end method

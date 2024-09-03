@@ -13,13 +13,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroid/app/Application;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method private enableStrictMode()V
-    .locals 0
+    .registers 1
 
     .line 104
     new-instance p0, Landroid/os/StrictMode$ThreadPolicy$Builder;
@@ -110,7 +110,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/CameraApp;
-    .locals 1
+    .registers 1
 
     .line 85
     sget-object v0, Lopenlight/co/camera/CameraApp;->sInstance:Lopenlight/co/camera/CameraApp;
@@ -119,19 +119,19 @@
 .end method
 
 .method public static declared-synchronized initCamPrefs(Landroid/content/Context;)Lopenlight/co/lib/content/Prefs;
-    .locals 3
+    .registers 4
 
     const-class v0, Lopenlight/co/camera/CameraApp;
 
     monitor-enter v0
 
     .line 73
-    :try_start_0
+    :try_start_3
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
 
     move-result-object v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1d
 
     const v1, 0x7f0e003f
 
@@ -154,16 +154,16 @@
 
     .line 79
     invoke-static {v1}, Lopenlight/co/lib/content/CamPrefsFactory;->set(Lopenlight/co/lib/content/Prefs;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_3 .. :try_end_1d} :catchall_1f
 
     .line 81
-    :cond_0
+    :cond_1d
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_1f
     move-exception p0
 
     .line 72
@@ -173,7 +173,7 @@
 .end method
 
 .method public static isLight()Z
-    .locals 2
+    .registers 2
 
     const-string v0, "Light"
 
@@ -190,7 +190,7 @@
 
 # virtual methods
 .method public onCreate()V
-    .locals 1
+    .registers 2
 
     .line 41
     invoke-super {p0}, Landroid/app/Application;->onCreate()V
@@ -235,7 +235,7 @@
 .end method
 
 .method public onLowMemory()V
-    .locals 1
+    .registers 2
 
     .line 98
     invoke-super {p0}, Landroid/app/Application;->onLowMemory()V

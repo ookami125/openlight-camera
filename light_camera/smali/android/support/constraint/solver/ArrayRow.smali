@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field private static final DEBUG:Z = false
 
 
 # instance fields
@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/constraint/solver/Cache;)V
-    .locals 1
+    .registers 3
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public addError(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;)Landroid/support/constraint/solver/ArrayRow;
-    .locals 2
+    .registers 5
 
     .line 284
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -77,7 +77,7 @@
 .end method
 
 .method addSingleError(Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 1
+    .registers 4
 
     .line 155
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -90,11 +90,11 @@
 .end method
 
 .method createRowCentering(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;IFLandroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 5
+    .registers 13
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    if-ne p2, p5, :cond_0
+    if-ne p2, p5, :cond_16
 
     .line 242
     iget-object p3, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -115,14 +115,14 @@
 
     return-object p0
 
-    :cond_0
+    :cond_16
     const/high16 v1, 0x3f000000    # 0.5f
 
     cmpl-float v1, p4, v1
 
     const/high16 v2, -0x40800000    # -1.0f
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3c
 
     .line 254
     iget-object p4, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -144,11 +144,11 @@
 
     invoke-virtual {p1, p6, v0}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    if-gtz p3, :cond_1
+    if-gtz p3, :cond_36
 
-    if-lez p7, :cond_6
+    if-lez p7, :cond_89
 
-    :cond_1
+    :cond_36
     neg-int p1, p3
 
     add-int/2addr p1, p7
@@ -158,14 +158,14 @@
     .line 259
     iput p1, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    goto :goto_0
+    goto :goto_89
 
-    :cond_2
+    :cond_3c
     const/4 v1, 0x0
 
     cmpg-float v1, p4, v1
 
-    if-gtz v1, :cond_3
+    if-gtz v1, :cond_4f
 
     .line 263
     iget-object p4, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -182,12 +182,12 @@
     .line 265
     iput p1, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    goto :goto_0
+    goto :goto_89
 
-    :cond_3
+    :cond_4f
     cmpl-float v1, p4, v0
 
-    if-ltz v1, :cond_4
+    if-ltz v1, :cond_61
 
     .line 268
     iget-object p1, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -204,10 +204,10 @@
     .line 270
     iput p1, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    goto :goto_0
+    goto :goto_89
 
     .line 272
-    :cond_4
+    :cond_61
     iget-object v1, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     sub-float v3, v0, p4
@@ -237,11 +237,11 @@
 
     invoke-virtual {p1, p6, v0}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    if-gtz p3, :cond_5
+    if-gtz p3, :cond_81
 
-    if-lez p7, :cond_6
+    if-lez p7, :cond_89
 
-    :cond_5
+    :cond_81
     neg-int p1, p3
 
     int-to-float p1, p1
@@ -257,13 +257,13 @@
     .line 277
     iput p1, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    :cond_6
-    :goto_0
+    :cond_89
+    :goto_89
     return-object p0
 .end method
 
 .method createRowDefinition(Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 0
+    .registers 3
 
     .line 116
     iput-object p1, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
@@ -285,7 +285,7 @@
 .end method
 
 .method createRowDimensionPercent(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;F)Landroid/support/constraint/solver/ArrayRow;
-    .locals 2
+    .registers 7
 
     .line 291
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -312,7 +312,7 @@
 .end method
 
 .method public createRowDimensionRatio(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;F)Landroid/support/constraint/solver/ArrayRow;
-    .locals 2
+    .registers 8
 
     .line 311
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -344,7 +344,7 @@
 .end method
 
 .method public createRowEqualDimension(FFFLandroid/support/constraint/solver/SolverVariable;ILandroid/support/constraint/solver/SolverVariable;ILandroid/support/constraint/solver/SolverVariable;ILandroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 3
+    .registers 15
 
     const/4 v0, 0x0
 
@@ -354,15 +354,15 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_32
 
     cmpl-float v0, p1, p3
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_e
     div-float/2addr p1, p2
 
     div-float/2addr p3, p2
@@ -412,10 +412,10 @@
 
     invoke-virtual {p2, p8, p1}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_1
-    :goto_0
+    :cond_32
+    :goto_32
     neg-int p1, p5
 
     sub-int/2addr p1, p7
@@ -449,14 +449,14 @@
 
     invoke-virtual {p1, p8, v1}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    :goto_1
+    :goto_4d
     return-object p0
 .end method
 
 .method public createRowEquals(Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 1
+    .registers 4
 
-    if-gez p2, :cond_0
+    if-gez p2, :cond_f
 
     mul-int/lit8 p2, p2, -0x1
 
@@ -472,9 +472,9 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    goto :goto_0
+    goto :goto_19
 
-    :cond_0
+    :cond_f
     int-to-float p2, p2
 
     .line 128
@@ -487,35 +487,35 @@
 
     invoke-virtual {p2, p1, v0}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    :goto_0
+    :goto_19
     return-object p0
 .end method
 
 .method public createRowEquals(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 2
+    .registers 6
 
     const/4 v0, 0x0
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_b
 
-    if-gez p3, :cond_0
+    if-gez p3, :cond_8
 
     mul-int/lit8 p3, p3, -0x1
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_8
     int-to-float p3, p3
 
     .line 142
     iput p3, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    :cond_1
+    :cond_b
     const/high16 p3, 0x3f800000    # 1.0f
 
     const/high16 v1, -0x40800000    # -1.0f
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_1c
 
     .line 145
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -527,10 +527,10 @@
 
     invoke-virtual {p1, p2, p3}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 148
-    :cond_2
+    :cond_1c
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     invoke-virtual {v0, p1, p3}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
@@ -540,35 +540,35 @@
 
     invoke-virtual {p1, p2, v1}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    :goto_0
+    :goto_26
     return-object p0
 .end method
 
 .method public createRowGreaterThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 2
+    .registers 7
 
     const/4 v0, 0x0
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
-    if-gez p4, :cond_0
+    if-gez p4, :cond_8
 
     mul-int/lit8 p4, p4, -0x1
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_8
     int-to-float p4, p4
 
     .line 169
     iput p4, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    :cond_1
+    :cond_b
     const/high16 p4, 0x3f800000    # 1.0f
 
     const/high16 v1, -0x40800000    # -1.0f
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     .line 172
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -585,10 +585,10 @@
 
     invoke-virtual {p1, p3, p4}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 176
-    :cond_2
+    :cond_21
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     invoke-virtual {v0, p1, p4}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
@@ -603,35 +603,35 @@
 
     invoke-virtual {p1, p3, v1}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    :goto_0
+    :goto_30
     return-object p0
 .end method
 
 .method public createRowLowerThan(Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;Landroid/support/constraint/solver/SolverVariable;I)Landroid/support/constraint/solver/ArrayRow;
-    .locals 2
+    .registers 7
 
     const/4 v0, 0x0
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_b
 
-    if-gez p4, :cond_0
+    if-gez p4, :cond_8
 
     mul-int/lit8 p4, p4, -0x1
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_8
     int-to-float p4, p4
 
     .line 192
     iput p4, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
-    :cond_1
+    :cond_b
     const/high16 p4, 0x3f800000    # 1.0f
 
     const/high16 v1, -0x40800000    # -1.0f
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_21
 
     .line 195
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -648,10 +648,10 @@
 
     invoke-virtual {p1, p3, v1}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 199
-    :cond_2
+    :cond_21
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     invoke-virtual {v0, p1, p4}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
@@ -666,12 +666,12 @@
 
     invoke-virtual {p1, p3, p4}, Landroid/support/constraint/solver/ArrayLinkedVariables;->put(Landroid/support/constraint/solver/SolverVariable;F)V
 
-    :goto_0
+    :goto_30
     return-object p0
 .end method
 
 .method ensurePositiveConstant()V
-    .locals 2
+    .registers 3
 
     .line 337
     iget v0, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
@@ -680,7 +680,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_13
 
     .line 339
     iget v0, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
@@ -696,12 +696,12 @@
 
     invoke-virtual {p0}, Landroid/support/constraint/solver/ArrayLinkedVariables;->invert()V
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method hasAtLeastOnePositiveVariable()Z
-    .locals 0
+    .registers 1
 
     .line 39
     iget-object p0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -714,12 +714,12 @@
 .end method
 
 .method hasKeyVariable()Z
-    .locals 2
+    .registers 3
 
     .line 43
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
@@ -727,7 +727,7 @@
 
     sget-object v1, Landroid/support/constraint/solver/SolverVariable$Type;->UNRESTRICTED:Landroid/support/constraint/solver/SolverVariable$Type;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_13
 
     iget p0, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
@@ -735,22 +735,22 @@
 
     cmpg-float p0, p0, v0
 
-    if-ltz p0, :cond_1
+    if-ltz p0, :cond_15
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_16
     return p0
 .end method
 
 .method hasVariable(Landroid/support/constraint/solver/SolverVariable;)Z
-    .locals 0
+    .registers 2
 
     .line 112
     iget-object p0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -763,7 +763,7 @@
 .end method
 
 .method pickRowVariable()V
-    .locals 1
+    .registers 2
 
     .line 345
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -772,37 +772,37 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 347
     invoke-virtual {p0, v0}, Landroid/support/constraint/solver/ArrayRow;->pivot(Landroid/support/constraint/solver/SolverVariable;)V
 
     .line 349
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     iget v0, v0, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     const/4 v0, 0x1
 
     .line 350
     iput-boolean v0, p0, Landroid/support/constraint/solver/ArrayRow;->isSimpleDefinition:Z
 
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method pivot(Landroid/support/constraint/solver/SolverVariable;)V
-    .locals 3
+    .registers 5
 
     .line 355
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
     const/high16 v1, -0x40800000    # -1.0f
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 357
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -817,7 +817,7 @@
     iput-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
     .line 361
-    :cond_0
+    :cond_10
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     invoke-virtual {v0, p1}, Landroid/support/constraint/solver/ArrayLinkedVariables;->remove(Landroid/support/constraint/solver/SolverVariable;)F
@@ -833,12 +833,12 @@
 
     cmpl-float p1, v0, p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_20
 
     return-void
 
     .line 366
-    :cond_1
+    :cond_20
     iget p1, p0, Landroid/support/constraint/solver/ArrayRow;->constantValue:F
 
     div-float/2addr p1, v0
@@ -854,7 +854,7 @@
 .end method
 
 .method public reset()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -880,23 +880,23 @@
 .end method
 
 .method sizeInBytes()I
-    .locals 2
+    .registers 3
 
     .line 320
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
     const/4 v1, 0x4
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_8
     add-int/2addr v0, v1
 
     add-int/2addr v0, v1
@@ -914,14 +914,14 @@
 .end method
 
 .method toReadableString()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     const-string v0, ""
 
     .line 56
     iget-object v1, p0, Landroid/support/constraint/solver/ArrayRow;->variable:Landroid/support/constraint/solver/SolverVariable;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_18
 
     .line 57
     new-instance v1, Ljava/lang/StringBuilder;
@@ -938,10 +938,10 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_29
 
     .line 59
-    :cond_0
+    :cond_18
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -957,7 +957,7 @@
     move-result-object v0
 
     .line 61
-    :goto_0
+    :goto_29
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -983,7 +983,7 @@
 
     const/4 v4, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_56
 
     .line 64
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1002,19 +1002,19 @@
 
     move v1, v4
 
-    goto :goto_1
+    goto :goto_57
 
-    :cond_1
+    :cond_56
     move v1, v3
 
     .line 67
-    :goto_1
+    :goto_57
     iget-object v5, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     iget v5, v5, Landroid/support/constraint/solver/ArrayLinkedVariables;->currentSize:I
 
-    :goto_2
-    if-ge v3, v5, :cond_7
+    :goto_5b
+    if-ge v3, v5, :cond_e6
 
     .line 69
     iget-object v6, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -1023,12 +1023,12 @@
 
     move-result-object v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_67
 
-    goto/16 :goto_5
+    goto/16 :goto_e2
 
     .line 73
-    :cond_2
+    :cond_67
     iget-object v7, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
 
     invoke-virtual {v7, v3}, Landroid/support/constraint/solver/ArrayLinkedVariables;->getVariableValue(I)F
@@ -1042,11 +1042,11 @@
 
     const/high16 v8, -0x40800000    # -1.0f
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_8c
 
     cmpg-float v1, v7, v2
 
-    if-gez v1, :cond_5
+    if-gez v1, :cond_b4
 
     .line 77
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1065,12 +1065,12 @@
 
     mul-float/2addr v7, v8
 
-    goto :goto_3
+    goto :goto_b4
 
-    :cond_3
+    :cond_8c
     cmpl-float v1, v7, v2
 
-    if-lez v1, :cond_4
+    if-lez v1, :cond_a2
 
     .line 82
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1087,10 +1087,10 @@
 
     move-result-object v0
 
-    goto :goto_3
+    goto :goto_b4
 
     .line 84
-    :cond_4
+    :cond_a2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1107,13 +1107,13 @@
 
     mul-float/2addr v7, v8
 
-    :cond_5
-    :goto_3
+    :cond_b4
+    :goto_b4
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v1, v7, v1
 
-    if-nez v1, :cond_6
+    if-nez v1, :cond_ca
 
     .line 89
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1128,10 +1128,10 @@
 
     move-result-object v0
 
-    goto :goto_4
+    goto :goto_e1
 
     .line 91
-    :cond_6
+    :cond_ca
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1150,16 +1150,16 @@
 
     move-result-object v0
 
-    :goto_4
+    :goto_e1
     move v1, v4
 
-    :goto_5
+    :goto_e2
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_2
+    goto/16 :goto_5b
 
-    :cond_7
-    if-nez v1, :cond_8
+    :cond_e6
+    if-nez v1, :cond_f9
 
     .line 96
     new-instance p0, Ljava/lang/StringBuilder;
@@ -1176,12 +1176,12 @@
 
     move-result-object v0
 
-    :cond_8
+    :cond_f9
     return-object v0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-virtual {p0}, Landroid/support/constraint/solver/ArrayRow;->toReadableString()Ljava/lang/String;
@@ -1192,7 +1192,7 @@
 .end method
 
 .method updateClientEquations()V
-    .locals 1
+    .registers 2
 
     .line 35
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;
@@ -1203,7 +1203,7 @@
 .end method
 
 .method updateRowWithEquation(Landroid/support/constraint/solver/ArrayRow;)Z
-    .locals 1
+    .registers 3
 
     .line 331
     iget-object v0, p0, Landroid/support/constraint/solver/ArrayRow;->variables:Landroid/support/constraint/solver/ArrayLinkedVariables;

@@ -35,7 +35,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1094
     invoke-direct {p0}, Lcom/squareup/wire/Message$Builder;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public b(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
-    .locals 0
+    .registers 2
 
     .line 1113
     iput-object p1, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->b:Ljava/lang/Float;
@@ -55,7 +55,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
 
     .line 1085
     invoke-virtual {p0}, Lltpb/ViewPreferences$ChannelGain$Builder;->build()Lltpb/ViewPreferences$ChannelGain;
@@ -66,24 +66,24 @@
 .end method
 
 .method public build()Lltpb/ViewPreferences$ChannelGain;
-    .locals 7
+    .registers 8
 
     .line 1119
     iget-object v0, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->r:Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     iget-object v0, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->g_r:Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     iget-object v0, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->g_b:Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     iget-object v0, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->b:Ljava/lang/Float;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 1128
     new-instance v0, Lltpb/ViewPreferences$ChannelGain;
@@ -106,7 +106,7 @@
 
     return-object v0
 
-    :cond_0
+    :cond_23
     const/16 v0, 0x8
 
     .line 1123
@@ -168,7 +168,7 @@
 .end method
 
 .method public g_b(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
-    .locals 0
+    .registers 2
 
     .line 1108
     iput-object p1, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->g_b:Ljava/lang/Float;
@@ -177,7 +177,7 @@
 .end method
 
 .method public g_r(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
-    .locals 0
+    .registers 2
 
     .line 1103
     iput-object p1, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->g_r:Ljava/lang/Float;
@@ -186,7 +186,7 @@
 .end method
 
 .method public r(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
-    .locals 0
+    .registers 2
 
     .line 1098
     iput-object p1, p0, Lltpb/ViewPreferences$ChannelGain$Builder;->r:Ljava/lang/Float;

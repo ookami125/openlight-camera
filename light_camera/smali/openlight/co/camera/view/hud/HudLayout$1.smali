@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/hud/HudLayout;)V
-    .locals 0
+    .registers 2
 
     .line 380
     iput-object p1, p0, Lopenlight/co/camera/view/hud/HudLayout$1;->this$0:Lopenlight/co/camera/view/hud/HudLayout;
@@ -36,13 +36,13 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 388
     iget-object p0, p0, Lopenlight/co/camera/view/hud/HudLayout$1;->this$0:Lopenlight/co/camera/view/hud/HudLayout;
@@ -53,13 +53,13 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

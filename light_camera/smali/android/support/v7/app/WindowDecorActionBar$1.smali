@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/WindowDecorActionBar;)V
-    .locals 0
+    .registers 2
 
     .line 134
     iput-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -33,20 +33,20 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 137
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
 
     iget-boolean p1, p1, Landroid/support/v7/app/WindowDecorActionBar;->mContentAnimations:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1b
 
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
 
     iget-object p1, p1, Landroid/support/v7/app/WindowDecorActionBar;->mContentView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1b
 
     .line 138
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -65,7 +65,7 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/ActionBarContainer;->setTranslationY(F)V
 
     .line 141
-    :cond_0
+    :cond_1b
     iget-object p1, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
 
     iget-object p1, p1, Landroid/support/v7/app/WindowDecorActionBar;->mContainerView:Landroid/support/v7/widget/ActionBarContainer;
@@ -100,7 +100,7 @@
 
     iget-object p1, p1, Landroid/support/v7/app/WindowDecorActionBar;->mOverlayLayout:Landroid/support/v7/widget/ActionBarOverlayLayout;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_43
 
     .line 146
     iget-object p0, p0, Landroid/support/v7/app/WindowDecorActionBar$1;->this$0:Landroid/support/v7/app/WindowDecorActionBar;
@@ -109,6 +109,6 @@
 
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
-    :cond_1
+    :cond_43
     return-void
 .end method

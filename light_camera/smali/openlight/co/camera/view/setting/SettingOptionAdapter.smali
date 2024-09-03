@@ -50,13 +50,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method constructor <init>(Landroid/content/Context;ILjava/lang/String;Z)V
-    .locals 1
+    .registers 6
 
     .line 48
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$Adapter;-><init>()V
@@ -76,7 +76,7 @@
     .line 49
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 50
     new-instance v0, Ljava/util/ArrayList;
@@ -86,7 +86,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
 
     .line 52
-    :cond_0
+    :cond_18
     iput-object p3, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mCurrentSelected:Ljava/lang/String;
 
     .line 53
@@ -95,33 +95,33 @@
     .line 54
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_23
 
     .line 56
     invoke-direct {p0, p2}, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->updateData(I)V
 
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method private createSettingModel(ILjava/lang/String;)Lopenlight/co/camera/view/setting/SettingModel;
-    .locals 2
+    .registers 5
 
     const/4 p0, 0x0
 
     const v0, 0x7f030003
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_7
 
-    goto :goto_0
+    goto :goto_19
 
     .line 97
-    :cond_0
+    :cond_7
     invoke-static {p2}, Lopenlight/co/camera/enums/MeteringMode;->forTag(Ljava/lang/String;)Lopenlight/co/camera/enums/MeteringMode;
 
     move-result-object p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_19
 
     .line 99
     invoke-virtual {p1}, Lopenlight/co/camera/enums/MeteringMode;->getMeteringSelectedIcon()I
@@ -139,13 +139,13 @@
 
     move p0, v1
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     move p1, p0
 
-    :goto_1
+    :goto_1a
     const/4 v0, 0x0
 
     .line 106
@@ -157,7 +157,7 @@
 .end method
 
 .method public static synthetic lambda$onBindViewHolder$0(Lopenlight/co/camera/view/setting/SettingOptionAdapter;Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 144
     iget-object p2, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
@@ -181,7 +181,7 @@
     .line 145
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSelectedListener:Lopenlight/co/camera/view/setting/SettingOptionAdapter$OnOptionItemSelectedListener;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 146
     iget-object p1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSelectedListener:Lopenlight/co/camera/view/setting/SettingOptionAdapter$OnOptionItemSelectedListener;
@@ -191,14 +191,14 @@
     invoke-interface {p1, p2}, Lopenlight/co/camera/view/setting/SettingOptionAdapter$OnOptionItemSelectedListener;->onOptionItemSelected(Ljava/lang/String;)V
 
     .line 148
-    :cond_0
+    :cond_1d
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->notifyDataSetChanged()V
 
     return-void
 .end method
 
 .method private populateList(I[Ljava/lang/String;)V
-    .locals 4
+    .registers 7
 
     .line 77
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
@@ -210,8 +210,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_0
+    :goto_7
+    if-ge v1, v0, :cond_17
 
     aget-object v2, p2, v1
 
@@ -227,16 +227,16 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_17
     return-void
 .end method
 
 .method private setIcon(Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;I)V
-    .locals 0
+    .registers 3
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_e
 
     .line 160
     iget-object p0, p1, Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;->itemIcon:Landroid/widget/ImageView;
@@ -250,27 +250,27 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 163
-    :cond_0
+    :cond_e
     iget-object p0, p1, Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;->itemIcon:Landroid/widget/ImageView;
 
     const/16 p1, 0x8
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method private updateData(I)V
-    .locals 1
+    .registers 3
 
     .line 61
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mContext:Landroid/content/Context;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 62
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
@@ -294,14 +294,14 @@
     .line 66
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->notifyDataSetChanged()V
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 
 # virtual methods
 .method public getItemCount()I
-    .locals 0
+    .registers 1
 
     .line 169
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
@@ -314,7 +314,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 20
     check-cast p1, Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;
@@ -325,7 +325,7 @@
 .end method
 
 .method public onBindViewHolder(Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;I)V
-    .locals 4
+    .registers 7
 
     .line 123
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSettingList:Ljava/util/List;
@@ -336,12 +336,12 @@
 
     check-cast p2, Lopenlight/co/camera/view/setting/SettingModel;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_b
 
     return-void
 
     .line 125
-    :cond_0
+    :cond_b
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;->itemView:Landroid/widget/RelativeLayout;
 
     .line 126
@@ -354,9 +354,9 @@
     .line 127
     iget v1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mMarginValue:I
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2a
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2a
 
     .line 128
     iget v1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mMarginValue:I
@@ -377,7 +377,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     .line 131
-    :cond_1
+    :cond_2a
     invoke-virtual {p2}, Lopenlight/co/camera/view/setting/SettingModel;->getTitle()Ljava/lang/String;
 
     move-result-object v0
@@ -390,7 +390,7 @@
     .line 134
     iget-boolean v1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mHighlightSelected:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5a
 
     iget-object v1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mCurrentSelected:Ljava/lang/String;
 
@@ -398,7 +398,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_5a
 
     iget-object v1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mCurrentSelected:Ljava/lang/String;
 
@@ -407,7 +407,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5a
 
     .line 136
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;->itemTitle:Landroid/widget/TextView;
@@ -427,10 +427,10 @@
 
     move-result p2
 
-    goto :goto_0
+    goto :goto_64
 
     .line 139
-    :cond_2
+    :cond_5a
     iget-object v0, p1, Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;->itemTitle:Landroid/widget/TextView;
 
     const/4 v1, -0x1
@@ -443,7 +443,7 @@
     move-result p2
 
     .line 142
-    :goto_0
+    :goto_64
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->setIcon(Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;I)V
 
     .line 143
@@ -459,7 +459,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 20
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;
@@ -470,7 +470,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;
-    .locals 1
+    .registers 4
 
     .line 116
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -499,7 +499,7 @@
 .end method
 
 .method setMarginValue(I)V
-    .locals 0
+    .registers 2
 
     .line 110
     iput p1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mMarginValue:I
@@ -511,7 +511,7 @@
 .end method
 
 .method setSelectedListener(Lopenlight/co/camera/view/setting/SettingOptionAdapter$OnOptionItemSelectedListener;)V
-    .locals 0
+    .registers 2
 
     .line 38
     iput-object p1, p0, Lopenlight/co/camera/view/setting/SettingOptionAdapter;->mSelectedListener:Lopenlight/co/camera/view/setting/SettingOptionAdapter$OnOptionItemSelectedListener;

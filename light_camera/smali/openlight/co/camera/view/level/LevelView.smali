@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 71
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lopenlight/co/camera/view/level/DeviceRotationVector;)V
-    .locals 1
+    .registers 4
 
     .line 50
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -128,7 +128,7 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 10
+    .registers 12
 
     .line 103
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -144,11 +144,11 @@
 
     cmpl-double v2, v0, v2
 
-    if-lez v2, :cond_0
+    if-lez v2, :cond_f
 
     return-void
 
-    :cond_0
+    :cond_f
     double-to-int v0, v0
 
     const/16 v1, 0x3c
@@ -341,7 +341,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 96
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -356,7 +356,7 @@
 .end method
 
 .method public setDeviceRotationVector(Lopenlight/co/camera/view/level/DeviceRotationVector;)V
-    .locals 3
+    .registers 5
 
     .line 75
     iput-object p1, p0, Lopenlight/co/camera/view/level/LevelView;->mDeviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
@@ -428,7 +428,7 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6c
 
     iget v0, p1, Lopenlight/co/camera/view/level/DeviceRotationVector;->roll:F
 
@@ -436,19 +436,19 @@
 
     cmpl-float v0, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_6c
 
     iget v0, p1, Lopenlight/co/camera/view/level/DeviceRotationVector;->pitch:F
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_6c
 
     iget p1, p1, Lopenlight/co/camera/view/level/DeviceRotationVector;->pitch:F
 
     cmpl-float p1, p1, v2
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_6c
 
     const/4 p1, 0x1
 
@@ -462,10 +462,10 @@
 
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
 
-    goto :goto_0
+    goto :goto_72
 
     .line 89
-    :cond_0
+    :cond_6c
     iget-object p1, p0, Lopenlight/co/camera/view/level/LevelView;->mPaint:Landroid/graphics/Paint;
 
     const/4 v0, -0x1
@@ -473,7 +473,7 @@
     invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
 
     .line 91
-    :goto_0
+    :goto_72
     invoke-virtual {p0}, Lopenlight/co/camera/view/level/LevelView;->invalidate()V
 
     return-void

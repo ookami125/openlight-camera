@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 25
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/cache/DiskLruCacheFactory$1;->val$diskCacheFolder:Ljava/lang/String;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public getCacheDirectory()Ljava/io/File;
-    .locals 1
+    .registers 2
 
     .line 28
     new-instance v0, Ljava/io/File;

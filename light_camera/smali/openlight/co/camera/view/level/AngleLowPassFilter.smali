@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public add(F)V
-    .locals 6
+    .registers 8
 
     .line 23
     iget v0, p0, Lopenlight/co/camera/view/level/AngleLowPassFilter;->mSumSin:F
@@ -91,7 +91,7 @@
 
     const/16 v0, 0xa
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_4b
 
     .line 28
     iget-object p1, p0, Lopenlight/co/camera/view/level/AngleLowPassFilter;->mQueue:Ljava/util/ArrayDeque;
@@ -138,12 +138,12 @@
 
     iput p1, p0, Lopenlight/co/camera/view/level/AngleLowPassFilter;->mSumCosine:F
 
-    :cond_0
+    :cond_4b
     return-void
 .end method
 
 .method public degrees()I
-    .locals 5
+    .registers 6
 
     .line 35
     iget-object v0, p0, Lopenlight/co/camera/view/level/AngleLowPassFilter;->mQueue:Ljava/util/ArrayDeque;

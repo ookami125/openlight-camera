@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(IIIIIIII)V
-    .locals 0
+    .registers 9
 
     .line 106
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 
 # virtual methods
 .method public getActuatorIndex()I
-    .locals 0
+    .registers 1
 
     .line 385
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->actuatorIndex:I
@@ -67,7 +67,7 @@
 .end method
 
 .method public getAttackLevel()I
-    .locals 0
+    .registers 1
 
     .line 277
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->attackLevel:I
@@ -76,7 +76,7 @@
 .end method
 
 .method public getAttackTime()I
-    .locals 0
+    .registers 1
 
     .line 247
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->attackTime:I
@@ -85,7 +85,7 @@
 .end method
 
 .method public getDuration()I
-    .locals 0
+    .registers 1
 
     .line 151
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->duration:I
@@ -94,7 +94,7 @@
 .end method
 
 .method public getFadeLevel()I
-    .locals 0
+    .registers 1
 
     .line 339
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->fadeLevel:I
@@ -103,7 +103,7 @@
 .end method
 
 .method public getFadeTime()I
-    .locals 0
+    .registers 1
 
     .line 309
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->fadeTime:I
@@ -112,7 +112,7 @@
 .end method
 
 .method public getMagnitude()I
-    .locals 0
+    .registers 1
 
     .line 181
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->magnitude:I
@@ -121,7 +121,7 @@
 .end method
 
 .method public getStyle()I
-    .locals 0
+    .registers 1
 
     .line 215
     iget p0, p0, Lcom/immersion/MagSweepEffectDefinition;->style:I
@@ -130,7 +130,7 @@
 .end method
 
 .method public setActuatorIndex(I)V
-    .locals 0
+    .registers 2
 
     .line 362
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->actuatorIndex:I
@@ -139,7 +139,7 @@
 .end method
 
 .method public setAttackLevel(I)V
-    .locals 0
+    .registers 2
 
     .line 262
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->attackLevel:I
@@ -148,7 +148,7 @@
 .end method
 
 .method public setAttackTime(I)V
-    .locals 0
+    .registers 2
 
     .line 231
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->attackTime:I
@@ -157,7 +157,7 @@
 .end method
 
 .method public setDuration(I)V
-    .locals 0
+    .registers 2
 
     .line 132
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->duration:I
@@ -166,7 +166,7 @@
 .end method
 
 .method public setFadeLevel(I)V
-    .locals 0
+    .registers 2
 
     .line 324
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->fadeLevel:I
@@ -175,7 +175,7 @@
 .end method
 
 .method public setFadeTime(I)V
-    .locals 0
+    .registers 2
 
     .line 293
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->fadeTime:I
@@ -184,7 +184,7 @@
 .end method
 
 .method public setMagnitude(I)V
-    .locals 0
+    .registers 2
 
     .line 166
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->magnitude:I
@@ -193,7 +193,7 @@
 .end method
 
 .method public setStyle(I)V
-    .locals 0
+    .registers 2
 
     .line 198
     iput p1, p0, Lcom/immersion/MagSweepEffectDefinition;->style:I

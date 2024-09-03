@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Landroid/support/v4/graphics/BitmapCompat$BitmapCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public hasMipMap(Landroid/graphics/Bitmap;)Z
-    .locals 0
+    .registers 2
 
     .line 43
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->hasMipMap()Z
@@ -42,7 +42,7 @@
 .end method
 
 .method public setHasMipMap(Landroid/graphics/Bitmap;Z)V
-    .locals 0
+    .registers 3
 
     .line 48
     invoke-virtual {p1, p2}, Landroid/graphics/Bitmap;->setHasMipMap(Z)V

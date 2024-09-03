@@ -13,7 +13,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 51
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,7 +22,7 @@
 .end method
 
 .method public static noteOp(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;)I
-    .locals 2
+    .registers 6
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -41,7 +41,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_13
 
     .line 85
     const-class v0, Landroid/app/AppOpsManager;
@@ -59,14 +59,14 @@
 
     return p0
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public static noteProxyOp(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)I
-    .locals 2
+    .registers 5
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -85,7 +85,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_13
 
     .line 111
     const-class v0, Landroid/app/AppOpsManager;
@@ -103,14 +103,14 @@
 
     return p0
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public static permissionToOp(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -121,7 +121,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 61
     invoke-static {p0}, Landroid/app/AppOpsManager;->permissionToOp(Ljava/lang/String;)Ljava/lang/String;
@@ -130,7 +130,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return-object p0

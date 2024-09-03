@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Iterable;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
     .line 72
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 74
     sget-object p1, Lorg/apache/commons/io/comparator/CompositeFileComparator;->NO_COMPARATORS:[Ljava/util/Comparator;
@@ -71,10 +71,10 @@
 
     iput-object p1, p0, Lorg/apache/commons/io/comparator/CompositeFileComparator;->delegates:[Ljava/util/Comparator;
 
-    goto :goto_1
+    goto :goto_33
 
     .line 76
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -84,12 +84,12 @@
 
     move-result-object p1
 
-    :goto_0
+    :goto_15
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -100,10 +100,10 @@
     .line 78
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_15
 
     .line 80
-    :cond_1
+    :cond_25
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result p1
@@ -118,12 +118,12 @@
 
     iput-object p1, p0, Lorg/apache/commons/io/comparator/CompositeFileComparator;->delegates:[Ljava/util/Comparator;
 
-    :goto_1
+    :goto_33
     return-void
 .end method
 
 .method public varargs constructor <init>([Ljava/util/Comparator;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -136,7 +136,7 @@
     .line 57
     invoke-direct {p0}, Lorg/apache/commons/io/comparator/AbstractFileComparator;-><init>()V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_c
 
     .line 59
     sget-object p1, Lorg/apache/commons/io/comparator/CompositeFileComparator;->NO_COMPARATORS:[Ljava/util/Comparator;
@@ -145,10 +145,10 @@
 
     iput-object p1, p0, Lorg/apache/commons/io/comparator/CompositeFileComparator;->delegates:[Ljava/util/Comparator;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 61
-    :cond_0
+    :cond_c
     array-length v0, p1
 
     new-array v0, v0, [Ljava/util/Comparator;
@@ -166,14 +166,14 @@
 
     invoke-static {p1, v1, p0, v1, v0}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
 
-    :goto_0
+    :goto_1a
     return-void
 .end method
 
 
 # virtual methods
 .method public compare(Ljava/io/File;Ljava/io/File;)I
-    .locals 3
+    .registers 6
 
     .line 94
     iget-object p0, p0, Lorg/apache/commons/io/comparator/CompositeFileComparator;->delegates:[Ljava/util/Comparator;
@@ -184,8 +184,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_5
+    if-ge v1, v0, :cond_13
 
     aget-object v2, p0, v1
 
@@ -194,22 +194,22 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
-    goto :goto_1
+    goto :goto_13
 
-    :cond_0
+    :cond_10
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
-    :goto_1
+    :cond_13
+    :goto_13
     return v2
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 45
     check-cast p1, Ljava/io/File;
@@ -224,7 +224,7 @@
 .end method
 
 .method public bridge synthetic sort(Ljava/util/List;)Ljava/util/List;
-    .locals 0
+    .registers 2
 
     .line 45
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort(Ljava/util/List;)Ljava/util/List;
@@ -235,7 +235,7 @@
 .end method
 
 .method public bridge synthetic sort([Ljava/io/File;)[Ljava/io/File;
-    .locals 0
+    .registers 2
 
     .line 45
     invoke-super {p0, p1}, Lorg/apache/commons/io/comparator/AbstractFileComparator;->sort([Ljava/io/File;)[Ljava/io/File;
@@ -246,7 +246,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 110
     new-instance v0, Ljava/lang/StringBuilder;
@@ -268,14 +268,14 @@
     const/4 v1, 0x0
 
     .line 113
-    :goto_0
+    :goto_12
     iget-object v2, p0, Lorg/apache/commons/io/comparator/CompositeFileComparator;->delegates:[Ljava/util/Comparator;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_28
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_1e
 
     const/16 v2, 0x2c
 
@@ -283,7 +283,7 @@
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     .line 117
-    :cond_0
+    :cond_1e
     iget-object v2, p0, Lorg/apache/commons/io/comparator/CompositeFileComparator;->delegates:[Ljava/util/Comparator;
 
     aget-object v2, v2, v1
@@ -292,9 +292,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_1
+    :cond_28
     const/16 p0, 0x7d
 
     .line 119

@@ -59,7 +59,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 21
     new-instance v0, Lltpb/Point2F$ProtoAdapter_Point2F;
@@ -88,7 +88,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Float;Ljava/lang/Float;)V
-    .locals 1
+    .registers 4
 
     .line 44
     sget-object v0, Lokio/ByteString;->EMPTY:Lokio/ByteString;
@@ -99,7 +99,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Float;Ljava/lang/Float;Lokio/ByteString;)V
-    .locals 1
+    .registers 5
 
     .line 48
     sget-object v0, Lltpb/Point2F;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
@@ -118,26 +118,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 65
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/Point2F;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 66
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/Point2F;
 
     .line 67
@@ -153,7 +153,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object v1, p0, Lltpb/Point2F;->x:Ljava/lang/Float;
 
@@ -164,7 +164,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     iget-object p0, p0, Lltpb/Point2F;->y:Ljava/lang/Float;
 
@@ -175,24 +175,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2f
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_2f
     move v0, v2
 
-    :goto_0
+    :goto_30
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 74
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_20
 
     .line 76
     invoke-virtual {p0}, Lltpb/Point2F;->unknownFields()Lokio/ByteString;
@@ -228,12 +228,12 @@
     .line 79
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_0
+    :cond_20
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-virtual {p0}, Lltpb/Point2F;->newBuilder()Lltpb/Point2F$Builder;
@@ -244,7 +244,7 @@
 .end method
 
 .method public newBuilder()Lltpb/Point2F$Builder;
-    .locals 2
+    .registers 3
 
     .line 55
     new-instance v0, Lltpb/Point2F$Builder;
@@ -272,7 +272,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 86
     new-instance v0, Ljava/lang/StringBuilder;

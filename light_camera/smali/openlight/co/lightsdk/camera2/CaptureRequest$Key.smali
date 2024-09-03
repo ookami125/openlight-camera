@@ -120,7 +120,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 299
     new-instance v0, Lopenlight/co/lightsdk/camera2/CaptureRequest$Key;
@@ -214,7 +214,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

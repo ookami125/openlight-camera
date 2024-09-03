@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 39
     new-instance v0, Lorg/apache/commons/io/input/ClosedInputStream;
@@ -22,7 +22,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public read()I
-    .locals 0
+    .registers 1
 
     const/4 p0, -0x1
 

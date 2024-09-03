@@ -11,13 +11,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getBitCode32()[B
-    .locals 1
+    .registers 1
 
     .line 30
     invoke-static {}, Lopenlight/co/camera/exposureBitCode;->getBitCode32Internal()[B
@@ -37,7 +37,7 @@
 .end method
 
 .method private static getBitCode32Internal()[B
-    .locals 4
+    .registers 4
 
     .line 151
     sget v0, Lopenlight/co/camera/exposureBitCode;->bitCode32Length:I
@@ -63,7 +63,7 @@
 .end method
 
 .method public static getBitCode64()[B
-    .locals 1
+    .registers 1
 
     .line 162
     invoke-static {}, Lopenlight/co/camera/exposureBitCode;->getBitCode64Internal()[B
@@ -74,7 +74,7 @@
 .end method
 
 .method private static getBitCode64Internal()[B
-    .locals 4
+    .registers 4
 
     .line 281
     sget v0, Lopenlight/co/camera/exposureBitCode;->bitCode64Length:I
@@ -100,18 +100,18 @@
 .end method
 
 .method private static getSegment32_0()[B
-    .locals 1
+    .registers 1
 
     const/16 v0, 0x6d0
 
     .line 34
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_8
 
     return-object v0
 
-    :array_0
+    :array_8
     .array-data 1
         -0x22t
         -0x40t
@@ -1861,18 +1861,18 @@
 .end method
 
 .method private static getSegment64_0()[B
-    .locals 1
+    .registers 1
 
     const/16 v0, 0x6a4
 
     .line 166
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_8
 
     return-object v0
 
-    :array_0
+    :array_8
     .array-data 1
         -0x22t
         -0x40t

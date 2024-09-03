@@ -27,7 +27,7 @@
 
 # direct methods
 .method private constructor <init>(Lopenlight/co/camera/utils/LocationManager;)V
-    .locals 0
+    .registers 2
 
     .line 152
     iput-object p1, p0, Lopenlight/co/camera/utils/LocationManager$GeodeticInfo;->this$0:Lopenlight/co/camera/utils/LocationManager;
@@ -38,7 +38,7 @@
 .end method
 
 .method synthetic constructor <init>(Lopenlight/co/camera/utils/LocationManager;Lopenlight/co/camera/utils/LocationManager$1;)V
-    .locals 0
+    .registers 3
 
     .line 152
     invoke-direct {p0, p1}, Lopenlight/co/camera/utils/LocationManager$GeodeticInfo;-><init>(Lopenlight/co/camera/utils/LocationManager;)V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method apply(F)V
-    .locals 2
+    .registers 4
 
     .line 164
     iget v0, p0, Lopenlight/co/camera/utils/LocationManager$GeodeticInfo;->correction:F
@@ -79,7 +79,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 170
     new-instance v0, Ljava/lang/StringBuilder;

@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 42
     new-instance v0, Lorg/apache/commons/io/IOCase;
@@ -107,7 +107,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;Z)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -129,7 +129,7 @@
 .end method
 
 .method public static forName(Ljava/lang/String;)Lorg/apache/commons/io/IOCase;
-    .locals 5
+    .registers 6
 
     .line 81
     invoke-static {}, Lorg/apache/commons/io/IOCase;->values()[Lorg/apache/commons/io/IOCase;
@@ -140,8 +140,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_18
 
     aget-object v3, v0, v2
 
@@ -154,17 +154,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_15
 
     return-object v3
 
-    :cond_0
+    :cond_15
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 88
-    :cond_1
+    :cond_18
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -187,7 +187,7 @@
 .end method
 
 .method private readResolve()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 110
     iget-object p0, p0, Lorg/apache/commons/io/IOCase;->name:Ljava/lang/String;
@@ -200,7 +200,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lorg/apache/commons/io/IOCase;
-    .locals 1
+    .registers 2
 
     .line 37
     const-class v0, Lorg/apache/commons/io/IOCase;
@@ -215,7 +215,7 @@
 .end method
 
 .method public static values()[Lorg/apache/commons/io/IOCase;
-    .locals 1
+    .registers 1
 
     .line 37
     sget-object v0, Lorg/apache/commons/io/IOCase;->$VALUES:[Lorg/apache/commons/io/IOCase;
@@ -232,33 +232,33 @@
 
 # virtual methods
 .method public checkCompareTo(Ljava/lang/String;Ljava/lang/String;)I
-    .locals 0
+    .registers 3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_12
 
     .line 148
     iget-boolean p0, p0, Lorg/apache/commons/io/IOCase;->sensitive:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     invoke-virtual {p1, p2}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {p1, p2}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
 
     move-result p0
 
-    :goto_0
+    :goto_11
     return p0
 
     .line 146
-    :cond_1
+    :cond_12
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "The strings must not be null"
@@ -269,7 +269,7 @@
 .end method
 
 .method public checkEndsWith(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 6
+    .registers 9
 
     .line 196
     invoke-virtual {p2}, Ljava/lang/String;->length()I
@@ -301,33 +301,33 @@
 .end method
 
 .method public checkEquals(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 0
+    .registers 3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_12
 
     .line 166
     iget-boolean p0, p0, Lorg/apache/commons/io/IOCase;->sensitive:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_d
     invoke-virtual {p1, p2}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result p0
 
-    :goto_0
+    :goto_11
     return p0
 
     .line 164
-    :cond_1
+    :cond_12
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "The strings must not be null"
@@ -338,7 +338,7 @@
 .end method
 
 .method public checkIndexOf(Ljava/lang/String;ILjava/lang/String;)I
-    .locals 2
+    .registers 6
 
     .line 216
     invoke-virtual {p1}, Ljava/lang/String;->length()I
@@ -351,33 +351,33 @@
 
     sub-int/2addr v0, v1
 
-    if-lt v0, p2, :cond_1
+    if-lt v0, p2, :cond_17
 
-    :goto_0
-    if-gt p2, v0, :cond_1
+    :goto_b
+    if-gt p2, v0, :cond_17
 
     .line 219
     invoke-virtual {p0, p1, p2, p3}, Lorg/apache/commons/io/IOCase;->checkRegionMatches(Ljava/lang/String;ILjava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     return p2
 
-    :cond_0
+    :cond_14
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_1
+    :cond_17
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public checkRegionMatches(Ljava/lang/String;ILjava/lang/String;)Z
-    .locals 6
+    .registers 10
 
     .line 240
     iget-boolean p0, p0, Lorg/apache/commons/io/IOCase;->sensitive:Z
@@ -404,7 +404,7 @@
 .end method
 
 .method public checkStartsWith(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 6
+    .registers 9
 
     .line 181
     iget-boolean p0, p0, Lorg/apache/commons/io/IOCase;->sensitive:Z
@@ -431,7 +431,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 120
     iget-object p0, p0, Lorg/apache/commons/io/IOCase;->name:Ljava/lang/String;
@@ -440,7 +440,7 @@
 .end method
 
 .method public isCaseSensitive()Z
-    .locals 0
+    .registers 1
 
     .line 129
     iget-boolean p0, p0, Lorg/apache/commons/io/IOCase;->sensitive:Z
@@ -449,7 +449,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 251
     iget-object p0, p0, Lorg/apache/commons/io/IOCase;->name:Ljava/lang/String;

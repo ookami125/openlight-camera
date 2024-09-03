@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/ScrollingTabContainerView;Landroid/content/Context;Landroid/support/v7/app/ActionBar$Tab;Z)V
-    .locals 3
+    .registers 8
 
     .line 388
     iput-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->this$0:Landroid/support/v7/widget/ScrollingTabContainerView;
@@ -72,7 +72,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2a
 
     .line 395
     invoke-virtual {p1, v1}, Landroid/support/v7/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -82,10 +82,10 @@
     invoke-virtual {p0, p2}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 397
-    :cond_0
+    :cond_2a
     invoke-virtual {p1}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_35
 
     const p1, 0x800013
 
@@ -93,7 +93,7 @@
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->setGravity(I)V
 
     .line 403
-    :cond_1
+    :cond_35
     invoke-virtual {p0}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->update()V
 
     return-void
@@ -102,7 +102,7 @@
 
 # virtual methods
 .method public bindTab(Landroid/support/v7/app/ActionBar$Tab;)V
-    .locals 0
+    .registers 2
 
     .line 407
     iput-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTab:Landroid/support/v7/app/ActionBar$Tab;
@@ -114,7 +114,7 @@
 .end method
 
 .method public getTab()Landroid/support/v7/app/ActionBar$Tab;
-    .locals 0
+    .registers 1
 
     .line 515
     iget-object p0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTab:Landroid/support/v7/app/ActionBar$Tab;
@@ -123,7 +123,7 @@
 .end method
 
 .method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 2
 
     .line 422
     invoke-super {p0, p1}, Landroid/support/v7/widget/LinearLayoutCompat;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
@@ -141,7 +141,7 @@
 .end method
 
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
-    .locals 0
+    .registers 2
 
     .line 429
     invoke-super {p0, p1}, Landroid/support/v7/widget/LinearLayoutCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
@@ -159,7 +159,7 @@
 .end method
 
 .method public onMeasure(II)V
-    .locals 1
+    .registers 4
 
     .line 437
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat;->onMeasure(II)V
@@ -169,7 +169,7 @@
 
     iget p1, p1, Landroid/support/v7/widget/ScrollingTabContainerView;->mMaxTabWidth:I
 
-    if-lez p1, :cond_0
+    if-lez p1, :cond_20
 
     invoke-virtual {p0}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->getMeasuredWidth()I
 
@@ -179,7 +179,7 @@
 
     iget v0, v0, Landroid/support/v7/widget/ScrollingTabContainerView;->mMaxTabWidth:I
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_20
 
     .line 441
     iget-object p1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->this$0:Landroid/support/v7/widget/ScrollingTabContainerView;
@@ -194,46 +194,46 @@
 
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/LinearLayoutCompat;->onMeasure(II)V
 
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public setSelected(Z)V
-    .locals 1
+    .registers 3
 
     .line 413
     invoke-virtual {p0}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->isSelected()Z
 
     move-result v0
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 414
-    :goto_0
+    :goto_9
     invoke-super {p0, p1}, Landroid/support/v7/widget/LinearLayoutCompat;->setSelected(Z)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_14
 
     const/4 p1, 0x4
 
     .line 416
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->sendAccessibilityEvent(I)V
 
-    :cond_1
+    :cond_14
     return-void
 .end method
 
 .method public update()V
-    .locals 10
+    .registers 11
 
     .line 447
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTab:Landroid/support/v7/app/ActionBar$Tab;
@@ -247,16 +247,16 @@
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_36
 
     .line 450
     invoke-virtual {v1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    if-eq v0, p0, :cond_1
+    if-eq v0, p0, :cond_1b
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 452
     check-cast v0, Landroid/view/ViewGroup;
@@ -264,27 +264,27 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     .line 453
-    :cond_0
+    :cond_18
     invoke-virtual {p0, v1}, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->addView(Landroid/view/View;)V
 
     .line 455
-    :cond_1
+    :cond_1b
     iput-object v1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mCustomView:Landroid/view/View;
 
     .line 456
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_26
 
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
     .line 457
-    :cond_2
+    :cond_26
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_df
 
     .line 458
     iget-object v0, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
@@ -296,13 +296,13 @@
 
     invoke-virtual {p0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    goto/16 :goto_3
+    goto/16 :goto_df
 
     .line 462
-    :cond_3
+    :cond_36
     iget-object v1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mCustomView:Landroid/view/View;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_41
 
     .line 463
     iget-object v1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mCustomView:Landroid/view/View;
@@ -313,7 +313,7 @@
     iput-object v3, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mCustomView:Landroid/view/View;
 
     .line 467
-    :cond_4
+    :cond_41
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar$Tab;->getIcon()Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
@@ -329,12 +329,12 @@
 
     const/4 v7, -0x2
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_76
 
     .line 471
     iget-object v8, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
 
-    if-nez v8, :cond_5
+    if-nez v8, :cond_6b
 
     .line 472
     new-instance v8, Landroid/support/v7/widget/AppCompatImageView;
@@ -363,7 +363,7 @@
     iput-object v8, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
 
     .line 480
-    :cond_5
+    :cond_6b
     iget-object v8, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
 
     invoke-virtual {v8, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -373,13 +373,13 @@
 
     invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_84
 
     .line 482
-    :cond_6
+    :cond_76
     iget-object v1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_84
 
     .line 483
     iget-object v1, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
@@ -392,20 +392,20 @@
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     .line 487
-    :cond_7
-    :goto_0
+    :cond_84
+    :goto_84
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
     xor-int/lit8 v1, v1, 0x1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_ba
 
     .line 489
     iget-object v2, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_af
 
     .line 490
     new-instance v2, Landroid/support/v7/widget/AppCompatTextView;
@@ -441,7 +441,7 @@
     iput-object v2, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
     .line 500
-    :cond_8
+    :cond_af
     iget-object v2, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
@@ -451,13 +451,13 @@
 
     invoke-virtual {v2, v6}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_c8
 
     .line 502
-    :cond_9
+    :cond_ba
     iget-object v4, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_c8
 
     .line 503
     iget-object v4, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mTextView:Landroid/widget/TextView;
@@ -470,11 +470,11 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 507
-    :cond_a
-    :goto_1
+    :cond_c8
+    :goto_c8
     iget-object v2, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_d5
 
     .line 508
     iget-object v2, p0, Landroid/support/v7/widget/ScrollingTabContainerView$TabView;->mIconView:Landroid/widget/ImageView;
@@ -485,21 +485,21 @@
 
     invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_b
-    if-eqz v1, :cond_c
+    :cond_d5
+    if-eqz v1, :cond_d8
 
-    goto :goto_2
+    goto :goto_dc
 
     .line 510
-    :cond_c
+    :cond_d8
     invoke-virtual {v0}, Landroid/support/v7/app/ActionBar$Tab;->getContentDescription()Ljava/lang/CharSequence;
 
     move-result-object v3
 
-    :goto_2
+    :goto_dc
     invoke-static {p0, v3}, Landroid/support/v7/widget/TooltipCompat;->setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    :cond_d
-    :goto_3
+    :cond_df
+    :goto_df
     return-void
 .end method

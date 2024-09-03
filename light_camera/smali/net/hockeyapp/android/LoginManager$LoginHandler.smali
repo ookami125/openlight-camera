@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 257
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
 
     .line 263
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
@@ -69,19 +69,20 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_15
 
     return-void
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_15
+    if-nez p1, :cond_1b
 
     .line 272
+    # invokes: Lnet/hockeyapp/android/LoginManager;->startLoginActivity(Landroid/content/Context;)V
     invoke-static {p0}, Lnet/hockeyapp/android/LoginManager;->access$000(Landroid/content/Context;)V
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_1
+    :cond_1b
     const-string p0, "HockeyAuth"
 
     const-string p1, "We authenticated or verified successfully"
@@ -89,6 +90,6 @@
     .line 276
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->verbose(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
+    :goto_22
     return-void
 .end method

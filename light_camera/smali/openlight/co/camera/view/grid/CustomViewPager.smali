@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     .line 23
     invoke-direct {p0, p1}, Landroid/support/v4/view/ViewPager;-><init>(Landroid/content/Context;)V
@@ -38,7 +38,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 27
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/ViewPager;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public getStartPinchTime()J
-    .locals 2
+    .registers 3
 
     .line 19
     iget-wide v0, p0, Lopenlight/co/camera/view/grid/CustomViewPager;->mStartPinchTime:J
@@ -68,43 +68,43 @@
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x0
 
     .line 38
-    :try_start_0
+    :try_start_1
     iget-boolean v1, p0, Lopenlight/co/camera/view/grid/CustomViewPager;->isExifMiniShow:Z
 
     const/4 v2, 0x1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_13
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result v1
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_13
 
     invoke-super {p0, p1}, Landroid/support/v4/view/ViewPager;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_10} :catch_14
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_13
 
     move v0, v2
 
-    :cond_0
+    :cond_13
     return v0
 
-    :catch_0
+    :catch_14
     return v0
 .end method
 
 .method public setCurrentItem(I)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public setExifMiniShow(Z)V
-    .locals 0
+    .registers 2
 
     .line 15
     iput-boolean p1, p0, Lopenlight/co/camera/view/grid/CustomViewPager;->isExifMiniShow:Z

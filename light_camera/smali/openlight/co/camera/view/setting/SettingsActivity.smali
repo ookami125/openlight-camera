@@ -20,13 +20,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 20
     invoke-direct {p0}, Lopenlight/co/camera/BaseActivity;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method private hideSystemUI()V
-    .locals 0
+    .registers 1
 
     .line 92
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsActivity;->getWindow()Landroid/view/Window;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public onBackPressed()V
-    .locals 2
+    .registers 3
 
     .line 53
     sget-object v0, Lopenlight/co/camera/view/setting/SettingsActivity;->TAG:Ljava/lang/String;
@@ -82,25 +82,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 57
     check-cast v0, Lopenlight/co/camera/view/setting/SettingsFragment;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/setting/SettingsFragment;->onBackPressed()V
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 59
-    :cond_0
+    :cond_19
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onBackPressed()V
 
-    :goto_0
+    :goto_1c
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 32
     invoke-super {p0, p1}, Lopenlight/co/camera/BaseActivity;->onCreate(Landroid/os/Bundle;)V
@@ -119,7 +119,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3a
 
     .line 42
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsActivity;->getIntent()Landroid/content/Intent;
@@ -163,29 +163,29 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentTransaction;->commit()I
 
-    :cond_0
+    :cond_3a
     return-void
 .end method
 
 .method public onHardKeyEvent(Lopenlight/co/camera/listener/HardKeyManager$KeyType;Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
-    .locals 0
+    .registers 3
 
     .line 82
     sget-object p1, Lopenlight/co/camera/listener/HardKeyManager$KeyAction;->UP:Lopenlight/co/camera/listener/HardKeyManager$KeyAction;
 
-    if-ne p2, p1, :cond_0
+    if-ne p2, p1, :cond_7
 
     .line 83
     invoke-virtual {p0}, Lopenlight/co/camera/view/setting/SettingsActivity;->finish()V
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public onPause()V
-    .locals 1
+    .registers 2
 
     .line 72
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onPause()V
@@ -199,7 +199,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 65
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onResume()V

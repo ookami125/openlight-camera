@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
 
     .line 368
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$3;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -33,24 +33,26 @@
 
 # virtual methods
 .method public onLongPressing()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onSingleTap()V
-    .locals 2
+    .registers 3
 
     .line 371
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$3;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCaptureListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
     invoke-static {v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$1000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 372
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$800()Ljava/lang/String;
 
     move-result-object v0
@@ -62,6 +64,7 @@
     .line 374
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$3;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCaptureListener:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
     invoke-static {v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$1000(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$CaptureListener;
 
     move-result-object v0
@@ -71,6 +74,7 @@
     .line 375
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$3;->this$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
+    # getter for: Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
     invoke-static {p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->access$600(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;)Lopenlight/co/camera/metrics/Metrics;
 
     move-result-object p0
@@ -79,6 +83,6 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_25
     return-void
 .end method

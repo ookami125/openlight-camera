@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 30
     new-instance v0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpenerFactory;
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;Lcom/bumptech/glide/load/data/DataFetcher;II)V
-    .locals 7
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,7 +110,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/net/Uri;Lcom/bumptech/glide/load/data/DataFetcher;IILcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpenerFactory;)V
-    .locals 0
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -149,7 +149,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/net/Uri;)Z
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-static {p0}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->isMediaStoreUri(Landroid/net/Uri;)Z
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/net/Uri;)Z
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-static {p0}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->isMediaStoreVideo(Landroid/net/Uri;)Z
@@ -171,9 +171,9 @@
 .end method
 
 .method private static isMediaStoreUri(Landroid/net/Uri;)Z
-    .locals 2
+    .registers 3
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     const-string v0, "content"
 
@@ -186,7 +186,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     const-string v0, "media"
 
@@ -198,28 +198,28 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1c
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1d
     return p0
 .end method
 
 .method private static isMediaStoreVideo(Landroid/net/Uri;)Z
-    .locals 1
+    .registers 2
 
     .line 120
     invoke-static {p0}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->isMediaStoreUri(Landroid/net/Uri;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     invoke-virtual {p0}, Landroid/net/Uri;->getPathSegments()Ljava/util/List;
 
@@ -231,21 +231,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method private openThumbInputStream(Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpener;)Ljava/io/InputStream;
-    .locals 3
+    .registers 5
 
     .line 73
     :try_start_0
@@ -256,12 +256,12 @@
     invoke-virtual {p1, v0, v1}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpener;->open(Landroid/content/Context;Landroid/net/Uri;)Ljava/io/InputStream;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_8} :catch_9
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_0
+    :catch_9
     move-exception v0
 
     const-string v1, "MediaStoreThumbFetcher"
@@ -273,7 +273,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     const-string v1, "MediaStoreThumbFetcher"
 
@@ -282,13 +282,13 @@
     .line 76
     invoke-static {v1, v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1b
     const/4 v1, -0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_27
 
     .line 82
     iget-object v2, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->context:Landroid/content/Context;
@@ -299,55 +299,55 @@
 
     move-result p0
 
-    goto :goto_1
+    goto :goto_28
 
-    :cond_1
+    :cond_27
     move p0, v1
 
-    :goto_1
-    if-eq p0, v1, :cond_2
+    :goto_28
+    if-eq p0, v1, :cond_30
 
     .line 86
     new-instance p1, Lcom/bumptech/glide/load/data/ExifOrientationStream;
 
     invoke-direct {p1, v0, p0}, Lcom/bumptech/glide/load/data/ExifOrientationStream;-><init>(Ljava/io/InputStream;I)V
 
-    goto :goto_2
+    goto :goto_31
 
-    :cond_2
+    :cond_30
     move-object p1, v0
 
-    :goto_2
+    :goto_31
     return-object p1
 .end method
 
 
 # virtual methods
 .method public cancel()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public cleanup()V
-    .locals 1
+    .registers 2
 
     .line 93
     iget-object v0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->inputStream:Ljava/io/InputStream;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 95
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->inputStream:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_9} :catch_9
 
     .line 100
-    :catch_0
-    :cond_0
+    :catch_9
+    :cond_9
     iget-object p0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->defaultFetcher:Lcom/bumptech/glide/load/data/DataFetcher;
 
     invoke-interface {p0}, Lcom/bumptech/glide/load/data/DataFetcher;->cleanup()V
@@ -356,7 +356,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 105
     iget-object p0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->mediaStoreUri:Landroid/net/Uri;
@@ -369,7 +369,7 @@
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;)Ljava/io/InputStream;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -389,7 +389,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 60
     invoke-direct {p0, v0}, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->openThumbInputStream(Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher$ThumbnailStreamOpener;)Ljava/io/InputStream;
@@ -399,10 +399,10 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->inputStream:Ljava/io/InputStream;
 
     .line 63
-    :cond_0
+    :cond_14
     iget-object v0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->inputStream:Ljava/io/InputStream;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_22
 
     .line 64
     iget-object v0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->defaultFetcher:Lcom/bumptech/glide/load/data/DataFetcher;
@@ -416,14 +416,14 @@
     iput-object p1, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->inputStream:Ljava/io/InputStream;
 
     .line 67
-    :cond_1
+    :cond_22
     iget-object p0, p0, Lcom/bumptech/glide/load/data/MediaStoreThumbFetcher;->inputStream:Ljava/io/InputStream;
 
     return-object p0
 .end method
 
 .method public bridge synthetic loadData(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

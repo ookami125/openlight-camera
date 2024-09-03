@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/ViewPager;)V
-    .locals 0
+    .registers 2
 
     .line 422
     iput-object p1, p0, Landroid/support/v4/view/ViewPager$4;->this$0:Landroid/support/v4/view/ViewPager;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
-    .locals 5
+    .registers 8
 
     .line 430
     invoke-static {p1, p2}, Landroid/support/v4/view/ViewCompat;->onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
@@ -57,12 +57,12 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     return-object p1
 
     .line 443
-    :cond_0
+    :cond_b
     iget-object p2, p0, Landroid/support/v4/view/ViewPager$4;->mTempRect:Landroid/graphics/Rect;
 
     .line 444
@@ -102,8 +102,8 @@
 
     move-result v1
 
-    :goto_0
-    if-ge v0, v1, :cond_1
+    :goto_2c
+    if-ge v0, v1, :cond_6b
 
     .line 450
     iget-object v2, p0, Landroid/support/v4/view/ViewPager$4;->this$0:Landroid/support/v4/view/ViewPager;
@@ -171,10 +171,10 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
     .line 465
-    :cond_1
+    :cond_6b
     iget p0, p2, Landroid/graphics/Rect;->left:I
 
     iget v0, p2, Landroid/graphics/Rect;->top:I

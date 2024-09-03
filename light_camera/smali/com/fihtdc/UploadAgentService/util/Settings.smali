@@ -18,12 +18,12 @@
 
 .field public static final VERSION:Ljava/lang/String; = "7.0010.05(Evenwell_s)"
 
-.field public static final isDebug:Z
+.field public static final isDebug:Z = false
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

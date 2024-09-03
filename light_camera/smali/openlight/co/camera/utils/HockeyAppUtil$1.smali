@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/Looper;)V
-    .locals 0
+    .registers 2
 
     .line 74
     invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
 
     .line 77
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -43,11 +43,11 @@
 
     const/4 v0, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_2e
 
-    goto :goto_0
+    goto :goto_2c
 
-    :pswitch_0
+    :pswitch_f
     const p1, 0x7f0e0048
 
     .line 84
@@ -62,9 +62,9 @@
     .line 85
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    goto :goto_0
+    goto :goto_2c
 
-    :pswitch_1
+    :pswitch_1e
     const p1, 0x7f0e0049
 
     .line 80
@@ -79,14 +79,14 @@
     .line 81
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    :goto_0
+    :goto_2c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_f
     .end packed-switch
 .end method

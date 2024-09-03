@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Landroid/content/Context;Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/manager/RequestTracker;Lcom/bumptech/glide/manager/Lifecycle;Lcom/bumptech/glide/RequestManager$OptionsApplier;)V
-    .locals 8
+    .registers 17
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -122,7 +122,7 @@
 .end method
 
 .method private static buildProvider(Lcom/bumptech/glide/Glide;Lcom/bumptech/glide/load/model/ModelLoader;Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)Lcom/bumptech/glide/provider/FixedLoadProvider;
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -154,16 +154,16 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
-    if-nez p5, :cond_1
+    :cond_6
+    if-nez p5, :cond_c
 
     .line 45
     invoke-virtual {p0, p3, p4}, Lcom/bumptech/glide/Glide;->buildTranscoder(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
@@ -171,7 +171,7 @@
     move-result-object p5
 
     .line 47
-    :cond_1
+    :cond_c
     const-class p4, Lcom/bumptech/glide/load/model/ImageVideoWrapper;
 
     invoke-virtual {p0, p4, p3}, Lcom/bumptech/glide/Glide;->buildDataProvider(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/provider/DataLoadProvider;
@@ -192,7 +192,7 @@
 .end method
 
 .method private getDownloadOnlyRequest()Lcom/bumptech/glide/GenericTranscodeRequest;
-    .locals 9
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -237,7 +237,7 @@
 
 # virtual methods
 .method public asBitmap()Lcom/bumptech/glide/BitmapTypeRequest;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -269,7 +269,7 @@
 .end method
 
 .method public asGif()Lcom/bumptech/glide/GifTypeRequest;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -299,7 +299,7 @@
 .end method
 
 .method public downloadOnly(II)Lcom/bumptech/glide/request/FutureTarget;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)",
@@ -322,7 +322,7 @@
 .end method
 
 .method public downloadOnly(Lcom/bumptech/glide/request/target/Target;)Lcom/bumptech/glide/request/target/Target;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Y::",

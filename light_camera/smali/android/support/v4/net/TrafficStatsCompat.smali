@@ -18,14 +18,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 70
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 71
     new-instance v0, Landroid/support/v4/net/TrafficStatsCompat$TrafficStatsCompatApi24Impl;
@@ -34,22 +34,22 @@
 
     sput-object v0, Landroid/support/v4/net/TrafficStatsCompat;->IMPL:Landroid/support/v4/net/TrafficStatsCompat$TrafficStatsCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 73
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/v4/net/TrafficStatsCompat$TrafficStatsCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/net/TrafficStatsCompat$TrafficStatsCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/net/TrafficStatsCompat;->IMPL:Landroid/support/v4/net/TrafficStatsCompat$TrafficStatsCompatBaseImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 191
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -58,7 +58,7 @@
 .end method
 
 .method public static clearThreadStatsTag()V
-    .locals 0
+    .registers 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public static getThreadStatsTag()I
-    .locals 1
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -82,7 +82,7 @@
 .end method
 
 .method public static incrementOperationCount(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -93,7 +93,7 @@
 .end method
 
 .method public static incrementOperationCount(II)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -104,7 +104,7 @@
 .end method
 
 .method public static setThreadStatsTag(I)V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -115,7 +115,7 @@
 .end method
 
 .method public static tagDatagramSocket(Ljava/net/DatagramSocket;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -131,7 +131,7 @@
 .end method
 
 .method public static tagSocket(Ljava/net/Socket;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -148,7 +148,7 @@
 .end method
 
 .method public static untagDatagramSocket(Ljava/net/DatagramSocket;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;
@@ -164,7 +164,7 @@
 .end method
 
 .method public static untagSocket(Ljava/net/Socket;)V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/net/SocketException;

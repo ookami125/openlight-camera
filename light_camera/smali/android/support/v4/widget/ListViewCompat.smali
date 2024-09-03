@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static canScrollList(Landroid/widget/ListView;I)Z
-    .locals 4
+    .registers 6
     .param p0    # Landroid/widget/ListView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -25,7 +25,7 @@
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 68
     invoke-virtual {p0, p1}, Landroid/widget/ListView;->canScrollList(I)Z
@@ -35,26 +35,26 @@
     return p0
 
     .line 71
-    :cond_0
+    :cond_b
     invoke-virtual {p0}, Landroid/widget/ListView;->getChildCount()I
 
     move-result v0
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     return v1
 
     .line 76
-    :cond_1
+    :cond_13
     invoke-virtual {p0}, Landroid/widget/ListView;->getFirstVisiblePosition()I
 
     move-result v2
 
     const/4 v3, 0x1
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_38
 
     add-int/lit8 p1, v0, -0x1
 
@@ -74,7 +74,7 @@
 
     move-result v0
 
-    if-lt v2, v0, :cond_2
+    if-lt v2, v0, :cond_36
 
     .line 81
     invoke-virtual {p0}, Landroid/widget/ListView;->getHeight()I
@@ -87,16 +87,16 @@
 
     sub-int/2addr v0, p0
 
-    if-le p1, v0, :cond_3
+    if-le p1, v0, :cond_37
 
-    :cond_2
+    :cond_36
     move v1, v3
 
-    :cond_3
+    :cond_37
     return v1
 
     .line 83
-    :cond_4
+    :cond_38
     invoke-virtual {p0, v1}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
 
     move-result-object p1
@@ -105,24 +105,24 @@
 
     move-result p1
 
-    if-gtz v2, :cond_5
+    if-gtz v2, :cond_48
 
     .line 84
     invoke-virtual {p0}, Landroid/widget/ListView;->getListPaddingTop()I
 
     move-result p0
 
-    if-ge p1, p0, :cond_6
+    if-ge p1, p0, :cond_49
 
-    :cond_5
+    :cond_48
     move v1, v3
 
-    :cond_6
+    :cond_49
     return v1
 .end method
 
 .method public static scrollListBy(Landroid/widget/ListView;I)V
-    .locals 2
+    .registers 4
     .param p0    # Landroid/widget/ListView;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -133,26 +133,26 @@
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 38
     invoke-virtual {p0, p1}, Landroid/widget/ListView;->scrollListBy(I)V
 
-    goto :goto_0
+    goto :goto_22
 
     .line 41
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroid/widget/ListView;->getFirstVisiblePosition()I
 
     move-result v0
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_12
 
     return-void
 
-    :cond_1
+    :cond_12
     const/4 v1, 0x0
 
     .line 46
@@ -160,12 +160,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_1a
 
     return-void
 
     .line 51
-    :cond_2
+    :cond_1a
     invoke-virtual {v1}, Landroid/view/View;->getTop()I
 
     move-result v1
@@ -175,6 +175,6 @@
     .line 52
     invoke-virtual {p0, v0, v1}, Landroid/widget/ListView;->setSelectionFromTop(II)V
 
-    :goto_0
+    :goto_22
     return-void
 .end method

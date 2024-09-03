@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lnet/hockeyapp/android/metrics/Channel;)V
-    .locals 0
+    .registers 2
 
     .line 200
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/Channel$SynchronizeChannelTask;->this$0:Lnet/hockeyapp/android/metrics/Channel;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 205
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Channel$SynchronizeChannelTask;->this$0:Lnet/hockeyapp/android/metrics/Channel;

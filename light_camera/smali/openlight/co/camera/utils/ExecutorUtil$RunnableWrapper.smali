@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Runnable;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lopenlight/co/camera/utils/ExecutorUtil$RunnableWrapper;->mName:Ljava/lang/String;
@@ -59,7 +59,7 @@
 .end method
 
 .method public getRunnable()Ljava/lang/Runnable;
-    .locals 0
+    .registers 1
 
     .line 60
     iget-object p0, p0, Lopenlight/co/camera/utils/ExecutorUtil$RunnableWrapper;->mRunnable:Ljava/lang/Runnable;
@@ -68,7 +68,7 @@
 .end method
 
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/utils/ExecutorUtil$RunnableWrapper;->mRunnable:Ljava/lang/Runnable;

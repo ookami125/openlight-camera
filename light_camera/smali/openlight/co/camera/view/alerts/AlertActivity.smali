@@ -11,13 +11,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/BaseActivity;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method private hideSystemUI()V
-    .locals 0
+    .registers 1
 
     .line 60
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/AlertActivity;->getWindow()Landroid/view/Window;
@@ -46,13 +46,13 @@
 
 # virtual methods
 .method public onBackPressed()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 1
+    .registers 3
 
     .line 28
     invoke-super {p0, p1}, Lopenlight/co/camera/BaseActivity;->onCreate(Landroid/os/Bundle;)V
@@ -78,7 +78,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4a
 
     .line 33
     sget-object v0, Lopenlight/co/camera/view/alerts/LowBatteryFragment;->TAG:Ljava/lang/String;
@@ -87,37 +87,37 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_27
 
     .line 34
     new-instance p1, Lopenlight/co/camera/view/alerts/LowBatteryFragment;
 
     invoke-direct {p1}, Lopenlight/co/camera/view/alerts/LowBatteryFragment;-><init>()V
 
-    goto :goto_0
+    goto :goto_36
 
     .line 35
-    :cond_0
+    :cond_27
     sget-object v0, Lopenlight/co/camera/view/alerts/ThermalShutdownFragment;->TAG:Ljava/lang/String;
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_35
 
     .line 36
     new-instance p1, Lopenlight/co/camera/view/alerts/ThermalShutdownFragment;
 
     invoke-direct {p1}, Lopenlight/co/camera/view/alerts/ThermalShutdownFragment;-><init>()V
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_35
     const/4 p1, 0x0
 
-    :goto_0
-    if-eqz p1, :cond_2
+    :goto_36
+    if-eqz p1, :cond_4a
 
     .line 39
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/AlertActivity;->getFragmentManager()Landroid/app/FragmentManager;
@@ -137,12 +137,12 @@
     .line 40
     invoke-virtual {p0}, Landroid/app/FragmentTransaction;->commit()I
 
-    :cond_2
+    :cond_4a
     return-void
 .end method
 
 .method public onResume()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onResume()V

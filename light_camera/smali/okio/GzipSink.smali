@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Sink;)V
-    .locals 3
+    .registers 5
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 
     iput-object v0, p0, Lokio/GzipSink;->crc:Ljava/util/zip/CRC32;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2a
 
     .line 58
     new-instance v0, Ljava/util/zip/Deflater;
@@ -69,7 +69,7 @@
     return-void
 
     .line 57
-    :cond_0
+    :cond_2a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "sink == null"
@@ -80,17 +80,17 @@
 .end method
 
 .method private updateCrc(Lokio/Buffer;J)V
-    .locals 4
+    .registers 8
 
     .line 139
     iget-object p1, p1, Lokio/Buffer;->head:Lokio/Segment;
 
-    :goto_0
+    :goto_2
     const-wide/16 v0, 0x0
 
     cmp-long v0, p2, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_21
 
     .line 140
     iget v0, p1, Lokio/Segment;->limit:I
@@ -123,14 +123,14 @@
     .line 139
     iget-object p1, p1, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
+    :cond_21
     return-void
 .end method
 
 .method private writeFooter()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -167,7 +167,7 @@
 .end method
 
 .method private writeHeader()V
-    .locals 1
+    .registers 2
 
     .line 123
     iget-object p0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
@@ -206,7 +206,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -216,84 +216,84 @@
     .line 82
     iget-boolean v0, p0, Lokio/GzipSink;->closed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     .line 91
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Lokio/GzipSink;->deflaterSink:Lokio/DeflaterSink;
 
     invoke-virtual {v1}, Lokio/DeflaterSink;->finishDeflate()V
 
     .line 92
     invoke-direct {p0}, Lokio/GzipSink;->writeFooter()V
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_e
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_e} :catch_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :catch_0
+    :catch_f
     move-exception v0
 
     .line 98
-    :goto_0
-    :try_start_1
+    :goto_10
+    :try_start_10
     iget-object v1, p0, Lokio/GzipSink;->deflater:Ljava/util/zip/Deflater;
 
     invoke-virtual {v1}, Ljava/util/zip/Deflater;->end()V
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_15
+    .catch Ljava/lang/Throwable; {:try_start_10 .. :try_end_15} :catch_16
 
-    goto :goto_1
+    goto :goto_1a
 
-    :catch_1
+    :catch_16
     move-exception v1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1a
 
     move-object v0, v1
 
     .line 104
-    :cond_1
-    :goto_1
-    :try_start_2
+    :cond_1a
+    :goto_1a
+    :try_start_1a
     iget-object v1, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
 
     invoke-interface {v1}, Lokio/BufferedSink;->close()V
-    :try_end_2
-    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_1f
+    .catch Ljava/lang/Throwable; {:try_start_1a .. :try_end_1f} :catch_20
 
-    goto :goto_2
+    goto :goto_24
 
-    :catch_2
+    :catch_20
     move-exception v1
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_24
 
     move-object v0, v1
 
-    :cond_2
-    :goto_2
+    :cond_24
+    :goto_24
     const/4 v1, 0x1
 
     .line 108
     iput-boolean v1, p0, Lokio/GzipSink;->closed:Z
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     .line 110
     invoke-static {v0}, Lokio/Util;->sneakyRethrow(Ljava/lang/Throwable;)V
 
-    :cond_3
+    :cond_2c
     return-void
 .end method
 
 .method public deflater()Ljava/util/zip/Deflater;
-    .locals 0
+    .registers 1
 
     .line 118
     iget-object p0, p0, Lokio/GzipSink;->deflater:Ljava/util/zip/Deflater;
@@ -302,7 +302,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -318,7 +318,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 78
     iget-object p0, p0, Lokio/GzipSink;->sink:Lokio/BufferedSink;
@@ -331,7 +331,7 @@
 .end method
 
 .method public write(Lokio/Buffer;J)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -342,14 +342,14 @@
 
     cmp-long v0, p2, v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_12
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-void
 
     .line 69
-    :cond_0
+    :cond_9
     invoke-direct {p0, p1, p2, p3}, Lokio/GzipSink;->updateCrc(Lokio/Buffer;J)V
 
     .line 70
@@ -360,7 +360,7 @@
     return-void
 
     .line 66
-    :cond_1
+    :cond_12
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;

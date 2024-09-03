@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/view/setting/SettingsFragment;Lopenlight/co/camera/view/setting/SettingModel;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final onOptionItemSelected(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/-$$Lambda$SettingsFragment$RAWhPjyB_3Niqxojczr5YZvhqek;->f$0:Lopenlight/co/camera/view/setting/SettingsFragment;
 

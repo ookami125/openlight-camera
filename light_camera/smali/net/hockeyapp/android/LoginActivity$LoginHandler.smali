@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/app/Activity;)V
-    .locals 1
+    .registers 3
 
     .line 215
     invoke-direct {p0}, Landroid/os/Handler;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 1
+    .registers 3
 
     .line 222
     iget-object p0, p0, Lnet/hockeyapp/android/LoginActivity$LoginHandler;->mWeakActivity:Ljava/lang/ref/WeakReference;
@@ -57,12 +57,12 @@
 
     check-cast p0, Landroid/app/Activity;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_b
 
     return-void
 
     .line 227
-    :cond_0
+    :cond_b
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
 
     move-result-object p1
@@ -74,7 +74,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     .line 231
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
@@ -82,16 +82,16 @@
     .line 233
     sget-object p0, Lnet/hockeyapp/android/LoginManager;->listener:Lnet/hockeyapp/android/LoginManagerListener;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2e
 
     .line 234
     sget-object p0, Lnet/hockeyapp/android/LoginManager;->listener:Lnet/hockeyapp/android/LoginManagerListener;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/LoginManagerListener;->onSuccess()V
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_24
     const-string p1, "Login failed. Check your credentials."
 
     const/4 v0, 0x1
@@ -104,7 +104,7 @@
     .line 238
     invoke-virtual {p0}, Landroid/widget/Toast;->show()V
 
-    :cond_2
-    :goto_0
+    :cond_2e
+    :goto_2e
     return-void
 .end method

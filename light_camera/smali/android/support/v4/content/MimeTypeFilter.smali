@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static matches(Ljava/lang/String;[Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -26,11 +26,11 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return-object v0
 
-    :cond_0
+    :cond_4
     const-string v1, "/"
 
     .line 96
@@ -43,8 +43,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_c
+    if-ge v2, v1, :cond_20
 
     aget-object v3, p1, v2
 
@@ -60,21 +60,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1d
 
     return-object v3
 
-    :cond_1
+    :cond_1d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_2
+    :cond_20
     return-object v0
 .end method
 
 .method public static matches([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0    # [Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -86,11 +86,11 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return-object v0
 
-    :cond_0
+    :cond_4
     const-string v1, "/"
 
     .line 117
@@ -103,8 +103,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_2
+    :goto_c
+    if-ge v2, v1, :cond_20
 
     aget-object v3, p0, v2
 
@@ -120,21 +120,21 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1d
 
     return-object v3
 
-    :cond_1
+    :cond_1d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_2
+    :cond_20
     return-object v0
 .end method
 
 .method public static matches(Ljava/lang/String;Ljava/lang/String;)Z
-    .locals 1
+    .registers 3
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -144,13 +144,13 @@
         .end annotation
     .end param
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_0
+    :cond_4
     const-string v0, "/"
 
     .line 80
@@ -174,7 +174,7 @@
 .end method
 
 .method public static matchesMany([Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
-    .locals 5
+    .registers 7
     .param p0    # [Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -186,7 +186,7 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
     .line 135
     new-array p0, v0, [Ljava/lang/String;
@@ -194,7 +194,7 @@
     return-object p0
 
     .line 138
-    :cond_0
+    :cond_6
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -209,8 +209,8 @@
     .line 140
     array-length v2, p0
 
-    :goto_0
-    if-ge v0, v2, :cond_2
+    :goto_12
+    if-ge v0, v2, :cond_28
 
     aget-object v3, p0, v0
 
@@ -226,18 +226,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_25
 
     .line 143
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_25
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
     .line 147
-    :cond_2
+    :cond_28
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result p0
@@ -254,7 +254,7 @@
 .end method
 
 .method private static mimeTypeAgainstFilter([Ljava/lang/String;[Ljava/lang/String;)Z
-    .locals 4
+    .registers 6
     .param p0    # [Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -269,7 +269,7 @@
 
     const/4 v1, 0x2
 
-    if-ne v0, v1, :cond_4
+    if-ne v0, v1, :cond_4d
 
     const/4 v0, 0x0
 
@@ -280,7 +280,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_45
 
     const/4 v2, 0x1
 
@@ -290,16 +290,16 @@
 
     move-result v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_45
 
     .line 56
     array-length v3, p0
 
-    if-eq v3, v1, :cond_0
+    if-eq v3, v1, :cond_1a
 
     return v0
 
-    :cond_0
+    :cond_1a
     const-string v1, "*"
 
     .line 59
@@ -309,7 +309,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     aget-object v1, p1, v0
 
@@ -320,11 +320,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2f
 
     return v0
 
-    :cond_1
+    :cond_2f
     const-string v1, "*"
 
     .line 63
@@ -334,7 +334,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_44
 
     aget-object p1, p1, v2
 
@@ -345,15 +345,15 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_44
 
     return v0
 
-    :cond_2
+    :cond_44
     return v2
 
     .line 53
-    :cond_3
+    :cond_45
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Ill-formatted MIME type filter. Type or subtype empty."
@@ -363,7 +363,7 @@
     throw p0
 
     .line 49
-    :cond_4
+    :cond_4d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Ill-formatted MIME type filter. Must be type/subtype."

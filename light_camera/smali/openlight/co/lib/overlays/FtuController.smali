@@ -51,7 +51,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;II)V
-    .locals 1
+    .registers 6
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -96,7 +96,7 @@
 .end method
 
 .method private animateOff(Landroid/view/View;ILjava/lang/Runnable;)V
-    .locals 4
+    .registers 8
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -146,7 +146,7 @@
 .end method
 
 .method private animateOff(Landroid/view/View;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 4
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -165,24 +165,24 @@
 .end method
 
 .method private done()V
-    .locals 1
+    .registers 2
 
     .line 291
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 292
     iget-object p0, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
 
     invoke-interface {p0}, Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;->done()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static synthetic lambda$show$0(Lopenlight/co/lib/overlays/FtuController;Landroid/view/ViewGroup;)V
-    .locals 1
+    .registers 3
 
     .line 128
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mContainer:Landroid/view/ViewGroup;
@@ -192,19 +192,19 @@
     .line 129
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mScreensRoot:Landroid/view/ViewGroup;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_c
 
     const/4 p1, 0x0
 
     .line 131
     iput-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mScreensRoot:Landroid/view/ViewGroup;
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method private navigateBy(I)V
-    .locals 1
+    .registers 3
 
     .line 301
     iget v0, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
@@ -217,7 +217,7 @@
 .end method
 
 .method private screenAt(I)Lopenlight/co/lib/customviews/FtuScreen;
-    .locals 0
+    .registers 2
 
     .line 318
     iget-object p0, p0, Lopenlight/co/lib/overlays/FtuController;->mScreens:Ljava/util/ArrayList;
@@ -232,7 +232,7 @@
 .end method
 
 .method private showScreen(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 309
     invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -245,7 +245,7 @@
 .end method
 
 .method private transitionView(Landroid/view/View;Landroid/view/View;Ljava/lang/Runnable;)V
-    .locals 3
+    .registers 7
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -255,7 +255,7 @@
         .end annotation
     .end param
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2d
 
     const/4 v0, 0x0
 
@@ -270,7 +270,7 @@
     .line 217
     invoke-direct {p0, p2}, Lopenlight/co/lib/overlays/FtuController;->showScreen(Landroid/view/View;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     const/16 v0, 0x12c
 
@@ -278,7 +278,7 @@
     invoke-direct {p0, p1, v0, p3}, Lopenlight/co/lib/overlays/FtuController;->animateOff(Landroid/view/View;ILjava/lang/Runnable;)V
 
     .line 222
-    :cond_0
+    :cond_14
     invoke-virtual {p2}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object p2
@@ -302,23 +302,23 @@
 
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_2d
+    if-eqz p1, :cond_32
 
     .line 242
     invoke-direct {p0, p1, p3}, Lopenlight/co/lib/overlays/FtuController;->animateOff(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    :cond_2
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 .end method
 
 
 # virtual methods
 .method public getCurrentScreen()I
-    .locals 0
+    .registers 1
 
     .line 147
     iget p0, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
@@ -327,52 +327,52 @@
 .end method
 
 .method public onButtonClicked(I)V
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_4
 
     const/4 p1, -0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 p1, 0x1
 
     .line 188
-    :goto_0
+    :goto_5
     invoke-direct {p0, p1}, Lopenlight/co/lib/overlays/FtuController;->navigateBy(I)V
 
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 193
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mDone:Landroid/view/View;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_d
 
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 194
     iget-object p0, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
 
     invoke-interface {p0}, Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;->done()V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public onRotate()V
-    .locals 1
+    .registers 2
 
     .line 199
     iget-boolean v0, p0, Lopenlight/co/lib/overlays/FtuController;->mIsShown:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     const/4 v0, 0x0
 
@@ -384,26 +384,26 @@
     .line 201
     invoke-virtual {p0, v0}, Lopenlight/co/lib/overlays/FtuController;->show(Z)V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setCurrentScreen(I)V
-    .locals 3
+    .registers 5
 
-    if-gez p1, :cond_0
+    if-gez p1, :cond_3
 
     return-void
 
     .line 160
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mScreens:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lt p1, v0, :cond_1
+    if-lt p1, v0, :cond_f
 
     .line 161
     invoke-direct {p0}, Lopenlight/co/lib/overlays/FtuController;->done()V
@@ -411,10 +411,10 @@
     return-void
 
     .line 166
-    :cond_1
+    :cond_f
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_20
 
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
 
@@ -425,21 +425,21 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1e
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_2
+    :cond_1e
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_3
-    :goto_0
+    :cond_20
+    :goto_20
     const/4 v0, 0x1
 
-    :goto_1
-    if-eqz v0, :cond_4
+    :goto_21
+    if-eqz v0, :cond_33
 
     .line 169
     iget v0, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
@@ -459,12 +459,12 @@
     .line 170
     iput p1, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
 
-    :cond_4
+    :cond_33
     return-void
 .end method
 
 .method public setOnScreenChangedListener(Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;)V
-    .locals 0
+    .registers 2
 
     .line 179
     iput-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mListener:Lopenlight/co/lib/overlays/FtuController$OnScreenChangedListener;
@@ -473,17 +473,17 @@
 .end method
 
 .method public show(Z)V
-    .locals 5
+    .registers 7
 
     .line 96
     iget-boolean v0, p0, Lopenlight/co/lib/overlays/FtuController;->mIsShown:Z
 
-    if-eq p1, v0, :cond_6
+    if-eq p1, v0, :cond_a1
 
     .line 97
     iput-boolean p1, p0, Lopenlight/co/lib/overlays/FtuController;->mIsShown:Z
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_82
 
     .line 99
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mLayoutInflater:Landroid/view/LayoutInflater;
@@ -521,7 +521,7 @@
     .line 102
     iget v1, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
 
-    if-lt v1, v0, :cond_0
+    if-lt v1, v0, :cond_2d
 
     add-int/lit8 v1, v0, -0x1
 
@@ -529,15 +529,15 @@
     iput v1, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
 
     .line 105
-    :cond_0
+    :cond_2d
     iget-object v1, p0, Lopenlight/co/lib/overlays/FtuController;->mScreens:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
     move v1, v2
 
-    :goto_0
-    if-ge v1, v0, :cond_3
+    :goto_33
+    if-ge v1, v0, :cond_59
 
     .line 107
     invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
@@ -555,40 +555,40 @@
     .line 111
     iget v4, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
 
-    if-ne v1, v4, :cond_1
+    if-ne v1, v4, :cond_46
 
     move v4, v2
 
-    goto :goto_1
+    goto :goto_48
 
-    :cond_1
+    :cond_46
     const/16 v4, 0x8
 
-    :goto_1
+    :goto_48
     invoke-virtual {v3, v4}, Lopenlight/co/lib/customviews/FtuScreen;->setVisibility(I)V
 
     .line 112
     invoke-virtual {v3, p0}, Lopenlight/co/lib/customviews/FtuScreen;->setOnButtonClickListener(Lopenlight/co/lib/customviews/FtuScreen$OnButtonClickListener;)V
 
-    if-lez v1, :cond_2
+    if-lez v1, :cond_52
 
     const/4 v4, 0x1
 
-    goto :goto_2
+    goto :goto_53
 
-    :cond_2
+    :cond_52
     move v4, v2
 
     .line 114
-    :goto_2
+    :goto_53
     invoke-virtual {v3, v2, v4}, Lopenlight/co/lib/customviews/FtuScreen;->setButtonVisibility(IZ)V
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 116
-    :cond_3
+    :cond_59
     iget p1, p0, Lopenlight/co/lib/overlays/FtuController;->mCurrentScreen:I
 
     invoke-direct {p0, p1}, Lopenlight/co/lib/overlays/FtuController;->screenAt(I)Lopenlight/co/lib/customviews/FtuScreen;
@@ -611,7 +611,7 @@
     .line 118
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mDone:Landroid/view/View;
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_75
 
     .line 119
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mDone:Landroid/view/View;
@@ -619,7 +619,7 @@
     invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 121
-    :cond_4
+    :cond_75
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mContainer:Landroid/view/ViewGroup;
 
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mScreensRoot:Landroid/view/ViewGroup;
@@ -631,10 +631,10 @@
 
     invoke-virtual {p0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_3
+    goto :goto_a1
 
     .line 126
-    :cond_5
+    :cond_82
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController;->mScreensRoot:Landroid/view/ViewGroup;
 
     .line 127
@@ -660,14 +660,14 @@
     .line 135
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mDone:Landroid/view/View;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a1
 
     .line 136
     iget-object v0, p0, Lopenlight/co/lib/overlays/FtuController;->mDone:Landroid/view/View;
 
     invoke-direct {p0, v0, p1}, Lopenlight/co/lib/overlays/FtuController;->animateOff(Landroid/view/View;Ljava/lang/Runnable;)V
 
-    :cond_6
-    :goto_3
+    :cond_a1
+    :goto_a1
     return-void
 .end method

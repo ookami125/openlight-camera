@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroid/support/transition/ViewGroupUtilsApi14;-><init>()V
@@ -28,17 +28,17 @@
 .end method
 
 .method private fetchSuppressLayoutMethod()V
-    .locals 5
+    .registers 6
 
     .line 55
     sget-boolean p0, Landroid/support/transition/ViewGroupUtilsApi18;->sSuppressLayoutMethodFetched:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_26
 
     const/4 p0, 0x1
 
     .line 57
-    :try_start_0
+    :try_start_5
     const-class v0, Landroid/view/ViewGroup;
 
     const-string v1, "suppressLayout"
@@ -61,12 +61,12 @@
     sget-object v0, Landroid/support/transition/ViewGroupUtilsApi18;->sSuppressLayoutMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_0
+    :catch_1c
     move-exception v0
 
     const-string v1, "ViewUtilsApi18"
@@ -77,17 +77,17 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 63
-    :goto_0
+    :goto_24
     sput-boolean p0, Landroid/support/transition/ViewGroupUtilsApi18;->sSuppressLayoutMethodFetched:Z
 
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 
 # virtual methods
 .method public getOverlay(Landroid/view/ViewGroup;)Landroid/support/transition/ViewGroupOverlayImpl;
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -102,7 +102,7 @@
 .end method
 
 .method public suppressLayout(Landroid/view/ViewGroup;Z)V
-    .locals 2
+    .registers 5
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -114,10 +114,10 @@
     .line 43
     sget-object p0, Landroid/support/transition/ViewGroupUtilsApi18;->sSuppressLayoutMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_28
 
     .line 45
-    :try_start_0
+    :try_start_7
     sget-object p0, Landroid/support/transition/ViewGroupUtilsApi18;->sSuppressLayoutMethod:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x1
@@ -133,13 +133,13 @@
     aput-object p2, v0, v1
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_16} :catch_20
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_16} :catch_17
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_0
+    :catch_17
     move-exception p0
 
     const-string p1, "ViewUtilsApi18"
@@ -149,9 +149,9 @@
     .line 49
     invoke-static {p1, p2, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_28
 
-    :catch_1
+    :catch_20
     move-exception p0
 
     const-string p1, "ViewUtilsApi18"
@@ -161,7 +161,7 @@
     .line 47
     invoke-static {p1, p2, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
-    :goto_0
+    :cond_28
+    :goto_28
     return-void
 .end method

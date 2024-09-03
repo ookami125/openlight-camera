@@ -22,7 +22,7 @@
 
 # direct methods
 .method private constructor <init>(JJ)V
-    .locals 3
+    .registers 8
 
     .line 528
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 
     cmp-long v2, p3, v0
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     .line 531
     iput-wide v0, p0, Lopenlight/co/lib/exif/ExifInterface$Rational;->numerator:J
@@ -44,7 +44,7 @@
     return-void
 
     .line 535
-    :cond_0
+    :cond_10
     iput-wide p1, p0, Lopenlight/co/lib/exif/ExifInterface$Rational;->numerator:J
 
     .line 536
@@ -54,7 +54,7 @@
 .end method
 
 .method synthetic constructor <init>(JJLopenlight/co/lib/exif/ExifInterface$1;)V
-    .locals 0
+    .registers 6
 
     .line 524
     invoke-direct {p0, p1, p2, p3, p4}, Lopenlight/co/lib/exif/ExifInterface$Rational;-><init>(JJ)V
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public calculate()D
-    .locals 4
+    .registers 5
 
     .line 545
     iget-wide v0, p0, Lopenlight/co/lib/exif/ExifInterface$Rational;->numerator:J
@@ -82,7 +82,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 541
     new-instance v0, Ljava/lang/StringBuilder;

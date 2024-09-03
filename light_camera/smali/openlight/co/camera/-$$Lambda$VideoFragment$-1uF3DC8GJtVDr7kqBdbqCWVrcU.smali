@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/VideoFragment;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onMediaSaveComplete()V
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lopenlight/co/camera/-$$Lambda$VideoFragment$-1uF3DC8GJtVDr7kqBdbqCWVrcU;->f$0:Lopenlight/co/camera/VideoFragment;
 

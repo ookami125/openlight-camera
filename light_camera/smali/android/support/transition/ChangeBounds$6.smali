@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 146
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public get(Landroid/view/View;)Landroid/graphics/PointF;
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -44,7 +44,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 146
     check-cast p1, Landroid/view/View;
@@ -57,7 +57,7 @@
 .end method
 
 .method public set(Landroid/view/View;Landroid/graphics/PointF;)V
-    .locals 2
+    .registers 5
 
     .line 149
     iget p0, p2, Landroid/graphics/PointF;->x:F
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 146
     check-cast p1, Landroid/view/View;

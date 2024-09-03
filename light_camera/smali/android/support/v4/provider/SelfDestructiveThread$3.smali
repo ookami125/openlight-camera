@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/provider/SelfDestructiveThread;Ljava/util/concurrent/atomic/AtomicReference;Ljava/util/concurrent/Callable;Ljava/util/concurrent/locks/ReentrantLock;Ljava/util/concurrent/atomic/AtomicBoolean;Ljava/util/concurrent/locks/Condition;)V
-    .locals 0
+    .registers 7
 
     .line 170
     iput-object p1, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->this$0:Landroid/support/v4/provider/SelfDestructiveThread;
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 174
     :try_start_0
@@ -69,17 +69,17 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->set(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_b} :catch_b
 
     .line 178
-    :catch_0
+    :catch_b
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;
 
     invoke-virtual {v0}, Ljava/util/concurrent/locks/ReentrantLock;->lock()V
 
     .line 180
-    :try_start_1
+    :try_start_10
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->val$running:Ljava/util/concurrent/atomic/AtomicBoolean;
 
     const/4 v1, 0x0
@@ -90,8 +90,8 @@
     iget-object v0, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->val$cond:Ljava/util/concurrent/locks/Condition;
 
     invoke-interface {v0}, Ljava/util/concurrent/locks/Condition;->signal()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1b
+    .catchall {:try_start_10 .. :try_end_1b} :catchall_21
 
     .line 183
     iget-object p0, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;
@@ -100,7 +100,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_21
     move-exception v0
 
     iget-object p0, p0, Landroid/support/v4/provider/SelfDestructiveThread$3;->val$lock:Ljava/util/concurrent/locks/ReentrantLock;

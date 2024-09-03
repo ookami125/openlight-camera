@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 8
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static get()Lopenlight/co/lib/content/Prefs;
-    .locals 1
+    .registers 1
 
     .line 12
     sget-object v0, Lopenlight/co/lib/content/CamPrefsFactory;->sInstance:Lopenlight/co/lib/content/Prefs;
@@ -27,7 +27,7 @@
 .end method
 
 .method public static set(Lopenlight/co/lib/content/Prefs;)V
-    .locals 0
+    .registers 1
 
     .line 16
     sput-object p0, Lopenlight/co/lib/content/CamPrefsFactory;->sInstance:Lopenlight/co/lib/content/Prefs;

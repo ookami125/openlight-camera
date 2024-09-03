@@ -612,14 +612,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 27
+    .registers 27
 
     const/4 v0, 0x3
 
     .line 408
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_b44
 
     sput-object v1, Lopenlight/co/lib/exif/ExifInterface;->JPEG_SIGNATURE:[B
 
@@ -628,7 +628,7 @@
     .line 420
     new-array v2, v1, [B
 
-    fill-array-data v2, :array_1
+    fill-array-data v2, :array_b4a
 
     sput-object v2, Lopenlight/co/lib/exif/ExifInterface;->ORF_MAKER_NOTE_HEADER_1:[B
 
@@ -637,7 +637,7 @@
     .line 422
     new-array v3, v2, [B
 
-    fill-array-data v3, :array_2
+    fill-array-data v3, :array_b52
 
     sput-object v3, Lopenlight/co/lib/exif/ExifInterface;->ORF_MAKER_NOTE_HEADER_2:[B
 
@@ -679,7 +679,7 @@
     .line 476
     new-array v4, v3, [I
 
-    fill-array-data v4, :array_3
+    fill-array-data v4, :array_b5c
 
     sput-object v4, Lopenlight/co/lib/exif/ExifInterface;->IFD_FORMAT_BYTES_PER_FORMAT:[I
 
@@ -688,14 +688,14 @@
     .line 479
     new-array v5, v4, [B
 
-    fill-array-data v5, :array_4
+    fill-array-data v5, :array_b7c
 
     sput-object v5, Lopenlight/co/lib/exif/ExifInterface;->EXIF_ASCII_PREFIX:[B
 
     .line 502
     new-array v5, v0, [I
 
-    fill-array-data v5, :array_5
+    fill-array-data v5, :array_b84
 
     sput-object v5, Lopenlight/co/lib/exif/ExifInterface;->BITS_PER_SAMPLE_RGB:[I
 
@@ -3098,12 +3098,12 @@
     move v1, v7
 
     .line 1252
-    :goto_0
+    :goto_a83
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_ac0
 
     .line 1253
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->sExifTagMapsForReading:[Ljava/util/HashMap;
@@ -3132,8 +3132,8 @@
 
     move v6, v7
 
-    :goto_1
-    if-ge v6, v3, :cond_0
+    :goto_aa0
+    if-ge v6, v3, :cond_abd
 
     aget-object v9, v2, v6
 
@@ -3161,15 +3161,15 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    goto :goto_1
+    goto :goto_aa0
 
-    :cond_0
+    :cond_abd
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_a83
 
     .line 1262
-    :cond_1
+    :cond_ac0
     sget-object v1, Lopenlight/co/lib/exif/ExifInterface;->sExifPointerTagMap:Ljava/util/HashMap;
 
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->EXIF_POINTER_TAGS:[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
@@ -3305,14 +3305,14 @@
 
     nop
 
-    :array_0
+    :array_b44
     .array-data 1
         -0x1t
         -0x28t
         -0x1t
     .end array-data
 
-    :array_1
+    :array_b4a
     .array-data 1
         0x4ft
         0x4ct
@@ -3324,7 +3324,7 @@
 
     nop
 
-    :array_2
+    :array_b52
     .array-data 1
         0x4ft
         0x4ct
@@ -3340,7 +3340,7 @@
 
     nop
 
-    :array_3
+    :array_b5c
     .array-data 4
         0x0
         0x1
@@ -3358,7 +3358,7 @@
         0x1
     .end array-data
 
-    :array_4
+    :array_b7c
     .array-data 1
         0x41t
         0x53t
@@ -3370,7 +3370,7 @@
         0x0t
     .end array-data
 
-    :array_5
+    :array_b84
     .array-data 4
         0x8
         0x8
@@ -3379,7 +3379,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3403,7 +3403,7 @@
 
     iput-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_23
 
     const/4 v0, 0x0
 
@@ -3413,7 +3413,7 @@
     .line 1323
     instance-of v1, p1, Landroid/content/res/AssetManager$AssetInputStream;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1d
 
     .line 1324
     move-object v0, p1
@@ -3422,20 +3422,20 @@
 
     iput-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAssetInputStream:Landroid/content/res/AssetManager$AssetInputStream;
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 1326
-    :cond_0
+    :cond_1d
     iput-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAssetInputStream:Landroid/content/res/AssetManager$AssetInputStream;
 
     .line 1328
-    :goto_0
+    :goto_1f
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->loadAttributes(Ljava/io/InputStream;)V
 
     return-void
 
     .line 1320
-    :cond_1
+    :cond_23
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "inputStream cannot be null"
@@ -3446,7 +3446,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3470,7 +3470,7 @@
 
     iput-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     const/4 v0, 0x0
 
@@ -3481,42 +3481,42 @@
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mFilename:Ljava/lang/String;
 
     .line 1305
-    :try_start_0
+    :try_start_15
     new-instance v1, Ljava/io/FileInputStream;
 
     invoke-direct {v1, p1}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_1a
+    .catchall {:try_start_15 .. :try_end_1a} :catchall_24
 
     .line 1306
-    :try_start_1
+    :try_start_1a
     invoke-direct {p0, v1}, Lopenlight/co/lib/exif/ExifInterface;->loadAttributes(Ljava/io/InputStream;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1a .. :try_end_1d} :catchall_21
 
     .line 1308
     invoke-static {v1}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
 
     return-void
 
-    :catchall_0
+    :catchall_21
     move-exception p0
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_25
 
-    :catchall_1
+    :catchall_24
     move-exception p0
 
-    :goto_0
+    :goto_25
     invoke-static {v0}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 1309
     throw p0
 
     .line 1299
-    :cond_0
+    :cond_29
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "filename cannot be null"
@@ -3527,7 +3527,7 @@
 .end method
 
 .method static synthetic access$000()[I
-    .locals 1
+    .registers 1
 
     .line 68
     sget-object v0, Lopenlight/co/lib/exif/ExifInterface;->IFD_FORMAT_BYTES_PER_FORMAT:[I
@@ -3536,7 +3536,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/nio/charset/Charset;
-    .locals 1
+    .registers 1
 
     .line 68
     sget-object v0, Lopenlight/co/lib/exif/ExifInterface;->ASCII:Ljava/nio/charset/Charset;
@@ -3545,7 +3545,7 @@
 .end method
 
 .method static synthetic access$200()[Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 68
     sget-object v0, Lopenlight/co/lib/exif/ExifInterface;->IFD_FORMAT_NAMES:[Ljava/lang/String;
@@ -3554,7 +3554,7 @@
 .end method
 
 .method static synthetic access$300()[B
-    .locals 1
+    .registers 1
 
     .line 68
     sget-object v0, Lopenlight/co/lib/exif/ExifInterface;->EXIF_ASCII_PREFIX:[B
@@ -3563,7 +3563,7 @@
 .end method
 
 .method private addDefaultValuesForCompatibility()V
-    .locals 6
+    .registers 7
 
     const-string v0, "DateTime"
 
@@ -3574,7 +3574,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     const-string v0, "DateTimeOriginal"
 
@@ -3583,7 +3583,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     .line 2648
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -3600,7 +3600,7 @@
     .line 2648
     invoke-virtual {v2, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_1e
     const-string v0, "ImageWidth"
 
     .line 2654
@@ -3610,7 +3610,7 @@
 
     const-wide/16 v2, 0x0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_37
 
     .line 2655
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -3629,7 +3629,7 @@
     .line 2655
     invoke-virtual {v0, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_37
     const-string v0, "ImageLength"
 
     .line 2658
@@ -3637,7 +3637,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4e
 
     .line 2659
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -3656,7 +3656,7 @@
     .line 2659
     invoke-virtual {v0, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
+    :cond_4e
     const-string v0, "Orientation"
 
     .line 2662
@@ -3664,7 +3664,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_65
 
     .line 2663
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -3683,7 +3683,7 @@
     .line 2663
     invoke-virtual {v0, v1, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_3
+    :cond_65
     const-string v0, "LightSource"
 
     .line 2666
@@ -3691,7 +3691,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_7d
 
     .line 2667
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -3712,38 +3712,38 @@
     .line 2667
     invoke-virtual {v0, v1, p0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_4
+    :cond_7d
     return-void
 .end method
 
 .method private static closeQuietly(Ljava/io/Closeable;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     .line 3833
-    :try_start_0
+    :try_start_2
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_5
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_5} :catch_6
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_5} :catch_8
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_0
+    :catch_6
     move-exception p0
 
     .line 3835
     throw p0
 
-    :catch_1
-    :cond_0
-    :goto_0
+    :catch_8
+    :cond_8
+    :goto_8
     return-void
 .end method
 
 .method private static convertRationalLatLonToDouble(Ljava/lang/String;Ljava/lang/String;)D
-    .locals 9
+    .registers 11
 
     :try_start_0
     const-string v0, ","
@@ -3877,32 +3877,32 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_7d
 
     const-string p0, "W"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_79
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_79} :catch_7f
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_79} :catch_7f
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7c
 
-    goto :goto_0
+    goto :goto_7d
 
-    :cond_0
+    :cond_7c
     return-wide v2
 
-    :cond_1
-    :goto_0
+    :cond_7d
+    :goto_7d
     neg-double p0, v2
 
     return-wide p0
 
     .line 2076
-    :catch_0
+    :catch_7f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -3911,7 +3911,7 @@
 .end method
 
 .method private static convertRationalLatLonToFloat(Ljava/lang/String;Ljava/lang/String;)F
-    .locals 0
+    .registers 2
 
     .line 2048
     invoke-static {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->convertRationalLatLonToDouble(Ljava/lang/String;Ljava/lang/String;)D
@@ -3924,7 +3924,7 @@
 .end method
 
 .method private static copy(Ljava/io/InputStream;Ljava/io/OutputStream;)I
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -3941,28 +3941,28 @@
     move v2, v1
 
     .line 3849
-    :goto_0
+    :goto_6
     invoke-virtual {p0, v0}, Ljava/io/InputStream;->read([B)I
 
     move-result v3
 
     const/4 v4, -0x1
 
-    if-eq v3, v4, :cond_0
+    if-eq v3, v4, :cond_12
 
     add-int/2addr v2, v3
 
     .line 3851
     invoke-virtual {p1, v0, v1, v3}, Ljava/io/OutputStream;->write([BII)V
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_12
     return v2
 .end method
 
 .method public static formatDate(J)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 1395
     sget-object v0, Lopenlight/co/lib/exif/ExifInterface;->sLocalFormatter:Ljava/text/SimpleDateFormat;
@@ -3979,17 +3979,17 @@
 .end method
 
 .method private getExifAttribute(Ljava/lang/String;)Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 1340
-    :goto_0
+    :goto_1
     sget-object v1, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_16
 
     .line 1341
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -4000,26 +4000,26 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     .line 1343
     check-cast v1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
     return-object v1
 
-    :cond_0
+    :cond_13
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_16
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method private getJpegAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;II)V
-    .locals 8
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4043,7 +4043,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_11
+    if-ne v0, v1, :cond_15d
 
     const/4 v2, 0x1
 
@@ -4056,17 +4056,17 @@
 
     const/16 v4, -0x28
 
-    if-ne v3, v4, :cond_10
+    if-ne v3, v4, :cond_140
 
     add-int/2addr p2, v2
 
     .line 2200
-    :goto_0
+    :goto_1b
     invoke-virtual {p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readByte()B
 
     move-result v0
 
-    if-ne v0, v1, :cond_f
+    if-ne v0, v1, :cond_123
 
     add-int/2addr p2, v2
 
@@ -4079,16 +4079,16 @@
 
     const/16 v3, -0x27
 
-    if-eq v0, v3, :cond_e
+    if-eq v0, v3, :cond_11d
 
     const/16 v3, -0x26
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_31
 
-    goto/16 :goto_3
+    goto/16 :goto_11d
 
     .line 2216
-    :cond_0
+    :cond_31
     invoke-virtual {p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readUnsignedShort()I
 
     move-result v3
@@ -4097,35 +4097,35 @@
 
     add-int/lit8 p2, p2, 0x2
 
-    if-ltz v3, :cond_d
+    if-ltz v3, :cond_115
 
     const/16 v4, -0x1f
 
     const/4 v5, 0x0
 
-    if-eq v0, v4, :cond_5
+    if-eq v0, v4, :cond_b8
 
     const/4 v4, -0x2
 
-    if-eq v0, v4, :cond_2
+    if-eq v0, v4, :cond_8a
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_17a
 
-    packed-switch v0, :pswitch_data_1
+    packed-switch v0, :pswitch_data_186
 
-    packed-switch v0, :pswitch_data_2
+    packed-switch v0, :pswitch_data_190
 
-    packed-switch v0, :pswitch_data_3
+    packed-switch v0, :pswitch_data_19a
 
-    goto/16 :goto_2
+    goto/16 :goto_e2
 
     .line 2290
-    :pswitch_0
+    :pswitch_51
     invoke-virtual {p1, v2}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->skipBytes(I)I
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_82
 
     .line 2293
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -4175,10 +4175,10 @@
 
     add-int/lit8 v3, v3, -0x5
 
-    goto :goto_2
+    goto :goto_e2
 
     .line 2291
-    :cond_1
+    :cond_82
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid SOFx"
@@ -4188,7 +4188,7 @@
     throw p0
 
     .line 2265
-    :cond_2
+    :cond_8a
     new-array v0, v3, [B
 
     .line 2266
@@ -4196,7 +4196,7 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_4
+    if-ne v4, v3, :cond_b0
 
     const-string v3, "UserComment"
 
@@ -4205,7 +4205,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_ae
 
     .line 2271
     iget-object v3, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -4226,14 +4226,14 @@
 
     invoke-virtual {v3, v4, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_3
-    :goto_1
+    :cond_ae
+    :goto_ae
     move v3, v5
 
-    goto :goto_2
+    goto :goto_e2
 
     .line 2267
-    :cond_4
+    :cond_b0
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid exif"
@@ -4242,15 +4242,15 @@
 
     throw p0
 
-    :cond_5
+    :cond_b8
     const/4 v0, 0x6
 
-    if-ge v3, v0, :cond_6
+    if-ge v3, v0, :cond_bc
 
-    goto :goto_2
+    goto :goto_e2
 
     .line 2234
-    :cond_6
+    :cond_bc
     new-array v4, v0, [B
 
     .line 2235
@@ -4258,7 +4258,7 @@
 
     move-result v6
 
-    if-ne v6, v0, :cond_c
+    if-ne v6, v0, :cond_10d
 
     add-int/lit8 p2, p2, 0x6
 
@@ -4271,12 +4271,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_d1
 
-    goto :goto_2
+    goto :goto_e2
 
-    :cond_7
-    if-lez v3, :cond_b
+    :cond_d1
+    if-lez v3, :cond_105
 
     .line 2251
     iput p2, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifOffset:I
@@ -4289,31 +4289,31 @@
 
     move-result v4
 
-    if-ne v4, v3, :cond_a
+    if-ne v4, v3, :cond_fd
 
     add-int/2addr p2, v3
 
     .line 2260
     invoke-direct {p0, v0, p3}, Lopenlight/co/lib/exif/ExifInterface;->readExifSegment([BI)V
 
-    goto :goto_1
+    goto :goto_ae
 
-    :goto_2
-    if-ltz v3, :cond_9
+    :goto_e2
+    if-ltz v3, :cond_f5
 
     .line 2308
     invoke-virtual {p1, v3}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->skipBytes(I)I
 
     move-result v0
 
-    if-ne v0, v3, :cond_8
+    if-ne v0, v3, :cond_ed
 
     add-int/2addr p2, v3
 
-    goto/16 :goto_0
+    goto/16 :goto_1b
 
     .line 2309
-    :cond_8
+    :cond_ed
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid JPEG segment"
@@ -4323,7 +4323,7 @@
     throw p0
 
     .line 2306
-    :cond_9
+    :cond_f5
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid length"
@@ -4333,7 +4333,7 @@
     throw p0
 
     .line 2255
-    :cond_a
+    :cond_fd
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid exif"
@@ -4343,7 +4343,7 @@
     throw p0
 
     .line 2245
-    :cond_b
+    :cond_105
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid exif"
@@ -4353,7 +4353,7 @@
     throw p0
 
     .line 2236
-    :cond_c
+    :cond_10d
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid exif"
@@ -4363,7 +4363,7 @@
     throw p0
 
     .line 2223
-    :cond_d
+    :cond_115
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid length"
@@ -4373,8 +4373,8 @@
     throw p0
 
     .line 2314
-    :cond_e
-    :goto_3
+    :cond_11d
+    :goto_11d
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {p1, p0}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->setByteOrder(Ljava/nio/ByteOrder;)V
@@ -4382,7 +4382,7 @@
     return-void
 
     .line 2202
-    :cond_f
+    :cond_123
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -4410,7 +4410,7 @@
     throw p0
 
     .line 2196
-    :cond_10
+    :cond_140
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -4438,7 +4438,7 @@
     throw p0
 
     .line 2192
-    :cond_11
+    :cond_15d
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -4465,38 +4465,38 @@
 
     throw p0
 
-    :pswitch_data_0
+    :pswitch_data_17a
     .packed-switch -0x40
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_51
+        :pswitch_51
+        :pswitch_51
+        :pswitch_51
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_186
     .packed-switch -0x3b
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_51
+        :pswitch_51
+        :pswitch_51
     .end packed-switch
 
-    :pswitch_data_2
+    :pswitch_data_190
     .packed-switch -0x37
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_51
+        :pswitch_51
+        :pswitch_51
     .end packed-switch
 
-    :pswitch_data_3
+    :pswitch_data_19a
     .packed-switch -0x33
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_51
+        :pswitch_51
+        :pswitch_51
     .end packed-switch
 .end method
 
 .method private getMimeType(Ljava/io/BufferedInputStream;)I
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4516,7 +4516,7 @@
 
     move-result v2
 
-    if-ne v2, v0, :cond_4
+    if-ne v2, v0, :cond_34
 
     .line 2087
     invoke-virtual {p1}, Ljava/io/BufferedInputStream;->reset()V
@@ -4526,55 +4526,55 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     const/4 p0, 0x4
 
     return p0
 
     .line 2090
-    :cond_0
+    :cond_18
     invoke-direct {p0, v1}, Lopenlight/co/lib/exif/ExifInterface;->isRafFormat([B)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_21
 
     const/16 p0, 0x9
 
     return p0
 
     .line 2092
-    :cond_1
+    :cond_21
     invoke-direct {p0, v1}, Lopenlight/co/lib/exif/ExifInterface;->isOrfFormat([B)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_29
 
     const/4 p0, 0x7
 
     return p0
 
     .line 2094
-    :cond_2
+    :cond_29
     invoke-direct {p0, v1}, Lopenlight/co/lib/exif/ExifInterface;->isRw2Format([B)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
     const/16 p0, 0xa
 
     return p0
 
-    :cond_3
+    :cond_32
     const/4 p0, 0x0
 
     return p0
 
     .line 2085
-    :cond_4
+    :cond_34
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -4583,7 +4583,7 @@
 .end method
 
 .method private getOrfAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4609,7 +4609,7 @@
 
     check-cast p1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_fc
 
     .line 2438
     new-instance v1, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;
@@ -4655,32 +4655,32 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_41
 
     const-wide/16 v2, 0x8
 
     .line 2451
     invoke-virtual {v1, v2, v3}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
 
-    goto :goto_0
+    goto :goto_4e
 
     .line 2452
-    :cond_0
+    :cond_41
     sget-object p1, Lopenlight/co/lib/exif/ExifInterface;->ORF_MAKER_NOTE_HEADER_2:[B
 
     invoke-static {v2, p1}, Ljava/util/Arrays;->equals([B[B)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_4e
 
     const-wide/16 v2, 0xc
 
     .line 2453
     invoke-virtual {v1, v2, v3}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
 
-    :cond_1
-    :goto_0
+    :cond_4e
+    :goto_4e
     const/4 p1, 0x6
 
     .line 2457
@@ -4716,9 +4716,9 @@
 
     check-cast v1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_82
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_82
 
     .line 2466
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -4741,7 +4741,7 @@
     invoke-virtual {p1, v2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 2475
-    :cond_2
+    :cond_82
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     const/16 v1, 0x8
@@ -4757,29 +4757,30 @@
 
     check-cast p1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_fc
 
     .line 2478
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
+    # invokes: Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getValue(Ljava/nio/ByteOrder;)Ljava/lang/Object;
     invoke-static {p1, v1}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->access$700(Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;Ljava/nio/ByteOrder;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, [I
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_e1
 
     .line 2479
     array-length v1, p1
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_a1
 
-    goto :goto_1
+    goto :goto_e1
 
-    :cond_3
+    :cond_a1
     const/4 v1, 0x2
 
     .line 2484
@@ -4789,7 +4790,7 @@
 
     aget v4, p1, v3
 
-    if-le v2, v4, :cond_6
+    if-le v2, v4, :cond_fc
 
     const/4 v2, 0x3
 
@@ -4797,7 +4798,7 @@
 
     aget v5, p1, v0
 
-    if-le v4, v5, :cond_6
+    if-le v4, v5, :cond_fc
 
     .line 2486
     aget v1, p1, v1
@@ -4817,7 +4818,7 @@
 
     add-int/2addr v2, v0
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_c2
 
     add-int/2addr v1, v2
 
@@ -4826,7 +4827,7 @@
     sub-int/2addr v1, v2
 
     .line 2494
-    :cond_4
+    :cond_c2
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     .line 2495
@@ -4860,10 +4861,10 @@
 
     invoke-virtual {p0, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_2
+    goto :goto_fc
 
-    :cond_5
-    :goto_1
+    :cond_e1
+    :goto_e1
     const-string p0, "ExifInterface"
 
     .line 2480
@@ -4891,13 +4892,13 @@
 
     return-void
 
-    :cond_6
-    :goto_2
+    :cond_fc
+    :goto_fc
     return-void
 .end method
 
 .method private getRafAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -4968,8 +4969,8 @@
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_36
+    if-ge v2, v0, :cond_73
 
     .line 2396
     invoke-virtual {p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readUnsignedShort()I
@@ -4986,7 +4987,7 @@
 
     iget v5, v5, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->number:I
 
-    if-ne v3, v5, :cond_0
+    if-ne v3, v5, :cond_6d
 
     .line 2399
     invoke-virtual {p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readShort()S
@@ -5035,19 +5036,19 @@
     return-void
 
     .line 2412
-    :cond_0
+    :cond_6d
     invoke-virtual {p1, v4}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->skipBytes(I)I
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_1
+    :cond_73
     return-void
 .end method
 
 .method private getRawAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -5087,7 +5088,7 @@
 
     const/16 v0, 0x8
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5b
 
     .line 2335
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -5105,7 +5106,7 @@
 
     check-cast p1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5b
 
     .line 2339
     new-instance v1, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;
@@ -5143,7 +5144,7 @@
 
     check-cast p1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5b
 
     .line 2353
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -5154,12 +5155,12 @@
 
     invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_5b
     return-void
 .end method
 
 .method private getRw2Attributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -5185,7 +5186,7 @@
 
     check-cast v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 2517
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mRw2JpgFromRawOffset:I
@@ -5195,7 +5196,7 @@
     invoke-direct {p0, p1, v0, v2}, Lopenlight/co/lib/exif/ExifInterface;->getJpegAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;II)V
 
     .line 2521
-    :cond_0
+    :cond_18
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object p1, p1, v1
@@ -5225,9 +5226,9 @@
 
     check-cast v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3e
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3e
 
     .line 2527
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -5238,12 +5239,12 @@
 
     invoke-virtual {p0, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_3e
     return-void
 .end method
 
 .method private static guessDataFormat(Ljava/lang/String;)Landroid/util/Pair;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -5271,7 +5272,7 @@
 
     const/4 v4, -0x1
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_98
 
     const-string v0, ","
 
@@ -5296,16 +5297,16 @@
 
     move-result v1
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v3, :cond_23
 
     return-object v0
 
     .line 3423
-    :cond_0
-    :goto_0
+    :cond_23
+    :goto_23
     array-length v1, p0
 
-    if-ge v2, v1, :cond_8
+    if-ge v2, v1, :cond_97
 
     .line 3424
     aget-object v1, p0, v2
@@ -5319,24 +5320,24 @@
 
     iget-object v6, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    if-eq v5, v6, :cond_2
+    if-eq v5, v6, :cond_3b
 
     iget-object v5, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     iget-object v6, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_39
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_1
+    :cond_39
     move v5, v4
 
-    goto :goto_2
+    goto :goto_43
 
     .line 3428
-    :cond_2
-    :goto_1
+    :cond_3b
+    :goto_3b
     iget-object v5, v0, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v5, Ljava/lang/Integer;
@@ -5346,7 +5347,7 @@
     move-result v5
 
     .line 3430
-    :goto_2
+    :goto_43
     iget-object v6, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v6, Ljava/lang/Integer;
@@ -5355,22 +5356,22 @@
 
     move-result v6
 
-    if-eq v6, v4, :cond_4
+    if-eq v6, v4, :cond_62
 
     iget-object v6, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 
     iget-object v7, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    if-eq v6, v7, :cond_3
+    if-eq v6, v7, :cond_59
 
     iget-object v1, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     iget-object v6, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
-    if-ne v1, v6, :cond_4
+    if-ne v1, v6, :cond_62
 
     .line 3432
-    :cond_3
+    :cond_59
     iget-object v1, v0, Landroid/util/Pair;->second:Ljava/lang/Object;
 
     check-cast v1, Ljava/lang/Integer;
@@ -5379,15 +5380,15 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_63
 
-    :cond_4
+    :cond_62
     move v1, v4
 
-    :goto_3
-    if-ne v5, v4, :cond_5
+    :goto_63
+    if-ne v5, v4, :cond_75
 
-    if-ne v1, v4, :cond_5
+    if-ne v1, v4, :cond_75
 
     .line 3435
     new-instance p0, Landroid/util/Pair;
@@ -5404,8 +5405,8 @@
 
     return-object p0
 
-    :cond_5
-    if-ne v5, v4, :cond_6
+    :cond_75
+    if-ne v5, v4, :cond_85
 
     .line 3438
     new-instance v0, Landroid/util/Pair;
@@ -5420,10 +5421,10 @@
 
     invoke-direct {v0, v1, v5}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    goto :goto_4
+    goto :goto_94
 
-    :cond_6
-    if-ne v1, v4, :cond_7
+    :cond_85
+    if-ne v1, v4, :cond_94
 
     .line 3442
     new-instance v0, Landroid/util/Pair;
@@ -5438,16 +5439,16 @@
 
     invoke-direct {v0, v1, v5}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    :cond_7
-    :goto_4
+    :cond_94
+    :goto_94
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_8
+    :cond_97
     return-object v0
 
-    :cond_9
+    :cond_98
     const-string v0, "/"
 
     .line 3449
@@ -5457,7 +5458,7 @@
 
     const-wide/16 v5, 0x0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_107
 
     const-string v0, "/"
 
@@ -5469,10 +5470,10 @@
     .line 3451
     array-length v0, p0
 
-    if-ne v0, v3, :cond_e
+    if-ne v0, v3, :cond_f9
 
     .line 3453
-    :try_start_0
+    :try_start_ab
     aget-object v0, p0, v1
 
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
@@ -5490,31 +5491,31 @@
 
     const/16 v2, 0xa
 
-    if-ltz p0, :cond_d
+    if-ltz p0, :cond_eb
 
     cmp-long p0, v7, v5
 
-    if-gez p0, :cond_a
+    if-gez p0, :cond_c2
 
-    goto :goto_6
+    goto :goto_eb
 
-    :cond_a
+    :cond_c2
     const-wide/32 v5, 0x7fffffff
 
     cmp-long p0, v0, v5
 
     const/4 v0, 0x5
 
-    if-gtz p0, :cond_c
+    if-gtz p0, :cond_dd
 
     cmp-long p0, v7, v5
 
-    if-lez p0, :cond_b
+    if-lez p0, :cond_cf
 
-    goto :goto_5
+    goto :goto_dd
 
     .line 3461
-    :cond_b
+    :cond_cf
     new-instance p0, Landroid/util/Pair;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5530,8 +5531,8 @@
     return-object p0
 
     .line 3459
-    :cond_c
-    :goto_5
+    :cond_dd
+    :goto_dd
     new-instance p0, Landroid/util/Pair;
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5547,8 +5548,8 @@
     return-object p0
 
     .line 3456
-    :cond_d
-    :goto_6
+    :cond_eb
+    :goto_eb
     new-instance p0, Landroid/util/Pair;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5560,14 +5561,14 @@
     move-result-object v1
 
     invoke-direct {p0, v0, v1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f8
+    .catch Ljava/lang/NumberFormatException; {:try_start_ab .. :try_end_f8} :catch_f9
 
     return-object p0
 
     .line 3466
-    :catch_0
-    :cond_e
+    :catch_f9
+    :cond_f9
     new-instance p0, Landroid/util/Pair;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5583,8 +5584,8 @@
     return-object p0
 
     .line 3469
-    :cond_f
-    :try_start_1
+    :cond_107
+    :try_start_107
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
@@ -5602,7 +5603,7 @@
 
     const/4 v2, 0x4
 
-    if-ltz v1, :cond_10
+    if-ltz v1, :cond_132
 
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
@@ -5612,7 +5613,7 @@
 
     cmp-long v1, v7, v9
 
-    if-gtz v1, :cond_10
+    if-gtz v1, :cond_132
 
     .line 3471
     new-instance v0, Landroid/util/Pair;
@@ -5632,14 +5633,14 @@
     return-object v0
 
     .line 3473
-    :cond_10
+    :cond_132
     invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
     cmp-long v0, v0, v5
 
-    if-gez v0, :cond_11
+    if-gez v0, :cond_14a
 
     .line 3474
     new-instance v0, Landroid/util/Pair;
@@ -5659,7 +5660,7 @@
     return-object v0
 
     .line 3476
-    :cond_11
+    :cond_14a
     new-instance v0, Landroid/util/Pair;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5671,14 +5672,14 @@
     move-result-object v2
 
     invoke-direct {v0, v1, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_157
+    .catch Ljava/lang/NumberFormatException; {:try_start_107 .. :try_end_157} :catch_158
 
     return-object v0
 
     .line 3481
-    :catch_1
-    :try_start_2
+    :catch_158
+    :try_start_158
     invoke-static {p0}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     .line 3482
@@ -5695,13 +5696,13 @@
     move-result-object v1
 
     invoke-direct {p0, v0, v1}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_2
-    .catch Ljava/lang/NumberFormatException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_16a
+    .catch Ljava/lang/NumberFormatException; {:try_start_158 .. :try_end_16a} :catch_16b
 
     return-object p0
 
     .line 3486
-    :catch_2
+    :catch_16b
     new-instance p0, Landroid/util/Pair;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -5718,7 +5719,7 @@
 .end method
 
 .method private handleThumbnailFromJfif(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;Ljava/util/HashMap;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -5743,9 +5744,9 @@
 
     check-cast p2, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_65
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_65
 
     .line 2977
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -5777,49 +5778,49 @@
 
     const/4 v2, 0x4
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_44
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     const/16 v2, 0x9
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_44
 
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     const/16 v2, 0xa
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_3b
 
-    goto :goto_0
+    goto :goto_44
 
     .line 2985
-    :cond_0
+    :cond_3b
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     const/4 v2, 0x7
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_47
 
     .line 2987
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mOrfMakerNoteOffset:I
 
     add-int/2addr v0, v1
 
-    goto :goto_1
+    goto :goto_47
 
     .line 2984
-    :cond_1
-    :goto_0
+    :cond_44
+    :goto_44
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifOffset:I
 
     add-int/2addr v0, v1
 
-    :cond_2
-    :goto_1
-    if-lez v0, :cond_3
+    :cond_47
+    :goto_47
+    if-lez v0, :cond_65
 
-    if-lez p2, :cond_3
+    if-lez p2, :cond_65
 
     const/4 v1, 0x1
 
@@ -5835,11 +5836,11 @@
     .line 2997
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mFilename:Ljava/lang/String;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_65
 
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAssetInputStream:Landroid/content/res/AssetManager$AssetInputStream;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_65
 
     .line 2999
     new-array p2, p2, [B
@@ -5855,12 +5856,12 @@
     .line 3002
     iput-object p2, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
 
-    :cond_3
+    :cond_65
     return-void
 .end method
 
 .method private handleThumbnailFromStrips(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;Ljava/util/HashMap;)V
-    .locals 10
+    .registers 13
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -5885,14 +5886,15 @@
 
     check-cast p2, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7b
 
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_7b
 
     .line 3017
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     .line 3018
+    # invokes: Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getValue(Ljava/nio/ByteOrder;)Ljava/lang/Object;
     invoke-static {v0, v1}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->access$700(Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;Ljava/nio/ByteOrder;)Ljava/lang/Object;
 
     move-result-object v0
@@ -5903,13 +5905,14 @@
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     .line 3020
+    # invokes: Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getValue(Ljava/nio/ByteOrder;)Ljava/lang/Object;
     invoke-static {p2, v1}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->access$700(Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;Ljava/nio/ByteOrder;)Ljava/lang/Object;
 
     move-result-object p2
 
     check-cast p2, [J
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2e
 
     const-string p0, "ExifInterface"
 
@@ -5920,8 +5923,8 @@
 
     return-void
 
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_2e
+    if-nez p2, :cond_38
 
     const-string p0, "ExifInterface"
 
@@ -5932,7 +5935,7 @@
 
     return-void
 
-    :cond_1
+    :cond_38
     const-wide/16 v1, 0x0
 
     .line 3032
@@ -5944,8 +5947,8 @@
 
     move v1, v4
 
-    :goto_0
-    if-ge v1, v3, :cond_2
+    :goto_3e
+    if-ge v1, v3, :cond_46
 
     aget-wide v7, p2, v1
 
@@ -5953,9 +5956,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_2
+    :cond_46
     long-to-int v1, v5
 
     .line 3037
@@ -5968,10 +5971,10 @@
     move v5, v3
 
     .line 3041
-    :goto_1
+    :goto_4c
     array-length v6, v0
 
-    if-ge v2, v6, :cond_4
+    if-ge v2, v6, :cond_73
 
     .line 3042
     aget-wide v6, v0, v2
@@ -5985,7 +5988,7 @@
 
     sub-int/2addr v6, v3
 
-    if-gez v6, :cond_3
+    if-gez v6, :cond_5f
 
     const-string v8, "ExifInterface"
 
@@ -5994,7 +5997,7 @@
     .line 3048
     invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
+    :cond_5f
     int-to-long v8, v6
 
     .line 3050
@@ -6022,9 +6025,9 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_4
+    :cond_73
     const/4 p1, 0x1
 
     .line 3064
@@ -6038,12 +6041,12 @@
 
     iput p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailLength:I
 
-    :cond_5
+    :cond_7b
     return-void
 .end method
 
 .method private static isJpegFormat([B)Z
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6055,12 +6058,12 @@
     move v1, v0
 
     .line 2106
-    :goto_0
+    :goto_2
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->JPEG_SIGNATURE:[B
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_13
 
     .line 2107
     aget-byte v2, p0, v1
@@ -6069,23 +6072,23 @@
 
     aget-byte v3, v3, v1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_10
 
     return v0
 
-    :cond_0
+    :cond_10
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
+    :cond_13
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method private isOrfFormat([B)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6116,29 +6119,29 @@
 
     const/16 p1, 0x4f52
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_1f
 
     const/16 p1, 0x5352
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_1d
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_20
 
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_20
     return p0
 .end method
 
 .method private isRafFormat([B)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6157,33 +6160,33 @@
     move v1, v0
 
     .line 2122
-    :goto_0
+    :goto_8
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_15
 
     .line 2123
     aget-byte v2, p1, v1
 
     aget-byte v3, p0, v1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_12
 
     return v0
 
-    :cond_0
+    :cond_12
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_1
+    :cond_15
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method private isRw2Format([B)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6214,21 +6217,21 @@
 
     const/16 p1, 0x55
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_1a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1b
     return p0
 .end method
 
 .method private isSupportedDataType(Ljava/util/HashMap;)Z
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6244,11 +6247,12 @@
 
     check-cast v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_47
 
     .line 3075
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
+    # invokes: Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getValue(Ljava/nio/ByteOrder;)Ljava/lang/Object;
     invoke-static {v0, v1}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->access$700(Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;Ljava/nio/ByteOrder;)Ljava/lang/Object;
 
     move-result-object v0
@@ -6264,17 +6268,17 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1c
 
     return v2
 
     .line 3082
-    :cond_0
+    :cond_1c
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     const/4 v3, 0x3
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v3, :cond_47
 
     const-string v1, "PhotometricInterpretation"
 
@@ -6285,7 +6289,7 @@
 
     check-cast p1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_47
 
     .line 3086
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -6295,7 +6299,7 @@
 
     move-result p0
 
-    if-ne p0, v2, :cond_1
+    if-ne p0, v2, :cond_3b
 
     .line 3088
     sget-object p1, Lopenlight/co/lib/exif/ExifInterface;->BITS_PER_SAMPLE_GREYSCALE_2:[I
@@ -6305,12 +6309,12 @@
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_46
 
-    :cond_1
+    :cond_3b
     const/4 p1, 0x6
 
-    if-ne p0, p1, :cond_3
+    if-ne p0, p1, :cond_47
 
     sget-object p0, Lopenlight/co/lib/exif/ExifInterface;->BITS_PER_SAMPLE_RGB:[I
 
@@ -6319,19 +6323,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_47
 
-    :cond_2
+    :cond_46
     return v2
 
-    :cond_3
+    :cond_47
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method private isThumbnail(Ljava/util/HashMap;)Z
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6356,9 +6360,9 @@
 
     check-cast p1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_28
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_28
 
     .line 3112
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -6376,22 +6380,22 @@
 
     const/16 p1, 0x200
 
-    if-gt v0, p1, :cond_0
+    if-gt v0, p1, :cond_28
 
-    if-gt p0, p1, :cond_0
+    if-gt p0, p1, :cond_28
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_28
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method private loadAttributes(Ljava/io/InputStream;)V
-    .locals 4
+    .registers 6
     .param p1    # Ljava/io/InputStream;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -6407,13 +6411,13 @@
     move v1, v0
 
     .line 1620
-    :goto_0
-    :try_start_0
+    :goto_2
+    :try_start_2
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_13
 
     .line 1621
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -6426,10 +6430,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
     .line 1625
-    :cond_0
+    :cond_13
     new-instance v1, Ljava/io/BufferedInputStream;
 
     const/16 v2, 0x1388
@@ -6455,95 +6459,95 @@
     .line 1631
     iget v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_54
 
-    goto :goto_1
+    goto :goto_41
 
     .line 1645
-    :pswitch_0
+    :pswitch_2e
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getRw2Attributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
 
-    goto :goto_1
+    goto :goto_41
 
     .line 1637
-    :pswitch_1
+    :pswitch_32
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getRafAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
 
-    goto :goto_1
+    goto :goto_41
 
     .line 1641
-    :pswitch_2
+    :pswitch_36
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getOrfAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
 
-    goto :goto_1
+    goto :goto_41
 
     .line 1633
-    :pswitch_3
+    :pswitch_3a
     invoke-direct {p0, p1, v0, v0}, Lopenlight/co/lib/exif/ExifInterface;->getJpegAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;II)V
 
-    goto :goto_1
+    goto :goto_41
 
     .line 1656
-    :pswitch_4
+    :pswitch_3e
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getRawAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
 
     .line 1664
-    :goto_1
+    :goto_41
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->setThumbnailData(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
 
     const/4 p1, 0x1
 
     .line 1665
     iput-boolean p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mIsSupportedFile:Z
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_47
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_47} :catch_4a
+    .catchall {:try_start_2 .. :try_end_47} :catchall_48
 
-    goto :goto_2
+    goto :goto_4c
 
-    :catchall_0
+    :catchall_48
     move-exception p1
 
-    goto :goto_3
+    goto :goto_50
 
     .line 1669
-    :catch_0
-    :try_start_1
+    :catch_4a
+    :try_start_4a
     iput-boolean v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mIsSupportedFile:Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_4c
+    .catchall {:try_start_4a .. :try_end_4c} :catchall_48
 
     .line 1676
-    :goto_2
+    :goto_4c
     invoke-direct {p0}, Lopenlight/co/lib/exif/ExifInterface;->addDefaultValuesForCompatibility()V
 
     return-void
 
-    :goto_3
+    :goto_50
     invoke-direct {p0}, Lopenlight/co/lib/exif/ExifInterface;->addDefaultValuesForCompatibility()V
 
     .line 1681
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_4
-        :pswitch_3
-        :pswitch_4
-        :pswitch_4
-        :pswitch_2
-        :pswitch_4
-        :pswitch_1
-        :pswitch_0
-        :pswitch_4
+        :pswitch_3e
+        :pswitch_3e
+        :pswitch_3e
+        :pswitch_3e
+        :pswitch_3a
+        :pswitch_3e
+        :pswitch_3e
+        :pswitch_36
+        :pswitch_3e
+        :pswitch_32
+        :pswitch_2e
+        :pswitch_3e
     .end packed-switch
 .end method
 
 .method private static parseExifTime(Ljava/lang/String;)J
-    .locals 5
+    .registers 6
 
     :try_start_0
     const-string v0, ","
@@ -6673,9 +6677,9 @@
     invoke-virtual {p0, v3, v4}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
 
     move-result-wide v3
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_70
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_70} :catch_75
+    .catch Ljava/lang/ArrayIndexOutOfBoundsException; {:try_start_0 .. :try_end_70} :catch_75
 
     const/4 p0, 0x0
 
@@ -6688,7 +6692,7 @@
     return-wide v1
 
     .line 2042
-    :catch_0
+    :catch_75
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -6697,7 +6701,7 @@
 .end method
 
 .method private parseTiffHeaders(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6726,22 +6730,22 @@
 
     const/4 v2, 0x7
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_3a
 
     iget p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     const/16 v1, 0xa
 
-    if-eq p0, v1, :cond_1
+    if-eq p0, v1, :cond_3a
 
     const/16 p0, 0x2a
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_1f
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 2702
-    :cond_0
+    :cond_1f
     new-instance p0, Ljava/io/IOException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -6767,33 +6771,33 @@
     throw p0
 
     .line 2706
-    :cond_1
-    :goto_0
+    :cond_3a
+    :goto_3a
     invoke-virtual {p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readInt()I
 
     move-result p0
 
     const/16 v0, 0x8
 
-    if-lt p0, v0, :cond_4
+    if-lt p0, v0, :cond_67
 
-    if-ge p0, p2, :cond_4
+    if-ge p0, p2, :cond_67
 
     add-int/lit8 p0, p0, -0x8
 
-    if-lez p0, :cond_3
+    if-lez p0, :cond_66
 
     .line 2712
     invoke-virtual {p1, p0}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->skipBytes(I)I
 
     move-result p1
 
-    if-ne p1, p0, :cond_2
+    if-ne p1, p0, :cond_4f
 
-    goto :goto_1
+    goto :goto_66
 
     .line 2713
-    :cond_2
+    :cond_4f
     new-instance p1, Ljava/io/IOException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -6814,12 +6818,12 @@
 
     throw p1
 
-    :cond_3
-    :goto_1
+    :cond_66
+    :goto_66
     return-void
 
     .line 2708
-    :cond_4
+    :cond_67
     new-instance p1, Ljava/io/IOException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -6842,17 +6846,17 @@
 .end method
 
 .method private printAttributes()V
-    .locals 7
+    .registers 8
 
     const/4 v0, 0x0
 
     .line 1686
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_88
 
     const-string v1, "ExifInterface"
 
@@ -6900,12 +6904,12 @@
 
     move-result-object v1
 
-    :goto_1
+    :goto_38
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_84
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -6971,19 +6975,19 @@
     .line 1690
     invoke-static {v4, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_38
 
-    :cond_0
+    :cond_84
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_1
+    :cond_88
     return-void
 .end method
 
 .method private readByteOrder(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)Ljava/nio/ByteOrder;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -6997,11 +7001,11 @@
 
     const/16 p1, 0x4949
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_2a
 
     const/16 p1, 0x4d4d
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_f
 
     .line 2686
     sget-object p0, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
@@ -7009,7 +7013,7 @@
     return-object p0
 
     .line 2688
-    :cond_0
+    :cond_f
     new-instance p1, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -7035,14 +7039,14 @@
     throw p1
 
     .line 2681
-    :cond_1
+    :cond_2a
     sget-object p0, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
     return-object p0
 .end method
 
 .method private readExifSegment([BI)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -7066,7 +7070,7 @@
 .end method
 
 .method private readImageFileDirectory(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
-    .locals 22
+    .registers 25
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -7080,27 +7084,30 @@
     move/from16 v2, p2
 
     .line 2721
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$800(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v3
 
     add-int/lit8 v3, v3, 0x2
 
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v4
 
-    if-le v3, v4, :cond_0
+    if-le v3, v4, :cond_13
 
     return-void
 
     .line 2726
-    :cond_0
+    :cond_13
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readShort()S
 
     move-result v3
 
     .line 2727
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mPosition:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$800(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v4
@@ -7109,21 +7116,22 @@
 
     add-int/2addr v4, v5
 
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v5
 
-    if-le v4, v5, :cond_1
+    if-le v4, v5, :cond_25
 
     return-void
 
-    :cond_1
+    :cond_25
     const/4 v5, 0x0
 
-    :goto_0
+    :goto_26
     const/4 v7, 0x4
 
-    if-ge v5, v3, :cond_16
+    if-ge v5, v3, :cond_227
 
     .line 2738
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readUnsignedShort()I
@@ -7166,7 +7174,7 @@
 
     const-wide/16 v14, 0x0
 
-    if-nez v13, :cond_2
+    if-nez v13, :cond_66
 
     const-string v4, "ExifInterface"
 
@@ -7189,21 +7197,21 @@
 
     move/from16 v16, v3
 
-    goto :goto_3
+    goto :goto_b4
 
-    :cond_2
-    if-lez v9, :cond_6
+    :cond_66
+    if-lez v9, :cond_9c
 
     .line 2757
     sget-object v4, Lopenlight/co/lib/exif/ExifInterface;->IFD_FORMAT_BYTES_PER_FORMAT:[I
 
     array-length v4, v4
 
-    if-lt v9, v4, :cond_3
+    if-lt v9, v4, :cond_6e
 
-    goto :goto_2
+    goto :goto_9c
 
-    :cond_3
+    :cond_6e
     int-to-long v6, v10
 
     .line 2760
@@ -7219,23 +7227,23 @@
 
     cmp-long v6, v3, v14
 
-    if-ltz v6, :cond_5
+    if-ltz v6, :cond_85
 
     const-wide/32 v6, 0x7fffffff
 
     cmp-long v6, v3, v6
 
-    if-lez v6, :cond_4
+    if-lez v6, :cond_83
 
-    goto :goto_1
+    goto :goto_85
 
-    :cond_4
+    :cond_83
     const/4 v6, 0x1
 
-    goto :goto_5
+    goto :goto_b7
 
-    :cond_5
-    :goto_1
+    :cond_85
+    :goto_85
     const-string v6, "ExifInterface"
 
     .line 2762
@@ -7255,10 +7263,10 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_b6
 
-    :cond_6
-    :goto_2
+    :cond_9c
+    :goto_9c
     move/from16 v16, v3
 
     const-string v3, "ExifInterface"
@@ -7280,14 +7288,14 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_3
+    :goto_b4
     const-wide/16 v3, 0x0
 
-    :goto_4
+    :goto_b6
     const/4 v6, 0x0
 
-    :goto_5
-    if-nez v6, :cond_7
+    :goto_b7
+    if-nez v6, :cond_c1
 
     .line 2769
     invoke-virtual {v1, v11, v12}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
@@ -7296,14 +7304,14 @@
 
     move/from16 v17, v5
 
-    goto/16 :goto_c
+    goto/16 :goto_21f
 
-    :cond_7
+    :cond_c1
     const-wide/16 v6, 0x4
 
     cmp-long v6, v3, v6
 
-    if-lez v6, :cond_d
+    if-lez v6, :cond_15f
 
     .line 2776
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readInt()I
@@ -7315,34 +7323,34 @@
 
     const/4 v14, 0x7
 
-    if-ne v7, v14, :cond_a
+    if-ne v7, v14, :cond_120
 
     .line 2781
     iget-object v7, v13, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
 
     const-string v14, "MakerNote"
 
-    if-ne v7, v14, :cond_9
+    if-ne v7, v14, :cond_db
 
     .line 2783
     iput v6, v0, Lopenlight/co/lib/exif/ExifInterface;->mOrfMakerNoteOffset:I
 
-    :cond_8
+    :cond_d8
     move/from16 v17, v5
 
-    goto :goto_6
+    goto :goto_130
 
-    :cond_9
+    :cond_db
     const/4 v7, 0x6
 
-    if-ne v2, v7, :cond_8
+    if-ne v2, v7, :cond_d8
 
     .line 2784
     iget-object v14, v13, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
 
     const-string v15, "ThumbnailImage"
 
-    if-ne v14, v15, :cond_8
+    if-ne v14, v15, :cond_d8
 
     .line 2787
     iput v6, v0, Lopenlight/co/lib/exif/ExifInterface;->mOrfThumbnailOffset:I
@@ -7415,9 +7423,9 @@
 
     invoke-virtual {v5, v7, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_6
+    goto :goto_130
 
-    :cond_a
+    :cond_120
     move/from16 v17, v5
 
     .line 2803
@@ -7425,25 +7433,26 @@
 
     const/16 v5, 0xa
 
-    if-ne v2, v5, :cond_b
+    if-ne v2, v5, :cond_130
 
     .line 2804
     iget-object v2, v13, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
 
     const-string v5, "JpgFromRaw"
 
-    if-ne v2, v5, :cond_b
+    if-ne v2, v5, :cond_130
 
     .line 2805
     iput v6, v0, Lopenlight/co/lib/exif/ExifInterface;->mRw2JpgFromRawOffset:I
 
-    :cond_b
-    :goto_6
+    :cond_130
+    :goto_130
     int-to-long v14, v6
 
     add-long v18, v14, v3
 
     .line 2808
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v2
@@ -7454,14 +7463,14 @@
 
     cmp-long v2, v18, v2
 
-    if-gtz v2, :cond_c
+    if-gtz v2, :cond_142
 
     .line 2809
     invoke-virtual {v1, v14, v15}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
 
-    goto :goto_8
+    goto :goto_163
 
-    :cond_c
+    :cond_142
     const-string v2, "ExifInterface"
 
     .line 2812
@@ -7484,18 +7493,18 @@
     .line 2813
     invoke-virtual {v1, v11, v12}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
 
-    :goto_7
+    :goto_15b
     move/from16 v4, p2
 
-    goto/16 :goto_c
+    goto/16 :goto_21f
 
-    :cond_d
+    :cond_15f
     move-wide/from16 v20, v3
 
     move/from16 v17, v5
 
     .line 2819
-    :goto_8
+    :goto_163
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->sExifPointerTagMap:Ljava/util/HashMap;
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -7506,61 +7515,62 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_1c2
 
     const-wide/16 v3, -0x1
 
-    sparse-switch v9, :sswitch_data_0
+    sparse-switch v9, :sswitch_data_262
 
-    :goto_9
+    :goto_174
     const-wide/16 v5, 0x0
 
-    goto :goto_a
+    goto :goto_18e
 
     .line 2842
-    :sswitch_0
+    :sswitch_177
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readInt()I
 
     move-result v3
 
     int-to-long v3, v3
 
-    goto :goto_9
+    goto :goto_174
 
     .line 2833
-    :sswitch_1
+    :sswitch_17d
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readShort()S
 
     move-result v3
 
     int-to-long v3, v3
 
-    goto :goto_9
+    goto :goto_174
 
     .line 2837
-    :sswitch_2
+    :sswitch_183
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readUnsignedInt()J
 
     move-result-wide v3
 
-    goto :goto_9
+    goto :goto_174
 
     .line 2829
-    :sswitch_3
+    :sswitch_188
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readUnsignedShort()I
 
     move-result v3
 
     int-to-long v3, v3
 
-    goto :goto_9
+    goto :goto_174
 
-    :goto_a
+    :goto_18e
     cmp-long v5, v3, v5
 
-    if-lez v5, :cond_e
+    if-lez v5, :cond_1a8
 
     .line 2853
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v5
@@ -7569,7 +7579,7 @@
 
     cmp-long v5, v3, v5
 
-    if-gez v5, :cond_e
+    if-gez v5, :cond_1a8
 
     .line 2854
     invoke-virtual {v1, v3, v4}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
@@ -7583,9 +7593,9 @@
 
     invoke-direct {v0, v1, v2}, Lopenlight/co/lib/exif/ExifInterface;->readImageFileDirectory(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
 
-    goto :goto_b
+    goto :goto_1be
 
-    :cond_e
+    :cond_1a8
     const-string v2, "ExifInterface"
 
     .line 2857
@@ -7606,12 +7616,12 @@
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 2860
-    :goto_b
+    :goto_1be
     invoke-virtual {v1, v11, v12}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
 
-    goto :goto_7
+    goto :goto_15b
 
-    :cond_f
+    :cond_1c2
     move-wide/from16 v3, v20
 
     long-to-int v2, v3
@@ -7645,7 +7655,7 @@
 
     const-string v5, "DNGVersion"
 
-    if-ne v2, v5, :cond_10
+    if-ne v2, v5, :cond_1e4
 
     const/4 v2, 0x3
 
@@ -7653,20 +7663,20 @@
     iput v2, v0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     .line 2879
-    :cond_10
+    :cond_1e4
     iget-object v2, v13, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
 
     const-string v5, "Make"
 
-    if-eq v2, v5, :cond_11
+    if-eq v2, v5, :cond_1f0
 
     iget-object v2, v13, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
 
     const-string v5, "Model"
 
-    if-ne v2, v5, :cond_12
+    if-ne v2, v5, :cond_1fe
 
-    :cond_11
+    :cond_1f0
     iget-object v2, v0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     .line 2880
@@ -7680,14 +7690,14 @@
 
     move-result v2
 
-    if-nez v2, :cond_13
+    if-nez v2, :cond_20f
 
-    :cond_12
+    :cond_1fe
     iget-object v2, v13, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
 
     const-string v5, "Compression"
 
-    if-ne v2, v5, :cond_14
+    if-ne v2, v5, :cond_213
 
     iget-object v2, v0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
@@ -7698,16 +7708,16 @@
 
     const v3, 0xffff
 
-    if-ne v2, v3, :cond_14
+    if-ne v2, v3, :cond_213
 
-    :cond_13
+    :cond_20f
     const/16 v2, 0x8
 
     .line 2883
     iput v2, v0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     .line 2887
-    :cond_14
+    :cond_213
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->peek()I
 
     move-result v2
@@ -7716,13 +7726,13 @@
 
     cmp-long v2, v2, v11
 
-    if-eqz v2, :cond_15
+    if-eqz v2, :cond_21f
 
     .line 2888
     invoke-virtual {v1, v11, v12}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->seek(J)V
 
-    :cond_15
-    :goto_c
+    :cond_21f
+    :goto_21f
     add-int/lit8 v5, v17, 0x1
 
     int-to-short v5, v5
@@ -7731,10 +7741,10 @@
 
     move/from16 v3, v16
 
-    goto/16 :goto_0
+    goto/16 :goto_26
 
     .line 2892
-    :cond_16
+    :cond_227
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->peek()I
 
     move-result v2
@@ -7743,11 +7753,12 @@
 
     add-int/2addr v2, v3
 
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v4
 
-    if-gt v2, v4, :cond_18
+    if-gt v2, v4, :cond_261
 
     .line 2893
     invoke-virtual/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->readInt()I
@@ -7756,14 +7767,15 @@
 
     const/16 v4, 0x8
 
-    if-le v2, v4, :cond_18
+    if-le v2, v4, :cond_261
 
     .line 2899
+    # getter for: Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->mLength:I
     invoke-static/range {p1 .. p1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;->access$900(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)I
 
     move-result v4
 
-    if-ge v2, v4, :cond_18
+    if-ge v2, v4, :cond_261
 
     int-to-long v4, v2
 
@@ -7779,15 +7791,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_17
+    if-eqz v2, :cond_253
 
     .line 2903
     invoke-direct {v0, v1, v3}, Lopenlight/co/lib/exif/ExifInterface;->readImageFileDirectory(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
 
-    goto :goto_d
+    goto :goto_261
 
     .line 2904
-    :cond_17
+    :cond_253
     iget-object v2, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     const/4 v3, 0x5
@@ -7798,37 +7810,37 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_261
 
     .line 2905
     invoke-direct {v0, v1, v3}, Lopenlight/co/lib/exif/ExifInterface;->readImageFileDirectory(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
 
-    :cond_18
-    :goto_d
+    :cond_261
+    :goto_261
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_262
     .sparse-switch
-        0x3 -> :sswitch_3
-        0x4 -> :sswitch_2
-        0x8 -> :sswitch_1
-        0x9 -> :sswitch_0
-        0xd -> :sswitch_0
+        0x3 -> :sswitch_188
+        0x4 -> :sswitch_183
+        0x8 -> :sswitch_17d
+        0x9 -> :sswitch_177
+        0xd -> :sswitch_177
     .end sparse-switch
 .end method
 
 .method private removeAttribute(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 1607
-    :goto_0
+    :goto_1
     sget-object v1, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_10
 
     .line 1608
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -7839,14 +7851,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method private retrieveJpegImageSize(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -7881,12 +7893,12 @@
 
     check-cast v1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_33
 
     .line 2927
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v0, v0, p2
@@ -7900,7 +7912,7 @@
 
     check-cast v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 2930
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -7913,12 +7925,12 @@
     .line 2934
     invoke-direct {p0, p1, v0, p2}, Lopenlight/co/lib/exif/ExifInterface;->getJpegAttributes(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;II)V
 
-    :cond_1
+    :cond_33
     return-void
 .end method
 
 .method private saveJpegAttributes(Ljava/io/InputStream;Ljava/io/OutputStream;)V
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -7944,7 +7956,7 @@
 
     const/4 v1, -0x1
 
-    if-ne p2, v1, :cond_a
+    if-ne p2, v1, :cond_e5
 
     .line 2545
     invoke-virtual {p1, v1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeByte(I)V
@@ -7956,7 +7968,7 @@
 
     const/16 v2, -0x28
 
-    if-ne p2, v2, :cond_9
+    if-ne p2, v2, :cond_dd
 
     .line 2549
     invoke-virtual {p1, v2}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeByte(I)V
@@ -7980,13 +7992,13 @@
     new-array p0, p0, [B
 
     .line 2559
-    :cond_0
-    :goto_0
+    :cond_31
+    :goto_31
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readByte()B
 
     move-result v3
 
-    if-ne v3, v1, :cond_8
+    if-ne v3, v1, :cond_d5
 
     .line 2563
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readByte()B
@@ -7995,9 +8007,9 @@
 
     const/4 v4, 0x0
 
-    if-eq v3, p2, :cond_2
+    if-eq v3, p2, :cond_76
 
-    packed-switch v3, :pswitch_data_0
+    packed-switch v3, :pswitch_data_ee
 
     .line 2609
     invoke-virtual {p1, v1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeByte(I)V
@@ -8015,10 +8027,10 @@
 
     add-int/lit8 v3, v3, -0x2
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_64
 
-    :goto_1
-    if-lez v3, :cond_0
+    :goto_52
+    if-lez v3, :cond_31
 
     .line 2618
     array-length v5, p0
@@ -8033,17 +8045,17 @@
 
     move-result v5
 
-    if-ltz v5, :cond_0
+    if-ltz v5, :cond_31
 
     .line 2620
     invoke-virtual {p1, p0, v4, v5}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->write([BII)V
 
     sub-int/2addr v3, v5
 
-    goto :goto_1
+    goto :goto_52
 
     .line 2615
-    :cond_1
+    :cond_64
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid length"
@@ -8053,7 +8065,7 @@
     throw p0
 
     .line 2601
-    :pswitch_0
+    :pswitch_6c
     invoke-virtual {p1, v1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeByte(I)V
 
     .line 2602
@@ -8065,26 +8077,26 @@
     return-void
 
     .line 2566
-    :cond_2
+    :cond_76
     invoke-virtual {v0}, Ljava/io/DataInputStream;->readUnsignedShort()I
 
     move-result v5
 
     add-int/lit8 v5, v5, -0x2
 
-    if-ltz v5, :cond_7
+    if-ltz v5, :cond_cd
 
     .line 2570
     new-array v6, v2, [B
 
-    if-lt v5, v2, :cond_5
+    if-lt v5, v2, :cond_a9
 
     .line 2572
     invoke-virtual {v0, v6}, Ljava/io/DataInputStream;->read([B)I
 
     move-result v7
 
-    if-ne v7, v2, :cond_4
+    if-ne v7, v2, :cond_a1
 
     .line 2575
     sget-object v7, Lopenlight/co/lib/exif/ExifInterface;->IDENTIFIER_EXIF_APP1:[B
@@ -8093,7 +8105,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_a9
 
     add-int/lit8 v5, v5, -0x6
 
@@ -8102,12 +8114,12 @@
 
     move-result v3
 
-    if-ne v3, v5, :cond_3
+    if-ne v3, v5, :cond_99
 
-    goto :goto_0
+    goto :goto_31
 
     .line 2578
-    :cond_3
+    :cond_99
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid length"
@@ -8117,7 +8129,7 @@
     throw p0
 
     .line 2573
-    :cond_4
+    :cond_a1
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid exif"
@@ -8127,7 +8139,7 @@
     throw p0
 
     .line 2584
-    :cond_5
+    :cond_a9
     invoke-virtual {p1, v1}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeByte(I)V
 
     .line 2585
@@ -8138,16 +8150,16 @@
     .line 2586
     invoke-virtual {p1, v3}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeUnsignedShort(I)V
 
-    if-lt v5, v2, :cond_6
+    if-lt v5, v2, :cond_bb
 
     add-int/lit8 v5, v5, -0x6
 
     .line 2589
     invoke-virtual {p1, v6}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->write([B)V
 
-    :cond_6
-    :goto_2
-    if-lez v5, :cond_0
+    :cond_bb
+    :goto_bb
+    if-lez v5, :cond_31
 
     .line 2592
     array-length v3, p0
@@ -8162,17 +8174,17 @@
 
     move-result v3
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_31
 
     .line 2594
     invoke-virtual {p1, p0, v4, v3}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->write([BII)V
 
     sub-int/2addr v5, v3
 
-    goto :goto_2
+    goto :goto_bb
 
     .line 2568
-    :cond_7
+    :cond_cd
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid length"
@@ -8182,7 +8194,7 @@
     throw p0
 
     .line 2561
-    :cond_8
+    :cond_d5
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid marker"
@@ -8192,7 +8204,7 @@
     throw p0
 
     .line 2547
-    :cond_9
+    :cond_dd
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid marker"
@@ -8202,7 +8214,7 @@
     throw p0
 
     .line 2543
-    :cond_a
+    :cond_e5
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Invalid marker"
@@ -8213,15 +8225,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_ee
     .packed-switch -0x27
-        :pswitch_0
-        :pswitch_0
+        :pswitch_6c
+        :pswitch_6c
     .end packed-switch
 .end method
 
 .method private setThumbnailData(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -8244,7 +8256,7 @@
 
     check-cast v1, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2e
 
     .line 2946
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -8260,33 +8272,33 @@
 
     const/4 v2, 0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_24
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_36
 
-    goto :goto_0
+    goto :goto_34
 
     .line 2949
-    :pswitch_0
+    :pswitch_20
     invoke-direct {p0, p1, v0}, Lopenlight/co/lib/exif/ExifInterface;->handleThumbnailFromJfif(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;Ljava/util/HashMap;)V
 
-    goto :goto_0
+    goto :goto_34
 
     .line 2954
-    :cond_0
-    :pswitch_1
+    :cond_24
+    :pswitch_24
     invoke-direct {p0, v0}, Lopenlight/co/lib/exif/ExifInterface;->isSupportedDataType(Ljava/util/HashMap;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_34
 
     .line 2955
     invoke-direct {p0, p1, v0}, Lopenlight/co/lib/exif/ExifInterface;->handleThumbnailFromStrips(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;Ljava/util/HashMap;)V
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_1
+    :cond_2e
     const/4 v1, 0x6
 
     .line 2962
@@ -8295,21 +8307,21 @@
     .line 2963
     invoke-direct {p0, p1, v0}, Lopenlight/co/lib/exif/ExifInterface;->handleThumbnailFromJfif(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;Ljava/util/HashMap;)V
 
-    :cond_2
-    :goto_0
+    :cond_34
+    :goto_34
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_36
     .packed-switch 0x6
-        :pswitch_0
-        :pswitch_1
+        :pswitch_20
+        :pswitch_24
     .end packed-switch
 .end method
 
 .method private swapBasedOnImageSize(II)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -8325,7 +8337,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_7c
 
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
@@ -8335,12 +8347,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
-    goto :goto_1
+    goto :goto_7c
 
     .line 3795
-    :cond_0
+    :cond_15
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v0, v0, p1
@@ -8396,21 +8408,21 @@
 
     check-cast v3, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_7b
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_4a
 
-    goto :goto_0
+    goto :goto_7b
 
-    :cond_1
-    if-eqz v2, :cond_3
+    :cond_4a
+    if-eqz v2, :cond_7b
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4f
 
-    goto :goto_0
+    goto :goto_7b
 
     .line 3813
-    :cond_2
+    :cond_4f
     iget-object v4, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, v4}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getIntValue(Ljava/nio/ByteOrder;)I
@@ -8438,9 +8450,9 @@
 
     move-result v3
 
-    if-ge v0, v2, :cond_3
+    if-ge v0, v2, :cond_7b
 
-    if-ge v1, v3, :cond_3
+    if-ge v1, v3, :cond_7b
 
     .line 3820
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -8461,29 +8473,29 @@
 
     aput-object v0, p0, p2
 
-    :cond_3
-    :goto_0
+    :cond_7b
+    :goto_7b
     return-void
 
-    :cond_4
-    :goto_1
+    :cond_7c
+    :goto_7c
     return-void
 .end method
 
 .method private updateAttribute(Ljava/lang/String;Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;)Z
-    .locals 3
+    .registers 6
 
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 1592
-    :goto_0
+    :goto_2
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v2, v2
 
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_1c
 
     .line 1593
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -8494,7 +8506,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_19
 
     .line 1594
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -8505,17 +8517,17 @@
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_19
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
+    :cond_1c
     return v1
 .end method
 
 .method private updateImageSizeValues(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
-    .locals 6
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -8592,7 +8604,7 @@
 
     check-cast v4, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_cc
 
     .line 3184
     iget p1, v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->format:I
@@ -8605,29 +8617,30 @@
 
     const/4 v4, 0x2
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_80
 
     .line 3185
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     .line 3186
+    # invokes: Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getValue(Ljava/nio/ByteOrder;)Ljava/lang/Object;
     invoke-static {v0, p1}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->access$700(Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;Ljava/nio/ByteOrder;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, [Lopenlight/co/lib/exif/ExifInterface$Rational;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_65
 
     .line 3187
     array-length v0, p1
 
-    if-eq v0, v4, :cond_0
+    if-eq v0, v4, :cond_54
 
-    goto :goto_0
+    goto :goto_65
 
     .line 3192
-    :cond_0
+    :cond_54
     aget-object v0, p1, v3
 
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -8647,10 +8660,10 @@
 
     move-result-object p1
 
-    goto :goto_1
+    goto :goto_9e
 
-    :cond_1
-    :goto_0
+    :cond_65
+    :goto_65
     const-string p0, "ExifInterface"
 
     .line 3188
@@ -8679,27 +8692,28 @@
     return-void
 
     .line 3197
-    :cond_2
+    :cond_80
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     .line 3198
+    # invokes: Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getValue(Ljava/nio/ByteOrder;)Ljava/lang/Object;
     invoke-static {v0, p1}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->access$700(Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;Ljava/nio/ByteOrder;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, [I
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_b1
 
     .line 3199
     array-length v0, p1
 
-    if-eq v0, v4, :cond_3
+    if-eq v0, v4, :cond_8e
 
-    goto :goto_2
+    goto :goto_b1
 
     .line 3204
-    :cond_3
+    :cond_8e
     aget v0, p1, v3
 
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -8720,7 +8734,7 @@
     move-result-object p1
 
     .line 3209
-    :goto_1
+    :goto_9e
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v1, v1, p2
@@ -8738,10 +8752,10 @@
 
     invoke-virtual {p0, p2, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_114
 
-    :cond_4
-    :goto_2
+    :cond_b1
+    :goto_b1
     const-string p0, "ExifInterface"
 
     .line 3200
@@ -8769,14 +8783,14 @@
 
     return-void
 
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_cc
+    if-eqz v1, :cond_111
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_111
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_111
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_111
 
     .line 3214
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -8806,9 +8820,9 @@
 
     move-result v2
 
-    if-le v0, p1, :cond_7
+    if-le v0, p1, :cond_114
 
-    if-le v1, v2, :cond_7
+    if-le v1, v2, :cond_114
 
     sub-int/2addr v0, p1
 
@@ -8848,19 +8862,19 @@
 
     invoke-virtual {p0, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_3
+    goto :goto_114
 
     .line 3229
-    :cond_6
+    :cond_111
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/exif/ExifInterface;->retrieveJpegImageSize(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataInputStream;I)V
 
-    :cond_7
-    :goto_3
+    :cond_114
+    :goto_114
     return-void
 .end method
 
 .method private validateImages(Ljava/io/InputStream;)V
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -8912,9 +8926,9 @@
 
     check-cast v3, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3b
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3b
 
     .line 3136
     iget-object v4, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -8935,7 +8949,7 @@
     invoke-virtual {p1, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3142
-    :cond_0
+    :cond_3b
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object p1, p1, v1
@@ -8944,7 +8958,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_60
 
     .line 3143
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -8955,7 +8969,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_60
 
     .line 3144
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -8976,7 +8990,7 @@
     aput-object v2, p1, v0
 
     .line 3150
-    :cond_1
+    :cond_60
     iget-object p1, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object p1, p1, v1
@@ -8985,7 +8999,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_71
 
     const-string p0, "ExifInterface"
 
@@ -8994,12 +9008,12 @@
     .line 3151
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_71
     return-void
 .end method
 
 .method private writeExifSegment(Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;I)I
-    .locals 16
+    .registers 19
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -9033,8 +9047,8 @@
 
     move v7, v6
 
-    :goto_0
-    if-ge v7, v5, :cond_0
+    :goto_13
+    if-ge v7, v5, :cond_1f
 
     aget-object v8, v4, v7
 
@@ -9045,10 +9059,10 @@
 
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
     .line 3245
-    :cond_0
+    :cond_1f
     sget-object v4, Lopenlight/co/lib/exif/ExifInterface;->JPEG_INTERCHANGE_FORMAT_TAG:Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     iget-object v4, v4, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->name:Ljava/lang/String;
@@ -9065,12 +9079,12 @@
     move v4, v6
 
     .line 3249
-    :goto_1
+    :goto_2e
     sget-object v5, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v5, v5
 
-    if-ge v4, v5, :cond_3
+    if-ge v4, v5, :cond_5e
 
     .line 3250
     iget-object v5, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9089,8 +9103,8 @@
 
     move v8, v6
 
-    :goto_2
-    if-ge v8, v7, :cond_2
+    :goto_41
+    if-ge v8, v7, :cond_5b
 
     aget-object v9, v5, v8
 
@@ -9102,7 +9116,7 @@
 
     move-result-object v10
 
-    if-nez v10, :cond_1
+    if-nez v10, :cond_58
 
     .line 3253
     iget-object v10, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9115,18 +9129,18 @@
 
     invoke-virtual {v10, v9}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_58
     add-int/lit8 v8, v8, 0x1
 
-    goto :goto_2
+    goto :goto_41
 
-    :cond_2
+    :cond_5b
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_2e
 
     .line 3260
-    :cond_3
+    :cond_5e
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     const/4 v5, 0x1
@@ -9139,7 +9153,7 @@
 
     const-wide/16 v7, 0x0
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_7e
 
     .line 3261
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9163,7 +9177,7 @@
     invoke-virtual {v4, v9, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3264
-    :cond_4
+    :cond_7e
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     const/4 v9, 0x2
@@ -9174,7 +9188,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_9c
 
     .line 3265
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9198,7 +9212,7 @@
     invoke-virtual {v4, v10, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3268
-    :cond_5
+    :cond_9c
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     const/4 v10, 0x3
@@ -9209,7 +9223,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_6
+    if-nez v4, :cond_ba
 
     .line 3269
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9233,12 +9247,12 @@
     invoke-virtual {v4, v11, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3272
-    :cond_6
+    :cond_ba
     iget-boolean v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
     const/4 v11, 0x4
 
-    if-eqz v4, :cond_7
+    if-eqz v4, :cond_e4
 
     .line 3273
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9282,16 +9296,16 @@
     .line 3275
     invoke-virtual {v4, v12, v13}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_7
+    :cond_e4
     move v4, v6
 
     .line 3281
-    :goto_3
+    :goto_e5
     sget-object v12, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v12, v12
 
-    if-ge v4, v12, :cond_a
+    if-ge v4, v12, :cond_119
 
     .line 3283
     iget-object v12, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9308,13 +9322,13 @@
 
     move v13, v6
 
-    :cond_8
-    :goto_4
+    :cond_f7
+    :goto_f7
     invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_111
 
     invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9334,14 +9348,14 @@
 
     move-result v14
 
-    if-le v14, v11, :cond_8
+    if-le v14, v11, :cond_f7
 
     add-int/2addr v13, v14
 
-    goto :goto_4
+    goto :goto_f7
 
     .line 3290
-    :cond_9
+    :cond_111
     aget v12, v3, v4
 
     add-int/2addr v12, v13
@@ -9350,9 +9364,9 @@
 
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_3
+    goto :goto_e5
 
-    :cond_a
+    :cond_119
     const/16 v4, 0x8
 
     move v13, v4
@@ -9360,12 +9374,12 @@
     move v12, v6
 
     .line 3295
-    :goto_5
+    :goto_11d
     sget-object v14, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v14, v14
 
-    if-ge v12, v14, :cond_c
+    if-ge v12, v14, :cond_141
 
     .line 3296
     iget-object v14, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9376,7 +9390,7 @@
 
     move-result v14
 
-    if-nez v14, :cond_b
+    if-nez v14, :cond_13e
 
     .line 3297
     aput v13, v2, v12
@@ -9402,16 +9416,16 @@
 
     add-int/2addr v13, v14
 
-    :cond_b
+    :cond_13e
     add-int/lit8 v12, v12, 0x1
 
-    goto :goto_5
+    goto :goto_11d
 
     .line 3301
-    :cond_c
+    :cond_141
     iget-boolean v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_15e
 
     .line 3303
     iget-object v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9444,7 +9458,7 @@
 
     add-int/2addr v13, v3
 
-    :cond_d
+    :cond_15e
     add-int/2addr v13, v4
 
     .line 3320
@@ -9456,7 +9470,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_17f
 
     .line 3321
     iget-object v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9484,7 +9498,7 @@
     invoke-virtual {v3, v4, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3324
-    :cond_e
+    :cond_17f
     iget-object v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v3, v3, v9
@@ -9493,7 +9507,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_19f
 
     .line 3325
     iget-object v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9521,7 +9535,7 @@
     invoke-virtual {v3, v4, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3328
-    :cond_f
+    :cond_19f
     iget-object v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v3, v3, v10
@@ -9530,7 +9544,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_1bf
 
     .line 3329
     iget-object v3, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9556,7 +9570,7 @@
     invoke-virtual {v3, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 3334
-    :cond_10
+    :cond_1bf
     invoke-virtual {v1, v13}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeUnsignedShort(I)V
 
     .line 3335
@@ -9569,16 +9583,16 @@
 
     sget-object v4, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v3, v4, :cond_11
+    if-ne v3, v4, :cond_1d0
 
     const/16 v3, 0x4d4d
 
-    goto :goto_6
+    goto :goto_1d2
 
-    :cond_11
+    :cond_1d0
     const/16 v3, 0x4949
 
-    :goto_6
+    :goto_1d2
     invoke-virtual {v1, v3}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeShort(S)V
 
     .line 3338
@@ -9599,12 +9613,12 @@
     move v3, v6
 
     .line 3343
-    :goto_7
+    :goto_1e5
     sget-object v4, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v4, v4
 
-    if-ge v3, v4, :cond_19
+    if-ge v3, v4, :cond_2b0
 
     .line 3344
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9615,7 +9629,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_17
+    if-nez v4, :cond_2aa
 
     .line 3347
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9660,13 +9674,13 @@
 
     move-result-object v5
 
-    :cond_12
-    :goto_8
+    :cond_21a
+    :goto_21a
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v7
 
-    if-eqz v7, :cond_14
+    if-eqz v7, :cond_264
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9718,7 +9732,7 @@
 
     invoke-virtual {v1, v8}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeInt(I)V
 
-    if-le v10, v11, :cond_13
+    if-le v10, v11, :cond_255
 
     int-to-long v7, v4
 
@@ -9727,28 +9741,28 @@
 
     add-int/2addr v4, v10
 
-    goto :goto_8
+    goto :goto_21a
 
     .line 3366
-    :cond_13
+    :cond_255
     iget-object v7, v7, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->bytes:[B
 
     invoke-virtual {v1, v7}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->write([B)V
 
-    if-ge v10, v11, :cond_12
+    if-ge v10, v11, :cond_21a
 
-    :goto_9
-    if-ge v10, v11, :cond_12
+    :goto_25c
+    if-ge v10, v11, :cond_21a
 
     .line 3370
     invoke-virtual {v1, v6}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeByte(I)V
 
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_9
+    goto :goto_25c
 
-    :cond_14
-    if-nez v3, :cond_15
+    :cond_264
+    if-nez v3, :cond_279
 
     .line 3379
     iget-object v4, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -9759,7 +9773,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_15
+    if-nez v4, :cond_279
 
     .line 3380
     aget v4, v2, v11
@@ -9770,16 +9784,16 @@
 
     const-wide/16 v4, 0x0
 
-    goto :goto_a
+    goto :goto_27e
 
-    :cond_15
+    :cond_279
     const-wide/16 v4, 0x0
 
     .line 3382
     invoke-virtual {v1, v4, v5}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->writeUnsignedInt(J)V
 
     .line 3386
-    :goto_a
+    :goto_27e
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v3
@@ -9792,13 +9806,13 @@
 
     move-result-object v7
 
-    :cond_16
-    :goto_b
+    :cond_28a
+    :goto_28a
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_18
+    if-eqz v8, :cond_2ac
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -9818,7 +9832,7 @@
 
     array-length v10, v10
 
-    if-le v10, v11, :cond_16
+    if-le v10, v11, :cond_28a
 
     .line 3390
     iget-object v10, v8, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->bytes:[B
@@ -9829,21 +9843,21 @@
 
     invoke-virtual {v1, v10, v6, v8}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->write([BII)V
 
-    goto :goto_b
+    goto :goto_28a
 
-    :cond_17
+    :cond_2aa
     const-wide/16 v4, 0x0
 
-    :cond_18
+    :cond_2ac
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_7
+    goto/16 :goto_1e5
 
     .line 3397
-    :cond_19
+    :cond_2b0
     iget-boolean v2, v0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_2bb
 
     .line 3398
     invoke-virtual/range {p0 .. p0}, Lopenlight/co/lib/exif/ExifInterface;->getThumbnailBytes()[B
@@ -9853,7 +9867,7 @@
     invoke-virtual {v1, v0}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->write([B)V
 
     .line 3402
-    :cond_1a
+    :cond_2bb
     sget-object v0, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
     invoke-virtual {v1, v0}, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->setByteOrder(Ljava/nio/ByteOrder;)V
@@ -9864,7 +9878,7 @@
 
 # virtual methods
 .method public getAltitude(D)D
-    .locals 6
+    .registers 9
 
     const-string v0, "GPSAltitude"
 
@@ -9888,29 +9902,29 @@
 
     cmpl-double v2, v0, v4
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_1e
 
-    if-ltz p0, :cond_1
+    if-ltz p0, :cond_1e
 
     const/4 p1, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_1b
 
     move p1, v3
 
-    :cond_0
+    :cond_1b
     int-to-double p0, p1
 
     mul-double/2addr v0, p0
 
     return-wide v0
 
-    :cond_1
+    :cond_1e
     return-wide p1
 .end method
 
 .method public getAttribute(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     .line 1356
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getExifAttribute(Ljava/lang/String;)Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
@@ -9919,7 +9933,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_55
 
     .line 1358
     sget-object v2, Lopenlight/co/lib/exif/ExifInterface;->sTagSetForCompatibility:Ljava/util/HashSet;
@@ -9928,7 +9942,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_16
 
     .line 1359
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -9939,7 +9953,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_16
     const-string v2, "GPSTimeStamp"
 
     .line 1361
@@ -9947,20 +9961,20 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_49
 
     .line 1363
     iget p1, v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->format:I
 
     const/4 v2, 0x5
 
-    if-eq p1, v2, :cond_1
+    if-eq p1, v2, :cond_42
 
     iget p1, v0, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->format:I
 
     const/16 v2, 0xa
 
-    if-eq p1, v2, :cond_1
+    if-eq p1, v2, :cond_42
 
     const-string p0, "ExifInterface"
 
@@ -9986,7 +10000,7 @@
     return-object v1
 
     .line 1368
-    :cond_1
+    :cond_42
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, p0}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getStringValue(Ljava/nio/ByteOrder;)Ljava/lang/String;
@@ -9996,8 +10010,8 @@
     return-object p0
 
     .line 1381
-    :cond_2
-    :try_start_0
+    :cond_49
+    :try_start_49
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {v0, p0}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getDoubleValue(Ljava/nio/ByteOrder;)D
@@ -10007,78 +10021,78 @@
     invoke-static {p0, p1}, Ljava/lang/Double;->toString(D)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_53
+    .catch Ljava/lang/NumberFormatException; {:try_start_49 .. :try_end_53} :catch_54
 
     return-object p0
 
-    :catch_0
+    :catch_54
     return-object v1
 
-    :cond_3
+    :cond_55
     return-object v1
 .end method
 
 .method public getAttributeDouble(Ljava/lang/String;D)D
-    .locals 0
+    .registers 4
 
     .line 1428
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getExifAttribute(Ljava/lang/String;)Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     return-wide p2
 
     .line 1434
-    :cond_0
-    :try_start_0
+    :cond_7
+    :try_start_7
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {p1, p0}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getDoubleValue(Ljava/nio/ByteOrder;)D
 
     move-result-wide p0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/NumberFormatException; {:try_start_7 .. :try_end_d} :catch_e
 
     return-wide p0
 
-    :catch_0
+    :catch_e
     return-wide p2
 .end method
 
 .method public getAttributeInt(Ljava/lang/String;I)I
-    .locals 0
+    .registers 3
 
     .line 1407
     invoke-direct {p0, p1}, Lopenlight/co/lib/exif/ExifInterface;->getExifAttribute(Ljava/lang/String;)Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_7
 
     return p2
 
     .line 1413
-    :cond_0
-    :try_start_0
+    :cond_7
+    :try_start_7
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
 
     invoke-virtual {p1, p0}, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;->getIntValue(Ljava/nio/ByteOrder;)I
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/NumberFormatException; {:try_start_7 .. :try_end_d} :catch_e
 
     return p0
 
-    :catch_0
+    :catch_e
     return p2
 .end method
 
 .method public getDateTime()J
-    .locals 9
+    .registers 10
 
     const-string v0, "DateTimeOriginal"
 
@@ -10087,7 +10101,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const-string v0, "DateTime"
 
@@ -10096,10 +10110,10 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_e
     const-wide/16 v1, -0x1
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4c
 
     .line 1971
     sget-object v3, Lopenlight/co/lib/exif/ExifInterface;->sNonZeroTimePattern:Ljava/util/regex/Pattern;
@@ -10113,12 +10127,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_1f
 
-    goto :goto_1
+    goto :goto_4c
 
     .line 1974
-    :cond_1
+    :cond_1f
     new-instance v3, Ljava/text/ParsePosition;
 
     const/4 v4, 0x0
@@ -10126,19 +10140,19 @@
     invoke-direct {v3, v4}, Ljava/text/ParsePosition;-><init>(I)V
 
     .line 1978
-    :try_start_0
+    :try_start_25
     sget-object v4, Lopenlight/co/lib/exif/ExifInterface;->sFormatter:Ljava/text/SimpleDateFormat;
 
     invoke-virtual {v4, v0, v3}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     return-wide v1
 
     .line 1980
-    :cond_2
+    :cond_2e
     invoke-virtual {v0}, Ljava/util/Date;->getTime()J
 
     move-result-wide v3
@@ -10149,53 +10163,53 @@
     invoke-virtual {p0, v0}, Lopenlight/co/lib/exif/ExifInterface;->getAttribute(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_38
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_25 .. :try_end_38} :catch_4b
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_4a
 
     .line 1985
-    :try_start_1
+    :try_start_3a
     invoke-static {p0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v5
 
-    :goto_0
+    :goto_3e
     const-wide/16 v7, 0x3e8
 
     cmp-long p0, v5, v7
 
-    if-lez p0, :cond_3
+    if-lez p0, :cond_48
 
     const-wide/16 v7, 0xa
 
     .line 1987
     div-long/2addr v5, v7
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_47
+    .catch Ljava/lang/NumberFormatException; {:try_start_3a .. :try_end_47} :catch_4a
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3a .. :try_end_47} :catch_4b
 
-    goto :goto_0
+    goto :goto_3e
 
-    :cond_3
+    :cond_48
     const/4 p0, 0x0
 
     add-long/2addr v3, v5
 
-    :catch_0
-    :cond_4
+    :catch_4a
+    :cond_4a
     return-wide v3
 
-    :catch_1
+    :catch_4b
     return-wide v1
 
-    :cond_5
-    :goto_1
+    :cond_4c
+    :goto_4c
     return-wide v1
 .end method
 
 .method public getGpsDateTime()J
-    .locals 7
+    .registers 8
 
     const-string v0, "GPSDateStamp"
 
@@ -10213,9 +10227,9 @@
 
     const-wide/16 v1, -0x1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_3a
 
     .line 2009
     sget-object v3, Lopenlight/co/lib/exif/ExifInterface;->sNonZeroTimePattern:Ljava/util/regex/Pattern;
@@ -10228,12 +10242,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1f
 
-    goto :goto_0
+    goto :goto_3a
 
     .line 2013
-    :cond_0
+    :cond_1f
     invoke-static {p0}, Lopenlight/co/lib/exif/ExifInterface;->parseExifTime(Ljava/lang/String;)J
 
     move-result-wide v3
@@ -10246,24 +10260,24 @@
     invoke-direct {p0, v5}, Ljava/text/ParsePosition;-><init>(I)V
 
     .line 2016
-    :try_start_0
+    :try_start_29
     sget-object v5, Lopenlight/co/lib/exif/ExifInterface;->sDateFormatter:Ljava/text/SimpleDateFormat;
 
     invoke-virtual {v5, v0, p0}, Ljava/text/SimpleDateFormat;->parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/util/Date;
 
     move-result-object p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_32
 
     return-wide v1
 
     .line 2018
-    :cond_1
+    :cond_32
     invoke-virtual {p0}, Ljava/util/Date;->getTime()J
 
     move-result-wide v5
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_36
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_29 .. :try_end_36} :catch_39
 
     const/4 p0, 0x0
 
@@ -10271,16 +10285,16 @@
 
     return-wide v5
 
-    :catch_0
+    :catch_39
     return-wide v1
 
-    :cond_2
-    :goto_0
+    :cond_3a
+    :goto_3a
     return-wide v1
 .end method
 
 .method public getLatLong([D)Z
-    .locals 8
+    .registers 10
 
     const-string v0, "GPSLatitude"
 
@@ -10312,18 +10326,18 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_58
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_58
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_58
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_58
 
     const/4 v4, 0x1
 
     .line 1910
-    :try_start_0
+    :try_start_22
     invoke-static {v0, v1}, Lopenlight/co/lib/exif/ExifInterface;->convertRationalLatLonToDouble(Ljava/lang/String;Ljava/lang/String;)D
 
     move-result-wide v5
@@ -10336,12 +10350,12 @@
     move-result-wide v5
 
     aput-wide v5, p1, v4
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_22 .. :try_end_2e} :catch_2f
 
     return v4
 
-    :catch_0
+    :catch_2f
     const-string p1, "ExifInterface"
 
     .line 1914
@@ -10385,12 +10399,12 @@
     .line 1914
     invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_58
     return v3
 .end method
 
 .method public getLatLong([F)Z
-    .locals 8
+    .registers 10
 
     const-string v0, "GPSLatitude"
 
@@ -10422,18 +10436,18 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_58
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_58
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_58
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_58
 
     const/4 v4, 0x1
 
     .line 1883
-    :try_start_0
+    :try_start_22
     invoke-static {v0, v1}, Lopenlight/co/lib/exif/ExifInterface;->convertRationalLatLonToFloat(Ljava/lang/String;Ljava/lang/String;)F
 
     move-result v5
@@ -10446,12 +10460,12 @@
     move-result v5
 
     aput v5, p1, v4
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_22 .. :try_end_2e} :catch_2f
 
     return v4
 
-    :catch_0
+    :catch_2f
     const-string p1, "ExifInterface"
 
     .line 1887
@@ -10495,36 +10509,36 @@
     .line 1887
     invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_58
     return v3
 .end method
 
 .method public getThumbnail()[B
-    .locals 2
+    .registers 3
 
     .line 1754
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_d
 
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v1, 0x7
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return-object p0
 
     .line 1755
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     invoke-virtual {p0}, Lopenlight/co/lib/exif/ExifInterface;->getThumbnailBytes()[B
 
     move-result-object p0
@@ -10533,22 +10547,22 @@
 .end method
 
 .method public getThumbnailBitmap()Landroid/graphics/Bitmap;
-    .locals 8
+    .registers 9
 
     .line 1813
     iget-boolean v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return-object v1
 
     .line 1815
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 1816
     invoke-virtual {p0}, Lopenlight/co/lib/exif/ExifInterface;->getThumbnailBytes()[B
@@ -10558,30 +10572,30 @@
     iput-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
 
     .line 1819
-    :cond_1
+    :cond_10
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v2, 0x6
 
     const/4 v3, 0x0
 
-    if-eq v0, v2, :cond_5
+    if-eq v0, v2, :cond_7b
 
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v2, 0x7
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_1c
 
-    goto :goto_1
+    goto :goto_7b
 
     .line 1821
-    :cond_2
+    :cond_1c
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v2, 0x1
 
-    if-ne v0, v2, :cond_4
+    if-ne v0, v2, :cond_7a
 
     .line 1822
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
@@ -10595,10 +10609,10 @@
     move v2, v3
 
     .line 1824
-    :goto_0
+    :goto_29
     array-length v4, v0
 
-    if-ge v2, v4, :cond_3
+    if-ge v2, v4, :cond_4a
 
     .line 1825
     iget-object v4, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
@@ -10633,10 +10647,10 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_29
 
     .line 1829
-    :cond_3
+    :cond_4a
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     const/4 v3, 0x4
@@ -10666,9 +10680,9 @@
 
     check-cast v3, Lopenlight/co/lib/exif/ExifInterface$ExifAttribute;
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_7a
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_7a
 
     .line 1834
     iget-object v1, p0, Lopenlight/co/lib/exif/ExifInterface;->mExifByteOrder:Ljava/nio/ByteOrder;
@@ -10693,12 +10707,12 @@
 
     return-object p0
 
-    :cond_4
+    :cond_7a
     return-object v1
 
     .line 1820
-    :cond_5
-    :goto_1
+    :cond_7b
+    :goto_7b
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
 
     iget p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailLength:I
@@ -10711,22 +10725,22 @@
 .end method
 
 .method public getThumbnailBytes()[B
-    .locals 6
+    .registers 7
 
     .line 1765
     iget-boolean v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return-object v1
 
     .line 1768
-    :cond_0
+    :cond_6
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_d
 
     .line 1769
     iget-object p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
@@ -10734,58 +10748,58 @@
     return-object p0
 
     .line 1775
-    :cond_1
-    :try_start_0
+    :cond_d
+    :try_start_d
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAssetInputStream:Landroid/content/res/AssetManager$AssetInputStream;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2a
 
     .line 1776
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mAssetInputStream:Landroid/content/res/AssetManager$AssetInputStream;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_13
+    .catch Ljava/io/IOException; {:try_start_d .. :try_end_13} :catch_72
+    .catchall {:try_start_d .. :try_end_13} :catchall_6f
 
     .line 1777
-    :try_start_1
+    :try_start_13
     invoke-virtual {v0}, Ljava/io/InputStream;->markSupported()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1d
 
     .line 1778
     invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_2
+    :cond_1d
     const-string p0, "ExifInterface"
 
     const-string v2, "Cannot read thumbnail from inputstream without mark/reset support"
 
     .line 1780
     invoke-static {p0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_24
+    .catch Ljava/io/IOException; {:try_start_13 .. :try_end_24} :catch_28
+    .catchall {:try_start_13 .. :try_end_24} :catchall_7f
 
     .line 1803
     invoke-static {v0}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
 
     return-object v1
 
-    :catch_0
+    :catch_28
     move-exception p0
 
-    goto :goto_1
+    goto :goto_74
 
     .line 1783
-    :cond_3
-    :try_start_2
+    :cond_2a
+    :try_start_2a
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mFilename:Ljava/lang/String;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_36
 
     .line 1784
     new-instance v0, Ljava/io/FileInputStream;
@@ -10793,20 +10807,20 @@
     iget-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mFilename:Ljava/lang/String;
 
     invoke-direct {v0, v2}, Ljava/io/FileInputStream;-><init>(Ljava/lang/String;)V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_35
+    .catch Ljava/io/IOException; {:try_start_2a .. :try_end_35} :catch_72
+    .catchall {:try_start_2a .. :try_end_35} :catchall_6f
 
-    goto :goto_0
+    goto :goto_37
 
-    :cond_4
+    :cond_36
     move-object v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_7
+    :goto_37
+    if-eqz v0, :cond_69
 
     .line 1790
-    :try_start_3
+    :try_start_39
     iget v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailOffset:I
 
     int-to-long v2, v2
@@ -10821,7 +10835,7 @@
 
     cmp-long v2, v2, v4
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_61
 
     .line 1793
     iget v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailLength:I
@@ -10835,13 +10849,13 @@
 
     iget v4, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailLength:I
 
-    if-ne v3, v4, :cond_5
+    if-ne v3, v4, :cond_59
 
     .line 1797
     iput-object v2, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailBytes:[B
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_55
+    .catch Ljava/io/IOException; {:try_start_39 .. :try_end_55} :catch_28
+    .catchall {:try_start_39 .. :try_end_55} :catchall_7f
 
     .line 1803
     invoke-static {v0}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
@@ -10849,8 +10863,8 @@
     return-object v2
 
     .line 1795
-    :cond_5
-    :try_start_4
+    :cond_59
+    :try_start_59
     new-instance p0, Ljava/io/IOException;
 
     const-string v2, "Corrupted image"
@@ -10860,7 +10874,7 @@
     throw p0
 
     .line 1791
-    :cond_6
+    :cond_61
     new-instance p0, Ljava/io/IOException;
 
     const-string v2, "Corrupted image"
@@ -10870,48 +10884,48 @@
     throw p0
 
     .line 1788
-    :cond_7
+    :cond_69
     new-instance p0, Ljava/io/FileNotFoundException;
 
     invoke-direct {p0}, Ljava/io/FileNotFoundException;-><init>()V
 
     throw p0
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
-    .catchall {:try_start_4 .. :try_end_4} :catchall_1
+    :try_end_6f
+    .catch Ljava/io/IOException; {:try_start_59 .. :try_end_6f} :catch_28
+    .catchall {:try_start_59 .. :try_end_6f} :catchall_7f
 
-    :catchall_0
+    :catchall_6f
     move-exception p0
 
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_80
 
-    :catch_1
+    :catch_72
     move-exception p0
 
     move-object v0, v1
 
-    :goto_1
-    :try_start_5
+    :goto_74
+    :try_start_74
     const-string v2, "ExifInterface"
 
     const-string v3, "Encountered exception while getting thumbnail"
 
     .line 1801
     invoke-static {v2, v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_1
+    :try_end_7b
+    .catchall {:try_start_74 .. :try_end_7b} :catchall_7f
 
     .line 1803
     invoke-static {v0}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
 
     return-object v1
 
-    :catchall_1
+    :catchall_7f
     move-exception p0
 
-    :goto_2
+    :goto_80
     invoke-static {v0}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 1804
@@ -10919,18 +10933,18 @@
 .end method
 
 .method public getThumbnailRange()[J
-    .locals 4
+    .registers 5
 
     .line 1859
     iget-boolean v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_6
     const/4 v0, 0x2
 
     .line 1863
@@ -10958,7 +10972,7 @@
 .end method
 
 .method public getUtcDateTime()J
-    .locals 5
+    .registers 6
 
     .line 1947
     invoke-virtual {p0}, Lopenlight/co/lib/exif/ExifInterface;->getGpsDateTime()J
@@ -10969,7 +10983,7 @@
 
     cmp-long v4, v0, v2
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1c
 
     .line 1950
     invoke-virtual {p0}, Lopenlight/co/lib/exif/ExifInterface;->getDateTime()J
@@ -10978,7 +10992,7 @@
 
     cmp-long p0, v0, v2
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     .line 1954
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
@@ -10993,12 +11007,12 @@
 
     sub-long/2addr v0, v2
 
-    :cond_0
+    :cond_1c
     return-wide v0
 .end method
 
 .method public hasThumbnail()Z
-    .locals 0
+    .registers 1
 
     .line 1744
     iget-boolean p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
@@ -11007,38 +11021,38 @@
 .end method
 
 .method public isThumbnailCompressed()Z
-    .locals 2
+    .registers 3
 
     .line 1848
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_d
 
     iget p0, p0, Lopenlight/co/lib/exif/ExifInterface;->mThumbnailCompression:I
 
     const/4 v0, 0x7
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_e
     return p0
 .end method
 
 .method public saveAttributes()V
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -11048,18 +11062,18 @@
     .line 1706
     iget-boolean v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mIsSupportedFile:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_88
 
     iget v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mMimeType:I
 
     const/4 v1, 0x4
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_88
 
     .line 1709
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface;->mFilename:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_80
 
     .line 1715
     invoke-virtual {p0}, Lopenlight/co/lib/exif/ExifInterface;->getThumbnail()[B
@@ -11101,33 +11115,33 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_65
 
     const/4 v1, 0x0
 
     .line 1727
-    :try_start_0
+    :try_start_39
     new-instance v2, Ljava/io/FileInputStream;
 
     invoke-direct {v2, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_3e
+    .catchall {:try_start_39 .. :try_end_3e} :catchall_59
 
     .line 1728
-    :try_start_1
+    :try_start_3e
     new-instance v3, Ljava/io/FileOutputStream;
 
     iget-object v4, p0, Lopenlight/co/lib/exif/ExifInterface;->mFilename:Ljava/lang/String;
 
     invoke-direct {v3, v4}, Ljava/io/FileOutputStream;-><init>(Ljava/lang/String;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_45
+    .catchall {:try_start_3e .. :try_end_45} :catchall_57
 
     .line 1729
-    :try_start_2
+    :try_start_45
     invoke-direct {p0, v2, v3}, Lopenlight/co/lib/exif/ExifInterface;->saveJpegAttributes(Ljava/io/InputStream;Ljava/io/OutputStream;)V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_48
+    .catchall {:try_start_45 .. :try_end_48} :catchall_54
 
     .line 1731
     invoke-static {v2}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
@@ -11143,25 +11157,25 @@
 
     return-void
 
-    :catchall_0
+    :catchall_54
     move-exception p0
 
     move-object v1, v3
 
-    goto :goto_0
+    goto :goto_5b
 
-    :catchall_1
+    :catchall_57
     move-exception p0
 
-    goto :goto_0
+    goto :goto_5b
 
-    :catchall_2
+    :catchall_59
     move-exception p0
 
     move-object v2, v1
 
     .line 1731
-    :goto_0
+    :goto_5b
     invoke-static {v2}, Lopenlight/co/lib/exif/ExifInterface;->closeQuietly(Ljava/io/Closeable;)V
 
     .line 1732
@@ -11174,7 +11188,7 @@
     throw p0
 
     .line 1720
-    :cond_0
+    :cond_65
     new-instance p0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -11200,7 +11214,7 @@
     throw p0
 
     .line 1710
-    :cond_1
+    :cond_80
     new-instance p0, Ljava/io/IOException;
 
     const-string v0, "ExifInterface does not support saving attributes for the current input."
@@ -11210,7 +11224,7 @@
     throw p0
 
     .line 1707
-    :cond_2
+    :cond_88
     new-instance p0, Ljava/io/IOException;
 
     const-string v0, "ExifInterface only supports saving attributes on JPEG formats."
@@ -11221,7 +11235,7 @@
 .end method
 
 .method public setAttribute(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 18
+    .registers 21
 
     move-object/from16 v0, p0
 
@@ -11233,7 +11247,7 @@
 
     const/4 v4, 0x1
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_bc
 
     .line 1448
     sget-object v5, Lopenlight/co/lib/exif/ExifInterface;->sTagSetForCompatibility:Ljava/util/HashSet;
@@ -11242,7 +11256,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_bc
 
     const-string v5, "GPSTimeStamp"
 
@@ -11251,7 +11265,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_7f
 
     .line 1450
     sget-object v5, Lopenlight/co/lib/exif/ExifInterface;->sGpsTimestampPattern:Ljava/util/regex/Pattern;
@@ -11265,7 +11279,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_bc
 
     const-string v6, "ExifInterface"
 
@@ -11346,11 +11360,11 @@
 
     move-result-object v2
 
-    goto :goto_0
+    goto :goto_bc
 
     .line 1459
-    :cond_0
-    :try_start_0
+    :cond_7f
+    :try_start_7f
     invoke-static/range {p2 .. p2}, Ljava/lang/Double;->parseDouble(Ljava/lang/String;)D
 
     move-result-wide v5
@@ -11375,14 +11389,14 @@
     invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9b
+    .catch Ljava/lang/NumberFormatException; {:try_start_7f .. :try_end_9b} :catch_9d
 
     move-object v2, v5
 
-    goto :goto_0
+    goto :goto_bc
 
-    :catch_0
+    :catch_9d
     const-string v0, "ExifInterface"
 
     .line 1464
@@ -11410,33 +11424,33 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_bc
+    :goto_bc
     const/4 v5, 0x0
 
     move v6, v5
 
     .line 1470
-    :goto_1
+    :goto_be
     sget-object v7, Lopenlight/co/lib/exif/ExifInterface;->EXIF_TAGS:[[Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     array-length v7, v7
 
-    if-ge v6, v7, :cond_13
+    if-ge v6, v7, :cond_30e
 
     const/4 v7, 0x4
 
-    if-ne v6, v7, :cond_2
+    if-ne v6, v7, :cond_cc
 
     .line 1471
     iget-boolean v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mHasThumbnail:Z
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_cc
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
     .line 1474
-    :cond_2
+    :cond_cc
     sget-object v7, Lopenlight/co/lib/exif/ExifInterface;->sExifTagMapsForWriting:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -11445,9 +11459,9 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_12
+    if-eqz v7, :cond_30a
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_e1
 
     .line 1477
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
@@ -11456,10 +11470,10 @@
 
     invoke-virtual {v7, v1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
     .line 1480
-    :cond_3
+    :cond_e1
     check-cast v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;
 
     .line 1481
@@ -11478,7 +11492,7 @@
 
     move-result v10
 
-    if-eq v9, v10, :cond_b
+    if-eq v9, v10, :cond_1c1
 
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->primaryFormat:I
 
@@ -11490,17 +11504,17 @@
 
     move-result v10
 
-    if-ne v9, v10, :cond_4
+    if-ne v9, v10, :cond_101
 
-    goto/16 :goto_5
+    goto/16 :goto_1c1
 
     .line 1485
-    :cond_4
+    :cond_101
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->secondaryFormat:I
 
     const/4 v10, -0x1
 
-    if-eq v9, v10, :cond_6
+    if-eq v9, v10, :cond_122
 
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->secondaryFormat:I
 
@@ -11512,7 +11526,7 @@
 
     move-result v11
 
-    if-eq v9, v11, :cond_5
+    if-eq v9, v11, :cond_11e
 
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->secondaryFormat:I
 
@@ -11525,33 +11539,33 @@
 
     move-result v11
 
-    if-ne v9, v11, :cond_6
+    if-ne v9, v11, :cond_122
 
     .line 1487
-    :cond_5
+    :cond_11e
     iget v7, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->secondaryFormat:I
 
-    goto/16 :goto_6
+    goto/16 :goto_1c3
 
     .line 1488
-    :cond_6
+    :cond_122
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->primaryFormat:I
 
-    if-eq v9, v4, :cond_a
+    if-eq v9, v4, :cond_1be
 
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->primaryFormat:I
 
     const/4 v11, 0x7
 
-    if-eq v9, v11, :cond_a
+    if-eq v9, v11, :cond_1be
 
     iget v9, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->primaryFormat:I
 
-    if-ne v9, v3, :cond_7
+    if-ne v9, v3, :cond_131
 
-    goto/16 :goto_4
+    goto/16 :goto_1be
 
-    :cond_7
+    :cond_131
     const-string v9, "ExifInterface"
 
     .line 1493
@@ -11579,13 +11593,13 @@
 
     iget v12, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->secondaryFormat:I
 
-    if-ne v12, v10, :cond_8
+    if-ne v12, v10, :cond_155
 
     const-string v7, ""
 
-    goto :goto_2
+    goto :goto_16c
 
-    :cond_8
+    :cond_155
     new-instance v12, Ljava/lang/StringBuilder;
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
@@ -11606,7 +11620,7 @@
 
     move-result-object v7
 
-    :goto_2
+    :goto_16c
     invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v7, " (guess: "
@@ -11636,13 +11650,13 @@
 
     move-result v7
 
-    if-ne v7, v10, :cond_9
+    if-ne v7, v10, :cond_190
 
     const-string v7, ""
 
-    goto :goto_3
+    goto :goto_1ad
 
-    :cond_9
+    :cond_190
     new-instance v7, Ljava/lang/StringBuilder;
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -11670,7 +11684,7 @@
 
     move-result-object v7
 
-    :goto_3
+    :goto_1ad
     invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v7, ")"
@@ -11684,24 +11698,24 @@
     .line 1493
     invoke-static {v9, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
     .line 1491
-    :cond_a
-    :goto_4
+    :cond_1be
+    :goto_1be
     iget v7, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->primaryFormat:I
 
-    goto :goto_6
+    goto :goto_1c3
 
     .line 1484
-    :cond_b
-    :goto_5
+    :cond_1c1
+    :goto_1c1
     iget v7, v7, Lopenlight/co/lib/exif/ExifInterface$ExifTag;->primaryFormat:I
 
-    :goto_6
-    packed-switch v7, :pswitch_data_0
+    :goto_1c3
+    packed-switch v7, :pswitch_data_310
 
-    :pswitch_0
+    :pswitch_1c6
     const-string v8, "ExifInterface"
 
     .line 1576
@@ -11721,9 +11735,9 @@
 
     invoke-static {v8, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
-    :pswitch_1
+    :pswitch_1de
     const-string v7, ","
 
     .line 1566
@@ -11739,10 +11753,10 @@
     move v9, v5
 
     .line 1568
-    :goto_7
+    :goto_1e8
     array-length v10, v7
 
-    if-ge v9, v10, :cond_c
+    if-ge v9, v10, :cond_1f6
 
     .line 1569
     aget-object v10, v7, v9
@@ -11755,10 +11769,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_7
+    goto :goto_1e8
 
     .line 1571
-    :cond_c
+    :cond_1f6
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -11773,9 +11787,9 @@
     .line 1571
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
-    :pswitch_2
+    :pswitch_205
     const-string v7, ","
 
     .line 1554
@@ -11791,10 +11805,10 @@
     move v9, v5
 
     .line 1556
-    :goto_8
+    :goto_20f
     array-length v10, v7
 
-    if-ge v9, v10, :cond_d
+    if-ge v9, v10, :cond_234
 
     .line 1557
     aget-object v10, v7, v9
@@ -11831,10 +11845,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_8
+    goto :goto_20f
 
     .line 1561
-    :cond_d
+    :cond_234
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -11849,9 +11863,9 @@
     .line 1561
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
-    :pswitch_3
+    :pswitch_243
     const-string v7, ","
 
     .line 1522
@@ -11867,10 +11881,10 @@
     move v9, v5
 
     .line 1524
-    :goto_9
+    :goto_24d
     array-length v10, v7
 
-    if-ge v9, v10, :cond_e
+    if-ge v9, v10, :cond_25b
 
     .line 1525
     aget-object v10, v7, v9
@@ -11883,10 +11897,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_9
+    goto :goto_24d
 
     .line 1527
-    :cond_e
+    :cond_25b
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -11901,9 +11915,9 @@
     .line 1527
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto/16 :goto_d
+    goto/16 :goto_30a
 
-    :pswitch_4
+    :pswitch_26a
     const-string v7, ","
 
     .line 1542
@@ -11919,10 +11933,10 @@
     move v9, v5
 
     .line 1544
-    :goto_a
+    :goto_274
     array-length v10, v7
 
-    if-ge v9, v10, :cond_f
+    if-ge v9, v10, :cond_299
 
     .line 1545
     aget-object v10, v7, v9
@@ -11959,10 +11973,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_a
+    goto :goto_274
 
     .line 1549
-    :cond_f
+    :cond_299
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -11977,9 +11991,9 @@
     .line 1549
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_d
+    goto :goto_30a
 
-    :pswitch_5
+    :pswitch_2a7
     const-string v7, ","
 
     .line 1532
@@ -11995,10 +12009,10 @@
     move v9, v5
 
     .line 1534
-    :goto_b
+    :goto_2b1
     array-length v10, v7
 
-    if-ge v9, v10, :cond_10
+    if-ge v9, v10, :cond_2bf
 
     .line 1535
     aget-object v10, v7, v9
@@ -12011,10 +12025,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_b
+    goto :goto_2b1
 
     .line 1537
-    :cond_10
+    :cond_2bf
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -12029,9 +12043,9 @@
     .line 1537
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_d
+    goto :goto_30a
 
-    :pswitch_6
+    :pswitch_2cd
     const-string v7, ","
 
     .line 1512
@@ -12047,10 +12061,10 @@
     move v9, v5
 
     .line 1514
-    :goto_c
+    :goto_2d7
     array-length v10, v7
 
-    if-ge v9, v10, :cond_11
+    if-ge v9, v10, :cond_2e5
 
     .line 1515
     aget-object v10, v7, v9
@@ -12063,10 +12077,10 @@
 
     add-int/lit8 v9, v9, 0x1
 
-    goto :goto_c
+    goto :goto_2d7
 
     .line 1517
-    :cond_11
+    :cond_2e5
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -12081,10 +12095,10 @@
     .line 1517
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_d
+    goto :goto_30a
 
     .line 1508
-    :pswitch_7
+    :pswitch_2f3
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -12095,10 +12109,10 @@
 
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_d
+    goto :goto_30a
 
     .line 1503
-    :pswitch_8
+    :pswitch_2ff
     iget-object v7, v0, Lopenlight/co/lib/exif/ExifInterface;->mAttributes:[Ljava/util/HashMap;
 
     aget-object v7, v7, v6
@@ -12109,30 +12123,30 @@
 
     invoke-virtual {v7, v1, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_12
-    :goto_d
+    :cond_30a
+    :goto_30a
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_be
 
-    :cond_13
+    :cond_30e
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_310
     .packed-switch 0x1
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_0
-        :pswitch_7
-        :pswitch_0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_2ff
+        :pswitch_2f3
+        :pswitch_2cd
+        :pswitch_2a7
+        :pswitch_26a
+        :pswitch_1c6
+        :pswitch_2f3
+        :pswitch_1c6
+        :pswitch_243
+        :pswitch_205
+        :pswitch_1c6
+        :pswitch_1de
     .end packed-switch
 .end method

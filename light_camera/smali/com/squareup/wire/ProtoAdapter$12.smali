@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/wire/FieldEncoding;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
 
     .line 375
     invoke-direct {p0, p1, p2}, Lcom/squareup/wire/ProtoAdapter;-><init>(Lcom/squareup/wire/FieldEncoding;Ljava/lang/Class;)V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -51,7 +51,7 @@
 .end method
 
 .method public decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -67,7 +67,7 @@
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -83,7 +83,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 375
     check-cast p1, Ljava/lang/String;
@@ -110,7 +110,7 @@
 .end method
 
 .method public encodedSize(Ljava/lang/String;)I
-    .locals 0
+    .registers 2
 
     .line 377
     invoke-static {p1}, Lcom/squareup/wire/ProtoWriter;->utf8Length(Ljava/lang/String;)I

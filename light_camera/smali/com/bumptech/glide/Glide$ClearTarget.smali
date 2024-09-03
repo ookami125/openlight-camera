@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 683
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/ViewTarget;-><init>(Landroid/view/View;)V
@@ -36,25 +36,25 @@
 
 # virtual methods
 .method public onLoadCleared(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onLoadFailed(Ljava/lang/Exception;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onLoadStarted(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

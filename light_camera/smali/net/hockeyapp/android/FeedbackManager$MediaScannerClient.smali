@@ -25,7 +25,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 435
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;Lnet/hockeyapp/android/FeedbackManager$1;)V
-    .locals 0
+    .registers 3
 
     .line 429
     invoke-direct {p0, p1}, Lnet/hockeyapp/android/FeedbackManager$MediaScannerClient;-><init>(Ljava/lang/String;)V
@@ -53,12 +53,12 @@
 
 # virtual methods
 .method public onMediaScannerConnected()V
-    .locals 2
+    .registers 3
 
     .line 446
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackManager$MediaScannerClient;->connection:Landroid/media/MediaScannerConnection;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 447
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackManager$MediaScannerClient;->connection:Landroid/media/MediaScannerConnection;
@@ -69,12 +69,12 @@
 
     invoke-virtual {v0, p0, v1}, Landroid/media/MediaScannerConnection;->scanFile(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public onScanCompleted(Ljava/lang/String;Landroid/net/Uri;)V
-    .locals 3
+    .registers 6
 
     const-string v0, "Scanned path %s -> URI = %s"
 
@@ -110,7 +110,7 @@
 .end method
 
 .method public setConnection(Landroid/media/MediaScannerConnection;)V
-    .locals 0
+    .registers 2
 
     .line 441
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackManager$MediaScannerClient;->connection:Landroid/media/MediaScannerConnection;

@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -65,7 +65,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .registers 8
 
     .line 118
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -190,7 +190,7 @@
 
     const v1, 0x1010038
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_6f
 
     .line 143
     iget-object p3, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
@@ -205,10 +205,10 @@
     .line 143
     invoke-virtual {p3, v2}, Landroid/support/design/internal/BottomNavigationMenuView;->setIconTintList(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_0
+    goto :goto_78
 
     .line 146
-    :cond_0
+    :cond_6f
     iget-object p3, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
 
     .line 147
@@ -220,14 +220,14 @@
     invoke-virtual {p3, v2}, Landroid/support/design/internal/BottomNavigationMenuView;->setIconTintList(Landroid/content/res/ColorStateList;)V
 
     .line 149
-    :goto_0
+    :goto_78
     sget p3, Landroid/support/design/R$styleable;->BottomNavigationView_itemTextColor:I
 
     invoke-virtual {p2, p3}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
 
     move-result p3
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_8c
 
     .line 150
     iget-object p3, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
@@ -242,10 +242,10 @@
     .line 150
     invoke-virtual {p3, v1}, Landroid/support/design/internal/BottomNavigationMenuView;->setItemTextColor(Landroid/content/res/ColorStateList;)V
 
-    goto :goto_1
+    goto :goto_95
 
     .line 153
-    :cond_1
+    :cond_8c
     iget-object p3, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuView:Landroid/support/design/internal/BottomNavigationMenuView;
 
     .line 154
@@ -257,7 +257,7 @@
     invoke-virtual {p3, v1}, Landroid/support/design/internal/BottomNavigationMenuView;->setItemTextColor(Landroid/content/res/ColorStateList;)V
 
     .line 156
-    :goto_1
+    :goto_95
     sget p3, Landroid/support/design/R$styleable;->BottomNavigationView_elevation:I
 
     invoke-virtual {p2, p3}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
@@ -266,7 +266,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_a8
 
     .line 157
     sget p3, Landroid/support/design/R$styleable;->BottomNavigationView_elevation:I
@@ -280,7 +280,7 @@
     invoke-static {p0, p3}, Landroid/support/v4/view/ViewCompat;->setElevation(Landroid/view/View;F)V
 
     .line 161
-    :cond_2
+    :cond_a8
     sget p3, Landroid/support/design/R$styleable;->BottomNavigationView_itemBackground:I
 
     invoke-virtual {p2, p3, v1}, Landroid/support/v7/widget/TintTypedArray;->getResourceId(II)I
@@ -299,7 +299,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_3
+    if-eqz p3, :cond_c4
 
     .line 165
     sget p3, Landroid/support/design/R$styleable;->BottomNavigationView_menu:I
@@ -311,7 +311,7 @@
     invoke-virtual {p0, p3}, Landroid/support/design/widget/BottomNavigationView;->inflateMenu(I)V
 
     .line 167
-    :cond_3
+    :cond_c4
     invoke-virtual {p2}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     .line 169
@@ -324,13 +324,13 @@
 
     const/16 p3, 0x15
 
-    if-ge p2, p3, :cond_4
+    if-ge p2, p3, :cond_d5
 
     .line 171
     invoke-direct {p0, p1}, Landroid/support/design/widget/BottomNavigationView;->addCompatibilityTopDivider(Landroid/content/Context;)V
 
     .line 174
-    :cond_4
+    :cond_d5
     iget-object p1, p0, Landroid/support/design/widget/BottomNavigationView;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     new-instance p2, Landroid/support/design/widget/BottomNavigationView$1;
@@ -343,7 +343,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/design/widget/BottomNavigationView;)Landroid/support/design/widget/BottomNavigationView$OnNavigationItemReselectedListener;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Landroid/support/design/widget/BottomNavigationView;->mReselectedListener:Landroid/support/design/widget/BottomNavigationView$OnNavigationItemReselectedListener;
@@ -352,7 +352,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/design/widget/BottomNavigationView;)Landroid/support/design/widget/BottomNavigationView$OnNavigationItemSelectedListener;
-    .locals 0
+    .registers 1
 
     .line 94
     iget-object p0, p0, Landroid/support/design/widget/BottomNavigationView;->mSelectedListener:Landroid/support/design/widget/BottomNavigationView$OnNavigationItemSelectedListener;
@@ -361,7 +361,7 @@
 .end method
 
 .method private addCompatibilityTopDivider(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     .line 376
     new-instance v0, Landroid/view/View;
@@ -407,7 +407,7 @@
 .end method
 
 .method private createDefaultColorStateList(I)Landroid/content/res/ColorStateList;
-    .locals 8
+    .registers 10
 
     .line 395
     new-instance v0, Landroid/util/TypedValue;
@@ -431,12 +431,12 @@
 
     const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_16
 
     return-object v1
 
     .line 400
-    :cond_0
+    :cond_16
     invoke-virtual {p0}, Landroid/support/design/widget/BottomNavigationView;->getContext()Landroid/content/Context;
 
     move-result-object p1
@@ -463,12 +463,12 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_31
 
     return-object v1
 
     .line 405
-    :cond_1
+    :cond_31
     iget p0, v0, Landroid/util/TypedValue;->data:I
 
     .line 406
@@ -520,12 +520,12 @@
 .end method
 
 .method private getMenuInflater()Landroid/view/MenuInflater;
-    .locals 2
+    .registers 3
 
     .line 388
     iget-object v0, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuInflater:Landroid/view/MenuInflater;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 389
     new-instance v0, Landroid/support/v7/view/SupportMenuInflater;
@@ -539,7 +539,7 @@
     iput-object v0, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuInflater:Landroid/view/MenuInflater;
 
     .line 391
-    :cond_0
+    :cond_f
     iget-object p0, p0, Landroid/support/design/widget/BottomNavigationView;->mMenuInflater:Landroid/view/MenuInflater;
 
     return-object p0
@@ -548,7 +548,7 @@
 
 # virtual methods
 .method public getItemBackgroundResource()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/DrawableRes;
     .end annotation
 
@@ -563,7 +563,7 @@
 .end method
 
 .method public getItemIconTintList()Landroid/content/res/ColorStateList;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -578,7 +578,7 @@
 .end method
 
 .method public getItemTextColor()Landroid/content/res/ColorStateList;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -593,7 +593,7 @@
 .end method
 
 .method public getMaxItemCount()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x5
 
@@ -601,7 +601,7 @@
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -612,7 +612,7 @@
 .end method
 
 .method public getSelectedItemId()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/IdRes;
     .end annotation
 
@@ -627,7 +627,7 @@
 .end method
 
 .method public inflateMenu(I)V
-    .locals 3
+    .registers 5
 
     .line 233
     iget-object v0, p0, Landroid/support/design/widget/BottomNavigationView;->mPresenter:Landroid/support/design/internal/BottomNavigationPresenter;
@@ -661,12 +661,12 @@
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 429
     instance-of v0, p1, Landroid/support/design/widget/BottomNavigationView$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 430
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -674,7 +674,7 @@
     return-void
 
     .line 433
-    :cond_0
+    :cond_8
     check-cast p1, Landroid/support/design/widget/BottomNavigationView$SavedState;
 
     .line 434
@@ -695,7 +695,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
 
     .line 420
     invoke-super {p0}, Landroid/widget/FrameLayout;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -725,7 +725,7 @@
 .end method
 
 .method public setItemBackgroundResource(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/DrawableRes;
         .end annotation
@@ -740,7 +740,7 @@
 .end method
 
 .method public setItemIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -755,7 +755,7 @@
 .end method
 
 .method public setItemTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -770,7 +770,7 @@
 .end method
 
 .method public setOnNavigationItemReselectedListener(Landroid/support/design/widget/BottomNavigationView$OnNavigationItemReselectedListener;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/design/widget/BottomNavigationView$OnNavigationItemReselectedListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -783,7 +783,7 @@
 .end method
 
 .method public setOnNavigationItemSelectedListener(Landroid/support/design/widget/BottomNavigationView$OnNavigationItemSelectedListener;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/design/widget/BottomNavigationView$OnNavigationItemSelectedListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -796,7 +796,7 @@
 .end method
 
 .method public setSelectedItemId(I)V
-    .locals 2
+    .registers 4
     .param p1    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
@@ -809,7 +809,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_17
 
     .line 339
     iget-object v0, p0, Landroid/support/design/widget/BottomNavigationView;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -822,13 +822,13 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_17
 
     const/4 p0, 0x1
 
     .line 340
     invoke-interface {p1, p0}, Landroid/view/MenuItem;->setChecked(Z)Landroid/view/MenuItem;
 
-    :cond_0
+    :cond_17
     return-void
 .end method

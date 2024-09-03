@@ -21,7 +21,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 64
     invoke-static {}, Lopenlight/co/lib/utils/FeatureManager;->get()Lopenlight/co/lib/utils/FeatureManager;
@@ -43,13 +43,13 @@
     .line 351
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_16
 
     sput-object v0, Lopenlight/co/camera/utils/Util;->sUnitNames:[I
 
     return-void
 
-    :array_0
+    :array_16
     .array-data 4
         0x7f0e012a
         0x7f0e012c
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 59
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method public static broadcastCameraIntent(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -120,7 +120,7 @@
 .end method
 
 .method public static formatEvValue(Landroid/content/Context;F)Ljava/lang/String;
-    .locals 3
+    .registers 5
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -147,41 +147,41 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_24
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     const v0, 0x7f0e0054
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_0
+    :cond_18
     cmpg-float v0, p1, v2
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_20
 
     const v0, 0x7f0e0051
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_1
+    :cond_20
     const v0, 0x7f0e0053
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_2
+    :cond_24
     cmpg-float v0, p1, v2
 
-    if-gez v0, :cond_3
+    if-gez v0, :cond_2c
 
     const v0, 0x7f0e0050
 
-    goto :goto_0
+    goto :goto_2f
 
-    :cond_3
+    :cond_2c
     const v0, 0x7f0e0052
 
-    :goto_0
+    :goto_2f
     const/4 v1, 0x1
 
     .line 383
@@ -207,7 +207,7 @@
 .end method
 
 .method static generateTimestamp()Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 161
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -231,7 +231,7 @@
 .end method
 
 .method public static getCaptureAnimationDuration(Landroid/hardware/camera2/CaptureResult;)J
-    .locals 5
+    .registers 6
 
     .line 469
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -248,7 +248,7 @@
 
     const-wide/16 v1, 0xc8
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 470
     sget-object p0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -278,7 +278,7 @@
     return-wide v3
 
     .line 473
-    :cond_0
+    :cond_26
     sget-object v0, Landroid/hardware/camera2/CaptureResult;->SENSOR_EXPOSURE_TIME:Landroid/hardware/camera2/CaptureResult$Key;
 
     .line 474
@@ -288,14 +288,14 @@
 
     check-cast p0, Ljava/lang/Long;
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_33
 
     const-wide/16 v3, 0xa
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 476
-    :cond_1
+    :cond_33
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
 
     invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
@@ -306,7 +306,7 @@
 
     move-result-wide v3
 
-    :goto_0
+    :goto_3d
     const/4 p0, 0x0
 
     add-long/2addr v3, v1
@@ -315,7 +315,7 @@
 .end method
 
 .method public static getCoordinateDifference(FII)I
-    .locals 0
+    .registers 3
 
     int-to-float p2, p2
 
@@ -334,7 +334,7 @@
 .end method
 
 .method public static getCurrentIso(I)I
-    .locals 5
+    .registers 6
 
     .line 291
     invoke-static {}, Lopenlight/co/camera/utils/Constants$SensitivityValues;->values()[Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -356,7 +356,7 @@
 
     const/4 v2, 0x0
 
-    if-le p0, v1, :cond_5
+    if-le p0, v1, :cond_47
 
     .line 293
     invoke-static {v2}, Lopenlight/co/camera/utils/Constants$SensitivityValues;->forIndex(I)Lopenlight/co/camera/utils/Constants$SensitivityValues;
@@ -367,10 +367,10 @@
 
     move-result v1
 
-    if-ge p0, v1, :cond_4
+    if-ge p0, v1, :cond_46
 
-    :cond_0
-    :goto_0
+    :cond_1c
+    :goto_1c
     add-int v1, v2, v0
 
     .line 298
@@ -385,7 +385,7 @@
 
     move-result v3
 
-    if-le p0, v3, :cond_2
+    if-le p0, v3, :cond_3f
 
     add-int/lit8 v0, v1, -0x1
 
@@ -398,46 +398,46 @@
 
     move-result v4
 
-    if-ge p0, v4, :cond_1
+    if-ge p0, v4, :cond_3c
 
     mul-int/2addr p0, p0
 
     mul-int/2addr v3, v4
 
-    if-ge p0, v3, :cond_5
+    if-ge p0, v3, :cond_47
 
-    :goto_1
+    :goto_3a
     move v0, v1
 
-    goto :goto_2
+    goto :goto_47
 
-    :cond_1
-    if-ne p0, v4, :cond_0
+    :cond_3c
+    if-ne p0, v4, :cond_1c
 
-    goto :goto_2
+    goto :goto_47
 
-    :cond_2
-    if-ne p0, v3, :cond_3
+    :cond_3f
+    if-ne p0, v3, :cond_42
 
-    goto :goto_1
+    goto :goto_3a
 
-    :cond_3
+    :cond_42
     add-int/lit8 v1, v1, 0x1
 
     move v2, v1
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_4
+    :cond_46
     move v0, v2
 
-    :cond_5
-    :goto_2
+    :cond_47
+    :goto_47
     return v0
 .end method
 
 .method public static getDimen(Landroid/content/Context;I)I
-    .locals 0
+    .registers 2
 
     .line 104
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -452,7 +452,7 @@
 .end method
 
 .method public static getGalleryIntent()Landroid/content/Intent;
-    .locals 3
+    .registers 3
 
     .line 520
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -463,7 +463,7 @@
 
     move-result-object v0
 
-    :try_start_0
+    :try_start_8
     const-string v1, "light.co.lightgallery"
 
     const/4 v2, 0x0
@@ -490,12 +490,12 @@
     invoke-static {v0}, Landroid/content/Intent;->makeMainActivity(Landroid/content/ComponentName;)Landroid/content/Intent;
 
     move-result-object v0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_22
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_8 .. :try_end_22} :catch_23
 
     return-object v0
 
-    :catch_0
+    :catch_23
     move-exception v0
 
     .line 529
@@ -511,16 +511,16 @@
 .end method
 
 .method public static getHeightOfScreen(Landroid/content/Context;)I
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, -0x1
 
     return p0
 
     .line 145
-    :cond_0
+    :cond_4
     invoke-static {p0}, Lopenlight/co/camera/utils/Util;->getScreenSize(Landroid/content/Context;)Landroid/util/Size;
 
     move-result-object p0
@@ -533,7 +533,7 @@
 .end method
 
 .method public static getMaxVideoSize()J
-    .locals 7
+    .registers 7
 
     .line 185
     new-instance v0, Landroid/os/StatFs;
@@ -592,35 +592,35 @@
 .end method
 
 .method public static getMeteringIcon(Ljava/lang/String;)I
-    .locals 0
+    .registers 1
 
     .line 464
     invoke-static {p0}, Lopenlight/co/camera/enums/MeteringMode;->forTag(Ljava/lang/String;)Lopenlight/co/camera/enums/MeteringMode;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 465
     invoke-virtual {p0}, Lopenlight/co/camera/enums/MeteringMode;->getMeteringIcon()I
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public static getOrientation(Landroid/content/Context;)I
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x1
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_20
 
     .line 114
     const-class v1, Landroid/view/WindowManager;
@@ -649,21 +649,21 @@
 
     iget v1, v1, Landroid/graphics/Point;->x:I
 
-    if-le p0, v1, :cond_0
+    if-le p0, v1, :cond_1e
 
     return v0
 
-    :cond_0
+    :cond_1e
     const/4 p0, 0x2
 
     return p0
 
-    :cond_1
+    :cond_20
     return v0
 .end method
 
 .method public static getScreenSize(Landroid/content/Context;)Landroid/util/Size;
-    .locals 2
+    .registers 3
 
     .line 134
     const-class v0, Landroid/view/WindowManager;
@@ -700,16 +700,16 @@
 .end method
 
 .method public static getWidthOfScreen(Landroid/content/Context;)I
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, -0x1
 
     return p0
 
     .line 152
-    :cond_0
+    :cond_4
     invoke-static {p0}, Lopenlight/co/camera/utils/Util;->getScreenSize(Landroid/content/Context;)Landroid/util/Size;
 
     move-result-object p0
@@ -722,7 +722,7 @@
 .end method
 
 .method public static hideSystemUI(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0xf06
 
@@ -733,7 +733,7 @@
 .end method
 
 .method public static hideSystemUIImmersiveSticky(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0x1706
 
@@ -744,7 +744,7 @@
 .end method
 
 .method public static isAvailableSpace()Z
-    .locals 5
+    .registers 5
 
     .line 171
     new-instance v0, Landroid/os/StatFs;
@@ -799,37 +799,37 @@
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_38
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_0
+    :cond_38
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_39
     return v0
 .end method
 
 .method public static isIndexOutOfRange(II)Z
-    .locals 0
+    .registers 2
 
-    if-le p0, p1, :cond_0
+    if-le p0, p1, :cond_4
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_0
+    :cond_4
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_5
     return p0
 .end method
 
 .method public static isRtl(Landroid/content/res/Resources;)Z
-    .locals 1
+    .registers 2
     .annotation build Landroid/annotation/TargetApi;
         value = 0x11
     .end annotation
@@ -845,19 +845,19 @@
 
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_c
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_d
     return v0
 .end method
 
 .method public static isWheelInverseScroll()Z
-    .locals 2
+    .registers 2
 
     .line 503
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -882,7 +882,7 @@
 .end method
 
 .method public static resetCameraPreference()V
-    .locals 6
+    .registers 6
 
     .line 422
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -890,7 +890,7 @@
     move-result-object v0
 
     .line 425
-    :try_start_0
+    :try_start_4
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
 
     move-result-object v1
@@ -919,7 +919,7 @@
 
     const/4 v2, 0x7
 
-    if-gt v1, v2, :cond_0
+    if-gt v1, v2, :cond_3e
 
     .line 429
     sget-object v1, Lopenlight/co/camera/utils/Util;->TAG:Ljava/lang/String;
@@ -953,7 +953,7 @@
     .line 434
     invoke-interface {v0, v1}, Lopenlight/co/lib/content/Prefs;->removeValue(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_3e
     const-string v1, "shared_pref_update"
 
     .line 436
@@ -965,12 +965,12 @@
 
     const/4 v3, 0x1
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_4a
 
-    if-ge v1, v3, :cond_2
+    if-ge v1, v3, :cond_74
 
     .line 439
-    :cond_1
+    :cond_4a
     sget-object v2, Lopenlight/co/camera/utils/Util;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1009,7 +1009,7 @@
     .line 443
     invoke-interface {v0, v1, v3}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;I)V
 
-    :cond_2
+    :cond_74
     const-string v1, "burst_mode"
 
     .line 447
@@ -1034,12 +1034,12 @@
 
     .line 451
     invoke-interface {v0, v1}, Lopenlight/co/lib/content/Prefs;->removeValue(Ljava/lang/String;)V
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8d
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_8d} :catch_8e
 
-    goto :goto_0
+    goto :goto_96
 
-    :catch_0
+    :catch_8e
     move-exception v0
 
     .line 453
@@ -1049,17 +1049,17 @@
 
     invoke-static {v1, v2, v0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :goto_0
+    :goto_96
     return-void
 .end method
 
 .method public static restartAppWithDelay(Landroid/app/Activity;)V
-    .locals 7
+    .registers 8
 
     .line 397
     sget-boolean v0, Lopenlight/co/camera/utils/Util;->APP_RESTART_ON_ERROR:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_46
 
     .line 398
     sget-object v0, Lopenlight/co/camera/utils/Util;->TAG:Ljava/lang/String;
@@ -1128,12 +1128,12 @@
     .line 406
     invoke-static {p0}, Ljava/lang/System;->exit(I)V
 
-    :cond_0
+    :cond_46
     return-void
 .end method
 
 .method public static reverseArray([Ljava/lang/String;)[Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 509
     invoke-static {p0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
@@ -1154,24 +1154,24 @@
 .end method
 
 .method public static setAlpha(Landroid/view/View;ZF)V
-    .locals 0
+    .registers 3
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_9
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/high16 p2, 0x3f800000    # 1.0f
 
     .line 388
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p2}, Landroid/view/View;->setAlpha(F)V
 
-    :cond_1
+    :cond_9
     return-void
 .end method
 
 .method public static shouldTriggerManualFlash()Z
-    .locals 7
+    .registers 7
 
     .line 489
     sget-object v0, Ljava/util/concurrent/TimeUnit;->NANOSECONDS:Ljava/util/concurrent/TimeUnit;
@@ -1215,21 +1215,21 @@
 
     const/4 v4, 0x0
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2e
 
     const-wide/16 v5, 0xfa
 
     cmp-long v0, v0, v5
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_52
 
-    :goto_0
+    :goto_2c
     move v4, v3
 
-    goto :goto_1
+    goto :goto_52
 
     .line 493
-    :cond_0
+    :cond_2e
     invoke-static {}, Lopenlight/co/camera/utils/CameraState;->get()Lopenlight/co/camera/utils/CameraState;
 
     move-result-object v2
@@ -1245,7 +1245,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_52
 
     .line 495
     invoke-static {}, Lopenlight/co/camera/managers/capture/CaptureBurstManager;->get()Lopenlight/co/camera/managers/capture/CaptureBurstManager;
@@ -1269,17 +1269,17 @@
 
     cmp-long v0, v0, v5
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_52
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_1
-    :goto_1
+    :cond_52
+    :goto_52
     return v4
 .end method
 
 .method public static showToastForLowMemory(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
 
     const-string v0, "Available Memory less than 1GB. Please free up some space to Capture."
 
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public static shutterSpeedIndex(J)I
-    .locals 8
+    .registers 10
 
     .line 232
     sget-object v0, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
@@ -1315,7 +1315,7 @@
 
     cmp-long v1, p0, v3
 
-    if-gez v1, :cond_5
+    if-gez v1, :cond_46
 
     .line 234
     sget-object v1, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
@@ -1324,9 +1324,9 @@
 
     cmp-long v1, p0, v3
 
-    if-lez v1, :cond_6
+    if-lez v1, :cond_47
 
-    :goto_0
+    :goto_16
     add-int v1, v2, v0
 
     .line 239
@@ -1339,7 +1339,7 @@
 
     cmp-long v3, p0, v4
 
-    if-gez v3, :cond_3
+    if-gez v3, :cond_3e
 
     .line 242
     sget-object v2, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
@@ -1350,7 +1350,7 @@
 
     cmp-long v2, p0, v6
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_38
 
     long-to-float v0, v4
 
@@ -1364,52 +1364,52 @@
 
     cmpg-float p0, v0, p0
 
-    if-gtz p0, :cond_0
+    if-gtz p0, :cond_36
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_0
+    :cond_36
     move v1, v3
 
-    goto :goto_1
+    goto :goto_40
 
-    :cond_1
-    if-nez v2, :cond_2
+    :cond_38
+    if-nez v2, :cond_3c
 
     move v0, v3
 
-    goto :goto_2
+    goto :goto_47
 
-    :cond_2
+    :cond_3c
     move v2, v3
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_3
-    if-nez v3, :cond_4
+    :cond_3e
+    if-nez v3, :cond_42
 
-    :goto_1
+    :goto_40
     move v0, v1
 
-    goto :goto_2
+    goto :goto_47
 
-    :cond_4
+    :cond_42
     add-int/lit8 v1, v1, -0x1
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_5
+    :cond_46
     move v0, v2
 
-    :cond_6
-    :goto_2
+    :cond_47
+    :goto_47
     return v0
 .end method
 
 .method public static toPixels(Landroid/content/res/Resources;F)I
-    .locals 0
+    .registers 2
 
     .line 210
     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
@@ -1426,58 +1426,58 @@
 .end method
 
 .method public static valueOf(Ljava/lang/Integer;)I
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 339
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
 
-    :goto_0
+    :goto_8
     return p0
 .end method
 
 .method public static valueOf(Ljava/lang/Long;)J
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-wide/16 v0, 0x0
 
-    goto :goto_0
+    goto :goto_9
 
     .line 344
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide v0
 
-    :goto_0
+    :goto_9
     return-wide v0
 .end method
 
 .method public static valueOf(Ljava/lang/Boolean;)Z
-    .locals 0
+    .registers 1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
     .line 348
-    :cond_0
+    :cond_4
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 
-    :goto_0
+    :goto_8
     return p0
 .end method

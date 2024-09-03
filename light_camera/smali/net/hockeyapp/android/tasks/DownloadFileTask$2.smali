@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/tasks/DownloadFileTask;)V
-    .locals 0
+    .registers 2
 
     .line 239
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask$2;->this$0:Lnet/hockeyapp/android/tasks/DownloadFileTask;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     .line 241
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/DownloadFileTask$2;->this$0:Lnet/hockeyapp/android/tasks/DownloadFileTask;

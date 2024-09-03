@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/RecyclerView$Adapter;)V
-    .locals 0
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Landroid/support/v7/util/SortedList$Callback;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public onChanged(II)V
-    .locals 0
+    .registers 3
 
     .line 57
     iget-object p0, p0, Landroid/support/v7/widget/util/SortedListAdapterCallback;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -46,7 +46,7 @@
 .end method
 
 .method public onInserted(II)V
-    .locals 0
+    .registers 3
 
     .line 42
     iget-object p0, p0, Landroid/support/v7/widget/util/SortedListAdapterCallback;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -57,7 +57,7 @@
 .end method
 
 .method public onMoved(II)V
-    .locals 0
+    .registers 3
 
     .line 52
     iget-object p0, p0, Landroid/support/v7/widget/util/SortedListAdapterCallback;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -68,7 +68,7 @@
 .end method
 
 .method public onRemoved(II)V
-    .locals 0
+    .registers 3
 
     .line 47
     iget-object p0, p0, Landroid/support/v7/widget/util/SortedListAdapterCallback;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;

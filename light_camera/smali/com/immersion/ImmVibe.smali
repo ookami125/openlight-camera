@@ -12,13 +12,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,19 +27,19 @@
 .end method
 
 .method public static getInstance()Lcom/immersion/ImmVibe;
-    .locals 2
+    .registers 2
 
     .line 68
     sget-object v0, Lcom/immersion/ImmVibe;->sInstance:Lcom/immersion/ImmVibe;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_18
 
     .line 70
     invoke-static {}, Lcom/immersion/ImmVibe;->newImmVibeInstance()Lcom/immersion/ImmVibe;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 76
     invoke-virtual {v0}, Lcom/immersion/ImmVibe;->initialize()V
@@ -47,10 +47,10 @@
     .line 77
     sput-object v0, Lcom/immersion/ImmVibe;->sInstance:Lcom/immersion/ImmVibe;
 
-    goto :goto_0
+    goto :goto_1a
 
     .line 74
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "VIBE_E_FAIL"
@@ -60,15 +60,15 @@
     throw v0
 
     .line 81
-    :cond_1
+    :cond_18
     sget-object v0, Lcom/immersion/ImmVibe;->sInstance:Lcom/immersion/ImmVibe;
 
-    :goto_0
+    :goto_1a
     return-object v0
 .end method
 
 .method private static newImmVibeInstance()Lcom/immersion/ImmVibe;
-    .locals 1
+    .registers 1
 
     const-string v0, "com.immersion.android.ImmVibe"
 
@@ -77,7 +77,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_e
 
     const-string v0, "com.immersion.J2ME.ImmVibe"
 
@@ -86,12 +86,12 @@
 
     move-result-object v0
 
-    :cond_0
+    :cond_e
     return-object v0
 .end method
 
 .method private static newImmVibeInstanceForName(Ljava/lang/String;)Lcom/immersion/ImmVibe;
-    .locals 0
+    .registers 1
 
     .line 35
     :try_start_0
@@ -105,22 +105,22 @@
     move-result-object p0
 
     check-cast p0, Lcom/immersion/ImmVibe;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :catch_0
+    :catch_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return-object p0
 .end method
 
 
 # virtual methods
 .method public terminate()V
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
 
     .line 391
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$3;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public dismiss(I)V
-    .locals 4
+    .registers 6
 
     .line 399
     sget-object v0, Landroid/support/design/widget/BaseTransientBottomBar;->sHandler:Landroid/os/Handler;
@@ -59,7 +59,7 @@
 .end method
 
 .method public show()V
-    .locals 3
+    .registers 4
 
     .line 394
     sget-object v0, Landroid/support/design/widget/BaseTransientBottomBar;->sHandler:Landroid/os/Handler;

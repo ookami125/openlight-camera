@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
-    .locals 5
+    .registers 9
 
     .line 77
     iget v0, p2, Landroid/graphics/Rect;->left:I
@@ -123,7 +123,7 @@
     .line 81
     iget-object p1, p0, Landroid/support/transition/RectEvaluator;->mRect:Landroid/graphics/Rect;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_36
 
     .line 82
     new-instance p0, Landroid/graphics/Rect;
@@ -133,7 +133,7 @@
     return-object p0
 
     .line 84
-    :cond_0
+    :cond_36
     iget-object p1, p0, Landroid/support/transition/RectEvaluator;->mRect:Landroid/graphics/Rect;
 
     invoke-virtual {p1, v0, v1, v2, v3}, Landroid/graphics/Rect;->set(IIII)V
@@ -145,7 +145,7 @@
 .end method
 
 .method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 4
 
     .line 26
     check-cast p2, Landroid/graphics/Rect;

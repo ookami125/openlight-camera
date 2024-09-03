@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method public static getDeviceID(Landroid/content/Context;)Lcom/fihtdc/UploadAgentService/data/DeviceID;
-    .locals 4
+    .registers 5
 
     .line 30
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -52,7 +52,7 @@
 
     const/16 v1, 0x15
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_25
 
     const-string v0, "com.fihtdc.AprUploadService"
 
@@ -66,9 +66,9 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_25
     const-string v0, "com.fihtdc.AprUploadService"
 
     const-string v1, "getDeviceIDFor5X"
@@ -81,12 +81,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_30
     return-object p0
 .end method
 
 .method private static getDeviceIDFor4X(Landroid/content/Context;)Lcom/fihtdc/UploadAgentService/data/DeviceID;
-    .locals 9
+    .registers 10
 
     .line 80
     new-instance v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;
@@ -95,7 +95,7 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_6
     const-string v2, "com.fihtdc.telephony.TelephonyManagerFihAdaptorDual"
 
     .line 82
@@ -220,44 +220,44 @@
 
     const/4 v5, 0x2
 
-    if-ne v4, v6, :cond_0
+    if-ne v4, v6, :cond_7d
 
     .line 94
     iput-object v2, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Imei:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_81
 
-    :cond_0
-    if-ne v5, v6, :cond_1
+    :cond_7d
+    if-ne v5, v6, :cond_81
 
     .line 96
     iput-object v2, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Meid:Ljava/lang/String;
 
-    :cond_1
-    :goto_0
-    if-ne v4, p0, :cond_2
+    :cond_81
+    :goto_81
+    if-ne v4, p0, :cond_86
 
     .line 100
     iput-object v3, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Imei2:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_8a
 
-    :cond_2
-    if-ne v5, p0, :cond_3
+    :cond_86
+    if-ne v5, p0, :cond_8a
 
     .line 102
     iput-object v3, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Meid2:Ljava/lang/String;
 
     .line 105
-    :cond_3
-    :goto_1
+    :cond_8a
+    :goto_8a
     iput-boolean v4, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->hasFihTelephonyManager:Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8c
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_8c} :catch_8d
 
-    goto :goto_2
+    goto :goto_9f
 
-    :catch_0
+    :catch_8d
     const-string p0, "null"
 
     .line 107
@@ -281,12 +281,12 @@
     .line 111
     iput-boolean v1, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->hasFihTelephonyManager:Z
 
-    :goto_2
+    :goto_9f
     return-object v0
 .end method
 
 .method private static getDeviceIDFor5X(Landroid/content/Context;)Lcom/fihtdc/UploadAgentService/data/DeviceID;
-    .locals 9
+    .registers 10
 
     .line 43
     new-instance v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;
@@ -304,7 +304,7 @@
 
     const/4 v1, 0x0
 
-    :try_start_0
+    :try_start_e
     const-string v2, "android.telephony.TelephonyManager"
 
     .line 46
@@ -379,39 +379,39 @@
 
     const/4 v2, 0x2
 
-    if-ne v4, p0, :cond_0
+    if-ne v4, p0, :cond_54
 
     .line 56
     iput-object v5, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Imei:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_58
 
-    :cond_0
-    if-ne v2, p0, :cond_1
+    :cond_54
+    if-ne v2, p0, :cond_58
 
     .line 58
     iput-object v5, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Meid:Ljava/lang/String;
 
-    :cond_1
-    :goto_0
-    if-ne v4, p0, :cond_2
+    :cond_58
+    :goto_58
+    if-ne v4, p0, :cond_5d
 
     .line 62
     iput-object v3, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Imei2:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_74
 
-    :cond_2
-    if-ne v2, p0, :cond_3
+    :cond_5d
+    if-ne v2, p0, :cond_74
 
     .line 64
     iput-object v3, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->Meid2:Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_61
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_61} :catch_62
 
-    goto :goto_1
+    goto :goto_74
 
-    :catch_0
+    :catch_62
     const-string p0, "null"
 
     .line 68
@@ -435,13 +435,13 @@
     .line 72
     iput-boolean v1, v0, Lcom/fihtdc/UploadAgentService/data/DeviceID;->hasFihTelephonyManager:Z
 
-    :cond_3
-    :goto_1
+    :cond_74
+    :goto_74
     return-object v0
 .end method
 
 .method public static getIMEI(Landroid/content/Context;)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 120
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -465,7 +465,7 @@
 
     const/16 v1, 0x15
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_25
 
     const-string v0, "com.fihtdc.AprUploadService"
 
@@ -479,9 +479,9 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_0
+    :cond_25
     const-string v0, "com.fihtdc.AprUploadService"
 
     const-string v1, "getIMEIFor5X"
@@ -494,16 +494,16 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_30
     return-object p0
 .end method
 
 .method private static getIMEIFor4X(Landroid/content/Context;)Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     const-string v0, "null"
 
-    :try_start_0
+    :try_start_2
     const-string v1, "com.fihtdc.telephony.TelephonyManagerFihAdaptorDual"
 
     .line 164
@@ -593,25 +593,25 @@
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_54} :catch_58
 
-    if-ne v3, p0, :cond_0
+    if-ne v3, p0, :cond_5a
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_5a
 
-    :catch_0
+    :catch_58
     const-string v0, "null"
 
-    :cond_0
-    :goto_0
+    :cond_5a
+    :goto_5a
     return-object v0
 .end method
 
 .method public static getIMEIFor5X(Landroid/content/Context;)Ljava/lang/String;
-    .locals 8
+    .registers 9
 
     const-string v0, "null"
 
@@ -624,7 +624,7 @@
 
     check-cast p0, Landroid/telephony/TelephonyManager;
 
-    :try_start_0
+    :try_start_a
     const-string v1, "android.telephony.TelephonyManager"
 
     .line 139
@@ -683,19 +683,19 @@
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3d
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_3d} :catch_41
 
-    if-ne v3, p0, :cond_0
+    if-ne v3, p0, :cond_43
 
     move-object v0, v2
 
-    goto :goto_0
+    goto :goto_43
 
-    :catch_0
+    :catch_41
     const-string v0, "null"
 
-    :cond_0
-    :goto_0
+    :cond_43
+    :goto_43
     return-object v0
 .end method

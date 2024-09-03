@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -41,7 +41,7 @@
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_8
 
     .line 23
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/drawable/DrawableResource;->drawable:Landroid/graphics/drawable/Drawable;
@@ -49,7 +49,7 @@
     return-void
 
     .line 21
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Drawable must not be null!"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public final get()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TT;"
@@ -84,7 +84,7 @@
 .end method
 
 .method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 16
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/drawable/DrawableResource;->get()Landroid/graphics/drawable/Drawable;

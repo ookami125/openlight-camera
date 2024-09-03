@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/UpdateActivity;)V
-    .locals 0
+    .registers 2
 
     .line 365
     iput-object p1, p0, Lnet/hockeyapp/android/UpdateActivity$5;->this$0:Lnet/hockeyapp/android/UpdateActivity;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 368
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity$5;->this$0:Lnet/hockeyapp/android/UpdateActivity;

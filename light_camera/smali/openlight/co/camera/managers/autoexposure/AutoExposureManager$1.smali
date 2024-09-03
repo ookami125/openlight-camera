@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;)V
-    .locals 0
+    .registers 2
 
     .line 380
     iput-object p1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$1;->this$0:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
@@ -31,7 +31,7 @@
 .end method
 
 .method private process(Landroid/hardware/camera2/CaptureResult;)V
-    .locals 4
+    .registers 6
     .param p1    # Landroid/hardware/camera2/CaptureResult;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -44,9 +44,11 @@
 
     move-result-wide v1
 
+    # setter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeTriggerFrameNumber:J
     invoke-static {v0, v1, v2}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$002(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;J)J
 
     .line 384
+    # getter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -75,6 +77,7 @@
     iget-object p1, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$1;->this$0:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
 
     .line 387
+    # getter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mAeTriggerFrameNumber:J
     invoke-static {p1}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$000(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;)J
 
     move-result-wide v2
@@ -91,6 +94,7 @@
     .line 388
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$1;->this$0:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
 
+    # getter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$200(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p0
@@ -109,7 +113,7 @@
 
 # virtual methods
 .method public onCaptureCompleted(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/TotalCaptureResult;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -130,7 +134,7 @@
 .end method
 
 .method public onCaptureFailed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureFailure;)V
-    .locals 2
+    .registers 6
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -145,6 +149,7 @@
     .end param
 
     .line 408
+    # getter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -193,6 +198,7 @@
     invoke-static {p1, p2}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 411
+    # getter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -204,6 +210,7 @@
     .line 413
     iget-object p0, p0, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager$1;->this$0:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
 
+    # getter for: Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p0}, Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;->access$200(Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p0
@@ -220,7 +227,7 @@
 .end method
 
 .method public onCaptureProgressed(Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CaptureRequest;Landroid/hardware/camera2/CaptureResult;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

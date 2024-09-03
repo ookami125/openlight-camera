@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;IIIII)V
-    .locals 10
+    .registers 19
 
     const/4 v9, 0x0
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public isEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -63,31 +63,31 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     invoke-virtual {p0}, Lopenlight/co/camera/CameraMode;->isIso()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     invoke-virtual {p0}, Lopenlight/co/camera/CameraMode;->isShutter()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1b
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_1b
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_1e
 
-    :cond_1
-    :goto_0
+    :cond_1d
+    :goto_1d
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_1e
     return p0
 .end method

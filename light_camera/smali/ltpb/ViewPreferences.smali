@@ -187,7 +187,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 26
     new-instance v0, Lltpb/ViewPreferences$ProtoAdapter_ViewPreferences;
@@ -292,7 +292,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Boolean;Lltpb/ViewPreferences$HDRMode;Lltpb/ViewPreferences$ViewPresets;Lltpb/ViewPreferences$SceneMode;Lltpb/ViewPreferences$AWBMode;Lltpb/ViewPreferences$Orientation;Ljava/lang/Float;Ljava/lang/Long;Ljava/lang/Integer;Lltpb/ViewPreferences$AspectRatio;Lltpb/ViewPreferences$Crop;Lltpb/ViewPreferences$ChannelGain;Ljava/lang/Boolean;Ljava/lang/Float;)V
-    .locals 18
+    .registers 35
 
     move-object/from16 v0, p0
 
@@ -337,7 +337,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Boolean;Lltpb/ViewPreferences$HDRMode;Lltpb/ViewPreferences$ViewPresets;Lltpb/ViewPreferences$SceneMode;Lltpb/ViewPreferences$AWBMode;Lltpb/ViewPreferences$Orientation;Ljava/lang/Float;Ljava/lang/Long;Ljava/lang/Integer;Lltpb/ViewPreferences$AspectRatio;Lltpb/ViewPreferences$Crop;Lltpb/ViewPreferences$ChannelGain;Ljava/lang/Boolean;Ljava/lang/Float;Lokio/ByteString;)V
-    .locals 3
+    .registers 21
 
     move-object v0, p0
 
@@ -434,26 +434,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 262
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/ViewPreferences;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 263
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/ViewPreferences;
 
     .line 264
@@ -469,7 +469,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->f_number:Ljava/lang/Float;
 
@@ -480,7 +480,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->ev_offset:Ljava/lang/Float;
 
@@ -491,7 +491,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->disable_cropping:Ljava/lang/Boolean;
 
@@ -502,7 +502,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->hdr_mode:Lltpb/ViewPreferences$HDRMode;
 
@@ -513,7 +513,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->view_preset:Lltpb/ViewPreferences$ViewPresets;
 
@@ -524,7 +524,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->scene_mode:Lltpb/ViewPreferences$SceneMode;
 
@@ -535,7 +535,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_mode:Lltpb/ViewPreferences$AWBMode;
 
@@ -546,7 +546,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->orientation:Lltpb/ViewPreferences$Orientation;
 
@@ -557,7 +557,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->image_gain:Ljava/lang/Float;
 
@@ -568,7 +568,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->image_exposure:Ljava/lang/Long;
 
@@ -579,7 +579,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->user_rating:Ljava/lang/Integer;
 
@@ -590,7 +590,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->aspect_ratio:Lltpb/ViewPreferences$AspectRatio;
 
@@ -601,7 +601,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->crop:Lltpb/ViewPreferences$Crop;
 
@@ -612,7 +612,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
 
@@ -623,7 +623,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object v1, p0, Lltpb/ViewPreferences;->is_on_tripod:Ljava/lang/Boolean;
 
@@ -634,7 +634,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_bb
 
     iget-object p0, p0, Lltpb/ViewPreferences;->qc_lux_index:Ljava/lang/Float;
 
@@ -645,24 +645,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_bb
 
-    goto :goto_0
+    goto :goto_bc
 
-    :cond_2
+    :cond_bb
     move v0, v2
 
-    :goto_0
+    :goto_bc
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 285
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_fd
 
     .line 287
     invoke-virtual {p0}, Lltpb/ViewPreferences;->unknownFields()Lokio/ByteString;
@@ -680,7 +680,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     iget-object v1, p0, Lltpb/ViewPreferences;->f_number:Ljava/lang/Float;
 
@@ -688,12 +688,12 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move v1, v2
 
-    :goto_0
+    :goto_1b
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -701,7 +701,7 @@
     .line 289
     iget-object v1, p0, Lltpb/ViewPreferences;->ev_offset:Ljava/lang/Float;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     iget-object v1, p0, Lltpb/ViewPreferences;->ev_offset:Ljava/lang/Float;
 
@@ -709,12 +709,12 @@
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     move v1, v2
 
-    :goto_1
+    :goto_2a
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -722,7 +722,7 @@
     .line 290
     iget-object v1, p0, Lltpb/ViewPreferences;->disable_cropping:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     iget-object v1, p0, Lltpb/ViewPreferences;->disable_cropping:Ljava/lang/Boolean;
 
@@ -730,12 +730,12 @@
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_39
 
-    :cond_2
+    :cond_38
     move v1, v2
 
-    :goto_2
+    :goto_39
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -743,7 +743,7 @@
     .line 291
     iget-object v1, p0, Lltpb/ViewPreferences;->hdr_mode:Lltpb/ViewPreferences$HDRMode;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_47
 
     iget-object v1, p0, Lltpb/ViewPreferences;->hdr_mode:Lltpb/ViewPreferences$HDRMode;
 
@@ -751,12 +751,12 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_48
 
-    :cond_3
+    :cond_47
     move v1, v2
 
-    :goto_3
+    :goto_48
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -764,7 +764,7 @@
     .line 292
     iget-object v1, p0, Lltpb/ViewPreferences;->view_preset:Lltpb/ViewPreferences$ViewPresets;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_56
 
     iget-object v1, p0, Lltpb/ViewPreferences;->view_preset:Lltpb/ViewPreferences$ViewPresets;
 
@@ -772,12 +772,12 @@
 
     move-result v1
 
-    goto :goto_4
+    goto :goto_57
 
-    :cond_4
+    :cond_56
     move v1, v2
 
-    :goto_4
+    :goto_57
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -785,7 +785,7 @@
     .line 293
     iget-object v1, p0, Lltpb/ViewPreferences;->scene_mode:Lltpb/ViewPreferences$SceneMode;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_65
 
     iget-object v1, p0, Lltpb/ViewPreferences;->scene_mode:Lltpb/ViewPreferences$SceneMode;
 
@@ -793,12 +793,12 @@
 
     move-result v1
 
-    goto :goto_5
+    goto :goto_66
 
-    :cond_5
+    :cond_65
     move v1, v2
 
-    :goto_5
+    :goto_66
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -806,7 +806,7 @@
     .line 294
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_mode:Lltpb/ViewPreferences$AWBMode;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_74
 
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_mode:Lltpb/ViewPreferences$AWBMode;
 
@@ -814,12 +814,12 @@
 
     move-result v1
 
-    goto :goto_6
+    goto :goto_75
 
-    :cond_6
+    :cond_74
     move v1, v2
 
-    :goto_6
+    :goto_75
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -827,7 +827,7 @@
     .line 295
     iget-object v1, p0, Lltpb/ViewPreferences;->orientation:Lltpb/ViewPreferences$Orientation;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_83
 
     iget-object v1, p0, Lltpb/ViewPreferences;->orientation:Lltpb/ViewPreferences$Orientation;
 
@@ -835,12 +835,12 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_84
 
-    :cond_7
+    :cond_83
     move v1, v2
 
-    :goto_7
+    :goto_84
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -848,7 +848,7 @@
     .line 296
     iget-object v1, p0, Lltpb/ViewPreferences;->image_gain:Ljava/lang/Float;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_92
 
     iget-object v1, p0, Lltpb/ViewPreferences;->image_gain:Ljava/lang/Float;
 
@@ -856,12 +856,12 @@
 
     move-result v1
 
-    goto :goto_8
+    goto :goto_93
 
-    :cond_8
+    :cond_92
     move v1, v2
 
-    :goto_8
+    :goto_93
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -869,7 +869,7 @@
     .line 297
     iget-object v1, p0, Lltpb/ViewPreferences;->image_exposure:Ljava/lang/Long;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a1
 
     iget-object v1, p0, Lltpb/ViewPreferences;->image_exposure:Ljava/lang/Long;
 
@@ -877,12 +877,12 @@
 
     move-result v1
 
-    goto :goto_9
+    goto :goto_a2
 
-    :cond_9
+    :cond_a1
     move v1, v2
 
-    :goto_9
+    :goto_a2
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -890,7 +890,7 @@
     .line 298
     iget-object v1, p0, Lltpb/ViewPreferences;->user_rating:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b0
 
     iget-object v1, p0, Lltpb/ViewPreferences;->user_rating:Ljava/lang/Integer;
 
@@ -898,12 +898,12 @@
 
     move-result v1
 
-    goto :goto_a
+    goto :goto_b1
 
-    :cond_a
+    :cond_b0
     move v1, v2
 
-    :goto_a
+    :goto_b1
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -911,7 +911,7 @@
     .line 299
     iget-object v1, p0, Lltpb/ViewPreferences;->aspect_ratio:Lltpb/ViewPreferences$AspectRatio;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_bf
 
     iget-object v1, p0, Lltpb/ViewPreferences;->aspect_ratio:Lltpb/ViewPreferences$AspectRatio;
 
@@ -919,12 +919,12 @@
 
     move-result v1
 
-    goto :goto_b
+    goto :goto_c0
 
-    :cond_b
+    :cond_bf
     move v1, v2
 
-    :goto_b
+    :goto_c0
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -932,7 +932,7 @@
     .line 300
     iget-object v1, p0, Lltpb/ViewPreferences;->crop:Lltpb/ViewPreferences$Crop;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_ce
 
     iget-object v1, p0, Lltpb/ViewPreferences;->crop:Lltpb/ViewPreferences$Crop;
 
@@ -940,12 +940,12 @@
 
     move-result v1
 
-    goto :goto_c
+    goto :goto_cf
 
-    :cond_c
+    :cond_ce
     move v1, v2
 
-    :goto_c
+    :goto_cf
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -953,7 +953,7 @@
     .line 301
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_dd
 
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
 
@@ -961,12 +961,12 @@
 
     move-result v1
 
-    goto :goto_d
+    goto :goto_de
 
-    :cond_d
+    :cond_dd
     move v1, v2
 
-    :goto_d
+    :goto_de
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -974,7 +974,7 @@
     .line 302
     iget-object v1, p0, Lltpb/ViewPreferences;->is_on_tripod:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_ec
 
     iget-object v1, p0, Lltpb/ViewPreferences;->is_on_tripod:Ljava/lang/Boolean;
 
@@ -982,12 +982,12 @@
 
     move-result v1
 
-    goto :goto_e
+    goto :goto_ed
 
-    :cond_e
+    :cond_ec
     move v1, v2
 
-    :goto_e
+    :goto_ed
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -995,7 +995,7 @@
     .line 303
     iget-object v1, p0, Lltpb/ViewPreferences;->qc_lux_index:Ljava/lang/Float;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_fa
 
     iget-object v1, p0, Lltpb/ViewPreferences;->qc_lux_index:Ljava/lang/Float;
 
@@ -1003,18 +1003,18 @@
 
     move-result v2
 
-    :cond_f
+    :cond_fa
     add-int/2addr v0, v2
 
     .line 304
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_10
+    :cond_fd
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-virtual {p0}, Lltpb/ViewPreferences;->newBuilder()Lltpb/ViewPreferences$Builder;
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public newBuilder()Lltpb/ViewPreferences$Builder;
-    .locals 2
+    .registers 3
 
     .line 238
     new-instance v0, Lltpb/ViewPreferences$Builder;
@@ -1123,7 +1123,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 311
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1133,7 +1133,7 @@
     .line 312
     iget-object v1, p0, Lltpb/ViewPreferences;->f_number:Ljava/lang/Float;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     const-string v1, ", f_number="
 
@@ -1144,10 +1144,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 313
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lltpb/ViewPreferences;->ev_offset:Ljava/lang/Float;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     const-string v1, ", ev_offset="
 
@@ -1158,10 +1158,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 314
-    :cond_1
+    :cond_21
     iget-object v1, p0, Lltpb/ViewPreferences;->disable_cropping:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     const-string v1, ", disable_cropping="
 
@@ -1172,10 +1172,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 315
-    :cond_2
+    :cond_2f
     iget-object v1, p0, Lltpb/ViewPreferences;->hdr_mode:Lltpb/ViewPreferences$HDRMode;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3d
 
     const-string v1, ", hdr_mode="
 
@@ -1186,10 +1186,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 316
-    :cond_3
+    :cond_3d
     iget-object v1, p0, Lltpb/ViewPreferences;->view_preset:Lltpb/ViewPreferences$ViewPresets;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4b
 
     const-string v1, ", view_preset="
 
@@ -1200,10 +1200,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 317
-    :cond_4
+    :cond_4b
     iget-object v1, p0, Lltpb/ViewPreferences;->scene_mode:Lltpb/ViewPreferences$SceneMode;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_59
 
     const-string v1, ", scene_mode="
 
@@ -1214,10 +1214,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 318
-    :cond_5
+    :cond_59
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_mode:Lltpb/ViewPreferences$AWBMode;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_67
 
     const-string v1, ", awb_mode="
 
@@ -1228,10 +1228,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 319
-    :cond_6
+    :cond_67
     iget-object v1, p0, Lltpb/ViewPreferences;->orientation:Lltpb/ViewPreferences$Orientation;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_75
 
     const-string v1, ", orientation="
 
@@ -1242,10 +1242,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 320
-    :cond_7
+    :cond_75
     iget-object v1, p0, Lltpb/ViewPreferences;->image_gain:Ljava/lang/Float;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_83
 
     const-string v1, ", image_gain="
 
@@ -1256,10 +1256,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 321
-    :cond_8
+    :cond_83
     iget-object v1, p0, Lltpb/ViewPreferences;->image_exposure:Ljava/lang/Long;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_91
 
     const-string v1, ", image_exposure="
 
@@ -1270,10 +1270,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 322
-    :cond_9
+    :cond_91
     iget-object v1, p0, Lltpb/ViewPreferences;->user_rating:Ljava/lang/Integer;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9f
 
     const-string v1, ", user_rating="
 
@@ -1284,10 +1284,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 323
-    :cond_a
+    :cond_9f
     iget-object v1, p0, Lltpb/ViewPreferences;->aspect_ratio:Lltpb/ViewPreferences$AspectRatio;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_ad
 
     const-string v1, ", aspect_ratio="
 
@@ -1298,10 +1298,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 324
-    :cond_b
+    :cond_ad
     iget-object v1, p0, Lltpb/ViewPreferences;->crop:Lltpb/ViewPreferences$Crop;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_bb
 
     const-string v1, ", crop="
 
@@ -1312,10 +1312,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 325
-    :cond_c
+    :cond_bb
     iget-object v1, p0, Lltpb/ViewPreferences;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c9
 
     const-string v1, ", awb_gains="
 
@@ -1326,10 +1326,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 326
-    :cond_d
+    :cond_c9
     iget-object v1, p0, Lltpb/ViewPreferences;->is_on_tripod:Ljava/lang/Boolean;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_d7
 
     const-string v1, ", is_on_tripod="
 
@@ -1340,10 +1340,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 327
-    :cond_e
+    :cond_d7
     iget-object v1, p0, Lltpb/ViewPreferences;->qc_lux_index:Ljava/lang/Float;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_e5
 
     const-string v1, ", qc_lux_index="
 
@@ -1353,7 +1353,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_f
+    :cond_e5
     const/4 p0, 0x0
 
     const/4 v1, 0x2

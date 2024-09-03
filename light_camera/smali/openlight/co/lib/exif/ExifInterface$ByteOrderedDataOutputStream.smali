@@ -22,7 +22,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/OutputStream;Ljava/nio/ByteOrder;)V
-    .locals 0
+    .registers 3
 
     .line 3731
     invoke-direct {p0, p1}, Ljava/io/FilterOutputStream;-><init>(Ljava/io/OutputStream;)V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public setByteOrder(Ljava/nio/ByteOrder;)V
-    .locals 0
+    .registers 2
 
     .line 3737
     iput-object p1, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mByteOrder:Ljava/nio/ByteOrder;
@@ -48,7 +48,7 @@
 .end method
 
 .method public write([B)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -64,7 +64,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -80,7 +80,7 @@
 .end method
 
 .method public writeByte(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -96,7 +96,7 @@
 .end method
 
 .method public writeInt(I)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -108,7 +108,7 @@
 
     sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2b
 
     .line 3764
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mOutputStream:Ljava/io/OutputStream;
@@ -146,15 +146,15 @@
 
     invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write(I)V
 
-    goto :goto_0
+    goto :goto_55
 
     .line 3768
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v1, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_55
 
     .line 3769
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mOutputStream:Ljava/io/OutputStream;
@@ -192,13 +192,13 @@
 
     invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write(I)V
 
-    :cond_1
-    :goto_0
+    :cond_55
+    :goto_55
     return-void
 .end method
 
 .method public writeShort(S)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -210,7 +210,7 @@
 
     sget-object v1, Ljava/nio/ByteOrder;->LITTLE_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_19
 
     .line 3754
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mOutputStream:Ljava/io/OutputStream;
@@ -230,15 +230,15 @@
 
     invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write(I)V
 
-    goto :goto_0
+    goto :goto_31
 
     .line 3756
-    :cond_0
+    :cond_19
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mByteOrder:Ljava/nio/ByteOrder;
 
     sget-object v1, Ljava/nio/ByteOrder;->BIG_ENDIAN:Ljava/nio/ByteOrder;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_31
 
     .line 3757
     iget-object v0, p0, Lopenlight/co/lib/exif/ExifInterface$ByteOrderedDataOutputStream;->mOutputStream:Ljava/io/OutputStream;
@@ -258,13 +258,13 @@
 
     invoke-virtual {p0, p1}, Ljava/io/OutputStream;->write(I)V
 
-    :cond_1
-    :goto_0
+    :cond_31
+    :goto_31
     return-void
 .end method
 
 .method public writeUnsignedInt(J)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -280,7 +280,7 @@
 .end method
 
 .method public writeUnsignedShort(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

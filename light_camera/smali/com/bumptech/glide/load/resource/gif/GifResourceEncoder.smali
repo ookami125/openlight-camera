@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 26
     new-instance v0, Lcom/bumptech/glide/load/resource/gif/GifResourceEncoder$Factory;
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 1
+    .registers 3
 
     .line 33
     sget-object v0, Lcom/bumptech/glide/load/resource/gif/GifResourceEncoder;->FACTORY:Lcom/bumptech/glide/load/resource/gif/GifResourceEncoder$Factory;
@@ -63,7 +63,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/resource/gif/GifResourceEncoder$Factory;)V
-    .locals 1
+    .registers 4
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,7 +85,7 @@
 .end method
 
 .method private decodeHeaders([B)Lcom/bumptech/glide/gifdecoder/GifDecoder;
-    .locals 2
+    .registers 4
 
     .line 101
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gif/GifResourceEncoder;->factory:Lcom/bumptech/glide/load/resource/gif/GifResourceEncoder$Factory;
@@ -121,7 +121,7 @@
 .end method
 
 .method private getTransformedFrame(Landroid/graphics/Bitmap;Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/resource/gif/GifDrawable;)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,29 +164,29 @@
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_1d
 
     .line 119
     invoke-interface {p0}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
-    :cond_0
+    :cond_1d
     return-object p1
 .end method
 
 .method private writeDataDirect([BLjava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
 
     .line 90
     :try_start_0
     invoke-virtual {p2, p1}, Ljava/io/OutputStream;->write([B)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_3} :catch_5
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :catch_0
+    :catch_5
     move-exception p0
 
     const-string p1, "GifEncoder"
@@ -198,7 +198,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     const-string p1, "GifEncoder"
 
@@ -207,17 +207,17 @@
     .line 93
     invoke-static {p1, p2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_17
     return p0
 .end method
 
 
 # virtual methods
 .method public encode(Lcom/bumptech/glide/load/engine/Resource;Ljava/io/OutputStream;)Z
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -249,7 +249,7 @@
     .line 49
     instance-of v3, v2, Lcom/bumptech/glide/load/resource/UnitTransformation;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1b
 
     .line 50
     invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getData()[B
@@ -263,7 +263,7 @@
     return p0
 
     .line 53
-    :cond_0
+    :cond_1b
     invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getData()[B
 
     move-result-object v3
@@ -286,20 +286,20 @@
 
     const/4 v5, 0x0
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_31
 
     return v5
 
-    :cond_1
+    :cond_31
     move p2, v5
 
     .line 60
-    :goto_0
+    :goto_32
     invoke-virtual {v3}, Lcom/bumptech/glide/gifdecoder/GifDecoder;->getFrameCount()I
 
     move-result v6
 
-    if-ge p2, v6, :cond_3
+    if-ge p2, v6, :cond_69
 
     .line 61
     invoke-virtual {v3}, Lcom/bumptech/glide/gifdecoder/GifDecoder;->getNextFrame()Landroid/graphics/Bitmap;
@@ -312,7 +312,7 @@
     move-result-object v6
 
     .line 64
-    :try_start_0
+    :try_start_40
     invoke-interface {v6}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
 
     move-result-object v7
@@ -322,10 +322,10 @@
     invoke-virtual {v4, v7}, Lcom/bumptech/glide/gifencoder/AnimatedGifEncoder;->addFrame(Landroid/graphics/Bitmap;)Z
 
     move-result v7
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_4a
+    .catchall {:try_start_40 .. :try_end_4a} :catchall_64
 
-    if-nez v7, :cond_2
+    if-nez v7, :cond_50
 
     .line 73
     invoke-interface {v6}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
@@ -333,8 +333,8 @@
     return v5
 
     .line 67
-    :cond_2
-    :try_start_1
+    :cond_50
+    :try_start_50
     invoke-virtual {v3}, Lcom/bumptech/glide/gifdecoder/GifDecoder;->getCurrentFrameIndex()I
 
     move-result v7
@@ -349,17 +349,17 @@
 
     .line 71
     invoke-virtual {v3}, Lcom/bumptech/glide/gifdecoder/GifDecoder;->advance()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5e
+    .catchall {:try_start_50 .. :try_end_5e} :catchall_64
 
     .line 73
     invoke-interface {v6}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
 
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
-    :catchall_0
+    :catchall_64
     move-exception p0
 
     invoke-interface {v6}, Lcom/bumptech/glide/load/engine/Resource;->recycle()V
@@ -367,7 +367,7 @@
     throw p0
 
     .line 77
-    :cond_3
+    :cond_69
     invoke-virtual {v4}, Lcom/bumptech/glide/gifencoder/AnimatedGifEncoder;->finish()Z
 
     move-result p0
@@ -381,7 +381,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_ae
 
     const-string p2, "GifEncoder"
 
@@ -432,12 +432,12 @@
 
     invoke-static {p2, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_4
+    :cond_ae
     return p0
 .end method
 
 .method public bridge synthetic encode(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
 
     .line 25
     check-cast p1, Lcom/bumptech/glide/load/engine/Resource;
@@ -450,7 +450,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, ""
 

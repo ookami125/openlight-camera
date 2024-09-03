@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>([Lopenlight/co/camera/models/AncillaryModel;Landroid/view/View$OnClickListener;)V
-    .locals 1
+    .registers 4
     .param p1    # [Lopenlight/co/camera/models/AncillaryModel;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -57,7 +57,7 @@
 
 # virtual methods
 .method public getItemCount()I
-    .locals 0
+    .registers 1
 
     .line 83
     iget-object p0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->mListItems:[Lopenlight/co/camera/models/AncillaryModel;
@@ -68,7 +68,7 @@
 .end method
 
 .method public bridge synthetic onBindViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+    .registers 3
 
     .line 22
     check-cast p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;
@@ -79,7 +79,7 @@
 .end method
 
 .method public onBindViewHolder(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;I)V
-    .locals 7
+    .registers 10
 
     .line 45
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->mListItems:[Lopenlight/co/camera/models/AncillaryModel;
@@ -112,7 +112,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_3f
 
     .line 53
     iget-object v4, p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mTextView:Landroid/widget/TextView;
@@ -122,16 +122,16 @@
     .line 54
     iget-object v3, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->mUtils:Lopenlight/co/lib/utils/Utils;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     const v1, 0x7f06001a
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_28
     const v1, 0x7f06001c
 
-    :goto_0
+    :goto_2b
     invoke-virtual {v3, v1}, Lopenlight/co/lib/utils/Utils;->getColor(I)I
 
     move-result v1
@@ -151,19 +151,19 @@
 
     invoke-virtual {v1, v5}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_54
 
     .line 61
-    :cond_1
+    :cond_3f
     iget-object v4, p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mImageView:Landroid/widget/ImageView;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_47
 
     invoke-virtual {v0}, Lopenlight/co/camera/models/AncillaryModel;->getSelectedResId()I
 
     move-result v3
 
-    :cond_2
+    :cond_47
     invoke-virtual {v4, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
     .line 62
@@ -177,11 +177,12 @@
     invoke-virtual {v1, v6}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 66
-    :goto_1
+    :goto_54
     invoke-virtual {v0}, Lopenlight/co/camera/models/AncillaryModel;->getPreferencesKey()Ljava/lang/String;
 
     move-result-object v1
 
+    # setter for: Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mKey:Ljava/lang/String;
     invoke-static {p1, v1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->access$002(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;Ljava/lang/String;)Ljava/lang/String;
 
     .line 67
@@ -189,12 +190,14 @@
 
     move-result v0
 
+    # setter for: Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mConfirmationResId:I
     invoke-static {p1, v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->access$102(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;I)I
 
     .line 68
+    # setter for: Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mItemPosition:I
     invoke-static {p1, p2}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->access$202(Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;I)I
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7b
 
     .line 70
     iget-object p2, p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mTextView:Landroid/widget/TextView;
@@ -215,10 +218,10 @@
 
     invoke-virtual {p2, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_2
+    goto :goto_8e
 
     .line 74
-    :cond_3
+    :cond_7b
     iget-object p0, p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mTextView:Landroid/widget/TextView;
 
     const p2, 0x3e99999a    # 0.3f
@@ -238,7 +241,7 @@
     invoke-virtual {p0, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 78
-    :goto_2
+    :goto_8e
     iget-object p0, p1, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->mImageView:Landroid/widget/ImageView;
 
     invoke-virtual {p0, v2}, Landroid/widget/ImageView;->setEnabled(Z)V
@@ -247,7 +250,7 @@
 .end method
 
 .method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroid/support/v7/widget/RecyclerView$ViewHolder;
-    .locals 0
+    .registers 3
 
     .line 22
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;
@@ -258,7 +261,7 @@
 .end method
 
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;
-    .locals 1
+    .registers 4
 
     .line 37
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
@@ -286,7 +289,7 @@
 .end method
 
 .method updateListItems([Lopenlight/co/camera/models/AncillaryModel;)V
-    .locals 0
+    .registers 2
     .param p1    # [Lopenlight/co/camera/models/AncillaryModel;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -302,47 +305,47 @@
 .end method
 
 .method updateSelectedItemAtPosition(I)V
-    .locals 5
+    .registers 7
 
     .line 100
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->mListItems:[Lopenlight/co/camera/models/AncillaryModel;
 
     array-length v0, v0
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v0, :cond_1b
 
     const/4 v1, 0x0
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_7
+    if-ge v2, v0, :cond_18
 
     .line 104
     iget-object v3, p0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->mListItems:[Lopenlight/co/camera/models/AncillaryModel;
 
     aget-object v3, v3, v2
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_11
 
     const/4 v4, 0x1
 
-    goto :goto_1
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move v4, v1
 
-    :goto_1
+    :goto_12
     invoke-virtual {v3, v4}, Lopenlight/co/camera/models/AncillaryModel;->setSelected(Z)V
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
     .line 106
-    :cond_1
+    :cond_18
     invoke-virtual {p0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;->notifyDataSetChanged()V
 
-    :cond_2
+    :cond_1b
     return-void
 .end method

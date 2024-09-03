@@ -33,7 +33,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;I)V
-    .locals 5
+    .registers 8
 
     .line 52
     invoke-direct {p0, p1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
@@ -79,7 +79,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_35
 
     .line 61
     new-instance v0, Landroid/graphics/drawable/ShapeDrawable;
@@ -97,10 +97,10 @@
     .line 62
     invoke-static {p0, p1}, Landroid/support/v4/view/ViewCompat;->setElevation(Landroid/view/View;F)V
 
-    goto :goto_0
+    goto :goto_5d
 
     .line 64
-    :cond_0
+    :cond_35
     new-instance p1, Landroid/support/v4/widget/CircleImageView$OvalShadow;
 
     iget v2, p0, Landroid/support/v4/widget/CircleImageView;->mShadowRadius:I
@@ -147,7 +147,7 @@
     move-object v0, v2
 
     .line 73
-    :goto_0
+    :goto_5d
     invoke-virtual {v0}, Landroid/graphics/drawable/ShapeDrawable;->getPaint()Landroid/graphics/Paint;
 
     move-result-object p1
@@ -161,30 +161,30 @@
 .end method
 
 .method private elevationSupported()Z
-    .locals 1
+    .registers 2
 
     .line 78
     sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v0, 0x15
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 
 # virtual methods
 .method public onAnimationEnd()V
-    .locals 1
+    .registers 2
 
     .line 104
     invoke-super {p0}, Landroid/widget/ImageView;->onAnimationEnd()V
@@ -192,7 +192,7 @@
     .line 105
     iget-object v0, p0, Landroid/support/v4/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 106
     iget-object v0, p0, Landroid/support/v4/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
@@ -203,12 +203,12 @@
 
     invoke-interface {v0, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationEnd(Landroid/view/animation/Animation;)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onAnimationStart()V
-    .locals 1
+    .registers 2
 
     .line 96
     invoke-super {p0}, Landroid/widget/ImageView;->onAnimationStart()V
@@ -216,7 +216,7 @@
     .line 97
     iget-object v0, p0, Landroid/support/v4/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 98
     iget-object v0, p0, Landroid/support/v4/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
@@ -227,12 +227,12 @@
 
     invoke-interface {v0, p0}, Landroid/view/animation/Animation$AnimationListener;->onAnimationStart(Landroid/view/animation/Animation;)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 1
+    .registers 4
 
     .line 83
     invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onMeasure(II)V
@@ -242,7 +242,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1e
 
     .line 85
     invoke-virtual {p0}, Landroid/support/v4/widget/CircleImageView;->getMeasuredWidth()I
@@ -267,12 +267,12 @@
 
     invoke-virtual {p0, p1, p2}, Landroid/support/v4/widget/CircleImageView;->setMeasuredDimension(II)V
 
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method public setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-    .locals 0
+    .registers 2
 
     .line 91
     iput-object p1, p0, Landroid/support/v4/widget/CircleImageView;->mListener:Landroid/view/animation/Animation$AnimationListener;
@@ -281,7 +281,7 @@
 .end method
 
 .method public setBackgroundColor(I)V
-    .locals 1
+    .registers 3
 
     .line 121
     invoke-virtual {p0}, Landroid/support/v4/widget/CircleImageView;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -290,7 +290,7 @@
 
     instance-of v0, v0, Landroid/graphics/drawable/ShapeDrawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 122
     invoke-virtual {p0}, Landroid/support/v4/widget/CircleImageView;->getBackground()Landroid/graphics/drawable/Drawable;
@@ -305,12 +305,12 @@
 
     invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method public setBackgroundColorRes(I)V
-    .locals 1
+    .registers 3
 
     .line 116
     invoke-virtual {p0}, Landroid/support/v4/widget/CircleImageView;->getContext()Landroid/content/Context;

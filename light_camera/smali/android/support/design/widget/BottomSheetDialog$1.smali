@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
 
     .line 144
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$1;->this$0:Landroid/support/design/widget/BottomSheetDialog;
@@ -36,14 +36,14 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 147
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$1;->this$0:Landroid/support/design/widget/BottomSheetDialog;
 
     iget-boolean p1, p1, Landroid/support/design/widget/BottomSheetDialog;->mCancelable:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1b
 
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$1;->this$0:Landroid/support/design/widget/BottomSheetDialog;
 
@@ -51,7 +51,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1b
 
     iget-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$1;->this$0:Landroid/support/design/widget/BottomSheetDialog;
 
@@ -59,13 +59,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1b
 
     .line 148
     iget-object p0, p0, Landroid/support/design/widget/BottomSheetDialog$1;->this$0:Landroid/support/design/widget/BottomSheetDialog;
 
     invoke-virtual {p0}, Landroid/support/design/widget/BottomSheetDialog;->cancel()V
 
-    :cond_0
+    :cond_1b
     return-void
 .end method

@@ -806,14 +806,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     const/16 v0, 0x1d
 
     .line 1171
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_110
 
     sput-object v1, Landroid/support/v7/appcompat/R$styleable;->ActionBar:[I
 
@@ -844,7 +844,7 @@
     .line 1205
     new-array v4, v2, [I
 
-    fill-array-data v4, :array_1
+    fill-array-data v4, :array_14e
 
     sput-object v4, Landroid/support/v7/appcompat/R$styleable;->ActionMode:[I
 
@@ -853,7 +853,7 @@
     .line 1212
     new-array v5, v4, [I
 
-    fill-array-data v5, :array_2
+    fill-array-data v5, :array_15e
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->ActivityChooserView:[I
 
@@ -862,7 +862,7 @@
     .line 1215
     new-array v6, v5, [I
 
-    fill-array-data v6, :array_3
+    fill-array-data v6, :array_166
 
     sput-object v6, Landroid/support/v7/appcompat/R$styleable;->AlertDialog:[I
 
@@ -871,21 +871,21 @@
     .line 1223
     new-array v7, v6, [I
 
-    fill-array-data v7, :array_4
+    fill-array-data v7, :array_178
 
     sput-object v7, Landroid/support/v7/appcompat/R$styleable;->AppCompatImageView:[I
 
     .line 1228
     new-array v7, v6, [I
 
-    fill-array-data v7, :array_5
+    fill-array-data v7, :array_184
 
     sput-object v7, Landroid/support/v7/appcompat/R$styleable;->AppCompatSeekBar:[I
 
     .line 1233
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_6
+    fill-array-data v5, :array_190
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper:[I
 
@@ -894,7 +894,7 @@
     .line 1241
     new-array v7, v5, [I
 
-    fill-array-data v7, :array_7
+    fill-array-data v7, :array_1a2
 
     sput-object v7, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextView:[I
 
@@ -903,7 +903,7 @@
     .line 1250
     new-array v7, v7, [I
 
-    fill-array-data v7, :array_8
+    fill-array-data v7, :array_1b6
 
     sput-object v7, Landroid/support/v7/appcompat/R$styleable;->AppCompatTheme:[I
 
@@ -921,35 +921,35 @@
     .line 1372
     new-array v8, v7, [I
 
-    fill-array-data v8, :array_9
+    fill-array-data v8, :array_2a8
 
     sput-object v8, Landroid/support/v7/appcompat/R$styleable;->ColorStateListItem:[I
 
     .line 1376
     new-array v8, v7, [I
 
-    fill-array-data v8, :array_a
+    fill-array-data v8, :array_2b2
 
     sput-object v8, Landroid/support/v7/appcompat/R$styleable;->CompoundButton:[I
 
     .line 1380
     new-array v5, v5, [I
 
-    fill-array-data v5, :array_b
+    fill-array-data v5, :array_2bc
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->DrawerArrowToggle:[I
 
     .line 1389
     new-array v5, v2, [I
 
-    fill-array-data v5, :array_c
+    fill-array-data v5, :array_2d0
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->FontFamily:[I
 
     .line 1396
     new-array v5, v7, [I
 
-    fill-array-data v5, :array_d
+    fill-array-data v5, :array_2e0
 
     sput-object v5, Landroid/support/v7/appcompat/R$styleable;->FontFamilyFont:[I
 
@@ -958,28 +958,28 @@
     .line 1400
     new-array v8, v5, [I
 
-    fill-array-data v8, :array_e
+    fill-array-data v8, :array_2ea
 
     sput-object v8, Landroid/support/v7/appcompat/R$styleable;->LinearLayoutCompat:[I
 
     .line 1410
     new-array v6, v6, [I
 
-    fill-array-data v6, :array_f
+    fill-array-data v6, :array_300
 
     sput-object v6, Landroid/support/v7/appcompat/R$styleable;->LinearLayoutCompat_Layout:[I
 
     .line 1415
     new-array v6, v4, [I
 
-    fill-array-data v6, :array_10
+    fill-array-data v6, :array_30c
 
     sput-object v6, Landroid/support/v7/appcompat/R$styleable;->ListPopupWindow:[I
 
     .line 1418
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_11
+    fill-array-data v2, :array_314
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->MenuGroup:[I
 
@@ -988,21 +988,21 @@
     .line 1425
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_12
+    fill-array-data v2, :array_324
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->MenuItem:[I
 
     .line 1449
     new-array v2, v5, [I
 
-    fill-array-data v2, :array_13
+    fill-array-data v2, :array_356
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->MenuView:[I
 
     .line 1459
     new-array v2, v7, [I
 
-    fill-array-data v2, :array_14
+    fill-array-data v2, :array_36c
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->PopupWindow:[I
 
@@ -1018,7 +1018,7 @@
     .line 1465
     new-array v1, v4, [I
 
-    fill-array-data v1, :array_15
+    fill-array-data v1, :array_376
 
     sput-object v1, Landroid/support/v7/appcompat/R$styleable;->RecycleListView:[I
 
@@ -1027,7 +1027,7 @@
     .line 1468
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_16
+    fill-array-data v1, :array_37e
 
     sput-object v1, Landroid/support/v7/appcompat/R$styleable;->SearchView:[I
 
@@ -1036,7 +1036,7 @@
     .line 1486
     new-array v2, v1, [I
 
-    fill-array-data v2, :array_17
+    fill-array-data v2, :array_3a4
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->Spinner:[I
 
@@ -1045,7 +1045,7 @@
     .line 1492
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_18
+    fill-array-data v2, :array_3b2
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->SwitchCompat:[I
 
@@ -1054,35 +1054,35 @@
     .line 1507
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_19
+    fill-array-data v2, :array_3d2
 
     sput-object v2, Landroid/support/v7/appcompat/R$styleable;->TextAppearance:[I
 
     .line 1521
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1a
+    fill-array-data v0, :array_3f0
 
     sput-object v0, Landroid/support/v7/appcompat/R$styleable;->Toolbar:[I
 
     .line 1551
     new-array v0, v1, [I
 
-    fill-array-data v0, :array_1b
+    fill-array-data v0, :array_42e
 
     sput-object v0, Landroid/support/v7/appcompat/R$styleable;->View:[I
 
     .line 1557
     new-array v0, v7, [I
 
-    fill-array-data v0, :array_1c
+    fill-array-data v0, :array_43c
 
     sput-object v0, Landroid/support/v7/appcompat/R$styleable;->ViewBackgroundHelper:[I
 
     .line 1561
     new-array v0, v7, [I
 
-    fill-array-data v0, :array_1d
+    fill-array-data v0, :array_446
 
     sput-object v0, Landroid/support/v7/appcompat/R$styleable;->ViewStubCompat:[I
 
@@ -1090,7 +1090,7 @@
 
     nop
 
-    :array_0
+    :array_110
     .array-data 4
         0x7f040033
         0x7f040034
@@ -1123,7 +1123,7 @@
         0x7f0401b0
     .end array-data
 
-    :array_1
+    :array_14e
     .array-data 4
         0x7f040033
         0x7f040034
@@ -1133,13 +1133,13 @@
         0x7f0401b0
     .end array-data
 
-    :array_2
+    :array_15e
     .array-data 4
         0x7f04008e
         0x7f0400da
     .end array-data
 
-    :array_3
+    :array_166
     .array-data 4
         0x10100f2
         0x7f040049
@@ -1150,7 +1150,7 @@
         0x7f040168
     .end array-data
 
-    :array_4
+    :array_178
     .array-data 4
         0x1010119
         0x7f04016e
@@ -1158,7 +1158,7 @@
         0x7f0401a5
     .end array-data
 
-    :array_5
+    :array_184
     .array-data 4
         0x1010142
         0x7f0401a1
@@ -1166,7 +1166,7 @@
         0x7f0401a3
     .end array-data
 
-    :array_6
+    :array_190
     .array-data 4
         0x1010034
         0x101016d
@@ -1177,7 +1177,7 @@
         0x1010393
     .end array-data
 
-    :array_7
+    :array_1a2
     .array-data 4
         0x1010034
         0x7f04002e
@@ -1189,7 +1189,7 @@
         0x7f040190
     .end array-data
 
-    :array_8
+    :array_1b6
     .array-data 4
         0x1010057
         0x10100ae
@@ -1312,21 +1312,21 @@
         0x7f0401d9
     .end array-data
 
-    :array_9
+    :array_2a8
     .array-data 4
         0x10101a5
         0x101031f
         0x7f040027
     .end array-data
 
-    :array_a
+    :array_2b2
     .array-data 4
         0x1010107
         0x7f04004c
         0x7f04004d
     .end array-data
 
-    :array_b
+    :array_2bc
     .array-data 4
         0x7f04002a
         0x7f04002b
@@ -1338,7 +1338,7 @@
         0x7f04019d
     .end array-data
 
-    :array_c
+    :array_2d0
     .array-data 4
         0x7f0400ae
         0x7f0400af
@@ -1348,14 +1348,14 @@
         0x7f0400b3
     .end array-data
 
-    :array_d
+    :array_2e0
     .array-data 4
         0x7f0400ac
         0x7f0400b4
         0x7f0400b5
     .end array-data
 
-    :array_e
+    :array_2ea
     .array-data 4
         0x10100af
         0x10100c4
@@ -1368,7 +1368,7 @@
         0x7f040165
     .end array-data
 
-    :array_f
+    :array_300
     .array-data 4
         0x10100b3
         0x10100f4
@@ -1376,13 +1376,13 @@
         0x1010181
     .end array-data
 
-    :array_10
+    :array_30c
     .array-data 4
         0x10102ac
         0x10102ad
     .end array-data
 
-    :array_11
+    :array_314
     .array-data 4
         0x101000e
         0x10100d0
@@ -1392,7 +1392,7 @@
         0x10101e0
     .end array-data
 
-    :array_12
+    :array_324
     .array-data 4
         0x1010002
         0x101000e
@@ -1419,7 +1419,7 @@
         0x7f0401b6
     .end array-data
 
-    :array_13
+    :array_356
     .array-data 4
         0x10100ae
         0x101012c
@@ -1432,20 +1432,20 @@
         0x7f040175
     .end array-data
 
-    :array_14
+    :array_36c
     .array-data 4
         0x1010176
         0x10102c9
         0x7f040133
     .end array-data
 
-    :array_15
+    :array_376
     .array-data 4
         0x7f040134
         0x7f040137
     .end array-data
 
-    :array_16
+    :array_37e
     .array-data 4
         0x10100da
         0x101011f
@@ -1466,7 +1466,7 @@
         0x7f0401cc
     .end array-data
 
-    :array_17
+    :array_3a4
     .array-data 4
         0x10100b2
         0x1010176
@@ -1475,7 +1475,7 @@
         0x7f040141
     .end array-data
 
-    :array_18
+    :array_3b2
     .array-data 4
         0x1010124
         0x1010125
@@ -1493,7 +1493,7 @@
         0x7f0401b9
     .end array-data
 
-    :array_19
+    :array_3d2
     .array-data 4
         0x1010095
         0x1010096
@@ -1510,7 +1510,7 @@
         0x7f040190
     .end array-data
 
-    :array_1a
+    :array_3f0
     .array-data 4
         0x10100af
         0x1010140
@@ -1543,7 +1543,7 @@
         0x7f0401af
     .end array-data
 
-    :array_1b
+    :array_42e
     .array-data 4
         0x1010000
         0x10100da
@@ -1552,14 +1552,14 @@
         0x7f04019c
     .end array-data
 
-    :array_1c
+    :array_43c
     .array-data 4
         0x10100d4
         0x7f040036
         0x7f040037
     .end array-data
 
-    :array_1d
+    :array_446
     .array-data 4
         0x10100d0
         0x10100f2
@@ -1568,7 +1568,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1169
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

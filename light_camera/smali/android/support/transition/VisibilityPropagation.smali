@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-string v0, "android:visibilityPropagation:visibility"
 
@@ -30,7 +30,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Landroid/support/transition/TransitionPropagation;-><init>()V
@@ -39,16 +39,16 @@
 .end method
 
 .method private static getViewCoordinate(Landroid/support/transition/TransitionValues;I)I
-    .locals 2
+    .registers 4
 
     const/4 v0, -0x1
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     return v0
 
     .line 110
-    :cond_0
+    :cond_4
     iget-object p0, p0, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v1, "android:visibilityPropagation:center"
@@ -59,12 +59,12 @@
 
     check-cast p0, [I
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_11
 
     return v0
 
     .line 115
-    :cond_1
+    :cond_11
     aget p0, p0, p1
 
     return p0
@@ -73,7 +73,7 @@
 
 # virtual methods
 .method public captureValues(Landroid/support/transition/TransitionValues;)V
-    .locals 5
+    .registers 7
 
     .line 45
     iget-object p0, p1, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
@@ -89,7 +89,7 @@
 
     check-cast v0, Ljava/lang/Integer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 48
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
@@ -101,7 +101,7 @@
     move-result-object v0
 
     .line 50
-    :cond_0
+    :cond_16
     iget-object v1, p1, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v2, "android:visibilityPropagation:visibility"
@@ -187,7 +187,7 @@
 .end method
 
 .method public getPropagationProperties()[Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 62
     sget-object p0, Landroid/support/transition/VisibilityPropagation;->VISIBILITY_PROPAGATION_VALUES:[Ljava/lang/String;
@@ -196,16 +196,16 @@
 .end method
 
 .method public getViewVisibility(Landroid/support/transition/TransitionValues;)I
-    .locals 1
+    .registers 3
 
     const/16 p0, 0x8
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_5
 
     return p0
 
     .line 76
-    :cond_0
+    :cond_5
     iget-object p1, p1, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v0, "android:visibilityPropagation:visibility"
@@ -216,12 +216,12 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_12
 
     return p0
 
     .line 80
-    :cond_1
+    :cond_12
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
@@ -230,7 +230,7 @@
 .end method
 
 .method public getViewX(Landroid/support/transition/TransitionValues;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -243,7 +243,7 @@
 .end method
 
 .method public getViewY(Landroid/support/transition/TransitionValues;)I
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 

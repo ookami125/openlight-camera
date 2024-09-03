@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 106
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BaseKeyPool;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected bridge synthetic create()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;
-    .locals 0
+    .registers 1
 
     .line 106
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;->create()Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
@@ -46,7 +46,7 @@
 .end method
 
 .method protected create()Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
-    .locals 1
+    .registers 2
 
     .line 116
     new-instance v0, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
@@ -57,7 +57,7 @@
 .end method
 
 .method public get(I)Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$Key;
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-virtual {p0}, Lcom/bumptech/glide/load/engine/bitmap_recycle/SizeStrategy$KeyPool;->get()Lcom/bumptech/glide/load/engine/bitmap_recycle/Poolable;

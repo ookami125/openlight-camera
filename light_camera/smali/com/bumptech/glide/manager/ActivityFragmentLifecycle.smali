@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
-    .locals 1
+    .registers 3
 
     .line 36
     iget-object v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->lifecycleListeners:Ljava/util/Set;
@@ -56,34 +56,34 @@
     .line 38
     iget-boolean v0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->isDestroyed:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 39
     invoke-interface {p1}, Lcom/bumptech/glide/manager/LifecycleListener;->onDestroy()V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 40
-    :cond_0
+    :cond_d
     iget-boolean p0, p0, Lcom/bumptech/glide/manager/ActivityFragmentLifecycle;->isStarted:Z
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_15
 
     .line 41
     invoke-interface {p1}, Lcom/bumptech/glide/manager/LifecycleListener;->onStart()V
 
-    goto :goto_0
+    goto :goto_18
 
     .line 43
-    :cond_1
+    :cond_15
     invoke-interface {p1}, Lcom/bumptech/glide/manager/LifecycleListener;->onStop()V
 
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method onDestroy()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -101,12 +101,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -117,14 +117,14 @@
     .line 64
     invoke-interface {v0}, Lcom/bumptech/glide/manager/LifecycleListener;->onDestroy()V
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method onStart()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -142,12 +142,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -158,14 +158,14 @@
     .line 50
     invoke-interface {v0}, Lcom/bumptech/glide/manager/LifecycleListener;->onStart()V
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method onStop()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -183,12 +183,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_d
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -199,8 +199,8 @@
     .line 57
     invoke-interface {v0}, Lcom/bumptech/glide/manager/LifecycleListener;->onStop()V
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_1d
     return-void
 .end method

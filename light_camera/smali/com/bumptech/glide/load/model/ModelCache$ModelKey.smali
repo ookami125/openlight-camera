@@ -51,7 +51,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -66,7 +66,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 82
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -75,7 +75,7 @@
 .end method
 
 .method static get(Ljava/lang/Object;II)Lcom/bumptech/glide/load/model/ModelCache$ModelKey;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -95,7 +95,7 @@
 
     check-cast v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 75
     new-instance v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;
@@ -103,14 +103,14 @@
     invoke-direct {v0}, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;-><init>()V
 
     .line 78
-    :cond_0
+    :cond_f
     invoke-direct {v0, p0, p1, p2}, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->init(Ljava/lang/Object;II)V
 
     return-object v0
 .end method
 
 .method private init(Ljava/lang/Object;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;II)V"
@@ -132,14 +132,14 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
 
     .line 96
     instance-of v0, p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1f
 
     .line 97
     check-cast p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;
@@ -149,13 +149,13 @@
 
     iget v2, p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->width:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1e
 
     iget v0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->height:I
 
     iget v2, p1, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->height:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1e
 
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->model:Ljava/lang/Object;
 
@@ -165,19 +165,19 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1e
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_1e
     return v1
 
-    :cond_1
+    :cond_1f
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 105
     iget v0, p0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->height:I
@@ -204,7 +204,7 @@
 .end method
 
 .method public release()V
-    .locals 1
+    .registers 2
 
     .line 91
     sget-object v0, Lcom/bumptech/glide/load/model/ModelCache$ModelKey;->KEY_QUEUE:Ljava/util/Queue;

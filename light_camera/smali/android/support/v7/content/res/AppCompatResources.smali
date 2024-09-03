@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 46
     new-instance v0, Ljava/lang/ThreadLocal;
@@ -70,7 +70,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 53
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 .end method
 
 .method private static addColorStateListToCache(Landroid/content/Context;ILandroid/content/res/ColorStateList;)V
-    .locals 3
+    .registers 6
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -99,7 +99,7 @@
     monitor-enter v0
 
     .line 147
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroid/support/v7/content/res/AppCompatResources;->sColorStateCaches:Ljava/util/WeakHashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -108,7 +108,7 @@
 
     check-cast v1, Landroid/util/SparseArray;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_17
 
     .line 149
     new-instance v1, Landroid/util/SparseArray;
@@ -121,7 +121,7 @@
     invoke-virtual {v2, p0, v1}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 152
-    :cond_0
+    :cond_17
     new-instance v2, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;
 
     .line 153
@@ -143,18 +143,18 @@
 
     return-void
 
-    :catchall_0
+    :catchall_29
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catchall {:try_start_3 .. :try_end_2b} :catchall_29
 
     throw p0
 .end method
 
 .method private static getCachedColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-    .locals 4
+    .registers 6
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -172,7 +172,7 @@
     monitor-enter v0
 
     .line 127
-    :try_start_0
+    :try_start_3
     sget-object v1, Landroid/support/v7/content/res/AppCompatResources;->sColorStateCaches:Ljava/util/WeakHashMap;
 
     invoke-virtual {v1, p0}, Ljava/util/WeakHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -181,14 +181,14 @@
 
     check-cast v1, Landroid/util/SparseArray;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_32
 
     .line 128
     invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_32
 
     .line 129
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -197,7 +197,7 @@
 
     check-cast v2, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 131
     iget-object v3, v2, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;->configuration:Landroid/content/res/Configuration;
@@ -214,7 +214,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2f
 
     .line 133
     iget-object p0, v2, Landroid/support/v7/content/res/AppCompatResources$ColorStateListCacheEntry;->value:Landroid/content/res/ColorStateList;
@@ -224,29 +224,29 @@
     return-object p0
 
     .line 136
-    :cond_0
+    :cond_2f
     invoke-virtual {v1, p1}, Landroid/util/SparseArray;->remove(I)V
 
     .line 140
-    :cond_1
+    :cond_32
     monitor-exit v0
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :catchall_0
+    :catchall_35
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_37
+    .catchall {:try_start_3 .. :try_end_37} :catchall_35
 
     throw p0
 .end method
 
 .method public static getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -261,7 +261,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 65
     invoke-virtual {p0, p1}, Landroid/content/Context;->getColorStateList(I)Landroid/content/res/ColorStateList;
@@ -271,22 +271,22 @@
     return-object p0
 
     .line 69
-    :cond_0
+    :cond_b
     invoke-static {p0, p1}, Landroid/support/v7/content/res/AppCompatResources;->getCachedColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     return-object v0
 
     .line 74
-    :cond_1
+    :cond_12
     invoke-static {p0, p1}, Landroid/support/v7/content/res/AppCompatResources;->inflateColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1c
 
     .line 77
     invoke-static {p0, p1, v0}, Landroid/support/v7/content/res/AppCompatResources;->addColorStateListToCache(Landroid/content/Context;ILandroid/content/res/ColorStateList;)V
@@ -294,7 +294,7 @@
     return-object v0
 
     .line 82
-    :cond_2
+    :cond_1c
     invoke-static {p0, p1}, Landroid/support/v4/content/ContextCompat;->getColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
 
     move-result-object p0
@@ -303,7 +303,7 @@
 .end method
 
 .method public static getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 3
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -328,7 +328,7 @@
 .end method
 
 .method private static getTypedValue()Landroid/util/TypedValue;
-    .locals 2
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -341,7 +341,7 @@
 
     check-cast v0, Landroid/util/TypedValue;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 171
     new-instance v0, Landroid/util/TypedValue;
@@ -353,12 +353,12 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    :cond_0
+    :cond_14
     return-object v0
 .end method
 
 .method private static inflateColorStateList(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 4
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -369,12 +369,12 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     return-object v1
 
     .line 113
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
@@ -385,7 +385,7 @@
     move-result-object p1
 
     .line 116
-    :try_start_0
+    :try_start_10
     invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object p0
@@ -393,12 +393,12 @@
     invoke-static {v0, p1, p0}, Landroid/support/v7/content/res/AppCompatColorStateListInflater;->createFromXml(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/Exception; {:try_start_10 .. :try_end_18} :catch_19
 
     return-object p0
 
-    :catch_0
+    :catch_19
     move-exception p0
 
     const-string p1, "AppCompatResources"
@@ -412,7 +412,7 @@
 .end method
 
 .method private static isColorInt(Landroid/content/Context;I)Z
-    .locals 2
+    .registers 4
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -442,19 +442,19 @@
 
     const/16 p1, 0x1c
 
-    if-lt p0, p1, :cond_0
+    if-lt p0, p1, :cond_19
 
     iget p0, v0, Landroid/util/TypedValue;->type:I
 
     const/16 p1, 0x1f
 
-    if-gt p0, p1, :cond_0
+    if-gt p0, p1, :cond_19
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_1a
     return v1
 .end method

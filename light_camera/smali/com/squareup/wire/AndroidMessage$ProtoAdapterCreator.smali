@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/squareup/wire/ProtoAdapter;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,12 +82,12 @@
     invoke-virtual {p0, p1}, Lcom/squareup/wire/ProtoAdapter;->decode([B)Ljava/lang/Object;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_a} :catch_b
 
     return-object p0
 
-    :catch_0
+    :catch_b
     move-exception p0
 
     .line 55
@@ -99,7 +99,7 @@
 .end method
 
 .method public newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)[TM;"

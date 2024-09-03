@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static getExtras(Ljava/lang/Object;)Landroid/os/Bundle;
-    .locals 0
+    .registers 1
 
     .line 28
     check-cast p0, Landroid/media/session/PlaybackState;
@@ -33,7 +33,7 @@
 .end method
 
 .method public static newInstance(IJJFJLjava/lang/CharSequence;JLjava/util/List;JLandroid/os/Bundle;)Ljava/lang/Object;
-    .locals 8
+    .registers 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(IJJFJ",
@@ -86,12 +86,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_1f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2f
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -102,9 +102,9 @@
 
     invoke-virtual {v7, v1}, Landroid/media/session/PlaybackState$Builder;->addCustomAction(Landroid/media/session/PlaybackState$CustomAction;)Landroid/media/session/PlaybackState$Builder;
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_2f
     move-wide/from16 v1, p12
 
     .line 43

@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/load/engine/ResourceRecycler$1;)V
-    .locals 0
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Lcom/bumptech/glide/load/engine/ResourceRecycler$ResourceRecyclerCallback;-><init>()V
@@ -43,14 +43,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 1
+    .registers 3
 
     .line 35
     iget p0, p1, Landroid/os/Message;->what:I
 
     const/4 v0, 0x1
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
     .line 36
     iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -62,7 +62,7 @@
 
     return v0
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
     return p0

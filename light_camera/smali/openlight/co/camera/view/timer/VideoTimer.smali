@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/widget/TextView;Landroid/widget/ImageView;)V
-    .locals 2
+    .registers 6
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/timer/VideoTimer;)J
-    .locals 2
+    .registers 3
 
     .line 14
     iget-wide v0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mTimeInMillis:J
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/view/timer/VideoTimer;J)J
-    .locals 0
+    .registers 3
 
     .line 14
     iput-wide p1, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mTimeInMillis:J
@@ -89,7 +89,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/timer/VideoTimer;)J
-    .locals 2
+    .registers 3
 
     .line 14
     iget-wide v0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mStartTime:J
@@ -98,7 +98,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/timer/VideoTimer;)J
-    .locals 2
+    .registers 3
 
     .line 14
     iget-wide v0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mUpdatedTime:J
@@ -107,7 +107,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/view/timer/VideoTimer;J)J
-    .locals 0
+    .registers 3
 
     .line 14
     iput-wide p1, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mUpdatedTime:J
@@ -116,7 +116,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/timer/VideoTimer;)J
-    .locals 2
+    .registers 3
 
     .line 14
     iget-wide v0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mTimeSwap:J
@@ -125,7 +125,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/timer/VideoTimer;)Landroid/widget/TextView;
-    .locals 0
+    .registers 1
 
     .line 14
     iget-object p0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mRecordingTimer:Landroid/widget/TextView;
@@ -134,7 +134,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/timer/VideoTimer;)Landroid/os/Handler;
-    .locals 0
+    .registers 1
 
     .line 14
     iget-object p0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mCustomHandler:Landroid/os/Handler;
@@ -145,7 +145,7 @@
 
 # virtual methods
 .method public setTextRecordViews(Landroid/widget/TextView;Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 3
 
     .line 34
     iput-object p1, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mRecordingTimer:Landroid/widget/TextView;
@@ -157,7 +157,7 @@
 .end method
 
 .method public startRecordingAnimation()V
-    .locals 4
+    .registers 5
 
     .line 40
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
@@ -178,12 +178,12 @@
     .line 42
     iget-object v0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mBlinker:Landroid/widget/ImageView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     return-void
 
     .line 43
-    :cond_0
+    :cond_14
     iget-object p0, p0, Lopenlight/co/camera/view/timer/VideoTimer;->mBlinker:Landroid/widget/ImageView;
 
     invoke-static {p0}, Lopenlight/co/lib/utils/AnimationUtils;->blinkAnimation(Landroid/view/View;)V
@@ -192,7 +192,7 @@
 .end method
 
 .method public stopRecordingAnimation()V
-    .locals 2
+    .registers 3
 
     const-wide/16 v0, 0x0
 

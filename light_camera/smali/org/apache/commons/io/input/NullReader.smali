@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 2
+    .registers 5
 
     const/4 v0, 0x1
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(JZZ)V
-    .locals 2
+    .registers 7
 
     .line 96
     invoke-direct {p0}, Ljava/io/Reader;-><init>()V
@@ -57,7 +57,7 @@
 .end method
 
 .method private doEndOfFile()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/EOFException;
@@ -72,14 +72,14 @@
     .line 317
     iget-boolean p0, p0, Lorg/apache/commons/io/input/NullReader;->throwEofException:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_9
 
     const/4 p0, -0x1
 
     return p0
 
     .line 318
-    :cond_0
+    :cond_9
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
@@ -90,7 +90,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -116,7 +116,7 @@
 .end method
 
 .method public getPosition()J
-    .locals 2
+    .registers 3
 
     .line 108
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -125,7 +125,7 @@
 .end method
 
 .method public getSize()J
-    .locals 2
+    .registers 3
 
     .line 117
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->size:J
@@ -134,15 +134,15 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 142
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lorg/apache/commons/io/input/NullReader;->markSupported:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 145
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -153,8 +153,8 @@
 
     .line 146
     iput-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->readlimit:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_1 .. :try_end_c} :catchall_16
 
     .line 147
     monitor-exit p0
@@ -162,8 +162,8 @@
     return-void
 
     .line 143
-    :cond_0
-    :try_start_1
+    :cond_e
+    :try_start_e
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     const-string v0, "Mark not supported"
@@ -171,10 +171,10 @@
     invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw p1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_16
+    .catchall {:try_start_e .. :try_end_16} :catchall_16
 
-    :catchall_0
+    :catchall_16
     move-exception p1
 
     .line 141
@@ -184,7 +184,7 @@
 .end method
 
 .method public markSupported()Z
-    .locals 0
+    .registers 1
 
     .line 156
     iget-boolean p0, p0, Lorg/apache/commons/io/input/NullReader;->markSupported:Z
@@ -193,7 +193,7 @@
 .end method
 
 .method protected processChar()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -201,13 +201,13 @@
 .end method
 
 .method protected processChars([CII)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public read()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -217,7 +217,7 @@
     .line 171
     iget-boolean v0, p0, Lorg/apache/commons/io/input/NullReader;->eof:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1d
 
     .line 174
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -226,7 +226,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 175
     invoke-direct {p0}, Lorg/apache/commons/io/input/NullReader;->doEndOfFile()I
@@ -236,7 +236,7 @@
     return p0
 
     .line 177
-    :cond_0
+    :cond_11
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
 
     const-wide/16 v2, 0x1
@@ -253,7 +253,7 @@
     return p0
 
     .line 172
-    :cond_1
+    :cond_1d
     new-instance p0, Ljava/io/IOException;
 
     const-string v0, "Read after end of file"
@@ -264,7 +264,7 @@
 .end method
 
 .method public read([C)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -284,7 +284,7 @@
 .end method
 
 .method public read([CII)I
-    .locals 4
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -294,7 +294,7 @@
     .line 212
     iget-boolean v0, p0, Lorg/apache/commons/io/input/NullReader;->eof:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2e
 
     .line 215
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -303,7 +303,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 216
     invoke-direct {p0}, Lorg/apache/commons/io/input/NullReader;->doEndOfFile()I
@@ -313,7 +313,7 @@
     return p0
 
     .line 218
-    :cond_0
+    :cond_11
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
 
     int-to-long v2, p3
@@ -329,7 +329,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2a
 
     .line 221
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -348,13 +348,13 @@
     iput-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
 
     .line 224
-    :cond_1
+    :cond_2a
     invoke-virtual {p0, p1, p2, p3}, Lorg/apache/commons/io/input/NullReader;->processChars([CII)V
 
     return p3
 
     .line 213
-    :cond_2
+    :cond_2e
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Read after end of file"
@@ -365,7 +365,7 @@
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 7
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -375,10 +375,10 @@
     monitor-enter p0
 
     .line 238
-    :try_start_0
+    :try_start_1
     iget-boolean v0, p0, Lorg/apache/commons/io/input/NullReader;->markSupported:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_52
 
     .line 241
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->mark:J
@@ -387,7 +387,7 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_4a
 
     .line 244
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -402,7 +402,7 @@
 
     cmp-long v0, v0, v2
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_22
 
     .line 249
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->mark:J
@@ -413,8 +413,8 @@
 
     .line 250
     iput-boolean v0, p0, Lorg/apache/commons/io/input/NullReader;->eof:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_20
+    .catchall {:try_start_1 .. :try_end_20} :catchall_5a
 
     .line 251
     monitor-exit p0
@@ -422,8 +422,8 @@
     return-void
 
     .line 245
-    :cond_0
-    :try_start_1
+    :cond_22
+    :try_start_22
     new-instance v0, Ljava/io/IOException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -459,7 +459,7 @@
     throw v0
 
     .line 242
-    :cond_1
+    :cond_4a
     new-instance v0, Ljava/io/IOException;
 
     const-string v1, "No position has been marked"
@@ -469,7 +469,7 @@
     throw v0
 
     .line 239
-    :cond_2
+    :cond_52
     new-instance v0, Ljava/lang/UnsupportedOperationException;
 
     const-string v1, "Mark not supported"
@@ -477,10 +477,10 @@
     invoke-direct {v0, v1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_5a
+    .catchall {:try_start_22 .. :try_end_5a} :catchall_5a
 
-    :catchall_0
+    :catchall_5a
     move-exception v0
 
     .line 237
@@ -490,7 +490,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -500,7 +500,7 @@
     .line 266
     iget-boolean v0, p0, Lorg/apache/commons/io/input/NullReader;->eof:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2a
 
     .line 269
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -509,7 +509,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 270
     invoke-direct {p0}, Lorg/apache/commons/io/input/NullReader;->doEndOfFile()I
@@ -521,7 +521,7 @@
     return-wide p0
 
     .line 272
-    :cond_0
+    :cond_12
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
 
     add-long/2addr v0, p1
@@ -535,7 +535,7 @@
 
     cmp-long v0, v0, v2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_29
 
     .line 275
     iget-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
@@ -551,11 +551,11 @@
 
     iput-wide v0, p0, Lorg/apache/commons/io/input/NullReader;->position:J
 
-    :cond_1
+    :cond_29
     return-wide p1
 
     .line 267
-    :cond_2
+    :cond_2a
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Skip after end of file"

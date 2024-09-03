@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;Lopenlight/co/camera/managers/CameraManager;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final onComplete()V
-    .locals 1
+    .registers 2
 
     iget-object v0, p0, Lopenlight/co/camera/view/primarycontrol/-$$Lambda$ImagePrimaryControl$7uEyQ68mjjWXTRIYpPGnWNRvVbU;->f$0:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 

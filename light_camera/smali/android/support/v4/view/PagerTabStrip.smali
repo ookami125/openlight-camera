@@ -57,7 +57,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
 
     .line 84
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/PagerTitleStrip;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -264,19 +264,19 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a8
 
     .line 123
     iput-boolean p2, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_0
+    :cond_a8
     return-void
 .end method
 
 
 # virtual methods
 .method public getDrawFullUnderline()Z
-    .locals 0
+    .registers 1
 
     .line 215
     iget-boolean p0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
@@ -285,7 +285,7 @@
 .end method
 
 .method getMinHeight()I
-    .locals 1
+    .registers 2
 
     .line 220
     invoke-super {p0}, Landroid/support/v4/view/PagerTitleStrip;->getMinHeight()I
@@ -302,7 +302,7 @@
 .end method
 
 .method public getTabIndicatorColor()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/ColorInt;
     .end annotation
 
@@ -313,7 +313,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 14
+    .registers 16
 
     .line 262
     invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->onDraw(Landroid/graphics/Canvas;)V
@@ -387,7 +387,7 @@
     .line 273
     iget-boolean v1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_60
 
     .line 274
     iget-object v1, p0, Landroid/support/v4/view/PagerTabStrip;->mTabPaint:Landroid/graphics/Paint;
@@ -435,12 +435,12 @@
     .line 275
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    :cond_0
+    :cond_60
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 6
 
     .line 225
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -449,17 +449,17 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 226
     iget-boolean v2, p0, Landroid/support/v4/view/PagerTabStrip;->mIgnoreTap:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     return v1
 
     .line 232
-    :cond_0
+    :cond_c
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v2
@@ -471,12 +471,12 @@
 
     const/4 v3, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_76
 
-    goto :goto_0
+    goto :goto_74
 
     .line 242
-    :pswitch_0
+    :pswitch_19
     iget v0, p0, Landroid/support/v4/view/PagerTabStrip;->mInitialMotionX:F
 
     sub-float/2addr v2, v0
@@ -491,7 +491,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_35
 
     iget v0, p0, Landroid/support/v4/view/PagerTabStrip;->mInitialMotionY:F
 
@@ -508,16 +508,16 @@
 
     cmpl-float p1, p1, v0
 
-    if-lez p1, :cond_3
+    if-lez p1, :cond_74
 
     .line 244
-    :cond_1
+    :cond_35
     iput-boolean v3, p0, Landroid/support/v4/view/PagerTabStrip;->mIgnoreTap:Z
 
-    goto :goto_0
+    goto :goto_74
 
     .line 249
-    :pswitch_1
+    :pswitch_38
     iget-object p1, p0, Landroid/support/v4/view/PagerTabStrip;->mCurrText:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Landroid/widget/TextView;->getLeft()I
@@ -532,7 +532,7 @@
 
     cmpg-float p1, v2, p1
 
-    if-gez p1, :cond_2
+    if-gez p1, :cond_53
 
     .line 250
     iget-object p1, p0, Landroid/support/v4/view/PagerTabStrip;->mPager:Landroid/support/v4/view/ViewPager;
@@ -547,10 +547,10 @@
 
     invoke-virtual {p1, p0}, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
 
-    goto :goto_0
+    goto :goto_74
 
     .line 251
-    :cond_2
+    :cond_53
     iget-object p1, p0, Landroid/support/v4/view/PagerTabStrip;->mCurrText:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Landroid/widget/TextView;->getRight()I
@@ -565,7 +565,7 @@
 
     cmpl-float p1, v2, p1
 
-    if-lez p1, :cond_3
+    if-lez p1, :cond_74
 
     .line 252
     iget-object p1, p0, Landroid/support/v4/view/PagerTabStrip;->mPager:Landroid/support/v4/view/ViewPager;
@@ -580,10 +580,10 @@
 
     invoke-virtual {p1, p0}, Landroid/support/v4/view/ViewPager;->setCurrentItem(I)V
 
-    goto :goto_0
+    goto :goto_74
 
     .line 236
-    :pswitch_2
+    :pswitch_6e
     iput v2, p0, Landroid/support/v4/view/PagerTabStrip;->mInitialMotionX:F
 
     .line 237
@@ -592,22 +592,22 @@
     .line 238
     iput-boolean v1, p0, Landroid/support/v4/view/PagerTabStrip;->mIgnoreTap:Z
 
-    :cond_3
-    :goto_0
+    :cond_74
+    :goto_74
     return v3
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_76
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6e
+        :pswitch_38
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method public setBackgroundColor(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
@@ -619,31 +619,31 @@
     .line 182
     iget-boolean v0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderlineSet:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_11
 
     const/high16 v0, -0x1000000
 
     and-int/2addr p1, v0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_e
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p1, 0x0
 
     .line 183
-    :goto_0
+    :goto_f
     iput-boolean p1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_1
+    :cond_11
     return-void
 .end method
 
 .method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
 
     .line 173
     invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -651,27 +651,27 @@
     .line 174
     iget-boolean v0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderlineSet:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p1, 0x0
 
     .line 175
-    :goto_0
+    :goto_c
     iput-boolean p1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method public setBackgroundResource(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/DrawableRes;
         .end annotation
@@ -683,27 +683,27 @@
     .line 190
     iget-boolean v0, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderlineSet:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p1, 0x0
 
     .line 191
-    :goto_0
+    :goto_c
     iput-boolean p1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_1
+    :cond_e
     return-void
 .end method
 
 .method public setDrawFullUnderline(Z)V
-    .locals 0
+    .registers 2
 
     .line 202
     iput-boolean p1, p0, Landroid/support/v4/view/PagerTabStrip;->mDrawFullUnderline:Z
@@ -720,25 +720,25 @@
 .end method
 
 .method public setPadding(IIII)V
-    .locals 1
+    .registers 6
 
     .line 157
     iget v0, p0, Landroid/support/v4/view/PagerTabStrip;->mMinPaddingBottom:I
 
-    if-ge p4, v0, :cond_0
+    if-ge p4, v0, :cond_6
 
     .line 158
     iget p4, p0, Landroid/support/v4/view/PagerTabStrip;->mMinPaddingBottom:I
 
     .line 160
-    :cond_0
+    :cond_6
     invoke-super {p0, p1, p2, p3, p4}, Landroid/support/v4/view/PagerTitleStrip;->setPadding(IIII)V
 
     return-void
 .end method
 
 .method public setTabIndicatorColor(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/ColorInt;
         .end annotation
@@ -761,7 +761,7 @@
 .end method
 
 .method public setTabIndicatorColorResource(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/ColorRes;
         .end annotation
@@ -782,25 +782,25 @@
 .end method
 
 .method public setTextSpacing(I)V
-    .locals 1
+    .registers 3
 
     .line 165
     iget v0, p0, Landroid/support/v4/view/PagerTabStrip;->mMinTextSpacing:I
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_6
 
     .line 166
     iget p1, p0, Landroid/support/v4/view/PagerTabStrip;->mMinTextSpacing:I
 
     .line 168
-    :cond_0
+    :cond_6
     invoke-super {p0, p1}, Landroid/support/v4/view/PagerTitleStrip;->setTextSpacing(I)V
 
     return-void
 .end method
 
 .method updateTextPositions(IFZ)V
-    .locals 5
+    .registers 9
 
     .line 282
     iget-object v0, p0, Landroid/support/v4/view/PagerTabStrip;->mTempRect:Landroid/graphics/Rect;

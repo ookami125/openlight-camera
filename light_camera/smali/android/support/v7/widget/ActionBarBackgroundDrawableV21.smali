@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/ActionBarContainer;)V
-    .locals 0
+    .registers 2
 
     .line 27
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ActionBarBackgroundDrawable;-><init>(Landroid/support/v7/widget/ActionBarContainer;)V
@@ -22,7 +22,7 @@
 
 # virtual methods
 .method public getOutline(Landroid/graphics/Outline;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/graphics/Outline;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -33,14 +33,14 @@
 
     iget-boolean v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mIsSplit:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 33
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawableV21;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mSplitBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 34
     iget-object p0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawableV21;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
@@ -49,15 +49,15 @@
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->getOutline(Landroid/graphics/Outline;)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 38
-    :cond_0
+    :cond_14
     iget-object v0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawableV21;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
 
     iget-object v0, v0, Landroid/support/v7/widget/ActionBarContainer;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 39
     iget-object p0, p0, Landroid/support/v7/widget/ActionBarBackgroundDrawableV21;->mContainer:Landroid/support/v7/widget/ActionBarContainer;
@@ -66,7 +66,7 @@
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->getOutline(Landroid/graphics/Outline;)V
 
-    :cond_1
-    :goto_0
+    :cond_21
+    :goto_21
     return-void
 .end method

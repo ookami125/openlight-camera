@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 1979
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 1990
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method public static getTag(Landroid/view/View;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 2266
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -59,7 +59,7 @@
 .end method
 
 .method public static setTag(Landroid/view/View;Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 2254
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -77,7 +77,7 @@
 
 # virtual methods
 .method public blocksInteractionBelow(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)Z
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,21 +95,21 @@
 
     cmpl-float p0, p0, p1
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_b
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public getInsetDodgeRect(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/graphics/Rect;)Z
-    .locals 0
+    .registers 4
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -138,7 +138,7 @@
 .end method
 
 .method public getScrimColor(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)I
-    .locals 0
+    .registers 3
     .annotation build Landroid/support/annotation/ColorInt;
     .end annotation
 
@@ -156,7 +156,7 @@
 .end method
 
 .method public getScrimOpacity(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)F
-    .locals 0
+    .registers 3
     .annotation build Landroid/support/annotation/FloatRange;
         from = 0.0
         to = 1.0
@@ -176,7 +176,7 @@
 .end method
 
 .method public layoutDependsOn(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -193,7 +193,7 @@
 .end method
 
 .method public onApplyWindowInsets(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
-    .locals 0
+    .registers 4
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -212,7 +212,7 @@
 .end method
 
 .method public onAttachedToLayoutParams(Landroid/support/design/widget/CoordinatorLayout$LayoutParams;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -222,7 +222,7 @@
 .end method
 
 .method public onDependentViewChanged(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)Z
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -239,7 +239,7 @@
 .end method
 
 .method public onDependentViewRemoved(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -254,13 +254,13 @@
 .end method
 
 .method public onDetachedFromLayoutParams()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onInterceptTouchEvent(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -277,7 +277,7 @@
 .end method
 
 .method public onLayoutChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -292,7 +292,7 @@
 .end method
 
 .method public onMeasureChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;IIII)Z
-    .locals 0
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -307,7 +307,7 @@
 .end method
 
 .method public onNestedFling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FFZ)Z
-    .locals 0
+    .registers 7
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -336,7 +336,7 @@
 .end method
 
 .method public onNestedPreFling(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;FF)Z
-    .locals 0
+    .registers 6
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -365,7 +365,7 @@
 .end method
 
 .method public onNestedPreScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[I)V
-    .locals 0
+    .registers 7
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -399,7 +399,7 @@
 .end method
 
 .method public onNestedPreScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[II)V
-    .locals 0
+    .registers 8
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -426,17 +426,17 @@
         }
     .end annotation
 
-    if-nez p7, :cond_0
+    if-nez p7, :cond_5
 
     .line 2491
     invoke-virtual/range {p0 .. p6}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedPreScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;II[I)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public onNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIII)V
-    .locals 0
+    .registers 8
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -466,7 +466,7 @@
 .end method
 
 .method public onNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIIII)V
-    .locals 0
+    .registers 9
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -489,17 +489,17 @@
         }
     .end annotation
 
-    if-nez p8, :cond_0
+    if-nez p8, :cond_5
 
     .line 2441
     invoke-virtual/range {p0 .. p7}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;IIII)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public onNestedScrollAccepted(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;I)V
-    .locals 0
+    .registers 6
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -534,7 +534,7 @@
 .end method
 
 .method public onNestedScrollAccepted(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)V
-    .locals 0
+    .registers 7
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -562,17 +562,17 @@
         }
     .end annotation
 
-    if-nez p6, :cond_0
+    if-nez p6, :cond_5
 
     .line 2351
     invoke-virtual/range {p0 .. p5}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onNestedScrollAccepted(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;I)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public onRequestChildRectangleOnScreen(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/graphics/Rect;Z)Z
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -589,7 +589,7 @@
 .end method
 
 .method public onRestoreInstanceState(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -604,7 +604,7 @@
 .end method
 
 .method public onSaveInstanceState(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;)Landroid/os/Parcelable;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -621,7 +621,7 @@
 .end method
 
 .method public onStartNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;I)Z
-    .locals 0
+    .registers 6
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -658,7 +658,7 @@
 .end method
 
 .method public onStartNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;II)Z
-    .locals 0
+    .registers 7
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -686,7 +686,7 @@
         }
     .end annotation
 
-    if-nez p6, :cond_0
+    if-nez p6, :cond_7
 
     .line 2308
     invoke-virtual/range {p0 .. p5}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onStartNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;Landroid/view/View;I)Z
@@ -695,14 +695,14 @@
 
     return p0
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public onStopNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -732,7 +732,7 @@
 .end method
 
 .method public onStopNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;I)V
-    .locals 0
+    .registers 5
     .param p1    # Landroid/support/design/widget/CoordinatorLayout;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -755,17 +755,17 @@
         }
     .end annotation
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_5
 
     .line 2391
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/design/widget/CoordinatorLayout$Behavior;->onStopNestedScroll(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/View;)V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 .method public onTouchEvent(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

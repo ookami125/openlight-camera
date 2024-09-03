@@ -162,7 +162,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 120
     new-instance v0, Landroid/util/SparseIntArray;
@@ -263,7 +263,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 100
     invoke-direct {p0}, Lopenlight/co/lib/view/LightFragment;-><init>()V
@@ -486,7 +486,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 100
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -495,7 +495,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/BasePreviewFragment;)Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
-    .locals 0
+    .registers 1
 
     .line 100
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mProximityNotification:Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
@@ -504,7 +504,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/BasePreviewFragment;I)V
-    .locals 0
+    .registers 2
 
     .line 100
     invoke-direct {p0, p1}, Lopenlight/co/camera/BasePreviewFragment;->checkLowBattery(I)V
@@ -513,7 +513,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/BasePreviewFragment;II)V
-    .locals 0
+    .registers 3
 
     .line 100
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/BasePreviewFragment;->updateBatteryInfo(II)V
@@ -522,7 +522,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/BasePreviewFragment;Z)V
-    .locals 0
+    .registers 2
 
     .line 100
     invoke-direct {p0, p1}, Lopenlight/co/camera/BasePreviewFragment;->setZoomToNextPrimeLevel(Z)V
@@ -531,7 +531,7 @@
 .end method
 
 .method protected static checkAspectsEqual(Landroid/util/Size;Landroid/util/Size;)Z
-    .locals 2
+    .registers 4
 
     .line 753
     invoke-virtual {p0}, Landroid/util/Size;->getWidth()I
@@ -554,25 +554,25 @@
 
     mul-int/2addr p0, p1
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_16
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_17
     return p0
 .end method
 
 .method private checkLowBattery(I)V
-    .locals 2
+    .registers 4
 
     const/16 v0, 0xb
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_29
 
     .line 1269
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mHaptic:Lopenlight/co/camera/haptic/PlayHaptic;
@@ -611,12 +611,12 @@
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 .method private initFaceDetect()V
-    .locals 2
+    .registers 3
 
     .line 1341
     invoke-static {}, Lopenlight/co/camera/utils/FaceDetector;->get()Lopenlight/co/camera/utils/FaceDetector;
@@ -627,7 +627,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 1342
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mFaceViewHelper:Lopenlight/co/camera/view/face/FaceViewHelper;
@@ -638,23 +638,23 @@
 
     invoke-virtual {v0, v1, p0}, Lopenlight/co/camera/view/face/FaceViewHelper;->init(Landroid/view/ViewGroup;Landroid/util/Size;)V
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method protected static sensorToDeviceRotation(Landroid/hardware/camera2/CameraCharacteristics;I)I
-    .locals 3
+    .registers 5
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_11
 
     .line 769
-    :cond_0
+    :cond_5
     sget-object v1, Landroid/hardware/camera2/CameraCharacteristics;->SENSOR_ORIENTATION:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v1}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
@@ -668,19 +668,19 @@
     move-result v1
 
     .line 772
-    :goto_0
+    :goto_11
     sget-object v2, Lopenlight/co/camera/BasePreviewFragment;->ORIENTATIONS:Landroid/util/SparseIntArray;
 
     invoke-virtual {v2, p1}, Landroid/util/SparseIntArray;->get(I)I
 
     move-result p1
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_1a
 
-    goto :goto_1
+    goto :goto_26
 
     .line 775
-    :cond_1
+    :cond_1a
     sget-object v0, Landroid/hardware/camera2/CameraCharacteristics;->LENS_FACING:Landroid/hardware/camera2/CameraCharacteristics$Key;
 
     invoke-virtual {p0, v0}, Landroid/hardware/camera2/CameraCharacteristics;->get(Landroid/hardware/camera2/CameraCharacteristics$Key;)Ljava/lang/Object;
@@ -693,7 +693,7 @@
 
     move-result v0
 
-    :goto_1
+    :goto_26
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p0
@@ -703,11 +703,11 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_31
 
     neg-int p1, p1
 
-    :cond_2
+    :cond_31
     add-int/2addr v1, p1
 
     add-int/lit16 v1, v1, 0x168
@@ -719,7 +719,7 @@
 .end method
 
 .method private setZoomToNextPrimeLevel(Z)V
-    .locals 3
+    .registers 5
 
     .line 1319
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mAutoExposureManager:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
@@ -728,7 +728,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_64
 
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mFocusManager:Lopenlight/co/camera/managers/focus/FocusManager;
 
@@ -736,10 +736,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_64
 
-    # .line 1320
-    # invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removePrimaryControl()V
+    .line 1320
+    invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removePrimaryControl()V
 
     .line 1321
     sget-object v0, Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;->TOUCHSTRIP:Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;
@@ -793,7 +793,7 @@
 
     cmpl-float v0, p1, v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_56
 
     .line 1326
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removeFocusCrossHair()V
@@ -806,7 +806,7 @@
     invoke-virtual {v0, p1, v1}, Lopenlight/co/camera/managers/zoom/ZoomManager;->zoomToNextPrime(FLopenlight/co/camera/view/zoom/ZoomWheel;)V
 
     .line 1330
-    :cond_0
+    :cond_56
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
 
     const/16 v0, 0xcc
@@ -820,31 +820,31 @@
 
     invoke-virtual {p0, v0, v1, v2}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_1
+    :cond_64
     return-void
 .end method
 
 .method private updateBatteryInfo(II)V
-    .locals 1
+    .registers 4
 
     .line 1281
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 1282
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
     invoke-virtual {p0, p1, p2}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->showAlertView(II)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 
 # virtual methods
 .method protected addPrimaryControl()V
-    .locals 2
+    .registers 3
 
     .line 982
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -884,7 +884,7 @@
 .end method
 
 .method protected addTextureView()V
-    .locals 3
+    .registers 4
 
     .line 627
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -912,7 +912,7 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_30
 
     .line 630
     new-instance v0, Lopenlight/co/camera/AutoFitTextureView;
@@ -932,37 +932,37 @@
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/utils/CameraState;->setTextureView(Lopenlight/co/camera/AutoFitTextureView;)V
 
-    goto :goto_0
+    goto :goto_42
 
     .line 634
-    :cond_0
+    :cond_30
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureLayout:Landroid/widget/FrameLayout;
 
     invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_42
 
     .line 636
     instance-of v2, v0, Lopenlight/co/camera/AutoFitTextureView;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3d
 
-    goto :goto_1
+    goto :goto_43
 
     .line 639
-    :cond_1
+    :cond_3d
     iget-object v1, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureLayout:Landroid/widget/FrameLayout;
 
     invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
 
-    :cond_2
-    :goto_0
+    :cond_42
+    :goto_42
     const/4 v1, 0x1
 
-    :goto_1
-    if-eqz v1, :cond_3
+    :goto_43
+    if-eqz v1, :cond_4c
 
     .line 645
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureLayout:Landroid/widget/FrameLayout;
@@ -971,17 +971,17 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
-    :cond_3
+    :cond_4c
     return-void
 .end method
 
 .method protected addTouchAndOrientationListener()V
-    .locals 1
+    .registers 2
 
     .line 803
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mRootContainer:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 804
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mRootContainer:Landroid/view/ViewGroup;
@@ -990,12 +990,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public cameraDeviceError()V
-    .locals 0
+    .registers 1
 
     .line 521
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -1008,12 +1008,12 @@
 .end method
 
 .method public cameraDeviceOpen()V
-    .locals 2
+    .registers 3
 
     .line 506
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPreviewSize:Landroid/util/Size;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
@@ -1021,7 +1021,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_26
 
     .line 507
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1049,12 +1049,12 @@
 
     invoke-virtual {v0, v1, p0}, Lopenlight/co/camera/managers/CameraManager;->createCameraSession(Landroid/graphics/SurfaceTexture;Landroid/util/Size;)V
 
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 .method protected clear()V
-    .locals 3
+    .registers 4
 
     .line 1109
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -1073,12 +1073,12 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_14
 
     .line 1115
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->stopBackgroundThread()V
 
-    :cond_0
+    :cond_14
     const/4 v1, 0x0
 
     .line 1117
@@ -1197,19 +1197,19 @@
     .line 1145
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_8f
 
     .line 1146
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/focus/CrossHair;->clear()V
 
-    :cond_1
+    :cond_8f
     return-void
 .end method
 
 .method protected closeAllResourcesAndRestartApp()V
-    .locals 2
+    .registers 3
 
     .line 789
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -1229,7 +1229,7 @@
 .end method
 
 .method protected configureTransform(II)V
-    .locals 12
+    .registers 15
 
     .line 1006
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1284,7 +1284,7 @@
     monitor-enter v2
 
     .line 1016
-    :try_start_0
+    :try_start_35
     invoke-virtual {v0}, Landroid/app/Activity;->getWindowManager()Landroid/view/WindowManager;
 
     move-result-object v3
@@ -1322,25 +1322,25 @@
 
     const/4 v5, 0x1
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_61
 
     const/16 v1, 0x10e
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_5f
 
-    goto :goto_0
+    goto :goto_61
 
-    :cond_0
+    :cond_5f
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_62
 
-    :cond_1
-    :goto_0
+    :cond_61
+    :goto_61
     move v0, v5
 
     .line 1026
-    :goto_1
+    :goto_62
     invoke-virtual {p0, p1, p2, v0, v4}, Lopenlight/co/camera/BasePreviewFragment;->getSizeForConfigureTransform(IIZLandroid/graphics/Point;)Landroid/util/Size;
 
     move-result-object v1
@@ -1355,7 +1355,7 @@
 
     move-result v6
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_7e
 
     .line 1033
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
@@ -1370,10 +1370,10 @@
 
     invoke-virtual {v0, v7, v8}, Lopenlight/co/camera/AutoFitTextureView;->setAspectRatio(II)V
 
-    goto :goto_2
+    goto :goto_8b
 
     .line 1035
-    :cond_2
+    :cond_7e
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
     invoke-virtual {v1}, Landroid/util/Size;->getWidth()I
@@ -1387,7 +1387,7 @@
     invoke-virtual {v0, v7, v8}, Lopenlight/co/camera/AutoFitTextureView;->setAspectRatio(II)V
 
     .line 1038
-    :goto_2
+    :goto_8b
     invoke-static {}, Lopenlight/co/camera/view/grid/GridViewModel;->getInstance()Lopenlight/co/camera/view/grid/GridViewModel;
 
     move-result-object v0
@@ -1414,7 +1414,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_b0
 
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->ORIENTATIONS:Landroid/util/SparseIntArray;
 
@@ -1427,9 +1427,9 @@
 
     rem-int/lit16 v0, v0, 0x168
 
-    goto :goto_3
+    goto :goto_ba
 
-    :cond_3
+    :cond_b0
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->ORIENTATIONS:Landroid/util/SparseIntArray;
 
     .line 1048
@@ -1442,7 +1442,7 @@
     rem-int/lit16 v0, v0, 0x168
 
     .line 1050
-    :goto_3
+    :goto_ba
     new-instance v7, Landroid/graphics/Matrix;
 
     invoke-direct {v7}, Landroid/graphics/Matrix;-><init>()V
@@ -1477,14 +1477,14 @@
 
     move-result v11
 
-    if-eq v5, v3, :cond_4
+    if-eq v5, v3, :cond_db
 
     const/4 v5, 0x3
 
-    if-ne v5, v3, :cond_5
+    if-ne v5, v3, :cond_f8
 
     .line 1074
-    :cond_4
+    :cond_db
     invoke-virtual {v10}, Landroid/graphics/RectF;->centerX()F
 
     move-result v3
@@ -1516,7 +1516,7 @@
     .line 1079
     invoke-virtual {v7, p1, p1, v9, v11}, Landroid/graphics/Matrix;->postScale(FFFF)Z
 
-    :cond_5
+    :cond_f8
     int-to-float p1, v0
 
     .line 1082
@@ -1530,7 +1530,7 @@
     .line 1086
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPreviewSize:Landroid/util/Size;
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_10d
 
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPreviewSize:Landroid/util/Size;
 
@@ -1538,16 +1538,16 @@
 
     move-result p1
 
-    if-nez p1, :cond_8
+    if-nez p1, :cond_13a
 
     .line 1087
-    :cond_6
+    :cond_10d
     iput-object v1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPreviewSize:Landroid/util/Size;
 
     .line 1088
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_118
 
     .line 1089
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -1555,14 +1555,14 @@
     invoke-virtual {p1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateGridView()V
 
     .line 1091
-    :cond_7
+    :cond_118
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mCameraState:Lopenlight/co/camera/utils/CameraState;
 
     invoke-virtual {p1}, Lopenlight/co/camera/utils/CameraState;->isCameraOpen()Z
 
     move-result p1
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_13a
 
     .line 1092
     sget-object p1, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1593,7 +1593,7 @@
     invoke-virtual {p1, p2, v0}, Lopenlight/co/camera/managers/CameraManager;->createCameraSession(Landroid/graphics/SurfaceTexture;Landroid/util/Size;)V
 
     .line 1098
-    :cond_8
+    :cond_13a
     sget-object p1, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -1637,24 +1637,24 @@
 
     return-void
 
-    :catchall_0
+    :catchall_166
     move-exception p0
 
     monitor-exit v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_168
+    .catchall {:try_start_35 .. :try_end_168} :catchall_166
 
     throw p0
 .end method
 
 .method public disableControls()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method protected doFocusPostZoom()V
-    .locals 4
+    .registers 5
 
     .line 815
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1666,7 +1666,7 @@
     .line 817
     iget-boolean v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomTriggersFocus:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 818
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -1682,18 +1682,18 @@
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_0
+    :cond_19
     return-void
 .end method
 
 .method public enableControls()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public focusCompleted()V
-    .locals 2
+    .registers 3
 
     .line 606
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1713,52 +1713,52 @@
 .end method
 
 .method public focusFailed()V
-    .locals 1
+    .registers 2
 
     .line 612
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 613
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/focus/CrossHair;->showFocusFailed()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public focusFailedUpdateUi()V
-    .locals 1
+    .registers 2
 
     .line 554
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 555
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/focus/CrossHair;->showFocusFailed()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public focusStarted()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public focusSuccessUpdateUi()V
-    .locals 2
+    .registers 3
 
     .line 546
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 547
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1772,7 +1772,7 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/focus/CrossHair;->showFocusAchieved()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
@@ -1790,14 +1790,14 @@
 .end method
 
 .method protected hideSystemUI()V
-    .locals 1
+    .registers 2
 
     .line 824
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     .line 826
     invoke-virtual {v0}, Landroid/app/Activity;->getWindow()Landroid/view/Window;
@@ -1816,12 +1816,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnSystemUiVisibilityChangeListener(Landroid/view/View$OnSystemUiVisibilityChangeListener;)V
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method protected hideSystemUIAfterADelay()V
-    .locals 4
+    .registers 5
 
     .line 1310
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -1841,7 +1841,7 @@
 .end method
 
 .method protected isWithinPreview(Landroid/view/MotionEvent;Z)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x1
 
@@ -1849,7 +1849,7 @@
 .end method
 
 .method public onCaptureSessionConfigured()V
-    .locals 0
+    .registers 1
 
     .line 516
     invoke-direct {p0}, Lopenlight/co/camera/BasePreviewFragment;->initFaceDetect()V
@@ -1858,7 +1858,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 415
     invoke-super {p0, p1}, Lopenlight/co/lib/view/LightFragment;->onCreate(Landroid/os/Bundle;)V
@@ -1877,7 +1877,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_18
 
     .line 418
     sget-object p1, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1887,7 +1887,7 @@
     invoke-static {p1, v0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 420
-    :cond_0
+    :cond_18
     new-instance p1, Lopenlight/co/camera/BasePreviewFragment$PreviewGestureListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->getActivity()Landroid/app/Activity;
@@ -1905,7 +1905,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_48
 
     .line 422
     sget-object p1, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -1936,12 +1936,12 @@
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    :cond_1
+    :cond_48
     return-void
 .end method
 
 .method protected onDelayedResume()V
-    .locals 8
+    .registers 9
 
     .line 1352
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -2004,7 +2004,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4d
 
     .line 1370
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
@@ -2021,10 +2021,10 @@
 
     invoke-virtual {p0, v0, v1}, Lopenlight/co/camera/BasePreviewFragment;->configureTransform(II)V
 
-    goto :goto_0
+    goto :goto_54
 
     .line 1372
-    :cond_0
+    :cond_4d
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
     iget-object v1, p0, Lopenlight/co/camera/BasePreviewFragment;->mSurfaceTextureListener:Landroid/view/TextureView$SurfaceTextureListener;
@@ -2032,7 +2032,7 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/AutoFitTextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
     .line 1375
-    :goto_0
+    :goto_54
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->addTouchAndOrientationListener()V
 
     .line 1378
@@ -2126,42 +2126,42 @@
 .end method
 
 .method public onHardKeyEvent(Lopenlight/co/camera/listener/HardKeyManager$KeyType;Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
-    .locals 1
+    .registers 4
 
     .line 482
     sget-object v0, Lopenlight/co/camera/listener/HardKeyManager$KeyType;->FULL_KEY:Lopenlight/co/camera/listener/HardKeyManager$KeyType;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_9
 
     .line 483
     invoke-virtual {p0, p2}, Lopenlight/co/camera/BasePreviewFragment;->processHardKeyCapture(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_13
 
     .line 484
-    :cond_0
+    :cond_9
     sget-object v0, Lopenlight/co/camera/listener/HardKeyManager$KeyType;->HALF_KEY:Lopenlight/co/camera/listener/HardKeyManager$KeyType;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_12
 
     .line 485
     invoke-virtual {p0, p2}, Lopenlight/co/camera/BasePreviewFragment;->processHardKeyFocus(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_1
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method public onNoFacesInPreview()V
-    .locals 0
+    .registers 1
 
     .line 497
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removeFocusCrossHair()V
@@ -2170,12 +2170,12 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 3
+    .registers 5
 
     .line 430
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-eq v0, p1, :cond_1
+    if-eq v0, p1, :cond_44
 
     .line 431
     iput-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mCurrentOrientationConfig:Lopenlight/co/camera/enums/OrientationConfig;
@@ -2183,7 +2183,7 @@
     .line 432
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
@@ -2191,7 +2191,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_37
 
     .line 433
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2228,7 +2228,7 @@
     invoke-virtual {p0, v0, v1}, Lopenlight/co/camera/BasePreviewFragment;->configureTransform(II)V
 
     .line 436
-    :cond_0
+    :cond_37
     invoke-virtual {p0, p1}, Lopenlight/co/camera/BasePreviewFragment;->updateRotateHistogramView(Lopenlight/co/camera/enums/OrientationConfig;)V
 
     .line 437
@@ -2241,12 +2241,12 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/focus/CrossHair;->onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
 
-    :cond_1
+    :cond_44
     return-void
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 2
+    .registers 6
     .param p2    # [Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2258,23 +2258,23 @@
 
     const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_2a
 
     .line 400
     array-length p1, p2
 
-    :cond_0
-    :goto_0
+    :cond_4
+    :goto_4
     const/4 v0, -0x1
 
     add-int/2addr p1, v0
 
-    if-ltz p1, :cond_3
+    if-ltz p1, :cond_2d
 
     .line 401
     aget v1, p3, p1
 
-    if-ne v1, v0, :cond_1
+    if-ne v1, v0, :cond_18
 
     .line 402
     invoke-static {}, Lopenlight/co/camera/utils/PermissionsManager;->get()Lopenlight/co/camera/utils/PermissionsManager;
@@ -2289,7 +2289,7 @@
 
     return-void
 
-    :cond_1
+    :cond_18
     const-string v0, "android.permission.ACCESS_FINE_LOCATION"
 
     .line 404
@@ -2299,7 +2299,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4
 
     .line 405
     invoke-static {}, Lopenlight/co/camera/utils/LocationManager;->get()Lopenlight/co/camera/utils/LocationManager;
@@ -2308,18 +2308,18 @@
 
     invoke-virtual {v0}, Lopenlight/co/camera/utils/LocationManager;->startListening()V
 
-    goto :goto_0
+    goto :goto_4
 
     .line 409
-    :cond_2
+    :cond_2a
     invoke-super {p0, p1, p2, p3}, Lopenlight/co/lib/view/LightFragment;->onRequestPermissionsResult(I[Ljava/lang/String;[I)V
 
-    :cond_3
+    :cond_2d
     return-void
 .end method
 
 .method public onTemperatureChange(Lopenlight/co/thermalmonitor/ThermalIntent$Level;)V
-    .locals 3
+    .registers 5
 
     .line 448
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2343,7 +2343,7 @@
     .line 451
     sget-object v0, Lopenlight/co/thermalmonitor/ThermalIntent$Level;->HOT:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_3b
 
     .line 452
     new-instance p1, Landroid/content/Intent;
@@ -2377,13 +2377,13 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_65
 
     .line 456
-    :cond_0
+    :cond_3b
     sget-object v0, Lopenlight/co/thermalmonitor/ThermalIntent$Level;->WARMER:Lopenlight/co/thermalmonitor/ThermalIntent$Level;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_5f
 
     .line 457
     sget-object p1, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2415,17 +2415,17 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_65
 
     .line 466
-    :cond_1
+    :cond_5f
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mOverlayWarningView:Lopenlight/co/camera/view/alerts/OverlayWarningView;
 
     const/4 p1, 0x0
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->setVisibility(Z)V
 
-    :goto_0
+    :goto_65
     return-void
 .end method
 
@@ -2433,7 +2433,7 @@
 .end method
 
 .method protected processHardKeyFocus(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)Z
-    .locals 2
+    .registers 4
 
     .line 1228
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment$8;->$SwitchMap$light$co$camera$listener$HardKeyManager$KeyAction:[I
@@ -2444,12 +2444,12 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_7c
 
-    goto :goto_1
+    goto :goto_79
 
     .line 1248
-    :pswitch_0
+    :pswitch_c
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
 
     const-string v1, "Long Press of focus key, set AE Lock "
@@ -2471,7 +2471,7 @@
     .line 1255
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_79
 
     .line 1256
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
@@ -2484,17 +2484,17 @@
 
     invoke-virtual {p1, p0}, Lopenlight/co/camera/view/focus/CrossHair;->updateCoordinatesAndDraw(Lopenlight/co/camera/models/MeteringPoint;)V
 
-    goto :goto_1
+    goto :goto_79
 
     .line 1241
-    :pswitch_1
+    :pswitch_2f
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3c
 
     iget-boolean v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mSystemUiVisible:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3c
 
     .line 1242
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2502,7 +2502,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->restoreViewsOnCaptureRequestComplete()V
 
     .line 1244
-    :cond_0
+    :cond_3c
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mAutoExposureManager:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
 
     sget-object v1, Lopenlight/co/camera/listener/HardKeyManager$KeyAction;->UP:Lopenlight/co/camera/listener/HardKeyManager$KeyAction;
@@ -2514,10 +2514,10 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->processHardKeyFocus(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)V
 
-    goto :goto_1
+    goto :goto_79
 
     .line 1230
-    :pswitch_2
+    :pswitch_49
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTimingLoggerUtil:Lopenlight/co/camera/utils/TimingLoggerUtil;
 
     sget-object v1, Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;->HARD_KEY_PRESS_PROCESS:Lopenlight/co/camera/utils/TimingLoggerUtil$TimeToAutoFocusSplits;
@@ -2537,7 +2537,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_6b
 
     .line 1232
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2551,10 +2551,10 @@
 
     invoke-virtual {v0, p1}, Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;->processHardKeyFocus(Lopenlight/co/camera/listener/HardKeyManager$KeyAction;)V
 
-    goto :goto_0
+    goto :goto_72
 
     .line 1235
-    :cond_1
+    :cond_6b
     sget-object p1, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
 
     const-string v0, "Ignoring Half Press HardKey Focus request, camera is busy"
@@ -2562,31 +2562,31 @@
     invoke-static {p1, v0}, Lopenlight/co/lib/utils/LogUtil;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 1237
-    :goto_0
+    :goto_72
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
 
     const-string p1, "event_capture_hard_key_half_pressed"
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/metrics/Metrics;->add(Ljava/lang/String;)V
 
-    :cond_2
-    :goto_1
+    :cond_79
+    :goto_79
     const/4 p0, 0x1
 
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7c
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_49
+        :pswitch_2f
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method protected releaseFaceDetect()V
-    .locals 1
+    .registers 2
 
     .line 664
     invoke-static {}, Lopenlight/co/camera/utils/FaceDetector;->get()Lopenlight/co/camera/utils/FaceDetector;
@@ -2597,24 +2597,24 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 665
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mFaceViewHelper:Lopenlight/co/camera/view/face/FaceViewHelper;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/face/FaceViewHelper;->release()V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method protected releaseTextureView()V
-    .locals 2
+    .registers 3
 
     .line 654
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureLayout:Landroid/widget/FrameLayout;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     .line 655
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureLayout:Landroid/widget/FrameLayout;
@@ -2628,12 +2628,12 @@
     .line 656
     iput-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mTextureView:Lopenlight/co/camera/AutoFitTextureView;
 
-    :cond_0
+    :cond_e
     return-void
 .end method
 
 .method protected removeFocusCrossHair()V
-    .locals 2
+    .registers 3
 
     .line 673
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2645,19 +2645,19 @@
     .line 674
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 675
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/focus/CrossHair;->remove()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public removePendingPostZoomCallbacks()V
-    .locals 2
+    .registers 3
 
     .line 586
     sget-object v0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2677,12 +2677,12 @@
 .end method
 
 .method protected removePrimaryControl()V
-    .locals 2
+    .registers 3
 
     .line 680
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 681
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2699,17 +2699,17 @@
     .line 683
     iput-object v1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method protected removeTouchAndOrientationListener()V
-    .locals 1
+    .registers 2
 
     .line 794
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mRootContainer:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 795
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mRootContainer:Landroid/view/ViewGroup;
@@ -2718,17 +2718,17 @@
 
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method protected removeZoomWheelView()V
-    .locals 4
+    .registers 5
 
     .line 709
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomWheel:Lopenlight/co/camera/view/zoom/ZoomWheel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 710
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomWheel:Lopenlight/co/camera/view/zoom/ZoomWheel;
@@ -2736,7 +2736,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/view/zoom/ZoomWheel;->setZoomLevel()V
 
     .line 712
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
 
     invoke-virtual {v0}, Lopenlight/co/camera/managers/zoom/ZoomManager;->resetZoom()V
@@ -2744,7 +2744,7 @@
     .line 714
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_18
 
     .line 715
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2754,7 +2754,7 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateHudTextOnZoomWheelView(Ljava/lang/String;)V
 
     .line 717
-    :cond_1
+    :cond_18
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removePendingPostZoomCallbacks()V
 
     .line 718
@@ -2775,7 +2775,7 @@
 .end method
 
 .method protected resetFocusAeParams()V
-    .locals 1
+    .registers 2
 
     .line 833
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mAutoExposureManager:Lopenlight/co/camera/managers/autoexposure/AutoExposureManager;
@@ -2791,7 +2791,7 @@
 .end method
 
 .method public resetPreviewSizeOnClose()V
-    .locals 1
+    .registers 2
 
     .line 532
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->releaseFaceDetect()V
@@ -2805,7 +2805,7 @@
 .end method
 
 .method protected resetThumbNailPath()V
-    .locals 2
+    .registers 3
 
     .line 1296
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -2823,7 +2823,7 @@
 .end method
 
 .method protected showPrimaryControlWithDelay(J)V
-    .locals 2
+    .registers 5
 
     .line 1291
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -2841,7 +2841,7 @@
 .end method
 
 .method protected showZoomWheelView(Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;)V
-    .locals 3
+    .registers 5
 
     .line 688
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -2878,7 +2878,7 @@
 
     const/4 v1, 0x2
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_27
 
     .line 694
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomManager:Lopenlight/co/camera/managers/zoom/ZoomManager;
@@ -2886,7 +2886,7 @@
     invoke-virtual {p1}, Lopenlight/co/camera/managers/zoom/ZoomManager;->setPinchZoomType()V
 
     .line 696
-    :cond_0
+    :cond_27
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomWheel:Lopenlight/co/camera/view/zoom/ZoomWheel;
 
     const/4 v1, 0x0
@@ -2896,7 +2896,7 @@
     .line 698
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3f
 
     .line 699
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;
@@ -2912,7 +2912,7 @@
     invoke-virtual {p1, p0}, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl;->updateHudTextOnZoomWheelView(Ljava/lang/String;)V
 
     .line 701
-    :cond_1
+    :cond_3f
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->getPreviewRequestBuilder()Landroid/hardware/camera2/CaptureRequest$Builder;
 
     move-result-object p0
@@ -2931,7 +2931,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_63
 
     .line 703
     sget-object p0, Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
@@ -2951,12 +2951,12 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/managers/focus/FocusManager;->cancelAfTrigger(Landroid/hardware/camera2/CaptureRequest$Builder;)V
 
-    :cond_2
+    :cond_63
     return-void
 .end method
 
 .method public triggerFocusPostZoom()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x1
 
@@ -2967,24 +2967,24 @@
 .end method
 
 .method public updateFocusUI()V
-    .locals 1
+    .registers 2
 
     .line 577
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 579
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/focus/CrossHair;->remove()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public updateFocusView()V
-    .locals 0
+    .registers 1
 
     .line 619
     invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removeFocusCrossHair()V
@@ -2993,19 +2993,19 @@
 .end method
 
 .method public updateHistogram()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public updateHudInfo(IJZ)V
-    .locals 0
+    .registers 5
 
     return-void
 .end method
 
 .method public updateModeChange()V
-    .locals 1
+    .registers 2
 
     .line 571
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mSmartAFTriggerMgr:Lopenlight/co/camera/managers/focus/SmartAFTriggerMgr;
@@ -3021,7 +3021,7 @@
 .end method
 
 .method protected updatePrimaryControl()V
-    .locals 2
+    .registers 3
 
     .line 1301
     iget-object v0, p0, Lopenlight/co/camera/BasePreviewFragment;->mMainLooperHandler:Landroid/os/Handler;
@@ -3039,25 +3039,25 @@
 .end method
 
 .method protected updateRotateHistogramView(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public updateUiOnCaptureComplete()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public updateVideoPreview()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public updateZoomWheelLayout(I)V
-    .locals 0
+    .registers 2
 
     .line 592
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment;->mZoomWheel:Lopenlight/co/camera/view/zoom/ZoomWheel;

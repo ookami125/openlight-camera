@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-direct {p0}, Ljava/lang/ThreadLocal;-><init>()V
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method protected bridge synthetic initialValue()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 47
     invoke-virtual {p0}, Lnet/hockeyapp/android/utils/Util$1;->initialValue()Ljava/text/DateFormat;
@@ -46,7 +46,7 @@
 .end method
 
 .method protected initialValue()Ljava/text/DateFormat;
-    .locals 2
+    .registers 3
 
     .line 50
     new-instance p0, Ljava/text/SimpleDateFormat;

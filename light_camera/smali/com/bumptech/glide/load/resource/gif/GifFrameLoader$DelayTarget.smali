@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/os/Handler;IJ)V
-    .locals 0
+    .registers 5
 
     .line 152
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/SimpleTarget;-><init>()V
@@ -52,7 +52,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;)I
-    .locals 0
+    .registers 1
 
     .line 146
     iget p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->index:I
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public getResource()Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 1
 
     .line 159
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$DelayTarget;->resource:Landroid/graphics/Bitmap;
@@ -72,7 +72,7 @@
 .end method
 
 .method public onResourceReady(Landroid/graphics/Bitmap;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 .end method
 
 .method public bridge synthetic onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
 
     .line 146
     check-cast p1, Landroid/graphics/Bitmap;

@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 36
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$OnFlingListener;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method private destroyCallbacks()V
-    .locals 2
+    .registers 3
 
     .line 125
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -53,7 +53,7 @@
 .end method
 
 .method private setupCallbacks()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 117
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -84,7 +84,7 @@
     return-void
 
     .line 115
-    :cond_0
+    :cond_15
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "An instance of OnFlingListener already set."
@@ -95,7 +95,7 @@
 .end method
 
 .method private snapFromFling(Landroid/support/v7/widget/RecyclerView$LayoutManager;II)Z
-    .locals 2
+    .registers 6
     .param p1    # Landroid/support/v7/widget/RecyclerView$LayoutManager;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -106,34 +106,34 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 163
-    :cond_0
+    :cond_6
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SnapHelper;->createScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/RecyclerView$SmoothScroller;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_d
 
     return v1
 
     .line 168
-    :cond_1
+    :cond_d
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v7/widget/SnapHelper;->findTargetSnapPosition(Landroid/support/v7/widget/RecyclerView$LayoutManager;II)I
 
     move-result p0
 
     const/4 p2, -0x1
 
-    if-ne p0, p2, :cond_2
+    if-ne p0, p2, :cond_15
 
     return v1
 
     .line 173
-    :cond_2
+    :cond_15
     invoke-virtual {v0, p0}, Landroid/support/v7/widget/RecyclerView$SmoothScroller;->setTargetPosition(I)V
 
     .line 174
@@ -147,7 +147,7 @@
 
 # virtual methods
 .method public attachToRecyclerView(Landroid/support/v7/widget/RecyclerView;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/support/v7/widget/RecyclerView;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -161,27 +161,27 @@
     .line 95
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    if-ne v0, p1, :cond_0
+    if-ne v0, p1, :cond_5
 
     return-void
 
     .line 98
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
     .line 99
     invoke-direct {p0}, Landroid/support/v7/widget/SnapHelper;->destroyCallbacks()V
 
     .line 101
-    :cond_1
+    :cond_c
     iput-object p1, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     .line 102
     iget-object p1, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2a
 
     .line 103
     invoke-direct {p0}, Landroid/support/v7/widget/SnapHelper;->setupCallbacks()V
@@ -206,7 +206,7 @@
     .line 106
     invoke-virtual {p0}, Landroid/support/v7/widget/SnapHelper;->snapToTargetExistingView()V
 
-    :cond_2
+    :cond_2a
     return-void
 .end method
 
@@ -224,7 +224,7 @@
 .end method
 
 .method public calculateScrollDistance(II)[I
-    .locals 10
+    .registers 13
 
     const/4 v0, 0x2
 
@@ -278,7 +278,7 @@
 .end method
 
 .method protected createScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/RecyclerView$SmoothScroller;
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -291,7 +291,7 @@
 .end method
 
 .method protected createSnapScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/LinearSmoothScroller;
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -301,14 +301,14 @@
     .line 226
     instance-of p1, p1, Landroid/support/v7/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 229
-    :cond_0
+    :cond_6
     new-instance p1, Landroid/support/v7/widget/SnapHelper$2;
 
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -331,7 +331,7 @@
 .end method
 
 .method public onFling(II)Z
-    .locals 4
+    .registers 7
 
     .line 67
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
@@ -342,24 +342,24 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     return v1
 
     .line 71
-    :cond_0
+    :cond_a
     iget-object v2, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->getAdapter()Landroid/support/v7/widget/RecyclerView$Adapter;
 
     move-result-object v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_13
 
     return v1
 
     .line 75
-    :cond_1
+    :cond_13
     iget-object v2, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {v2}, Landroid/support/v7/widget/RecyclerView;->getMinFlingVelocity()I
@@ -371,62 +371,62 @@
 
     move-result v3
 
-    if-gt v3, v2, :cond_2
+    if-gt v3, v2, :cond_25
 
     invoke-static {p1}, Ljava/lang/Math;->abs(I)I
 
     move-result v3
 
-    if-le v3, v2, :cond_3
+    if-le v3, v2, :cond_2c
 
     .line 77
-    :cond_2
+    :cond_25
     invoke-direct {p0, v0, p1, p2}, Landroid/support/v7/widget/SnapHelper;->snapFromFling(Landroid/support/v7/widget/RecyclerView$LayoutManager;II)Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_2c
 
     const/4 v1, 0x1
 
-    :cond_3
+    :cond_2c
     return v1
 .end method
 
 .method snapToTargetExistingView()V
-    .locals 4
+    .registers 5
 
     .line 184
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 187
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     invoke-virtual {v0}, Landroid/support/v7/widget/RecyclerView;->getLayoutManager()Landroid/support/v7/widget/RecyclerView$LayoutManager;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     return-void
 
     .line 191
-    :cond_1
+    :cond_e
     invoke-virtual {p0, v0}, Landroid/support/v7/widget/SnapHelper;->findSnapView(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/view/View;
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_15
 
     return-void
 
     .line 195
-    :cond_2
+    :cond_15
     invoke-virtual {p0, v0, v1}, Landroid/support/v7/widget/SnapHelper;->calculateDistanceToFinalSnap(Landroid/support/v7/widget/RecyclerView$LayoutManager;Landroid/view/View;)[I
 
     move-result-object v0
@@ -438,14 +438,14 @@
 
     const/4 v3, 0x1
 
-    if-nez v2, :cond_3
+    if-nez v2, :cond_23
 
     aget v2, v0, v3
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_2c
 
     .line 197
-    :cond_3
+    :cond_23
     iget-object p0, p0, Landroid/support/v7/widget/SnapHelper;->mRecyclerView:Landroid/support/v7/widget/RecyclerView;
 
     aget v1, v0, v1
@@ -454,6 +454,6 @@
 
     invoke-virtual {p0, v1, v0}, Landroid/support/v7/widget/RecyclerView;->smoothScrollBy(II)V
 
-    :cond_4
+    :cond_2c
     return-void
 .end method

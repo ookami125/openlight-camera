@@ -32,7 +32,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,12 +69,12 @@
 
     move-result-object p1
 
-    :goto_0
+    :goto_18
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2e
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -93,16 +93,16 @@
 
     iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->bitmapsRemaining:I
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_2e
     return-void
 .end method
 
 
 # virtual methods
 .method public getSize()I
-    .locals 0
+    .registers 1
 
     .line 43
     iget p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->bitmapsRemaining:I
@@ -111,26 +111,26 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 0
+    .registers 1
 
     .line 47
     iget p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->bitmapsRemaining:I
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method public remove()Lcom/bumptech/glide/load/engine/prefill/PreFillType;
-    .locals 4
+    .registers 5
 
     .line 25
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->keyList:Ljava/util/List;
@@ -159,7 +159,7 @@
 
     const/4 v3, 0x1
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_26
 
     .line 29
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->bitmapsPerType:Ljava/util/Map;
@@ -173,10 +173,10 @@
 
     invoke-interface {v1, v2}, Ljava/util/List;->remove(I)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_34
 
     .line 32
-    :cond_0
+    :cond_26
     iget-object v2, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->bitmapsPerType:Ljava/util/Map;
 
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
@@ -192,7 +192,7 @@
     invoke-interface {v2, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 34
-    :goto_0
+    :goto_34
     iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->bitmapsRemaining:I
 
     sub-int/2addr v1, v3
@@ -206,13 +206,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_43
 
     const/4 v1, 0x0
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_1
+    :cond_43
     iget v1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->keyIndex:I
 
     add-int/2addr v1, v3
@@ -225,7 +225,7 @@
 
     rem-int/2addr v1, v2
 
-    :goto_1
+    :goto_4d
     iput v1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillQueue;->keyIndex:I
 
     return-object v0

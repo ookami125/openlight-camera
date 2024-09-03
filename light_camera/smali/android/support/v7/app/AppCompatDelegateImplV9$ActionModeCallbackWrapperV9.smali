@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV9;Landroid/support/v7/view/ActionMode$Callback;)V
-    .locals 0
+    .registers 3
 
     .line 1787
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public onActionItemClicked(Landroid/support/v7/view/ActionMode;Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 3
 
     .line 1803
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->mWrapped:Landroid/support/v7/view/ActionMode$Callback;
@@ -54,7 +54,7 @@
 .end method
 
 .method public onCreateActionMode(Landroid/support/v7/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 0
+    .registers 3
 
     .line 1793
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->mWrapped:Landroid/support/v7/view/ActionMode$Callback;
@@ -67,7 +67,7 @@
 .end method
 
 .method public onDestroyActionMode(Landroid/support/v7/view/ActionMode;)V
-    .locals 2
+    .registers 4
 
     .line 1808
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->mWrapped:Landroid/support/v7/view/ActionMode$Callback;
@@ -79,7 +79,7 @@
 
     iget-object p1, p1, Landroid/support/v7/app/AppCompatDelegateImplV9;->mActionModePopup:Landroid/widget/PopupWindow;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     .line 1810
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -97,12 +97,12 @@
     invoke-virtual {p1, v0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     .line 1813
-    :cond_0
+    :cond_1a
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
 
     iget-object p1, p1, Landroid/support/v7/app/AppCompatDelegateImplV9;->mActionModeView:Landroid/support/v7/widget/ActionBarContextView;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_42
 
     .line 1814
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -140,12 +140,12 @@
     invoke-virtual {p1, v0}, Landroid/support/v4/view/ViewPropertyAnimatorCompat;->setListener(Landroid/support/v4/view/ViewPropertyAnimatorListener;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
 
     .line 1831
-    :cond_1
+    :cond_42
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
 
     iget-object p1, p1, Landroid/support/v7/app/AppCompatDelegateImplV9;->mAppCompatCallback:Landroid/support/v7/app/AppCompatCallback;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_53
 
     .line 1832
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -159,7 +159,7 @@
     invoke-interface {p1, v0}, Landroid/support/v7/app/AppCompatCallback;->onSupportActionModeFinished(Landroid/support/v7/view/ActionMode;)V
 
     .line 1834
-    :cond_2
+    :cond_53
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
 
     const/4 p1, 0x0
@@ -170,7 +170,7 @@
 .end method
 
 .method public onPrepareActionMode(Landroid/support/v7/view/ActionMode;Landroid/view/Menu;)Z
-    .locals 0
+    .registers 3
 
     .line 1798
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$ActionModeCallbackWrapperV9;->mWrapped:Landroid/support/v7/view/ActionMode$Callback;

@@ -11,7 +11,7 @@
 
 # direct methods
 .method protected constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 1063
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static getCapabilityBool(II)Z
-    .locals 1
+    .registers 3
 
     .line 273
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -40,7 +40,7 @@
 .end method
 
 .method public static getCapabilityInt32(II)I
-    .locals 1
+    .registers 3
 
     .line 335
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -55,7 +55,7 @@
 .end method
 
 .method public static getCapabilityString(II)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 394
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -70,7 +70,7 @@
 .end method
 
 .method public static getCount()I
-    .locals 1
+    .registers 1
 
     .line 172
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -85,7 +85,7 @@
 .end method
 
 .method public static getState(I)I
-    .locals 1
+    .registers 2
 
     .line 206
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -100,7 +100,7 @@
 .end method
 
 .method public static newDevice()Lcom/immersion/Device;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
@@ -112,7 +112,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/4 v1, -0x1
 
@@ -137,7 +137,7 @@
     return-object v0
 
     .line 68
-    :cond_0
+    :cond_18
     new-instance v0, Ljava/lang/RuntimeException;
 
     const-string v1, "VIBE_E_FAIL"
@@ -148,7 +148,7 @@
 .end method
 
 .method public static newDevice(I)Lcom/immersion/Device;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/RuntimeException;
@@ -160,7 +160,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 108
     iput p0, v0, Lcom/immersion/Device;->deviceIndex:I
@@ -179,7 +179,7 @@
     return-object v0
 
     .line 113
-    :cond_0
+    :cond_13
     new-instance p0, Ljava/lang/RuntimeException;
 
     const-string v0, "VIBE_E_FAIL"
@@ -190,7 +190,7 @@
 .end method
 
 .method private static newDeviceInstance()Lcom/immersion/Device;
-    .locals 1
+    .registers 1
 
     const-string v0, "com.immersion.android.Device"
 
@@ -199,7 +199,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     const-string v0, "com.immersion.J2ME.Device"
 
@@ -208,19 +208,19 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 1109
     new-instance v0, Lcom/immersion/Device;
 
     invoke-direct {v0}, Lcom/immersion/Device;-><init>()V
 
-    :cond_0
+    :cond_15
     return-object v0
 .end method
 
 .method private static newDeviceInstanceForName(Ljava/lang/String;)Lcom/immersion/Device;
-    .locals 0
+    .registers 1
 
     .line 1083
     :try_start_0
@@ -234,22 +234,22 @@
     move-result-object p0
 
     check-cast p0, Lcom/immersion/Device;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_c
 
-    :catch_0
+    :catch_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return-object p0
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 2
+    .registers 3
 
     .line 138
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -272,7 +272,7 @@
 .end method
 
 .method public createStreamingEffect()Lcom/immersion/EffectHandle;
-    .locals 3
+    .registers 4
 
     .line 961
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -295,7 +295,7 @@
 .end method
 
 .method public getCapabilityBool(I)Z
-    .locals 1
+    .registers 3
 
     .line 300
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -312,7 +312,7 @@
 .end method
 
 .method public getCapabilityInt32(I)I
-    .locals 1
+    .registers 3
 
     .line 360
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -329,7 +329,7 @@
 .end method
 
 .method public getCapabilityString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 418
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -346,7 +346,7 @@
 .end method
 
 .method public getIVTBufferFromXIVT([B)Lcom/immersion/IVTBuffer;
-    .locals 2
+    .registers 4
 
     .line 1056
     new-instance v0, Lcom/immersion/IVTBuffer;
@@ -367,7 +367,7 @@
 .end method
 
 .method public getPropertyBool(I)Z
-    .locals 1
+    .registers 3
 
     .line 447
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -384,7 +384,7 @@
 .end method
 
 .method public getPropertyInt32(I)I
-    .locals 1
+    .registers 3
 
     .line 507
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -401,7 +401,7 @@
 .end method
 
 .method public getPropertyString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 576
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -418,7 +418,7 @@
 .end method
 
 .method public getState()I
-    .locals 1
+    .registers 2
 
     .line 236
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -435,7 +435,7 @@
 .end method
 
 .method protected newEffectHandle(II)Lcom/immersion/EffectHandle;
-    .locals 0
+    .registers 3
 
     .line 1071
     new-instance p0, Lcom/immersion/EffectHandle;
@@ -446,7 +446,7 @@
 .end method
 
 .method public playEnhancedWaveformEffect(Lcom/immersion/EnhancedWaveformEffectDefinition;)Lcom/immersion/EffectHandle;
-    .locals 8
+    .registers 10
 
     .line 1023
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -495,7 +495,7 @@
 .end method
 
 .method public playIVTEffect(Lcom/immersion/IVTBuffer;I)Lcom/immersion/EffectHandle;
-    .locals 3
+    .registers 6
 
     .line 664
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -522,7 +522,7 @@
 .end method
 
 .method public playIVTEffectRepeat(Lcom/immersion/IVTBuffer;IB)Lcom/immersion/EffectHandle;
-    .locals 3
+    .registers 7
 
     .line 791
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -549,7 +549,7 @@
 .end method
 
 .method public playIVTInterpolatedEffect(Lcom/immersion/IVTBuffer;II)Lcom/immersion/EffectHandle;
-    .locals 3
+    .registers 7
 
     .line 718
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -576,7 +576,7 @@
 .end method
 
 .method public playMagSweepEffect(Lcom/immersion/MagSweepEffectDefinition;)Lcom/immersion/EffectHandle;
-    .locals 10
+    .registers 12
 
     .line 824
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -635,7 +635,7 @@
 .end method
 
 .method public playPeriodicEffect(Lcom/immersion/PeriodicEffectDefinition;)Lcom/immersion/EffectHandle;
-    .locals 11
+    .registers 13
 
     .line 864
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -699,7 +699,7 @@
 .end method
 
 .method public playWaveformEffect(Lcom/immersion/WaveformEffectDefinition;)Lcom/immersion/EffectHandle;
-    .locals 8
+    .registers 10
 
     .line 922
     iget v0, p0, Lcom/immersion/Device;->deviceHandle:I
@@ -748,7 +748,7 @@
 .end method
 
 .method public setPropertyBool(IZ)V
-    .locals 1
+    .registers 4
 
     .line 476
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -763,7 +763,7 @@
 .end method
 
 .method public setPropertyInt32(II)V
-    .locals 1
+    .registers 4
 
     .line 547
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -778,7 +778,7 @@
 .end method
 
 .method public setPropertyString(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 615
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;
@@ -793,7 +793,7 @@
 .end method
 
 .method public stopAllPlayingEffects()V
-    .locals 1
+    .registers 2
 
     .line 984
     invoke-static {}, Lcom/immersion/ImmVibe;->getInstance()Lcom/immersion/ImmVibe;

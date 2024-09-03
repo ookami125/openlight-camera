@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/BasePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 361
     iput-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$3;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onPreferenceChanged(Lopenlight/co/lib/content/Prefs;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     const-string p0, "burst_mode"
 
@@ -45,7 +45,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     .line 365
     invoke-static {}, Lopenlight/co/camera/utils/CameraState;->get()Lopenlight/co/camera/utils/CameraState;
@@ -54,6 +54,6 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/CameraState;->checkAndUpdateCaptureMode()V
 
-    :cond_0
+    :cond_f
     return-void
 .end method

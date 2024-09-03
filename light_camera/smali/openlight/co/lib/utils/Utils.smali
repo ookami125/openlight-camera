@@ -83,13 +83,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 719
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -132,7 +132,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/lib/utils/Utils;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 51
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mDeviceId:Ljava/lang/String;
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/lib/utils/Utils;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 51
     iput-object p1, p0, Lopenlight/co/lib/utils/Utils;->mDeviceId:Ljava/lang/String;
@@ -150,7 +150,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 51
     sget-object v0, Lopenlight/co/lib/utils/Utils;->TAG:Ljava/lang/String;
@@ -159,33 +159,33 @@
 .end method
 
 .method public static closeQuietly(Ljava/io/Closeable;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     .line 237
-    :try_start_0
+    :try_start_2
     invoke-interface {p0}, Ljava/io/Closeable;->close()V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_5
+    .catch Ljava/lang/RuntimeException; {:try_start_2 .. :try_end_5} :catch_6
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_5} :catch_8
 
-    goto :goto_0
+    goto :goto_8
 
-    :catch_0
+    :catch_6
     move-exception p0
 
     .line 239
     throw p0
 
-    :catch_1
-    :cond_0
-    :goto_0
+    :catch_8
+    :cond_8
+    :goto_8
     return-void
 .end method
 
 .method private static createFileFolder(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     .line 715
     new-instance v0, Ljava/io/File;
@@ -197,31 +197,31 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_14
 
     invoke-virtual {v0}, Ljava/io/File;->mkdirs()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_15
     return p0
 .end method
 
 .method private dateFormatForPattern(Ljava/lang/String;)Ljava/text/DateFormat;
-    .locals 3
+    .registers 5
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -231,7 +231,7 @@
     monitor-enter v0
 
     .line 684
-    :try_start_0
+    :try_start_3
     iget-object v1, p0, Lopenlight/co/lib/utils/Utils;->mDateFormats:Ljava/util/HashMap;
 
     invoke-virtual {v1, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -240,7 +240,7 @@
 
     check-cast v1, Ljava/text/DateFormat;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_24
 
     .line 686
     new-instance v1, Ljava/text/SimpleDateFormat;
@@ -266,23 +266,23 @@
     invoke-virtual {p0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 693
-    :cond_0
+    :cond_24
     monitor-exit v0
 
     return-object v1
 
-    :catchall_0
+    :catchall_26
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_3 .. :try_end_28} :catchall_26
 
     throw p0
 .end method
 
 .method public static decode(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 7
+    .registers 8
 
     .line 653
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -296,8 +296,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_a
+    if-ge v2, v0, :cond_50
 
     .line 656
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -306,7 +306,7 @@
 
     const/16 v4, 0x25
 
-    if-ne v3, v4, :cond_1
+    if-ne v3, v4, :cond_4a
 
     add-int/lit8 v3, v2, 0x1
 
@@ -317,7 +317,7 @@
 
     const/16 v6, 0x10
 
-    if-ne v5, v4, :cond_0
+    if-ne v5, v4, :cond_35
 
     add-int/lit8 v3, v2, 0x2
 
@@ -342,9 +342,9 @@
 
     add-int/lit8 v2, v2, 0x5
 
-    goto :goto_1
+    goto :goto_4d
 
-    :cond_0
+    :cond_35
     add-int/lit8 v4, v2, 0x3
 
     .line 662
@@ -366,23 +366,23 @@
 
     add-int/lit8 v2, v2, 0x2
 
-    goto :goto_1
+    goto :goto_4d
 
     .line 666
-    :cond_1
+    :cond_4a
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_4d
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_2
+    :cond_50
     return-object v1
 .end method
 
 .method public static deleteThumbnailForVideo(Ljava/lang/String;)V
-    .locals 4
+    .registers 5
 
     .line 127
     new-instance v0, Ljava/io/File;
@@ -413,7 +413,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_40
 
     .line 133
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
@@ -433,16 +433,16 @@
 
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_34
 
     const-string p0, ""
 
-    goto :goto_0
+    goto :goto_36
 
-    :cond_0
+    :cond_34
     const-string p0, " (failed)"
 
-    :goto_0
+    :goto_36
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -451,12 +451,12 @@
 
     invoke-static {v1, p0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_40
     return-void
 .end method
 
 .method public static encode(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 6
+    .registers 7
 
     .line 624
     invoke-interface {p0}, Ljava/lang/CharSequence;->length()I
@@ -470,8 +470,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_5
+    :goto_a
+    if-ge v2, v0, :cond_6d
 
     .line 627
     invoke-interface {p0, v2}, Ljava/lang/CharSequence;->charAt(I)C
@@ -480,38 +480,38 @@
 
     const/16 v4, 0x61
 
-    if-lt v3, v4, :cond_0
+    if-lt v3, v4, :cond_18
 
     const/16 v4, 0x7a
 
-    if-le v3, v4, :cond_2
+    if-le v3, v4, :cond_28
 
-    :cond_0
+    :cond_18
     const/16 v4, 0x41
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_20
 
     const/16 v4, 0x5a
 
-    if-le v3, v4, :cond_2
+    if-le v3, v4, :cond_28
 
-    :cond_1
+    :cond_20
     const/16 v4, 0x30
 
-    if-lt v3, v4, :cond_3
+    if-lt v3, v4, :cond_2c
 
     const/16 v4, 0x39
 
-    if-gt v3, v4, :cond_3
+    if-gt v3, v4, :cond_2c
 
     .line 631
-    :cond_2
+    :cond_28
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 633
-    :cond_3
+    :cond_2c
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
@@ -532,7 +532,7 @@
 
     const/16 v5, 0x100
 
-    if-lt v3, v5, :cond_4
+    if-lt v3, v5, :cond_58
 
     const-string v3, "%%"
 
@@ -552,9 +552,9 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_6a
 
-    :cond_4
+    :cond_58
     const-string v3, "%"
 
     .line 638
@@ -573,22 +573,22 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_6a
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_5
+    :cond_6d
     return-object v1
 .end method
 
 .method public static galleryDir()Ljava/io/File;
-    .locals 1
+    .registers 1
 
     .line 188
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sGalleryDir:Ljava/io/File;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const-string v0, "/DCIM/Camera/"
 
@@ -600,38 +600,38 @@
     sput-object v0, Lopenlight/co/lib/utils/Utils;->sGalleryDir:Ljava/io/File;
 
     .line 191
-    :cond_0
+    :cond_c
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sGalleryDir:Ljava/io/File;
 
     return-object v0
 .end method
 
 .method public static galleryPath()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 173
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->galleryDir()Ljava/io/File;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_d
 
     .line 174
-    :cond_0
+    :cond_9
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static get()Lopenlight/co/lib/utils/Utils;
-    .locals 1
+    .registers 1
 
     .line 94
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sInstance:Lopenlight/co/lib/utils/Utils;
@@ -640,7 +640,7 @@
 .end method
 
 .method public static getApp()Landroid/content/Context;
-    .locals 1
+    .registers 1
 
     .line 228
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->get()Lopenlight/co/lib/utils/Utils;
@@ -653,7 +653,7 @@
 .end method
 
 .method private static getDir(Ljava/lang/String;)Ljava/io/File;
-    .locals 2
+    .registers 3
 
     .line 706
     invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
@@ -682,14 +682,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 711
-    :cond_0
+    :cond_1f
     new-instance v0, Ljava/io/File;
 
     invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -698,12 +698,12 @@
 .end method
 
 .method private getResources()Landroid/content/res/Resources;
-    .locals 1
+    .registers 2
 
     .line 674
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils;->mResources:Landroid/content/res/Resources;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 675
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils;->mContext:Landroid/content/Context;
@@ -715,19 +715,19 @@
     iput-object v0, p0, Lopenlight/co/lib/utils/Utils;->mResources:Landroid/content/res/Resources;
 
     .line 677
-    :cond_0
+    :cond_c
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mResources:Landroid/content/res/Resources;
 
     return-object p0
 .end method
 
 .method public static init(Landroid/app/Application;)V
-    .locals 1
+    .registers 2
 
     .line 698
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sInstance:Lopenlight/co/lib/utils/Utils;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 699
     new-instance v0, Lopenlight/co/lib/utils/Utils;
@@ -742,12 +742,12 @@
     .line 701
     invoke-static {p0}, Lopenlight/co/lib/utils/LifecycleLogger;->init(Landroid/app/Application;)V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public static isInTrash(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, "/Trash/"
 
@@ -760,7 +760,7 @@
 .end method
 
 .method public static isJpeg(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, ".jpg"
 
@@ -773,7 +773,7 @@
 .end method
 
 .method public static isVideo(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, ".mp4"
 
@@ -786,7 +786,7 @@
 .end method
 
 .method public static isVideoThumbnail(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -803,7 +803,7 @@
 .end method
 
 .method static synthetic lambda$updateLockedState$0(Lopenlight/co/lib/content/Prefs;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     const-string v0, "locked_names"
 
@@ -814,12 +814,12 @@
 .end method
 
 .method public static lightCalDir()Ljava/io/File;
-    .locals 1
+    .registers 1
 
     .line 202
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sLightCalDir:Ljava/io/File;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const-string v0, "/DCIM/Camera/lightcal"
 
@@ -831,38 +831,38 @@
     sput-object v0, Lopenlight/co/lib/utils/Utils;->sLightCalDir:Ljava/io/File;
 
     .line 205
-    :cond_0
+    :cond_c
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sLightCalDir:Ljava/io/File;
 
     return-object v0
 .end method
 
 .method public static lightCalPath()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 183
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->lightCalDir()Ljava/io/File;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_d
 
     .line 184
-    :cond_0
+    :cond_9
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static mutableSingletonList(Ljava/lang/Object;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -887,12 +887,12 @@
 .end method
 
 .method public static presetsDir()Ljava/io/File;
-    .locals 1
+    .registers 1
 
     .line 210
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sPresetsDir:Ljava/io/File;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const-string v0, "/DCIM/Camera/presets"
 
@@ -904,30 +904,30 @@
     sput-object v0, Lopenlight/co/lib/utils/Utils;->sPresetsDir:Ljava/io/File;
 
     .line 213
-    :cond_0
+    :cond_c
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sPresetsDir:Ljava/io/File;
 
     return-object v0
 .end method
 
 .method public static round(JJ)J
-    .locals 3
+    .registers 7
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 254
-    :goto_0
+    :goto_9
     invoke-static {p0, p1}, Ljava/lang/Math;->abs(J)J
 
     move-result-wide p0
@@ -943,16 +943,16 @@
 
     mul-long/2addr p0, p2
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_17
 
     neg-long p0, p0
 
-    :cond_1
+    :cond_17
     return-wide p0
 .end method
 
 .method public static safeTag(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 267
     invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
@@ -980,7 +980,7 @@
 .end method
 
 .method public static setEnabled(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
 
     .line 157
     invoke-static {p0, p1, p1}, Lopenlight/co/lib/utils/Utils;->setEnabled(Landroid/view/View;ZZ)V
@@ -989,38 +989,38 @@
 .end method
 
 .method public static setEnabled(Landroid/view/View;ZZ)V
-    .locals 0
+    .registers 3
 
     .line 168
     invoke-virtual {p0, p1}, Landroid/view/View;->setEnabled(Z)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_a
 
     const/high16 p1, 0x3f800000    # 1.0f
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_a
     const p1, 0x3e99999a    # 0.3f
 
     .line 169
-    :goto_0
+    :goto_d
     invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
 
     return-void
 .end method
 
 .method public static showSoftKeyboard(Landroid/view/View;)V
-    .locals 2
+    .registers 3
 
     .line 276
     invoke-virtual {p0}, Landroid/view/View;->requestFocus()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     .line 277
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
@@ -1035,19 +1035,19 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/4 v1, 0x0
 
     .line 279
     invoke-virtual {v0, p0, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public static thumbnailNameFor(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1062,7 +1062,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_1a
 
     .line 117
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1082,7 +1082,7 @@
     return-object p0
 
     .line 119
-    :cond_0
+    :cond_1a
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -1107,12 +1107,12 @@
 .end method
 
 .method public static trashDir()Ljava/io/File;
-    .locals 1
+    .registers 1
 
     .line 195
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sTrashDir:Ljava/io/File;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const-string v0, "/Trash/"
 
@@ -1124,43 +1124,43 @@
     sput-object v0, Lopenlight/co/lib/utils/Utils;->sTrashDir:Ljava/io/File;
 
     .line 198
-    :cond_0
+    :cond_c
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sTrashDir:Ljava/io/File;
 
     return-object v0
 .end method
 
 .method public static trashPath()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 178
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->trashDir()Ljava/io/File;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     const-string v0, ""
 
-    goto :goto_0
+    goto :goto_d
 
     .line 179
-    :cond_0
+    :cond_9
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_d
     return-object v0
 .end method
 
 .method public static videoThumbnailsDir()Ljava/io/File;
-    .locals 1
+    .registers 1
 
     .line 217
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sVideoThumbnailsDir:Ljava/io/File;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     const-string v0, "/DCIM/Camera/thumbnails"
 
@@ -1172,7 +1172,7 @@
     sput-object v0, Lopenlight/co/lib/utils/Utils;->sVideoThumbnailsDir:Ljava/io/File;
 
     .line 220
-    :cond_0
+    :cond_c
     sget-object v0, Lopenlight/co/lib/utils/Utils;->sVideoThumbnailsDir:Ljava/io/File;
 
     return-object v0
@@ -1181,14 +1181,14 @@
 
 # virtual methods
 .method public adjustMarginEnd(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 326
     invoke-virtual {p0}, Lopenlight/co/lib/utils/Utils;->getNavBarWidth()I
 
     move-result p0
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_18
 
     .line 328
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1202,7 +1202,7 @@
 
     move-result v1
 
-    if-le p0, v1, :cond_0
+    if-le p0, v1, :cond_18
 
     .line 330
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
@@ -1210,25 +1210,25 @@
     .line 331
     invoke-virtual {p1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public getColor(I)I
-    .locals 1
+    .registers 3
 
     .line 367
     invoke-direct {p0}, Lopenlight/co/lib/utils/Utils;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
     .line 368
@@ -1236,12 +1236,12 @@
 
     move-result p0
 
-    :goto_0
+    :goto_d
     return p0
 .end method
 
 .method public getDateString(JLjava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 4
 
     .line 291
     invoke-direct {p0, p3}, Lopenlight/co/lib/utils/Utils;->dateFormatForPattern(Ljava/lang/String;)Ljava/text/DateFormat;
@@ -1252,7 +1252,7 @@
     monitor-enter p0
 
     .line 293
-    :try_start_0
+    :try_start_5
     new-instance p3, Ljava/util/Date;
 
     invoke-direct {p3, p1, p2}, Ljava/util/Date;-><init>(J)V
@@ -1265,19 +1265,19 @@
 
     return-object p1
 
-    :catchall_0
+    :catchall_10
     move-exception p1
 
     .line 294
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_5 .. :try_end_12} :catchall_10
 
     throw p1
 .end method
 
 .method public getDeviceId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 452
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mDeviceId:Ljava/lang/String;
@@ -1286,55 +1286,55 @@
 .end method
 
 .method public getDimen(I)I
-    .locals 0
+    .registers 2
 
     .line 357
     invoke-direct {p0}, Lopenlight/co/lib/utils/Utils;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_c
 
     .line 358
-    :cond_0
+    :cond_8
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public getHeightOfScreen()I
-    .locals 0
+    .registers 1
 
     .line 426
     invoke-virtual {p0}, Lopenlight/co/lib/utils/Utils;->getScreenSize()Landroid/util/Size;
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     const/4 p0, -0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 427
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/util/Size;->getHeight()I
 
     move-result p0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public getNavBarWidth()I
-    .locals 4
+    .registers 5
 
     .line 341
     invoke-direct {p0}, Lopenlight/co/lib/utils/Utils;->getResources()Landroid/content/res/Resources;
@@ -1351,24 +1351,24 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_15
 
     .line 342
     invoke-virtual {p0, v0}, Lopenlight/co/lib/utils/Utils;->getDimen(I)I
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 p0, -0x1
 
-    :goto_0
+    :goto_16
     return p0
 .end method
 
 .method public getOrientation()I
-    .locals 1
+    .registers 2
 
     .line 436
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mContext:Landroid/content/Context;
@@ -1399,25 +1399,25 @@
 
     iget v0, v0, Landroid/graphics/Point;->x:I
 
-    if-le p0, v0, :cond_0
+    if-le p0, v0, :cond_1e
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_0
+    :cond_1e
     const/4 p0, 0x2
 
     return p0
 .end method
 
 .method public getScreenSize()Landroid/util/Size;
-    .locals 3
+    .registers 4
 
     .line 415
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils;->mScreenSize:Landroid/util/Size;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_25
 
     .line 416
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils;->mContext:Landroid/content/Context;
@@ -1455,38 +1455,38 @@
     iput-object v0, p0, Lopenlight/co/lib/utils/Utils;->mScreenSize:Landroid/util/Size;
 
     .line 422
-    :cond_0
+    :cond_25
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mScreenSize:Landroid/util/Size;
 
     return-object p0
 .end method
 
 .method public getWidthOfScreen()I
-    .locals 0
+    .registers 1
 
     .line 431
     invoke-virtual {p0}, Lopenlight/co/lib/utils/Utils;->getScreenSize()Landroid/util/Size;
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
     const/4 p0, -0x1
 
-    goto :goto_0
+    goto :goto_c
 
     .line 432
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/util/Size;->getWidth()I
 
     move-result p0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public hasPermission(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     .line 612
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mContext:Landroid/content/Context;
@@ -1495,21 +1495,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public isLocked()Z
-    .locals 1
+    .registers 2
 
     .line 526
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mContext:Landroid/content/Context;
@@ -1531,14 +1531,14 @@
 .end method
 
 .method public isStringResource(I)Z
-    .locals 0
+    .registers 2
 
     .line 378
     invoke-direct {p0}, Lopenlight/co/lib/utils/Utils;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     .line 379
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getResourceTypeName(I)Ljava/lang/String;
@@ -1552,21 +1552,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method public metersPerSecToKmh(F)F
-    .locals 0
+    .registers 2
 
     const p0, 0x40666666    # 3.6f
 
@@ -1576,7 +1576,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 1
+    .registers 3
 
     .line 481
     iget-object p1, p0, Lopenlight/co/lib/utils/Utils;->mDateFormats:Ljava/util/HashMap;
@@ -1584,41 +1584,41 @@
     monitor-enter p1
 
     .line 482
-    :try_start_0
+    :try_start_3
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils;->mDateFormats:Ljava/util/HashMap;
 
     invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
 
     .line 483
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_3 .. :try_end_9} :catchall_d
 
     .line 484
     invoke-virtual {p0}, Lopenlight/co/lib/utils/Utils;->orientationChanged()V
 
     return-void
 
-    :catchall_0
+    :catchall_d
     move-exception p0
 
     .line 483
-    :try_start_1
+    :try_start_e
     monitor-exit p1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_f
+    .catchall {:try_start_e .. :try_end_f} :catchall_d
 
     throw p0
 .end method
 
 .method public onLowMemory()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public orientationChanged()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -1632,7 +1632,7 @@
 .end method
 
 .method public runWithLockedState(Lopenlight/co/lib/utils/VoidCallback1;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1651,7 +1651,7 @@
 .end method
 
 .method public runWithLockedState(Lopenlight/co/lib/utils/VoidCallback1;Z)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1666,9 +1666,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_24
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_10
 
     const/4 v0, 0x1
 
@@ -1680,7 +1680,7 @@
     invoke-interface {p1, v0}, Lopenlight/co/lib/utils/VoidCallback1;->call(Ljava/lang/Object;)V
 
     .line 559
-    :cond_0
+    :cond_10
     new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -1697,9 +1697,9 @@
 
     invoke-virtual {v0, v1, p0, p1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_1
+    :cond_24
     const/4 p0, 0x0
 
     .line 569
@@ -1709,12 +1709,12 @@
 
     invoke-interface {p1, p0}, Lopenlight/co/lib/utils/VoidCallback1;->call(Ljava/lang/Object;)V
 
-    :goto_0
+    :goto_2c
     return-void
 .end method
 
 .method public setMargins(Landroid/view/View;IIII)V
-    .locals 1
+    .registers 7
 
     .line 393
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -1723,7 +1723,7 @@
 
     check-cast p0, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_13
 
     .line 395
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->get()Lopenlight/co/lib/utils/Utils;
@@ -1736,8 +1736,8 @@
 
     invoke-virtual {p0, p2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    :cond_0
-    if-eqz p3, :cond_1
+    :cond_13
+    if-eqz p3, :cond_1f
 
     .line 398
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->get()Lopenlight/co/lib/utils/Utils;
@@ -1750,8 +1750,8 @@
 
     iput p2, p0, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
 
-    :cond_1
-    if-eqz p4, :cond_2
+    :cond_1f
+    if-eqz p4, :cond_2c
 
     .line 401
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->get()Lopenlight/co/lib/utils/Utils;
@@ -1764,8 +1764,8 @@
 
     invoke-virtual {p0, p2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    :cond_2
-    if-eqz p5, :cond_3
+    :cond_2c
+    if-eqz p5, :cond_38
 
     .line 404
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->get()Lopenlight/co/lib/utils/Utils;
@@ -1779,14 +1779,14 @@
     iput p2, p0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
 
     .line 406
-    :cond_3
+    :cond_38
     invoke-virtual {p1, p0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method
 
 .method public tagFor(Ljava/lang/Class;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1805,9 +1805,9 @@
 
     check-cast v0, Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3e
 
-    :try_start_0
+    :try_start_a
     const-string v1, "TAG"
 
     .line 592
@@ -1828,16 +1828,16 @@
     move-result-object v1
 
     check-cast v1, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_a .. :try_end_1b} :catch_1d
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_a .. :try_end_1b} :catch_1d
 
     move-object v0, v1
 
-    goto :goto_0
+    goto :goto_33
 
     .line 596
-    :catch_0
+    :catch_1d
     sget-object v1, Lopenlight/co/lib/utils/Utils;->TAG:Ljava/lang/String;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1856,8 +1856,8 @@
 
     invoke-static {v1, v2}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_0
-    if-nez v0, :cond_0
+    :goto_33
+    if-nez v0, :cond_39
 
     .line 599
     invoke-static {p1}, Lopenlight/co/lib/utils/Utils;->safeTag(Ljava/lang/Class;)Ljava/lang/String;
@@ -1865,32 +1865,32 @@
     move-result-object v0
 
     .line 601
-    :cond_0
+    :cond_39
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils;->mClassToTag:Ljava/util/HashMap;
 
     invoke-virtual {p0, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_3e
     return-object v0
 .end method
 
 .method public toPixels(F)I
-    .locals 0
+    .registers 2
 
     .line 352
     invoke-direct {p0}, Lopenlight/co/lib/utils/Utils;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_8
 
-    :goto_0
+    :goto_6
     float-to-int p0, p1
 
-    goto :goto_1
+    goto :goto_10
 
     .line 353
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object p0
@@ -1899,14 +1899,14 @@
 
     mul-float/2addr p1, p0
 
-    goto :goto_0
+    goto :goto_6
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method public updateLockedState()Z
-    .locals 2
+    .registers 3
 
     .line 500
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -1925,29 +1925,29 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_17
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_15
 
     const-string p0, ""
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_15
     move-object p0, v1
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     const/4 p0, 0x0
 
     .line 513
-    :goto_0
+    :goto_18
     invoke-static {v1, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_28
 
     .line 515
     new-instance v1, Lopenlight/co/lib/utils/-$$Lambda$Utils$0AADH8bJ5MWxZydd9DRTGMCJbqU;
@@ -1960,14 +1960,14 @@
 
     return p0
 
-    :cond_2
+    :cond_28
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public updateMediaStoreDateTaken(Ljava/lang/String;J)Z
-    .locals 4
+    .registers 8
 
     .line 462
     new-instance v0, Landroid/content/ContentValues;
@@ -2006,13 +2006,13 @@
 
     move-result p0
 
-    if-ne p0, v1, :cond_0
+    if-ne p0, v1, :cond_25
 
-    goto :goto_0
+    goto :goto_26
 
-    :cond_0
+    :cond_25
     move v1, v3
 
-    :goto_0
+    :goto_26
     return v1
 .end method

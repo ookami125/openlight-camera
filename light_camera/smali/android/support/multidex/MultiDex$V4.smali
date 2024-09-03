@@ -16,7 +16,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 469
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method static synthetic access$200(Ljava/lang/ClassLoader;Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -42,7 +42,7 @@
 .end method
 
 .method private static install(Ljava/lang/ClassLoader;Ljava/util/List;)V
-    .locals 10
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -70,6 +70,7 @@
     const-string v1, "path"
 
     .line 480
+    # invokes: Landroid/support/multidex/MultiDex;->findField(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/reflect/Field;
     invoke-static {p0, v1}, Landroid/support/multidex/MultiDex;->access$300(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/reflect/Field;
 
     move-result-object v1
@@ -103,12 +104,12 @@
     move-result-object p1
 
     .line 488
-    :goto_0
+    :goto_21
     invoke-interface {p1}, Ljava/util/ListIterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_61
 
     .line 489
     invoke-interface {p1}, Ljava/util/ListIterator;->next()Ljava/lang/Object;
@@ -170,10 +171,10 @@
 
     aput-object v6, v0, v8
 
-    goto :goto_0
+    goto :goto_21
 
     .line 499
-    :cond_0
+    :cond_61
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
@@ -183,21 +184,25 @@
     const-string p1, "mPaths"
 
     .line 500
+    # invokes: Landroid/support/multidex/MultiDex;->expandFieldArray(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-static {p0, p1, v3}, Landroid/support/multidex/MultiDex;->access$400(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     const-string p1, "mFiles"
 
     .line 501
+    # invokes: Landroid/support/multidex/MultiDex;->expandFieldArray(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-static {p0, p1, v4}, Landroid/support/multidex/MultiDex;->access$400(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     const-string p1, "mZips"
 
     .line 502
+    # invokes: Landroid/support/multidex/MultiDex;->expandFieldArray(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-static {p0, p1, v5}, Landroid/support/multidex/MultiDex;->access$400(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     const-string p1, "mDexs"
 
     .line 503
+    # invokes: Landroid/support/multidex/MultiDex;->expandFieldArray(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-static {p0, p1, v0}, Landroid/support/multidex/MultiDex;->access$400(Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)V
 
     return-void

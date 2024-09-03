@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/RecyclerView$LayoutManager;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public getDecoratedEnd(Landroid/view/View;)I
-    .locals 1
+    .registers 3
 
     .line 389
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -53,7 +53,7 @@
 .end method
 
 .method public getDecoratedMeasurement(Landroid/view/View;)I
-    .locals 1
+    .registers 3
 
     .line 373
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -81,7 +81,7 @@
 .end method
 
 .method public getDecoratedMeasurementInOther(Landroid/view/View;)I
-    .locals 1
+    .registers 3
 
     .line 381
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getDecoratedStart(Landroid/view/View;)I
-    .locals 1
+    .registers 3
 
     .line 396
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -133,7 +133,7 @@
 .end method
 
 .method public getEnd()I
-    .locals 0
+    .registers 1
 
     .line 357
     iget-object p0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -146,7 +146,7 @@
 .end method
 
 .method public getEndAfterPadding()I
-    .locals 1
+    .registers 2
 
     .line 352
     iget-object v0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -167,7 +167,7 @@
 .end method
 
 .method public getEndPadding()I
-    .locals 0
+    .registers 1
 
     .line 425
     iget-object p0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -180,7 +180,7 @@
 .end method
 
 .method public getMode()I
-    .locals 0
+    .registers 1
 
     .line 430
     iget-object p0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -193,7 +193,7 @@
 .end method
 
 .method public getModeInOther()I
-    .locals 0
+    .registers 1
 
     .line 435
     iget-object p0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -206,7 +206,7 @@
 .end method
 
 .method public getStartAfterPadding()I
-    .locals 0
+    .registers 1
 
     .line 367
     iget-object p0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -219,7 +219,7 @@
 .end method
 
 .method public getTotalSpace()I
-    .locals 2
+    .registers 3
 
     .line 414
     iget-object v0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -249,7 +249,7 @@
 .end method
 
 .method public getTransformedEndWithDecoration(Landroid/view/View;)I
-    .locals 3
+    .registers 5
 
     .line 402
     iget-object v0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -269,7 +269,7 @@
 .end method
 
 .method public getTransformedStartWithDecoration(Landroid/view/View;)I
-    .locals 3
+    .registers 5
 
     .line 408
     iget-object v0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;
@@ -289,7 +289,7 @@
 .end method
 
 .method public offsetChild(Landroid/view/View;I)V
-    .locals 0
+    .registers 3
 
     .line 420
     invoke-virtual {p1, p2}, Landroid/view/View;->offsetTopAndBottom(I)V
@@ -298,7 +298,7 @@
 .end method
 
 .method public offsetChildren(I)V
-    .locals 0
+    .registers 2
 
     .line 362
     iget-object p0, p0, Landroid/support/v7/widget/OrientationHelper$2;->mLayoutManager:Landroid/support/v7/widget/RecyclerView$LayoutManager;

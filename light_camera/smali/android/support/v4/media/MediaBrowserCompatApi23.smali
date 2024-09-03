@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 .end method
 
 .method public static createItemCallback(Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallback;)Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 28
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompatApi23$ItemCallbackProxy;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getItem(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 32
     check-cast p0, Landroid/media/browse/MediaBrowser;

@@ -9,14 +9,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 29
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 30
     new-instance v0, Landroid/support/transition/GhostViewApi21$Creator;
@@ -25,22 +25,22 @@
 
     sput-object v0, Landroid/support/transition/GhostViewUtils;->CREATOR:Landroid/support/transition/GhostViewImpl$Creator;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 32
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/transition/GhostViewApi14$Creator;
 
     invoke-direct {v0}, Landroid/support/transition/GhostViewApi14$Creator;-><init>()V
 
     sput-object v0, Landroid/support/transition/GhostViewUtils;->CREATOR:Landroid/support/transition/GhostViewImpl$Creator;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method static addGhost(Landroid/view/View;Landroid/view/ViewGroup;Landroid/graphics/Matrix;)Landroid/support/transition/GhostViewImpl;
-    .locals 1
+    .registers 4
 
     .line 37
     sget-object v0, Landroid/support/transition/GhostViewUtils;->CREATOR:Landroid/support/transition/GhostViewImpl$Creator;
@@ -62,7 +62,7 @@
 .end method
 
 .method static removeGhost(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 41
     sget-object v0, Landroid/support/transition/GhostViewUtils;->CREATOR:Landroid/support/transition/GhostViewImpl$Creator;

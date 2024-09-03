@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;Landroid/os/ParcelFileDescriptor;)V
-    .locals 0
+    .registers 3
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public getFileDescriptor()Landroid/os/ParcelFileDescriptor;
-    .locals 0
+    .registers 1
 
     .line 24
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapper;->fileDescriptor:Landroid/os/ParcelFileDescriptor;
@@ -37,7 +37,7 @@
 .end method
 
 .method public getStream()Ljava/io/InputStream;
-    .locals 0
+    .registers 1
 
     .line 20
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ImageVideoWrapper;->streamData:Ljava/io/InputStream;

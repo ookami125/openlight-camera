@@ -60,7 +60,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 507
     new-instance v0, Lltpb/ViewPreferences$HDRMode;
@@ -140,7 +140,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -157,51 +157,51 @@
 .end method
 
 .method public static fromValue(I)Lltpb/ViewPreferences$HDRMode;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_12
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 531
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/ViewPreferences$HDRMode;->HDR_MODE_SURREAL:Lltpb/ViewPreferences$HDRMode;
 
     return-object p0
 
     .line 530
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/ViewPreferences$HDRMode;->HDR_MODE_NATURAL:Lltpb/ViewPreferences$HDRMode;
 
     return-object p0
 
     .line 529
-    :pswitch_2
+    :pswitch_b
     sget-object p0, Lltpb/ViewPreferences$HDRMode;->HDR_MODE_DEFAULT:Lltpb/ViewPreferences$HDRMode;
 
     return-object p0
 
     .line 528
-    :pswitch_3
+    :pswitch_e
     sget-object p0, Lltpb/ViewPreferences$HDRMode;->HDR_MODE_NONE:Lltpb/ViewPreferences$HDRMode;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_12
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_e
+        :pswitch_b
+        :pswitch_8
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/ViewPreferences$HDRMode;
-    .locals 1
+    .registers 2
 
     .line 503
     const-class v0, Lltpb/ViewPreferences$HDRMode;
@@ -216,7 +216,7 @@
 .end method
 
 .method public static values()[Lltpb/ViewPreferences$HDRMode;
-    .locals 1
+    .registers 1
 
     .line 503
     sget-object v0, Lltpb/ViewPreferences$HDRMode;->$VALUES:[Lltpb/ViewPreferences$HDRMode;
@@ -233,7 +233,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 538
     iget p0, p0, Lltpb/ViewPreferences$HDRMode;->value:I

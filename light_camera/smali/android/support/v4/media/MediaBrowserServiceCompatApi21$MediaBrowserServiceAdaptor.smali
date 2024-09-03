@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;)V
-    .locals 0
+    .registers 3
 
     .line 112
     invoke-direct {p0}, Landroid/service/media/MediaBrowserService;-><init>()V
@@ -37,35 +37,35 @@
 
 # virtual methods
 .method public onGetRoot(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/service/media/MediaBrowserService$BrowserRoot;
-    .locals 2
+    .registers 6
 
     .line 120
     iget-object p0, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$MediaBrowserServiceAdaptor;->mServiceProxy:Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;
 
     const/4 v0, 0x0
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
     move-object v1, v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_7
     new-instance v1, Landroid/os/Bundle;
 
     invoke-direct {v1, p3}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    :goto_0
+    :goto_c
     invoke-interface {p0, p1, p2, v1}, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$ServiceCompatProxy;->onGetRoot(Ljava/lang/String;ILandroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;
 
     move-result-object p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_13
 
-    goto :goto_1
+    goto :goto_1c
 
     .line 122
-    :cond_1
+    :cond_13
     new-instance v0, Landroid/service/media/MediaBrowserService$BrowserRoot;
 
     iget-object p1, p0, Landroid/support/v4/media/MediaBrowserServiceCompatApi21$BrowserRoot;->mRootId:Ljava/lang/String;
@@ -74,12 +74,12 @@
 
     invoke-direct {v0, p1, p0}, Landroid/service/media/MediaBrowserService$BrowserRoot;-><init>(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    :goto_1
+    :goto_1c
     return-object v0
 .end method
 
 .method public onLoadChildren(Ljava/lang/String;Landroid/service/media/MediaBrowserService$Result;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 78
     new-instance v0, Lopenlight/co/camera/utils/SoundManager$Sound;
@@ -129,7 +129,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)V"
@@ -149,7 +149,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/utils/SoundManager$Sound;
-    .locals 1
+    .registers 2
 
     .line 76
     const-class v0, Lopenlight/co/camera/utils/SoundManager$Sound;
@@ -164,7 +164,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/utils/SoundManager$Sound;
-    .locals 1
+    .registers 1
 
     .line 76
     sget-object v0, Lopenlight/co/camera/utils/SoundManager$Sound;->$VALUES:[Lopenlight/co/camera/utils/SoundManager$Sound;
@@ -181,12 +181,12 @@
 
 # virtual methods
 .method getRawSoundResourceId(Lopenlight/co/camera/utils/SoundManager$Theme;)I
-    .locals 1
+    .registers 3
 
     .line 92
     sget-object v0, Lopenlight/co/camera/utils/SoundManager$Theme;->CLASSIC:Lopenlight/co/camera/utils/SoundManager$Theme;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_7
 
     .line 93
     iget p0, p0, Lopenlight/co/camera/utils/SoundManager$Sound;->mRawResIdClassic:I
@@ -194,17 +194,17 @@
     return p0
 
     .line 94
-    :cond_0
+    :cond_7
     sget-object v0, Lopenlight/co/camera/utils/SoundManager$Theme;->MODERN:Lopenlight/co/camera/utils/SoundManager$Theme;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_e
 
     .line 95
     iget p0, p0, Lopenlight/co/camera/utils/SoundManager$Sound;->mRawResIdModern:I
 
     return p0
 
-    :cond_1
+    :cond_e
     const/4 p0, -0x1
 
     return p0

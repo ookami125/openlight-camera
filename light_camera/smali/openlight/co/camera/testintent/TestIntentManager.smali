@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 97
     new-instance v0, Lopenlight/co/camera/testintent/TestIntentManager;
@@ -80,7 +80,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 511
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -163,21 +163,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_55
 
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_54
 
-    goto :goto_0
+    goto :goto_55
 
-    :cond_0
+    :cond_54
     const/4 v2, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_55
+    :goto_55
     or-int/2addr v0, v2
 
     iput-boolean v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mTestIntentEnabled:Z
@@ -186,7 +186,7 @@
 .end method
 
 .method private changeAudio(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 401
     invoke-virtual {p1}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
@@ -206,12 +206,12 @@
 
     aget v0, v1, v0
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 406
-    :pswitch_0
+    :pswitch_14
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v0, "device_audio_setting"
@@ -219,7 +219,7 @@
     invoke-interface {p0, v0, p1}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 409
-    :goto_0
+    :goto_1b
     invoke-static {}, Lopenlight/co/camera/utils/SoundManager;->get()Lopenlight/co/camera/utils/SoundManager;
 
     move-result-object p0
@@ -230,16 +230,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_14
+        :pswitch_14
+        :pswitch_14
     .end packed-switch
 .end method
 
 .method private changeBurst(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 388
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -263,7 +263,7 @@
 .end method
 
 .method private changeCaf(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 368
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -279,29 +279,29 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     const-string v0, "cam_video_mode_caf"
 
-    goto :goto_0
+    goto :goto_1c
 
     .line 372
-    :cond_0
+    :cond_11
     invoke-virtual {v0}, Lopenlight/co/camera/CameraMode;->isManual()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1a
 
     const-string v0, "cam_manual_mode_caf"
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_1
+    :cond_1a
     const-string v0, "cam_auto_mode_caf"
 
     .line 377
-    :goto_0
+    :goto_1c
     iget-object v1, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     invoke-static {p1}, Lopenlight/co/camera/enums/CafMode;->valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/CafMode;
@@ -321,7 +321,7 @@
 .end method
 
 .method private changeExposureCompensation(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
 
     .line 328
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -381,7 +381,7 @@
 
     move-result v3
 
-    if-le p1, v3, :cond_0
+    if-le p1, v3, :cond_3f
 
     .line 334
     invoke-virtual {v2}, Landroid/util/Range;->getUpper()Ljava/lang/Comparable;
@@ -395,7 +395,7 @@
     move-result p1
 
     .line 336
-    :cond_0
+    :cond_3f
     invoke-virtual {v2}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
 
     move-result-object v3
@@ -406,7 +406,7 @@
 
     move-result v3
 
-    if-ge p1, v3, :cond_1
+    if-ge p1, v3, :cond_55
 
     .line 337
     invoke-virtual {v2}, Landroid/util/Range;->getLower()Ljava/lang/Comparable;
@@ -419,8 +419,8 @@
 
     move-result p1
 
-    :cond_1
-    if-eqz v1, :cond_2
+    :cond_55
+    if-eqz v1, :cond_63
 
     .line 340
     sget-object v2, Landroid/hardware/camera2/CaptureRequest;->CONTROL_AE_EXPOSURE_COMPENSATION:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -435,7 +435,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
     .line 343
-    :cond_2
+    :cond_63
     invoke-static {}, Lopenlight/co/camera/utils/Constants$ExposureCompValues;->values()[Lopenlight/co/camera/utils/Constants$ExposureCompValues;
 
     move-result-object v0
@@ -444,8 +444,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_4
+    :goto_69
+    if-ge v2, v1, :cond_81
 
     aget-object v3, v0, v2
 
@@ -454,7 +454,7 @@
 
     move-result v4
 
-    if-ne p1, v4, :cond_3
+    if-ne p1, v4, :cond_7e
 
     .line 345
     iget-object v4, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -467,17 +467,17 @@
 
     invoke-interface {v4, v5, v3}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;I)V
 
-    :cond_3
+    :cond_7e
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_69
 
-    :cond_4
+    :cond_81
     return-void
 .end method
 
 .method private changeExposureTime(Ljava/lang/String;)V
-    .locals 6
+    .registers 8
 
     .line 310
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -507,7 +507,7 @@
 
     aget-wide v3, v2, p1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_26
 
     .line 315
     sget-object v2, Landroid/hardware/camera2/CaptureRequest;->SENSOR_EXPOSURE_TIME:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -522,7 +522,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
     .line 318
-    :cond_0
+    :cond_26
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v0, "shutter_index"
@@ -552,7 +552,7 @@
 .end method
 
 .method private changeFlash(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 356
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -567,17 +567,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     const-string v0, "flash_setting"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-string v0, "flash_setting_manual"
 
     .line 358
-    :goto_0
+    :goto_13
     iget-object v1, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     invoke-static {p1}, Lopenlight/co/camera/enums/FlashMode;->valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/FlashMode;
@@ -597,7 +597,7 @@
 .end method
 
 .method private changeIso(Ljava/lang/String;)V
-    .locals 5
+    .registers 7
 
     .line 292
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCameraManager:Lopenlight/co/camera/utils/Provider;
@@ -635,7 +635,7 @@
 
     move-result v2
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2e
 
     .line 297
     sget-object v3, Landroid/hardware/camera2/CaptureRequest;->SENSOR_SENSITIVITY:Landroid/hardware/camera2/CaptureRequest$Key;
@@ -650,7 +650,7 @@
     invoke-virtual {v0}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
 
     .line 300
-    :cond_0
+    :cond_2e
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v0, "iso_index"
@@ -680,7 +680,7 @@
 .end method
 
 .method private changeMetering(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 418
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
@@ -689,78 +689,78 @@
 
     const v1, 0x35f902
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_28
 
     const v1, 0xb58ebe5
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1e
 
     const v1, 0x4da7578f    # 3.5094166E8f
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_14
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_0
+    :cond_14
     const-string v0, "center-weighted"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     const/4 p1, 0x0
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_1
+    :cond_1e
     const-string v0, "touch-weighted"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     const/4 p1, 0x1
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_2
+    :cond_28
     const-string v0, "spot"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_32
 
     const/4 p1, 0x2
 
-    goto :goto_1
+    goto :goto_33
 
-    :cond_3
-    :goto_0
+    :cond_32
+    :goto_32
     const/4 p1, -0x1
 
-    :goto_1
-    packed-switch p1, :pswitch_data_0
+    :goto_33
+    packed-switch p1, :pswitch_data_56
 
-    goto :goto_2
+    goto :goto_52
 
     .line 426
-    :pswitch_0
+    :pswitch_37
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v0, "Spot Metering is not enabled on device yet"
 
     invoke-static {p1, v0}, Lopenlight/co/lib/utils/LogUtil;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_52
 
     .line 423
-    :pswitch_1
+    :pswitch_3f
     iget-object p1, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v0, "metering_setting"
@@ -769,10 +769,10 @@
 
     invoke-interface {p1, v0, v1}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_52
 
     .line 420
-    :pswitch_2
+    :pswitch_49
     iget-object p1, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v0, "metering_setting"
@@ -782,21 +782,21 @@
     invoke-interface {p1, v0, v1}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 430
-    :goto_2
+    :goto_52
     invoke-direct {p0}, Lopenlight/co/camera/testintent/TestIntentManager;->updateUiForTest()V
 
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_56
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_49
+        :pswitch_3f
+        :pswitch_37
     .end packed-switch
 .end method
 
 .method private changeMode(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
 
     .line 280
     invoke-static {p1}, Lopenlight/co/camera/CameraMode;->getModeByLabel(Ljava/lang/String;)Lopenlight/co/camera/CameraMode;
@@ -840,7 +840,7 @@
 .end method
 
 .method private changeTimer(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 440
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -864,7 +864,7 @@
 .end method
 
 .method private changeZoom(Ljava/lang/String;)V
-    .locals 4
+    .registers 6
 
     .line 259
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mCamInfo:Lopenlight/co/camera/CameraInfo;
@@ -893,19 +893,19 @@
 
     cmpl-float v3, p1, v2
 
-    if-lez v3, :cond_0
+    if-lez v3, :cond_19
 
     move p1, v2
 
-    :cond_0
+    :cond_19
     cmpg-float v2, p1, v0
 
-    if-gez v2, :cond_1
+    if-gez v2, :cond_1e
 
     move p1, v0
 
     .line 268
-    :cond_1
+    :cond_1e
     invoke-static {}, Lopenlight/co/camera/CameraInfo;->get()Lopenlight/co/camera/CameraInfo;
 
     move-result-object v0
@@ -933,7 +933,7 @@
 .end method
 
 .method private focusAtPoint(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
 
     .line 451
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
@@ -944,50 +944,50 @@
 
     const/4 v2, 0x0
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1a
 
     const v1, 0x6527f10
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_0
+    :cond_10
     const-string v0, "other"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_24
 
     const/4 p1, 0x1
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_1
+    :cond_1a
     const-string v0, "center"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_24
 
     move p1, v2
 
-    goto :goto_1
+    goto :goto_25
 
-    :cond_2
-    :goto_0
+    :cond_24
+    :goto_24
     const/4 p1, -0x1
 
-    :goto_1
-    packed-switch p1, :pswitch_data_0
+    :goto_25
+    packed-switch p1, :pswitch_data_3e
 
-    goto :goto_2
+    goto :goto_3c
 
-    :pswitch_0
+    :pswitch_29
     const/16 p1, 0x5a0
 
     .line 456
@@ -1005,26 +1005,26 @@
     .line 456
     invoke-direct {p0, p1, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->focusForTest(II)V
 
-    goto :goto_2
+    goto :goto_3c
 
     .line 453
-    :pswitch_1
+    :pswitch_39
     invoke-direct {p0, v2, v2}, Lopenlight/co/camera/testintent/TestIntentManager;->focusForTest(II)V
 
-    :goto_2
+    :goto_3c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_3e
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_39
+        :pswitch_29
     .end packed-switch
 .end method
 
 .method private focusForTest(II)V
-    .locals 1
+    .registers 4
 
     .line 506
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mRegisteredListeners:Ljava/util/List;
@@ -1033,12 +1033,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_6
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1049,14 +1049,14 @@
     .line 507
     invoke-interface {v0, p1, p2}, Lopenlight/co/camera/testintent/TestIntentListener;->updateFocusROI(II)V
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public static get()Lopenlight/co/camera/testintent/TestIntentManager;
-    .locals 1
+    .registers 1
 
     .line 128
     sget-object v0, Lopenlight/co/camera/testintent/TestIntentManager;->sInstance:Lopenlight/co/camera/testintent/TestIntentManager;
@@ -1065,7 +1065,7 @@
 .end method
 
 .method private getRandomNumber(I)I
-    .locals 0
+    .registers 2
 
     .line 470
     new-instance p0, Ljava/util/Random;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/camera/testintent/TestIntentManager;Landroid/os/Message;)Z
-    .locals 2
+    .registers 4
 
     .line 171
     iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -1103,7 +1103,7 @@
 
     aget p1, v1, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_b2
 
     .line 227
     sget-object p0, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
@@ -1112,10 +1112,10 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_af
 
     .line 223
-    :pswitch_0
+    :pswitch_1e
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v0, "Triggering Capture"
@@ -1125,10 +1125,10 @@
     .line 224
     invoke-direct {p0}, Lopenlight/co/camera/testintent/TestIntentManager;->triggerCapture()V
 
-    goto/16 :goto_0
+    goto/16 :goto_af
 
     .line 219
-    :pswitch_1
+    :pswitch_2a
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing CAF Mode Change"
@@ -1138,10 +1138,10 @@
     .line 220
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeCaf(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_af
 
     .line 215
-    :pswitch_2
+    :pswitch_36
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Focus"
@@ -1151,10 +1151,10 @@
     .line 216
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->focusAtPoint(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_af
 
     .line 211
-    :pswitch_3
+    :pswitch_42
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Timer Change"
@@ -1164,10 +1164,10 @@
     .line 212
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeTimer(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 207
-    :pswitch_4
+    :pswitch_4d
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Metering Change"
@@ -1177,10 +1177,10 @@
     .line 208
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeMetering(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 203
-    :pswitch_5
+    :pswitch_58
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Audio Change"
@@ -1190,10 +1190,10 @@
     .line 204
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeAudio(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 199
-    :pswitch_6
+    :pswitch_63
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Burst Change"
@@ -1203,10 +1203,10 @@
     .line 200
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeBurst(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 195
-    :pswitch_7
+    :pswitch_6e
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Flash Change"
@@ -1216,10 +1216,10 @@
     .line 196
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeFlash(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 191
-    :pswitch_8
+    :pswitch_79
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera AutoExposure Change"
@@ -1229,10 +1229,10 @@
     .line 192
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeExposureCompensation(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 187
-    :pswitch_9
+    :pswitch_84
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Exposure Time Change"
@@ -1242,10 +1242,10 @@
     .line 188
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeExposureTime(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 183
-    :pswitch_a
+    :pswitch_8f
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera ISO Change"
@@ -1255,10 +1255,10 @@
     .line 184
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeIso(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 179
-    :pswitch_b
+    :pswitch_9a
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Mode Change"
@@ -1268,10 +1268,10 @@
     .line 180
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeMode(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_af
 
     .line 175
-    :pswitch_c
+    :pswitch_a5
     sget-object p1, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
 
     const-string v1, "Executing Camera Focal Length Change"
@@ -1281,33 +1281,33 @@
     .line 176
     invoke-direct {p0, v0}, Lopenlight/co/camera/testintent/TestIntentManager;->changeZoom(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_af
     const/4 p0, 0x1
 
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_b2
     .packed-switch 0x1
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_a5
+        :pswitch_9a
+        :pswitch_8f
+        :pswitch_84
+        :pswitch_79
+        :pswitch_6e
+        :pswitch_63
+        :pswitch_58
+        :pswitch_4d
+        :pswitch_42
+        :pswitch_36
+        :pswitch_2a
+        :pswitch_1e
     .end packed-switch
 .end method
 
 .method private parseExposureTime(Ljava/lang/String;)J
-    .locals 2
+    .registers 4
 
     const-string p0, "/"
 
@@ -1316,7 +1316,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_20
 
     const-string p0, "/"
 
@@ -1346,7 +1346,7 @@
 
     return-wide v0
 
-    :cond_0
+    :cond_20
     const p0, 0x4e6e6b28    # 1.0E9f
 
     .line 486
@@ -1366,7 +1366,7 @@
 .end method
 
 .method private sendMessage(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 240
     invoke-static {}, Lopenlight/co/camera/utils/CameraState;->get()Lopenlight/co/camera/utils/CameraState;
@@ -1377,7 +1377,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 241
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mTestEventHandler:Landroid/os/Handler;
@@ -1390,12 +1390,12 @@
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
-    :cond_0
+    :cond_15
     return-void
 .end method
 
 .method private triggerCapture()V
-    .locals 2
+    .registers 3
 
     .line 249
     invoke-static {}, Lopenlight/co/camera/utils/TimingLoggerUtil;->get()Lopenlight/co/camera/utils/TimingLoggerUtil;
@@ -1421,7 +1421,7 @@
 .end method
 
 .method private updateUiForTest()V
-    .locals 1
+    .registers 2
 
     .line 494
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mRegisteredListeners:Ljava/util/List;
@@ -1430,12 +1430,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_6
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1446,16 +1446,16 @@
     .line 495
     invoke-interface {v0}, Lopenlight/co/camera/testintent/TestIntentListener;->updateUiAfterTest()V
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 
 # virtual methods
 .method public isTestEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 132
     iget-boolean p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mTestIntentEnabled:Z
@@ -1464,7 +1464,7 @@
 .end method
 
 .method public registerListener(Lopenlight/co/camera/testintent/TestIntentListener;)V
-    .locals 0
+    .registers 2
 
     .line 138
     iget-object p0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mRegisteredListeners:Ljava/util/List;
@@ -1475,12 +1475,12 @@
 .end method
 
 .method startTest(Landroid/os/Bundle;)V
-    .locals 8
+    .registers 10
 
     .line 154
     iget-boolean v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mTestIntentEnabled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     .line 155
     sget-object p0, Lopenlight/co/camera/testintent/TestIntentManager;->TAG:Ljava/lang/String;
@@ -1491,8 +1491,8 @@
 
     return-void
 
-    :cond_0
-    if-eqz p1, :cond_3
+    :cond_c
+    if-eqz p1, :cond_44
 
     .line 159
     invoke-virtual {p1}, Landroid/os/Bundle;->keySet()Ljava/util/Set;
@@ -1503,12 +1503,12 @@
 
     move-result-object v0
 
-    :cond_1
+    :cond_16
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_44
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1530,8 +1530,8 @@
 
     const/4 v5, 0x0
 
-    :goto_0
-    if-ge v5, v4, :cond_1
+    :goto_2c
+    if-ge v5, v4, :cond_16
 
     aget-object v6, v3, v5
 
@@ -1544,7 +1544,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_41
 
     .line 163
     invoke-virtual {v6}, Lopenlight/co/camera/testintent/TestIntentManager$CITest;->getEventMessage()I
@@ -1553,29 +1553,29 @@
 
     invoke-direct {p0, v6, v2}, Lopenlight/co/camera/testintent/TestIntentManager;->sendMessage(ILjava/lang/String;)V
 
-    :cond_2
+    :cond_41
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_2c
 
-    :cond_3
+    :cond_44
     return-void
 .end method
 
 .method public declared-synchronized unregisterListener(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 142
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mRegisteredListeners:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 143
     iget-object v0, p0, Lopenlight/co/camera/testintent/TestIntentManager;->mRegisteredListeners:Ljava/util/List;
@@ -1585,13 +1585,13 @@
     move-result-object v0
 
     .line 144
-    :cond_0
-    :goto_0
+    :cond_f
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     .line 145
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -1608,22 +1608,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_f
 
     .line 146
     invoke-interface {v0}, Ljava/util/Iterator;->remove()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_28
+    .catchall {:try_start_1 .. :try_end_28} :catchall_2b
 
-    goto :goto_0
+    goto :goto_f
 
     .line 150
-    :cond_1
+    :cond_29
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_2b
     move-exception p1
 
     .line 141

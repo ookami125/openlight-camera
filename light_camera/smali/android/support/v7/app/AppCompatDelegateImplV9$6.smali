@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV9;)V
-    .locals 0
+    .registers 2
 
     .line 832
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$6;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 845
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$6;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -62,7 +62,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 835
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$6;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -93,7 +93,7 @@
 
     instance-of p1, p1, Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2a
 
     .line 839
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$6;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV9;
@@ -108,6 +108,6 @@
 
     invoke-static {p0}, Landroid/support/v4/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
 
-    :cond_0
+    :cond_2a
     return-void
 .end method

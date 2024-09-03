@@ -31,7 +31,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/ListPreloader;)V
-    .locals 0
+    .registers 2
 
     .line 103
     iput-object p1, p0, Lcom/bumptech/glide/ListPreloader$1;->this$0:Lcom/bumptech/glide/ListPreloader;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getPreloadItems(I)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -66,7 +66,7 @@
 .end method
 
 .method public getPreloadRequestBuilder(Ljava/lang/Object;)Lcom/bumptech/glide/GenericRequestBuilder;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",

@@ -167,7 +167,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x0
 
@@ -182,7 +182,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 147
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -202,12 +202,12 @@
 .end method
 
 .method private canNotifyStatusChanged()Z
-    .locals 1
+    .registers 2
 
     .line 462
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
@@ -215,30 +215,30 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method private canSetResource()Z
-    .locals 1
+    .registers 2
 
     .line 458
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
@@ -246,27 +246,27 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method private static check(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_20
 
     .line 247
     new-instance p1, Ljava/lang/StringBuilder;
@@ -278,7 +278,7 @@
     .line 248
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_16
 
     const-string p0, ", "
 
@@ -289,7 +289,7 @@
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 253
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -300,21 +300,21 @@
 
     throw p0
 
-    :cond_1
+    :cond_20
     return-void
 .end method
 
 .method private getErrorDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 408
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->errorDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->errorResourceId:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     .line 409
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->context:Landroid/content/Context;
@@ -332,23 +332,23 @@
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->errorDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 411
-    :cond_0
+    :cond_16
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->errorDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object p0
 .end method
 
 .method private getFallbackDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 386
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->fallbackDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->fallbackResourceId:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     .line 387
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->context:Landroid/content/Context;
@@ -366,23 +366,23 @@
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->fallbackDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 389
-    :cond_0
+    :cond_16
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->fallbackDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object p0
 .end method
 
 .method private getPlaceholderDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 3
 
     .line 415
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->placeholderDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->placeholderResourceId:I
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_16
 
     .line 416
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->context:Landroid/content/Context;
@@ -400,14 +400,14 @@
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->placeholderDrawable:Landroid/graphics/drawable/Drawable;
 
     .line 418
-    :cond_0
+    :cond_16
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->placeholderDrawable:Landroid/graphics/drawable/Drawable;
 
     return-object p0
 .end method
 
 .method private init(Lcom/bumptech/glide/provider/LoadProvider;Ljava/lang/Object;Lcom/bumptech/glide/load/Key;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/request/target/Target;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/RequestListener;Lcom/bumptech/glide/request/RequestCoordinator;Lcom/bumptech/glide/load/engine/Engine;Lcom/bumptech/glide/load/Transformation;Ljava/lang/Class;ZLcom/bumptech/glide/request/animation/GlideAnimationFactory;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)V
-    .locals 6
+    .registers 30
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -563,7 +563,7 @@
 
     iput-object v5, v0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_bf
 
     const-string v0, "ModelLoader"
 
@@ -599,7 +599,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8c
 
     const-string v0, "SourceEncoder"
 
@@ -612,9 +612,9 @@
 
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/request/GenericRequest;->check(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_97
 
-    :cond_0
+    :cond_8c
     const-string v0, "SourceDecoder"
 
     .line 228
@@ -627,20 +627,20 @@
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/request/GenericRequest;->check(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 231
-    :goto_0
+    :goto_97
     invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_a3
 
     invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_ae
 
-    :cond_1
+    :cond_a3
     const-string v0, "CacheDecoder"
 
     .line 235
@@ -653,12 +653,12 @@
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/request/GenericRequest;->check(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
     .line 238
-    :cond_2
+    :cond_ae
     invoke-virtual/range {p23 .. p23}, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_bf
 
     const-string v0, "Encoder"
 
@@ -671,17 +671,17 @@
 
     invoke-static {v0, v1, v2}, Lcom/bumptech/glide/request/GenericRequest;->check(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_3
+    :cond_bf
     return-void
 .end method
 
 .method private isFirstReadyResource()Z
-    .locals 1
+    .registers 2
 
     .line 466
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_f
 
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
@@ -689,25 +689,25 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method private logV(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     const-string v0, "GenericRequest"
 
@@ -736,24 +736,24 @@
 .end method
 
 .method private notifyLoadSuccess()V
-    .locals 1
+    .registers 2
 
     .line 470
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 471
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestCoordinator:Lcom/bumptech/glide/request/RequestCoordinator;
 
     invoke-interface {v0, p0}, Lcom/bumptech/glide/request/RequestCoordinator;->onRequestSuccess(Lcom/bumptech/glide/request/Request;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public static obtain(Lcom/bumptech/glide/provider/LoadProvider;Ljava/lang/Object;Lcom/bumptech/glide/load/Key;Landroid/content/Context;Lcom/bumptech/glide/Priority;Lcom/bumptech/glide/request/target/Target;FLandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILandroid/graphics/drawable/Drawable;ILcom/bumptech/glide/request/RequestListener;Lcom/bumptech/glide/request/RequestCoordinator;Lcom/bumptech/glide/load/engine/Engine;Lcom/bumptech/glide/load/Transformation;Ljava/lang/Class;ZLcom/bumptech/glide/request/animation/GlideAnimationFactory;IILcom/bumptech/glide/load/engine/DiskCacheStrategy;)Lcom/bumptech/glide/request/GenericRequest;
-    .locals 25
+    .registers 48
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -804,14 +804,14 @@
 
     check-cast v0, Lcom/bumptech/glide/request/GenericRequest;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 119
     new-instance v0, Lcom/bumptech/glide/request/GenericRequest;
 
     invoke-direct {v0}, Lcom/bumptech/glide/request/GenericRequest;-><init>()V
 
-    :cond_0
+    :cond_f
     move-object v1, v0
 
     move-object/from16 v2, p0
@@ -867,7 +867,7 @@
 .end method
 
 .method private onResourceReady(Lcom/bumptech/glide/load/engine/Resource;Ljava/lang/Object;)V
-    .locals 7
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -892,7 +892,7 @@
     .line 522
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestListener:Lcom/bumptech/glide/request/RequestListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1e
 
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestListener:Lcom/bumptech/glide/request/RequestListener;
 
@@ -910,10 +910,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2b
 
     .line 524
-    :cond_0
+    :cond_1e
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->animationFactory:Lcom/bumptech/glide/request/animation/GlideAnimationFactory;
 
     iget-boolean v1, p0, Lcom/bumptech/glide/request/GenericRequest;->loadedFromMemoryCache:Z
@@ -928,7 +928,7 @@
     invoke-interface {v1, p2, v0}, Lcom/bumptech/glide/request/target/Target;->onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
 
     .line 528
-    :cond_1
+    :cond_2b
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->notifyLoadSuccess()V
 
     const-string p2, "GenericRequest"
@@ -940,7 +940,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_6b
 
     .line 531
     new-instance p2, Ljava/lang/StringBuilder;
@@ -989,12 +989,12 @@
 
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->logV(Ljava/lang/String;)V
 
-    :cond_2
+    :cond_6b
     return-void
 .end method
 
 .method private releaseResource(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 1
+    .registers 3
 
     .line 341
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->engine:Lcom/bumptech/glide/load/engine/Engine;
@@ -1010,42 +1010,42 @@
 .end method
 
 .method private setErrorPlaceholder(Ljava/lang/Exception;)V
-    .locals 1
+    .registers 3
 
     .line 393
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->canNotifyStatusChanged()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-void
 
     .line 397
-    :cond_0
+    :cond_7
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->model:Ljava/lang/Object;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->getFallbackDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_11
+    if-nez v0, :cond_17
 
     .line 399
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->getErrorDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    :cond_2
-    if-nez v0, :cond_3
+    :cond_17
+    if-nez v0, :cond_1d
 
     .line 402
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->getPlaceholderDrawable()Landroid/graphics/drawable/Drawable;
@@ -1053,7 +1053,7 @@
     move-result-object v0
 
     .line 404
-    :cond_3
+    :cond_1d
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->target:Lcom/bumptech/glide/request/target/Target;
 
     invoke-interface {p0, p1, v0}, Lcom/bumptech/glide/request/target/Target;->onLoadFailed(Ljava/lang/Exception;Landroid/graphics/drawable/Drawable;)V
@@ -1064,7 +1064,7 @@
 
 # virtual methods
 .method public begin()V
-    .locals 3
+    .registers 4
 
     .line 262
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
@@ -1076,7 +1076,7 @@
     .line 263
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->model:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     const/4 v0, 0x0
 
@@ -1086,7 +1086,7 @@
     return-void
 
     .line 268
-    :cond_0
+    :cond_f
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->WAITING_FOR_SIZE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -1100,7 +1100,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 270
     iget v0, p0, Lcom/bumptech/glide/request/GenericRequest;->overrideWidth:I
@@ -1109,33 +1109,33 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/bumptech/glide/request/GenericRequest;->onSizeReady(II)V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 272
-    :cond_1
+    :cond_25
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->target:Lcom/bumptech/glide/request/target/Target;
 
     invoke-interface {v0, p0}, Lcom/bumptech/glide/request/target/Target;->getSize(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
 
     .line 275
-    :goto_0
+    :goto_2a
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->isComplete()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_45
 
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->isFailed()Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_45
 
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->canNotifyStatusChanged()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_45
 
     .line 276
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->target:Lcom/bumptech/glide/request/target/Target;
@@ -1146,7 +1146,7 @@
 
     invoke-interface {v0, v1}, Lcom/bumptech/glide/request/target/Target;->onLoadStarted(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_2
+    :cond_45
     const-string v0, "GenericRequest"
 
     const/4 v1, 0x2
@@ -1156,7 +1156,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_68
 
     .line 279
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1181,12 +1181,12 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->logV(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_68
     return-void
 .end method
 
 .method cancel()V
-    .locals 1
+    .registers 2
 
     .line 294
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->CANCELLED:Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -1196,7 +1196,7 @@
     .line 295
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->loadStatus:Lcom/bumptech/glide/load/engine/Engine$LoadStatus;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 296
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->loadStatus:Lcom/bumptech/glide/load/engine/Engine$LoadStatus;
@@ -1208,12 +1208,12 @@
     .line 297
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->loadStatus:Lcom/bumptech/glide/load/engine/Engine$LoadStatus;
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 313
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -1223,18 +1223,18 @@
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     return-void
 
     .line 317
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->cancel()V
 
     .line 319
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 320
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->resource:Lcom/bumptech/glide/load/engine/Resource;
@@ -1242,12 +1242,12 @@
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->releaseResource(Lcom/bumptech/glide/load/engine/Resource;)V
 
     .line 322
-    :cond_1
+    :cond_16
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->canNotifyStatusChanged()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_25
 
     .line 323
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->target:Lcom/bumptech/glide/request/target/Target;
@@ -1259,7 +1259,7 @@
     invoke-interface {v0, v1}, Lcom/bumptech/glide/request/target/Target;->onLoadCleared(Landroid/graphics/drawable/Drawable;)V
 
     .line 326
-    :cond_2
+    :cond_25
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -1268,101 +1268,101 @@
 .end method
 
 .method public isCancelled()Z
-    .locals 2
+    .registers 3
 
     .line 374
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->CANCELLED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_f
 
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->CLEARED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method public isComplete()Z
-    .locals 1
+    .registers 2
 
     .line 358
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->COMPLETE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isFailed()Z
-    .locals 1
+    .registers 2
 
     .line 382
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->FAILED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isPaused()Z
-    .locals 1
+    .registers 2
 
     .line 331
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->PAUSED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public isResourceSet()Z
-    .locals 0
+    .registers 1
 
     .line 366
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->isComplete()Z
@@ -1373,38 +1373,38 @@
 .end method
 
 .method public isRunning()Z
-    .locals 2
+    .registers 3
 
     .line 350
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->RUNNING:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_f
 
     iget-object p0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->WAITING_FOR_SIZE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_d
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_10
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_10
     return p0
 .end method
 
 .method public onException(Ljava/lang/Exception;)V
-    .locals 4
+    .registers 6
 
     const-string v0, "GenericRequest"
 
@@ -1415,7 +1415,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const-string v0, "GenericRequest"
 
@@ -1425,7 +1425,7 @@
     invoke-static {v0, v1, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 545
-    :cond_0
+    :cond_10
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->FAILED:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     iput-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -1433,7 +1433,7 @@
     .line 547
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestListener:Lcom/bumptech/glide/request/RequestListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_28
 
     iget-object v0, p0, Lcom/bumptech/glide/request/GenericRequest;->requestListener:Lcom/bumptech/glide/request/RequestListener;
 
@@ -1449,18 +1449,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_2b
 
     .line 548
-    :cond_1
+    :cond_28
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->setErrorPlaceholder(Ljava/lang/Exception;)V
 
-    :cond_2
+    :cond_2b
     return-void
 .end method
 
 .method public onResourceReady(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1469,7 +1469,7 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_23
 
     .line 482
     new-instance p1, Ljava/lang/Exception;
@@ -1501,12 +1501,12 @@
     return-void
 
     .line 487
-    :cond_0
+    :cond_23
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_48
 
     .line 488
     iget-object v1, p0, Lcom/bumptech/glide/request/GenericRequest;->transcodeClass:Ljava/lang/Class;
@@ -1519,17 +1519,17 @@
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_36
 
-    goto :goto_0
+    goto :goto_48
 
     .line 500
-    :cond_1
+    :cond_36
     invoke-direct {p0}, Lcom/bumptech/glide/request/GenericRequest;->canSetResource()Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_44
 
     .line 501
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->releaseResource(Lcom/bumptech/glide/load/engine/Resource;)V
@@ -1542,14 +1542,14 @@
     return-void
 
     .line 507
-    :cond_2
+    :cond_44
     invoke-direct {p0, p1, v0}, Lcom/bumptech/glide/request/GenericRequest;->onResourceReady(Lcom/bumptech/glide/load/engine/Resource;Ljava/lang/Object;)V
 
     return-void
 
     .line 489
-    :cond_3
-    :goto_0
+    :cond_48
+    :goto_48
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/GenericRequest;->releaseResource(Lcom/bumptech/glide/load/engine/Resource;)V
 
     .line 490
@@ -1571,18 +1571,18 @@
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_68
 
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v3
 
-    goto :goto_1
+    goto :goto_6a
 
-    :cond_4
+    :cond_68
     const-string v3, ""
 
-    :goto_1
+    :goto_6a
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     const-string v3, "{"
@@ -1605,16 +1605,16 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8c
 
     const-string p1, ""
 
-    goto :goto_2
+    goto :goto_8e
 
-    :cond_5
+    :cond_8c
     const-string p1, " To indicate failure return a null Resource object, rather than a Resource object containing null data."
 
-    :goto_2
+    :goto_8e
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -1629,7 +1629,7 @@
 .end method
 
 .method public onSizeReady(II)V
-    .locals 15
+    .registers 18
 
     move-object v12, p0
 
@@ -1642,7 +1642,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     .line 427
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1668,17 +1668,17 @@
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->logV(Ljava/lang/String;)V
 
     .line 429
-    :cond_0
+    :cond_24
     iget-object v0, v12, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     sget-object v1, Lcom/bumptech/glide/request/GenericRequest$Status;->WAITING_FOR_SIZE:Lcom/bumptech/glide/request/GenericRequest$Status;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_2b
 
     return-void
 
     .line 432
-    :cond_1
+    :cond_2b
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->RUNNING:Lcom/bumptech/glide/request/GenericRequest$Status;
 
     iput-object v0, v12, Lcom/bumptech/glide/request/GenericRequest;->status:Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -1723,7 +1723,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_2
+    if-nez v4, :cond_72
 
     .line 441
     new-instance v0, Ljava/lang/Exception;
@@ -1755,7 +1755,7 @@
     return-void
 
     .line 444
-    :cond_2
+    :cond_72
     iget-object v0, v12, Lcom/bumptech/glide/request/GenericRequest;->loadProvider:Lcom/bumptech/glide/provider/LoadProvider;
 
     invoke-interface {v0}, Lcom/bumptech/glide/provider/LoadProvider;->getTranscoder()Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
@@ -1769,7 +1769,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_9a
 
     .line 446
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1794,7 +1794,7 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->logV(Ljava/lang/String;)V
 
-    :cond_3
+    :cond_9a
     const/4 v14, 0x1
 
     .line 448
@@ -1826,14 +1826,14 @@
     .line 451
     iget-object v0, v12, Lcom/bumptech/glide/request/GenericRequest;->resource:Lcom/bumptech/glide/load/engine/Resource;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_b7
 
-    goto :goto_0
+    goto :goto_b8
 
-    :cond_4
+    :cond_b7
     const/4 v14, 0x0
 
-    :goto_0
+    :goto_b8
     iput-boolean v14, v12, Lcom/bumptech/glide/request/GenericRequest;->loadedFromMemoryCache:Z
 
     const-string v0, "GenericRequest"
@@ -1843,7 +1843,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_dc
 
     .line 453
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1868,12 +1868,12 @@
 
     invoke-direct {p0, v0}, Lcom/bumptech/glide/request/GenericRequest;->logV(Ljava/lang/String;)V
 
-    :cond_5
+    :cond_dc
     return-void
 .end method
 
 .method public pause()V
-    .locals 1
+    .registers 2
 
     .line 336
     invoke-virtual {p0}, Lcom/bumptech/glide/request/GenericRequest;->clear()V
@@ -1887,7 +1887,7 @@
 .end method
 
 .method public recycle()V
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 

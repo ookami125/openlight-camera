@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/app/Application;)V
-    .locals 1
+    .registers 3
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 .end method
 
 .method public static get()Lopenlight/co/lib/utils/LifecycleLogger;
-    .locals 1
+    .registers 1
 
     .line 20
     sget-object v0, Lopenlight/co/lib/utils/LifecycleLogger;->sInstance:Lopenlight/co/lib/utils/LifecycleLogger;
@@ -47,7 +47,7 @@
 .end method
 
 .method public static init(Landroid/app/Application;)V
-    .locals 1
+    .registers 2
 
     .line 51
     new-instance v0, Lopenlight/co/lib/utils/LifecycleLogger;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public log(Landroid/app/Activity;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 38
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -75,7 +75,7 @@
 .end method
 
 .method public log(Landroid/app/Fragment;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 29
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -88,7 +88,7 @@
 .end method
 
 .method public log(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 47
     iget-object p0, p0, Lopenlight/co/lib/utils/LifecycleLogger;->mUtils:Lopenlight/co/lib/utils/Utils;

@@ -19,7 +19,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 30
     invoke-static {}, Lopenlight/co/lib/utils/FeatureManager;->get()Lopenlight/co/lib/utils/FeatureManager;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Lopenlight/co/camera/BaseActivity;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method private addFragment()V
-    .locals 2
+    .registers 3
 
     .line 147
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -91,7 +91,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1f
 
     .line 150
     new-instance v0, Lopenlight/co/camera/VideoFragment;
@@ -103,16 +103,16 @@
 
     invoke-virtual {v0, v1}, Lopenlight/co/camera/VideoFragment;->setMutePreviewStatusListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 154
-    :cond_0
+    :cond_1f
     new-instance v0, Lopenlight/co/camera/ImagePreviewFragment;
 
     invoke-direct {v0}, Lopenlight/co/camera/ImagePreviewFragment;-><init>()V
 
     .line 157
-    :goto_0
+    :goto_24
     invoke-virtual {p0}, Lopenlight/co/camera/CameraActivity;->getFragmentManager()Landroid/app/FragmentManager;
 
     move-result-object p0
@@ -133,7 +133,7 @@
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/camera/CameraActivity;Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     const-string p1, "device_microphone_setting"
 
@@ -148,7 +148,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 2
+    .registers 3
 
     .line 110
     invoke-virtual {p0}, Lopenlight/co/camera/CameraActivity;->getFragmentManager()Landroid/app/FragmentManager;
@@ -162,7 +162,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 114
     invoke-virtual {p0}, Lopenlight/co/camera/CameraActivity;->getFragmentManager()Landroid/app/FragmentManager;
@@ -179,12 +179,12 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentTransaction;->commit()I
 
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public launchSettingsActivity(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     .line 89
     new-instance v0, Landroid/content/Intent;
@@ -193,15 +193,15 @@
 
     invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     const-string v1, "settings_index"
 
     .line 91
     invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_e
+    if-eqz p2, :cond_15
 
     const-string p1, "settings_scroll_to_index_key"
 
@@ -209,14 +209,14 @@
     invoke-virtual {v0, p1, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     .line 96
-    :cond_1
+    :cond_15
     invoke-virtual {p0, v0}, Lopenlight/co/camera/CameraActivity;->startActivity(Landroid/content/Intent;)V
 
     return-void
 .end method
 
 .method public onBackPressed()V
-    .locals 2
+    .registers 3
 
     .line 139
     invoke-static {}, Lopenlight/co/lib/utils/LifecycleLogger;->get()Lopenlight/co/lib/utils/LifecycleLogger;
@@ -231,7 +231,7 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+    .registers 2
 
     .line 101
     invoke-super {p0, p1}, Lopenlight/co/camera/BaseActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -245,7 +245,7 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 47
     invoke-super {p0, p1}, Lopenlight/co/camera/BaseActivity;->onCreate(Landroid/os/Bundle;)V
@@ -271,13 +271,13 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/CameraActivity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1e
 
     .line 54
     invoke-direct {p0}, Lopenlight/co/camera/CameraActivity;->addFragment()V
 
     .line 56
-    :cond_0
+    :cond_1e
     new-instance p1, Lopenlight/co/camera/CameraActivity$1;
 
     invoke-direct {p1, p0, p0}, Lopenlight/co/camera/CameraActivity$1;-><init>(Lopenlight/co/camera/CameraActivity;Landroid/content/Context;)V
@@ -288,7 +288,7 @@
 .end method
 
 .method protected onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 132
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onDestroy()V
@@ -302,7 +302,7 @@
 .end method
 
 .method public onPause()V
-    .locals 0
+    .registers 1
 
     .line 120
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onPause()V
@@ -316,7 +316,7 @@
 .end method
 
 .method public onResume()V
-    .locals 0
+    .registers 1
 
     .line 72
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onResume()V
@@ -337,7 +337,7 @@
 .end method
 
 .method protected onStart()V
-    .locals 1
+    .registers 2
 
     .line 66
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onStart()V
@@ -351,7 +351,7 @@
 .end method
 
 .method protected onStop()V
-    .locals 1
+    .registers 2
 
     .line 126
     invoke-super {p0}, Lopenlight/co/camera/BaseActivity;->onStop()V

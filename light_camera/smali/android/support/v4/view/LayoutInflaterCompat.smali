@@ -25,14 +25,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 140
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 141
     new-instance v0, Landroid/support/v4/view/LayoutInflaterCompat$LayoutInflaterCompatApi21Impl;
@@ -41,22 +41,22 @@
 
     sput-object v0, Landroid/support/v4/view/LayoutInflaterCompat;->IMPL:Landroid/support/v4/view/LayoutInflaterCompat$LayoutInflaterCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 143
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/v4/view/LayoutInflaterCompat$LayoutInflaterCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/view/LayoutInflaterCompat$LayoutInflaterCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/LayoutInflaterCompat;->IMPL:Landroid/support/v4/view/LayoutInflaterCompat$LayoutInflaterCompatBaseImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 150
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -65,17 +65,17 @@
 .end method
 
 .method static forceSetFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
-    .locals 5
+    .registers 7
 
     .line 71
     sget-boolean v0, Landroid/support/v4/view/LayoutInflaterCompat;->sCheckedField:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_39
 
     const/4 v0, 0x1
 
     .line 73
-    :try_start_0
+    :try_start_5
     const-class v1, Landroid/view/LayoutInflater;
 
     const-string v2, "mFactory2"
@@ -90,12 +90,12 @@
     sget-object v1, Landroid/support/v4/view/LayoutInflaterCompat;->sLayoutInflaterFactory2Field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_5 .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_37
 
-    :catch_0
+    :catch_15
     move-exception v1
 
     const-string v2, "LayoutInflaterCompatHC"
@@ -130,26 +130,26 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 80
-    :goto_0
+    :goto_37
     sput-boolean v0, Landroid/support/v4/view/LayoutInflaterCompat;->sCheckedField:Z
 
     .line 82
-    :cond_0
+    :cond_39
     sget-object v0, Landroid/support/v4/view/LayoutInflaterCompat;->sLayoutInflaterFactory2Field:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5f
 
     .line 84
-    :try_start_1
+    :try_start_3d
     sget-object v0, Landroid/support/v4/view/LayoutInflaterCompat;->sLayoutInflaterFactory2Field:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0, p1}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_42
+    .catch Ljava/lang/IllegalAccessException; {:try_start_3d .. :try_end_42} :catch_43
 
-    goto :goto_1
+    goto :goto_5f
 
-    :catch_1
+    :catch_43
     move-exception p1
 
     const-string v0, "LayoutInflaterCompatHC"
@@ -175,13 +175,13 @@
 
     invoke-static {v0, p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_1
-    :goto_1
+    :cond_5f
+    :goto_5f
     return-void
 .end method
 
 .method public static getFactory(Landroid/view/LayoutInflater;)Landroid/support/v4/view/LayoutInflaterFactory;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -196,7 +196,7 @@
 .end method
 
 .method public static setFactory(Landroid/view/LayoutInflater;Landroid/support/v4/view/LayoutInflaterFactory;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/LayoutInflater;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -217,7 +217,7 @@
 .end method
 
 .method public static setFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/LayoutInflater;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

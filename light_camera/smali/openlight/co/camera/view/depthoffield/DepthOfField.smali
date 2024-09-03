@@ -91,13 +91,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -108,7 +108,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 137
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -231,7 +231,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/depthoffield/DepthOfField;)Z
-    .locals 0
+    .registers 1
 
     .line 30
     iget-boolean p0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mIsScrolling:Z
@@ -240,7 +240,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/view/depthoffield/DepthOfField;Z)Z
-    .locals 0
+    .registers 2
 
     .line 30
     iput-boolean p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mIsScrolling:Z
@@ -249,7 +249,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/depthoffield/DepthOfField;F)F
-    .locals 0
+    .registers 2
 
     .line 30
     iput p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mHoffset:F
@@ -258,7 +258,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/depthoffield/DepthOfField;)F
-    .locals 0
+    .registers 1
 
     .line 30
     iget p0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCalRadius:F
@@ -267,7 +267,7 @@
 .end method
 
 .method static synthetic access$302(Lopenlight/co/camera/view/depthoffield/DepthOfField;F)F
-    .locals 0
+    .registers 2
 
     .line 30
     iput p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTitleOffset:F
@@ -276,7 +276,7 @@
 .end method
 
 .method private calBitmapPos()V
-    .locals 3
+    .registers 4
 
     .line 201
     iget v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTappedX:F
@@ -325,7 +325,7 @@
 .end method
 
 .method private calDofCircle()V
-    .locals 2
+    .registers 3
 
     const/16 v0, 0x7f
 
@@ -348,26 +348,26 @@
 
     cmpg-float v0, v0, v1
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_15
 
     .line 213
     iput v1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCalRadius:F
 
     .line 215
-    :cond_0
+    :cond_15
     iget v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCalRadius:F
 
     const/high16 v1, 0x438c0000    # 280.0f
 
     cmpl-float v0, v0, v1
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_1f
 
     .line 216
     iput v1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCalRadius:F
 
     .line 218
-    :cond_1
+    :cond_1f
     invoke-direct {p0}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->getLabel()V
 
     .line 219
@@ -377,7 +377,7 @@
 .end method
 
 .method private drawAnimatedArc()V
-    .locals 12
+    .registers 13
 
     .line 328
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mPaint:Landroid/graphics/Paint;
@@ -465,7 +465,7 @@
 .end method
 
 .method private drawAnimatedCircle()V
-    .locals 4
+    .registers 5
 
     .line 264
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mPaint:Landroid/graphics/Paint;
@@ -497,7 +497,7 @@
 .end method
 
 .method private drawCenter()V
-    .locals 4
+    .registers 5
 
     .line 251
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mPaint:Landroid/graphics/Paint;
@@ -523,7 +523,7 @@
 .end method
 
 .method private drawLabel()V
-    .locals 5
+    .registers 6
 
     .line 257
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTextPaint:Landroid/text/TextPaint;
@@ -587,7 +587,7 @@
 .end method
 
 .method private drawRestingText()V
-    .locals 6
+    .registers 7
 
     .line 292
     new-instance v2, Landroid/graphics/Path;
@@ -753,7 +753,7 @@
 .end method
 
 .method private drawText()V
-    .locals 6
+    .registers 7
 
     .line 269
     new-instance v2, Landroid/graphics/Path;
@@ -871,7 +871,7 @@
 .end method
 
 .method private drawTitle()V
-    .locals 6
+    .registers 7
 
     .line 281
     new-instance v2, Landroid/graphics/Path;
@@ -955,7 +955,7 @@
 .end method
 
 .method private getHOffset()V
-    .locals 1
+    .registers 2
 
     .line 308
     new-instance v0, Lopenlight/co/camera/view/depthoffield/DepthOfField$2;
@@ -969,7 +969,7 @@
 .end method
 
 .method private getLabel()V
-    .locals 2
+    .registers 3
 
     .line 223
     iget v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCalRadius:F
@@ -999,19 +999,19 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_19
 
     const/4 v0, 0x0
 
-    :cond_0
+    :cond_19
     const/16 v1, 0x9
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_1e
 
     move v0, v1
 
     .line 231
-    :cond_1
+    :cond_1e
     sget-object v1, Lopenlight/co/camera/utils/CamPrefsUtils;->DOF_F_VALUE:[F
 
     aget v0, v1, v0
@@ -1029,7 +1029,7 @@
 .end method
 
 .method private getTitleOffset()V
-    .locals 1
+    .registers 2
 
     .line 318
     new-instance v0, Lopenlight/co/camera/view/depthoffield/DepthOfField$3;
@@ -1043,7 +1043,7 @@
 .end method
 
 .method private init()V
-    .locals 4
+    .registers 5
 
     .line 142
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mPaint:Landroid/graphics/Paint;
@@ -1203,7 +1203,7 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 0
+    .registers 2
 
     .line 237
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -1220,21 +1220,21 @@
     .line 241
     iget-boolean p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mIsResting:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 242
     invoke-direct {p0}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->drawRestingText()V
 
-    goto :goto_0
+    goto :goto_19
 
     .line 244
-    :cond_0
+    :cond_13
     invoke-direct {p0}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->drawTitle()V
 
     .line 245
     invoke-direct {p0}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->drawText()V
 
-    :goto_0
+    :goto_19
     const/4 p1, 0x0
 
     .line 247
@@ -1244,7 +1244,7 @@
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 166
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public setCompleteDepthListener(Lopenlight/co/camera/view/depthoffield/DepthOfField$CompleteDepthListener;)V
-    .locals 0
+    .registers 2
 
     .line 336
     iput-object p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCompleteDepthListener:Lopenlight/co/camera/view/depthoffield/DepthOfField$CompleteDepthListener;
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public setScrollDistance(F)V
-    .locals 1
+    .registers 3
 
     .line 178
     iput p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mDistance:F
@@ -1315,7 +1315,7 @@
 .end method
 
 .method public setTappedPoint(FF)V
-    .locals 0
+    .registers 3
 
     .line 172
     iput p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTappedX:F
@@ -1330,7 +1330,7 @@
 .end method
 
 .method public touchUp()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -1358,7 +1358,7 @@
     .line 194
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTouchUpHandler:Landroid/os/Handler;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 195
     new-instance v0, Landroid/os/Handler;
@@ -1368,7 +1368,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTouchUpHandler:Landroid/os/Handler;
 
     .line 197
-    :cond_0
+    :cond_1e
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTouchUpHandler:Landroid/os/Handler;
 
     iget-object p0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField;->mInvalidateIfScrollRunnable:Ljava/lang/Runnable;

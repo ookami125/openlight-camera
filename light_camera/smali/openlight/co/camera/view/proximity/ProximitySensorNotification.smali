@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,17 +51,17 @@
 .end method
 
 .method private addViewToFragment(Landroid/view/ViewGroup;)V
-    .locals 4
+    .registers 6
 
     .line 44
     iget-boolean v0, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mIsFragmentAdded:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
     return-void
 
     .line 47
-    :cond_0
+    :cond_5
     iput-object p1, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mRootContainer:Landroid/view/ViewGroup;
 
     .line 48
@@ -218,7 +218,7 @@
 .end method
 
 .method private hideLensObstructionView()V
-    .locals 2
+    .registers 3
 
     .line 107
     iget-object v0, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mProximitySensorNotificationView:Landroid/view/View;
@@ -256,7 +256,7 @@
 .end method
 
 .method private updateLensBlockedViewOrientation(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 4
+    .registers 6
 
     .line 139
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -284,21 +284,21 @@
 
     const v2, 0x7f07013d
 
-    if-eq p1, v1, :cond_2
+    if-eq p1, v1, :cond_42
 
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->LANDSCAPE_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_1b
 
-    goto :goto_0
+    goto :goto_42
 
     .line 153
-    :cond_0
+    :cond_1b
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT:Lopenlight/co/camera/enums/OrientationConfig;
 
     const v3, 0x7f07013b
 
-    if-ne p1, v1, :cond_1
+    if-ne p1, v1, :cond_32
 
     .line 154
     iget-object v1, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mContext:Landroid/content/Context;
@@ -318,10 +318,10 @@
 
     iput v1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
-    goto :goto_1
+    goto :goto_54
 
     .line 157
-    :cond_1
+    :cond_32
     iget-object v1, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mContext:Landroid/content/Context;
 
     invoke-static {v1, v3}, Lopenlight/co/camera/utils/Util;->getDimen(Landroid/content/Context;I)I
@@ -339,11 +339,11 @@
 
     iput v1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    goto :goto_1
+    goto :goto_54
 
     .line 151
-    :cond_2
-    :goto_0
+    :cond_42
+    :goto_42
     iget-object v1, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mContext:Landroid/content/Context;
 
     const v3, 0x7f07013a
@@ -364,7 +364,7 @@
     iput v1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
     .line 160
-    :goto_1
+    :goto_54
     iget-object v1, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mLensBlockedView:Landroid/view/View;
 
     invoke-virtual {v1, v0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -386,12 +386,12 @@
 
 # virtual methods
 .method public closeAll()V
-    .locals 2
+    .registers 3
 
     .line 117
     iget-object v0, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mRootContainer:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     const/4 v0, 0x0
 
@@ -423,12 +423,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 134
     const-class p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;
@@ -441,7 +441,7 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 1
+    .registers 3
 
     .line 127
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->updateLensBlockedViewOrientation(Lopenlight/co/camera/enums/OrientationConfig;)V
@@ -463,7 +463,7 @@
 .end method
 
 .method public setBlockedLensNumbers(Ljava/util/List;Landroid/view/ViewGroup;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -495,8 +495,8 @@
 
     move v1, v0
 
-    :goto_0
-    if-ge v1, p2, :cond_0
+    :goto_11
+    if-ge v1, p2, :cond_41
 
     .line 86
     invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -509,62 +509,62 @@
 
     move-result v2
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_42
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 100
-    :pswitch_0
+    :pswitch_21
     iget-object v2, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mBlockedLens5:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 97
-    :pswitch_1
+    :pswitch_27
     iget-object v2, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mBlockedLens4:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 94
-    :pswitch_2
+    :pswitch_2d
     iget-object v2, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mBlockedLens3:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 91
-    :pswitch_3
+    :pswitch_33
     iget-object v2, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mBlockedLens2:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_3e
 
     .line 88
-    :pswitch_4
+    :pswitch_39
     iget-object v2, p0, Lopenlight/co/camera/view/proximity/ProximitySensorNotification;->mBlockedLens1:Landroid/widget/ImageView;
 
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    :goto_1
+    :goto_3e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_41
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_42
     .packed-switch 0x1
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_39
+        :pswitch_33
+        :pswitch_2d
+        :pswitch_27
+        :pswitch_21
     .end packed-switch
 .end method

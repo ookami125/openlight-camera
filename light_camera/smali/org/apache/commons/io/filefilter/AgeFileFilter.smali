@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(JZ)V
-    .locals 0
+    .registers 4
 
     .line 78
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Z)V
-    .locals 2
+    .registers 5
 
     .line 127
     invoke-virtual {p1}, Ljava/io/File;->lastModified()J
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Date;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/Date;Z)V
-    .locals 2
+    .registers 5
 
     .line 102
     invoke-virtual {p1}, Ljava/util/Date;->getTime()J
@@ -94,7 +94,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 2
+    .registers 4
 
     .line 145
     iget-wide v0, p0, Lorg/apache/commons/io/filefilter/AgeFileFilter;->cutoff:J
@@ -106,39 +106,39 @@
     .line 146
     iget-boolean p0, p0, Lorg/apache/commons/io/filefilter/AgeFileFilter;->acceptOlder:Z
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_f
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_e
 
     const/4 p1, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p1, 0x0
 
-    :cond_1
-    :goto_0
+    :cond_f
+    :goto_f
     return p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 156
     iget-boolean v0, p0, Lorg/apache/commons/io/filefilter/AgeFileFilter;->acceptOlder:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const-string v0, "<="
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const-string v0, ">"
 
     .line 157
-    :goto_0
+    :goto_9
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 38
     invoke-direct {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;-><init>(Landroid/content/Context;)V
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 0
+    .registers 5
 
     .line 43
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/support/design/internal/NavigationMenu;->addInternal(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;

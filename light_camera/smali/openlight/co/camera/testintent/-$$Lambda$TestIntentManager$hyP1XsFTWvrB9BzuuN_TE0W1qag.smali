@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/testintent/TestIntentManager;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final handleMessage(Landroid/os/Message;)Z
-    .locals 0
+    .registers 2
 
     iget-object p0, p0, Lopenlight/co/camera/testintent/-$$Lambda$TestIntentManager$hyP1XsFTWvrB9BzuuN_TE0W1qag;->f$0:Lopenlight/co/camera/testintent/TestIntentManager;
 

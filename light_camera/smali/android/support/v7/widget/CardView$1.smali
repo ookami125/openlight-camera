@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/CardView;)V
-    .locals 0
+    .registers 2
 
     .line 444
     iput-object p1, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public getCardBackground()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
 
     .line 482
     iget-object p0, p0, Landroid/support/v7/widget/CardView$1;->mCardBackground:Landroid/graphics/drawable/Drawable;
@@ -47,7 +47,7 @@
 .end method
 
 .method public getCardView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 487
     iget-object p0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
@@ -56,7 +56,7 @@
 .end method
 
 .method public getPreventCornerOverlap()Z
-    .locals 0
+    .registers 1
 
     .line 460
     iget-object p0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
@@ -69,7 +69,7 @@
 .end method
 
 .method public getUseCompatPadding()Z
-    .locals 0
+    .registers 1
 
     .line 455
     iget-object p0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
@@ -82,7 +82,7 @@
 .end method
 
 .method public setCardBackground(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 449
     iput-object p1, p0, Landroid/support/v7/widget/CardView$1;->mCardBackground:Landroid/graphics/drawable/Drawable;
@@ -96,39 +96,41 @@
 .end method
 
 .method public setMinWidthHeightInternal(II)V
-    .locals 1
+    .registers 4
 
     .line 472
     iget-object v0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
 
     iget v0, v0, Landroid/support/v7/widget/CardView;->mUserSetMinWidth:I
 
-    if-le p1, v0, :cond_0
+    if-le p1, v0, :cond_b
 
     .line 473
     iget-object v0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
 
+    # invokes: Landroid/widget/FrameLayout;->setMinimumWidth(I)V
     invoke-static {v0, p1}, Landroid/support/v7/widget/CardView;->access$101(Landroid/support/v7/widget/CardView;I)V
 
     .line 475
-    :cond_0
+    :cond_b
     iget-object p1, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
 
     iget p1, p1, Landroid/support/v7/widget/CardView;->mUserSetMinHeight:I
 
-    if-le p2, p1, :cond_1
+    if-le p2, p1, :cond_16
 
     .line 476
     iget-object p0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
 
+    # invokes: Landroid/widget/FrameLayout;->setMinimumHeight(I)V
     invoke-static {p0, p2}, Landroid/support/v7/widget/CardView;->access$201(Landroid/support/v7/widget/CardView;I)V
 
-    :cond_1
+    :cond_16
     return-void
 .end method
 
 .method public setShadowPadding(IIII)V
-    .locals 2
+    .registers 7
 
     .line 465
     iget-object v0, p0, Landroid/support/v7/widget/CardView$1;->this$0:Landroid/support/v7/widget/CardView;
@@ -172,6 +174,7 @@
 
     add-int/2addr p4, p0
 
+    # invokes: Landroid/widget/FrameLayout;->setPadding(IIII)V
     invoke-static {v0, p1, p2, p3, p4}, Landroid/support/v7/widget/CardView;->access$001(Landroid/support/v7/widget/CardView;IIII)V
 
     return-void

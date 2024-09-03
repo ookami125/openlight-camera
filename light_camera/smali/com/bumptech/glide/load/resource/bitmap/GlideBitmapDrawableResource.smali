@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawable;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 0
+    .registers 3
 
     .line 14
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/drawable/DrawableResource;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public getSize()I
-    .locals 0
+    .registers 1
 
     .line 20
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawableResource;->drawable:Landroid/graphics/drawable/Drawable;
@@ -52,7 +52,7 @@
 .end method
 
 .method public recycle()V
-    .locals 1
+    .registers 2
 
     .line 25
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/bitmap/GlideBitmapDrawableResource;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;

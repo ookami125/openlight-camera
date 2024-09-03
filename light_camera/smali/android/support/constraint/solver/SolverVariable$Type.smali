@@ -38,7 +38,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 60
     new-instance v0, Landroid/support/constraint/solver/SolverVariable$Type;
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -140,7 +140,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/SolverVariable$Type;
-    .locals 1
+    .registers 2
 
     .line 56
     const-class v0, Landroid/support/constraint/solver/SolverVariable$Type;
@@ -155,7 +155,7 @@
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/SolverVariable$Type;
-    .locals 1
+    .registers 1
 
     .line 56
     sget-object v0, Landroid/support/constraint/solver/SolverVariable$Type;->$VALUES:[Landroid/support/constraint/solver/SolverVariable$Type;

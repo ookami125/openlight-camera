@@ -56,7 +56,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 787
     new-instance v0, Lltpb/ViewPreferences$AspectRatio;
@@ -106,7 +106,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -123,37 +123,37 @@
 .end method
 
 .method public static fromValue(I)Lltpb/ViewPreferences$AspectRatio;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_c
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 805
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/ViewPreferences$AspectRatio;->ASPECT_RATIO_16_9:Lltpb/ViewPreferences$AspectRatio;
 
     return-object p0
 
     .line 804
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/ViewPreferences$AspectRatio;->ASPECT_RATIO_4_3:Lltpb/ViewPreferences$AspectRatio;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/ViewPreferences$AspectRatio;
-    .locals 1
+    .registers 2
 
     .line 786
     const-class v0, Lltpb/ViewPreferences$AspectRatio;
@@ -168,7 +168,7 @@
 .end method
 
 .method public static values()[Lltpb/ViewPreferences$AspectRatio;
-    .locals 1
+    .registers 1
 
     .line 786
     sget-object v0, Lltpb/ViewPreferences$AspectRatio;->$VALUES:[Lltpb/ViewPreferences$AspectRatio;
@@ -185,7 +185,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 812
     iget p0, p0, Lltpb/ViewPreferences$AspectRatio;->value:I

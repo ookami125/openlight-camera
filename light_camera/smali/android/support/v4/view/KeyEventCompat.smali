@@ -10,7 +10,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 121
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public static dispatch(Landroid/view/KeyEvent;Landroid/view/KeyEvent$Callback;Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public static getKeyDispatcherState(Landroid/view/View;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -47,7 +47,7 @@
 .end method
 
 .method public static hasModifiers(Landroid/view/KeyEvent;I)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public static hasNoModifiers(Landroid/view/KeyEvent;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public static isCtrlPressed(Landroid/view/KeyEvent;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -86,7 +86,7 @@
 .end method
 
 .method public static isTracking(Landroid/view/KeyEvent;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -99,7 +99,7 @@
 .end method
 
 .method public static metaStateHasModifiers(II)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public static metaStateHasNoModifiers(I)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -125,7 +125,7 @@
 .end method
 
 .method public static normalizeMetaState(I)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -138,7 +138,7 @@
 .end method
 
 .method public static startTracking(Landroid/view/KeyEvent;)V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

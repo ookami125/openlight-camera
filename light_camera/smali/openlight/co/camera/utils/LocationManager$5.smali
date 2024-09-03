@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/LocationManager;)V
-    .locals 0
+    .registers 2
 
     .line 246
     iput-object p1, p0, Lopenlight/co/camera/utils/LocationManager$5;->this$0:Lopenlight/co/camera/utils/LocationManager;
@@ -36,17 +36,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 250
     iget-object v0, p0, Lopenlight/co/camera/utils/LocationManager$5;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->mLocationManager:Landroid/location/LocationManager;
     invoke-static {v0}, Lopenlight/co/camera/utils/LocationManager;->access$1000(Lopenlight/co/camera/utils/LocationManager;)Landroid/location/LocationManager;
 
     move-result-object v0
 
     iget-object p0, p0, Lopenlight/co/camera/utils/LocationManager$5;->this$0:Lopenlight/co/camera/utils/LocationManager;
 
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->mNmeaListener:Landroid/location/GpsStatus$NmeaListener;
     invoke-static {p0}, Lopenlight/co/camera/utils/LocationManager;->access$900(Lopenlight/co/camera/utils/LocationManager;)Landroid/location/GpsStatus$NmeaListener;
 
     move-result-object p0

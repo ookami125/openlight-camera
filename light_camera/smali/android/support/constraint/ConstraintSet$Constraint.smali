@@ -144,7 +144,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 4
+    .registers 5
 
     .line 328
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -341,7 +341,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/constraint/ConstraintSet$1;)V
-    .locals 0
+    .registers 2
 
     .line 328
     invoke-direct {p0}, Landroid/support/constraint/ConstraintSet$Constraint;-><init>()V
@@ -350,7 +350,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/constraint/ConstraintSet$Constraint;ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
-    .locals 0
+    .registers 3
 
     .line 328
     invoke-direct {p0, p1, p2}, Landroid/support/constraint/ConstraintSet$Constraint;->fillFrom(ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
@@ -359,7 +359,7 @@
 .end method
 
 .method private fillFrom(ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
-    .locals 1
+    .registers 4
 
     .line 470
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->mViewId:I
@@ -559,7 +559,7 @@
 
     const/16 v0, 0x11
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_ac
 
     .line 512
     invoke-virtual {p2}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->getMarginEnd()I
@@ -575,14 +575,14 @@
 
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->startMargin:I
 
-    :cond_0
+    :cond_ac
     return-void
 .end method
 
 
 # virtual methods
 .method public applyTo(Landroid/support/constraint/ConstraintLayout$LayoutParams;)V
-    .locals 2
+    .registers 4
 
     .line 518
     iget v0, p0, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
@@ -789,7 +789,7 @@
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b0
 
     .line 565
     iget v0, p0, Landroid/support/constraint/ConstraintSet$Constraint;->startMargin:I
@@ -802,14 +802,14 @@
     invoke-virtual {p1, p0}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->setMarginEnd(I)V
 
     .line 569
-    :cond_0
+    :cond_b0
     invoke-virtual {p1}, Landroid/support/constraint/ConstraintLayout$LayoutParams;->validate()V
 
     return-void
 .end method
 
 .method public clone()Landroid/support/constraint/ConstraintSet$Constraint;
-    .locals 2
+    .registers 3
 
     .line 399
     new-instance v0, Landroid/support/constraint/ConstraintSet$Constraint;
@@ -1145,7 +1145,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;

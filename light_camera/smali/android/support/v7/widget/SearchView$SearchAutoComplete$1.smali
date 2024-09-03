@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SearchView$SearchAutoComplete;)V
-    .locals 0
+    .registers 2
 
     .line 1828
     iput-object p1, p0, Landroid/support/v7/widget/SearchView$SearchAutoComplete$1;->this$0:Landroid/support/v7/widget/SearchView$SearchAutoComplete;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 1831
     iget-object p0, p0, Landroid/support/v7/widget/SearchView$SearchAutoComplete$1;->this$0:Landroid/support/v7/widget/SearchView$SearchAutoComplete;
 
+    # invokes: Landroid/support/v7/widget/SearchView$SearchAutoComplete;->showSoftInputIfNecessary()V
     invoke-static {p0}, Landroid/support/v7/widget/SearchView$SearchAutoComplete;->access$200(Landroid/support/v7/widget/SearchView$SearchAutoComplete;)V
 
     return-void

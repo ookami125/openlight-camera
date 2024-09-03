@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,20 +44,20 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public serialize(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const/16 v0, 0x7b
 
@@ -75,7 +75,7 @@
     return-void
 
     .line 37
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "writer"
@@ -86,7 +86,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

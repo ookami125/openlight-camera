@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method static synthetic access$000(Lnet/hockeyapp/android/PaintActivity;)V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Lnet/hockeyapp/android/PaintActivity;->makeResult()V
@@ -39,7 +39,7 @@
 .end method
 
 .method private determineFilename(Landroid/net/Uri;Ljava/lang/String;)Ljava/lang/String;
-    .locals 7
+    .registers 10
 
     const-string v0, "_data"
 
@@ -72,15 +72,15 @@
 
     const/4 p1, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2d
 
     .line 218
-    :try_start_0
+    :try_start_19
     invoke-interface {p0}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
     const/4 p1, 0x0
 
@@ -88,30 +88,30 @@
     invoke-interface {p0, p1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_19 .. :try_end_24} :catchall_28
 
     .line 222
-    :cond_0
+    :cond_24
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catchall_0
+    :catchall_28
     move-exception p1
 
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     throw p1
 
-    :cond_1
-    :goto_0
-    if-nez p1, :cond_2
+    :cond_2d
+    :goto_2d
+    if-nez p1, :cond_30
 
-    goto :goto_1
+    goto :goto_39
 
     .line 225
-    :cond_2
+    :cond_30
     new-instance p0, Ljava/io/File;
 
     invoke-direct {p0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
@@ -120,12 +120,12 @@
 
     move-result-object p2
 
-    :goto_1
+    :goto_39
     return-object p2
 .end method
 
 .method private makeResult()V
-    .locals 6
+    .registers 7
 
     .line 168
     new-instance v0, Ljava/io/File;
@@ -168,12 +168,12 @@
     move v3, v1
 
     .line 175
-    :goto_0
+    :goto_28
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_50
 
     .line 176
     new-instance v2, Ljava/io/File;
@@ -204,10 +204,10 @@
 
     add-int/2addr v3, v1
 
-    goto :goto_0
+    goto :goto_28
 
     .line 180
-    :cond_0
+    :cond_50
     iget-object v0, p0, Lnet/hockeyapp/android/PaintActivity;->mPaintView:Lnet/hockeyapp/android/views/PaintView;
 
     invoke-virtual {v0, v1}, Lnet/hockeyapp/android/views/PaintView;->setDrawingCacheEnabled(Z)V
@@ -255,15 +255,15 @@
 
     const/4 v2, -0x1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_81
 
     .line 202
     invoke-virtual {p0, v2, v0}, Lnet/hockeyapp/android/PaintActivity;->setResult(ILandroid/content/Intent;)V
 
-    goto :goto_1
+    goto :goto_88
 
     .line 204
-    :cond_1
+    :cond_81
     invoke-virtual {p0}, Lnet/hockeyapp/android/PaintActivity;->getParent()Landroid/app/Activity;
 
     move-result-object v1
@@ -271,7 +271,7 @@
     invoke-virtual {v1, v2, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
 
     .line 206
-    :goto_1
+    :goto_88
     invoke-virtual {p0}, Lnet/hockeyapp/android/PaintActivity;->finish()V
 
     return-void
@@ -280,7 +280,7 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .registers 8
 
     .line 45
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -294,7 +294,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_a0
 
     const-string v0, "imageUri"
 
@@ -303,11 +303,11 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
-    goto/16 :goto_1
+    goto/16 :goto_a0
 
-    :cond_0
+    :cond_17
     const-string v0, "imageUri"
 
     .line 54
@@ -354,17 +354,17 @@
 
     const/4 v3, 0x1
 
-    if-le v0, v1, :cond_1
+    if-le v0, v1, :cond_43
 
     move v4, v2
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_1
+    :cond_43
     move v4, v3
 
     .line 63
-    :goto_0
+    :goto_44
     invoke-virtual {p0}, Lnet/hockeyapp/android/PaintActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v5
@@ -376,7 +376,7 @@
     .line 65
     invoke-virtual {p0, v5}, Lnet/hockeyapp/android/PaintActivity;->setRequestedOrientation(I)V
 
-    if-eq v4, v5, :cond_2
+    if-eq v4, v5, :cond_57
 
     const-string p0, "Image loading skipped because activity will be destroyed for orientation change."
 
@@ -386,7 +386,7 @@
     return-void
 
     .line 74
-    :cond_2
+    :cond_57
     new-instance v4, Lnet/hockeyapp/android/views/PaintView;
 
     invoke-direct {v4, p0, p1, v0, v1}, Lnet/hockeyapp/android/views/PaintView;-><init>(Landroid/content/Context;Landroid/net/Uri;II)V
@@ -462,8 +462,8 @@
 
     return-void
 
-    :cond_3
-    :goto_1
+    :cond_a0
+    :goto_a0
     const-string p0, "Can\'t set up PaintActivity as image extra was not provided!"
 
     .line 50
@@ -473,7 +473,7 @@
 .end method
 
 .method public onCreateOptionsMenu(Landroid/view/Menu;)Z
-    .locals 4
+    .registers 6
 
     .line 98
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreateOptionsMenu(Landroid/view/Menu;)Z
@@ -517,11 +517,11 @@
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x4
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_32
 
     .line 134
     iget-object v0, p0, Lnet/hockeyapp/android/PaintActivity;->mPaintView:Lnet/hockeyapp/android/views/PaintView;
@@ -530,7 +530,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_32
 
     .line 135
     new-instance p1, Lnet/hockeyapp/android/PaintActivity$1;
@@ -578,7 +578,7 @@
     return p0
 
     .line 164
-    :cond_0
+    :cond_32
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result p0
@@ -587,7 +587,7 @@
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
-    .locals 2
+    .registers 4
 
     .line 115
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
@@ -596,7 +596,7 @@
 
     const/4 v1, 0x1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1e
 
     .line 128
     invoke-super {p0, p1}, Landroid/app/Activity;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
@@ -606,7 +606,7 @@
     return p0
 
     .line 125
-    :pswitch_0
+    :pswitch_d
     iget-object p0, p0, Lnet/hockeyapp/android/PaintActivity;->mPaintView:Lnet/hockeyapp/android/views/PaintView;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/PaintView;->clearImage()V
@@ -614,7 +614,7 @@
     return v1
 
     .line 121
-    :pswitch_1
+    :pswitch_13
     iget-object p0, p0, Lnet/hockeyapp/android/PaintActivity;->mPaintView:Lnet/hockeyapp/android/views/PaintView;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/views/PaintView;->undo()V
@@ -622,23 +622,23 @@
     return v1
 
     .line 117
-    :pswitch_2
+    :pswitch_19
     invoke-direct {p0}, Lnet/hockeyapp/android/PaintActivity;->makeResult()V
 
     return v1
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_19
+        :pswitch_13
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method public onPrepareOptionsMenu(Landroid/view/Menu;)Z
-    .locals 0
+    .registers 2
 
     .line 109
     invoke-super {p0, p1}, Landroid/app/Activity;->onPrepareOptionsMenu(Landroid/view/Menu;)Z

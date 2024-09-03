@@ -48,7 +48,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 4
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/v7/widget/TooltipCompatHandler;Z)V
-    .locals 0
+    .registers 2
 
     .line 39
     invoke-direct {p0, p1}, Landroid/support/v7/widget/TooltipCompatHandler;->show(Z)V
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$100(Landroid/support/v7/widget/TooltipCompatHandler;)V
-    .locals 0
+    .registers 1
 
     .line 39
     invoke-direct {p0}, Landroid/support/v7/widget/TooltipCompatHandler;->hide()V
@@ -105,12 +105,12 @@
 .end method
 
 .method private hide()V
-    .locals 2
+    .registers 3
 
     .line 173
     sget-object v0, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
 
-    if-ne v0, p0, :cond_1
+    if-ne v0, p0, :cond_1f
 
     const/4 v0, 0x0
 
@@ -120,7 +120,7 @@
     .line 175
     iget-object v1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mPopup:Landroid/support/v7/widget/TooltipPopup;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_18
 
     .line 176
     iget-object v1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mPopup:Landroid/support/v7/widget/TooltipPopup;
@@ -135,9 +135,9 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_18
     const-string v0, "TooltipCompatHandler"
 
     const-string v1, "sActiveHandler.mPopup == null"
@@ -146,8 +146,8 @@
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 183
-    :cond_1
-    :goto_0
+    :cond_1f
+    :goto_1f
     iget-object v0, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
 
     iget-object v1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mShowRunnable:Ljava/lang/Runnable;
@@ -165,32 +165,32 @@
 .end method
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
 
     .line 79
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 80
     sget-object p1, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     sget-object p1, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
 
     iget-object p1, p1, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_15
 
     .line 81
     sget-object p1, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
 
     invoke-direct {p1}, Landroid/support/v7/widget/TooltipCompatHandler;->hide()V
 
-    :cond_0
+    :cond_15
     const/4 p1, 0x0
 
     .line 83
@@ -204,20 +204,20 @@
     .line 85
     invoke-virtual {p0, p1}, Landroid/view/View;->setOnHoverListener(Landroid/view/View$OnHoverListener;)V
 
-    goto :goto_0
+    goto :goto_26
 
     .line 87
-    :cond_1
+    :cond_21
     new-instance v0, Landroid/support/v7/widget/TooltipCompatHandler;
 
     invoke-direct {v0, p0, p1}, Landroid/support/v7/widget/TooltipCompatHandler;-><init>(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_26
     return-void
 .end method
 
 .method private show(Z)V
-    .locals 7
+    .registers 9
 
     .line 145
     iget-object v0, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
@@ -226,15 +226,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-void
 
     .line 148
-    :cond_0
+    :cond_9
     sget-object v0, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 149
     sget-object v0, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
@@ -242,7 +242,7 @@
     invoke-direct {v0}, Landroid/support/v7/widget/TooltipCompatHandler;->hide()V
 
     .line 151
-    :cond_1
+    :cond_12
     sput-object p0, Landroid/support/v7/widget/TooltipCompatHandler;->sActiveHandler:Landroid/support/v7/widget/TooltipCompatHandler;
 
     .line 153
@@ -284,14 +284,14 @@
     .line 160
     iget-boolean p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mFromTouch:Z
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3e
 
     const-wide/16 v0, 0x9c4
 
-    goto :goto_0
+    goto :goto_59
 
     .line 162
-    :cond_2
+    :cond_3e
     iget-object p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
 
     invoke-static {p1}, Landroid/support/v4/view/ViewCompat;->getWindowSystemUiVisibility(Landroid/view/View;)I
@@ -302,7 +302,7 @@
 
     and-int/2addr p1, v0
 
-    if-ne p1, v0, :cond_3
+    if-ne p1, v0, :cond_51
 
     const-wide/16 v0, 0xbb8
 
@@ -315,9 +315,9 @@
 
     sub-long/2addr v0, v2
 
-    goto :goto_0
+    goto :goto_59
 
-    :cond_3
+    :cond_51
     const-wide/16 v0, 0x3a98
 
     .line 166
@@ -330,7 +330,7 @@
     sub-long/2addr v0, v2
 
     .line 168
-    :goto_0
+    :goto_59
     iget-object p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
 
     iget-object v2, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mHideRunnable:Ljava/lang/Runnable;
@@ -350,23 +350,23 @@
 
 # virtual methods
 .method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 3
+    .registers 6
 
     .line 109
     iget-object p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mPopup:Landroid/support/v7/widget/TooltipPopup;
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     iget-boolean p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mFromTouch:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     return v0
 
     .line 112
-    :cond_0
+    :cond_a
     iget-object p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
 
     .line 113
@@ -387,51 +387,51 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_25
 
     return v0
 
     .line 117
-    :cond_1
+    :cond_25
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result p1
 
     const/4 v1, 0x7
 
-    if-eq p1, v1, :cond_3
+    if-eq p1, v1, :cond_35
 
     const/16 p2, 0xa
 
-    if-eq p1, p2, :cond_2
+    if-eq p1, p2, :cond_31
 
-    goto :goto_0
+    goto :goto_62
 
     .line 127
-    :cond_2
+    :cond_31
     invoke-direct {p0}, Landroid/support/v7/widget/TooltipCompatHandler;->hide()V
 
-    goto :goto_0
+    goto :goto_62
 
     .line 119
-    :cond_3
+    :cond_35
     iget-object p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mAnchor:Landroid/view/View;
 
     invoke-virtual {p1}, Landroid/view/View;->isEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_62
 
     iget-object p1, p0, Landroid/support/v7/widget/TooltipCompatHandler;->mPopup:Landroid/support/v7/widget/TooltipPopup;
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_62
 
     .line 120
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
@@ -471,13 +471,13 @@
 
     invoke-virtual {p1, p0, v1, v2}, Landroid/view/View;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_4
-    :goto_0
+    :cond_62
+    :goto_62
     return v0
 .end method
 
 .method public onLongClick(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
 
     .line 101
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -506,13 +506,13 @@
 .end method
 
 .method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 141
     invoke-direct {p0}, Landroid/support/v7/widget/TooltipCompatHandler;->hide()V

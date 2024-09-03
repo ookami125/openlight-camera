@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TabLayout;)V
-    .locals 0
+    .registers 2
 
     .line 2185
     iput-object p1, p0, Landroid/support/design/widget/TabLayout$PagerAdapterObserver;->this$0:Landroid/support/design/widget/TabLayout;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 0
+    .registers 1
 
     .line 2190
     iget-object p0, p0, Landroid/support/design/widget/TabLayout$PagerAdapterObserver;->this$0:Landroid/support/design/widget/TabLayout;
@@ -44,7 +44,7 @@
 .end method
 
 .method public onInvalidated()V
-    .locals 0
+    .registers 1
 
     .line 2195
     iget-object p0, p0, Landroid/support/design/widget/TabLayout$PagerAdapterObserver;->this$0:Landroid/support/design/widget/TabLayout;

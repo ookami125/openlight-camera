@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 3
+    .registers 5
 
     .line 39
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -106,12 +106,12 @@
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/camera/view/assistance/AssistController;)V
-    .locals 1
+    .registers 2
 
     .line 26
     iget-object v0, p0, Lopenlight/co/camera/view/assistance/AssistController;->mHandShakeAssistView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/assistance/AssistController;->mHandShakeAssistView:Landroid/view/View;
@@ -120,12 +120,12 @@
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method private showAssistWarning(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 105
     check-cast p1, Lopenlight/co/camera/view/assistance/AssistScreen;
@@ -138,7 +138,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object p0, p0, Lopenlight/co/camera/view/assistance/AssistController;->mHandler:Landroid/os/Handler;
@@ -151,11 +151,11 @@
 .end method
 
 .method public show(ZLopenlight/co/camera/view/assistance/AssistController$AssistType;)V
-    .locals 2
+    .registers 5
 
     const/16 v0, 0x8
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_50
 
     .line 57
     sget-object p1, Lopenlight/co/camera/view/assistance/AssistController$1;->$SwitchMap$light$co$camera$view$assistance$AssistController$AssistType:[I
@@ -168,19 +168,19 @@
 
     const/4 p2, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_6e
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 72
-    :pswitch_0
+    :pswitch_11
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistController;->mTripodAssistView:Landroid/view/View;
 
     invoke-virtual {p1}, Landroid/view/View;->getVisibility()I
 
     move-result p1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_6d
 
     .line 74
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistController;->mHandShakeAssistView:Landroid/view/View;
@@ -192,10 +192,10 @@
 
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/assistance/AssistController;->showAssistWarning(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 63
-    :pswitch_1
+    :pswitch_24
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistController;->mTripodAssistView:Landroid/view/View;
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
@@ -217,7 +217,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_6d
 
     .line 67
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistController;->mHandler:Landroid/os/Handler;
@@ -228,10 +228,10 @@
 
     invoke-virtual {p1, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 59
-    :pswitch_2
+    :pswitch_45
     iget-object p1, p0, Lopenlight/co/camera/view/assistance/AssistController;->mLowLightAssistView:Landroid/view/View;
 
     invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
@@ -241,10 +241,10 @@
 
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/assistance/AssistController;->showAssistWarning(Landroid/view/View;)V
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 80
-    :cond_0
+    :cond_50
     sget-object p1, Lopenlight/co/camera/view/assistance/AssistController$1;->$SwitchMap$light$co$camera$view$assistance$AssistController$AssistType:[I
 
     invoke-virtual {p2}, Lopenlight/co/camera/view/assistance/AssistController$AssistType;->ordinal()I
@@ -253,47 +253,47 @@
 
     aget p1, p1, p2
 
-    packed-switch p1, :pswitch_data_1
+    packed-switch p1, :pswitch_data_78
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 88
-    :pswitch_3
+    :pswitch_5c
     iget-object p0, p0, Lopenlight/co/camera/view/assistance/AssistController;->mHandShakeAssistView:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 85
-    :pswitch_4
+    :pswitch_62
     iget-object p0, p0, Lopenlight/co/camera/view/assistance/AssistController;->mTripodAssistView:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_6d
 
     .line 82
-    :pswitch_5
+    :pswitch_68
     iget-object p0, p0, Lopenlight/co/camera/view/assistance/AssistController;->mLowLightAssistView:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_1
-    :goto_0
+    :cond_6d
+    :goto_6d
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_45
+        :pswitch_24
+        :pswitch_11
     .end packed-switch
 
-    :pswitch_data_1
+    :pswitch_data_78
     .packed-switch 0x1
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
+        :pswitch_68
+        :pswitch_62
+        :pswitch_5c
     .end packed-switch
 .end method

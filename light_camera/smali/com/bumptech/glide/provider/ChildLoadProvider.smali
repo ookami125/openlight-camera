@@ -86,7 +86,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/provider/LoadProvider;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -107,7 +107,7 @@
 
 # virtual methods
 .method public clone()Lcom/bumptech/glide/provider/ChildLoadProvider;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -123,12 +123,12 @@
     move-result-object p0
 
     check-cast p0, Lcom/bumptech/glide/provider/ChildLoadProvider;
-    :try_end_0
-    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/CloneNotSupportedException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object p0
 
-    :catch_0
+    :catch_7
     move-exception p0
 
     .line 151
@@ -140,7 +140,7 @@
 .end method
 
 .method public bridge synthetic clone()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/CloneNotSupportedException;
@@ -156,7 +156,7 @@
 .end method
 
 .method public getCacheDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -169,7 +169,7 @@
     .line 90
     iget-object v0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 91
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->cacheDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
@@ -177,7 +177,7 @@
     return-object p0
 
     .line 93
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->parent:Lcom/bumptech/glide/provider/LoadProvider;
 
     invoke-interface {p0}, Lcom/bumptech/glide/provider/LoadProvider;->getCacheDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
@@ -188,7 +188,7 @@
 .end method
 
 .method public getEncoder()Lcom/bumptech/glide/load/ResourceEncoder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -200,7 +200,7 @@
     .line 126
     iget-object v0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 127
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->encoder:Lcom/bumptech/glide/load/ResourceEncoder;
@@ -208,7 +208,7 @@
     return-object p0
 
     .line 129
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->parent:Lcom/bumptech/glide/provider/LoadProvider;
 
     invoke-interface {p0}, Lcom/bumptech/glide/provider/LoadProvider;->getEncoder()Lcom/bumptech/glide/load/ResourceEncoder;
@@ -219,7 +219,7 @@
 .end method
 
 .method public getModelLoader()Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -239,7 +239,7 @@
 .end method
 
 .method public getSourceDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -251,7 +251,7 @@
     .line 102
     iget-object v0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->sourceDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 103
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->sourceDecoder:Lcom/bumptech/glide/load/ResourceDecoder;
@@ -259,7 +259,7 @@
     return-object p0
 
     .line 105
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->parent:Lcom/bumptech/glide/provider/LoadProvider;
 
     invoke-interface {p0}, Lcom/bumptech/glide/provider/LoadProvider;->getSourceDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
@@ -270,7 +270,7 @@
 .end method
 
 .method public getSourceEncoder()Lcom/bumptech/glide/load/Encoder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -282,7 +282,7 @@
     .line 114
     iget-object v0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 115
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->sourceEncoder:Lcom/bumptech/glide/load/Encoder;
@@ -290,7 +290,7 @@
     return-object p0
 
     .line 117
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->parent:Lcom/bumptech/glide/provider/LoadProvider;
 
     invoke-interface {p0}, Lcom/bumptech/glide/provider/LoadProvider;->getSourceEncoder()Lcom/bumptech/glide/load/Encoder;
@@ -301,7 +301,7 @@
 .end method
 
 .method public getTranscoder()Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -313,7 +313,7 @@
     .line 138
     iget-object v0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 139
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->transcoder:Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
@@ -321,7 +321,7 @@
     return-object p0
 
     .line 141
-    :cond_0
+    :cond_7
     iget-object p0, p0, Lcom/bumptech/glide/provider/ChildLoadProvider;->parent:Lcom/bumptech/glide/provider/LoadProvider;
 
     invoke-interface {p0}, Lcom/bumptech/glide/provider/LoadProvider;->getTranscoder()Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;
@@ -332,7 +332,7 @@
 .end method
 
 .method public setCacheDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -349,7 +349,7 @@
 .end method
 
 .method public setEncoder(Lcom/bumptech/glide/load/ResourceEncoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -365,7 +365,7 @@
 .end method
 
 .method public setSourceDecoder(Lcom/bumptech/glide/load/ResourceDecoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -381,7 +381,7 @@
 .end method
 
 .method public setSourceEncoder(Lcom/bumptech/glide/load/Encoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -397,7 +397,7 @@
 .end method
 
 .method public setTranscoder(Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

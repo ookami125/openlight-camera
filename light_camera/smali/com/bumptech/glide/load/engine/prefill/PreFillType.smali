@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 11
     sget-object v0, Landroid/graphics/Bitmap$Config;->RGB_565:Landroid/graphics/Bitmap$Config;
@@ -38,12 +38,12 @@
 .end method
 
 .method constructor <init>(IILandroid/graphics/Bitmap$Config;I)V
-    .locals 0
+    .registers 5
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_e
 
     .line 34
     iput p1, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->width:I
@@ -60,7 +60,7 @@
     return-void
 
     .line 31
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Config must not be null"
@@ -73,14 +73,14 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 3
+    .registers 5
 
     .line 70
     instance-of v0, p1, Lcom/bumptech/glide/load/engine/prefill/PreFillType;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 71
     check-cast p1, Lcom/bumptech/glide/load/engine/prefill/PreFillType;
@@ -90,37 +90,37 @@
 
     iget v2, p1, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->height:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_20
 
     iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->width:I
 
     iget v2, p1, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->width:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_20
 
     iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->weight:I
 
     iget v2, p1, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->weight:I
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_20
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->config:Landroid/graphics/Bitmap$Config;
 
     iget-object p1, p1, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->config:Landroid/graphics/Bitmap$Config;
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_20
 
     const/4 v1, 0x1
 
-    :cond_0
+    :cond_20
     return v1
 
-    :cond_1
+    :cond_21
     return v1
 .end method
 
 .method getConfig()Landroid/graphics/Bitmap$Config;
-    .locals 0
+    .registers 1
 
     .line 58
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->config:Landroid/graphics/Bitmap$Config;
@@ -129,7 +129,7 @@
 .end method
 
 .method getHeight()I
-    .locals 0
+    .registers 1
 
     .line 51
     iget p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->height:I
@@ -138,7 +138,7 @@
 .end method
 
 .method getWeight()I
-    .locals 0
+    .registers 1
 
     .line 65
     iget p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->weight:I
@@ -147,7 +147,7 @@
 .end method
 
 .method getWidth()I
-    .locals 0
+    .registers 1
 
     .line 44
     iget p0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->width:I
@@ -156,7 +156,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 82
     iget v0, p0, Lcom/bumptech/glide/load/engine/prefill/PreFillType;->width:I
@@ -190,7 +190,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 91
     new-instance v0, Ljava/lang/StringBuilder;

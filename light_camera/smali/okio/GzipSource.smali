@@ -38,7 +38,7 @@
 
 # direct methods
 .method public constructor <init>(Lokio/Source;)V
-    .locals 2
+    .registers 4
 
     .line 60
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
     iput-object v0, p0, Lokio/GzipSource;->crc:Ljava/util/zip/CRC32;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     .line 62
     new-instance v0, Ljava/util/zip/Inflater;
@@ -87,7 +87,7 @@
     return-void
 
     .line 61
-    :cond_0
+    :cond_29
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "source == null"
@@ -98,19 +98,19 @@
 .end method
 
 .method private checkEqual(Ljava/lang/String;II)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-ne p3, p2, :cond_0
+    if-ne p3, p2, :cond_3
 
     return-void
 
     .line 205
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/io/IOException;
 
     const/4 v0, 0x3
@@ -151,7 +151,7 @@
 .end method
 
 .method private consumeHeader()V
-    .locals 17
+    .registers 18
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -188,17 +188,17 @@
 
     const/4 v9, 0x0
 
-    if-ne v0, v8, :cond_0
+    if-ne v0, v8, :cond_1e
 
     move v10, v8
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     move v10, v9
 
-    :goto_0
-    if-eqz v10, :cond_1
+    :goto_1f
+    if-eqz v10, :cond_30
 
     .line 117
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -216,7 +216,7 @@
     invoke-direct/range {v0 .. v5}, Lokio/GzipSource;->updateCrc(Lokio/Buffer;JJ)V
 
     .line 119
-    :cond_1
+    :cond_30
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
 
     invoke-interface {v0}, Lokio/BufferedSource;->readShort()S
@@ -241,7 +241,7 @@
 
     and-int/2addr v0, v8
 
-    if-ne v0, v8, :cond_4
+    if-ne v0, v8, :cond_86
 
     .line 128
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -250,7 +250,7 @@
 
     invoke-interface {v0, v1, v2}, Lokio/BufferedSource;->require(J)V
 
-    if-eqz v10, :cond_2
+    if-eqz v10, :cond_61
 
     .line 129
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -268,7 +268,7 @@
     invoke-direct/range {v0 .. v5}, Lokio/GzipSource;->updateCrc(Lokio/Buffer;JJ)V
 
     .line 130
-    :cond_2
+    :cond_61
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
 
     invoke-interface {v0}, Lokio/BufferedSource;->buffer()Lokio/Buffer;
@@ -286,7 +286,7 @@
 
     invoke-interface {v1, v11, v12}, Lokio/BufferedSource;->require(J)V
 
-    if-eqz v10, :cond_3
+    if-eqz v10, :cond_81
 
     .line 132
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -304,12 +304,12 @@
     invoke-direct/range {v0 .. v5}, Lokio/GzipSource;->updateCrc(Lokio/Buffer;JJ)V
 
     .line 133
-    :cond_3
+    :cond_81
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
 
     invoke-interface {v0, v11, v12}, Lokio/BufferedSource;->skip(J)V
 
-    :cond_4
+    :cond_86
     shr-int/lit8 v0, v7, 0x3
 
     and-int/2addr v0, v8
@@ -318,7 +318,7 @@
 
     const-wide/16 v13, 0x1
 
-    if-ne v0, v8, :cond_7
+    if-ne v0, v8, :cond_b8
 
     .line 141
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -329,9 +329,9 @@
 
     cmp-long v0, v15, v11
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_b2
 
-    if-eqz v10, :cond_5
+    if-eqz v10, :cond_aa
 
     .line 143
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -349,30 +349,30 @@
     invoke-direct/range {v0 .. v5}, Lokio/GzipSource;->updateCrc(Lokio/Buffer;JJ)V
 
     .line 144
-    :cond_5
+    :cond_aa
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
 
     add-long v1, v15, v13
 
     invoke-interface {v0, v1, v2}, Lokio/BufferedSource;->skip(J)V
 
-    goto :goto_1
+    goto :goto_b8
 
     .line 142
-    :cond_6
+    :cond_b2
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
 
     throw v0
 
-    :cond_7
-    :goto_1
+    :cond_b8
+    :goto_b8
     shr-int/lit8 v0, v7, 0x4
 
     and-int/2addr v0, v8
 
-    if-ne v0, v8, :cond_a
+    if-ne v0, v8, :cond_e5
 
     .line 152
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -383,9 +383,9 @@
 
     cmp-long v0, v7, v11
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_df
 
-    if-eqz v10, :cond_8
+    if-eqz v10, :cond_d8
 
     .line 154
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
@@ -403,26 +403,26 @@
     invoke-direct/range {v0 .. v5}, Lokio/GzipSource;->updateCrc(Lokio/Buffer;JJ)V
 
     .line 155
-    :cond_8
+    :cond_d8
     iget-object v0, v6, Lokio/GzipSource;->source:Lokio/BufferedSource;
 
     add-long/2addr v7, v13
 
     invoke-interface {v0, v7, v8}, Lokio/BufferedSource;->skip(J)V
 
-    goto :goto_2
+    goto :goto_e5
 
     .line 153
-    :cond_9
+    :cond_df
     new-instance v0, Ljava/io/EOFException;
 
     invoke-direct {v0}, Ljava/io/EOFException;-><init>()V
 
     throw v0
 
-    :cond_a
-    :goto_2
-    if-eqz v10, :cond_b
+    :cond_e5
+    :goto_e5
+    if-eqz v10, :cond_ff
 
     const-string v0, "FHCRC"
 
@@ -450,12 +450,12 @@
 
     invoke-virtual {v0}, Ljava/util/zip/CRC32;->reset()V
 
-    :cond_b
+    :cond_ff
     return-void
 .end method
 
 .method private consumeTrailer()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -504,13 +504,13 @@
 .end method
 
 .method private updateCrc(Lokio/Buffer;JJ)V
-    .locals 4
+    .registers 10
 
     .line 188
     iget-object p1, p1, Lokio/Buffer;->head:Lokio/Segment;
 
     .line 189
-    :goto_0
+    :goto_2
     iget v0, p1, Lokio/Segment;->limit:I
 
     iget v1, p1, Lokio/Segment;->pos:I
@@ -521,7 +521,7 @@
 
     cmp-long v0, p2, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_16
 
     .line 190
     iget v0, p1, Lokio/Segment;->limit:I
@@ -537,15 +537,15 @@
     .line 189
     iget-object p1, p1, Lokio/Segment;->next:Lokio/Segment;
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_0
+    :cond_16
     const-wide/16 v0, 0x0
 
-    :goto_1
+    :goto_18
     cmp-long v2, p4, v0
 
-    if-lez v2, :cond_1
+    if-lez v2, :cond_37
 
     .line 195
     iget v2, p1, Lokio/Segment;->pos:I
@@ -585,16 +585,16 @@
 
     move-wide p2, v0
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_37
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -610,7 +610,7 @@
 .end method
 
 .method public read(Lokio/Buffer;J)J
-    .locals 11
+    .registers 15
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -621,19 +621,19 @@
 
     cmp-long v2, p2, v0
 
-    if-ltz v2, :cond_6
+    if-ltz v2, :cond_4b
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_9
 
     return-wide v0
 
     .line 72
-    :cond_0
+    :cond_9
     iget v0, p0, Lokio/GzipSource;->section:I
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_13
 
     .line 73
     invoke-direct {p0}, Lokio/GzipSource;->consumeHeader()V
@@ -642,14 +642,14 @@
     iput v1, p0, Lokio/GzipSource;->section:I
 
     .line 78
-    :cond_1
+    :cond_13
     iget v0, p0, Lokio/GzipSource;->section:I
 
     const/4 v2, 0x2
 
     const-wide/16 v3, -0x1
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_2f
 
     .line 79
     iget-wide v7, p1, Lokio/Buffer;->size:J
@@ -663,7 +663,7 @@
 
     cmp-long v0, p2, v3
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2d
 
     move-object v5, p0
 
@@ -677,14 +677,14 @@
     return-wide p2
 
     .line 85
-    :cond_2
+    :cond_2d
     iput v2, p0, Lokio/GzipSource;->section:I
 
     .line 91
-    :cond_3
+    :cond_2f
     iget p1, p0, Lokio/GzipSource;->section:I
 
-    if-ne p1, v2, :cond_5
+    if-ne p1, v2, :cond_4a
 
     .line 92
     invoke-direct {p0}, Lokio/GzipSource;->consumeTrailer()V
@@ -701,12 +701,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_42
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 100
-    :cond_4
+    :cond_42
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "gzip finished without exhausting source"
@@ -715,12 +715,12 @@
 
     throw p0
 
-    :cond_5
-    :goto_0
+    :cond_4a
+    :goto_4a
     return-wide v3
 
     .line 68
-    :cond_6
+    :cond_4b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -743,7 +743,7 @@
 .end method
 
 .method public timeout()Lokio/Timeout;
-    .locals 0
+    .registers 1
 
     .line 178
     iget-object p0, p0, Lokio/GzipSource;->source:Lokio/BufferedSource;

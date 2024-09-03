@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;Landroid/os/Handler;)V
-    .locals 0
+    .registers 3
 
     .line 2159
     invoke-direct {p0, p2}, Landroid/os/ResultReceiver;-><init>(Landroid/os/Handler;)V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method protected onReceiveResult(ILandroid/os/Bundle;)V
-    .locals 0
+    .registers 3
 
     .line 2165
     iget-object p0, p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21$ExtraBinderRequestResultReceiver;->mMediaControllerImpl:Ljava/lang/ref/WeakReference;
@@ -57,13 +57,13 @@
 
     check-cast p0, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1e
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_d
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_d
     const-string p1, "android.support.v4.media.session.EXTRA_BINDER"
 
     .line 2170
@@ -76,14 +76,16 @@
 
     move-result-object p1
 
+    # setter for: Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->mExtraBinder:Landroid/support/v4/media/session/IMediaSession;
     invoke-static {p0, p1}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->access$202(Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;Landroid/support/v4/media/session/IMediaSession;)Landroid/support/v4/media/session/IMediaSession;
 
     .line 2171
+    # invokes: Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->processPendingCallbacks()V
     invoke-static {p0}, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->access$300(Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;)V
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_1e
+    :goto_1e
     return-void
 .end method

@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 3
+    .registers 5
 
     const-string v0, "activity"
 
@@ -65,7 +65,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/app/ActivityManager;Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator$ScreenDimensions;)V
-    .locals 3
+    .registers 7
 
     .line 41
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -97,7 +97,7 @@
 
     add-int v1, v0, p3
 
-    if-gt v1, p1, :cond_0
+    if-gt v1, p1, :cond_21
 
     .line 52
     iput v0, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->memoryCacheSize:I
@@ -105,9 +105,9 @@
     .line 53
     iput p3, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->bitmapPoolSize:I
 
-    goto :goto_0
+    goto :goto_31
 
-    :cond_0
+    :cond_21
     int-to-float p3, p1
 
     const/high16 v0, 0x40c00000    # 6.0f
@@ -129,7 +129,7 @@
     .line 57
     iput p3, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->bitmapPoolSize:I
 
-    :goto_0
+    :goto_31
     const-string p3, "MemorySizeCalculator"
 
     const/4 v0, 0x3
@@ -139,7 +139,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_95
 
     const-string p3, "MemorySizeCalculator"
 
@@ -176,16 +176,16 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-le v1, p1, :cond_1
+    if-le v1, p1, :cond_66
 
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_67
 
-    :cond_1
+    :cond_66
     const/4 v1, 0x0
 
-    :goto_1
+    :goto_67
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string v1, " max size: "
@@ -224,12 +224,12 @@
 
     invoke-static {p3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_2
+    :cond_95
     return-void
 .end method
 
 .method private static getMaxSize(Landroid/app/ActivityManager;)I
-    .locals 1
+    .registers 2
 
     .line 83
     invoke-virtual {p0}, Landroid/app/ActivityManager;->getMemoryClass()I
@@ -247,16 +247,16 @@
 
     int-to-float v0, v0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_13
 
     const p0, 0x3ea8f5c3    # 0.33f
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_13
     const p0, 0x3ecccccd    # 0.4f
 
-    :goto_0
+    :goto_16
     mul-float/2addr v0, p0
 
     .line 85
@@ -268,7 +268,7 @@
 .end method
 
 .method private static isLowMemoryDevice(Landroid/app/ActivityManager;)Z
-    .locals 2
+    .registers 3
     .annotation build Landroid/annotation/TargetApi;
         value = 0x13
     .end annotation
@@ -278,7 +278,7 @@
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 96
     invoke-virtual {p0}, Landroid/app/ActivityManager;->isLowRamDevice()Z
@@ -288,26 +288,26 @@
     return p0
 
     .line 98
-    :cond_0
+    :cond_b
     sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v0, 0xb
 
-    if-ge p0, v0, :cond_1
+    if-ge p0, v0, :cond_13
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_1
+    :cond_13
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_14
     return p0
 .end method
 
 .method private toMb(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 90
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->context:Landroid/content/Context;
@@ -324,7 +324,7 @@
 
 # virtual methods
 .method public getBitmapPoolSize()I
-    .locals 0
+    .registers 1
 
     .line 79
     iget p0, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->bitmapPoolSize:I
@@ -333,7 +333,7 @@
 .end method
 
 .method public getMemoryCacheSize()I
-    .locals 0
+    .registers 1
 
     .line 72
     iget p0, p0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->memoryCacheSize:I

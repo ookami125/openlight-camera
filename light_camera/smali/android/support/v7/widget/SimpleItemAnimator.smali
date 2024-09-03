@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 37
     invoke-direct {p0}, Landroid/support/v7/widget/RecyclerView$ItemAnimator;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public animateAppearance(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z
-    .locals 8
+    .registers 12
     .param p1    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -48,23 +48,23 @@
         .end annotation
     .end param
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1d
 
     .line 116
     iget v0, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
     iget v1, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_e
 
     iget v0, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
 
     iget v1, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_1d
 
     .line 122
-    :cond_0
+    :cond_e
     iget v4, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
     iget v5, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
@@ -84,7 +84,7 @@
     return p0
 
     .line 128
-    :cond_1
+    :cond_1d
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->animateAdd(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result p0
@@ -96,7 +96,7 @@
 .end method
 
 .method public animateChange(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z
-    .locals 7
+    .registers 12
     .param p1    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -125,7 +125,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 157
     iget p4, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
@@ -137,10 +137,10 @@
 
     move v5, p4
 
-    goto :goto_0
+    goto :goto_17
 
     .line 160
-    :cond_0
+    :cond_11
     iget p3, p4, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
     .line 161
@@ -150,7 +150,7 @@
 
     move v6, p4
 
-    :goto_0
+    :goto_17
     move-object v0, p0
 
     move-object v1, p1
@@ -166,7 +166,7 @@
 .end method
 
 .method public animateDisappearance(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z
-    .locals 6
+    .registers 10
     .param p1    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -189,55 +189,55 @@
     .line 94
     iget-object p2, p1, Landroid/support/v7/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_e
 
     .line 95
     invoke-virtual {p2}, Landroid/view/View;->getLeft()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     move v4, v0
 
-    goto :goto_1
+    goto :goto_11
 
-    :cond_0
+    :cond_e
     iget v0, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
-    goto :goto_0
+    goto :goto_c
 
-    :goto_1
-    if-nez p3, :cond_1
+    :goto_11
+    if-nez p3, :cond_19
 
     .line 96
     invoke-virtual {p2}, Landroid/view/View;->getTop()I
 
     move-result p3
 
-    :goto_2
+    :goto_17
     move v5, p3
 
-    goto :goto_3
+    goto :goto_1c
 
-    :cond_1
+    :cond_19
     iget p3, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
 
-    goto :goto_2
+    goto :goto_17
 
     .line 97
-    :goto_3
+    :goto_1c
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->isRemoved()Z
 
     move-result p3
 
-    if-nez p3, :cond_3
+    if-nez p3, :cond_3a
 
-    if-ne v2, v4, :cond_2
+    if-ne v2, v4, :cond_26
 
-    if-eq v3, v5, :cond_3
+    if-eq v3, v5, :cond_3a
 
     .line 99
-    :cond_2
+    :cond_26
     invoke-virtual {p2}, Landroid/view/View;->getWidth()I
 
     move-result p3
@@ -266,7 +266,7 @@
     return p0
 
     .line 109
-    :cond_3
+    :cond_3a
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->animateRemove(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
 
     move-result p0
@@ -278,7 +278,7 @@
 .end method
 
 .method public animatePersistence(Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;)Z
-    .locals 6
+    .registers 10
     .param p1    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -297,18 +297,18 @@
 
     iget v1, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_12
 
     iget v0, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
 
     iget v1, p3, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_12
 
     .line 143
-    :cond_0
+    :cond_d
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->dispatchMoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
 
     const/4 p0, 0x0
@@ -316,8 +316,8 @@
     return p0
 
     .line 140
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     iget v2, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->left:I
 
     iget v3, p2, Landroid/support/v7/widget/RecyclerView$ItemAnimator$ItemHolderInfo;->top:I
@@ -341,7 +341,7 @@
 .end method
 
 .method public canReuseUpdatedViewHolder(Landroid/support/v7/widget/RecyclerView$ViewHolder;)Z
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/v7/widget/RecyclerView$ViewHolder;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -350,31 +350,31 @@
     .line 86
     iget-boolean p0, p0, Landroid/support/v7/widget/SimpleItemAnimator;->mSupportsChangeAnimations:Z
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_d
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->isInvalid()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_e
     return p0
 .end method
 
 .method public final dispatchAddFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     .line 302
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->onAddFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -386,7 +386,7 @@
 .end method
 
 .method public final dispatchAddStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     .line 345
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->onAddStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -395,7 +395,7 @@
 .end method
 
 .method public final dispatchChangeFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)V
-    .locals 0
+    .registers 3
 
     .line 317
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/SimpleItemAnimator;->onChangeFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)V
@@ -407,7 +407,7 @@
 .end method
 
 .method public final dispatchChangeStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)V
-    .locals 0
+    .registers 3
 
     .line 358
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/SimpleItemAnimator;->onChangeStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)V
@@ -416,7 +416,7 @@
 .end method
 
 .method public final dispatchMoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     .line 292
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->onMoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -428,7 +428,7 @@
 .end method
 
 .method public final dispatchMoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     .line 336
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->onMoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -437,7 +437,7 @@
 .end method
 
 .method public final dispatchRemoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     .line 278
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->onRemoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -449,7 +449,7 @@
 .end method
 
 .method public final dispatchRemoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     .line 327
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/SimpleItemAnimator;->onRemoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
@@ -458,7 +458,7 @@
 .end method
 
 .method public getSupportsChangeAnimations()Z
-    .locals 0
+    .registers 1
 
     .line 52
     iget-boolean p0, p0, Landroid/support/v7/widget/SimpleItemAnimator;->mSupportsChangeAnimations:Z
@@ -467,55 +467,55 @@
 .end method
 
 .method public onAddFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onAddStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onChangeFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onChangeStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;Z)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onMoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onMoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onRemoveFinished(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onRemoveStarting(Landroid/support/v7/widget/RecyclerView$ViewHolder;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public setSupportsChangeAnimations(Z)V
-    .locals 0
+    .registers 2
 
     .line 73
     iput-boolean p1, p0, Landroid/support/v7/widget/SimpleItemAnimator;->mSupportsChangeAnimations:Z

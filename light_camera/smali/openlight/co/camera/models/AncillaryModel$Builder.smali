@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(ILjava/lang/String;)V
-    .locals 1
+    .registers 4
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/models/AncillaryModel$Builder;)Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 68
     iget-object p0, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mPreferencesKey:Ljava/lang/String;
@@ -59,7 +59,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/models/AncillaryModel$Builder;)I
-    .locals 0
+    .registers 1
 
     .line 68
     iget p0, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mItemResId:I
@@ -68,7 +68,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/models/AncillaryModel$Builder;)I
-    .locals 0
+    .registers 1
 
     .line 68
     iget p0, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mSelectedResId:I
@@ -77,7 +77,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/models/AncillaryModel$Builder;)I
-    .locals 0
+    .registers 1
 
     .line 68
     iget p0, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mConfirmationResId:I
@@ -86,7 +86,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/models/AncillaryModel$Builder;)Z
-    .locals 0
+    .registers 1
 
     .line 68
     iget-boolean p0, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mIsSelected:Z
@@ -95,7 +95,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/models/AncillaryModel$Builder;)Z
-    .locals 0
+    .registers 1
 
     .line 68
     iget-boolean p0, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mEnabled:Z
@@ -106,7 +106,7 @@
 
 # virtual methods
 .method public build()Lopenlight/co/camera/models/AncillaryModel;
-    .locals 2
+    .registers 3
 
     .line 105
     new-instance v0, Lopenlight/co/camera/models/AncillaryModel;
@@ -119,7 +119,7 @@
 .end method
 
 .method public confirmationResId(I)Lopenlight/co/camera/models/AncillaryModel$Builder;
-    .locals 0
+    .registers 2
 
     .line 95
     iput p1, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mConfirmationResId:I
@@ -128,7 +128,7 @@
 .end method
 
 .method public enabled(Z)Lopenlight/co/camera/models/AncillaryModel$Builder;
-    .locals 0
+    .registers 2
 
     .line 100
     iput-boolean p1, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mEnabled:Z
@@ -137,7 +137,7 @@
 .end method
 
 .method public isSelected(Z)Lopenlight/co/camera/models/AncillaryModel$Builder;
-    .locals 0
+    .registers 2
 
     .line 85
     iput-boolean p1, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mIsSelected:Z
@@ -146,7 +146,7 @@
 .end method
 
 .method public selectedResId(I)Lopenlight/co/camera/models/AncillaryModel$Builder;
-    .locals 0
+    .registers 2
 
     .line 90
     iput p1, p0, Lopenlight/co/camera/models/AncillaryModel$Builder;->mSelectedResId:I

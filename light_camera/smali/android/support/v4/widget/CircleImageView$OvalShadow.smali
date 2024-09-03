@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/CircleImageView;I)V
-    .locals 1
+    .registers 4
 
     .line 130
     iput-object p1, p0, Landroid/support/v4/widget/CircleImageView$OvalShadow;->this$0:Landroid/support/v4/widget/CircleImageView;
@@ -59,7 +59,7 @@
 .end method
 
 .method private updateRadialGradient(I)V
-    .locals 8
+    .registers 10
 
     .line 152
     new-instance v7, Landroid/graphics/RadialGradient;
@@ -78,7 +78,7 @@
 
     new-array v4, v0, [I
 
-    fill-array-data v4, :array_0
+    fill-array-data v4, :array_22
 
     sget-object v6, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -103,7 +103,7 @@
 
     nop
 
-    :array_0
+    :array_22
     .array-data 4
         0x3d000000    # 0.03125f
         0x0
@@ -113,7 +113,7 @@
 
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;Landroid/graphics/Paint;)V
-    .locals 4
+    .registers 7
 
     .line 145
     iget-object v0, p0, Landroid/support/v4/widget/CircleImageView$OvalShadow;->this$0:Landroid/support/v4/widget/CircleImageView;
@@ -157,7 +157,7 @@
 .end method
 
 .method protected onResize(FF)V
-    .locals 0
+    .registers 3
 
     .line 139
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/shapes/OvalShape;->onResize(FF)V

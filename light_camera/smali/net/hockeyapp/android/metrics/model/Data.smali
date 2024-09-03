@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Lnet/hockeyapp/android/metrics/model/Base;-><init>()V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 1
+    .registers 2
 
     const-string v0, "com.microsoft.telemetry.Data"
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public SetupAttributes()V
-    .locals 2
+    .registers 3
 
     .line 58
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Data;->Attributes:Ljava/util/LinkedHashMap;
@@ -73,7 +73,7 @@
 .end method
 
 .method public getBaseData()Lnet/hockeyapp/android/metrics/model/Domain;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TTDomain;"
@@ -87,7 +87,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -127,7 +127,7 @@
 .end method
 
 .method public setBaseData(Lnet/hockeyapp/android/metrics/model/Domain;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TTDomain;)V"

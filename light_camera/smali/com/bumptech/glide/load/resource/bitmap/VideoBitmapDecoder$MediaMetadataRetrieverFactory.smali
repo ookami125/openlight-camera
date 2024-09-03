@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public build()Landroid/media/MediaMetadataRetriever;
-    .locals 0
+    .registers 1
 
     .line 66
     new-instance p0, Landroid/media/MediaMetadataRetriever;

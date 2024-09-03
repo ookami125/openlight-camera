@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/hardware/camera2/CameraDevice;Landroid/hardware/camera2/CameraCaptureSession;Landroid/hardware/camera2/CameraCharacteristics;Landroid/content/Context;)V
-    .locals 0
+    .registers 5
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method private getCamcorder(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
 
     const-string p0, "4k"
 
@@ -81,13 +81,13 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     const/16 p0, 0x8
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_b
     const-string p0, "1080p"
 
     .line 168
@@ -95,16 +95,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_15
 
     const/4 p0, 0x6
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     const/4 p0, 0x5
 
-    :goto_0
+    :goto_16
     const-string p1, "Video"
 
     .line 172
@@ -128,7 +128,7 @@
 .end method
 
 .method private getHeightByVideoMode(Ljava/lang/String;)I
-    .locals 2
+    .registers 4
 
     const-string p0, "4k"
 
@@ -137,13 +137,13 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     const/16 p0, 0x870
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_b
     const-string p0, "1080p"
 
     .line 213
@@ -151,16 +151,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_16
 
     const/16 p0, 0x438
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_16
     const/16 p0, 0x2d0
 
-    :goto_0
+    :goto_18
     const-string p1, "Video"
 
     .line 217
@@ -184,7 +184,7 @@
 .end method
 
 .method private getVideoFilePath(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     .line 177
     invoke-static {}, Lopenlight/co/camera/utils/Util;->generateTimestamp()Ljava/lang/String;
@@ -208,21 +208,21 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1e
 
     .line 181
     invoke-virtual {v0}, Ljava/io/File;->mkdir()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     const-string p0, ""
 
     return-object p0
 
     .line 182
-    :cond_0
+    :cond_1e
     new-instance v0, Ljava/io/File;
 
     sget-object v1, Landroid/os/Environment;->DIRECTORY_DCIM:Ljava/lang/String;
@@ -263,7 +263,7 @@
 .end method
 
 .method private getVideoModeSupportSize([Landroid/util/Size;)Landroid/util/Size;
-    .locals 8
+    .registers 10
 
     .line 188
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -351,8 +351,8 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v4, v1, :cond_1
+    :goto_50
+    if-ge v4, v1, :cond_87
 
     aget-object v5, p1, v4
 
@@ -373,14 +373,14 @@
 
     cmpl-float v6, v6, v7
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_84
 
     .line 197
     invoke-virtual {v5}, Landroid/util/Size;->getHeight()I
 
     move-result v6
 
-    if-gt v6, v0, :cond_0
+    if-gt v6, v0, :cond_84
 
     const-string p0, "Video"
 
@@ -407,13 +407,13 @@
 
     return-object v5
 
-    :cond_0
+    :cond_84
     add-int/lit8 v4, v4, 0x1
 
-    goto :goto_0
+    goto :goto_50
 
     .line 202
-    :cond_1
+    :cond_87
     iget-object p0, p0, Lopenlight/co/camera/utils/VideoBuilder;->TAG:Ljava/lang/String;
 
     const-string v0, "Can not find required size"
@@ -427,7 +427,7 @@
 .end method
 
 .method private setUpMediaRecorder()V
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -437,12 +437,12 @@
     .line 95
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 98
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
 
     invoke-virtual {v0}, Landroid/hardware/camera2/CameraDevice;->getId()Ljava/lang/String;
@@ -460,12 +460,12 @@
 
     check-cast v1, Landroid/hardware/camera2/params/StreamConfigurationMap;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_18
 
     return-void
 
     .line 102
-    :cond_1
+    :cond_18
     iget-object v2, p0, Lopenlight/co/camera/utils/VideoBuilder;->mCameraPref:Lopenlight/co/lib/content/Prefs;
 
     const-string v3, "video_format"
@@ -510,7 +510,7 @@
     invoke-static {v3, v4}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 108
-    :try_start_0
+    :try_start_44
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
@@ -691,19 +691,19 @@
     move-result-object v0
 
     invoke-static {v3, v0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_110
+    .catch Ljava/lang/RuntimeException; {:try_start_44 .. :try_end_110} :catch_111
 
-    goto :goto_0
+    goto :goto_115
 
-    :catch_0
+    :catch_111
     move-exception v0
 
     .line 123
     invoke-virtual {v0}, Ljava/lang/RuntimeException;->printStackTrace()V
 
     .line 126
-    :goto_0
+    :goto_115
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     const/4 v3, 0x1
@@ -725,7 +725,7 @@
     .line 129
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mNextVideoAbsolutePath:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_132
 
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mNextVideoAbsolutePath:Ljava/lang/String;
 
@@ -733,10 +733,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_138
 
     .line 130
-    :cond_2
+    :cond_132
     invoke-direct {p0, v2}, Lopenlight/co/camera/utils/VideoBuilder;->getVideoFilePath(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -744,7 +744,7 @@
     iput-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mNextVideoAbsolutePath:Ljava/lang/String;
 
     .line 132
-    :cond_3
+    :cond_138
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     iget-object v2, p0, Lopenlight/co/camera/utils/VideoBuilder;->mNextVideoAbsolutePath:Ljava/lang/String;
@@ -826,42 +826,42 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_1b4
 
-    goto :goto_1
+    goto :goto_1ad
 
     .line 157
-    :pswitch_0
+    :pswitch_18f
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     const/16 v1, 0x10e
 
     invoke-virtual {v0, v1}, Landroid/media/MediaRecorder;->setOrientationHint(I)V
 
-    goto :goto_1
+    goto :goto_1ad
 
     .line 154
-    :pswitch_1
+    :pswitch_197
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     const/16 v1, 0xb4
 
     invoke-virtual {v0, v1}, Landroid/media/MediaRecorder;->setOrientationHint(I)V
 
-    goto :goto_1
+    goto :goto_1ad
 
     .line 151
-    :pswitch_2
+    :pswitch_19f
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     const/16 v1, 0x5a
 
     invoke-virtual {v0, v1}, Landroid/media/MediaRecorder;->setOrientationHint(I)V
 
-    goto :goto_1
+    goto :goto_1ad
 
     .line 148
-    :pswitch_3
+    :pswitch_1a7
     iget-object v0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     const/4 v1, 0x0
@@ -869,7 +869,7 @@
     invoke-virtual {v0, v1}, Landroid/media/MediaRecorder;->setOrientationHint(I)V
 
     .line 160
-    :goto_1
+    :goto_1ad
     iget-object p0, p0, Lopenlight/co/camera/utils/VideoBuilder;->mMediaRecorder:Landroid/media/MediaRecorder;
 
     invoke-virtual {p0}, Landroid/media/MediaRecorder;->prepare()V
@@ -878,11 +878,11 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1b4
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1a7
+        :pswitch_19f
+        :pswitch_197
+        :pswitch_18f
     .end packed-switch
 .end method

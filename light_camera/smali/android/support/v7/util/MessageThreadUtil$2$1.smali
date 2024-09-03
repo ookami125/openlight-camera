@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/util/MessageThreadUtil$2;)V
-    .locals 0
+    .registers 2
 
     .line 135
     iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$2$1;->this$1:Landroid/support/v7/util/MessageThreadUtil$2;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 8
+    .registers 9
 
     .line 139
     :goto_0
@@ -48,7 +48,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
     .line 165
     iget-object p0, p0, Landroid/support/v7/util/MessageThreadUtil$2$1;->this$1:Landroid/support/v7/util/MessageThreadUtil$2;
@@ -62,10 +62,10 @@
     return-void
 
     .line 143
-    :cond_0
+    :cond_13
     iget v1, v0, Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;->what:I
 
-    packed-switch v1, :pswitch_data_0
+    packed-switch v1, :pswitch_data_7e
 
     const-string v1, "ThreadUtil"
 
@@ -91,7 +91,7 @@
     goto :goto_0
 
     .line 159
-    :pswitch_0
+    :pswitch_31
     iget-object v1, p0, Landroid/support/v7/util/MessageThreadUtil$2$1;->this$1:Landroid/support/v7/util/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroid/support/v7/util/MessageThreadUtil$2;->val$callback:Landroid/support/v7/util/ThreadUtil$BackgroundCallback;
@@ -105,7 +105,7 @@
     goto :goto_0
 
     .line 155
-    :pswitch_1
+    :pswitch_3d
     iget-object v1, p0, Landroid/support/v7/util/MessageThreadUtil$2$1;->this$1:Landroid/support/v7/util/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroid/support/v7/util/MessageThreadUtil$2;->val$callback:Landroid/support/v7/util/ThreadUtil$BackgroundCallback;
@@ -119,7 +119,7 @@
     goto :goto_0
 
     .line 149
-    :pswitch_2
+    :pswitch_49
     iget-object v1, p0, Landroid/support/v7/util/MessageThreadUtil$2$1;->this$1:Landroid/support/v7/util/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroid/support/v7/util/MessageThreadUtil$2;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
@@ -157,7 +157,7 @@
     goto :goto_0
 
     .line 145
-    :pswitch_3
+    :pswitch_6b
     iget-object v1, p0, Landroid/support/v7/util/MessageThreadUtil$2$1;->this$1:Landroid/support/v7/util/MessageThreadUtil$2;
 
     iget-object v1, v1, Landroid/support/v7/util/MessageThreadUtil$2;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
@@ -179,11 +179,11 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_7e
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_6b
+        :pswitch_49
+        :pswitch_3d
+        :pswitch_31
     .end packed-switch
 .end method

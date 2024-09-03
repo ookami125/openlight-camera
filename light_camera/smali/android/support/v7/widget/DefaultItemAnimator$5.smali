@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/DefaultItemAnimator;Landroid/support/v7/widget/RecyclerView$ViewHolder;Landroid/view/View;Landroid/view/ViewPropertyAnimator;)V
-    .locals 0
+    .registers 5
 
     .line 233
     iput-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$5;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 241
     iget-object p0, p0, Landroid/support/v7/widget/DefaultItemAnimator$5;->val$view:Landroid/view/View;
@@ -58,7 +58,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 246
     iget-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$5;->val$animation:Landroid/view/ViewPropertyAnimator;
@@ -92,7 +92,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 236
     iget-object p1, p0, Landroid/support/v7/widget/DefaultItemAnimator$5;->this$0:Landroid/support/v7/widget/DefaultItemAnimator;

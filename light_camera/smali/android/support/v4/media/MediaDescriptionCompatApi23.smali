@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-direct {p0}, Landroid/support/v4/media/MediaDescriptionCompatApi21;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getMediaUri(Ljava/lang/Object;)Landroid/net/Uri;
-    .locals 0
+    .registers 1
 
     .line 25
     check-cast p0, Landroid/media/MediaDescription;

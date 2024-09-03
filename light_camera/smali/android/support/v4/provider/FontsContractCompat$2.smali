@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/WeakReference;Landroid/widget/TextView;I)V
-    .locals 0
+    .registers 4
 
     .line 240
     iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$textViewWeak:Ljava/lang/ref/WeakReference;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public onReply(Landroid/graphics/Typeface;)V
-    .locals 1
+    .registers 3
 
     .line 243
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$textViewWeak:Ljava/lang/ref/WeakReference;
@@ -64,7 +64,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 245
     iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$targetView:Landroid/widget/TextView;
@@ -73,12 +73,12 @@
 
     invoke-virtual {v0, p1, p0}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public bridge synthetic onReply(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 240
     check-cast p1, Landroid/graphics/Typeface;

@@ -20,18 +20,18 @@
 
 .field private static final TRANSLATE_DISTANCE:I = 0xc8
 
-.field private static sAnimPlaying:Z
+.field private static sAnimPlaying:Z = false
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 9
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method private static appearAgain(Landroid/view/View;)V
-    .locals 3
+    .registers 4
 
     .line 126
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -77,7 +77,7 @@
 .end method
 
 .method public static fadeIn(Landroid/view/View;Ljava/lang/Runnable;J)V
-    .locals 0
+    .registers 4
 
     .line 63
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -104,7 +104,7 @@
 .end method
 
 .method public static fadeOut(Landroid/view/View;Ljava/lang/Runnable;J)V
-    .locals 0
+    .registers 4
 
     .line 75
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -131,7 +131,7 @@
 .end method
 
 .method private static flickDownAnimation(Landroid/view/View;)V
-    .locals 4
+    .registers 5
 
     .line 168
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -174,7 +174,7 @@
 .end method
 
 .method public static flickToPrimeAnimation(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
 
     .line 51
     sput-boolean p1, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->sAnimPlaying:Z
@@ -186,7 +186,7 @@
 .end method
 
 .method private static flickUpAnimation(Landroid/view/View;)V
-    .locals 4
+    .registers 5
 
     .line 152
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -230,22 +230,22 @@
 .end method
 
 .method static synthetic lambda$appearAgain$4(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 130
     sget-boolean v0, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->sAnimPlaying:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 131
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->translateDown(Landroid/view/View;)V
 
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method static synthetic lambda$flickDownAnimation$12(Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, 0x1f4
 
@@ -286,7 +286,7 @@
 .end method
 
 .method static synthetic lambda$flickUpAnimation$9(Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, 0x1f4
 
@@ -327,22 +327,22 @@
 .end method
 
 .method static synthetic lambda$null$10(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 177
     sget-boolean v0, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->sAnimPlaying:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     .line 178
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->flickUpAnimation(Landroid/view/View;)V
 
-    :cond_0
+    :cond_7
     return-void
 .end method
 
 .method static synthetic lambda$null$11(Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, 0x12c
 
@@ -374,7 +374,7 @@
 .end method
 
 .method static synthetic lambda$null$2(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     .line 115
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->appearAgain(Landroid/view/View;)V
@@ -383,7 +383,7 @@
 .end method
 
 .method static synthetic lambda$null$7(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     .line 161
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->flickDownAnimation(Landroid/view/View;)V
@@ -392,7 +392,7 @@
 .end method
 
 .method static synthetic lambda$null$8(Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, 0x12c
 
@@ -424,7 +424,7 @@
 .end method
 
 .method static synthetic lambda$setToStartPosition$5(Landroid/view/ViewPropertyAnimator;)V
-    .locals 2
+    .registers 3
 
     const-wide/16 v0, 0xa
 
@@ -447,7 +447,7 @@
 .end method
 
 .method static synthetic lambda$setToStartPosition$6(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -461,7 +461,7 @@
 .end method
 
 .method static synthetic lambda$translateDown$0(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     .line 87
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->translateUp(Landroid/view/View;)V
@@ -470,7 +470,7 @@
 .end method
 
 .method static synthetic lambda$translateDownAndDisappear$3(Landroid/view/ViewPropertyAnimator;Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, 0x12c
 
@@ -502,7 +502,7 @@
 .end method
 
 .method static synthetic lambda$translateUp$1(Landroid/view/View;)V
-    .locals 0
+    .registers 1
 
     .line 100
     invoke-static {p0}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->translateDownAndDisappear(Landroid/view/View;)V
@@ -511,7 +511,7 @@
 .end method
 
 .method public static setOnAnimationPlaying(Z)V
-    .locals 0
+    .registers 1
 
     .line 30
     sput-boolean p0, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->sAnimPlaying:Z
@@ -520,7 +520,7 @@
 .end method
 
 .method private static setToStartPosition(Landroid/view/View;)V
-    .locals 4
+    .registers 5
 
     .line 138
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -566,7 +566,7 @@
 .end method
 
 .method private static translateDown(Landroid/view/View;)V
-    .locals 3
+    .registers 4
 
     .line 84
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -603,7 +603,7 @@
 .end method
 
 .method private static translateDownAndDisappear(Landroid/view/View;)V
-    .locals 3
+    .registers 4
 
     .line 110
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -640,7 +640,7 @@
 .end method
 
 .method private static translateUp(Landroid/view/View;)V
-    .locals 3
+    .registers 4
 
     .line 97
     invoke-virtual {p0}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
@@ -677,7 +677,7 @@
 .end method
 
 .method public static translateUpAndDownAnimation(Landroid/view/View;Z)V
-    .locals 2
+    .registers 4
 
     .line 39
     sput-boolean p1, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->sAnimPlaying:Z

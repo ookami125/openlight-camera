@@ -75,7 +75,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 44
     sget-object v0, Landroid/support/design/widget/AnimationUtils;->FAST_OUT_LINEAR_IN_INTERPOLATOR:Landroid/view/animation/Interpolator;
@@ -87,14 +87,14 @@
     .line 75
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_24
 
     sput-object v1, Landroid/support/design/widget/FloatingActionButtonImpl;->PRESSED_ENABLED_STATE_SET:[I
 
     .line 77
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_2c
 
     sput-object v0, Landroid/support/design/widget/FloatingActionButtonImpl;->FOCUSED_ENABLED_STATE_SET:[I
 
@@ -120,13 +120,13 @@
 
     nop
 
-    :array_0
+    :array_24
     .array-data 4
         0x10100a7
         0x101009e
     .end array-data
 
-    :array_1
+    :array_2c
     .array-data 4
         0x101009c
         0x101009e
@@ -134,7 +134,7 @@
 .end method
 
 .method constructor <init>(Landroid/support/design/widget/VisibilityAwareImageButton;Landroid/support/design/widget/ShadowViewDelegate;)V
-    .locals 1
+    .registers 4
 
     .line 89
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -245,7 +245,7 @@
 .end method
 
 .method private createAnimator(Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;)Landroid/animation/ValueAnimator;
-    .locals 2
+    .registers 4
     .param p1    # Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -277,7 +277,7 @@
     .line 419
     new-array p1, p1, [F
 
-    fill-array-data p1, :array_0
+    fill-array-data p1, :array_20
 
     invoke-virtual {p0, p1}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
 
@@ -285,7 +285,7 @@
 
     nop
 
-    :array_0
+    :array_20
     .array-data 4
         0x0
         0x3f800000    # 1.0f
@@ -293,7 +293,7 @@
 .end method
 
 .method private static createColorStateList(I)Landroid/content/res/ColorStateList;
-    .locals 5
+    .registers 6
 
     const/4 v0, 0x3
 
@@ -339,12 +339,12 @@
 .end method
 
 .method private ensurePreDrawListener()V
-    .locals 1
+    .registers 2
 
     .line 371
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mPreDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 372
     new-instance v0, Landroid/support/design/widget/FloatingActionButtonImpl$3;
@@ -353,12 +353,12 @@
 
     iput-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mPreDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method private shouldAnimateVisibilityChange()Z
-    .locals 1
+    .registers 2
 
     .line 505
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -367,7 +367,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
@@ -375,28 +375,28 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method private updateFromViewRotation()V
-    .locals 3
+    .registers 4
 
     .line 509
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2e
 
     .line 512
     iget v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mRotation:F
@@ -411,7 +411,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 513
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -422,24 +422,24 @@
 
     const/4 v2, 0x1
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v2, :cond_2e
 
     .line 514
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
     invoke-virtual {v0, v2, v1}, Landroid/support/design/widget/VisibilityAwareImageButton;->setLayerType(ILandroid/graphics/Paint;)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 517
-    :cond_0
+    :cond_20
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
     invoke-virtual {v0}, Landroid/support/design/widget/VisibilityAwareImageButton;->getLayerType()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2e
 
     .line 518
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -449,11 +449,11 @@
     invoke-virtual {v0, v2, v1}, Landroid/support/design/widget/VisibilityAwareImageButton;->setLayerType(ILandroid/graphics/Paint;)V
 
     .line 524
-    :cond_1
-    :goto_0
+    :cond_2e
+    :goto_2e
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShadowDrawable:Landroid/support/design/widget/ShadowDrawableWrapper;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3a
 
     .line 525
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShadowDrawable:Landroid/support/design/widget/ShadowDrawableWrapper;
@@ -465,10 +465,10 @@
     invoke-virtual {v0, v1}, Landroid/support/design/widget/ShadowDrawableWrapper;->setRotation(F)V
 
     .line 527
-    :cond_2
+    :cond_3a
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mBorderDrawable:Landroid/support/design/widget/CircularBorderDrawable;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_46
 
     .line 528
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mBorderDrawable:Landroid/support/design/widget/CircularBorderDrawable;
@@ -479,14 +479,14 @@
 
     invoke-virtual {v0, p0}, Landroid/support/design/widget/CircularBorderDrawable;->setRotation(F)V
 
-    :cond_3
+    :cond_46
     return-void
 .end method
 
 
 # virtual methods
 .method createBorderDrawable(ILandroid/content/res/ColorStateList;)Landroid/support/design/widget/CircularBorderDrawable;
-    .locals 5
+    .registers 8
 
     .line 346
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -544,7 +544,7 @@
 .end method
 
 .method createShapeDrawable()Landroid/graphics/drawable/GradientDrawable;
-    .locals 1
+    .registers 2
 
     .line 383
     invoke-virtual {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->newGradientDrawableForShape()Landroid/graphics/drawable/GradientDrawable;
@@ -565,7 +565,7 @@
 .end method
 
 .method final getContentBackground()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
 
     .line 307
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mContentBackground:Landroid/graphics/drawable/Drawable;
@@ -574,7 +574,7 @@
 .end method
 
 .method getElevation()F
-    .locals 0
+    .registers 1
 
     .line 179
     iget p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mElevation:F
@@ -583,7 +583,7 @@
 .end method
 
 .method getPadding(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
 
     .line 322
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShadowDrawable:Landroid/support/design/widget/ShadowDrawableWrapper;
@@ -594,7 +594,7 @@
 .end method
 
 .method hide(Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;Z)V
-    .locals 3
+    .registers 6
     .param p1    # Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -605,12 +605,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 210
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
     invoke-virtual {v0}, Landroid/support/design/widget/VisibilityAwareImageButton;->animate()Landroid/view/ViewPropertyAnimator;
@@ -624,7 +624,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_41
 
     const/4 v0, 0x1
 
@@ -676,36 +676,36 @@
     .line 221
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
-    goto :goto_1
+    goto :goto_51
 
     .line 250
-    :cond_1
+    :cond_41
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_48
 
     const/16 v0, 0x8
 
-    goto :goto_0
+    goto :goto_49
 
-    :cond_2
+    :cond_48
     const/4 v0, 0x4
 
-    :goto_0
+    :goto_49
     invoke-virtual {p0, v0, p2}, Landroid/support/design/widget/VisibilityAwareImageButton;->internalSetVisibility(IZ)V
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_51
 
     .line 252
     invoke-interface {p1}, Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;->onHidden()V
 
-    :cond_3
-    :goto_1
+    :cond_51
+    :goto_51
     return-void
 .end method
 
 .method isOrWillBeHidden()Z
-    .locals 3
+    .registers 4
 
     .line 404
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -718,34 +718,34 @@
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
     .line 406
     iget p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mAnimState:I
 
-    if-ne p0, v2, :cond_0
+    if-ne p0, v2, :cond_f
 
     move v1, v2
 
-    :cond_0
+    :cond_f
     return v1
 
     .line 409
-    :cond_1
+    :cond_10
     iget p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mAnimState:I
 
     const/4 v0, 0x2
 
-    if-eq p0, v0, :cond_2
+    if-eq p0, v0, :cond_16
 
     move v1, v2
 
-    :cond_2
+    :cond_16
     return v1
 .end method
 
 .method isOrWillBeShown()Z
-    .locals 3
+    .registers 4
 
     .line 394
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -758,34 +758,34 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_11
 
     .line 396
     iget p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mAnimState:I
 
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_10
 
     move v1, v2
 
-    :cond_0
+    :cond_10
     return v1
 
     .line 399
-    :cond_1
+    :cond_11
     iget p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mAnimState:I
 
-    if-eq p0, v2, :cond_2
+    if-eq p0, v2, :cond_16
 
     move v1, v2
 
-    :cond_2
+    :cond_16
     return v1
 .end method
 
 .method jumpDrawableToCurrentState()V
-    .locals 0
+    .registers 1
 
     .line 201
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mStateListAnimator:Landroid/support/design/widget/StateListAnimator;
@@ -796,7 +796,7 @@
 .end method
 
 .method newCircularDrawable()Landroid/support/design/widget/CircularBorderDrawable;
-    .locals 0
+    .registers 1
 
     .line 359
     new-instance p0, Landroid/support/design/widget/CircularBorderDrawable;
@@ -807,7 +807,7 @@
 .end method
 
 .method newGradientDrawableForShape()Landroid/graphics/drawable/GradientDrawable;
-    .locals 0
+    .registers 1
 
     .line 390
     new-instance p0, Landroid/graphics/drawable/GradientDrawable;
@@ -818,14 +818,14 @@
 .end method
 
 .method onAttachedToWindow()V
-    .locals 1
+    .registers 2
 
     .line 328
     invoke-virtual {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->requirePreDrawListener()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 329
     invoke-direct {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->ensurePreDrawListener()V
@@ -841,23 +841,23 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method onCompatShadowChanged()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method onDetachedFromWindow()V
-    .locals 2
+    .registers 3
 
     .line 335
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mPreDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 336
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -875,12 +875,12 @@
     .line 337
     iput-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mPreDrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method onDrawableStateChanged([I)V
-    .locals 0
+    .registers 2
 
     .line 197
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mStateListAnimator:Landroid/support/design/widget/StateListAnimator;
@@ -891,12 +891,12 @@
 .end method
 
 .method onElevationsChanged(FF)V
-    .locals 1
+    .registers 4
 
     .line 190
     iget-object p2, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShadowDrawable:Landroid/support/design/widget/ShadowDrawableWrapper;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_f
 
     .line 191
     iget-object p2, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShadowDrawable:Landroid/support/design/widget/ShadowDrawableWrapper;
@@ -910,18 +910,18 @@
     .line 192
     invoke-virtual {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->updatePadding()V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method onPaddingUpdated(Landroid/graphics/Rect;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method onPreDraw()V
-    .locals 2
+    .registers 3
 
     .line 363
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -935,7 +935,7 @@
 
     cmpl-float v1, v1, v0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 365
     iput v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mRotation:F
@@ -943,12 +943,12 @@
     .line 366
     invoke-direct {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->updateFromViewRotation()V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method requirePreDrawListener()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -956,7 +956,7 @@
 .end method
 
 .method setBackgroundDrawable(Landroid/content/res/ColorStateList;Landroid/graphics/PorterDuff$Mode;II)V
-    .locals 7
+    .registers 12
 
     .line 114
     invoke-virtual {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->createShapeDrawable()Landroid/graphics/drawable/GradientDrawable;
@@ -974,7 +974,7 @@
 
     invoke-static {v0, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_16
 
     .line 117
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShapeDrawable:Landroid/graphics/drawable/Drawable;
@@ -982,7 +982,7 @@
     invoke-static {v0, p2}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
     .line 121
-    :cond_0
+    :cond_16
     invoke-virtual {p0}, Landroid/support/design/widget/FloatingActionButtonImpl;->createShapeDrawable()Landroid/graphics/drawable/GradientDrawable;
 
     move-result-object p2
@@ -1009,7 +1009,7 @@
 
     const/4 v0, 0x0
 
-    if-lez p4, :cond_1
+    if-lez p4, :cond_44
 
     .line 130
     invoke-virtual {p0, p4, p1}, Landroid/support/design/widget/FloatingActionButtonImpl;->createBorderDrawable(ILandroid/content/res/ColorStateList;)Landroid/support/design/widget/CircularBorderDrawable;
@@ -1035,9 +1035,9 @@
 
     aput-object p3, p1, p2
 
-    goto :goto_0
+    goto :goto_51
 
-    :cond_1
+    :cond_44
     const/4 p1, 0x0
 
     .line 133
@@ -1055,7 +1055,7 @@
     aput-object p2, p1, p3
 
     .line 137
-    :goto_0
+    :goto_51
     new-instance p2, Landroid/graphics/drawable/LayerDrawable;
 
     invoke-direct {p2, p1}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
@@ -1111,12 +1111,12 @@
 .end method
 
 .method setBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
 
     .line 150
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShapeDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 151
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShapeDrawable:Landroid/graphics/drawable/Drawable;
@@ -1124,46 +1124,46 @@
     invoke-static {v0, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
     .line 153
-    :cond_0
+    :cond_9
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mBorderDrawable:Landroid/support/design/widget/CircularBorderDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_12
 
     .line 154
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mBorderDrawable:Landroid/support/design/widget/CircularBorderDrawable;
 
     invoke-virtual {p0, p1}, Landroid/support/design/widget/CircularBorderDrawable;->setBorderTint(Landroid/content/res/ColorStateList;)V
 
-    :cond_1
+    :cond_12
     return-void
 .end method
 
 .method setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
 
     .line 159
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShapeDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 160
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShapeDrawable:Landroid/graphics/drawable/Drawable;
 
     invoke-static {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintMode(Landroid/graphics/drawable/Drawable;Landroid/graphics/PorterDuff$Mode;)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method final setElevation(F)V
-    .locals 1
+    .registers 3
 
     .line 172
     iget v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mElevation:F
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 173
     iput p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mElevation:F
@@ -1173,19 +1173,19 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/support/design/widget/FloatingActionButtonImpl;->onElevationsChanged(FF)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method final setPressedTranslationZ(F)V
-    .locals 1
+    .registers 3
 
     .line 183
     iget v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mPressedTranslationZ:F
 
     cmpl-float v0, v0, p1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 184
     iput p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mPressedTranslationZ:F
@@ -1195,17 +1195,17 @@
 
     invoke-virtual {p0, v0, p1}, Landroid/support/design/widget/FloatingActionButtonImpl;->onElevationsChanged(FF)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method setRippleColor(I)V
-    .locals 1
+    .registers 3
 
     .line 166
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mRippleDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 167
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mRippleDrawable:Landroid/graphics/drawable/Drawable;
@@ -1216,12 +1216,12 @@
 
     invoke-static {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableCompat;->setTintList(Landroid/graphics/drawable/Drawable;Landroid/content/res/ColorStateList;)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method show(Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;Z)V
-    .locals 3
+    .registers 6
     .param p1    # Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -1232,12 +1232,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-void
 
     .line 263
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
     invoke-virtual {v0}, Landroid/support/design/widget/VisibilityAwareImageButton;->animate()Landroid/view/ViewPropertyAnimator;
@@ -1253,7 +1253,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5a
 
     const/4 v0, 0x2
 
@@ -1267,7 +1267,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_33
 
     .line 270
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
@@ -1287,7 +1287,7 @@
     invoke-virtual {v0, v2}, Landroid/support/design/widget/VisibilityAwareImageButton;->setScaleX(F)V
 
     .line 275
-    :cond_1
+    :cond_33
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
     invoke-virtual {v0}, Landroid/support/design/widget/VisibilityAwareImageButton;->animate()Landroid/view/ViewPropertyAnimator;
@@ -1330,10 +1330,10 @@
     .line 281
     invoke-virtual {v0, v1}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
-    goto :goto_0
+    goto :goto_74
 
     .line 296
-    :cond_2
+    :cond_5a
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mView:Landroid/support/design/widget/VisibilityAwareImageButton;
 
     const/4 v2, 0x0
@@ -1355,18 +1355,18 @@
 
     invoke-virtual {p0, v1}, Landroid/support/design/widget/VisibilityAwareImageButton;->setScaleX(F)V
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_74
 
     .line 301
     invoke-interface {p1}, Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;->onShown()V
 
-    :cond_3
-    :goto_0
+    :cond_74
+    :goto_74
     return-void
 .end method
 
 .method final updatePadding()V
-    .locals 4
+    .registers 5
 
     .line 315
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl;->mTmpRect:Landroid/graphics/Rect;

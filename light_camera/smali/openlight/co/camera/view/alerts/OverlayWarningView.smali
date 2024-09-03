@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .registers 5
 
     .line 77
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/alerts/OverlayWarningView;)Z
-    .locals 0
+    .registers 1
 
     .line 34
     iget-boolean p0, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mFinishActivityOnIgnoredWarning:Z
@@ -133,7 +133,7 @@
 .end method
 
 .method public static synthetic lambda$new$0(Lopenlight/co/camera/view/alerts/OverlayWarningView;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 85
     iget-object p1, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mDismissWarningRunnable:Ljava/lang/Runnable;
@@ -151,7 +151,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 197
     iget-object v0, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mDismissWarningRunnable:Ljava/lang/Runnable;
@@ -167,7 +167,7 @@
 .end method
 
 .method public clearActivityFinish()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -181,7 +181,7 @@
 .end method
 
 .method public finishActivityOnWarningInactivity(Z)V
-    .locals 0
+    .registers 2
 
     .line 182
     iput-boolean p1, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mFinishActivityOnIgnoredWarning:Z
@@ -190,17 +190,17 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 4
+    .registers 6
 
     .line 96
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->getVisibility()I
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_42
 
     .line 99
-    :try_start_0
+    :try_start_6
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v0
@@ -214,16 +214,16 @@
 
     const/4 v3, 0x0
 
-    if-eq p1, v1, :cond_1
+    if-eq p1, v1, :cond_20
 
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_17
 
-    goto :goto_0
+    goto :goto_20
 
     .line 107
-    :cond_0
+    :cond_17
     iget v1, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mTopMarginDimens:I
 
     iput v1, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
@@ -234,11 +234,11 @@
     .line 109
     iput v3, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->endToEnd:I
 
-    goto :goto_1
+    goto :goto_26
 
     .line 103
-    :cond_1
-    :goto_0
+    :cond_20
+    :goto_20
     iput v3, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->topMargin:I
 
     .line 104
@@ -248,7 +248,7 @@
     iput v3, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->bottomToBottom:I
 
     .line 111
-    :goto_1
+    :goto_26
     iput v3, v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;->startToStart:I
 
     .line 112
@@ -265,12 +265,12 @@
     int-to-float p1, p1
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->setRotation(F)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_35
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_35} :catch_36
 
-    goto :goto_2
+    goto :goto_42
 
-    :catch_0
+    :catch_36
     move-exception p0
 
     .line 117
@@ -284,20 +284,20 @@
 
     invoke-static {p1, v0, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :cond_2
-    :goto_2
+    :cond_42
+    :goto_42
     return-void
 .end method
 
 .method public setContent(II)V
-    .locals 2
+    .registers 5
 
     const/4 v0, 0x0
 
     .line 163
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->finishActivityOnWarningInactivity(Z)V
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_d
 
     .line 167
     iget-object p2, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mWarningIcon:Landroid/widget/ImageView;
@@ -306,10 +306,10 @@
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_17
 
     .line 169
-    :cond_0
+    :cond_d
     iget-object v1, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mWarningIcon:Landroid/widget/ImageView;
 
     invoke-virtual {v1, p2}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -320,7 +320,7 @@
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setVisibility(I)V
 
     .line 174
-    :goto_0
+    :goto_17
     iget-object p0, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mWarningMessage:Landroid/widget/TextView;
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
@@ -329,14 +329,14 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 2
+    .registers 4
 
     .line 129
     iget-object v0, p0, Lopenlight/co/camera/view/alerts/OverlayWarningView;->mDismissWarningRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1e
 
     const/4 p1, 0x0
 
@@ -361,15 +361,15 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 136
-    :cond_0
+    :cond_1e
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->getVisibility()I
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_3f
 
     .line 138
     invoke-virtual {p0}, Lopenlight/co/camera/view/alerts/OverlayWarningView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -400,7 +400,7 @@
     .line 140
     invoke-virtual {p1, v0}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 
-    :cond_1
-    :goto_0
+    :cond_3f
+    :goto_3f
     return-void
 .end method

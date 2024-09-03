@@ -45,7 +45,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
 
     .line 35
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public addOrReplace(Landroid/support/v7/util/TileList$Tile;)Landroid/support/v7/util/TileList$Tile;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_13
 
     .line 66
     iget-object p0, p0, Landroid/support/v7/util/TileList;->mTiles:Landroid/util/SparseArray;
@@ -102,7 +102,7 @@
     return-object p0
 
     .line 69
-    :cond_0
+    :cond_13
     iget-object v1, p0, Landroid/support/v7/util/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -119,17 +119,17 @@
     .line 71
     iget-object v0, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_26
 
     .line 72
     iput-object p1, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
-    :cond_1
+    :cond_26
     return-object v1
 .end method
 
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Landroid/support/v7/util/TileList;->mTiles:Landroid/util/SparseArray;
@@ -140,7 +140,7 @@
 .end method
 
 .method public getAtIndex(I)Landroid/support/v7/util/TileList$Tile;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -162,7 +162,7 @@
 .end method
 
 .method public getItemAt(I)Ljava/lang/Object;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -172,7 +172,7 @@
     .line 40
     iget-object v0, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     iget-object v0, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
@@ -180,10 +180,10 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_26
 
     .line 41
-    :cond_0
+    :cond_c
     iget v0, p0, Landroid/support/v7/util/TileList;->mTileSize:I
 
     rem-int v0, p1, v0
@@ -197,14 +197,14 @@
 
     move-result v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_1c
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 46
-    :cond_1
+    :cond_1c
     iget-object v1, p0, Landroid/support/v7/util/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
@@ -216,7 +216,7 @@
     iput-object v0, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
     .line 48
-    :cond_2
+    :cond_26
     iget-object p0, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/util/TileList$Tile;->getByPosition(I)Ljava/lang/Object;
@@ -227,7 +227,7 @@
 .end method
 
 .method public removeAtPos(I)Landroid/support/v7/util/TileList$Tile;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)",
@@ -248,7 +248,7 @@
     .line 79
     iget-object v1, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
-    if-ne v1, v0, :cond_0
+    if-ne v1, v0, :cond_f
 
     const/4 v1, 0x0
 
@@ -256,7 +256,7 @@
     iput-object v1, p0, Landroid/support/v7/util/TileList;->mLastAccessedTile:Landroid/support/v7/util/TileList$Tile;
 
     .line 82
-    :cond_0
+    :cond_f
     iget-object p0, p0, Landroid/support/v7/util/TileList;->mTiles:Landroid/util/SparseArray;
 
     invoke-virtual {p0, p1}, Landroid/util/SparseArray;->delete(I)V
@@ -265,7 +265,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
 
     .line 52
     iget-object p0, p0, Landroid/support/v7/util/TileList;->mTiles:Landroid/util/SparseArray;

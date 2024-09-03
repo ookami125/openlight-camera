@@ -45,13 +45,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     .line 50
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -127,7 +127,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/level/Leveler;)[F
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->r:[F
@@ -136,7 +136,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/level/Leveler;)[F
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->o:[F
@@ -145,7 +145,7 @@
 .end method
 
 .method static synthetic access$1000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lopenlight/co/camera/view/level/Leveler;->TAG:Ljava/lang/String;
@@ -154,7 +154,7 @@
 .end method
 
 .method static synthetic access$1100(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/LevelView;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->mLevelView:Lopenlight/co/camera/view/level/LevelView;
@@ -163,7 +163,7 @@
 .end method
 
 .method static synthetic access$1200(Lopenlight/co/camera/view/level/Leveler;)Z
-    .locals 0
+    .registers 1
 
     .line 25
     iget-boolean p0, p0, Lopenlight/co/camera/view/level/Leveler;->isShow:Z
@@ -172,7 +172,7 @@
 .end method
 
 .method static synthetic access$1202(Lopenlight/co/camera/view/level/Leveler;Z)Z
-    .locals 0
+    .registers 2
 
     .line 25
     iput-boolean p1, p0, Lopenlight/co/camera/view/level/Leveler;->isShow:Z
@@ -181,7 +181,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->compassAzimuth:Lopenlight/co/camera/view/level/AngleLowPassFilter;
@@ -190,7 +190,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/level/Leveler;)[F
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->r2:[F
@@ -199,7 +199,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/level/Leveler;)[F
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->o2:[F
@@ -208,7 +208,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->azimuthFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
@@ -217,7 +217,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->pitchFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
@@ -226,7 +226,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/AngleLowPassFilter;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->rollFilter:Lopenlight/co/camera/view/level/AngleLowPassFilter;
@@ -235,7 +235,7 @@
 .end method
 
 .method static synthetic access$800(Lopenlight/co/camera/view/level/Leveler;)Lopenlight/co/camera/view/level/DeviceRotationVector;
-    .locals 0
+    .registers 1
 
     .line 25
     iget-object p0, p0, Lopenlight/co/camera/view/level/Leveler;->deviceRotationVector:Lopenlight/co/camera/view/level/DeviceRotationVector;
@@ -244,7 +244,7 @@
 .end method
 
 .method static synthetic access$900(Lopenlight/co/camera/view/level/Leveler;)Z
-    .locals 0
+    .registers 1
 
     .line 25
     iget-boolean p0, p0, Lopenlight/co/camera/view/level/Leveler;->isRegistered:Z
@@ -253,12 +253,12 @@
 .end method
 
 .method private resetLevelView()V
-    .locals 2
+    .registers 3
 
     .line 123
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler;->mLevelView:Lopenlight/co/camera/view/level/LevelView;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     const/4 v0, 0x0
 
@@ -273,14 +273,14 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/level/LevelView;->setVisibility(I)V
 
     .line 127
-    :cond_0
+    :cond_e
     invoke-direct {p0}, Lopenlight/co/camera/view/level/Leveler;->setShowLevelView()V
 
     return-void
 .end method
 
 .method private setShowLevelView()V
-    .locals 4
+    .registers 5
 
     .line 131
     new-instance v0, Landroid/os/Handler;
@@ -301,7 +301,7 @@
 
 # virtual methods
 .method public addLevelView()V
-    .locals 3
+    .registers 4
 
     .line 99
     new-instance v0, Lopenlight/co/camera/view/level/LevelView;
@@ -353,7 +353,7 @@
 .end method
 
 .method public initView()V
-    .locals 2
+    .registers 3
 
     .line 59
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler;->mContext:Landroid/content/Context;
@@ -390,7 +390,7 @@
 .end method
 
 .method public registerListener()V
-    .locals 4
+    .registers 5
 
     .line 117
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler;->mSensorManager:Landroid/hardware/SensorManager;
@@ -413,12 +413,12 @@
 .end method
 
 .method public removeView()V
-    .locals 1
+    .registers 2
 
     .line 111
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler;->mCameraLayout:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 112
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler;->mCameraLayout:Landroid/view/ViewGroup;
@@ -427,12 +427,12 @@
 
     invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setLayout(Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 2
 
     .line 55
     iput-object p1, p0, Lopenlight/co/camera/view/level/Leveler;->mCameraLayout:Landroid/view/ViewGroup;
@@ -441,7 +441,7 @@
 .end method
 
 .method public unregisterListener()V
-    .locals 2
+    .registers 3
 
     .line 140
     iget-object v0, p0, Lopenlight/co/camera/view/level/Leveler;->mSensorManager:Landroid/hardware/SensorManager;

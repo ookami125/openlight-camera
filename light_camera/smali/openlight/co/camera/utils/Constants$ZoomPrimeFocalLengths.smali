@@ -48,7 +48,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 11
+    .registers 11
 
     .line 292
     new-instance v0, Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;
@@ -197,7 +197,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IF)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)V"
@@ -214,7 +214,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;
-    .locals 1
+    .registers 2
 
     .line 291
     const-class v0, Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;
@@ -229,7 +229,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;
-    .locals 1
+    .registers 1
 
     .line 291
     sget-object v0, Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;->$VALUES:[Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;
@@ -246,7 +246,7 @@
 
 # virtual methods
 .method public getFocalLength()F
-    .locals 0
+    .registers 1
 
     .line 308
     iget p0, p0, Lopenlight/co/camera/utils/Constants$ZoomPrimeFocalLengths;->focalLength:F

@@ -45,7 +45,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 19
+    .registers 19
 
     .line 21
     new-instance v9, Lopenlight/co/camera/enums/FlashMode$1;
@@ -151,7 +151,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;ILjava/lang/String;IIIII)V
-    .locals 0
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -185,7 +185,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILjava/lang/String;IIIIILopenlight/co/camera/enums/FlashMode$1;)V
-    .locals 0
+    .registers 10
 
     .line 18
     invoke-direct/range {p0 .. p8}, Lopenlight/co/camera/enums/FlashMode;-><init>(Ljava/lang/String;ILjava/lang/String;IIIII)V
@@ -194,7 +194,7 @@
 .end method
 
 .method public static getEnabledModes()Ljava/util/List;
-    .locals 6
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -218,8 +218,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v2, :cond_1
+    :goto_b
+    if-ge v3, v2, :cond_1b
 
     aget-object v4, v1, v3
 
@@ -228,22 +228,22 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_18
 
     .line 163
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_0
+    :cond_18
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_1
+    :cond_1b
     return-object v0
 .end method
 
 .method public static getModeByPrefsKey(Ljava/lang/String;)Lopenlight/co/camera/enums/FlashMode;
-    .locals 5
+    .registers 6
 
     .line 86
     invoke-static {}, Lopenlight/co/camera/enums/FlashMode;->values()[Lopenlight/co/camera/enums/FlashMode;
@@ -254,8 +254,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_6
+    if-ge v2, v1, :cond_16
 
     aget-object v3, v0, v2
 
@@ -266,17 +266,17 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
     return-object v3
 
-    :cond_0
+    :cond_13
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 91
-    :cond_1
+    :cond_16
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -299,7 +299,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/enums/FlashMode;
-    .locals 1
+    .registers 2
 
     .line 18
     const-class v0, Lopenlight/co/camera/enums/FlashMode;
@@ -314,7 +314,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/enums/FlashMode;
-    .locals 1
+    .registers 1
 
     .line 18
     sget-object v0, Lopenlight/co/camera/enums/FlashMode;->$VALUES:[Lopenlight/co/camera/enums/FlashMode;
@@ -331,7 +331,7 @@
 
 # virtual methods
 .method public getAeFlashMode()I
-    .locals 0
+    .registers 1
 
     .line 150
     iget p0, p0, Lopenlight/co/camera/enums/FlashMode;->mAeFlashRequestValue:I
@@ -340,7 +340,7 @@
 .end method
 
 .method public getBadgeResourceId()I
-    .locals 0
+    .registers 1
 
     .line 141
     iget p0, p0, Lopenlight/co/camera/enums/FlashMode;->mBadgeResourceId:I
@@ -349,7 +349,7 @@
 .end method
 
 .method public getConfirmationResourceId()I
-    .locals 0
+    .registers 1
 
     .line 132
     iget p0, p0, Lopenlight/co/camera/enums/FlashMode;->mConfirmationResourceId:I
@@ -358,7 +358,7 @@
 .end method
 
 .method public getFirstLevelResId()I
-    .locals 0
+    .registers 1
 
     .line 114
     iget p0, p0, Lopenlight/co/camera/enums/FlashMode;->mFirstLevelResourceId:I
@@ -367,7 +367,7 @@
 .end method
 
 .method public getPrefsKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 105
     iget-object p0, p0, Lopenlight/co/camera/enums/FlashMode;->mPrefsKey:Ljava/lang/String;
@@ -376,7 +376,7 @@
 .end method
 
 .method public getSecondLevelResId()I
-    .locals 0
+    .registers 1
 
     .line 123
     iget p0, p0, Lopenlight/co/camera/enums/FlashMode;->mSecondLevelResourceId:I
@@ -385,7 +385,7 @@
 .end method
 
 .method public isEnabled()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

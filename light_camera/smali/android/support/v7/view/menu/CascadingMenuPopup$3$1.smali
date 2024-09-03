@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/view/menu/CascadingMenuPopup$3;Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;Landroid/view/MenuItem;Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 0
+    .registers 5
 
     .line 171
     iput-object p1, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->this$1:Landroid/support/v7/view/menu/CascadingMenuPopup$3;
@@ -48,12 +48,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 176
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->val$nextInfo:Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 179
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->this$1:Landroid/support/v7/view/menu/CascadingMenuPopup$3;
@@ -81,14 +81,14 @@
     iput-boolean v1, v0, Landroid/support/v7/view/menu/CascadingMenuPopup;->mShouldCloseImmediately:Z
 
     .line 185
-    :cond_0
+    :cond_19
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->val$item:Landroid/view/MenuItem;
 
     invoke-interface {v0}, Landroid/view/MenuItem;->isEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->val$item:Landroid/view/MenuItem;
 
@@ -96,7 +96,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_31
 
     .line 186
     iget-object v0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$3$1;->val$menu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -107,6 +107,6 @@
 
     invoke-virtual {v0, p0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;I)Z
 
-    :cond_1
+    :cond_31
     return-void
 .end method

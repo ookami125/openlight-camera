@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v7/widget/MenuPopupWindow;Landroid/support/v7/view/menu/MenuBuilder;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/support/v7/widget/MenuPopupWindow;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public getListView()Landroid/widget/ListView;
-    .locals 0
+    .registers 1
 
     .line 795
     iget-object p0, p0, Landroid/support/v7/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroid/support/v7/widget/MenuPopupWindow;

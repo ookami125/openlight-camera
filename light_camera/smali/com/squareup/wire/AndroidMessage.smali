@@ -29,7 +29,7 @@
 
 # direct methods
 .method protected constructor <init>(Lcom/squareup/wire/ProtoAdapter;Lokio/ByteString;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,7 +47,7 @@
 .end method
 
 .method public static newCreator(Lcom/squareup/wire/ProtoAdapter;)Landroid/os/Parcelable$Creator;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E:",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public final describeContents()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public final writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .registers 3
 
     .line 37
     invoke-virtual {p0}, Lcom/squareup/wire/AndroidMessage;->encode()[B

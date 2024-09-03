@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 63
     new-instance v0, Landroid/support/annotation/RestrictTo$Scope;
@@ -129,7 +129,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -143,7 +143,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/annotation/RestrictTo$Scope;
-    .locals 1
+    .registers 2
 
     .line 58
     const-class v0, Landroid/support/annotation/RestrictTo$Scope;
@@ -158,7 +158,7 @@
 .end method
 
 .method public static values()[Landroid/support/annotation/RestrictTo$Scope;
-    .locals 1
+    .registers 1
 
     .line 58
     sget-object v0, Landroid/support/annotation/RestrictTo$Scope;->$VALUES:[Landroid/support/annotation/RestrictTo$Scope;

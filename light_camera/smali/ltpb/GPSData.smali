@@ -120,7 +120,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 24
     new-instance v0, Lltpb/GPSData$ProtoAdapter_GPSData;
@@ -177,7 +177,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Double;Lltpb/GPSData$Track;Lltpb/GPSData$Heading;Lltpb/GPSData$Altitude;Ljava/lang/Double;Lltpb/GPSData$ProcessingMethod;)V
-    .locals 11
+    .registers 21
 
     .line 111
     sget-object v10, Lokio/ByteString;->EMPTY:Lokio/ByteString;
@@ -208,7 +208,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Double;Ljava/lang/Double;Ljava/lang/Long;Ljava/lang/Double;Lltpb/GPSData$Track;Lltpb/GPSData$Heading;Lltpb/GPSData$Altitude;Ljava/lang/Double;Lltpb/GPSData$ProcessingMethod;Lokio/ByteString;)V
-    .locals 1
+    .registers 12
 
     .line 117
     sget-object v0, Lltpb/GPSData;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
@@ -248,26 +248,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 148
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/GPSData;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 149
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/GPSData;
 
     .line 150
@@ -283,7 +283,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->latitude:Ljava/lang/Double;
 
@@ -294,7 +294,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->longitude:Ljava/lang/Double;
 
@@ -305,7 +305,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->timestamp:Ljava/lang/Long;
 
@@ -316,7 +316,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->dop:Ljava/lang/Double;
 
@@ -327,7 +327,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->track:Lltpb/GPSData$Track;
 
@@ -338,7 +338,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->heading:Lltpb/GPSData$Heading;
 
@@ -349,7 +349,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->altitude:Lltpb/GPSData$Altitude;
 
@@ -360,7 +360,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object v1, p0, Lltpb/GPSData;->speed:Ljava/lang/Double;
 
@@ -371,7 +371,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_75
 
     iget-object p0, p0, Lltpb/GPSData;->processing_method:Lltpb/GPSData$ProcessingMethod;
 
@@ -382,24 +382,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_75
 
-    goto :goto_0
+    goto :goto_76
 
-    :cond_2
+    :cond_75
     move v0, v2
 
-    :goto_0
+    :goto_76
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     .line 164
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_94
 
     .line 166
     invoke-virtual {p0}, Lltpb/GPSData;->unknownFields()Lokio/ByteString;
@@ -417,7 +417,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     iget-object v1, p0, Lltpb/GPSData;->latitude:Ljava/lang/Double;
 
@@ -425,12 +425,12 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_1a
     move v1, v2
 
-    :goto_0
+    :goto_1b
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -438,7 +438,7 @@
     .line 168
     iget-object v1, p0, Lltpb/GPSData;->longitude:Ljava/lang/Double;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_29
 
     iget-object v1, p0, Lltpb/GPSData;->longitude:Ljava/lang/Double;
 
@@ -446,12 +446,12 @@
 
     move-result v1
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
+    :cond_29
     move v1, v2
 
-    :goto_1
+    :goto_2a
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -459,7 +459,7 @@
     .line 169
     iget-object v1, p0, Lltpb/GPSData;->timestamp:Ljava/lang/Long;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_38
 
     iget-object v1, p0, Lltpb/GPSData;->timestamp:Ljava/lang/Long;
 
@@ -467,12 +467,12 @@
 
     move-result v1
 
-    goto :goto_2
+    goto :goto_39
 
-    :cond_2
+    :cond_38
     move v1, v2
 
-    :goto_2
+    :goto_39
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -480,7 +480,7 @@
     .line 170
     iget-object v1, p0, Lltpb/GPSData;->dop:Ljava/lang/Double;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_47
 
     iget-object v1, p0, Lltpb/GPSData;->dop:Ljava/lang/Double;
 
@@ -488,12 +488,12 @@
 
     move-result v1
 
-    goto :goto_3
+    goto :goto_48
 
-    :cond_3
+    :cond_47
     move v1, v2
 
-    :goto_3
+    :goto_48
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -501,7 +501,7 @@
     .line 171
     iget-object v1, p0, Lltpb/GPSData;->track:Lltpb/GPSData$Track;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_56
 
     iget-object v1, p0, Lltpb/GPSData;->track:Lltpb/GPSData$Track;
 
@@ -509,12 +509,12 @@
 
     move-result v1
 
-    goto :goto_4
+    goto :goto_57
 
-    :cond_4
+    :cond_56
     move v1, v2
 
-    :goto_4
+    :goto_57
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -522,7 +522,7 @@
     .line 172
     iget-object v1, p0, Lltpb/GPSData;->heading:Lltpb/GPSData$Heading;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_65
 
     iget-object v1, p0, Lltpb/GPSData;->heading:Lltpb/GPSData$Heading;
 
@@ -530,12 +530,12 @@
 
     move-result v1
 
-    goto :goto_5
+    goto :goto_66
 
-    :cond_5
+    :cond_65
     move v1, v2
 
-    :goto_5
+    :goto_66
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -543,7 +543,7 @@
     .line 173
     iget-object v1, p0, Lltpb/GPSData;->altitude:Lltpb/GPSData$Altitude;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_74
 
     iget-object v1, p0, Lltpb/GPSData;->altitude:Lltpb/GPSData$Altitude;
 
@@ -551,12 +551,12 @@
 
     move-result v1
 
-    goto :goto_6
+    goto :goto_75
 
-    :cond_6
+    :cond_74
     move v1, v2
 
-    :goto_6
+    :goto_75
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -564,7 +564,7 @@
     .line 174
     iget-object v1, p0, Lltpb/GPSData;->speed:Ljava/lang/Double;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_83
 
     iget-object v1, p0, Lltpb/GPSData;->speed:Ljava/lang/Double;
 
@@ -572,12 +572,12 @@
 
     move-result v1
 
-    goto :goto_7
+    goto :goto_84
 
-    :cond_7
+    :cond_83
     move v1, v2
 
-    :goto_7
+    :goto_84
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x25
@@ -585,7 +585,7 @@
     .line 175
     iget-object v1, p0, Lltpb/GPSData;->processing_method:Lltpb/GPSData$ProcessingMethod;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_91
 
     iget-object v1, p0, Lltpb/GPSData;->processing_method:Lltpb/GPSData$ProcessingMethod;
 
@@ -593,18 +593,18 @@
 
     move-result v2
 
-    :cond_8
+    :cond_91
     add-int/2addr v0, v2
 
     .line 176
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_9
+    :cond_94
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 23
     invoke-virtual {p0}, Lltpb/GPSData;->newBuilder()Lltpb/GPSData$Builder;
@@ -615,7 +615,7 @@
 .end method
 
 .method public newBuilder()Lltpb/GPSData$Builder;
-    .locals 2
+    .registers 3
 
     .line 131
     new-instance v0, Lltpb/GPSData$Builder;
@@ -678,7 +678,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 183
     new-instance v0, Ljava/lang/StringBuilder;
@@ -688,7 +688,7 @@
     .line 184
     iget-object v1, p0, Lltpb/GPSData;->latitude:Ljava/lang/Double;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_13
 
     const-string v1, ", latitude="
 
@@ -699,10 +699,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 185
-    :cond_0
+    :cond_13
     iget-object v1, p0, Lltpb/GPSData;->longitude:Ljava/lang/Double;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_21
 
     const-string v1, ", longitude="
 
@@ -713,10 +713,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 186
-    :cond_1
+    :cond_21
     iget-object v1, p0, Lltpb/GPSData;->timestamp:Ljava/lang/Long;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_2f
 
     const-string v1, ", timestamp="
 
@@ -727,10 +727,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 187
-    :cond_2
+    :cond_2f
     iget-object v1, p0, Lltpb/GPSData;->dop:Ljava/lang/Double;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_3d
 
     const-string v1, ", dop="
 
@@ -741,10 +741,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 188
-    :cond_3
+    :cond_3d
     iget-object v1, p0, Lltpb/GPSData;->track:Lltpb/GPSData$Track;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_4b
 
     const-string v1, ", track="
 
@@ -755,10 +755,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 189
-    :cond_4
+    :cond_4b
     iget-object v1, p0, Lltpb/GPSData;->heading:Lltpb/GPSData$Heading;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_59
 
     const-string v1, ", heading="
 
@@ -769,10 +769,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 190
-    :cond_5
+    :cond_59
     iget-object v1, p0, Lltpb/GPSData;->altitude:Lltpb/GPSData$Altitude;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_67
 
     const-string v1, ", altitude="
 
@@ -783,10 +783,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 191
-    :cond_6
+    :cond_67
     iget-object v1, p0, Lltpb/GPSData;->speed:Ljava/lang/Double;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_75
 
     const-string v1, ", speed="
 
@@ -797,10 +797,10 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     .line 192
-    :cond_7
+    :cond_75
     iget-object v1, p0, Lltpb/GPSData;->processing_method:Lltpb/GPSData$ProcessingMethod;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_83
 
     const-string v1, ", processing_method="
 
@@ -810,7 +810,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_8
+    :cond_83
     const/4 p0, 0x0
 
     const/4 v1, 0x2

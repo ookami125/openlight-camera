@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     const-string v0, "android:changeImageTransform:matrix"
 
@@ -69,7 +69,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 73
     invoke-direct {p0}, Landroid/support/transition/Transition;-><init>()V
@@ -78,7 +78,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 77
     invoke-direct {p0, p1, p2}, Landroid/support/transition/Transition;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -87,7 +87,7 @@
 .end method
 
 .method private captureValues(Landroid/support/transition/TransitionValues;)V
-    .locals 5
+    .registers 7
 
     .line 81
     iget-object p0, p1, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
@@ -95,18 +95,18 @@
     .line 82
     instance-of v0, p0, Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3d
 
     invoke-virtual {p0}, Landroid/view/View;->getVisibility()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 85
-    :cond_0
+    :cond_d
     move-object v0, p0
 
     check-cast v0, Landroid/widget/ImageView;
@@ -116,12 +116,12 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_17
 
     return-void
 
     .line 90
-    :cond_1
+    :cond_17
     iget-object p1, p1, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     .line 92
@@ -165,13 +165,13 @@
 
     return-void
 
-    :cond_2
-    :goto_0
+    :cond_3d
+    :goto_3d
     return-void
 .end method
 
 .method private static centerCropMatrix(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
-    .locals 5
+    .registers 6
 
     .line 215
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -258,7 +258,7 @@
 .end method
 
 .method private static copyImageMatrix(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
-    .locals 2
+    .registers 3
 
     .line 187
     sget-object v0, Landroid/support/transition/ChangeImageTransform$3;->$SwitchMap$android$widget$ImageView$ScaleType:[I
@@ -273,7 +273,7 @@
 
     aget v0, v0, v1
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_24
 
     .line 193
     new-instance v0, Landroid/graphics/Matrix;
@@ -287,7 +287,7 @@
     return-object v0
 
     .line 191
-    :pswitch_0
+    :pswitch_19
     invoke-static {p0}, Landroid/support/transition/ChangeImageTransform;->centerCropMatrix(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
 
     move-result-object p0
@@ -295,7 +295,7 @@
     return-object p0
 
     .line 189
-    :pswitch_1
+    :pswitch_1e
     invoke-static {p0}, Landroid/support/transition/ChangeImageTransform;->fitXYMatrix(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
 
     move-result-object p0
@@ -304,15 +304,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_24
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_19
     .end packed-switch
 .end method
 
 .method private createMatrixAnimator(Landroid/widget/ImageView;Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Landroid/animation/ObjectAnimator;
-    .locals 3
+    .registers 7
 
     .line 182
     sget-object p0, Landroid/support/transition/ChangeImageTransform;->ANIMATED_TRANSFORM_PROPERTY:Landroid/util/Property;
@@ -341,7 +341,7 @@
 .end method
 
 .method private createNullAnimator(Landroid/widget/ImageView;)Landroid/animation/ObjectAnimator;
-    .locals 4
+    .registers 6
 
     .line 176
     sget-object p0, Landroid/support/transition/ChangeImageTransform;->ANIMATED_TRANSFORM_PROPERTY:Landroid/util/Property;
@@ -370,7 +370,7 @@
 .end method
 
 .method private static fitXYMatrix(Landroid/widget/ImageView;)Landroid/graphics/Matrix;
-    .locals 4
+    .registers 5
 
     .line 202
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -421,7 +421,7 @@
 
 # virtual methods
 .method public captureEndValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -434,7 +434,7 @@
 .end method
 
 .method public captureStartValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -447,7 +447,7 @@
 .end method
 
 .method public createAnimator(Landroid/view/ViewGroup;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 4
+    .registers 8
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -455,14 +455,14 @@
 
     const/4 p1, 0x0
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_7f
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_7
 
-    goto/16 :goto_4
+    goto/16 :goto_7f
 
     .line 133
-    :cond_0
+    :cond_7
     iget-object v0, p2, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v1, "android:changeImageTransform:bounds"
@@ -484,14 +484,14 @@
 
     check-cast v1, Landroid/graphics/Rect;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_7e
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_20
 
-    goto :goto_3
+    goto :goto_7e
 
     .line 139
-    :cond_1
+    :cond_20
     iget-object p2, p2, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v2, "android:changeImageTransform:matrix"
@@ -513,42 +513,42 @@
 
     check-cast v2, Landroid/graphics/Matrix;
 
-    if-nez p2, :cond_2
+    if-nez p2, :cond_38
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_40
 
-    :cond_2
-    if-eqz p2, :cond_4
+    :cond_38
+    if-eqz p2, :cond_42
 
     .line 143
     invoke-virtual {p2, v2}, Landroid/graphics/Matrix;->equals(Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_42
 
-    :cond_3
+    :cond_40
     const/4 v3, 0x1
 
-    goto :goto_0
+    goto :goto_43
 
-    :cond_4
+    :cond_42
     const/4 v3, 0x0
 
     .line 145
-    :goto_0
+    :goto_43
     invoke-virtual {v0, v1}, Landroid/graphics/Rect;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4c
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4c
 
     return-object p1
 
     .line 149
-    :cond_5
+    :cond_4c
     iget-object p1, p3, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
 
     check-cast p1, Landroid/widget/ImageView;
@@ -571,26 +571,26 @@
     .line 154
     invoke-static {p1}, Landroid/support/transition/ImageViewUtils;->startAnimateTransform(Landroid/widget/ImageView;)V
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_76
 
-    if-nez p3, :cond_6
+    if-nez p3, :cond_64
 
-    goto :goto_1
+    goto :goto_76
 
-    :cond_6
-    if-nez p2, :cond_7
+    :cond_64
+    if-nez p2, :cond_68
 
     .line 161
     sget-object p2, Landroid/support/transition/MatrixUtils;->IDENTITY_MATRIX:Landroid/graphics/Matrix;
 
-    :cond_7
-    if-nez v2, :cond_8
+    :cond_68
+    if-nez v2, :cond_6c
 
     .line 164
     sget-object v2, Landroid/support/transition/MatrixUtils;->IDENTITY_MATRIX:Landroid/graphics/Matrix;
 
     .line 166
-    :cond_8
+    :cond_6c
     sget-object p3, Landroid/support/transition/ChangeImageTransform;->ANIMATED_TRANSFORM_PROPERTY:Landroid/util/Property;
 
     invoke-virtual {p3, p1, p2}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
@@ -600,32 +600,32 @@
 
     move-result-object p0
 
-    goto :goto_2
+    goto :goto_7a
 
     .line 158
-    :cond_9
-    :goto_1
+    :cond_76
+    :goto_76
     invoke-direct {p0, p1}, Landroid/support/transition/ChangeImageTransform;->createNullAnimator(Landroid/widget/ImageView;)Landroid/animation/ObjectAnimator;
 
     move-result-object p0
 
     .line 170
-    :goto_2
+    :goto_7a
     invoke-static {p1, p0}, Landroid/support/transition/ImageViewUtils;->reserveEndAnimateTransform(Landroid/widget/ImageView;Landroid/animation/Animator;)V
 
     return-object p0
 
-    :cond_a
-    :goto_3
+    :cond_7e
+    :goto_7e
     return-object p1
 
-    :cond_b
-    :goto_4
+    :cond_7f
+    :goto_7f
     return-object p1
 .end method
 
 .method public getTransitionProperties()[Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 114
     sget-object p0, Landroid/support/transition/ChangeImageTransform;->sTransitionProperties:[Ljava/lang/String;

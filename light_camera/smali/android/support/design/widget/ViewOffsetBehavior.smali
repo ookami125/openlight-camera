@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 33
     invoke-direct {p0}, Landroid/support/design/widget/CoordinatorLayout$Behavior;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 36
     invoke-direct {p0, p1, p2}, Landroid/support/design/widget/CoordinatorLayout$Behavior;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -61,12 +61,12 @@
 
 # virtual methods
 .method public getLeftAndRightOffset()I
-    .locals 1
+    .registers 2
 
     .line 89
     iget-object v0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object p0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
@@ -74,22 +74,22 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method public getTopAndBottomOffset()I
-    .locals 1
+    .registers 2
 
     .line 85
     iget-object v0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object p0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
@@ -97,17 +97,17 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_c
     return p0
 .end method
 
 .method protected layoutChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
 .end method
 
 .method public onLayoutChild(Landroid/support/design/widget/CoordinatorLayout;Landroid/view/View;I)Z
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -138,7 +138,7 @@
     .line 44
     iget-object p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_e
 
     .line 45
     new-instance p1, Landroid/support/design/widget/ViewOffsetHelper;
@@ -148,7 +148,7 @@
     iput-object p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
     .line 47
-    :cond_0
+    :cond_e
     iget-object p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
     invoke-virtual {p1}, Landroid/support/design/widget/ViewOffsetHelper;->onViewLayout()V
@@ -158,7 +158,7 @@
 
     const/4 p2, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_21
 
     .line 50
     iget-object p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
@@ -171,10 +171,10 @@
     iput p2, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mTempTopBottomOffset:I
 
     .line 53
-    :cond_1
+    :cond_21
     iget p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mTempLeftRightOffset:I
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2e
 
     .line 54
     iget-object p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
@@ -186,19 +186,19 @@
     .line 55
     iput p2, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mTempLeftRightOffset:I
 
-    :cond_2
+    :cond_2e
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public setLeftAndRightOffset(I)Z
-    .locals 1
+    .registers 3
 
     .line 76
     iget-object v0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 77
     iget-object p0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
@@ -210,7 +210,7 @@
     return p0
 
     .line 79
-    :cond_0
+    :cond_b
     iput p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mTempLeftRightOffset:I
 
     const/4 p0, 0x0
@@ -219,12 +219,12 @@
 .end method
 
 .method public setTopAndBottomOffset(I)Z
-    .locals 1
+    .registers 3
 
     .line 67
     iget-object v0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 68
     iget-object p0, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mViewOffsetHelper:Landroid/support/design/widget/ViewOffsetHelper;
@@ -236,7 +236,7 @@
     return p0
 
     .line 70
-    :cond_0
+    :cond_b
     iput p1, p0, Landroid/support/design/widget/ViewOffsetBehavior;->mTempTopBottomOffset:I
 
     const/4 p0, 0x0

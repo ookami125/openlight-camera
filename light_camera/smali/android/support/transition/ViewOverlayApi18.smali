@@ -18,7 +18,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public add(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -55,7 +55,7 @@
 .end method
 
 .method public clear()V
-    .locals 0
+    .registers 1
 
     .line 41
     iget-object p0, p0, Landroid/support/transition/ViewOverlayApi18;->mViewOverlay:Landroid/view/ViewOverlay;
@@ -66,7 +66,7 @@
 .end method
 
 .method public remove(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

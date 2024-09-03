@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/support/v7/widget/FastScroller;)V
-    .locals 0
+    .registers 2
 
     .line 576
     iput-object p1, p0, Landroid/support/v7/widget/FastScroller$AnimatorUpdater;->this$0:Landroid/support/v7/widget/FastScroller;
@@ -34,7 +34,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v7/widget/FastScroller;Landroid/support/v7/widget/FastScroller$1;)V
-    .locals 0
+    .registers 3
 
     .line 576
     invoke-direct {p0, p1}, Landroid/support/v7/widget/FastScroller$AnimatorUpdater;-><init>(Landroid/support/v7/widget/FastScroller;)V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .registers 3
 
     .line 580
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -67,6 +67,7 @@
     .line 581
     iget-object v0, p0, Landroid/support/v7/widget/FastScroller$AnimatorUpdater;->this$0:Landroid/support/v7/widget/FastScroller;
 
+    # getter for: Landroid/support/v7/widget/FastScroller;->mVerticalThumbDrawable:Landroid/graphics/drawable/StateListDrawable;
     invoke-static {v0}, Landroid/support/v7/widget/FastScroller;->access$600(Landroid/support/v7/widget/FastScroller;)Landroid/graphics/drawable/StateListDrawable;
 
     move-result-object v0
@@ -76,6 +77,7 @@
     .line 582
     iget-object v0, p0, Landroid/support/v7/widget/FastScroller$AnimatorUpdater;->this$0:Landroid/support/v7/widget/FastScroller;
 
+    # getter for: Landroid/support/v7/widget/FastScroller;->mVerticalTrackDrawable:Landroid/graphics/drawable/Drawable;
     invoke-static {v0}, Landroid/support/v7/widget/FastScroller;->access$700(Landroid/support/v7/widget/FastScroller;)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -85,6 +87,7 @@
     .line 583
     iget-object p0, p0, Landroid/support/v7/widget/FastScroller$AnimatorUpdater;->this$0:Landroid/support/v7/widget/FastScroller;
 
+    # invokes: Landroid/support/v7/widget/FastScroller;->requestRedraw()V
     invoke-static {p0}, Landroid/support/v7/widget/FastScroller;->access$500(Landroid/support/v7/widget/FastScroller;)V
 
     return-void

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -49,7 +49,7 @@
 
     iput-object p2, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1c
 
     .line 360
     iget p2, p1, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mChangingConfigurations:I
@@ -71,40 +71,40 @@
 
     iput-object p1, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 
 # virtual methods
 .method canConstantState()Z
-    .locals 0
+    .registers 1
 
     .line 382
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method public getChangingConfigurations()I
-    .locals 2
+    .registers 3
 
     .line 377
     iget v0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mChangingConfigurations:I
 
     iget-object v1, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     iget-object p0, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;->mDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
@@ -113,19 +113,19 @@
 
     move-result p0
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_e
     or-int/2addr p0, v0
 
     return p0
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 

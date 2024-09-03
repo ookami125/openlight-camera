@@ -38,7 +38,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 622
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public next()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -63,12 +63,12 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return-object v1
 
     .line 641
-    :cond_0
+    :cond_6
     iget-object v2, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     .line 642
@@ -77,14 +77,14 @@
     .line 643
     iget-object v1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->right:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    :goto_0
+    :goto_c
     move-object v3, v2
 
     move-object v2, v1
 
     move-object v1, v3
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_16
 
     .line 644
     iput-object v1, v2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -92,17 +92,17 @@
     .line 643
     iget-object v1, v2, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_0
+    goto :goto_c
 
     .line 647
-    :cond_1
+    :cond_16
     iput-object v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlIterator;->stackTop:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     return-object v0
 .end method
 
 .method reset(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -113,14 +113,14 @@
 
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_1
     move-object v1, v0
 
     move-object v0, p1
 
     move-object p1, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 629
     iput-object p1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -128,10 +128,10 @@
     .line 628
     iget-object p1, v0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->left:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_0
+    goto :goto_1
 
     .line 632
-    :cond_0
+    :cond_b
     iput-object p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlIterator;->stackTop:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     return-void

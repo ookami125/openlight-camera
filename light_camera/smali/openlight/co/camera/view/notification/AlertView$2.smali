@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/notification/AlertView;)V
-    .locals 0
+    .registers 2
 
     .line 123
     iput-object p1, p0, Lopenlight/co/camera/view/notification/AlertView$2;->this$0:Lopenlight/co/camera/view/notification/AlertView;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 1
+    .registers 3
 
     .line 130
     iget-object p1, p0, Lopenlight/co/camera/view/notification/AlertView$2;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
     invoke-static {p1}, Lopenlight/co/camera/view/notification/AlertView;->access$000(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/View;
 
     move-result-object p1
@@ -52,12 +53,14 @@
     .line 131
     iget-object p1, p0, Lopenlight/co/camera/view/notification/AlertView$2;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mImageFragmentView:Landroid/view/ViewGroup;
     invoke-static {p1}, Lopenlight/co/camera/view/notification/AlertView;->access$200(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/ViewGroup;
 
     move-result-object p1
 
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView$2;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
     invoke-static {p0}, Lopenlight/co/camera/view/notification/AlertView;->access$100(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/View;
 
     move-result-object p0
@@ -68,13 +71,13 @@
 .end method
 
 .method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

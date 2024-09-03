@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/os/IBinder;)V
-    .locals 0
+    .registers 2
 
     .line 84
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     .line 89
     iget-object p0, p0, Lco/openlight/lightprocessingservice/IProcessListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
@@ -46,7 +46,7 @@
 .end method
 
 .method public getInterfaceDescriptor()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "co.openlight.lightprocessingservice.IProcessListener"
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public onError(Lco/openlight/lightprocessingservice/ProcessRequest;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -71,7 +71,7 @@
 
     move-result-object v1
 
-    :try_start_0
+    :try_start_8
     const-string v2, "co.openlight.lightprocessingservice.IProcessListener"
 
     .line 121
@@ -79,7 +79,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     const/4 v3, 0x1
 
@@ -89,14 +89,14 @@
     .line 124
     invoke-virtual {p1, v0, v2}, Lco/openlight/lightprocessingservice/ProcessRequest;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 127
-    :cond_0
+    :cond_18
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 129
-    :goto_0
+    :goto_1b
     iget-object p0, p0, Lco/openlight/lightprocessingservice/IProcessListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     const/4 p1, 0x2
@@ -105,8 +105,8 @@
 
     .line 130
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_24
+    .catchall {:try_start_8 .. :try_end_24} :catchall_2b
 
     .line 133
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -116,7 +116,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_2b
     move-exception p0
 
     .line 133
@@ -130,7 +130,7 @@
 .end method
 
 .method public onSuccess(Lco/openlight/lightprocessingservice/ProcessRequest;)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -147,7 +147,7 @@
 
     move-result-object v1
 
-    :try_start_0
+    :try_start_8
     const-string v2, "co.openlight.lightprocessingservice.IProcessListener"
 
     .line 100
@@ -157,7 +157,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     .line 102
     invoke-virtual {v0, v2}, Landroid/os/Parcel;->writeInt(I)V
@@ -165,22 +165,22 @@
     .line 103
     invoke-virtual {p1, v0, v3}, Lco/openlight/lightprocessingservice/ProcessRequest;->writeToParcel(Landroid/os/Parcel;I)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 106
-    :cond_0
+    :cond_18
     invoke-virtual {v0, v3}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 108
-    :goto_0
+    :goto_1b
     iget-object p0, p0, Lco/openlight/lightprocessingservice/IProcessListener$Stub$Proxy;->mRemote:Landroid/os/IBinder;
 
     invoke-interface {p0, v2, v0, v1, v3}, Landroid/os/IBinder;->transact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
 
     .line 109
     invoke-virtual {v1}, Landroid/os/Parcel;->readException()V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_23
+    .catchall {:try_start_8 .. :try_end_23} :catchall_2a
 
     .line 112
     invoke-virtual {v1}, Landroid/os/Parcel;->recycle()V
@@ -190,7 +190,7 @@
 
     return-void
 
-    :catchall_0
+    :catchall_2a
     move-exception p0
 
     .line 112

@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/ref/WeakReference;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -82,7 +82,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -134,7 +134,7 @@
     .line 64
     iput-object p4, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_24
 
     .line 68
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -145,8 +145,8 @@
 
     check-cast v0, Landroid/content/Context;
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_24
+    if-eqz v0, :cond_35
 
     .line 72
     invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -165,12 +165,12 @@
     .line 74
     invoke-static {v0}, Lnet/hockeyapp/android/Constants;->loadFromContext(Landroid/content/Context;)V
 
-    :cond_1
+    :cond_35
     return-void
 .end method
 
 .method private static convertStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 259
     new-instance v0, Ljava/io/BufferedReader;
@@ -189,13 +189,13 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 264
-    :goto_0
-    :try_start_0
+    :goto_11
+    :try_start_11
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 265
     new-instance v3, Ljava/lang/StringBuilder;
@@ -213,51 +213,51 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_2b} :catch_37
+    .catchall {:try_start_11 .. :try_end_2b} :catchall_35
 
-    goto :goto_0
+    goto :goto_11
 
     .line 271
-    :cond_0
-    :try_start_1
+    :cond_2c
+    :try_start_2c
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2f
+    .catch Ljava/io/IOException; {:try_start_2c .. :try_end_2f} :catch_30
 
-    goto :goto_1
+    goto :goto_3e
 
-    :catch_0
+    :catch_30
     move-exception p0
 
     .line 273
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_3e
 
-    :catchall_0
+    :catchall_35
     move-exception v0
 
-    goto :goto_2
+    goto :goto_43
 
-    :catch_1
+    :catch_37
     move-exception v0
 
     .line 268
-    :try_start_2
+    :try_start_38
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_38 .. :try_end_3b} :catchall_35
 
     .line 271
-    :try_start_3
+    :try_start_3b
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_3e
+    .catch Ljava/io/IOException; {:try_start_3b .. :try_end_3e} :catch_30
 
     .line 276
-    :goto_1
+    :goto_3e
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -265,27 +265,27 @@
     return-object p0
 
     .line 271
-    :goto_2
-    :try_start_4
+    :goto_43
+    :try_start_43
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_46
+    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_47
 
-    goto :goto_3
+    goto :goto_4b
 
-    :catch_2
+    :catch_47
     move-exception p0
 
     .line 273
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 274
-    :goto_3
+    :goto_4b
     throw v0
 .end method
 
 .method private encodeParam(Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     :try_start_0
     const-string p0, "UTF-8"
@@ -294,19 +294,19 @@
     invoke-static {p1, p0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object p0
 
-    :catch_0
+    :catch_7
     const-string p0, ""
 
     return-object p0
 .end method
 
 .method private findNewVersion(Lorg/json/JSONArray;I)Z
-    .locals 9
+    .registers 12
 
     const/4 v0, 0x0
 
@@ -315,13 +315,13 @@
     move v2, v1
 
     .line 144
-    :goto_0
-    :try_start_0
+    :goto_3
+    :try_start_3
     invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
 
     move-result v3
 
-    if-ge v1, v3, :cond_6
+    if-ge v1, v3, :cond_6c
 
     .line 145
     invoke-virtual {p1, v1}, Lorg/json/JSONArray;->getJSONObject(I)Lorg/json/JSONObject;
@@ -337,16 +337,16 @@
 
     const/4 v5, 0x1
 
-    if-le v4, p2, :cond_0
+    if-le v4, p2, :cond_18
 
     move v4, v5
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_0
+    :cond_18
     move v4, v0
 
-    :goto_1
+    :goto_19
     const-string v6, "version"
 
     .line 148
@@ -354,7 +354,7 @@
 
     move-result v6
 
-    if-ne v6, p2, :cond_1
+    if-ne v6, p2, :cond_31
 
     iget-object v6, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->context:Landroid/content/Context;
 
@@ -368,16 +368,16 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_31
 
     move v6, v5
 
-    goto :goto_2
+    goto :goto_32
 
-    :cond_1
+    :cond_31
     move v6, v0
 
-    :goto_2
+    :goto_32
     const-string v7, "minimum_os_version"
 
     .line 149
@@ -395,22 +395,22 @@
 
     move-result v7
 
-    if-gtz v7, :cond_2
+    if-gtz v7, :cond_46
 
     move v7, v5
 
-    goto :goto_3
+    goto :goto_47
 
-    :cond_2
+    :cond_46
     move v7, v0
 
-    :goto_3
-    if-nez v4, :cond_3
+    :goto_47
+    if-nez v4, :cond_4b
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_69
 
-    :cond_3
-    if-eqz v7, :cond_5
+    :cond_4b
+    if-eqz v7, :cond_69
 
     const-string v2, "mandatory"
 
@@ -419,7 +419,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_68
 
     .line 153
     iget-object v2, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->mandatory:Ljava/lang/Boolean;
@@ -441,26 +441,26 @@
     move-result-object v2
 
     iput-object v2, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->mandatory:Ljava/lang/Boolean;
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_68
+    .catch Lorg/json/JSONException; {:try_start_3 .. :try_end_68} :catch_6d
 
-    :cond_4
+    :cond_68
     move v2, v5
 
-    :cond_5
+    :cond_69
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_6
+    :cond_6c
     return v2
 
-    :catch_0
+    :catch_6d
     return v0
 .end method
 
 .method private limitResponseSize(Lorg/json/JSONArray;)Lorg/json/JSONArray;
-    .locals 3
+    .registers 5
 
     .line 166
     new-instance p0, Lorg/json/JSONArray;
@@ -470,7 +470,7 @@
     const/4 v0, 0x0
 
     .line 167
-    :goto_0
+    :goto_6
     invoke-virtual {p1}, Lorg/json/JSONArray;->length()I
 
     move-result v1
@@ -481,31 +481,31 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1c
 
     .line 169
-    :try_start_0
+    :try_start_12
     invoke-virtual {p1, v0}, Lorg/json/JSONArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     invoke-virtual {p0, v1}, Lorg/json/JSONArray;->put(Ljava/lang/Object;)Lorg/json/JSONArray;
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Lorg/json/JSONException; {:try_start_12 .. :try_end_19} :catch_19
 
-    :catch_0
+    :catch_19
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_1c
     return-object p0
 .end method
 
 
 # virtual methods
 .method public attach(Ljava/lang/ref/WeakReference;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -516,7 +516,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 81
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -525,13 +525,13 @@
 
     check-cast p1, Landroid/content/Context;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p1, 0x0
 
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_a
+    if-eqz p1, :cond_15
 
     .line 85
     invoke-virtual {p1}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -543,12 +543,12 @@
     .line 86
     invoke-static {p1}, Lnet/hockeyapp/android/Constants;->loadFromContext(Landroid/content/Context;)V
 
-    :cond_1
+    :cond_15
     return-void
 .end method
 
 .method protected cleanUp()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -562,7 +562,7 @@
 .end method
 
 .method protected createConnection(Ljava/net/URL;)Ljava/net/URLConnection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -586,7 +586,7 @@
 
     const/16 v0, 0x9
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_18
 
     const-string p1, "connection"
 
@@ -595,12 +595,12 @@
     .line 135
     invoke-virtual {p0, p1, v0}, Ljava/net/URLConnection;->setRequestProperty(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_0
+    :cond_18
     return-object p0
 .end method
 
 .method public detach()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -611,7 +611,7 @@
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 40
     check-cast p1, [Ljava/lang/Void;
@@ -624,7 +624,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Lorg/json/JSONArray;
-    .locals 2
+    .registers 4
 
     .line 101
     :try_start_0
@@ -648,13 +648,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     invoke-direct {p0, v0, p1}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->findNewVersion(Lorg/json/JSONArray;I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_23
 
     const-string p0, "HockeyUpdate"
 
@@ -666,7 +666,7 @@
     return-object v0
 
     .line 110
-    :cond_0
+    :cond_23
     new-instance v0, Ljava/net/URL;
 
     const-string v1, "json"
@@ -712,32 +712,32 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_59
 
     .line 120
     invoke-direct {p0, v1}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->limitResponseSize(Lorg/json/JSONArray;)Lorg/json/JSONArray;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_54
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_54} :catch_55
+    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_54} :catch_55
 
     return-object p0
 
-    :catch_0
+    :catch_55
     move-exception p0
 
     .line 124
     invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :cond_1
+    :cond_59
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method protected getCachingEnabled()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -745,7 +745,7 @@
 .end method
 
 .method protected getURLString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
 
     .line 199
     new-instance v0, Ljava/lang/StringBuilder;
@@ -765,20 +765,20 @@
     .line 202
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->appIdentifier:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_16
 
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->appIdentifier:Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_16
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->context:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
-    :goto_0
+    :goto_1c
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 203
@@ -816,7 +816,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_69
 
     .line 207
     new-instance p1, Ljava/lang/StringBuilder;
@@ -852,7 +852,7 @@
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 210
-    :cond_1
+    :cond_69
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->context:Landroid/content/Context;
 
     const-string v1, "net.hockeyapp.android.login"
@@ -877,7 +877,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_97
 
     .line 213
     new-instance v3, Ljava/lang/StringBuilder;
@@ -900,7 +900,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_2
+    :cond_97
     const-string v1, "iuid"
 
     .line 216
@@ -913,7 +913,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_bb
 
     .line 218
     new-instance v1, Ljava/lang/StringBuilder;
@@ -936,7 +936,7 @@
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_3
+    :cond_bb
     const-string p1, "&os=Android"
 
     .line 221
@@ -1137,7 +1137,7 @@
 .end method
 
 .method protected getVersionCode()I
-    .locals 0
+    .registers 1
 
     .line 95
     sget-object p0, Lnet/hockeyapp/android/Constants;->APP_VERSION:Ljava/lang/String;
@@ -1150,7 +1150,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 40
     check-cast p1, Lorg/json/JSONArray;
@@ -1161,9 +1161,9 @@
 .end method
 
 .method protected onPostExecute(Lorg/json/JSONArray;)V
-    .locals 2
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_19
 
     const-string v0, "HockeyUpdate"
 
@@ -1175,7 +1175,7 @@
     .line 181
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_29
 
     .line 182
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
@@ -1188,9 +1188,9 @@
 
     invoke-virtual {v0, p1, p0}, Lnet/hockeyapp/android/UpdateManagerListener;->onUpdateAvailable(Lorg/json/JSONArray;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_19
     const-string p1, "HockeyUpdate"
 
     const-string v0, "No Update Info available"
@@ -1201,14 +1201,14 @@
     .line 187
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_29
 
     .line 188
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateManagerListener;->onNoUpdateAvailable()V
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     return-void
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 353
     const-class v0, Lltpb/GPSData$ReferenceAltitude;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic fromValue(I)Lcom/squareup/wire/WireEnum;
-    .locals 0
+    .registers 2
 
     .line 351
     invoke-virtual {p0, p1}, Lltpb/GPSData$ReferenceAltitude$ProtoAdapter_ReferenceAltitude;->fromValue(I)Lltpb/GPSData$ReferenceAltitude;
@@ -48,7 +48,7 @@
 .end method
 
 .method protected fromValue(I)Lltpb/GPSData$ReferenceAltitude;
-    .locals 0
+    .registers 2
 
     .line 358
     invoke-static {p1}, Lltpb/GPSData$ReferenceAltitude;->fromValue(I)Lltpb/GPSData$ReferenceAltitude;

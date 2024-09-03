@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 1187
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -55,7 +55,7 @@
 .end method
 
 .method public decode(Lcom/squareup/wire/ProtoReader;)Lltpb/ViewPreferences;
-    .locals 7
+    .registers 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -73,19 +73,19 @@
     move-result-wide v0
 
     .line 1236
-    :goto_0
+    :goto_9
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->nextTag()I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_145
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_14e
 
     .line 1297
-    :pswitch_0
+    :pswitch_13
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->peekFieldEncoding()Lcom/squareup/wire/FieldEncoding;
 
     move-result-object v3
@@ -102,10 +102,10 @@
     .line 1299
     invoke-virtual {p0, v2, v3, v4}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1295
-    :pswitch_1
+    :pswitch_23
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -116,10 +116,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->qc_lux_index(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1294
-    :pswitch_2
+    :pswitch_2f
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->BOOL:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -130,10 +130,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->is_on_tripod(Ljava/lang/Boolean;)Lltpb/ViewPreferences$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1293
-    :pswitch_3
+    :pswitch_3b
     sget-object v2, Lltpb/ViewPreferences$ChannelGain;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -144,10 +144,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->awb_gains(Lltpb/ViewPreferences$ChannelGain;)Lltpb/ViewPreferences$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1292
-    :pswitch_4
+    :pswitch_47
     sget-object v2, Lltpb/ViewPreferences$Crop;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -158,11 +158,11 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->crop(Lltpb/ViewPreferences$Crop;)Lltpb/ViewPreferences$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1286
-    :pswitch_5
-    :try_start_0
+    :pswitch_53
+    :try_start_53
     sget-object v3, Lltpb/ViewPreferences$AspectRatio;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -172,12 +172,12 @@
     check-cast v3, Lltpb/ViewPreferences$AspectRatio;
 
     invoke-virtual {p0, v3}, Lltpb/ViewPreferences$Builder;->aspect_ratio(Lltpb/ViewPreferences$AspectRatio;)Lltpb/ViewPreferences$Builder;
-    :try_end_0
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5e
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_53 .. :try_end_5e} :catch_5f
 
-    goto :goto_0
+    goto :goto_9
 
-    :catch_0
+    :catch_5f
     move-exception v3
 
     .line 1288
@@ -193,10 +193,10 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1283
-    :pswitch_6
+    :pswitch_6d
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->UINT32:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -207,10 +207,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->user_rating(Ljava/lang/Integer;)Lltpb/ViewPreferences$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1282
-    :pswitch_7
+    :pswitch_79
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->UINT64:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -221,10 +221,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->image_exposure(Ljava/lang/Long;)Lltpb/ViewPreferences$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1281
-    :pswitch_8
+    :pswitch_85
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -235,11 +235,11 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->image_gain(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1275
-    :pswitch_9
-    :try_start_1
+    :pswitch_92
+    :try_start_92
     sget-object v3, Lltpb/ViewPreferences$Orientation;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -249,12 +249,12 @@
     check-cast v3, Lltpb/ViewPreferences$Orientation;
 
     invoke-virtual {p0, v3}, Lltpb/ViewPreferences$Builder;->orientation(Lltpb/ViewPreferences$Orientation;)Lltpb/ViewPreferences$Builder;
-    :try_end_1
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_9d
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_92 .. :try_end_9d} :catch_9f
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
-    :catch_1
+    :catch_9f
     move-exception v3
 
     .line 1277
@@ -270,11 +270,11 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1267
-    :pswitch_a
-    :try_start_2
+    :pswitch_ae
+    :try_start_ae
     sget-object v3, Lltpb/ViewPreferences$AWBMode;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -284,12 +284,12 @@
     check-cast v3, Lltpb/ViewPreferences$AWBMode;
 
     invoke-virtual {p0, v3}, Lltpb/ViewPreferences$Builder;->awb_mode(Lltpb/ViewPreferences$AWBMode;)Lltpb/ViewPreferences$Builder;
-    :try_end_2
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_b9
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_ae .. :try_end_b9} :catch_bb
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
-    :catch_2
+    :catch_bb
     move-exception v3
 
     .line 1269
@@ -305,11 +305,11 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1259
-    :pswitch_b
-    :try_start_3
+    :pswitch_ca
+    :try_start_ca
     sget-object v3, Lltpb/ViewPreferences$SceneMode;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -319,12 +319,12 @@
     check-cast v3, Lltpb/ViewPreferences$SceneMode;
 
     invoke-virtual {p0, v3}, Lltpb/ViewPreferences$Builder;->scene_mode(Lltpb/ViewPreferences$SceneMode;)Lltpb/ViewPreferences$Builder;
-    :try_end_3
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_d5
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_ca .. :try_end_d5} :catch_d7
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
-    :catch_3
+    :catch_d7
     move-exception v3
 
     .line 1261
@@ -340,11 +340,11 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1251
-    :pswitch_c
-    :try_start_4
+    :pswitch_e6
+    :try_start_e6
     sget-object v3, Lltpb/ViewPreferences$ViewPresets;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -354,12 +354,12 @@
     check-cast v3, Lltpb/ViewPreferences$ViewPresets;
 
     invoke-virtual {p0, v3}, Lltpb/ViewPreferences$Builder;->view_preset(Lltpb/ViewPreferences$ViewPresets;)Lltpb/ViewPreferences$Builder;
-    :try_end_4
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_f1
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_e6 .. :try_end_f1} :catch_f3
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
-    :catch_4
+    :catch_f3
     move-exception v3
 
     .line 1253
@@ -375,11 +375,11 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1243
-    :pswitch_d
-    :try_start_5
+    :pswitch_102
+    :try_start_102
     sget-object v3, Lltpb/ViewPreferences$HDRMode;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v3, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -389,12 +389,12 @@
     check-cast v3, Lltpb/ViewPreferences$HDRMode;
 
     invoke-virtual {p0, v3}, Lltpb/ViewPreferences$Builder;->hdr_mode(Lltpb/ViewPreferences$HDRMode;)Lltpb/ViewPreferences$Builder;
-    :try_end_5
-    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_10d
+    .catch Lcom/squareup/wire/ProtoAdapter$EnumConstantNotFoundException; {:try_start_102 .. :try_end_10d} :catch_10f
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
-    :catch_5
+    :catch_10f
     move-exception v3
 
     .line 1245
@@ -410,10 +410,10 @@
 
     invoke-virtual {p0, v2, v4, v3}, Lltpb/ViewPreferences$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1240
-    :pswitch_e
+    :pswitch_11e
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->BOOL:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -424,10 +424,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->disable_cropping(Ljava/lang/Boolean;)Lltpb/ViewPreferences$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1239
-    :pswitch_f
+    :pswitch_12b
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -438,10 +438,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->ev_offset(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1238
-    :pswitch_10
+    :pswitch_138
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -452,10 +452,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$Builder;->f_number(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
 
-    goto/16 :goto_0
+    goto/16 :goto_9
 
     .line 1303
-    :cond_0
+    :cond_145
     invoke-virtual {p1, v0, v1}, Lcom/squareup/wire/ProtoReader;->endMessage(J)V
 
     .line 1304
@@ -467,30 +467,30 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_14e
     .packed-switch 0x1
-        :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_0
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
+        :pswitch_138
+        :pswitch_12b
+        :pswitch_11e
+        :pswitch_102
+        :pswitch_e6
+        :pswitch_ca
+        :pswitch_ae
+        :pswitch_13
+        :pswitch_92
+        :pswitch_85
+        :pswitch_79
+        :pswitch_6d
+        :pswitch_53
+        :pswitch_47
+        :pswitch_3b
+        :pswitch_2f
+        :pswitch_23
     .end packed-switch
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -506,7 +506,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Lltpb/ViewPreferences;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -668,7 +668,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 1185
     check-cast p1, Lltpb/ViewPreferences;
@@ -681,7 +681,7 @@
 .end method
 
 .method public encodedSize(Lltpb/ViewPreferences;)I
-    .locals 3
+    .registers 5
 
     .line 1192
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
@@ -904,7 +904,7 @@
 .end method
 
 .method public bridge synthetic redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1185
     check-cast p1, Lltpb/ViewPreferences;
@@ -917,7 +917,7 @@
 .end method
 
 .method public redact(Lltpb/ViewPreferences;)Lltpb/ViewPreferences;
-    .locals 1
+    .registers 3
 
     .line 1309
     invoke-virtual {p1}, Lltpb/ViewPreferences;->newBuilder()Lltpb/ViewPreferences$Builder;
@@ -927,7 +927,7 @@
     .line 1310
     iget-object p1, p0, Lltpb/ViewPreferences$Builder;->crop:Lltpb/ViewPreferences$Crop;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     sget-object p1, Lltpb/ViewPreferences$Crop;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
@@ -942,10 +942,10 @@
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->crop:Lltpb/ViewPreferences$Crop;
 
     .line 1311
-    :cond_0
+    :cond_14
     iget-object p1, p0, Lltpb/ViewPreferences$Builder;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     sget-object p1, Lltpb/ViewPreferences$ChannelGain;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
 
@@ -960,7 +960,7 @@
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
 
     .line 1312
-    :cond_1
+    :cond_24
     invoke-virtual {p0}, Lltpb/ViewPreferences$Builder;->clearUnknownFields()Lcom/squareup/wire/Message$Builder;
 
     .line 1313

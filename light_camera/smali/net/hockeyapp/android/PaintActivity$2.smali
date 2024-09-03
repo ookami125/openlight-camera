@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/PaintActivity;Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 3
 
     .line 182
     iput-object p1, p0, Lnet/hockeyapp/android/PaintActivity$2;->this$0:Lnet/hockeyapp/android/PaintActivity;
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 182
     check-cast p1, [Ljava/io/File;
@@ -60,7 +60,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/io/File;)Ljava/lang/Void;
-    .locals 2
+    .registers 4
 
     .line 186
     :try_start_0
@@ -83,12 +83,12 @@
 
     .line 188
     invoke-virtual {v0}, Ljava/io/FileOutputStream;->close()V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_1e
 
-    :catch_0
+    :catch_15
     move-exception p0
 
     .line 190
@@ -99,7 +99,7 @@
     .line 191
     invoke-static {p1, p0}, Lnet/hockeyapp/android/utils/HockeyLog;->error(Ljava/lang/String;Ljava/lang/Throwable;)V
 
-    :goto_0
+    :goto_1e
     const/4 p0, 0x0
 
     return-object p0

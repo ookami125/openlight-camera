@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;Z)V
-    .locals 1
+    .registers 4
 
     .line 47
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -48,28 +48,28 @@
 .end method
 
 .method private eofGame()I
-    .locals 3
+    .registers 4
 
     .line 101
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->ensureLineFeedAtEndOfFile:Z
 
     const/4 v1, -0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 104
-    :cond_0
+    :cond_6
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashNSeen:Z
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashRSeen:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_14
 
     .line 105
     iput-boolean v2, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashRSeen:Z
@@ -79,10 +79,10 @@
     return p0
 
     .line 108
-    :cond_1
+    :cond_14
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashNSeen:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_20
 
     const/4 v0, 0x0
 
@@ -96,12 +96,12 @@
 
     return p0
 
-    :cond_2
+    :cond_20
     return v1
 .end method
 
 .method private readWithUpdate()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -121,50 +121,50 @@
 
     const/4 v3, -0x1
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_d
 
     move v3, v2
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v3, v1
 
     .line 59
-    :goto_0
+    :goto_e
     iput-boolean v3, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->eofSeen:Z
 
     .line 60
     iget-boolean v3, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->eofSeen:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_15
 
     return v0
 
-    :cond_1
+    :cond_15
     const/16 v3, 0xd
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_1b
 
     move v3, v2
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_2
+    :cond_1b
     move v3, v1
 
     .line 63
-    :goto_1
+    :goto_1c
     iput-boolean v3, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashRSeen:Z
 
     const/16 v3, 0xa
 
-    if-ne v0, v3, :cond_3
+    if-ne v0, v3, :cond_23
 
     move v1, v2
 
     .line 64
-    :cond_3
+    :cond_23
     iput-boolean v1, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashNSeen:Z
 
     return v0
@@ -173,7 +173,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -192,12 +192,12 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 1
+    .registers 3
 
     monitor-enter p0
 
     .line 132
-    :try_start_0
+    :try_start_1
     new-instance p1, Ljava/lang/UnsupportedOperationException;
 
     const-string v0, "Mark not supported"
@@ -205,10 +205,10 @@
     invoke-direct {p1, v0}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
 
     throw p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_9
 
-    :catchall_0
+    :catchall_9
     move-exception p1
 
     monitor-exit p0
@@ -217,7 +217,7 @@
 .end method
 
 .method public read()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -227,7 +227,7 @@
     .line 73
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->eofSeen:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 74
     invoke-direct {p0}, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->eofGame()I
@@ -237,12 +237,12 @@
     return p0
 
     .line 75
-    :cond_0
+    :cond_9
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->injectSlashN:Z
 
     const/16 v1, 0xa
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     const/4 v0, 0x0
 
@@ -252,7 +252,7 @@
     return v1
 
     .line 79
-    :cond_1
+    :cond_13
     iget-boolean v0, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->slashRSeen:Z
 
     .line 80
@@ -263,7 +263,7 @@
     .line 81
     iget-boolean v3, p0, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->eofSeen:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_22
 
     .line 82
     invoke-direct {p0}, Lorg/apache/commons/io/input/WindowsLineEndingInputStream;->eofGame()I
@@ -272,10 +272,10 @@
 
     return p0
 
-    :cond_2
-    if-ne v2, v1, :cond_3
+    :cond_22
+    if-ne v2, v1, :cond_2c
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2c
 
     const/4 v0, 0x1
 
@@ -286,6 +286,6 @@
 
     return p0
 
-    :cond_3
+    :cond_2c
     return v2
 .end method

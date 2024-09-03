@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 817
     const-class v0, Lltpb/ViewPreferences$AspectRatio;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method protected bridge synthetic fromValue(I)Lcom/squareup/wire/WireEnum;
-    .locals 0
+    .registers 2
 
     .line 815
     invoke-virtual {p0, p1}, Lltpb/ViewPreferences$AspectRatio$ProtoAdapter_AspectRatio;->fromValue(I)Lltpb/ViewPreferences$AspectRatio;
@@ -48,7 +48,7 @@
 .end method
 
 .method protected fromValue(I)Lltpb/ViewPreferences$AspectRatio;
-    .locals 0
+    .registers 2
 
     .line 822
     invoke-static {p1}, Lltpb/ViewPreferences$AspectRatio;->fromValue(I)Lltpb/ViewPreferences$AspectRatio;

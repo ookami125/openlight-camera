@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public compare(Landroid/support/v7/util/DiffUtil$Snake;Landroid/support/v7/util/DiffUtil$Snake;)I
-    .locals 1
+    .registers 4
 
     .line 75
     iget p0, p1, Landroid/support/v7/util/DiffUtil$Snake;->x:I
@@ -48,7 +48,7 @@
 
     sub-int/2addr p0, v0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_c
 
     .line 76
     iget p0, p1, Landroid/support/v7/util/DiffUtil$Snake;->y:I
@@ -57,12 +57,12 @@
 
     sub-int/2addr p0, p1
 
-    :cond_0
+    :cond_c
     return p0
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 72
     check-cast p1, Landroid/support/v7/util/DiffUtil$Snake;

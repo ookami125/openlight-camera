@@ -9,13 +9,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 193
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,14 +24,14 @@
 .end method
 
 .method public static append([III)[I
-    .locals 2
+    .registers 5
 
     add-int/lit8 v0, p1, 0x1
 
     .line 59
     array-length v1, p0
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_10
 
     .line 60
     invoke-static {p1}, Landroid/support/v7/content/res/GrowingArrayUtils;->growSize(I)I
@@ -48,21 +48,21 @@
     move-object p0, v0
 
     .line 64
-    :cond_0
+    :cond_10
     aput p2, p0, p1
 
     return-object p0
 .end method
 
 .method public static append([JIJ)[J
-    .locals 2
+    .registers 6
 
     add-int/lit8 v0, p1, 0x1
 
     .line 74
     array-length v1, p0
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_10
 
     .line 75
     invoke-static {p1}, Landroid/support/v7/content/res/GrowingArrayUtils;->growSize(I)I
@@ -79,14 +79,14 @@
     move-object p0, v0
 
     .line 79
-    :cond_0
+    :cond_10
     aput-wide p2, p0, p1
 
     return-object p0
 .end method
 
 .method public static append([Ljava/lang/Object;ILjava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -100,7 +100,7 @@
     .line 43
     array-length v1, p0
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1c
 
     .line 44
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -131,21 +131,21 @@
     move-object p0, v0
 
     .line 49
-    :cond_0
+    :cond_1c
     aput-object p2, p0, p1
 
     return-object p0
 .end method
 
 .method public static append([ZIZ)[Z
-    .locals 2
+    .registers 5
 
     add-int/lit8 v0, p1, 0x1
 
     .line 89
     array-length v1, p0
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_10
 
     .line 90
     invoke-static {p1}, Landroid/support/v7/content/res/GrowingArrayUtils;->growSize(I)I
@@ -162,39 +162,39 @@
     move-object p0, v0
 
     .line 94
-    :cond_0
+    :cond_10
     aput-boolean p2, p0, p1
 
     return-object p0
 .end method
 
 .method public static growSize(I)I
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x4
 
-    if-gt p0, v0, :cond_0
+    if-gt p0, v0, :cond_6
 
     const/16 p0, 0x8
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     mul-int/lit8 p0, p0, 0x2
 
-    :goto_0
+    :goto_8
     return p0
 .end method
 
 .method public static insert([IIII)[I
-    .locals 2
+    .registers 6
 
     add-int/lit8 v0, p1, 0x1
 
     .line 132
     array-length v1, p0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     add-int/lit8 v0, p2, 0x1
 
@@ -209,7 +209,7 @@
     return-object p0
 
     .line 138
-    :cond_0
+    :cond_e
     invoke-static {p1}, Landroid/support/v7/content/res/GrowingArrayUtils;->growSize(I)I
 
     move-result p1
@@ -237,14 +237,14 @@
 .end method
 
 .method public static insert([JIIJ)[J
-    .locals 2
+    .registers 7
 
     add-int/lit8 v0, p1, 0x1
 
     .line 151
     array-length v1, p0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     add-int/lit8 v0, p2, 0x1
 
@@ -259,7 +259,7 @@
     return-object p0
 
     .line 157
-    :cond_0
+    :cond_e
     invoke-static {p1}, Landroid/support/v7/content/res/GrowingArrayUtils;->growSize(I)I
 
     move-result p1
@@ -287,7 +287,7 @@
 .end method
 
 .method public static insert([Ljava/lang/Object;IILjava/lang/Object;)[Ljava/lang/Object;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -301,7 +301,7 @@
     .line 112
     array-length v1, p0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     add-int/lit8 v0, p2, 0x1
 
@@ -316,7 +316,7 @@
     return-object p0
 
     .line 118
-    :cond_0
+    :cond_e
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object v0
@@ -358,14 +358,14 @@
 .end method
 
 .method public static insert([ZIIZ)[Z
-    .locals 2
+    .registers 6
 
     add-int/lit8 v0, p1, 0x1
 
     .line 170
     array-length v1, p0
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     add-int/lit8 v0, p2, 0x1
 
@@ -380,7 +380,7 @@
     return-object p0
 
     .line 176
-    :cond_0
+    :cond_e
     invoke-static {p1}, Landroid/support/v7/content/res/GrowingArrayUtils;->growSize(I)I
 
     move-result p1

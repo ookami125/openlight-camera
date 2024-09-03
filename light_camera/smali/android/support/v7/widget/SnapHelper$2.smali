@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SnapHelper;Landroid/content/Context;)V
-    .locals 0
+    .registers 3
 
     .line 229
     iput-object p1, p0, Landroid/support/v7/widget/SnapHelper$2;->this$0:Landroid/support/v7/widget/SnapHelper;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method protected calculateSpeedPerPixel(Landroid/util/DisplayMetrics;)F
-    .locals 0
+    .registers 2
 
     .line 244
     iget p0, p1, Landroid/util/DisplayMetrics;->densityDpi:I
@@ -48,7 +48,7 @@
 .end method
 
 .method protected onTargetFound(Landroid/view/View;Landroid/support/v7/widget/RecyclerView$State;Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;)V
-    .locals 2
+    .registers 6
 
     .line 232
     iget-object p2, p0, Landroid/support/v7/widget/SnapHelper$2;->this$0:Landroid/support/v7/widget/SnapHelper;
@@ -92,13 +92,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_2b
 
     .line 238
     iget-object p0, p0, Landroid/support/v7/widget/SnapHelper$2;->mDecelerateInterpolator:Landroid/view/animation/DecelerateInterpolator;
 
     invoke-virtual {p3, p2, p1, v0, p0}, Landroid/support/v7/widget/RecyclerView$SmoothScroller$Action;->update(IIILandroid/view/animation/Interpolator;)V
 
-    :cond_0
+    :cond_2b
     return-void
 .end method

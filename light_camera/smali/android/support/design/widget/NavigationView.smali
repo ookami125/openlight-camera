@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .registers 12
 
     .line 102
     invoke-direct {p0, p1, p2, p3}, Landroid/support/design/internal/ScrimInsetsFrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -135,7 +135,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_38
 
     .line 117
     sget p3, Landroid/support/design/R$styleable;->NavigationView_elevation:I
@@ -149,7 +149,7 @@
     invoke-static {p0, p3}, Landroid/support/v4/view/ViewCompat;->setElevation(Landroid/view/View;F)V
 
     .line 120
-    :cond_0
+    :cond_38
     sget p3, Landroid/support/design/R$styleable;->NavigationView_android_fitsSystemWindows:I
 
     .line 121
@@ -176,7 +176,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_58
 
     .line 127
     sget p3, Landroid/support/design/R$styleable;->NavigationView_itemIconTint:I
@@ -185,9 +185,9 @@
 
     move-result-object p3
 
-    goto :goto_0
+    goto :goto_5f
 
-    :cond_1
+    :cond_58
     const p3, 0x1010038
 
     .line 129
@@ -196,7 +196,7 @@
     move-result-object p3
 
     .line 134
-    :goto_0
+    :goto_5f
     sget v1, Landroid/support/design/R$styleable;->NavigationView_itemTextAppearance:I
 
     invoke-virtual {p2, v1}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
@@ -205,7 +205,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_71
 
     .line 135
     sget v1, Landroid/support/design/R$styleable;->NavigationView_itemTextAppearance:I
@@ -218,14 +218,14 @@
 
     move v1, v2
 
-    goto :goto_1
+    goto :goto_73
 
-    :cond_2
+    :cond_71
     move v1, v0
 
     move v3, v1
 
-    :goto_1
+    :goto_73
     const/4 v4, 0x0
 
     .line 140
@@ -235,7 +235,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_82
 
     .line 141
     sget v4, Landroid/support/design/R$styleable;->NavigationView_itemTextColor:I
@@ -244,10 +244,10 @@
 
     move-result-object v4
 
-    :cond_3
-    if-nez v1, :cond_4
+    :cond_82
+    if-nez v1, :cond_8d
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_8d
 
     const v4, 0x1010036
 
@@ -257,7 +257,7 @@
     move-result-object v4
 
     .line 149
-    :cond_4
+    :cond_8d
     sget v5, Landroid/support/design/R$styleable;->NavigationView_itemBackground:I
 
     invoke-virtual {p2, v5}, Landroid/support/v7/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -290,7 +290,7 @@
 
     invoke-virtual {p1, p3}, Landroid/support/design/internal/NavigationMenuPresenter;->setItemIconTintList(Landroid/content/res/ColorStateList;)V
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_b5
 
     .line 164
     iget-object p1, p0, Landroid/support/design/widget/NavigationView;->mPresenter:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -298,7 +298,7 @@
     invoke-virtual {p1, v3}, Landroid/support/design/internal/NavigationMenuPresenter;->setItemTextAppearance(I)V
 
     .line 166
-    :cond_5
+    :cond_b5
     iget-object p1, p0, Landroid/support/design/widget/NavigationView;->mPresenter:Landroid/support/design/internal/NavigationMenuPresenter;
 
     invoke-virtual {p1, v4}, Landroid/support/design/internal/NavigationMenuPresenter;->setItemTextColor(Landroid/content/res/ColorStateList;)V
@@ -333,7 +333,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_e2
 
     .line 172
     sget p1, Landroid/support/design/R$styleable;->NavigationView_menu:I
@@ -345,14 +345,14 @@
     invoke-virtual {p0, p1}, Landroid/support/design/widget/NavigationView;->inflateMenu(I)V
 
     .line 175
-    :cond_6
+    :cond_e2
     sget p1, Landroid/support/design/R$styleable;->NavigationView_headerLayout:I
 
     invoke-virtual {p2, p1}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_f3
 
     .line 176
     sget p1, Landroid/support/design/R$styleable;->NavigationView_headerLayout:I
@@ -364,14 +364,14 @@
     invoke-virtual {p0, p1}, Landroid/support/design/widget/NavigationView;->inflateHeaderView(I)Landroid/view/View;
 
     .line 179
-    :cond_7
+    :cond_f3
     invoke-virtual {p2}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     return-void
 .end method
 
 .method private createDefaultColorStateList(I)Landroid/content/res/ColorStateList;
-    .locals 8
+    .registers 10
 
     .line 416
     new-instance v0, Landroid/util/TypedValue;
@@ -395,12 +395,12 @@
 
     const/4 v1, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_16
 
     return-object v1
 
     .line 421
-    :cond_0
+    :cond_16
     invoke-virtual {p0}, Landroid/support/design/widget/NavigationView;->getContext()Landroid/content/Context;
 
     move-result-object p1
@@ -427,12 +427,12 @@
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_31
 
     return-object v1
 
     .line 426
-    :cond_1
+    :cond_31
     iget p0, v0, Landroid/util/TypedValue;->data:I
 
     .line 427
@@ -484,12 +484,12 @@
 .end method
 
 .method private getMenuInflater()Landroid/view/MenuInflater;
-    .locals 2
+    .registers 3
 
     .line 409
     iget-object v0, p0, Landroid/support/design/widget/NavigationView;->mMenuInflater:Landroid/view/MenuInflater;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 410
     new-instance v0, Landroid/support/v7/view/SupportMenuInflater;
@@ -503,7 +503,7 @@
     iput-object v0, p0, Landroid/support/design/widget/NavigationView;->mMenuInflater:Landroid/view/MenuInflater;
 
     .line 412
-    :cond_0
+    :cond_f
     iget-object p0, p0, Landroid/support/design/widget/NavigationView;->mMenuInflater:Landroid/view/MenuInflater;
 
     return-object p0
@@ -512,7 +512,7 @@
 
 # virtual methods
 .method public addHeaderView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -527,7 +527,7 @@
 .end method
 
 .method public getHeaderCount()I
-    .locals 0
+    .registers 1
 
     .line 294
     iget-object p0, p0, Landroid/support/design/widget/NavigationView;->mPresenter:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -540,7 +540,7 @@
 .end method
 
 .method public getHeaderView(I)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 305
     iget-object p0, p0, Landroid/support/design/widget/NavigationView;->mPresenter:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -553,7 +553,7 @@
 .end method
 
 .method public getItemBackground()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -568,7 +568,7 @@
 .end method
 
 .method public getItemIconTintList()Landroid/content/res/ColorStateList;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -583,7 +583,7 @@
 .end method
 
 .method public getItemTextColor()Landroid/content/res/ColorStateList;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -598,7 +598,7 @@
 .end method
 
 .method public getMenu()Landroid/view/Menu;
-    .locals 0
+    .registers 1
 
     .line 257
     iget-object p0, p0, Landroid/support/design/widget/NavigationView;->mMenu:Landroid/support/design/internal/NavigationMenu;
@@ -607,7 +607,7 @@
 .end method
 
 .method public inflateHeaderView(I)Landroid/view/View;
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/LayoutRes;
         .end annotation
@@ -624,7 +624,7 @@
 .end method
 
 .method public inflateMenu(I)V
-    .locals 2
+    .registers 4
 
     .line 247
     iget-object v0, p0, Landroid/support/design/widget/NavigationView;->mPresenter:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -658,7 +658,7 @@
 .end method
 
 .method protected onInsetsChanged(Landroid/support/v4/view/WindowInsetsCompat;)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
@@ -674,7 +674,7 @@
 .end method
 
 .method protected onMeasure(II)V
-    .locals 3
+    .registers 6
 
     .line 214
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -685,24 +685,24 @@
 
     const/high16 v2, 0x40000000    # 2.0f
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_14
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_22
 
     .line 223
-    :cond_0
+    :cond_d
     iget p1, p0, Landroid/support/design/widget/NavigationView;->mMaxWidth:I
 
     invoke-static {p1, v2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_22
 
     .line 220
-    :cond_1
+    :cond_14
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
     move-result p1
@@ -719,19 +719,19 @@
     move-result p1
 
     .line 227
-    :goto_0
+    :goto_22
     invoke-super {p0, p1, p2}, Landroid/support/design/internal/ScrimInsetsFrameLayout;->onMeasure(II)V
 
     return-void
 .end method
 
 .method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 193
     instance-of v0, p1, Landroid/support/design/widget/NavigationView$SavedState;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_8
 
     .line 194
     invoke-super {p0, p1}, Landroid/support/design/internal/ScrimInsetsFrameLayout;->onRestoreInstanceState(Landroid/os/Parcelable;)V
@@ -739,7 +739,7 @@
     return-void
 
     .line 197
-    :cond_0
+    :cond_8
     check-cast p1, Landroid/support/design/widget/NavigationView$SavedState;
 
     .line 198
@@ -760,7 +760,7 @@
 .end method
 
 .method protected onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
 
     .line 184
     invoke-super {p0}, Landroid/support/design/internal/ScrimInsetsFrameLayout;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -790,7 +790,7 @@
 .end method
 
 .method public removeHeaderView(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -805,7 +805,7 @@
 .end method
 
 .method public setCheckedItem(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
@@ -818,7 +818,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 395
     iget-object p0, p0, Landroid/support/design/widget/NavigationView;->mPresenter:Landroid/support/design/internal/NavigationMenuPresenter;
@@ -827,12 +827,12 @@
 
     invoke-virtual {p0, p1}, Landroid/support/design/internal/NavigationMenuPresenter;->setCheckedItem(Landroid/support/v7/view/menu/MenuItemImpl;)V
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public setItemBackground(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -847,7 +847,7 @@
 .end method
 
 .method public setItemBackgroundResource(I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/DrawableRes;
         .end annotation
@@ -868,7 +868,7 @@
 .end method
 
 .method public setItemIconTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -883,7 +883,7 @@
 .end method
 
 .method public setItemTextAppearance(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/StyleRes;
         .end annotation
@@ -898,7 +898,7 @@
 .end method
 
 .method public setItemTextColor(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/res/ColorStateList;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -913,7 +913,7 @@
 .end method
 
 .method public setNavigationItemSelectedListener(Landroid/support/design/widget/NavigationView$OnNavigationItemSelectedListener;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/design/widget/NavigationView$OnNavigationItemSelectedListener;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation

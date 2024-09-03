@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/media/AudioAttributes;)V
-    .locals 0
+    .registers 2
 
     .line 54
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,13 +32,13 @@
 .end method
 
 .method public static wrap(Landroid/media/AudioAttributes;)Landroid/support/v4/media/AudioAttributesCompatApi21$Wrapper;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/media/AudioAttributes;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     .line 61
     new-instance v0, Landroid/support/v4/media/AudioAttributesCompatApi21$Wrapper;
@@ -48,7 +48,7 @@
     return-object v0
 
     .line 59
-    :cond_0
+    :cond_8
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "AudioAttributesApi21.Wrapper cannot wrap null"
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public unwrap()Landroid/media/AudioAttributes;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Landroid/support/v4/media/AudioAttributesCompatApi21$Wrapper;->mWrapped:Landroid/media/AudioAttributes;

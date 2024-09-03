@@ -29,7 +29,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;IZI)V
-    .locals 0
+    .registers 5
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -56,7 +56,7 @@
 
 # virtual methods
 .method public getFileName()Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -67,7 +67,7 @@
 .end method
 
 .method public getResourceId()I
-    .locals 0
+    .registers 1
 
     .line 128
     iget p0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mResourceId:I
@@ -76,7 +76,7 @@
 .end method
 
 .method public getWeight()I
-    .locals 0
+    .registers 1
 
     .line 120
     iget p0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mWeight:I
@@ -85,7 +85,7 @@
 .end method
 
 .method public isItalic()Z
-    .locals 0
+    .registers 1
 
     .line 124
     iget-boolean p0, p0, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;->mItalic:Z

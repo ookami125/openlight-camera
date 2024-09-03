@@ -47,14 +47,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 276
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 277
     new-instance v0, Landroid/support/v4/view/MenuItemCompat$MenuItemCompatApi26Impl;
@@ -63,22 +63,22 @@
 
     sput-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 279
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/v4/view/MenuItemCompat$MenuItemCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/view/MenuItemCompat$MenuItemCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 701
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -87,7 +87,7 @@
 .end method
 
 .method public static collapseActionView(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public static expandActionView(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -113,12 +113,12 @@
 .end method
 
 .method public static getActionProvider(Landroid/view/MenuItem;)Landroid/support/v4/view/ActionProvider;
-    .locals 1
+    .registers 2
 
     .line 386
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 387
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -129,7 +129,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     const-string p0, "MenuItemCompat"
 
     const-string v0, "getActionProvider: item does not implement SupportMenuItem; returning null"
@@ -143,7 +143,7 @@
 .end method
 
 .method public static getActionView(Landroid/view/MenuItem;)Landroid/view/View;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -156,12 +156,12 @@
 .end method
 
 .method public static getAlphabeticModifiers(Landroid/view/MenuItem;)I
-    .locals 1
+    .registers 2
 
     .line 634
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 635
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -173,7 +173,7 @@
     return p0
 
     .line 637
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->getAlphabeticModifiers(Landroid/view/MenuItem;)I
@@ -184,12 +184,12 @@
 .end method
 
 .method public static getContentDescription(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 497
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 498
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -201,7 +201,7 @@
     return-object p0
 
     .line 500
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->getContentDescription(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
@@ -212,12 +212,12 @@
 .end method
 
 .method public static getIconTintList(Landroid/view/MenuItem;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 665
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 666
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -229,7 +229,7 @@
     return-object p0
 
     .line 668
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->getIconTintList(Landroid/view/MenuItem;)Landroid/content/res/ColorStateList;
@@ -240,12 +240,12 @@
 .end method
 
 .method public static getIconTintMode(Landroid/view/MenuItem;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 695
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 696
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -257,7 +257,7 @@
     return-object p0
 
     .line 698
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->getIconTintMode(Landroid/view/MenuItem;)Landroid/graphics/PorterDuff$Mode;
@@ -268,12 +268,12 @@
 .end method
 
 .method public static getNumericModifiers(Landroid/view/MenuItem;)I
-    .locals 1
+    .registers 2
 
     .line 592
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 593
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -285,7 +285,7 @@
     return p0
 
     .line 595
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->getNumericModifiers(Landroid/view/MenuItem;)I
@@ -296,12 +296,12 @@
 .end method
 
 .method public static getTooltipText(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
 
     .line 523
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 524
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -313,7 +313,7 @@
     return-object p0
 
     .line 526
-    :cond_0
+    :cond_b
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->getTooltipText(Landroid/view/MenuItem;)Ljava/lang/CharSequence;
@@ -324,7 +324,7 @@
 .end method
 
 .method public static isActionViewExpanded(Landroid/view/MenuItem;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -337,12 +337,12 @@
 .end method
 
 .method public static setActionProvider(Landroid/view/MenuItem;Landroid/support/v4/view/ActionProvider;)Landroid/view/MenuItem;
-    .locals 1
+    .registers 3
 
     .line 369
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 370
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
@@ -353,7 +353,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     const-string p1, "MenuItemCompat"
 
     const-string v0, "setActionProvider: item does not implement SupportMenuItem; ignoring"
@@ -365,7 +365,7 @@
 .end method
 
 .method public static setActionView(Landroid/view/MenuItem;I)Landroid/view/MenuItem;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -378,7 +378,7 @@
 .end method
 
 .method public static setActionView(Landroid/view/MenuItem;Landroid/view/View;)Landroid/view/MenuItem;
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -391,132 +391,132 @@
 .end method
 
 .method public static setAlphabeticShortcut(Landroid/view/MenuItem;CI)V
-    .locals 1
+    .registers 4
 
     .line 616
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 617
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setAlphabeticShortcut(CI)Landroid/view/MenuItem;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 619
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0, p1, p2}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setAlphabeticShortcut(Landroid/view/MenuItem;CI)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static setContentDescription(Landroid/view/MenuItem;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
 
     .line 484
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 485
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setContentDescription(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 487
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setContentDescription(Landroid/view/MenuItem;Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static setIconTintList(Landroid/view/MenuItem;Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
 
     .line 653
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 654
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintList(Landroid/content/res/ColorStateList;)Landroid/view/MenuItem;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 656
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setIconTintList(Landroid/view/MenuItem;Landroid/content/res/ColorStateList;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static setIconTintMode(Landroid/view/MenuItem;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
 
     .line 681
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 682
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setIconTintMode(Landroid/graphics/PorterDuff$Mode;)Landroid/view/MenuItem;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 684
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setIconTintMode(Landroid/view/MenuItem;Landroid/graphics/PorterDuff$Mode;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static setNumericShortcut(Landroid/view/MenuItem;CI)V
-    .locals 1
+    .registers 4
 
     .line 574
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 575
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1, p2}, Landroid/support/v4/internal/view/SupportMenuItem;->setNumericShortcut(CI)Landroid/view/MenuItem;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 577
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0, p1, p2}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setNumericShortcut(Landroid/view/MenuItem;CI)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public static setOnActionExpandListener(Landroid/view/MenuItem;Landroid/support/v4/view/MenuItemCompat$OnActionExpandListener;)Landroid/view/MenuItem;
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -533,22 +533,22 @@
 .end method
 
 .method public static setShortcut(Landroid/view/MenuItem;CCII)V
-    .locals 6
+    .registers 11
 
     .line 553
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 554
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1, p2, p3, p4}, Landroid/support/v4/internal/view/SupportMenuItem;->setShortcut(CCII)Landroid/view/MenuItem;
 
-    goto :goto_0
+    goto :goto_14
 
     .line 557
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     move-object v1, p0
@@ -563,12 +563,12 @@
 
     invoke-interface/range {v0 .. v5}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setShortcut(Landroid/view/MenuItem;CCII)V
 
-    :goto_0
+    :goto_14
     return-void
 .end method
 
 .method public static setShowAsAction(Landroid/view/MenuItem;I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -579,26 +579,26 @@
 .end method
 
 .method public static setTooltipText(Landroid/view/MenuItem;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
 
     .line 510
     instance-of v0, p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 511
     check-cast p0, Landroid/support/v4/internal/view/SupportMenuItem;
 
     invoke-interface {p0, p1}, Landroid/support/v4/internal/view/SupportMenuItem;->setTooltipText(Ljava/lang/CharSequence;)Landroid/support/v4/internal/view/SupportMenuItem;
 
-    goto :goto_0
+    goto :goto_f
 
     .line 513
-    :cond_0
+    :cond_a
     sget-object v0, Landroid/support/v4/view/MenuItemCompat;->IMPL:Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;
 
     invoke-interface {v0, p0, p1}, Landroid/support/v4/view/MenuItemCompat$MenuVersionImpl;->setTooltipText(Landroid/view/MenuItem;Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;)V
-    .locals 0
+    .registers 2
 
     .line 2049
     iput-object p1, p0, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 0
+    .registers 1
 
     .line 2051
     iget-object p0, p0, Landroid/support/v4/widget/DrawerLayout$ViewDragCallback$1;->this$1:Landroid/support/v4/widget/DrawerLayout$ViewDragCallback;

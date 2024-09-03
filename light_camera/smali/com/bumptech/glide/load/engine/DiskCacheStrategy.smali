@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 8
     new-instance v0, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
@@ -106,7 +106,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZZ)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ)V"
@@ -126,7 +126,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
-    .locals 1
+    .registers 2
 
     .line 6
     const-class v0, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
@@ -141,7 +141,7 @@
 .end method
 
 .method public static values()[Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
-    .locals 1
+    .registers 1
 
     .line 6
     sget-object v0, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->$VALUES:[Lcom/bumptech/glide/load/engine/DiskCacheStrategy;
@@ -158,7 +158,7 @@
 
 # virtual methods
 .method public cacheResult()Z
-    .locals 0
+    .registers 1
 
     .line 35
     iget-boolean p0, p0, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheResult:Z
@@ -167,7 +167,7 @@
 .end method
 
 .method public cacheSource()Z
-    .locals 0
+    .registers 1
 
     .line 28
     iget-boolean p0, p0, Lcom/bumptech/glide/load/engine/DiskCacheStrategy;->cacheSource:Z

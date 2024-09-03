@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(ILcom/immersion/MagSweepEffectDefinition;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -25,7 +25,7 @@
 
 # virtual methods
 .method public getBuffer()[I
-    .locals 3
+    .registers 4
 
     const/16 v0, 0xa
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public getDefinition()Lcom/immersion/MagSweepEffectDefinition;
-    .locals 0
+    .registers 1
 
     .line 54
     iget-object p0, p0, Lcom/immersion/IVTMagSweepElement;->definition:Lcom/immersion/MagSweepEffectDefinition;
@@ -151,7 +151,7 @@
 .end method
 
 .method public setDefinition(Lcom/immersion/MagSweepEffectDefinition;)V
-    .locals 0
+    .registers 2
 
     .line 44
     iput-object p1, p0, Lcom/immersion/IVTMagSweepElement;->definition:Lcom/immersion/MagSweepEffectDefinition;

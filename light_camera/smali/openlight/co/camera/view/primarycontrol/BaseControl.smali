@@ -20,13 +20,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
-    .locals 1
+    .registers 5
     .param p2    # I
         .annotation build Landroid/support/annotation/LayoutRes;
         .end annotation
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public getView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 77
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/BaseControl;->mBaseControlView:Landroid/view/View;
@@ -80,7 +80,7 @@
 .end method
 
 .method public isVisible()Z
-    .locals 0
+    .registers 1
 
     .line 61
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/BaseControl;->mBaseControlView:Landroid/view/View;
@@ -89,21 +89,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 .method public setOnClickListener(Landroid/view/View$OnClickListener;)V
-    .locals 0
+    .registers 2
 
     .line 69
     iput-object p1, p0, Lopenlight/co/camera/view/primarycontrol/BaseControl;->mOnClickListener:Landroid/view/View$OnClickListener;
@@ -112,21 +112,21 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 53
     iget-object p0, p0, Lopenlight/co/camera/view/primarycontrol/BaseControl;->mBaseControlView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void

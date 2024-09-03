@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 20
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,13 +56,13 @@
 
 # virtual methods
 .method acquire(Lcom/bumptech/glide/load/Key;)V
-    .locals 2
+    .registers 4
 
     .line 26
     monitor-enter p0
 
     .line 27
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker;->locks:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -71,7 +71,7 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_16
 
     .line 29
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker;->writeLockPool:Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLockPool;
@@ -86,7 +86,7 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 32
-    :cond_0
+    :cond_16
     iget p1, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->interestedThreads:I
 
     add-int/lit8 p1, p1, 0x1
@@ -95,8 +95,8 @@
 
     .line 33
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1d
+    .catchall {:try_start_1 .. :try_end_1d} :catchall_23
 
     .line 35
     iget-object p0, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->lock:Ljava/util/concurrent/locks/Lock;
@@ -105,26 +105,26 @@
 
     return-void
 
-    :catchall_0
+    :catchall_23
     move-exception p1
 
     .line 33
-    :try_start_1
+    :try_start_24
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catchall {:try_start_24 .. :try_end_25} :catchall_23
 
     throw p1
 .end method
 
 .method release(Lcom/bumptech/glide/load/Key;)V
-    .locals 5
+    .registers 7
 
     .line 40
     monitor-enter p0
 
     .line 41
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker;->locks:Ljava/util/Map;
 
     invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -133,24 +133,24 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5a
 
     .line 42
     iget v1, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->interestedThreads:I
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_10
 
-    goto :goto_1
+    goto :goto_5a
 
     .line 48
-    :cond_0
+    :cond_10
     iget v1, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->interestedThreads:I
 
     add-int/lit8 v1, v1, -0x1
 
     iput v1, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->interestedThreads:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_53
 
     .line 49
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker;->locks:Ljava/util/Map;
@@ -166,17 +166,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2c
 
     .line 56
     iget-object p1, p0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker;->writeLockPool:Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLockPool;
 
     invoke-virtual {p1, v1}, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLockPool;->offer(Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;)V
 
-    goto :goto_0
+    goto :goto_53
 
     .line 51
-    :cond_1
+    :cond_2c
     new-instance v2, Ljava/lang/IllegalStateException;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -210,11 +210,11 @@
     throw v2
 
     .line 58
-    :cond_2
-    :goto_0
+    :cond_53
+    :goto_53
     monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_54
+    .catchall {:try_start_1 .. :try_end_54} :catchall_7f
 
     .line 60
     iget-object p0, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->lock:Ljava/util/concurrent/locks/Lock;
@@ -224,9 +224,9 @@
     return-void
 
     .line 43
-    :cond_3
-    :goto_1
-    :try_start_1
+    :cond_5a
+    :goto_5a
+    :try_start_5a
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -243,16 +243,16 @@
 
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_72
 
     const/4 p1, 0x0
 
-    goto :goto_2
+    goto :goto_74
 
-    :cond_4
+    :cond_72
     iget p1, v0, Lcom/bumptech/glide/load/engine/cache/DiskCacheWriteLocker$WriteLock;->interestedThreads:I
 
-    :goto_2
+    :goto_74
     invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -263,13 +263,13 @@
 
     throw v1
 
-    :catchall_0
+    :catchall_7f
     move-exception p1
 
     .line 58
     monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_81
+    .catchall {:try_start_5a .. :try_end_81} :catchall_7f
 
     throw p1
 .end method

@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,12 +20,12 @@
 .end method
 
 .method private static checkVersion(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
 
     .line 105
     sget-object v0, Lnet/hockeyapp/android/Constants;->APP_VERSION:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 106
     invoke-static {p0}, Lnet/hockeyapp/android/Constants;->loadFromContext(Landroid/content/Context;)V
@@ -33,20 +33,20 @@
     .line 108
     sget-object p0, Lnet/hockeyapp/android/Constants;->APP_VERSION:Ljava/lang/String;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_d
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_0
+    :cond_d
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method protected static getPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-    .locals 2
+    .registers 3
 
     const-string v0, "HockeyApp"
 
@@ -61,7 +61,7 @@
 .end method
 
 .method public static getUsageTime(Landroid/content/Context;)J
-    .locals 5
+    .registers 6
 
     .line 87
     invoke-static {p0}, Lnet/hockeyapp/android/Tracking;->checkVersion(Landroid/content/Context;)Z
@@ -70,12 +70,12 @@
 
     const-wide/16 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-wide v1
 
     .line 91
-    :cond_0
+    :cond_9
     invoke-static {p0}, Lnet/hockeyapp/android/Tracking;->getPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object p0
@@ -103,7 +103,7 @@
 
     cmp-long v0, v3, v1
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_47
 
     .line 94
     invoke-interface {p0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
@@ -134,7 +134,7 @@
 
     return-wide v1
 
-    :cond_1
+    :cond_47
     const-wide/16 v0, 0x3e8
 
     .line 97
@@ -144,19 +144,19 @@
 .end method
 
 .method public static startUsage(Landroid/app/Activity;)V
-    .locals 5
+    .registers 6
 
     .line 31
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     return-void
 
     .line 37
-    :cond_0
+    :cond_7
     invoke-static {p0}, Lnet/hockeyapp/android/Tracking;->getPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v2
@@ -193,29 +193,29 @@
 .end method
 
 .method public static stopUsage(Landroid/app/Activity;)V
-    .locals 9
+    .registers 10
 
     .line 51
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     return-void
 
     .line 57
-    :cond_0
+    :cond_7
     invoke-static {p0}, Lnet/hockeyapp/android/Tracking;->checkVersion(Landroid/content/Context;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_e
 
     return-void
 
     .line 61
-    :cond_1
+    :cond_e
     invoke-static {p0}, Lnet/hockeyapp/android/Tracking;->getPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object v2
@@ -268,7 +268,7 @@
 
     cmp-long p0, v5, v3
 
-    if-lez p0, :cond_4
+    if-lez p0, :cond_72
 
     sub-long/2addr v0, v5
 
@@ -276,16 +276,16 @@
 
     cmp-long p0, v0, v3
 
-    if-lez p0, :cond_3
+    if-lez p0, :cond_71
 
     cmp-long p0, v7, v3
 
-    if-gez p0, :cond_2
+    if-gez p0, :cond_53
 
-    goto :goto_0
+    goto :goto_71
 
     .line 74
-    :cond_2
+    :cond_53
     invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object p0
@@ -312,13 +312,13 @@
     .line 76
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    goto :goto_1
+    goto :goto_72
 
-    :cond_3
-    :goto_0
+    :cond_71
+    :goto_71
     return-void
 
-    :cond_4
-    :goto_1
+    :cond_72
+    :goto_72
     return-void
 .end method

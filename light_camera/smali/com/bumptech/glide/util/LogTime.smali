@@ -9,7 +9,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 11
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -18,7 +18,7 @@
 
     const/16 v3, 0x11
 
-    if-gt v3, v0, :cond_0
+    if-gt v3, v0, :cond_11
 
     const-wide/high16 v3, 0x4024000000000000L    # 10.0
 
@@ -30,14 +30,14 @@
 
     div-double/2addr v1, v3
 
-    :cond_0
+    :cond_11
     sput-wide v1, Lcom/bumptech/glide/util/LogTime;->MILLIS_MULTIPLIER:D
 
     return-void
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 .end method
 
 .method public static getElapsedMillis(J)D
-    .locals 2
+    .registers 4
 
     .line 37
     invoke-static {}, Lcom/bumptech/glide/util/LogTime;->getLogTime()J
@@ -65,7 +65,7 @@
 .end method
 
 .method public static getLogTime()J
-    .locals 2
+    .registers 2
     .annotation build Landroid/annotation/TargetApi;
         value = 0x11
     .end annotation
@@ -75,7 +75,7 @@
 
     const/16 v1, 0x11
 
-    if-gt v1, v0, :cond_0
+    if-gt v1, v0, :cond_b
 
     .line 25
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtimeNanos()J
@@ -85,7 +85,7 @@
     return-wide v0
 
     .line 27
-    :cond_0
+    :cond_b
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
 
     move-result-wide v0

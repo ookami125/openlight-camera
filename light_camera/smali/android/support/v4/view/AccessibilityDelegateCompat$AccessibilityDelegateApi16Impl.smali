@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 107
     invoke-direct {p0}, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateBaseImpl;-><init>()V
@@ -31,14 +31,14 @@
 
 # virtual methods
 .method public getAccessibilityNodeProvider(Landroid/view/View$AccessibilityDelegate;Landroid/view/View;)Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
-    .locals 0
+    .registers 3
 
     .line 169
     invoke-virtual {p1, p2}, Landroid/view/View$AccessibilityDelegate;->getAccessibilityNodeProvider(Landroid/view/View;)Landroid/view/accessibility/AccessibilityNodeProvider;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_c
 
     .line 171
     new-instance p1, Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
@@ -47,14 +47,14 @@
 
     return-object p1
 
-    :cond_0
+    :cond_c
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public newAccessibilityDelegateBridge(Landroid/support/v4/view/AccessibilityDelegateCompat;)Landroid/view/View$AccessibilityDelegate;
-    .locals 1
+    .registers 3
 
     .line 111
     new-instance v0, Landroid/support/v4/view/AccessibilityDelegateCompat$AccessibilityDelegateApi16Impl$1;
@@ -65,7 +65,7 @@
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View$AccessibilityDelegate;Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 0
+    .registers 5
 
     .line 179
     invoke-virtual {p1, p2, p3, p4}, Landroid/view/View$AccessibilityDelegate;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z

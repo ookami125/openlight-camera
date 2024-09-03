@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 97
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,13 +57,13 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public addToHashMap(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -77,7 +77,7 @@
     .line 332
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->id:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const-string v0, "ai.device.id"
 
@@ -87,10 +87,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 335
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->ip:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     const-string v0, "ai.device.ip"
 
@@ -100,10 +100,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 338
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->language:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     const-string v0, "ai.device.language"
 
@@ -113,10 +113,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 341
-    :cond_2
+    :cond_21
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->locale:Ljava/lang/String;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2c
 
     const-string v0, "ai.device.locale"
 
@@ -126,10 +126,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 344
-    :cond_3
+    :cond_2c
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->model:Ljava/lang/String;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_37
 
     const-string v0, "ai.device.model"
 
@@ -139,10 +139,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 347
-    :cond_4
+    :cond_37
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->network:Ljava/lang/String;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_42
 
     const-string v0, "ai.device.network"
 
@@ -152,10 +152,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 350
-    :cond_5
+    :cond_42
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->networkName:Ljava/lang/String;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4d
 
     const-string v0, "ai.device.networkName"
 
@@ -165,10 +165,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 353
-    :cond_6
+    :cond_4d
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->oemName:Ljava/lang/String;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_58
 
     const-string v0, "ai.device.oemName"
 
@@ -178,10 +178,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 356
-    :cond_7
+    :cond_58
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->os:Ljava/lang/String;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_63
 
     const-string v0, "ai.device.os"
 
@@ -191,10 +191,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 359
-    :cond_8
+    :cond_63
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->osVersion:Ljava/lang/String;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_6e
 
     const-string v0, "ai.device.osVersion"
 
@@ -204,10 +204,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 362
-    :cond_9
+    :cond_6e
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleInstance:Ljava/lang/String;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_79
 
     const-string v0, "ai.device.roleInstance"
 
@@ -217,10 +217,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 365
-    :cond_a
+    :cond_79
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleName:Ljava/lang/String;
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_84
 
     const-string v0, "ai.device.roleName"
 
@@ -230,10 +230,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 368
-    :cond_b
+    :cond_84
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->screenResolution:Ljava/lang/String;
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_8f
 
     const-string v0, "ai.device.screenResolution"
 
@@ -243,10 +243,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 371
-    :cond_c
+    :cond_8f
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->type:Ljava/lang/String;
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_9a
 
     const-string v0, "ai.device.type"
 
@@ -256,10 +256,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 374
-    :cond_d
+    :cond_9a
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->machineName:Ljava/lang/String;
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_a5
 
     const-string v0, "ai.device.machineName"
 
@@ -269,10 +269,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 377
-    :cond_e
+    :cond_a5
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Device;->vmName:Ljava/lang/String;
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_b0
 
     const-string v0, "ai.device.vmName"
 
@@ -281,12 +281,12 @@
 
     invoke-interface {p1, v0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_f
+    :cond_b0
     return-void
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 105
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->id:Ljava/lang/String;
@@ -295,7 +295,7 @@
 .end method
 
 .method public getIp()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 119
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->ip:Ljava/lang/String;
@@ -304,7 +304,7 @@
 .end method
 
 .method public getLanguage()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 133
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->language:Ljava/lang/String;
@@ -313,7 +313,7 @@
 .end method
 
 .method public getLocale()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 147
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->locale:Ljava/lang/String;
@@ -322,7 +322,7 @@
 .end method
 
 .method public getMachineName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 301
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->machineName:Ljava/lang/String;
@@ -331,7 +331,7 @@
 .end method
 
 .method public getModel()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 161
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->model:Ljava/lang/String;
@@ -340,7 +340,7 @@
 .end method
 
 .method public getNetwork()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 175
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->network:Ljava/lang/String;
@@ -349,7 +349,7 @@
 .end method
 
 .method public getNetworkName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 189
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->networkName:Ljava/lang/String;
@@ -358,7 +358,7 @@
 .end method
 
 .method public getOemName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 203
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->oemName:Ljava/lang/String;
@@ -367,7 +367,7 @@
 .end method
 
 .method public getOs()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 217
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->os:Ljava/lang/String;
@@ -376,7 +376,7 @@
 .end method
 
 .method public getOsVersion()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 231
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->osVersion:Ljava/lang/String;
@@ -385,7 +385,7 @@
 .end method
 
 .method public getRoleInstance()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 245
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleInstance:Ljava/lang/String;
@@ -394,7 +394,7 @@
 .end method
 
 .method public getRoleName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 259
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleName:Ljava/lang/String;
@@ -403,7 +403,7 @@
 .end method
 
 .method public getScreenResolution()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 273
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->screenResolution:Ljava/lang/String;
@@ -412,7 +412,7 @@
 .end method
 
 .method public getType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 287
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->type:Ljava/lang/String;
@@ -421,7 +421,7 @@
 .end method
 
 .method public getVmName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 315
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Device;->vmName:Ljava/lang/String;
@@ -430,14 +430,14 @@
 .end method
 
 .method public serialize(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const/16 v0, 0x7b
 
@@ -455,7 +455,7 @@
     return-void
 
     .line 391
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "writer"
@@ -466,7 +466,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -478,7 +478,7 @@
     .line 406
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->id:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 407
     new-instance v1, Ljava/lang/StringBuilder;
@@ -509,10 +509,10 @@
     const-string v0, ","
 
     .line 412
-    :cond_0
+    :cond_25
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->ip:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_48
 
     .line 413
     new-instance v1, Ljava/lang/StringBuilder;
@@ -543,10 +543,10 @@
     const-string v0, ","
 
     .line 418
-    :cond_1
+    :cond_48
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->language:Ljava/lang/String;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6b
 
     .line 419
     new-instance v1, Ljava/lang/StringBuilder;
@@ -577,10 +577,10 @@
     const-string v0, ","
 
     .line 424
-    :cond_2
+    :cond_6b
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->locale:Ljava/lang/String;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_8e
 
     .line 425
     new-instance v1, Ljava/lang/StringBuilder;
@@ -611,10 +611,10 @@
     const-string v0, ","
 
     .line 430
-    :cond_3
+    :cond_8e
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->model:Ljava/lang/String;
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_b1
 
     .line 431
     new-instance v1, Ljava/lang/StringBuilder;
@@ -645,10 +645,10 @@
     const-string v0, ","
 
     .line 436
-    :cond_4
+    :cond_b1
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->network:Ljava/lang/String;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_d4
 
     .line 437
     new-instance v1, Ljava/lang/StringBuilder;
@@ -679,10 +679,10 @@
     const-string v0, ","
 
     .line 442
-    :cond_5
+    :cond_d4
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->networkName:Ljava/lang/String;
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_f7
 
     .line 443
     new-instance v1, Ljava/lang/StringBuilder;
@@ -713,10 +713,10 @@
     const-string v0, ","
 
     .line 448
-    :cond_6
+    :cond_f7
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->oemName:Ljava/lang/String;
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_11a
 
     .line 449
     new-instance v1, Ljava/lang/StringBuilder;
@@ -747,10 +747,10 @@
     const-string v0, ","
 
     .line 454
-    :cond_7
+    :cond_11a
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->os:Ljava/lang/String;
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_13d
 
     .line 455
     new-instance v1, Ljava/lang/StringBuilder;
@@ -781,10 +781,10 @@
     const-string v0, ","
 
     .line 460
-    :cond_8
+    :cond_13d
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->osVersion:Ljava/lang/String;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_160
 
     .line 461
     new-instance v1, Ljava/lang/StringBuilder;
@@ -815,10 +815,10 @@
     const-string v0, ","
 
     .line 466
-    :cond_9
+    :cond_160
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleInstance:Ljava/lang/String;
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_183
 
     .line 467
     new-instance v1, Ljava/lang/StringBuilder;
@@ -849,10 +849,10 @@
     const-string v0, ","
 
     .line 472
-    :cond_a
+    :cond_183
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleName:Ljava/lang/String;
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_1a6
 
     .line 473
     new-instance v1, Ljava/lang/StringBuilder;
@@ -883,10 +883,10 @@
     const-string v0, ","
 
     .line 478
-    :cond_b
+    :cond_1a6
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->screenResolution:Ljava/lang/String;
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_1c9
 
     .line 479
     new-instance v1, Ljava/lang/StringBuilder;
@@ -917,10 +917,10 @@
     const-string v0, ","
 
     .line 484
-    :cond_c
+    :cond_1c9
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->type:Ljava/lang/String;
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1ec
 
     .line 485
     new-instance v1, Ljava/lang/StringBuilder;
@@ -951,10 +951,10 @@
     const-string v0, ","
 
     .line 490
-    :cond_d
+    :cond_1ec
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->machineName:Ljava/lang/String;
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_20f
 
     .line 491
     new-instance v1, Ljava/lang/StringBuilder;
@@ -985,10 +985,10 @@
     const-string v0, ","
 
     .line 496
-    :cond_e
+    :cond_20f
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Device;->vmName:Ljava/lang/String;
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_232
 
     .line 497
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1018,12 +1018,12 @@
 
     const-string v0, ","
 
-    :cond_f
+    :cond_232
     return-object v0
 .end method
 
 .method public setId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 112
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->id:Ljava/lang/String;
@@ -1032,7 +1032,7 @@
 .end method
 
 .method public setIp(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 126
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->ip:Ljava/lang/String;
@@ -1041,7 +1041,7 @@
 .end method
 
 .method public setLanguage(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 140
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->language:Ljava/lang/String;
@@ -1050,7 +1050,7 @@
 .end method
 
 .method public setLocale(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 154
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->locale:Ljava/lang/String;
@@ -1059,7 +1059,7 @@
 .end method
 
 .method public setMachineName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 308
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->machineName:Ljava/lang/String;
@@ -1068,7 +1068,7 @@
 .end method
 
 .method public setModel(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 168
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->model:Ljava/lang/String;
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public setNetwork(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 182
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->network:Ljava/lang/String;
@@ -1086,7 +1086,7 @@
 .end method
 
 .method public setNetworkName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 196
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->networkName:Ljava/lang/String;
@@ -1095,7 +1095,7 @@
 .end method
 
 .method public setOemName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 210
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->oemName:Ljava/lang/String;
@@ -1104,7 +1104,7 @@
 .end method
 
 .method public setOs(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 224
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->os:Ljava/lang/String;
@@ -1113,7 +1113,7 @@
 .end method
 
 .method public setOsVersion(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 238
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->osVersion:Ljava/lang/String;
@@ -1122,7 +1122,7 @@
 .end method
 
 .method public setRoleInstance(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 252
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleInstance:Ljava/lang/String;
@@ -1131,7 +1131,7 @@
 .end method
 
 .method public setRoleName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 266
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->roleName:Ljava/lang/String;
@@ -1140,7 +1140,7 @@
 .end method
 
 .method public setScreenResolution(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 280
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->screenResolution:Ljava/lang/String;
@@ -1149,7 +1149,7 @@
 .end method
 
 .method public setType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 294
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->type:Ljava/lang/String;
@@ -1158,7 +1158,7 @@
 .end method
 
 .method public setVmName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 322
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Device;->vmName:Ljava/lang/String;

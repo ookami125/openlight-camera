@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/ImageUtil$ImageSaver;Ljava/nio/channels/FileChannel;Ljava/nio/ByteBuffer;)V
-    .locals 0
+    .registers 4
 
     .line 455
     iput-object p1, p0, Lopenlight/co/camera/utils/ImageUtil$ImageSaver$2;->this$0:Lopenlight/co/camera/utils/ImageUtil$ImageSaver;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -60,7 +60,7 @@
 .end method
 
 .method public write(Ljava/nio/ByteBuffer;)I
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

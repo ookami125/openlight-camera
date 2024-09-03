@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
 
     .line 912
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
 
     .line 919
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IIILopenlight/co/lib/exif/ExifInterface$1;)V
-    .locals 0
+    .registers 6
 
     .line 906
     invoke-direct {p0, p1, p2, p3, p4}, Lopenlight/co/lib/exif/ExifInterface$ExifTag;-><init>(Ljava/lang/String;III)V
@@ -79,7 +79,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IILopenlight/co/lib/exif/ExifInterface$1;)V
-    .locals 0
+    .registers 5
 
     .line 906
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/lib/exif/ExifInterface$ExifTag;-><init>(Ljava/lang/String;II)V

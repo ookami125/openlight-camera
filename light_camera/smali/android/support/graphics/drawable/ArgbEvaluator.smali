@@ -20,7 +20,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 32
     new-instance v0, Landroid/support/graphics/drawable/ArgbEvaluator;
@@ -33,7 +33,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 31
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method public static getInstance()Landroid/support/graphics/drawable/ArgbEvaluator;
-    .locals 1
+    .registers 1
 
     .line 42
     sget-object v0, Landroid/support/graphics/drawable/ArgbEvaluator;->sInstance:Landroid/support/graphics/drawable/ArgbEvaluator;
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method public evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 10
+    .registers 14
 
     .line 63
     check-cast p2, Ljava/lang/Integer;

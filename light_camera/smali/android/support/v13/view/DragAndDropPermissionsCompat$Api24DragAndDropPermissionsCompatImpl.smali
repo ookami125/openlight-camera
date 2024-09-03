@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 52
     invoke-direct {p0}, Landroid/support/v13/view/DragAndDropPermissionsCompat$BaseDragAndDropPermissionsCompatImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public release(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 61
     check-cast p1, Landroid/view/DragAndDropPermissions;
@@ -42,7 +42,7 @@
 .end method
 
 .method public request(Landroid/app/Activity;Landroid/view/DragEvent;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 56
     invoke-virtual {p1, p2}, Landroid/app/Activity;->requestDragAndDropPermissions(Landroid/view/DragEvent;)Landroid/view/DragAndDropPermissions;

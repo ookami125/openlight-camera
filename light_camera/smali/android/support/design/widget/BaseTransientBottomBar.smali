@@ -74,29 +74,29 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 176
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-gt v0, v1, :cond_0
+    if-gt v0, v1, :cond_e
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_f
     sput-boolean v0, Landroid/support/design/widget/BaseTransientBottomBar;->USE_OFFSET_API:Z
 
     .line 180
@@ -118,7 +118,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/design/widget/BaseTransientBottomBar$ContentViewCallback;)V
-    .locals 2
+    .registers 6
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -142,11 +142,11 @@
 
     iput-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mManagerCallback:Landroid/support/design/widget/SnackbarManager$Callback;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_6e
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_66
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5e
 
     .line 242
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mTargetParent:Landroid/view/ViewGroup;
@@ -236,7 +236,7 @@
     return-void
 
     .line 239
-    :cond_0
+    :cond_5e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Transient bottom bar must have non-null callback"
@@ -246,7 +246,7 @@
     throw p0
 
     .line 236
-    :cond_1
+    :cond_66
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Transient bottom bar must have non-null content"
@@ -256,7 +256,7 @@
     throw p0
 
     .line 233
-    :cond_2
+    :cond_6e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Transient bottom bar must have non-null parent"
@@ -267,7 +267,7 @@
 .end method
 
 .method static synthetic access$000(Landroid/support/design/widget/BaseTransientBottomBar;)Landroid/support/design/widget/BaseTransientBottomBar$ContentViewCallback;
-    .locals 0
+    .registers 1
 
     .line 61
     iget-object p0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mContentViewCallback:Landroid/support/design/widget/BaseTransientBottomBar$ContentViewCallback;
@@ -276,7 +276,7 @@
 .end method
 
 .method static synthetic access$100()Z
-    .locals 1
+    .registers 1
 
     .line 61
     sget-boolean v0, Landroid/support/design/widget/BaseTransientBottomBar;->USE_OFFSET_API:Z
@@ -285,7 +285,7 @@
 .end method
 
 .method private animateViewOut(I)V
-    .locals 6
+    .registers 8
 
     .line 559
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -294,7 +294,7 @@
 
     const/16 v3, 0xc
 
-    if-lt v0, v3, :cond_0
+    if-lt v0, v3, :cond_3b
 
     .line 560
     new-instance v0, Landroid/animation/ValueAnimator;
@@ -347,10 +347,10 @@
     .line 590
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 592
-    :cond_0
+    :cond_3b
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {v0}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->getContext()Landroid/content/Context;
@@ -383,14 +383,14 @@
 
     invoke-virtual {p0, v0}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->startAnimation(Landroid/view/animation/Animation;)V
 
-    :goto_0
+    :goto_5c
     return-void
 .end method
 
 
 # virtual methods
 .method public addCallback(Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;)Landroid/support/design/widget/BaseTransientBottomBar;
-    .locals 1
+    .registers 3
     .param p1    # Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -406,15 +406,15 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-object p0
 
     .line 349
-    :cond_0
+    :cond_3
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_e
 
     .line 350
     new-instance v0, Ljava/util/ArrayList;
@@ -424,7 +424,7 @@
     iput-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
     .line 352
-    :cond_1
+    :cond_e
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
@@ -433,7 +433,7 @@
 .end method
 
 .method animateViewIn()V
-    .locals 7
+    .registers 8
 
     .line 497
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -442,7 +442,7 @@
 
     const/16 v3, 0xc
 
-    if-lt v0, v3, :cond_1
+    if-lt v0, v3, :cond_4b
 
     .line 498
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -454,17 +454,17 @@
     .line 499
     sget-boolean v3, Landroid/support/design/widget/BaseTransientBottomBar;->USE_OFFSET_API:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     .line 500
     iget-object v3, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-static {v3, v0}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 502
-    :cond_0
+    :cond_18
     iget-object v3, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     int-to-float v4, v0
@@ -472,7 +472,7 @@
     invoke-virtual {v3, v4}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->setTranslationY(F)V
 
     .line 504
-    :goto_0
+    :goto_1e
     new-instance v3, Landroid/animation/ValueAnimator;
 
     invoke-direct {v3}, Landroid/animation/ValueAnimator;-><init>()V
@@ -517,10 +517,10 @@
     .line 536
     invoke-virtual {v3}, Landroid/animation/ValueAnimator;->start()V
 
-    goto :goto_1
+    goto :goto_6c
 
     .line 538
-    :cond_1
+    :cond_4b
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {v0}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->getContext()Landroid/content/Context;
@@ -553,12 +553,12 @@
 
     invoke-virtual {p0, v0}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->startAnimation(Landroid/view/animation/Animation;)V
 
-    :goto_1
+    :goto_6c
     return-void
 .end method
 
 .method public dismiss()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x3
 
@@ -569,7 +569,7 @@
 .end method
 
 .method dispatchDismiss(I)V
-    .locals 1
+    .registers 3
 
     .line 334
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
@@ -584,7 +584,7 @@
 .end method
 
 .method public getContext()Landroid/content/Context;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -595,7 +595,7 @@
 .end method
 
 .method public getDuration()I
-    .locals 0
+    .registers 1
 
     .line 300
     iget p0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mDuration:I
@@ -604,7 +604,7 @@
 .end method
 
 .method public getView()Landroid/view/View;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -615,14 +615,14 @@
 .end method
 
 .method final hideView(I)V
-    .locals 1
+    .registers 3
 
     .line 613
     invoke-virtual {p0}, Landroid/support/design/widget/BaseTransientBottomBar;->shouldAnimate()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
@@ -630,23 +630,23 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_12
 
     .line 614
     invoke-direct {p0, p1}, Landroid/support/design/widget/BaseTransientBottomBar;->animateViewOut(I)V
 
-    goto :goto_0
+    goto :goto_15
 
     .line 617
-    :cond_0
+    :cond_12
     invoke-virtual {p0, p1}, Landroid/support/design/widget/BaseTransientBottomBar;->onViewHidden(I)V
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method public isShown()Z
-    .locals 1
+    .registers 2
 
     .line 380
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
@@ -663,7 +663,7 @@
 .end method
 
 .method public isShownOrQueued()Z
-    .locals 1
+    .registers 2
 
     .line 388
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
@@ -680,7 +680,7 @@
 .end method
 
 .method onViewHidden(I)V
-    .locals 2
+    .registers 4
 
     .line 635
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
@@ -694,7 +694,7 @@
     .line 636
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 639
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
@@ -705,8 +705,8 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_15
+    if-ltz v0, :cond_25
 
     .line 641
     iget-object v1, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
@@ -721,15 +721,15 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_15
 
     .line 644
-    :cond_0
+    :cond_25
     sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v0, 0xb
 
-    if-ge p1, v0, :cond_1
+    if-ge p1, v0, :cond_32
 
     .line 650
     iget-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -739,7 +739,7 @@
     invoke-virtual {p1, v0}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->setVisibility(I)V
 
     .line 653
-    :cond_1
+    :cond_32
     iget-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     invoke-virtual {p1}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->getParent()Landroid/view/ViewParent;
@@ -749,7 +749,7 @@
     .line 654
     instance-of v0, p1, Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_43
 
     .line 655
     check-cast p1, Landroid/view/ViewGroup;
@@ -758,12 +758,12 @@
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_2
+    :cond_43
     return-void
 .end method
 
 .method onViewShown()V
-    .locals 2
+    .registers 3
 
     .line 622
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
@@ -777,7 +777,7 @@
     .line 623
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_25
 
     .line 626
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
@@ -788,8 +788,8 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_15
+    if-ltz v0, :cond_25
 
     .line 628
     iget-object v1, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
@@ -804,14 +804,14 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_25
     return-void
 .end method
 
 .method public removeCallback(Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;)Landroid/support/design/widget/BaseTransientBottomBar;
-    .locals 1
+    .registers 3
     .param p1    # Landroid/support/design/widget/BaseTransientBottomBar$BaseCallback;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -827,20 +827,20 @@
         }
     .end annotation
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-object p0
 
     .line 368
-    :cond_0
+    :cond_3
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_8
 
     return-object p0
 
     .line 372
-    :cond_1
+    :cond_8
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mCallbacks:Ljava/util/List;
 
     invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
@@ -849,7 +849,7 @@
 .end method
 
 .method public setDuration(I)Landroid/support/design/widget/BaseTransientBottomBar;
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -866,7 +866,7 @@
 .end method
 
 .method shouldAnimate()Z
-    .locals 0
+    .registers 1
 
     .line 663
     iget-object p0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
@@ -881,7 +881,7 @@
 .end method
 
 .method public show()V
-    .locals 2
+    .registers 3
 
     .line 323
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
@@ -898,7 +898,7 @@
 .end method
 
 .method final showView()V
-    .locals 3
+    .registers 4
 
     .line 405
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -907,7 +907,7 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3f
 
     .line 406
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -919,7 +919,7 @@
     .line 408
     instance-of v1, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_38
 
     .line 410
     check-cast v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;
@@ -960,7 +960,7 @@
     iput v1, v0, Landroid/support/design/widget/CoordinatorLayout$LayoutParams;->insetEdge:I
 
     .line 444
-    :cond_0
+    :cond_38
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mTargetParent:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -968,7 +968,7 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 447
-    :cond_1
+    :cond_3f
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     new-instance v1, Landroid/support/design/widget/BaseTransientBottomBar$5;
@@ -984,28 +984,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5f
 
     .line 470
     invoke-virtual {p0}, Landroid/support/design/widget/BaseTransientBottomBar;->shouldAnimate()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5b
 
     .line 472
     invoke-virtual {p0}, Landroid/support/design/widget/BaseTransientBottomBar;->animateViewIn()V
 
-    goto :goto_0
+    goto :goto_69
 
     .line 475
-    :cond_2
+    :cond_5b
     invoke-virtual {p0}, Landroid/support/design/widget/BaseTransientBottomBar;->onViewShown()V
 
-    goto :goto_0
+    goto :goto_69
 
     .line 479
-    :cond_3
+    :cond_5f
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
 
     new-instance v1, Landroid/support/design/widget/BaseTransientBottomBar$6;
@@ -1014,6 +1014,6 @@
 
     invoke-virtual {v0, v1}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->setOnLayoutChangeListener(Landroid/support/design/widget/BaseTransientBottomBar$OnLayoutChangeListener;)V
 
-    :goto_0
+    :goto_69
     return-void
 .end method

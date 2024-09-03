@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIIZ)V
-    .locals 11
+    .registers 21
 
     const/4 v10, 0x0
 
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public getIconId()I
-    .locals 1
+    .registers 2
 
     .line 61
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;

@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatDialogFragment;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
+    .registers 3
 
     .line 32
     new-instance p1, Landroid/support/design/widget/BottomSheetDialog;

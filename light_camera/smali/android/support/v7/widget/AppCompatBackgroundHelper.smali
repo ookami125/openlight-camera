@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 .end method
 
 .method private applyFrameworkTintUsingColorFilter(Landroid/graphics/drawable/Drawable;)Z
-    .locals 3
+    .registers 5
     .param p1    # Landroid/graphics/drawable/Drawable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -52,7 +52,7 @@
     .line 172
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mTmpInfo:Landroid/support/v7/widget/TintInfo;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 173
     new-instance v0, Landroid/support/v7/widget/TintInfo;
@@ -62,7 +62,7 @@
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mTmpInfo:Landroid/support/v7/widget/TintInfo;
 
     .line 175
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mTmpInfo:Landroid/support/v7/widget/TintInfo;
 
     .line 176
@@ -77,7 +77,7 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     .line 180
     iput-boolean v2, v0, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
@@ -86,14 +86,14 @@
     iput-object v1, v0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
 
     .line 183
-    :cond_1
+    :cond_1d
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mView:Landroid/view/View;
 
     invoke-static {v1}, Landroid/support/v4/view/ViewCompat;->getBackgroundTintMode(Landroid/view/View;)Landroid/graphics/PorterDuff$Mode;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_29
 
     .line 185
     iput-boolean v2, v0, Landroid/support/v7/widget/TintInfo;->mHasTintMode:Z
@@ -102,25 +102,25 @@
     iput-object v1, v0, Landroid/support/v7/widget/TintInfo;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
     .line 189
-    :cond_2
+    :cond_29
     iget-boolean v1, v0, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_34
 
     iget-boolean v1, v0, Landroid/support/v7/widget/TintInfo;->mHasTintMode:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_32
 
-    goto :goto_0
+    goto :goto_34
 
-    :cond_3
+    :cond_32
     const/4 p0, 0x0
 
     return p0
 
     .line 190
-    :cond_4
-    :goto_0
+    :cond_34
+    :goto_34
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mView:Landroid/view/View;
 
     invoke-virtual {p0}, Landroid/view/View;->getDrawableState()[I
@@ -133,7 +133,7 @@
 .end method
 
 .method private shouldApplyFrameworkTintUsingColorFilter()Z
-    .locals 4
+    .registers 5
 
     .line 150
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
@@ -144,31 +144,31 @@
 
     const/16 v3, 0x15
 
-    if-le v0, v3, :cond_1
+    if-le v0, v3, :cond_e
 
     .line 154
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     move v1, v2
 
-    :cond_0
+    :cond_d
     return v1
 
-    :cond_1
-    if-ne v0, v3, :cond_2
+    :cond_e
+    if-ne v0, v3, :cond_11
 
     return v2
 
-    :cond_2
+    :cond_11
     return v1
 .end method
 
 
 # virtual methods
 .method applySupportBackgroundTint()V
-    .locals 2
+    .registers 3
 
     .line 117
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mView:Landroid/view/View;
@@ -177,29 +177,29 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_34
 
     .line 119
     invoke-direct {p0}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->shouldApplyFrameworkTintUsingColorFilter()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     .line 120
     invoke-direct {p0, v0}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->applyFrameworkTintUsingColorFilter(Landroid/graphics/drawable/Drawable;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     return-void
 
     .line 126
-    :cond_0
+    :cond_15
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_25
 
     .line 127
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
@@ -214,13 +214,13 @@
     .line 127
     invoke-static {v0, v1, p0}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawable(Landroid/graphics/drawable/Drawable;Landroid/support/v7/widget/TintInfo;[I)V
 
-    goto :goto_0
+    goto :goto_34
 
     .line 129
-    :cond_1
+    :cond_25
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_34
 
     .line 130
     iget-object v1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
@@ -235,55 +235,55 @@
     .line 130
     invoke-static {v0, v1, p0}, Landroid/support/v7/widget/AppCompatDrawableManager;->tintDrawable(Landroid/graphics/drawable/Drawable;Landroid/support/v7/widget/TintInfo;[I)V
 
-    :cond_2
-    :goto_0
+    :cond_34
+    :goto_34
     return-void
 .end method
 
 .method getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 99
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     iget-object p0, p0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return-object p0
 .end method
 
 .method getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 113
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     iget-object p0, p0, Landroid/support/v7/widget/TintInfo;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_a
     return-object p0
 .end method
 
 .method loadFromAttributes(Landroid/util/AttributeSet;I)V
-    .locals 3
+    .registers 6
 
     .line 46
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mView:Landroid/view/View;
@@ -301,7 +301,7 @@
     move-result-object p1
 
     .line 49
-    :try_start_0
+    :try_start_d
     sget p2, Landroid/support/v7/appcompat/R$styleable;->ViewBackgroundHelper_android_background:I
 
     invoke-virtual {p1, p2}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
@@ -310,7 +310,7 @@
 
     const/4 v0, -0x1
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_31
 
     .line 50
     sget p2, Landroid/support/v7/appcompat/R$styleable;->ViewBackgroundHelper_android_background:I
@@ -337,20 +337,20 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_31
 
     .line 55
     invoke-virtual {p0, p2}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->setInternalBackgroundTint(Landroid/content/res/ColorStateList;)V
 
     .line 58
-    :cond_0
+    :cond_31
     sget p2, Landroid/support/v7/appcompat/R$styleable;->ViewBackgroundHelper_backgroundTint:I
 
     invoke-virtual {p1, p2}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_44
 
     .line 59
     iget-object p2, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mView:Landroid/view/View;
@@ -366,14 +366,14 @@
     invoke-static {p2, v1}, Landroid/support/v4/view/ViewCompat;->setBackgroundTintList(Landroid/view/View;Landroid/content/res/ColorStateList;)V
 
     .line 62
-    :cond_1
+    :cond_44
     sget p2, Landroid/support/v7/appcompat/R$styleable;->ViewBackgroundHelper_backgroundTintMode:I
 
     invoke-virtual {p1, p2}, Landroid/support/v7/widget/TintTypedArray;->hasValue(I)Z
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_5c
 
     .line 63
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mView:Landroid/view/View;
@@ -394,16 +394,16 @@
 
     .line 63
     invoke-static {p0, p2}, Landroid/support/v4/view/ViewCompat;->setBackgroundTintMode(Landroid/view/View;Landroid/graphics/PorterDuff$Mode;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5c
+    .catchall {:try_start_d .. :try_end_5c} :catchall_60
 
     .line 69
-    :cond_2
+    :cond_5c
     invoke-virtual {p1}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
 
     return-void
 
-    :catchall_0
+    :catchall_60
     move-exception p0
 
     invoke-virtual {p1}, Landroid/support/v7/widget/TintTypedArray;->recycle()V
@@ -412,7 +412,7 @@
 .end method
 
 .method onSetBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, -0x1
 
@@ -431,7 +431,7 @@
 .end method
 
 .method onSetBackgroundResource(I)V
-    .locals 2
+    .registers 4
 
     .line 74
     iput p1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundResId:I
@@ -439,7 +439,7 @@
     .line 76
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mDrawableManager:Landroid/support/v7/widget/AppCompatDrawableManager;
 
@@ -454,13 +454,13 @@
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_13
     const/4 p1, 0x0
 
     .line 76
-    :goto_0
+    :goto_14
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->setInternalBackgroundTint(Landroid/content/res/ColorStateList;)V
 
     .line 79
@@ -470,14 +470,14 @@
 .end method
 
 .method setInternalBackgroundTint(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_17
 
     .line 138
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     .line 139
     new-instance v0, Landroid/support/v7/widget/TintInfo;
@@ -487,7 +487,7 @@
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     .line 141
-    :cond_0
+    :cond_d
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     iput-object p1, v0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
@@ -499,28 +499,28 @@
 
     iput-boolean v0, p1, Landroid/support/v7/widget/TintInfo;->mHasTintList:Z
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_1
+    :cond_17
     const/4 p1, 0x0
 
     .line 144
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mInternalBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     .line 146
-    :goto_0
+    :goto_1a
     invoke-virtual {p0}, Landroid/support/v7/widget/AppCompatBackgroundHelper;->applySupportBackgroundTint()V
 
     return-void
 .end method
 
 .method setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
 
     .line 90
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 91
     new-instance v0, Landroid/support/v7/widget/TintInfo;
@@ -530,7 +530,7 @@
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     .line 93
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     iput-object p1, v0, Landroid/support/v7/widget/TintInfo;->mTintList:Landroid/content/res/ColorStateList;
@@ -549,12 +549,12 @@
 .end method
 
 .method setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
 
     .line 103
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 104
     new-instance v0, Landroid/support/v7/widget/TintInfo;
@@ -564,7 +564,7 @@
     iput-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     .line 106
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatBackgroundHelper;->mBackgroundTint:Landroid/support/v7/widget/TintInfo;
 
     iput-object p1, v0, Landroid/support/v7/widget/TintInfo;->mTintMode:Landroid/graphics/PorterDuff$Mode;

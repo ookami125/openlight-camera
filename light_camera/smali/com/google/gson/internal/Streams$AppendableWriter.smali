@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Appendable;)V
-    .locals 1
+    .registers 3
 
     .line 87
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -49,19 +49,19 @@
 
 # virtual methods
 .method public close()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public write(I)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -79,7 +79,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

@@ -66,7 +66,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 1955
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,16 +85,16 @@
 
 # virtual methods
 .method applyFrozenState()V
-    .locals 2
+    .registers 3
 
     .line 2061
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->frozenMenuState:Landroid/os/Bundle;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 2062
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -108,17 +108,17 @@
     .line 2063
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->frozenMenuState:Landroid/os/Bundle;
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public clearMenuPresenters()V
-    .locals 2
+    .registers 3
 
     .line 1972
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 1973
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -127,7 +127,7 @@
 
     invoke-virtual {v0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->removeMenuPresenter(Landroid/support/v7/view/menu/MenuPresenter;)V
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
     .line 1975
@@ -137,22 +137,22 @@
 .end method
 
 .method getListMenuView(Landroid/support/v7/view/menu/MenuPresenter$Callback;)Landroid/support/v7/view/menu/MenuView;
-    .locals 3
+    .registers 5
 
     .line 2023
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 2025
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->listMenuPresenter:Landroid/support/v7/view/menu/ListMenuPresenter;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 2026
     new-instance v0, Landroid/support/v7/view/menu/ListMenuPresenter;
@@ -178,7 +178,7 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/view/menu/MenuBuilder;->addMenuPresenter(Landroid/support/v7/view/menu/MenuPresenter;)V
 
     .line 2032
-    :cond_1
+    :cond_21
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->listMenuPresenter:Landroid/support/v7/view/menu/ListMenuPresenter;
 
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->decorView:Landroid/view/ViewGroup;
@@ -191,29 +191,29 @@
 .end method
 
 .method public hasPanelItems()Z
-    .locals 3
+    .registers 4
 
     .line 1962
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->shownPanelView:Landroid/view/View;
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_6
 
     return v1
 
     .line 1963
-    :cond_0
+    :cond_6
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->createdPanelView:Landroid/view/View;
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_c
 
     return v2
 
     .line 1965
-    :cond_1
+    :cond_c
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->listMenuPresenter:Landroid/support/v7/view/menu/ListMenuPresenter;
 
     invoke-virtual {p0}, Landroid/support/v7/view/menu/ListMenuPresenter;->getAdapter()Landroid/widget/ListAdapter;
@@ -224,16 +224,16 @@
 
     move-result p0
 
-    if-lez p0, :cond_2
+    if-lez p0, :cond_19
 
     move v1, v2
 
-    :cond_2
+    :cond_19
     return v1
 .end method
 
 .method onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 2051
     check-cast p1, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState$SavedState;
@@ -265,7 +265,7 @@
 .end method
 
 .method onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 2
+    .registers 3
 
     .line 2038
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState$SavedState;
@@ -285,7 +285,7 @@
     .line 2042
     iget-object v1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1f
 
     .line 2043
     new-instance v1, Landroid/os/Bundle;
@@ -301,25 +301,25 @@
 
     invoke-virtual {p0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->savePresenterStates(Landroid/os/Bundle;)V
 
-    :cond_0
+    :cond_1f
     return-object v0
 .end method
 
 .method setMenu(Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 2
+    .registers 4
 
     .line 2011
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_5
 
     return-void
 
     .line 2013
-    :cond_0
+    :cond_5
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_10
 
     .line 2014
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -329,26 +329,26 @@
     invoke-virtual {v0, v1}, Landroid/support/v7/view/menu/MenuBuilder;->removeMenuPresenter(Landroid/support/v7/view/menu/MenuPresenter;)V
 
     .line 2016
-    :cond_1
+    :cond_10
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->menu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1d
 
     .line 2018
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->listMenuPresenter:Landroid/support/v7/view/menu/ListMenuPresenter;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1d
 
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$PanelFeatureState;->listMenuPresenter:Landroid/support/v7/view/menu/ListMenuPresenter;
 
     invoke-virtual {p1, p0}, Landroid/support/v7/view/menu/MenuBuilder;->addMenuPresenter(Landroid/support/v7/view/menu/MenuPresenter;)V
 
-    :cond_2
+    :cond_1d
     return-void
 .end method
 
 .method setStyle(Landroid/content/Context;)V
-    .locals 4
+    .registers 6
 
     .line 1979
     new-instance v0, Landroid/util/TypedValue;
@@ -381,7 +381,7 @@
     .line 1985
     iget v2, v0, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_23
 
     .line 1986
     iget v2, v0, Landroid/util/TypedValue;->resourceId:I
@@ -389,7 +389,7 @@
     invoke-virtual {v1, v2, v3}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
     .line 1990
-    :cond_0
+    :cond_23
     sget v2, Landroid/support/v7/appcompat/R$attr;->panelMenuListTheme:I
 
     invoke-virtual {v1, v2, v0, v3}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
@@ -397,23 +397,23 @@
     .line 1991
     iget v2, v0, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_32
 
     .line 1992
     iget v0, v0, Landroid/util/TypedValue;->resourceId:I
 
     invoke-virtual {v1, v0, v3}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
-    goto :goto_0
+    goto :goto_37
 
     .line 1994
-    :cond_1
+    :cond_32
     sget v0, Landroid/support/v7/appcompat/R$style;->Theme_AppCompat_CompactMenu:I
 
     invoke-virtual {v1, v0, v3}, Landroid/content/res/Resources$Theme;->applyStyle(IZ)V
 
     .line 1997
-    :goto_0
+    :goto_37
     new-instance v0, Landroid/support/v7/view/ContextThemeWrapper;
 
     const/4 v2, 0x0

@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/ChangeBounds;Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 3
 
     .line 390
     iput-object p1, p0, Landroid/support/transition/ChangeBounds$9;->this$0:Landroid/support/transition/ChangeBounds;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onTransitionCancel(Landroid/support/transition/Transition;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -66,7 +66,7 @@
 .end method
 
 .method public onTransitionEnd(Landroid/support/transition/Transition;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -75,7 +75,7 @@
     .line 401
     iget-boolean v0, p0, Landroid/support/transition/ChangeBounds$9;->mCanceled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     .line 402
     iget-object v0, p0, Landroid/support/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
@@ -85,14 +85,14 @@
     invoke-static {v0, v1}, Landroid/support/transition/ViewGroupUtils;->suppressLayout(Landroid/view/ViewGroup;Z)V
 
     .line 404
-    :cond_0
+    :cond_a
     invoke-virtual {p1, p0}, Landroid/support/transition/Transition;->removeListener(Landroid/support/transition/Transition$TransitionListener;)Landroid/support/transition/Transition;
 
     return-void
 .end method
 
 .method public onTransitionPause(Landroid/support/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -109,7 +109,7 @@
 .end method
 
 .method public onTransitionResume(Landroid/support/transition/Transition;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/Transition;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/UpdateFragment;Landroid/app/Activity;)V
-    .locals 0
+    .registers 3
 
     .line 245
     iput-object p1, p0, Lnet/hockeyapp/android/UpdateFragment$3;->this$0:Lnet/hockeyapp/android/UpdateFragment;
@@ -37,28 +37,29 @@
 
 # virtual methods
 .method public downloadFailed(Lnet/hockeyapp/android/tasks/DownloadFileTask;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 3
 
     .line 247
     invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_d
 
     .line 248
     iget-object p1, p0, Lnet/hockeyapp/android/UpdateFragment$3;->this$0:Lnet/hockeyapp/android/UpdateFragment;
 
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateFragment$3;->val$activity:Landroid/app/Activity;
 
+    # invokes: Lnet/hockeyapp/android/UpdateFragment;->startDownloadTask(Landroid/app/Activity;)V
     invoke-static {p1, p0}, Lnet/hockeyapp/android/UpdateFragment;->access$000(Lnet/hockeyapp/android/UpdateFragment;Landroid/app/Activity;)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public downloadSuccessful(Lnet/hockeyapp/android/tasks/DownloadFileTask;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

@@ -30,7 +30,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 301
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/BaseTarget;-><init>()V
@@ -39,7 +39,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/ListPreloader$1;)V
-    .locals 0
+    .registers 2
 
     .line 301
     invoke-direct {p0}, Lcom/bumptech/glide/ListPreloader$PreloadTarget;-><init>()V
@@ -48,7 +48,7 @@
 .end method
 
 .method static synthetic access$102(Lcom/bumptech/glide/ListPreloader$PreloadTarget;I)I
-    .locals 0
+    .registers 2
 
     .line 301
     iput p1, p0, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->photoWidth:I
@@ -57,7 +57,7 @@
 .end method
 
 .method static synthetic access$202(Lcom/bumptech/glide/ListPreloader$PreloadTarget;I)I
-    .locals 0
+    .registers 2
 
     .line 301
     iput p1, p0, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->photoHeight:I
@@ -68,7 +68,7 @@
 
 # virtual methods
 .method public getSize(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
-    .locals 1
+    .registers 3
 
     .line 313
     iget v0, p0, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->photoWidth:I
@@ -81,7 +81,7 @@
 .end method
 
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

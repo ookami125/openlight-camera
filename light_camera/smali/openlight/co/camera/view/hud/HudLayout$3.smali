@@ -22,7 +22,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 553
     invoke-static {}, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->values()[Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -37,7 +37,7 @@
 
     const/4 v0, 0x1
 
-    :try_start_0
+    :try_start_a
     sget-object v1, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$view$hud$HudLayout$HudValue:[I
 
     sget-object v2, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->EV:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -47,13 +47,13 @@
     move-result v2
 
     aput v0, v1, v2
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_14} :catch_14
 
-    :catch_0
+    :catch_14
     const/4 v1, 0x2
 
-    :try_start_1
+    :try_start_15
     sget-object v2, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$view$hud$HudLayout$HudValue:[I
 
     sget-object v3, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->ISO:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -63,13 +63,13 @@
     move-result v3
 
     aput v1, v2, v3
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_1f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_1f} :catch_1f
 
-    :catch_1
+    :catch_1f
     const/4 v2, 0x3
 
-    :try_start_2
+    :try_start_20
     sget-object v3, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$view$hud$HudLayout$HudValue:[I
 
     sget-object v4, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->ZOOM:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -79,13 +79,13 @@
     move-result v4
 
     aput v2, v3, v4
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_2a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_20 .. :try_end_2a} :catch_2a
 
-    :catch_2
+    :catch_2a
     const/4 v3, 0x4
 
-    :try_start_3
+    :try_start_2b
     sget-object v4, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$view$hud$HudLayout$HudValue:[I
 
     sget-object v5, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->SHUTTER_SPEED:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -95,11 +95,11 @@
     move-result v5
 
     aput v3, v4, v5
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_35
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2b .. :try_end_35} :catch_35
 
-    :catch_3
-    :try_start_4
+    :catch_35
+    :try_start_35
     sget-object v4, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$view$hud$HudLayout$HudValue:[I
 
     sget-object v5, Lopenlight/co/camera/view/hud/HudLayout$HudValue;->RESOLUTION:Lopenlight/co/camera/view/hud/HudLayout$HudValue;
@@ -111,11 +111,11 @@
     const/4 v6, 0x5
 
     aput v6, v4, v5
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_4
+    :try_end_40
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_35 .. :try_end_40} :catch_40
 
     .line 172
-    :catch_4
+    :catch_40
     invoke-static {}, Lopenlight/co/camera/CameraMode;->values()[Lopenlight/co/camera/CameraMode;
 
     move-result-object v4
@@ -126,7 +126,7 @@
 
     sput-object v4, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$CameraMode:[I
 
-    :try_start_5
+    :try_start_49
     sget-object v4, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$CameraMode:[I
 
     sget-object v5, Lopenlight/co/camera/CameraMode;->AUTO:Lopenlight/co/camera/CameraMode;
@@ -136,11 +136,11 @@
     move-result v5
 
     aput v0, v4, v5
-    :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_5
+    :try_end_53
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_49 .. :try_end_53} :catch_53
 
-    :catch_5
-    :try_start_6
+    :catch_53
+    :try_start_53
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$CameraMode:[I
 
     sget-object v4, Lopenlight/co/camera/CameraMode;->ISO:Lopenlight/co/camera/CameraMode;
@@ -150,11 +150,11 @@
     move-result v4
 
     aput v1, v0, v4
-    :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_6
+    :try_end_5d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_53 .. :try_end_5d} :catch_5d
 
-    :catch_6
-    :try_start_7
+    :catch_5d
+    :try_start_5d
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$CameraMode:[I
 
     sget-object v1, Lopenlight/co/camera/CameraMode;->SHUTTER:Lopenlight/co/camera/CameraMode;
@@ -164,11 +164,11 @@
     move-result v1
 
     aput v2, v0, v1
-    :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_7
+    :try_end_67
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5d .. :try_end_67} :catch_67
 
-    :catch_7
-    :try_start_8
+    :catch_67
+    :try_start_67
     sget-object v0, Lopenlight/co/camera/view/hud/HudLayout$3;->$SwitchMap$light$co$camera$CameraMode:[I
 
     sget-object v1, Lopenlight/co/camera/CameraMode;->MANUAL:Lopenlight/co/camera/CameraMode;
@@ -178,9 +178,9 @@
     move-result v1
 
     aput v3, v0, v1
-    :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_8
+    :try_end_71
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_67 .. :try_end_71} :catch_71
 
-    :catch_8
+    :catch_71
     return-void
 .end method

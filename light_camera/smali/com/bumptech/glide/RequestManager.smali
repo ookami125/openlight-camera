@@ -37,7 +37,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/manager/Lifecycle;Lcom/bumptech/glide/manager/RequestManagerTreeNode;)V
-    .locals 6
+    .registers 10
 
     .line 53
     new-instance v4, Lcom/bumptech/glide/manager/RequestTracker;
@@ -62,7 +62,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/manager/Lifecycle;Lcom/bumptech/glide/manager/RequestManagerTreeNode;Lcom/bumptech/glide/manager/RequestTracker;Lcom/bumptech/glide/manager/ConnectivityMonitorFactory;)V
-    .locals 1
+    .registers 7
 
     .line 57
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -111,7 +111,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_3d
 
     .line 72
     new-instance p3, Landroid/os/Handler;
@@ -128,21 +128,21 @@
 
     invoke-virtual {p3, p4}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
+    goto :goto_40
 
     .line 79
-    :cond_0
+    :cond_3d
     invoke-interface {p2, p0}, Lcom/bumptech/glide/manager/Lifecycle;->addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
 
     .line 81
-    :goto_0
+    :goto_40
     invoke-interface {p2, p1}, Lcom/bumptech/glide/manager/Lifecycle;->addListener(Lcom/bumptech/glide/manager/LifecycleListener;)V
 
     return-void
 .end method
 
 .method static synthetic access$000(Ljava/lang/Object;)Ljava/lang/Class;
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-static {p0}, Lcom/bumptech/glide/RequestManager;->getSafeClass(Ljava/lang/Object;)Ljava/lang/Class;
@@ -153,7 +153,7 @@
 .end method
 
 .method static synthetic access$100(Lcom/bumptech/glide/RequestManager;)Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->context:Landroid/content/Context;
@@ -162,7 +162,7 @@
 .end method
 
 .method static synthetic access$200(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/Glide;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->glide:Lcom/bumptech/glide/Glide;
@@ -171,7 +171,7 @@
 .end method
 
 .method static synthetic access$300(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/manager/RequestTracker;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
@@ -180,7 +180,7 @@
 .end method
 
 .method static synthetic access$400(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/manager/Lifecycle;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->lifecycle:Lcom/bumptech/glide/manager/Lifecycle;
@@ -189,7 +189,7 @@
 .end method
 
 .method static synthetic access$500(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/RequestManager$OptionsApplier;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->optionsApplier:Lcom/bumptech/glide/RequestManager$OptionsApplier;
@@ -198,7 +198,7 @@
 .end method
 
 .method static synthetic access$800(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/RequestManager$DefaultOptions;
-    .locals 0
+    .registers 1
 
     .line 43
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->options:Lcom/bumptech/glide/RequestManager$DefaultOptions;
@@ -207,7 +207,7 @@
 .end method
 
 .method private static getSafeClass(Ljava/lang/Object;)Ljava/lang/Class;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -218,24 +218,24 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_7
 
     .line 641
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_7
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_8
     return-object p0
 .end method
 
 .method private loadGeneric(Ljava/lang/Class;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 11
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -262,16 +262,16 @@
 
     move-result-object v4
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_39
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_39
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_13
 
-    goto :goto_0
+    goto :goto_39
 
     .line 629
-    :cond_0
+    :cond_13
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -305,8 +305,8 @@
     throw p0
 
     .line 634
-    :cond_1
-    :goto_0
+    :cond_39
+    :goto_39
     iget-object v0, p0, Lcom/bumptech/glide/RequestManager;->optionsApplier:Lcom/bumptech/glide/RequestManager$OptionsApplier;
 
     new-instance v10, Lcom/bumptech/glide/DrawableTypeRequest;
@@ -339,7 +339,7 @@
 
 # virtual methods
 .method public from(Ljava/lang/Class;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -361,7 +361,7 @@
 .end method
 
 .method public fromBytes()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -411,7 +411,7 @@
 .end method
 
 .method public fromFile()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -432,7 +432,7 @@
 .end method
 
 .method public fromMediaStore()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 11
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -498,7 +498,7 @@
 .end method
 
 .method public fromResource()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -531,7 +531,7 @@
 .end method
 
 .method public fromString()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -552,7 +552,7 @@
 .end method
 
 .method public fromUri()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -573,7 +573,7 @@
 .end method
 
 .method public fromUrl()Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -597,7 +597,7 @@
 .end method
 
 .method public isPaused()Z
-    .locals 0
+    .registers 1
 
     .line 136
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -613,7 +613,7 @@
 .end method
 
 .method public load(Landroid/net/Uri;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -640,7 +640,7 @@
 .end method
 
 .method public load(Ljava/io/File;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -667,7 +667,7 @@
 .end method
 
 .method public load(Ljava/lang/Integer;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -694,7 +694,7 @@
 .end method
 
 .method public load(Ljava/lang/Object;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -724,7 +724,7 @@
 .end method
 
 .method public load(Ljava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -751,7 +751,7 @@
 .end method
 
 .method public load(Ljava/net/URL;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -781,7 +781,7 @@
 .end method
 
 .method public load([B)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B)",
@@ -805,7 +805,7 @@
 .end method
 
 .method public load([BLjava/lang/String;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B",
@@ -838,7 +838,7 @@
 .end method
 
 .method public loadFromMediaStore(Landroid/net/Uri;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -865,7 +865,7 @@
 .end method
 
 .method public loadFromMediaStore(Landroid/net/Uri;Ljava/lang/String;JI)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -901,7 +901,7 @@
 .end method
 
 .method public onDestroy()V
-    .locals 0
+    .registers 1
 
     .line 221
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
@@ -912,7 +912,7 @@
 .end method
 
 .method public onLowMemory()V
-    .locals 0
+    .registers 1
 
     .line 95
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->glide:Lcom/bumptech/glide/Glide;
@@ -923,7 +923,7 @@
 .end method
 
 .method public onStart()V
-    .locals 0
+    .registers 1
 
     .line 203
     invoke-virtual {p0}, Lcom/bumptech/glide/RequestManager;->resumeRequests()V
@@ -932,7 +932,7 @@
 .end method
 
 .method public onStop()V
-    .locals 0
+    .registers 1
 
     .line 212
     invoke-virtual {p0}, Lcom/bumptech/glide/RequestManager;->pauseRequests()V
@@ -941,7 +941,7 @@
 .end method
 
 .method public onTrimMemory(I)V
-    .locals 0
+    .registers 2
 
     .line 88
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager;->glide:Lcom/bumptech/glide/Glide;
@@ -952,7 +952,7 @@
 .end method
 
 .method public pauseRequests()V
-    .locals 0
+    .registers 1
 
     .line 147
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -966,7 +966,7 @@
 .end method
 
 .method public pauseRequestsRecursive()V
-    .locals 1
+    .registers 2
 
     .line 165
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -985,12 +985,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_10
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1001,14 +1001,14 @@
     .line 168
     invoke-virtual {v0}, Lcom/bumptech/glide/RequestManager;->pauseRequests()V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public resumeRequests()V
-    .locals 0
+    .registers 1
 
     .line 179
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -1022,7 +1022,7 @@
 .end method
 
 .method public resumeRequestsRecursive()V
-    .locals 1
+    .registers 2
 
     .line 189
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -1041,12 +1041,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_10
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1057,14 +1057,14 @@
     .line 192
     invoke-virtual {v0}, Lcom/bumptech/glide/RequestManager;->resumeRequests()V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public setDefaultOptions(Lcom/bumptech/glide/RequestManager$DefaultOptions;)V
-    .locals 0
+    .registers 2
 
     .line 126
     iput-object p1, p0, Lcom/bumptech/glide/RequestManager;->options:Lcom/bumptech/glide/RequestManager$DefaultOptions;
@@ -1073,7 +1073,7 @@
 .end method
 
 .method public using(Lcom/bumptech/glide/load/model/ModelLoader;Ljava/lang/Class;)Lcom/bumptech/glide/RequestManager$GenericModelRequest;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<A:",
@@ -1099,7 +1099,7 @@
 .end method
 
 .method public using(Lcom/bumptech/glide/load/model/stream/StreamByteArrayLoader;)Lcom/bumptech/glide/RequestManager$ImageModelRequest;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1119,7 +1119,7 @@
 .end method
 
 .method public using(Lcom/bumptech/glide/load/model/stream/StreamModelLoader;)Lcom/bumptech/glide/RequestManager$ImageModelRequest;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1141,7 +1141,7 @@
 .end method
 
 .method public using(Lcom/bumptech/glide/load/model/file_descriptor/FileDescriptorModelLoader;)Lcom/bumptech/glide/RequestManager$VideoModelRequest;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

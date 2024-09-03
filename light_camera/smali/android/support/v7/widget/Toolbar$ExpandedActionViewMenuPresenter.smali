@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/Toolbar;)V
-    .locals 0
+    .registers 2
 
     .line 2307
     iput-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public collapseItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
-    .locals 1
+    .registers 4
 
     .line 2397
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -49,7 +49,7 @@
 
     instance-of p1, p1, Landroid/support/v7/view/CollapsibleActionView;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 2398
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -61,7 +61,7 @@
     invoke-interface {p1}, Landroid/support/v7/view/CollapsibleActionView;->onActionViewCollapsed()V
 
     .line 2401
-    :cond_0
+    :cond_11
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
     iget-object v0, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -110,7 +110,7 @@
 .end method
 
 .method public expandItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
-    .locals 2
+    .registers 5
 
     .line 2368
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -128,7 +128,7 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_1a
 
     .line 2370
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -140,7 +140,7 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;)V
 
     .line 2372
-    :cond_0
+    :cond_1a
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
     invoke-virtual {p2}, Landroid/support/v7/view/menu/MenuItemImpl;->getActionView()Landroid/view/View;
@@ -163,7 +163,7 @@
 
     iget-object v0, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_55
 
     .line 2375
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -207,7 +207,7 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/widget/Toolbar;->addView(Landroid/view/View;)V
 
     .line 2382
-    :cond_1
+    :cond_55
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
 
     invoke-virtual {p1}, Landroid/support/v7/widget/Toolbar;->removeChildrenForExpandedActionView()V
@@ -229,7 +229,7 @@
 
     instance-of p2, p2, Landroid/support/v7/view/CollapsibleActionView;
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_74
 
     .line 2387
     iget-object p0, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->this$0:Landroid/support/v7/widget/Toolbar;
@@ -240,12 +240,12 @@
 
     invoke-interface {p0}, Landroid/support/v7/view/CollapsibleActionView;->onActionViewExpanded()V
 
-    :cond_2
+    :cond_74
     return p1
 .end method
 
 .method public flagActionItems()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -253,7 +253,7 @@
 .end method
 
 .method public getId()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -261,7 +261,7 @@
 .end method
 
 .method public getMenuView(Landroid/view/ViewGroup;)Landroid/support/v7/view/menu/MenuView;
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -269,16 +269,16 @@
 .end method
 
 .method public initForMenu(Landroid/content/Context;Landroid/support/v7/view/menu/MenuBuilder;)V
-    .locals 1
+    .registers 4
 
     .line 2313
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 2314
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -288,26 +288,26 @@
     invoke-virtual {p1, v0}, Landroid/support/v7/view/menu/MenuBuilder;->collapseItemActionView(Landroid/support/v7/view/menu/MenuItemImpl;)Z
 
     .line 2316
-    :cond_0
+    :cond_f
     iput-object p2, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     return-void
 .end method
 
 .method public onCloseMenu(Landroid/support/v7/view/menu/MenuBuilder;Z)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onRestoreInstanceState(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -315,7 +315,7 @@
 .end method
 
 .method public onSubMenuSelected(Landroid/support/v7/view/menu/SubMenuBuilder;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x0
 
@@ -323,25 +323,25 @@
 .end method
 
 .method public setCallback(Landroid/support/v7/view/menu/MenuPresenter$Callback;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public updateMenuView(Z)V
-    .locals 4
+    .registers 6
 
     .line 2327
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_2a
 
     .line 2330
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_21
 
     .line 2331
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -352,8 +352,8 @@
 
     move v1, v0
 
-    :goto_0
-    if-ge v1, p1, :cond_1
+    :goto_10
+    if-ge v1, p1, :cond_21
 
     .line 2333
     iget-object v2, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -365,20 +365,20 @@
     .line 2334
     iget-object v3, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mCurrentExpandedItem:Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_1e
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_21
 
-    :cond_0
+    :cond_1e
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_1
-    :goto_1
-    if-nez v0, :cond_2
+    :cond_21
+    :goto_21
+    if-nez v0, :cond_2a
 
     .line 2343
     iget-object p1, p0, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->mMenu:Landroid/support/v7/view/menu/MenuBuilder;
@@ -387,6 +387,6 @@
 
     invoke-virtual {p0, p1, v0}, Landroid/support/v7/widget/Toolbar$ExpandedActionViewMenuPresenter;->collapseItemActionView(Landroid/support/v7/view/menu/MenuBuilder;Landroid/support/v7/view/menu/MenuItemImpl;)Z
 
-    :cond_2
+    :cond_2a
     return-void
 .end method

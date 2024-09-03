@@ -43,7 +43,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 34
     new-instance v0, Ljava/lang/Object;
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Lnet/hockeyapp/android/metrics/TelemetryContext;Lnet/hockeyapp/android/metrics/Persistence;)V
-    .locals 1
+    .registers 4
 
     .line 67
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -101,7 +101,7 @@
 
 # virtual methods
 .method protected createEnvelope(Lnet/hockeyapp/android/metrics/model/Data;)Lnet/hockeyapp/android/metrics/model/Envelope;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -128,7 +128,7 @@
     .line 127
     instance-of v1, p1, Lnet/hockeyapp/android/metrics/model/TelemetryData;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 128
     check-cast p1, Lnet/hockeyapp/android/metrics/model/TelemetryData;
@@ -141,7 +141,7 @@
     invoke-virtual {v0, p1}, Lnet/hockeyapp/android/metrics/model/Envelope;->setName(Ljava/lang/String;)V
 
     .line 132
-    :cond_0
+    :cond_19
     iget-object p1, p0, Lnet/hockeyapp/android/metrics/Channel;->mTelemetryContext:Lnet/hockeyapp/android/metrics/TelemetryContext;
 
     invoke-virtual {p1}, Lnet/hockeyapp/android/metrics/TelemetryContext;->updateScreenResolution()V
@@ -173,37 +173,37 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3e
 
     .line 139
     invoke-virtual {v0, p0}, Lnet/hockeyapp/android/metrics/model/Envelope;->setTags(Ljava/util/Map;)V
 
-    :cond_1
+    :cond_3e
     return-object v0
 .end method
 
 .method protected enqueue(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 84
-    :cond_0
+    :cond_3
     sget-object v0, Lnet/hockeyapp/android/metrics/Channel;->LOCK:Ljava/lang/Object;
 
     monitor-enter v0
 
     .line 85
-    :try_start_0
+    :try_start_6
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/Channel;->mQueue:Ljava/util/List;
 
     invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_29
 
     .line 86
     iget-object p1, p0, Lnet/hockeyapp/android/metrics/Channel;->mQueue:Ljava/util/List;
@@ -214,15 +214,15 @@
 
     sget v1, Lnet/hockeyapp/android/metrics/Channel;->mMaxBatchCount:I
 
-    if-lt p1, v1, :cond_1
+    if-lt p1, v1, :cond_1c
 
     .line 87
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Channel;->synchronize()V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 88
-    :cond_1
+    :cond_1c
     iget-object p1, p0, Lnet/hockeyapp/android/metrics/Channel;->mQueue:Ljava/util/List;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -231,14 +231,14 @@
 
     const/4 v1, 0x1
 
-    if-ne p1, v1, :cond_3
+    if-ne p1, v1, :cond_30
 
     .line 89
     invoke-virtual {p0}, Lnet/hockeyapp/android/metrics/Channel;->scheduleSynchronizeTask()V
 
-    goto :goto_0
+    goto :goto_30
 
-    :cond_2
+    :cond_29
     const-string p0, "HockeyApp-Metrics"
 
     const-string p1, "Unable to add item to queue"
@@ -247,45 +247,45 @@
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->verbose(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 94
-    :cond_3
-    :goto_0
+    :cond_30
+    :goto_30
     monitor-exit v0
 
     return-void
 
-    :catchall_0
+    :catchall_32
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_34
+    .catchall {:try_start_6 .. :try_end_34} :catchall_32
 
     throw p0
 .end method
 
 .method public enqueueData(Lnet/hockeyapp/android/metrics/model/Base;)V
-    .locals 2
+    .registers 4
 
     .line 156
     instance-of v0, p1, Lnet/hockeyapp/android/metrics/model/Data;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_38
 
     const/4 v0, 0x0
 
     .line 159
-    :try_start_0
+    :try_start_5
     check-cast p1, Lnet/hockeyapp/android/metrics/model/Data;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/Channel;->createEnvelope(Lnet/hockeyapp/android/metrics/model/Data;)Lnet/hockeyapp/android/metrics/model/Envelope;
 
     move-result-object p1
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/ClassCastException; {:try_start_5 .. :try_end_b} :catch_c
 
-    goto :goto_0
+    goto :goto_14
 
-    :catch_0
+    :catch_c
     const-string p1, "HockeyApp-Metrics"
 
     const-string v1, "Telemetry not enqueued, could not create envelope, must be of type ITelemetry"
@@ -295,8 +295,8 @@
 
     move-object p1, v0
 
-    :goto_0
-    if-eqz p1, :cond_1
+    :goto_14
+    if-eqz p1, :cond_3f
 
     .line 166
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/metrics/Channel;->serializeEnvelope(Lnet/hockeyapp/android/metrics/model/Envelope;)Ljava/lang/String;
@@ -329,9 +329,9 @@
 
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_3f
 
-    :cond_0
+    :cond_38
     const-string p0, "HockeyApp-Metrics"
 
     const-string p1, "Telemetry not enqueued, must be of type ITelemetry"
@@ -339,13 +339,13 @@
     .line 171
     invoke-static {p0, p1}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
-    :goto_1
+    :cond_3f
+    :goto_3f
     return-void
 .end method
 
 .method protected scheduleSynchronizeTask()V
-    .locals 3
+    .registers 4
 
     .line 145
     new-instance v0, Lnet/hockeyapp/android/metrics/Channel$SynchronizeChannelTask;
@@ -369,14 +369,14 @@
 .end method
 
 .method protected serializeEnvelope(Lnet/hockeyapp/android/metrics/model/Envelope;)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     const/4 p0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 183
-    :try_start_0
+    :try_start_3
     new-instance v0, Ljava/io/StringWriter;
 
     invoke-direct {v0}, Ljava/io/StringWriter;-><init>()V
@@ -391,24 +391,24 @@
 
     return-object p1
 
-    :catch_0
+    :catch_10
     move-exception p1
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_12
     const-string p1, "HockeyApp-Metrics"
 
     const-string v0, "Envelope wasn\'t empty but failed to serialize anything, returning null"
 
     .line 187
     invoke-static {p1, v0}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_19
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_19} :catch_10
 
     return-object p0
 
-    :goto_0
+    :goto_1a
     const-string v0, "HockeyApp-Metrics"
 
     .line 190
@@ -436,12 +436,12 @@
 .end method
 
 .method protected synchronize()V
-    .locals 2
+    .registers 3
 
     .line 101
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/Channel;->mSynchronizeTask:Lnet/hockeyapp/android/metrics/Channel$SynchronizeChannelTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 102
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/Channel;->mSynchronizeTask:Lnet/hockeyapp/android/metrics/Channel$SynchronizeChannelTask;
@@ -449,14 +449,14 @@
     invoke-virtual {v0}, Lnet/hockeyapp/android/metrics/Channel$SynchronizeChannelTask;->cancel()Z
 
     .line 106
-    :cond_0
+    :cond_9
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/Channel;->mQueue:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2c
 
     .line 107
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/Channel;->mQueue:Ljava/util/List;
@@ -480,13 +480,13 @@
     .line 111
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/Channel;->mPersistence:Lnet/hockeyapp/android/metrics/Persistence;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2c
 
     .line 112
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Channel;->mPersistence:Lnet/hockeyapp/android/metrics/Persistence;
 
     invoke-virtual {p0, v0}, Lnet/hockeyapp/android/metrics/Persistence;->persist([Ljava/lang/String;)V
 
-    :cond_1
+    :cond_2c
     return-void
 .end method

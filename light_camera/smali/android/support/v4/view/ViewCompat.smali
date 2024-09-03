@@ -134,14 +134,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 1586
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x1a
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 1587
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi26Impl;
@@ -150,15 +150,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto/16 :goto_0
+    goto/16 :goto_87
 
     .line 1588
-    :cond_0
+    :cond_f
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x18
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1e
 
     .line 1589
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi24Impl;
@@ -167,15 +167,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto/16 :goto_0
+    goto/16 :goto_87
 
     .line 1590
-    :cond_1
+    :cond_1e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2c
 
     .line 1591
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi23Impl;
@@ -184,15 +184,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1592
-    :cond_2
+    :cond_2c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_3a
 
     .line 1593
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;
@@ -201,15 +201,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1594
-    :cond_3
+    :cond_3a
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_4
+    if-lt v0, v1, :cond_48
 
     .line 1595
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi19Impl;
@@ -218,15 +218,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1596
-    :cond_4
+    :cond_48
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
-    if-lt v0, v1, :cond_5
+    if-lt v0, v1, :cond_56
 
     .line 1597
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi18Impl;
@@ -235,15 +235,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1598
-    :cond_5
+    :cond_56
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_6
+    if-lt v0, v1, :cond_64
 
     .line 1599
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi17Impl;
@@ -252,15 +252,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1600
-    :cond_6
+    :cond_64
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x10
 
-    if-lt v0, v1, :cond_7
+    if-lt v0, v1, :cond_72
 
     .line 1601
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi16Impl;
@@ -269,15 +269,15 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1602
-    :cond_7
+    :cond_72
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xf
 
-    if-lt v0, v1, :cond_8
+    if-lt v0, v1, :cond_80
 
     .line 1603
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi15Impl;
@@ -286,22 +286,22 @@
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    goto :goto_0
+    goto :goto_87
 
     .line 1605
-    :cond_8
+    :cond_80
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
-    :goto_0
+    :goto_87
     return-void
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 3722
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -310,7 +310,7 @@
 .end method
 
 .method public static addKeyboardNavigationClusters(Landroid/view/View;Ljava/util/Collection;I)V
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -338,7 +338,7 @@
 .end method
 
 .method public static animate(Landroid/view/View;)Landroid/support/v4/view/ViewPropertyAnimatorCompat;
-    .locals 1
+    .registers 2
 
     .line 2482
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -351,7 +351,7 @@
 .end method
 
 .method public static canScrollHorizontally(Landroid/view/View;I)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -364,7 +364,7 @@
 .end method
 
 .method public static canScrollVertically(Landroid/view/View;I)Z
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -377,7 +377,7 @@
 .end method
 
 .method public static cancelDragAndDrop(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 3581
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -388,7 +388,7 @@
 .end method
 
 .method public static combineMeasuredStates(II)I
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -401,7 +401,7 @@
 .end method
 
 .method public static dispatchApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
-    .locals 1
+    .registers 3
 
     .line 2902
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -414,7 +414,7 @@
 .end method
 
 .method public static dispatchFinishTemporaryDetach(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 2400
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -425,7 +425,7 @@
 .end method
 
 .method public static dispatchNestedFling(Landroid/view/View;FFZ)Z
-    .locals 1
+    .registers 5
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -442,7 +442,7 @@
 .end method
 
 .method public static dispatchNestedPreFling(Landroid/view/View;FF)Z
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -459,7 +459,7 @@
 .end method
 
 .method public static dispatchNestedPreScroll(Landroid/view/View;II[I[I)Z
-    .locals 6
+    .registers 11
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -494,7 +494,7 @@
 .end method
 
 .method public static dispatchNestedPreScroll(Landroid/view/View;II[I[II)Z
-    .locals 7
+    .registers 13
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -511,7 +511,7 @@
     .line 3279
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 3280
     move-object v1, p0
@@ -534,8 +534,8 @@
 
     return p0
 
-    :cond_0
-    if-nez p5, :cond_1
+    :cond_11
+    if-nez p5, :cond_1f
 
     .line 3283
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -556,14 +556,14 @@
 
     return p0
 
-    :cond_1
+    :cond_1f
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static dispatchNestedScroll(Landroid/view/View;IIII[I)Z
-    .locals 7
+    .registers 13
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -596,7 +596,7 @@
 .end method
 
 .method public static dispatchNestedScroll(Landroid/view/View;IIII[II)Z
-    .locals 8
+    .registers 15
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -609,7 +609,7 @@
     .line 3247
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 3248
     move-object v1, p0
@@ -634,8 +634,8 @@
 
     return p0
 
-    :cond_0
-    if-nez p6, :cond_1
+    :cond_12
+    if-nez p6, :cond_21
 
     .line 3251
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -658,14 +658,14 @@
 
     return p0
 
-    :cond_1
+    :cond_21
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static dispatchStartTemporaryDetach(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 2393
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -676,7 +676,7 @@
 .end method
 
 .method public static getAccessibilityLiveRegion(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2313
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -689,7 +689,7 @@
 .end method
 
 .method public static getAccessibilityNodeProvider(Landroid/view/View;)Landroid/support/v4/view/accessibility/AccessibilityNodeProviderCompat;
-    .locals 1
+    .registers 2
 
     .line 2021
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -702,7 +702,7 @@
 .end method
 
 .method public static getAlpha(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -715,7 +715,7 @@
 .end method
 
 .method public static getBackgroundTintList(Landroid/view/View;)Landroid/content/res/ColorStateList;
-    .locals 1
+    .registers 2
 
     .line 2980
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -728,7 +728,7 @@
 .end method
 
 .method public static getBackgroundTintMode(Landroid/view/View;)Landroid/graphics/PorterDuff$Mode;
-    .locals 1
+    .registers 2
 
     .line 3002
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -741,7 +741,7 @@
 .end method
 
 .method public static getClipBounds(Landroid/view/View;)Landroid/graphics/Rect;
-    .locals 1
+    .registers 2
 
     .line 3453
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -754,7 +754,7 @@
 .end method
 
 .method public static getDisplay(Landroid/view/View;)Landroid/view/Display;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -771,7 +771,7 @@
 .end method
 
 .method public static getElevation(Landroid/view/View;)F
-    .locals 1
+    .registers 2
 
     .line 2756
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -784,7 +784,7 @@
 .end method
 
 .method public static getFitsSystemWindows(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 2833
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -797,7 +797,7 @@
 .end method
 
 .method public static getImportantForAccessibility(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 1912
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -810,7 +810,7 @@
 .end method
 
 .method public static getLabelFor(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2110
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -823,7 +823,7 @@
 .end method
 
 .method public static getLayerType(Landroid/view/View;)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -836,7 +836,7 @@
 .end method
 
 .method public static getLayoutDirection(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2171
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -849,7 +849,7 @@
 .end method
 
 .method public static getMatrix(Landroid/view/View;)Landroid/graphics/Matrix;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -865,7 +865,7 @@
 .end method
 
 .method public static getMeasuredHeightAndState(Landroid/view/View;)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -878,7 +878,7 @@
 .end method
 
 .method public static getMeasuredState(Landroid/view/View;)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -891,7 +891,7 @@
 .end method
 
 .method public static getMeasuredWidthAndState(Landroid/view/View;)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -904,7 +904,7 @@
 .end method
 
 .method public static getMinimumHeight(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2472
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -917,7 +917,7 @@
 .end method
 
 .method public static getMinimumWidth(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2461
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -930,7 +930,7 @@
 .end method
 
 .method public static getNextClusterForwardId(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -947,7 +947,7 @@
 .end method
 
 .method public static getOverScrollMode(Landroid/view/View;)I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -960,7 +960,7 @@
 .end method
 
 .method public static getPaddingEnd(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2369
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -973,7 +973,7 @@
 .end method
 
 .method public static getPaddingStart(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2357
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -986,7 +986,7 @@
 .end method
 
 .method public static getParentForAccessibility(Landroid/view/View;)Landroid/view/ViewParent;
-    .locals 1
+    .registers 2
 
     .line 2203
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -999,7 +999,7 @@
 .end method
 
 .method public static getPivotX(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1012,7 +1012,7 @@
 .end method
 
 .method public static getPivotY(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1025,7 +1025,7 @@
 .end method
 
 .method public static getRotation(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1038,7 +1038,7 @@
 .end method
 
 .method public static getRotationX(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1051,7 +1051,7 @@
 .end method
 
 .method public static getRotationY(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1064,7 +1064,7 @@
 .end method
 
 .method public static getScaleX(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1077,7 +1077,7 @@
 .end method
 
 .method public static getScaleY(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1090,7 +1090,7 @@
 .end method
 
 .method public static getScrollIndicators(Landroid/view/View;)I
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1107,7 +1107,7 @@
 .end method
 
 .method public static getTransitionName(Landroid/view/View;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 2797
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1120,7 +1120,7 @@
 .end method
 
 .method public static getTranslationX(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1133,7 +1133,7 @@
 .end method
 
 .method public static getTranslationY(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1146,7 +1146,7 @@
 .end method
 
 .method public static getTranslationZ(Landroid/view/View;)F
-    .locals 1
+    .registers 2
 
     .line 2772
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1159,7 +1159,7 @@
 .end method
 
 .method public static getWindowSystemUiVisibility(Landroid/view/View;)I
-    .locals 1
+    .registers 2
 
     .line 2804
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1172,7 +1172,7 @@
 .end method
 
 .method public static getX(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1185,7 +1185,7 @@
 .end method
 
 .method public static getY(Landroid/view/View;)F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1198,7 +1198,7 @@
 .end method
 
 .method public static getZ(Landroid/view/View;)F
-    .locals 1
+    .registers 2
 
     .line 3392
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1211,7 +1211,7 @@
 .end method
 
 .method public static hasAccessibilityDelegate(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 1808
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1224,7 +1224,7 @@
 .end method
 
 .method public static hasExplicitFocusable(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1241,7 +1241,7 @@
 .end method
 
 .method public static hasNestedScrollingParent(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1258,7 +1258,7 @@
 .end method
 
 .method public static hasNestedScrollingParent(Landroid/view/View;I)Z
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1267,17 +1267,17 @@
     .line 3212
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 3213
     check-cast p0, Landroid/support/v4/view/NestedScrollingChild2;
 
     invoke-interface {p0, p1}, Landroid/support/v4/view/NestedScrollingChild2;->hasNestedScrollingParent(I)Z
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_a
+    if-nez p1, :cond_13
 
     .line 3215
     sget-object p1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1288,15 +1288,15 @@
 
     return p0
 
-    :cond_1
-    :goto_0
+    :cond_13
+    :goto_13
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static hasOnClickListeners(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 3469
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1309,7 +1309,7 @@
 .end method
 
 .method public static hasOverlappingRendering(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 2950
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1322,7 +1322,7 @@
 .end method
 
 .method public static hasTransientState(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 1820
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1335,7 +1335,7 @@
 .end method
 
 .method public static isAttachedToWindow(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 3460
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1348,7 +1348,7 @@
 .end method
 
 .method public static isFocusedByDefault(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1365,7 +1365,7 @@
 .end method
 
 .method public static isImportantForAccessibility(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 1976
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1378,7 +1378,7 @@
 .end method
 
 .method public static isInLayout(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 3359
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1391,7 +1391,7 @@
 .end method
 
 .method public static isKeyboardNavigationCluster(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1408,7 +1408,7 @@
 .end method
 
 .method public static isLaidOut(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 3367
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1421,7 +1421,7 @@
 .end method
 
 .method public static isLayoutDirectionResolved(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 3381
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1434,7 +1434,7 @@
 .end method
 
 .method public static isNestedScrollingEnabled(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1451,7 +1451,7 @@
 .end method
 
 .method public static isOpaque(Landroid/view/View;)Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1464,7 +1464,7 @@
 .end method
 
 .method public static isPaddingRelative(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
 
     .line 2960
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1477,7 +1477,7 @@
 .end method
 
 .method public static jumpDrawablesToCurrentState(Landroid/view/View;)V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1488,7 +1488,7 @@
 .end method
 
 .method public static keyboardNavigationClusterSearch(Landroid/view/View;Landroid/view/View;I)Landroid/view/View;
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1505,7 +1505,7 @@
 .end method
 
 .method public static offsetLeftAndRight(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
 
     .line 3426
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1516,7 +1516,7 @@
 .end method
 
 .method public static offsetTopAndBottom(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
 
     .line 3417
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1527,7 +1527,7 @@
 .end method
 
 .method public static onApplyWindowInsets(Landroid/view/View;Landroid/support/v4/view/WindowInsetsCompat;)Landroid/support/v4/view/WindowInsetsCompat;
-    .locals 1
+    .registers 3
 
     .line 2885
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1540,7 +1540,7 @@
 .end method
 
 .method public static onInitializeAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1551,7 +1551,7 @@
 .end method
 
 .method public static onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 1
+    .registers 3
 
     .line 1773
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1562,7 +1562,7 @@
 .end method
 
 .method public static onPopulateAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1573,7 +1573,7 @@
 .end method
 
 .method public static performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 4
 
     .line 1994
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1586,7 +1586,7 @@
 .end method
 
 .method public static postInvalidateOnAnimation(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 1844
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1597,7 +1597,7 @@
 .end method
 
 .method public static postInvalidateOnAnimation(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 11
 
     .line 1862
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1618,7 +1618,7 @@
 .end method
 
 .method public static postOnAnimation(Landroid/view/View;Ljava/lang/Runnable;)V
-    .locals 1
+    .registers 3
 
     .line 1876
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1629,7 +1629,7 @@
 .end method
 
 .method public static postOnAnimationDelayed(Landroid/view/View;Ljava/lang/Runnable;J)V
-    .locals 1
+    .registers 5
 
     .line 1893
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1640,7 +1640,7 @@
 .end method
 
 .method public static requestApplyInsets(Landroid/view/View;)V
-    .locals 1
+    .registers 2
 
     .line 2812
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1651,7 +1651,7 @@
 .end method
 
 .method public static resolveSizeAndState(III)I
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1664,7 +1664,7 @@
 .end method
 
 .method public static restoreDefaultFocus(Landroid/view/View;)Z
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1681,7 +1681,7 @@
 .end method
 
 .method public static setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
-    .locals 1
+    .registers 3
 
     .line 1798
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1692,7 +1692,7 @@
 .end method
 
 .method public static setAccessibilityLiveRegion(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
 
     .line 2345
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1703,7 +1703,7 @@
 .end method
 
 .method public static setActivated(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1714,7 +1714,7 @@
 .end method
 
 .method public static setAlpha(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .param p1    # F
         .annotation build Landroid/support/annotation/FloatRange;
             from = 0.0
@@ -1731,7 +1731,7 @@
 .end method
 
 .method public static setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+    .registers 3
 
     .line 2970
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1742,7 +1742,7 @@
 .end method
 
 .method public static setBackgroundTintList(Landroid/view/View;Landroid/content/res/ColorStateList;)V
-    .locals 1
+    .registers 3
 
     .line 2991
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1753,7 +1753,7 @@
 .end method
 
 .method public static setBackgroundTintMode(Landroid/view/View;Landroid/graphics/PorterDuff$Mode;)V
-    .locals 1
+    .registers 3
 
     .line 3015
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1764,7 +1764,7 @@
 .end method
 
 .method public static setChildrenDrawingOrderEnabled(Landroid/view/ViewGroup;Z)V
-    .locals 1
+    .registers 3
 
     .line 2825
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1775,7 +1775,7 @@
 .end method
 
 .method public static setClipBounds(Landroid/view/View;Landroid/graphics/Rect;)V
-    .locals 1
+    .registers 3
 
     .line 3441
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1786,7 +1786,7 @@
 .end method
 
 .method public static setElevation(Landroid/view/View;F)V
-    .locals 1
+    .registers 3
 
     .line 2747
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1797,7 +1797,7 @@
 .end method
 
 .method public static setFitsSystemWindows(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1808,7 +1808,7 @@
 .end method
 
 .method public static setFocusedByDefault(Landroid/view/View;Z)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1823,7 +1823,7 @@
 .end method
 
 .method public static setHasTransientState(Landroid/view/View;Z)V
-    .locals 1
+    .registers 3
 
     .line 1831
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1834,7 +1834,7 @@
 .end method
 
 .method public static setImportantForAccessibility(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
 
     .line 1936
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1845,7 +1845,7 @@
 .end method
 
 .method public static setKeyboardNavigationCluster(Landroid/view/View;Z)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1860,7 +1860,7 @@
 .end method
 
 .method public static setLabelFor(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
     .param p1    # I
         .annotation build Landroid/support/annotation/IdRes;
         .end annotation
@@ -1875,7 +1875,7 @@
 .end method
 
 .method public static setLayerPaint(Landroid/view/View;Landroid/graphics/Paint;)V
-    .locals 1
+    .registers 3
 
     .line 2155
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1886,7 +1886,7 @@
 .end method
 
 .method public static setLayerType(Landroid/view/View;ILandroid/graphics/Paint;)V
-    .locals 0
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1897,7 +1897,7 @@
 .end method
 
 .method public static setLayoutDirection(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
 
     .line 2191
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1908,7 +1908,7 @@
 .end method
 
 .method public static setNestedScrollingEnabled(Landroid/view/View;Z)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1923,7 +1923,7 @@
 .end method
 
 .method public static setNextClusterForwardId(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -1938,7 +1938,7 @@
 .end method
 
 .method public static setOnApplyWindowInsetsListener(Landroid/view/View;Landroid/support/v4/view/OnApplyWindowInsetsListener;)V
-    .locals 1
+    .registers 3
 
     .line 2869
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1949,7 +1949,7 @@
 .end method
 
 .method public static setOverScrollMode(Landroid/view/View;I)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1960,7 +1960,7 @@
 .end method
 
 .method public static setPaddingRelative(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 11
 
     .line 2386
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -1981,7 +1981,7 @@
 .end method
 
 .method public static setPivotX(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -1992,7 +1992,7 @@
 .end method
 
 .method public static setPivotY(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2003,7 +2003,7 @@
 .end method
 
 .method public static setPointerIcon(Landroid/view/View;Landroid/support/v4/view/PointerIconCompat;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2018,7 +2018,7 @@
 .end method
 
 .method public static setRotation(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2029,7 +2029,7 @@
 .end method
 
 .method public static setRotationX(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2040,7 +2040,7 @@
 .end method
 
 .method public static setRotationY(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2051,7 +2051,7 @@
 .end method
 
 .method public static setSaveFromParentEnabled(Landroid/view/View;Z)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2062,7 +2062,7 @@
 .end method
 
 .method public static setScaleX(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2073,7 +2073,7 @@
 .end method
 
 .method public static setScaleY(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2084,7 +2084,7 @@
 .end method
 
 .method public static setScrollIndicators(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2099,7 +2099,7 @@
 .end method
 
 .method public static setScrollIndicators(Landroid/view/View;II)V
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2114,7 +2114,7 @@
 .end method
 
 .method public static setTooltipText(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2133,7 +2133,7 @@
 .end method
 
 .method public static setTransitionName(Landroid/view/View;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 2783
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -2144,7 +2144,7 @@
 .end method
 
 .method public static setTranslationX(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2155,7 +2155,7 @@
 .end method
 
 .method public static setTranslationY(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2166,7 +2166,7 @@
 .end method
 
 .method public static setTranslationZ(Landroid/view/View;F)V
-    .locals 1
+    .registers 3
 
     .line 2763
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -2177,7 +2177,7 @@
 .end method
 
 .method public static setX(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2188,7 +2188,7 @@
 .end method
 
 .method public static setY(Landroid/view/View;F)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -2199,7 +2199,7 @@
 .end method
 
 .method public static setZ(Landroid/view/View;F)V
-    .locals 1
+    .registers 3
 
     .line 3408
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -2210,7 +2210,7 @@
 .end method
 
 .method public static startDragAndDrop(Landroid/view/View;Landroid/content/ClipData;Landroid/view/View$DragShadowBuilder;Ljava/lang/Object;I)Z
-    .locals 6
+    .registers 11
 
     .line 3574
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -2233,7 +2233,7 @@
 .end method
 
 .method public static startNestedScroll(Landroid/view/View;I)Z
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2250,7 +2250,7 @@
 .end method
 
 .method public static startNestedScroll(Landroid/view/View;II)Z
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2259,7 +2259,7 @@
     .line 3178
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 3179
     check-cast p0, Landroid/support/v4/view/NestedScrollingChild2;
@@ -2270,8 +2270,8 @@
 
     return p0
 
-    :cond_0
-    if-nez p2, :cond_1
+    :cond_b
+    if-nez p2, :cond_14
 
     .line 3181
     sget-object p2, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
@@ -2282,14 +2282,14 @@
 
     return p0
 
-    :cond_1
+    :cond_14
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static stopNestedScroll(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2304,7 +2304,7 @@
 .end method
 
 .method public static stopNestedScroll(Landroid/view/View;I)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -2313,30 +2313,30 @@
     .line 3195
     instance-of v0, p0, Landroid/support/v4/view/NestedScrollingChild2;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 3196
     check-cast p0, Landroid/support/v4/view/NestedScrollingChild2;
 
     invoke-interface {p0, p1}, Landroid/support/v4/view/NestedScrollingChild2;->stopNestedScroll(I)V
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_a
+    if-nez p1, :cond_11
 
     .line 3198
     sget-object p1, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {p1, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->stopNestedScroll(Landroid/view/View;)V
 
-    :cond_1
-    :goto_0
+    :cond_11
+    :goto_11
     return-void
 .end method
 
 .method public static updateDragShadow(Landroid/view/View;Landroid/view/View$DragShadowBuilder;)V
-    .locals 1
+    .registers 3
 
     .line 3588
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;

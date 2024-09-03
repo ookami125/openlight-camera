@@ -42,7 +42,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/util/Property;Landroid/graphics/Path;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;)Ljava/lang/Float;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -124,7 +124,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 35
     invoke-virtual {p0, p1}, Landroid/support/transition/PathProperty;->get(Ljava/lang/Object;)Ljava/lang/Float;
@@ -135,7 +135,7 @@
 .end method
 
 .method public set(Ljava/lang/Object;Ljava/lang/Float;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",
@@ -201,7 +201,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 35
     check-cast p2, Ljava/lang/Float;

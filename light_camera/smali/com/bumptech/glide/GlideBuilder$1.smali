@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/GlideBuilder;Lcom/bumptech/glide/load/engine/cache/DiskCache;)V
-    .locals 0
+    .registers 3
 
     .line 74
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder$1;->this$0:Lcom/bumptech/glide/GlideBuilder;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public build()Lcom/bumptech/glide/load/engine/cache/DiskCache;
-    .locals 0
+    .registers 1
 
     .line 77
     iget-object p0, p0, Lcom/bumptech/glide/GlideBuilder$1;->val$diskCache:Lcom/bumptech/glide/load/engine/cache/DiskCache;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;Landroid/support/v4/view/OnApplyWindowInsetsListener;)V
-    .locals 0
+    .registers 3
 
     .line 1252
     iput-object p1, p0, Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl$1;->this$0:Landroid/support/v4/view/ViewCompat$ViewCompatApi21Impl;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 0
+    .registers 3
 
     .line 1255
     invoke-static {p2}, Landroid/support/v4/view/WindowInsetsCompat;->wrap(Ljava/lang/Object;)Landroid/support/v4/view/WindowInsetsCompat;

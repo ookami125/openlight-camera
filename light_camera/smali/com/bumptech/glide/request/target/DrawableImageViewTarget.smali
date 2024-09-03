@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 2
 
     .line 11
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/ImageViewTarget;-><init>(Landroid/widget/ImageView;)V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method protected setResource(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    .registers 2
 
     .line 16
     iget-object p0, p0, Lcom/bumptech/glide/request/target/DrawableImageViewTarget;->view:Landroid/view/View;
@@ -39,7 +39,7 @@
 .end method
 
 .method protected bridge synthetic setResource(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 9
     check-cast p1, Landroid/graphics/drawable/Drawable;

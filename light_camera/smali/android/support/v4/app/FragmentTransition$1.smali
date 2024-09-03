@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/util/ArrayList;)V
-    .locals 0
+    .registers 2
 
     .line 263
     iput-object p1, p0, Landroid/support/v4/app/FragmentTransition$1;->val$exitingViews:Ljava/util/ArrayList;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 266
     iget-object p0, p0, Landroid/support/v4/app/FragmentTransition$1;->val$exitingViews:Ljava/util/ArrayList;
 
     const/4 v0, 0x4
 
+    # invokes: Landroid/support/v4/app/FragmentTransition;->setViewVisibility(Ljava/util/ArrayList;I)V
     invoke-static {p0, v0}, Landroid/support/v4/app/FragmentTransition;->access$000(Ljava/util/ArrayList;I)V
 
     return-void

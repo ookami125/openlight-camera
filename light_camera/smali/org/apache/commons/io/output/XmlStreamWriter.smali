@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 219
     sget-object v0, Lorg/apache/commons/io/input/XmlStreamReader;->ENCODING_PATTERN:Ljava/util/regex/Pattern;
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/File;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/FileNotFoundException;
@@ -68,7 +68,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/OutputStream;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     .line 70
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -96,22 +96,22 @@
     .line 71
     iput-object p1, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->out:Ljava/io/OutputStream;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_11
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-string p2, "UTF-8"
 
     .line 72
-    :goto_0
+    :goto_13
     iput-object p2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->defaultEncoding:Ljava/lang/String;
 
     return-void
 .end method
 
 .method private detectEncoding([CII)V
-    .locals 6
+    .registers 10
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -134,7 +134,7 @@
 
     const/16 v2, 0x1000
 
-    if-le v1, v2, :cond_0
+    if-le v1, v2, :cond_16
 
     .line 158
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->length()I
@@ -143,13 +143,13 @@
 
     rsub-int v1, v1, 0x1000
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     move v1, p3
 
     .line 160
-    :goto_0
+    :goto_17
     iget-object v3, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->xmlPrologWriter:Ljava/io/StringWriter;
 
     invoke-virtual {v3, p1, p2, v1}, Ljava/io/StringWriter;->write([CII)V
@@ -161,7 +161,7 @@
 
     const/4 v4, 0x5
 
-    if-lt v3, v4, :cond_5
+    if-lt v3, v4, :cond_9b
 
     const/4 v3, 0x0
 
@@ -176,7 +176,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_73
 
     const-string v4, "?>"
 
@@ -185,7 +185,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_68
 
     .line 169
     sget-object v2, Lorg/apache/commons/io/output/XmlStreamWriter;->ENCODING_PATTERN:Ljava/util/regex/Pattern;
@@ -203,7 +203,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_63
 
     const/4 v3, 0x1
 
@@ -235,43 +235,43 @@
 
     iput-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->encoding:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_77
 
     .line 177
-    :cond_1
+    :cond_63
     iget-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->defaultEncoding:Ljava/lang/String;
 
     iput-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->encoding:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_77
 
     .line 180
-    :cond_2
+    :cond_68
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->length()I
 
     move-result v3
 
-    if-lt v3, v2, :cond_4
+    if-lt v3, v2, :cond_77
 
     .line 183
     iget-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->defaultEncoding:Ljava/lang/String;
 
     iput-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->encoding:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_77
 
     .line 188
-    :cond_3
+    :cond_73
     iget-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->defaultEncoding:Ljava/lang/String;
 
     iput-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->encoding:Ljava/lang/String;
 
     .line 190
-    :cond_4
-    :goto_1
+    :cond_77
+    :goto_77
     iget-object v2, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->encoding:Ljava/lang/String;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_9b
 
     const/4 v2, 0x0
 
@@ -298,7 +298,7 @@
 
     invoke-virtual {v2, v0}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
-    if-le p3, v1, :cond_5
+    if-le p3, v1, :cond_9b
 
     .line 196
     iget-object p0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->writer:Ljava/io/Writer;
@@ -309,14 +309,14 @@
 
     invoke-virtual {p0, p1, p2, p3}, Ljava/io/Writer;->write([CII)V
 
-    :cond_5
+    :cond_9b
     return-void
 .end method
 
 
 # virtual methods
 .method public close()V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -326,7 +326,7 @@
     .line 125
     iget-object v0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->writer:Ljava/io/Writer;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 126
     iget-object v0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->defaultEncoding:Ljava/lang/String;
@@ -356,7 +356,7 @@
     invoke-virtual {v0, v1}, Ljava/io/Writer;->write(Ljava/lang/String;)V
 
     .line 130
-    :cond_0
+    :cond_1e
     iget-object p0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->writer:Ljava/io/Writer;
 
     invoke-virtual {p0}, Ljava/io/Writer;->close()V
@@ -365,7 +365,7 @@
 .end method
 
 .method public flush()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -375,19 +375,19 @@
     .line 140
     iget-object v0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->writer:Ljava/io/Writer;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 141
     iget-object p0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->writer:Ljava/io/Writer;
 
     invoke-virtual {p0}, Ljava/io/Writer;->flush()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public getDefaultEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 115
     iget-object p0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->defaultEncoding:Ljava/lang/String;
@@ -396,7 +396,7 @@
 .end method
 
 .method public getEncoding()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 106
     iget-object p0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->encoding:Ljava/lang/String;
@@ -405,7 +405,7 @@
 .end method
 
 .method public write([CII)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -415,19 +415,19 @@
     .line 212
     iget-object v0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->xmlPrologWriter:Ljava/io/StringWriter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 213
     invoke-direct {p0, p1, p2, p3}, Lorg/apache/commons/io/output/XmlStreamWriter;->detectEncoding([CII)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 215
-    :cond_0
+    :cond_8
     iget-object p0, p0, Lorg/apache/commons/io/output/XmlStreamWriter;->writer:Ljava/io/Writer;
 
     invoke-virtual {p0, p1, p2, p3}, Ljava/io/Writer;->write([CII)V
 
-    :goto_0
+    :goto_d
     return-void
 .end method

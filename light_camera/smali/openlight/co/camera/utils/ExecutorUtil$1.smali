@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 72
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -52,7 +52,7 @@
     .line 77
     instance-of v0, p1, Lopenlight/co/camera/utils/ExecutorUtil$RunnableWrapper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 78
     check-cast p1, Lopenlight/co/camera/utils/ExecutorUtil$RunnableWrapper;
@@ -73,7 +73,7 @@
     return-object p0
 
     .line 81
-    :cond_0
+    :cond_14
     new-instance v0, Ljava/lang/Thread;
 
     new-instance v1, Ljava/lang/StringBuilder;

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/metrics/Sender;)V
-    .locals 0
+    .registers 2
 
     .line 82
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/Sender$1;->this$0:Lnet/hockeyapp/android/metrics/Sender;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 82
     check-cast p1, [Ljava/lang/Void;
@@ -56,7 +56,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 0
+    .registers 2
 
     .line 86
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/Sender$1;->this$0:Lnet/hockeyapp/android/metrics/Sender;

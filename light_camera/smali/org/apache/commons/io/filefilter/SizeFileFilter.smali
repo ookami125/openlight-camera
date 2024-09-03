@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(J)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x1
 
@@ -29,7 +29,7 @@
 .end method
 
 .method public constructor <init>(JZ)V
-    .locals 2
+    .registers 6
 
     .line 71
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
@@ -38,7 +38,7 @@
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_e
 
     .line 75
     iput-wide p1, p0, Lorg/apache/commons/io/filefilter/SizeFileFilter;->size:J
@@ -49,7 +49,7 @@
     return-void
 
     .line 73
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The size must be non-negative"
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 4
+    .registers 6
 
     .line 93
     invoke-virtual {p1}, Ljava/io/File;->length()J
@@ -77,52 +77,52 @@
 
     const/4 v1, 0x1
 
-    if-gez p1, :cond_0
+    if-gez p1, :cond_e
 
     move p1, v1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     move p1, v0
 
     .line 94
-    :goto_0
+    :goto_f
     iget-boolean p0, p0, Lorg/apache/commons/io/filefilter/SizeFileFilter;->acceptLarger:Z
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_18
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_17
 
     move p1, v1
 
-    goto :goto_1
+    goto :goto_18
 
-    :cond_1
+    :cond_17
     move p1, v0
 
-    :cond_2
-    :goto_1
+    :cond_18
+    :goto_18
     return p1
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 104
     iget-boolean v0, p0, Lorg/apache/commons/io/filefilter/SizeFileFilter;->acceptLarger:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     const-string v0, ">="
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_7
     const-string v0, "<"
 
     .line 105
-    :goto_0
+    :goto_9
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

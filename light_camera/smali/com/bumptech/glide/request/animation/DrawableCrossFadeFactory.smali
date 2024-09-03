@@ -62,7 +62,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0x12c
 
@@ -73,7 +73,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 2
+    .registers 4
 
     .line 34
     new-instance v0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory;
@@ -90,7 +90,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;II)V
-    .locals 1
+    .registers 5
 
     .line 38
     new-instance v0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory;
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/animation/Animation;I)V
-    .locals 1
+    .registers 4
 
     .line 42
     new-instance v0, Lcom/bumptech/glide/request/animation/ViewAnimationFactory;
@@ -116,7 +116,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/request/animation/ViewAnimationFactory;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -138,7 +138,7 @@
 .end method
 
 .method private getFirstResourceAnimation()Lcom/bumptech/glide/request/animation/GlideAnimation;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -150,7 +150,7 @@
     .line 62
     iget-object v0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->firstResourceAnimation:Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_15
 
     .line 63
     iget-object v0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->animationFactory:Lcom/bumptech/glide/request/animation/ViewAnimationFactory;
@@ -173,14 +173,14 @@
     iput-object v1, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->firstResourceAnimation:Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;
 
     .line 67
-    :cond_0
+    :cond_15
     iget-object p0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->firstResourceAnimation:Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;
 
     return-object p0
 .end method
 
 .method private getSecondResourceAnimation()Lcom/bumptech/glide/request/animation/GlideAnimation;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -192,7 +192,7 @@
     .line 71
     iget-object v0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->secondResourceAnimation:Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 72
     iget-object v0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->animationFactory:Lcom/bumptech/glide/request/animation/ViewAnimationFactory;
@@ -213,7 +213,7 @@
     iput-object v1, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->secondResourceAnimation:Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;
 
     .line 76
-    :cond_0
+    :cond_14
     iget-object p0, p0, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->secondResourceAnimation:Lcom/bumptech/glide/request/animation/DrawableCrossFadeViewAnimation;
 
     return-object p0
@@ -222,7 +222,7 @@
 
 # virtual methods
 .method public build(ZZ)Lcom/bumptech/glide/request/animation/GlideAnimation;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZZ)",
@@ -231,7 +231,7 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     .line 53
     invoke-static {}, Lcom/bumptech/glide/request/animation/NoAnimation;->get()Lcom/bumptech/glide/request/animation/GlideAnimation;
@@ -240,8 +240,8 @@
 
     return-object p0
 
-    :cond_0
-    if-eqz p2, :cond_1
+    :cond_7
+    if-eqz p2, :cond_e
 
     .line 55
     invoke-direct {p0}, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->getFirstResourceAnimation()Lcom/bumptech/glide/request/animation/GlideAnimation;
@@ -251,7 +251,7 @@
     return-object p0
 
     .line 57
-    :cond_1
+    :cond_e
     invoke-direct {p0}, Lcom/bumptech/glide/request/animation/DrawableCrossFadeFactory;->getSecondResourceAnimation()Lcom/bumptech/glide/request/animation/GlideAnimation;
 
     move-result-object p0

@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,14 +41,14 @@
 
 # virtual methods
 .method createGlide()Lcom/bumptech/glide/Glide;
-    .locals 7
+    .registers 8
 
     .line 169
     iget-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->sourceService:Ljava/util/concurrent/ExecutorService;
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 170
     invoke-static {}, Ljava/lang/Runtime;->getRuntime()Ljava/lang/Runtime;
@@ -71,10 +71,10 @@
     iput-object v2, p0, Lcom/bumptech/glide/GlideBuilder;->sourceService:Ljava/util/concurrent/ExecutorService;
 
     .line 173
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->diskCacheService:Ljava/util/concurrent/ExecutorService;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_23
 
     .line 174
     new-instance v0, Lcom/bumptech/glide/load/engine/executor/FifoPriorityThreadPoolExecutor;
@@ -84,7 +84,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->diskCacheService:Ljava/util/concurrent/ExecutorService;
 
     .line 177
-    :cond_1
+    :cond_23
     new-instance v0, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;
 
     iget-object v1, p0, Lcom/bumptech/glide/GlideBuilder;->context:Landroid/content/Context;
@@ -94,14 +94,14 @@
     .line 178
     iget-object v1, p0, Lcom/bumptech/glide/GlideBuilder;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_47
 
     .line 179
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0xb
 
-    if-lt v1, v2, :cond_2
+    if-lt v1, v2, :cond_40
 
     .line 180
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/cache/MemorySizeCalculator;->getBitmapPoolSize()I
@@ -115,10 +115,10 @@
 
     iput-object v2, p0, Lcom/bumptech/glide/GlideBuilder;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
-    goto :goto_0
+    goto :goto_47
 
     .line 183
-    :cond_2
+    :cond_40
     new-instance v1, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPoolAdapter;
 
     invoke-direct {v1}, Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPoolAdapter;-><init>()V
@@ -126,11 +126,11 @@
     iput-object v1, p0, Lcom/bumptech/glide/GlideBuilder;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
 
     .line 187
-    :cond_3
-    :goto_0
+    :cond_47
+    :goto_47
     iget-object v1, p0, Lcom/bumptech/glide/GlideBuilder;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_56
 
     .line 188
     new-instance v1, Lcom/bumptech/glide/load/engine/cache/LruResourceCache;
@@ -144,10 +144,10 @@
     iput-object v1, p0, Lcom/bumptech/glide/GlideBuilder;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
 
     .line 191
-    :cond_4
+    :cond_56
     iget-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->diskCacheFactory:Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_63
 
     .line 192
     new-instance v0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory;
@@ -159,10 +159,10 @@
     iput-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->diskCacheFactory:Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;
 
     .line 195
-    :cond_5
+    :cond_63
     iget-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->engine:Lcom/bumptech/glide/load/engine/Engine;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_76
 
     .line 196
     new-instance v0, Lcom/bumptech/glide/load/engine/Engine;
@@ -180,10 +180,10 @@
     iput-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->engine:Lcom/bumptech/glide/load/engine/Engine;
 
     .line 199
-    :cond_6
+    :cond_76
     iget-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->decodeFormat:Lcom/bumptech/glide/load/DecodeFormat;
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_7e
 
     .line 200
     sget-object v0, Lcom/bumptech/glide/load/DecodeFormat;->DEFAULT:Lcom/bumptech/glide/load/DecodeFormat;
@@ -191,7 +191,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/GlideBuilder;->decodeFormat:Lcom/bumptech/glide/load/DecodeFormat;
 
     .line 203
-    :cond_7
+    :cond_7e
     new-instance v0, Lcom/bumptech/glide/Glide;
 
     iget-object v2, p0, Lcom/bumptech/glide/GlideBuilder;->engine:Lcom/bumptech/glide/load/engine/Engine;
@@ -212,7 +212,7 @@
 .end method
 
 .method public setBitmapPool(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 46
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
@@ -221,7 +221,7 @@
 .end method
 
 .method public setDecodeFormat(Lcom/bumptech/glide/load/DecodeFormat;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 158
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->decodeFormat:Lcom/bumptech/glide/load/DecodeFormat;
@@ -230,7 +230,7 @@
 .end method
 
 .method public setDiskCache(Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 91
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->diskCacheFactory:Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;
@@ -239,7 +239,7 @@
 .end method
 
 .method public setDiskCache(Lcom/bumptech/glide/load/engine/cache/DiskCache;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -256,7 +256,7 @@
 .end method
 
 .method public setDiskCacheService(Ljava/util/concurrent/ExecutorService;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 131
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->diskCacheService:Ljava/util/concurrent/ExecutorService;
@@ -265,7 +265,7 @@
 .end method
 
 .method setEngine(Lcom/bumptech/glide/load/engine/Engine;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 164
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->engine:Lcom/bumptech/glide/load/engine/Engine;
@@ -274,7 +274,7 @@
 .end method
 
 .method public setMemoryCache(Lcom/bumptech/glide/load/engine/cache/MemoryCache;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 58
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->memoryCache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
@@ -283,7 +283,7 @@
 .end method
 
 .method public setResizeService(Ljava/util/concurrent/ExecutorService;)Lcom/bumptech/glide/GlideBuilder;
-    .locals 0
+    .registers 2
 
     .line 111
     iput-object p1, p0, Lcom/bumptech/glide/GlideBuilder;->sourceService:Ljava/util/concurrent/ExecutorService;

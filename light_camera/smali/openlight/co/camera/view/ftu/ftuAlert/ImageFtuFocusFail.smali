@@ -23,13 +23,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -87,13 +87,13 @@
 .end method
 
 .method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
     .param p2    # Landroid/util/AttributeSet;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
     .end param
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_23
 
     .line 92
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
@@ -109,7 +109,7 @@
     move-result-object p1
 
     .line 95
-    :try_start_0
+    :try_start_d
     invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object p2
@@ -124,15 +124,15 @@
     move-result-object p2
 
     iput-object p2, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;->mButtonText:Ljava/lang/String;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_1a
+    .catchall {:try_start_d .. :try_end_1a} :catchall_1e
 
     .line 98
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    goto :goto_0
+    goto :goto_23
 
-    :catchall_0
+    :catchall_1e
     move-exception p0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -141,8 +141,8 @@
     throw p0
 
     .line 102
-    :cond_0
-    :goto_0
+    :cond_23
+    :goto_23
     invoke-virtual {p0, p0}, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
@@ -151,7 +151,7 @@
 
 # virtual methods
 .method public getImageView()Landroid/view/View;
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -159,13 +159,13 @@
 .end method
 
 .method public hideView(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
 
     .line 112
     sget-object v0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;->TAG:Ljava/lang/String;
@@ -189,17 +189,17 @@
     .line 113
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;->mConfirmButton:Landroid/widget/TextView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1d
 
     .line 114
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;->onButtonClick()V
 
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 .method protected onFinishInflate()V
-    .locals 2
+    .registers 3
 
     .line 49
     invoke-super {p0}, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->onFinishInflate()V
@@ -258,7 +258,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 3
 
     const/4 p0, 0x0
 
@@ -266,7 +266,7 @@
 .end method
 
 .method public setOnFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 72
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuFocusFail;->setFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V

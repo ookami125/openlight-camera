@@ -11,21 +11,21 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const/16 v0, 0x40
 
     .line 110
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_12
 
     sput-object v1, Lokio/Base64;->MAP:[B
 
     .line 117
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_36
 
     sput-object v0, Lokio/Base64;->URL_MAP:[B
 
@@ -33,7 +33,7 @@
 
     nop
 
-    :array_0
+    :array_12
     .array-data 1
         0x41t
         0x42t
@@ -101,7 +101,7 @@
         0x2ft
     .end array-data
 
-    :array_1
+    :array_36
     .array-data 1
         0x41t
         0x42t
@@ -171,7 +171,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -180,14 +180,14 @@
 .end method
 
 .method public static decode(Ljava/lang/String;)[B
-    .locals 14
+    .registers 15
 
     .line 31
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    :goto_0
+    :goto_4
     const/16 v1, 0x9
 
     const/16 v2, 0x20
@@ -196,7 +196,7 @@
 
     const/16 v4, 0xa
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_24
 
     add-int/lit8 v5, v0, -0x1
 
@@ -207,25 +207,25 @@
 
     const/16 v6, 0x3d
 
-    if-eq v5, v6, :cond_0
+    if-eq v5, v6, :cond_21
 
-    if-eq v5, v4, :cond_0
+    if-eq v5, v4, :cond_21
 
-    if-eq v5, v3, :cond_0
+    if-eq v5, v3, :cond_21
 
-    if-eq v5, v2, :cond_0
+    if-eq v5, v2, :cond_21
 
-    if-eq v5, v1, :cond_0
+    if-eq v5, v1, :cond_21
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_0
+    :cond_21
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_1
-    :goto_1
+    :cond_24
+    :goto_24
     int-to-long v5, v0
 
     const-wide/16 v7, 0x6
@@ -251,10 +251,10 @@
 
     move v10, v9
 
-    :goto_2
+    :goto_33
     const/4 v11, 0x0
 
-    if-ge v7, v0, :cond_b
+    if-ge v7, v0, :cond_9d
 
     .line 46
     invoke-virtual {p0, v7}, Ljava/lang/String;->charAt(I)C
@@ -263,89 +263,89 @@
 
     const/16 v13, 0x41
 
-    if-lt v12, v13, :cond_2
+    if-lt v12, v13, :cond_45
 
     const/16 v13, 0x5a
 
-    if-gt v12, v13, :cond_2
+    if-gt v12, v13, :cond_45
 
     add-int/lit8 v12, v12, -0x41
 
-    goto :goto_5
+    goto :goto_7c
 
-    :cond_2
+    :cond_45
     const/16 v13, 0x61
 
-    if-lt v12, v13, :cond_3
+    if-lt v12, v13, :cond_50
 
     const/16 v13, 0x7a
 
-    if-gt v12, v13, :cond_3
+    if-gt v12, v13, :cond_50
 
     add-int/lit8 v12, v12, -0x47
 
-    goto :goto_5
+    goto :goto_7c
 
-    :cond_3
+    :cond_50
     const/16 v13, 0x30
 
-    if-lt v12, v13, :cond_4
+    if-lt v12, v13, :cond_5b
 
     const/16 v13, 0x39
 
-    if-gt v12, v13, :cond_4
+    if-gt v12, v13, :cond_5b
 
     add-int/lit8 v12, v12, 0x4
 
-    goto :goto_5
+    goto :goto_7c
 
-    :cond_4
+    :cond_5b
     const/16 v13, 0x2b
 
-    if-eq v12, v13, :cond_9
+    if-eq v12, v13, :cond_7a
 
     const/16 v13, 0x2d
 
-    if-ne v12, v13, :cond_5
+    if-ne v12, v13, :cond_64
 
-    goto :goto_4
+    goto :goto_7a
 
-    :cond_5
+    :cond_64
     const/16 v13, 0x2f
 
-    if-eq v12, v13, :cond_8
+    if-eq v12, v13, :cond_77
 
     const/16 v13, 0x5f
 
-    if-ne v12, v13, :cond_6
+    if-ne v12, v13, :cond_6d
 
-    goto :goto_3
+    goto :goto_77
 
-    :cond_6
-    if-eq v12, v4, :cond_a
+    :cond_6d
+    if-eq v12, v4, :cond_9a
 
-    if-eq v12, v3, :cond_a
+    if-eq v12, v3, :cond_9a
 
-    if-eq v12, v2, :cond_a
+    if-eq v12, v2, :cond_9a
 
-    if-ne v12, v1, :cond_7
+    if-ne v12, v1, :cond_76
 
-    goto :goto_6
+    goto :goto_9a
 
-    :cond_7
+    :cond_76
     return-object v11
 
-    :cond_8
-    :goto_3
+    :cond_77
+    :goto_77
     const/16 v12, 0x3f
 
-    goto :goto_5
+    goto :goto_7c
 
-    :cond_9
-    :goto_4
+    :cond_7a
+    :goto_7a
     const/16 v12, 0x3e
 
-    :goto_5
+    :goto_7c
     shl-int/lit8 v9, v9, 0x6
 
     int-to-byte v11, v12
@@ -357,7 +357,7 @@
     .line 79
     rem-int/lit8 v11, v8, 0x4
 
-    if-nez v11, :cond_a
+    if-nez v11, :cond_9a
 
     add-int/lit8 v11, v10, 0x1
 
@@ -386,26 +386,26 @@
 
     move v10, v11
 
-    :cond_a
-    :goto_6
+    :cond_9a
+    :goto_9a
     add-int/lit8 v7, v7, 0x1
 
-    goto :goto_2
+    goto :goto_33
 
     .line 86
-    :cond_b
+    :cond_9d
     rem-int/lit8 v8, v8, 0x4
 
     const/4 p0, 0x1
 
-    if-ne v8, p0, :cond_c
+    if-ne v8, p0, :cond_a3
 
     return-object v11
 
-    :cond_c
+    :cond_a3
     const/4 p0, 0x2
 
-    if-ne v8, p0, :cond_d
+    if-ne v8, p0, :cond_b1
 
     shl-int/lit8 p0, v9, 0xc
 
@@ -420,12 +420,12 @@
 
     move v10, v0
 
-    goto :goto_7
+    goto :goto_c4
 
-    :cond_d
+    :cond_b1
     const/4 p0, 0x3
 
-    if-ne v8, p0, :cond_e
+    if-ne v8, p0, :cond_c4
 
     shl-int/lit8 p0, v9, 0x6
 
@@ -448,16 +448,16 @@
     aput-byte p0, v5, v0
 
     .line 102
-    :cond_e
-    :goto_7
+    :cond_c4
+    :goto_c4
     array-length p0, v5
 
-    if-ne v10, p0, :cond_f
+    if-ne v10, p0, :cond_c8
 
     return-object v5
 
     .line 105
-    :cond_f
+    :cond_c8
     new-array p0, v10, [B
 
     .line 106
@@ -467,7 +467,7 @@
 .end method
 
 .method public static encode([B)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 125
     sget-object v0, Lokio/Base64;->MAP:[B
@@ -480,7 +480,7 @@
 .end method
 
 .method private static encode([B[B)Ljava/lang/String;
-    .locals 8
+    .registers 10
 
     .line 133
     array-length v0, p0
@@ -507,8 +507,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v2, v1, :cond_0
+    :goto_10
+    if-ge v2, v1, :cond_55
 
     add-int/lit8 v4, v3, 0x1
 
@@ -582,21 +582,21 @@
 
     add-int/lit8 v2, v2, 0x3
 
-    goto :goto_0
+    goto :goto_10
 
     .line 142
-    :cond_0
+    :cond_55
     array-length v2, p0
 
     rem-int/lit8 v2, v2, 0x3
 
     const/16 v4, 0x3d
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_bc
 
-    goto :goto_1
+    goto :goto_ac
 
-    :pswitch_0
+    :pswitch_5e
     add-int/lit8 v2, v3, 0x1
 
     .line 150
@@ -649,9 +649,9 @@
     .line 153
     aput-byte v4, v0, v2
 
-    goto :goto_1
+    goto :goto_ac
 
-    :pswitch_1
+    :pswitch_8e
     add-int/lit8 v2, v3, 0x1
 
     .line 144
@@ -687,19 +687,19 @@
     aput-byte v4, v0, p0
 
     .line 157
-    :goto_1
-    :try_start_0
+    :goto_ac
+    :try_start_ac
     new-instance p0, Ljava/lang/String;
 
     const-string p1, "US-ASCII"
 
     invoke-direct {p0, v0, p1}, Ljava/lang/String;-><init>([BLjava/lang/String;)V
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b3
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_ac .. :try_end_b3} :catch_b4
 
     return-object p0
 
-    :catch_0
+    :catch_b4
     move-exception p0
 
     .line 159
@@ -711,15 +711,15 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_bc
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_8e
+        :pswitch_5e
     .end packed-switch
 .end method
 
 .method public static encodeUrl([B)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 129
     sget-object v0, Lokio/Base64;->URL_MAP:[B

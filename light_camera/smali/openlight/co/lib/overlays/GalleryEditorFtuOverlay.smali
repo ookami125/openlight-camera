@@ -31,7 +31,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -42,7 +42,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;I)V
-    .locals 1
+    .registers 5
 
     .line 40
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -70,7 +70,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->translateAnim()V
@@ -79,7 +79,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)Z
-    .locals 0
+    .registers 1
 
     .line 19
     iget-boolean p0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mFirstTime:Z
@@ -88,7 +88,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->resetTranslate()V
@@ -97,7 +97,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;J)V
-    .locals 0
+    .registers 3
 
     .line 19
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->animationScaleAndAppear(J)V
@@ -106,7 +106,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;J)V
-    .locals 0
+    .registers 3
 
     .line 19
     invoke-direct {p0, p1, p2}, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->animationScaleAndDisappear(J)V
@@ -115,7 +115,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)I
-    .locals 0
+    .registers 1
 
     .line 19
     iget p0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mCount:I
@@ -124,7 +124,7 @@
 .end method
 
 .method static synthetic access$508(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;)I
-    .locals 2
+    .registers 3
 
     .line 19
     iget v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mCount:I
@@ -137,7 +137,7 @@
 .end method
 
 .method private animationScaleAndAppear(J)V
-    .locals 8
+    .registers 11
 
     .line 91
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mAnimCircle:Landroid/widget/ImageView;
@@ -232,7 +232,7 @@
 .end method
 
 .method private animationScaleAndDisappear(J)V
-    .locals 8
+    .registers 11
 
     .line 110
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mAnimCircle:Landroid/widget/ImageView;
@@ -322,12 +322,12 @@
 .end method
 
 .method private initChildView()V
-    .locals 3
+    .registers 4
 
     .line 57
     iget v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mBackgroundDrawable:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 58
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mFtuEditView:Landroid/view/View;
@@ -337,7 +337,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
     .line 60
-    :cond_0
+    :cond_b
     invoke-static {}, Lopenlight/co/lib/view/cache/FontCache;->get()Lopenlight/co/lib/view/cache/FontCache;
 
     move-result-object v0
@@ -432,7 +432,7 @@
 .end method
 
 .method public static synthetic lambda$initChildView$0(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -443,7 +443,7 @@
 .end method
 
 .method public static synthetic lambda$initChildView$1(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -454,7 +454,7 @@
 .end method
 
 .method private resetTranslate()V
-    .locals 5
+    .registers 6
 
     .line 162
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mAnimCircle:Landroid/widget/ImageView;
@@ -494,7 +494,7 @@
 .end method
 
 .method private translateAnim()V
-    .locals 7
+    .registers 8
 
     .line 139
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mAnimCircle:Landroid/widget/ImageView;
@@ -573,7 +573,7 @@
 
 # virtual methods
 .method public addView()V
-    .locals 4
+    .registers 5
 
     .line 47
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mContext:Landroid/content/Context;
@@ -616,26 +616,26 @@
 .end method
 
 .method public close(Z)V
-    .locals 2
+    .registers 4
 
     .line 80
     iget-object v0, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mContainer:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 81
     iget-object p1, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mFtuCompleteListener:Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$FtuCompleteListener;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 82
     iget-object p1, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mFtuCompleteListener:Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$FtuCompleteListener;
 
     invoke-interface {p1}, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$FtuCompleteListener;->ftuEditViewCompleted()V
 
-    :cond_0
+    :cond_f
     const/4 p1, 0x0
 
     .line 84
@@ -651,12 +651,12 @@
     .line 86
     iput-object p1, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mFtuEditView:Landroid/view/View;
 
-    :cond_1
+    :cond_1b
     return-void
 .end method
 
 .method public setFtuCompleteListener(Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$FtuCompleteListener;)V
-    .locals 0
+    .registers 2
 
     .line 75
     iput-object p1, p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;->mFtuCompleteListener:Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay$FtuCompleteListener;

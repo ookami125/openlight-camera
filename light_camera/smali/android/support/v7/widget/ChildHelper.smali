@@ -36,7 +36,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/ChildHelper$Callback;)V
-    .locals 0
+    .registers 2
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -62,16 +62,16 @@
 .end method
 
 .method private getOffset(I)I
-    .locals 4
+    .registers 6
 
     const/4 v0, -0x1
 
-    if-gez p1, :cond_0
+    if-gez p1, :cond_4
 
     return v0
 
     .line 117
-    :cond_0
+    :cond_4
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
 
     invoke-interface {v1}, Landroid/support/v7/widget/ChildHelper$Callback;->getChildCount()I
@@ -80,8 +80,8 @@
 
     move v2, p1
 
-    :goto_0
-    if-ge v2, v1, :cond_3
+    :goto_b
+    if-ge v2, v1, :cond_27
 
     .line 120
     iget-object v3, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -94,36 +94,36 @@
 
     sub-int v3, p1, v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_25
 
     .line 123
-    :goto_1
+    :goto_19
     iget-object p1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {p1, v2}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_24
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_1
+    goto :goto_19
 
-    :cond_1
+    :cond_24
     return v2
 
-    :cond_2
+    :cond_25
     add-int/2addr v2, v3
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_3
+    :cond_27
     return v0
 .end method
 
 .method private hideViewInternal(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 60
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mHiddenViews:Ljava/util/List;
@@ -139,7 +139,7 @@
 .end method
 
 .method private unhideViewInternal(Landroid/view/View;)Z
-    .locals 1
+    .registers 3
 
     .line 70
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mHiddenViews:Ljava/util/List;
@@ -148,7 +148,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 71
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -159,7 +159,7 @@
 
     return p0
 
-    :cond_0
+    :cond_f
     const/4 p0, 0x0
 
     return p0
@@ -168,9 +168,9 @@
 
 # virtual methods
 .method addView(Landroid/view/View;IZ)V
-    .locals 1
+    .registers 5
 
-    if-gez p2, :cond_0
+    if-gez p2, :cond_9
 
     .line 99
     iget-object p2, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -179,27 +179,27 @@
 
     move-result p2
 
-    goto :goto_0
+    goto :goto_d
 
     .line 101
-    :cond_0
+    :cond_9
     invoke-direct {p0, p2}, Landroid/support/v7/widget/ChildHelper;->getOffset(I)I
 
     move-result p2
 
     .line 103
-    :goto_0
+    :goto_d
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v0, p2, p3}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_17
 
     .line 105
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->hideViewInternal(Landroid/view/View;)V
 
     .line 107
-    :cond_1
+    :cond_17
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
 
     invoke-interface {p0, p1, p2}, Landroid/support/v7/widget/ChildHelper$Callback;->addView(Landroid/view/View;I)V
@@ -208,7 +208,7 @@
 .end method
 
 .method addView(Landroid/view/View;Z)V
-    .locals 1
+    .registers 4
 
     const/4 v0, -0x1
 
@@ -219,9 +219,9 @@
 .end method
 
 .method attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)V
-    .locals 1
+    .registers 6
 
-    if-gez p2, :cond_0
+    if-gez p2, :cond_9
 
     .line 231
     iget-object p2, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -230,27 +230,27 @@
 
     move-result p2
 
-    goto :goto_0
+    goto :goto_d
 
     .line 233
-    :cond_0
+    :cond_9
     invoke-direct {p0, p2}, Landroid/support/v7/widget/ChildHelper;->getOffset(I)I
 
     move-result p2
 
     .line 235
-    :goto_0
+    :goto_d
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v0, p2, p4}, Landroid/support/v7/widget/ChildHelper$Bucket;->insert(IZ)V
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_17
 
     .line 237
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->hideViewInternal(Landroid/view/View;)V
 
     .line 239
-    :cond_1
+    :cond_17
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
 
     invoke-interface {p0, p1, p2, p3}, Landroid/support/v7/widget/ChildHelper$Callback;->attachViewToParent(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
@@ -259,7 +259,7 @@
 .end method
 
 .method detachViewFromParent(I)V
-    .locals 1
+    .registers 3
 
     .line 282
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->getOffset(I)I
@@ -280,7 +280,7 @@
 .end method
 
 .method findHiddenNonRemovedView(I)Landroid/view/View;
-    .locals 5
+    .registers 7
 
     .line 206
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mHiddenViews:Ljava/util/List;
@@ -291,8 +291,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    :goto_7
+    if-ge v1, v0, :cond_2d
 
     .line 208
     iget-object v2, p0, Landroid/support/v7/widget/ChildHelper;->mHiddenViews:Ljava/util/List;
@@ -315,37 +315,37 @@
 
     move-result v4
 
-    if-ne v4, p1, :cond_0
+    if-ne v4, p1, :cond_2a
 
     .line 211
     invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->isInvalid()Z
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_2a
 
     .line 212
     invoke-virtual {v3}, Landroid/support/v7/widget/RecyclerView$ViewHolder;->isRemoved()Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2a
 
     return-object v2
 
-    :cond_0
+    :cond_2a
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_1
+    :cond_2d
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method getChildAt(I)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 180
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->getOffset(I)I
@@ -363,7 +363,7 @@
 .end method
 
 .method getChildCount()I
-    .locals 1
+    .registers 2
 
     .line 253
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -384,7 +384,7 @@
 .end method
 
 .method getUnfilteredChildAt(I)Landroid/view/View;
-    .locals 0
+    .registers 2
 
     .line 273
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -397,7 +397,7 @@
 .end method
 
 .method getUnfilteredChildCount()I
-    .locals 0
+    .registers 1
 
     .line 263
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -410,7 +410,7 @@
 .end method
 
 .method hide(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 328
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -419,7 +419,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_11
 
     .line 335
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -432,7 +432,7 @@
     return-void
 
     .line 330
-    :cond_0
+    :cond_11
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -455,7 +455,7 @@
 .end method
 
 .method indexOfChild(Landroid/view/View;)I
-    .locals 2
+    .registers 4
 
     .line 297
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -466,24 +466,24 @@
 
     const/4 v0, -0x1
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     return v0
 
     .line 301
-    :cond_0
+    :cond_a
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     return v0
 
     .line 309
-    :cond_1
+    :cond_13
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->countOnesBefore(I)I
@@ -496,7 +496,7 @@
 .end method
 
 .method isHidden(Landroid/view/View;)Z
-    .locals 0
+    .registers 2
 
     .line 319
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mHiddenViews:Ljava/util/List;
@@ -509,7 +509,7 @@
 .end method
 
 .method removeAllViewsUnfiltered()V
-    .locals 3
+    .registers 4
 
     .line 188
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -525,8 +525,8 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
-    if-ltz v0, :cond_0
+    :goto_d
+    if-ltz v0, :cond_24
 
     .line 190
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -548,10 +548,10 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    goto :goto_0
+    goto :goto_d
 
     .line 193
-    :cond_0
+    :cond_24
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
 
     invoke-interface {p0}, Landroid/support/v7/widget/ChildHelper$Callback;->removeAllViews()V
@@ -560,7 +560,7 @@
 .end method
 
 .method removeView(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 140
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -569,25 +569,25 @@
 
     move-result v0
 
-    if-gez v0, :cond_0
+    if-gez v0, :cond_9
 
     return-void
 
     .line 144
-    :cond_0
+    :cond_9
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v1, v0}, Landroid/support/v7/widget/ChildHelper$Bucket;->remove(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_14
 
     .line 145
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->unhideViewInternal(Landroid/view/View;)Z
 
     .line 147
-    :cond_1
+    :cond_14
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
 
     invoke-interface {p0, v0}, Landroid/support/v7/widget/ChildHelper$Callback;->removeViewAt(I)V
@@ -596,7 +596,7 @@
 .end method
 
 .method removeViewAt(I)V
-    .locals 2
+    .registers 4
 
     .line 160
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->getOffset(I)I
@@ -610,25 +610,25 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     return-void
 
     .line 165
-    :cond_0
+    :cond_d
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v1, p1}, Landroid/support/v7/widget/ChildHelper$Bucket;->remove(I)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_18
 
     .line 166
     invoke-direct {p0, v0}, Landroid/support/v7/widget/ChildHelper;->unhideViewInternal(Landroid/view/View;)Z
 
     .line 168
-    :cond_1
+    :cond_18
     iget-object p0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
 
     invoke-interface {p0, p1}, Landroid/support/v7/widget/ChildHelper$Callback;->removeViewAt(I)V
@@ -637,7 +637,7 @@
 .end method
 
 .method removeViewIfHidden(Landroid/view/View;)Z
-    .locals 3
+    .registers 5
 
     .line 373
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -650,7 +650,7 @@
 
     const/4 v2, -0x1
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_e
 
     .line 375
     invoke-direct {p0, p1}, Landroid/support/v7/widget/ChildHelper;->unhideViewInternal(Landroid/view/View;)Z
@@ -658,14 +658,14 @@
     return v1
 
     .line 380
-    :cond_0
+    :cond_e
     iget-object v2, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
 
     invoke-virtual {v2, v0}, Landroid/support/v7/widget/ChildHelper$Bucket;->get(I)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_24
 
     .line 381
     iget-object v2, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -682,14 +682,14 @@
 
     return v1
 
-    :cond_1
+    :cond_24
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 363
     new-instance v0, Ljava/lang/StringBuilder;
@@ -724,7 +724,7 @@
 .end method
 
 .method unhide(Landroid/view/View;)V
-    .locals 2
+    .registers 4
 
     .line 350
     iget-object v0, p0, Landroid/support/v7/widget/ChildHelper;->mCallback:Landroid/support/v7/widget/ChildHelper$Callback;
@@ -733,7 +733,7 @@
 
     move-result v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_30
 
     .line 354
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -742,7 +742,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 357
     iget-object v1, p0, Landroid/support/v7/widget/ChildHelper;->mBucket:Landroid/support/v7/widget/ChildHelper$Bucket;
@@ -755,7 +755,7 @@
     return-void
 
     .line 355
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/lang/RuntimeException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -777,7 +777,7 @@
     throw p0
 
     .line 352
-    :cond_1
+    :cond_30
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 40
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -37,7 +37,7 @@
 .end method
 
 .method static synthetic access$002(Lnet/hockeyapp/android/UpdateActivity;Lnet/hockeyapp/android/objects/ErrorObject;)Lnet/hockeyapp/android/objects/ErrorObject;
-    .locals 0
+    .registers 2
 
     .line 40
     iput-object p1, p0, Lnet/hockeyapp/android/UpdateActivity;->mError:Lnet/hockeyapp/android/objects/ErrorObject;
@@ -46,7 +46,7 @@
 .end method
 
 .method private isUnknownSourcesChecked()Z
-    .locals 4
+    .registers 5
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "InlinedApi"
@@ -56,20 +56,20 @@
     const/4 v0, 0x1
 
     .line 350
-    :try_start_0
+    :try_start_1
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x11
 
     const/4 v3, 0x0
 
-    if-lt v1, v2, :cond_1
+    if-lt v1, v2, :cond_1d
 
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0x15
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_1d
 
     .line 351
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->getContentResolver()Landroid/content/ContentResolver;
@@ -82,18 +82,18 @@
 
     move-result p0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_1b
 
-    goto :goto_0
+    goto :goto_1c
 
-    :cond_0
+    :cond_1b
     move v0, v3
 
-    :goto_0
+    :goto_1c
     return v0
 
     .line 353
-    :cond_1
+    :cond_1d
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
@@ -103,25 +103,25 @@
     invoke-static {p0, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
 
     move-result p0
-    :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_1 .. :try_end_27} :catch_2c
 
-    if-ne p0, v0, :cond_2
+    if-ne p0, v0, :cond_2a
 
-    goto :goto_1
+    goto :goto_2b
 
-    :cond_2
+    :cond_2a
     move v0, v3
 
-    :goto_1
+    :goto_2b
     return v0
 
-    :catch_0
+    :catch_2c
     return v0
 .end method
 
 .method private isWriteExternalStorageSet(Landroid/content/Context;)Z
-    .locals 0
+    .registers 2
 
     const-string p0, "android.permission.WRITE_EXTERNAL_STORAGE"
 
@@ -130,23 +130,23 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_b
     return p0
 .end method
 
 
 # virtual methods
 .method protected configureView()V
-    .locals 11
+    .registers 12
 
     .line 224
     sget v0, Lnet/hockeyapp/android/R$id;->label_title:I
@@ -218,7 +218,7 @@
 
     const/4 v8, 0x1
 
-    if-ltz v6, :cond_0
+    if-ltz v6, :cond_6a
 
     .line 234
     new-instance v3, Ljava/lang/StringBuilder;
@@ -257,10 +257,10 @@
 
     move-result-object v3
 
-    goto :goto_0
+    goto :goto_81
 
     .line 236
-    :cond_0
+    :cond_6a
     new-instance v4, Lnet/hockeyapp/android/tasks/GetFileSizeTask;
 
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->getIntent()Landroid/content/Intent;
@@ -283,7 +283,7 @@
     invoke-static {v4}, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->execute(Landroid/os/AsyncTask;)V
 
     .line 248
-    :goto_0
+    :goto_81
     sget v4, Lnet/hockeyapp/android/R$string;->hockeyapp_update_version_details_label:I
 
     const/4 v5, 0x3
@@ -352,7 +352,7 @@
 .end method
 
 .method protected createDownloadTask(Ljava/lang/String;Lnet/hockeyapp/android/listeners/DownloadFileListener;)V
-    .locals 1
+    .registers 4
 
     .line 302
     new-instance v0, Lnet/hockeyapp/android/tasks/DownloadFileTask;
@@ -365,7 +365,7 @@
 .end method
 
 .method public enableUpdateButton()V
-    .locals 1
+    .registers 2
 
     .line 309
     sget v0, Lnet/hockeyapp/android/R$id;->button_update:I
@@ -383,7 +383,7 @@
 .end method
 
 .method public getAppName()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 320
     :try_start_0
@@ -410,19 +410,19 @@
     invoke-interface {p0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_15} :catch_16
 
     return-object p0
 
-    :catch_0
+    :catch_16
     const-string p0, ""
 
     return-object p0
 .end method
 
 .method public getCurrentVersionCode()I
-    .locals 2
+    .registers 3
 
     .line 193
     :try_start_0
@@ -441,20 +441,20 @@
     move-result-object p0
 
     iget p0, p0, Landroid/content/pm/PackageInfo;->versionCode:I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_10} :catch_11
 
-    goto :goto_0
+    goto :goto_12
 
-    :catch_0
+    :catch_11
     const/4 p0, -0x1
 
-    :goto_0
+    :goto_12
     return p0
 .end method
 
 .method public getLayoutView()Landroid/view/View;
-    .locals 2
+    .registers 3
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "InflateParams"
@@ -478,7 +478,7 @@
 .end method
 
 .method protected getReleaseNotes()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 265
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity;->mVersionHelper:Lnet/hockeyapp/android/utils/VersionHelper;
@@ -493,7 +493,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 215
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->prepareDownload()V
@@ -507,7 +507,7 @@
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 72
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -559,19 +559,19 @@
     .line 82
     iget-object p1, p0, Lnet/hockeyapp/android/UpdateActivity;->mDownloadTask:Lnet/hockeyapp/android/tasks/DownloadFileTask;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_36
 
     .line 83
     iget-object p1, p0, Lnet/hockeyapp/android/UpdateActivity;->mDownloadTask:Lnet/hockeyapp/android/tasks/DownloadFileTask;
 
     invoke-virtual {p1, p0}, Lnet/hockeyapp/android/tasks/DownloadFileTask;->attach(Landroid/content/Context;)V
 
-    :cond_0
+    :cond_36
     return-void
 .end method
 
 .method protected onCreateDialog(I)Landroid/app/Dialog;
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -584,16 +584,16 @@
 .end method
 
 .method protected onCreateDialog(ILandroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 1
+    .registers 4
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 111
-    :cond_0
+    :cond_4
     new-instance p1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {p1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -646,20 +646,20 @@
 .end method
 
 .method protected onPrepareDialog(ILandroid/app/Dialog;)V
-    .locals 0
+    .registers 3
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_3
 
-    goto :goto_0
+    goto :goto_18
 
     .line 131
-    :cond_0
+    :cond_3
     check-cast p2, Landroid/app/AlertDialog;
 
     .line 132
     iget-object p1, p0, Lnet/hockeyapp/android/UpdateActivity;->mError:Lnet/hockeyapp/android/objects/ErrorObject;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_13
 
     .line 134
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity;->mError:Lnet/hockeyapp/android/objects/ErrorObject;
@@ -670,20 +670,20 @@
 
     invoke-virtual {p2, p0}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_1
+    :cond_13
     const-string p0, "An unknown error has occured."
 
     .line 137
     invoke-virtual {p2, p0}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 .method public onRequestPermissionsResult(I[Ljava/lang/String;[I)V
-    .locals 0
+    .registers 4
 
     .line 147
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->enableUpdateButton()V
@@ -691,32 +691,32 @@
     .line 149
     array-length p2, p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_62
 
     array-length p2, p3
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_a
 
-    goto :goto_1
+    goto :goto_62
 
-    :cond_0
+    :cond_a
     const/4 p2, 0x1
 
-    if-ne p1, p2, :cond_3
+    if-ne p1, p2, :cond_61
 
     const/4 p1, 0x0
 
     .line 156
     aget p1, p3, p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_16
 
     .line 158
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->prepareDownload()V
 
-    goto :goto_0
+    goto :goto_61
 
-    :cond_1
+    :cond_16
     const-string p1, "User denied write permission, can\'t continue with updater task."
 
     .line 161
@@ -727,15 +727,15 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_25
 
     .line 165
     invoke-virtual {p1}, Lnet/hockeyapp/android/UpdateManagerListener;->onUpdatePermissionsNotGranted()V
 
-    goto :goto_0
+    goto :goto_61
 
     .line 168
-    :cond_2
+    :cond_25
     new-instance p1, Landroid/app/AlertDialog$Builder;
 
     iget-object p2, p0, Lnet/hockeyapp/android/UpdateActivity;->mContext:Landroid/content/Context;
@@ -800,22 +800,22 @@
     .line 178
     invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
 
-    :cond_3
-    :goto_0
+    :cond_61
+    :goto_61
     return-void
 
-    :cond_4
-    :goto_1
+    :cond_62
+    :goto_62
     return-void
 .end method
 
 .method public onRetainNonConfigurationInstance()Ljava/lang/Object;
-    .locals 1
+    .registers 2
 
     .line 96
     iget-object v0, p0, Lnet/hockeyapp/android/UpdateActivity;->mDownloadTask:Lnet/hockeyapp/android/tasks/DownloadFileTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 97
     iget-object v0, p0, Lnet/hockeyapp/android/UpdateActivity;->mDownloadTask:Lnet/hockeyapp/android/tasks/DownloadFileTask;
@@ -823,14 +823,14 @@
     invoke-virtual {v0}, Lnet/hockeyapp/android/tasks/DownloadFileTask;->detach()V
 
     .line 99
-    :cond_0
+    :cond_9
     iget-object p0, p0, Lnet/hockeyapp/android/UpdateActivity;->mDownloadTask:Lnet/hockeyapp/android/tasks/DownloadFileTask;
 
     return-object p0
 .end method
 
 .method protected prepareDownload()V
-    .locals 2
+    .registers 3
 
     .line 361
     iget-object v0, p0, Lnet/hockeyapp/android/UpdateActivity;->mContext:Landroid/content/Context;
@@ -839,7 +839,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_23
 
     .line 362
     new-instance v0, Lnet/hockeyapp/android/objects/ErrorObject;
@@ -869,21 +869,21 @@
     return-void
 
     .line 374
-    :cond_0
+    :cond_23
     iget-object v0, p0, Lnet/hockeyapp/android/UpdateActivity;->mContext:Landroid/content/Context;
 
     invoke-direct {p0, v0}, Lnet/hockeyapp/android/UpdateActivity;->isWriteExternalStorageSet(Landroid/content/Context;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_53
 
     .line 376
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_3c
 
     const-string v0, "android.permission.WRITE_EXTERNAL_STORAGE"
 
@@ -899,7 +899,7 @@
     return-void
 
     .line 382
-    :cond_1
+    :cond_3c
     new-instance v0, Lnet/hockeyapp/android/objects/ErrorObject;
 
     invoke-direct {v0}, Lnet/hockeyapp/android/objects/ErrorObject;-><init>()V
@@ -923,12 +923,12 @@
     return-void
 
     .line 396
-    :cond_2
+    :cond_53
     invoke-direct {p0}, Lnet/hockeyapp/android/UpdateActivity;->isUnknownSourcesChecked()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_70
 
     .line 397
     new-instance v0, Lnet/hockeyapp/android/objects/ErrorObject;
@@ -954,14 +954,14 @@
     return-void
 
     .line 411
-    :cond_3
+    :cond_70
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->startDownloadTask()V
 
     return-void
 .end method
 
 .method protected startDownloadTask()V
-    .locals 2
+    .registers 3
 
     .line 274
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateActivity;->getIntent()Landroid/content/Intent;
@@ -981,7 +981,7 @@
 .end method
 
 .method protected startDownloadTask(Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     .line 285
     new-instance v0, Lnet/hockeyapp/android/UpdateActivity$4;

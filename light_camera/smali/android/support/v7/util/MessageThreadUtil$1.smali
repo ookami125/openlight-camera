@@ -47,7 +47,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/util/MessageThreadUtil;Landroid/support/v7/util/ThreadUtil$MainThreadCallback;)V
-    .locals 0
+    .registers 3
 
     .line 31
     iput-object p1, p0, Landroid/support/v7/util/MessageThreadUtil$1;->this$0:Landroid/support/v7/util/MessageThreadUtil;
@@ -85,7 +85,7 @@
 .end method
 
 .method private sendMessage(Landroid/support/v7/util/MessageThreadUtil$SyncQueueItem;)V
-    .locals 1
+    .registers 3
 
     .line 55
     iget-object v0, p0, Landroid/support/v7/util/MessageThreadUtil$1;->mQueue:Landroid/support/v7/util/MessageThreadUtil$MessageQueue;
@@ -105,7 +105,7 @@
 
 # virtual methods
 .method public addTile(ILandroid/support/v7/util/TileList$Tile;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -127,7 +127,7 @@
 .end method
 
 .method public removeTile(II)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x3
 
@@ -142,7 +142,7 @@
 .end method
 
 .method public updateItemCount(II)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x1
 

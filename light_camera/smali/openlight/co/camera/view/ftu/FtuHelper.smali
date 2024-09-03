@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 29
     new-instance v0, Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 373
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/ftu/FtuHelper;)Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;
-    .locals 0
+    .registers 1
 
     .line 21
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mListener:Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;
@@ -78,7 +78,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/ftu/FtuHelper;)Lopenlight/co/camera/view/ftu/ImageFtuController;
-    .locals 0
+    .registers 1
 
     .line 21
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->closeFtuController()V
@@ -96,7 +96,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->updateDraggerModel()V
@@ -105,7 +105,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->updateFtuPlayAllPreference()V
@@ -114,7 +114,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->updateFtuAlertPreference()V
@@ -123,7 +123,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->closeFtuAlertController()V
@@ -132,7 +132,7 @@
 .end method
 
 .method static synthetic access$700(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->updateVideoFtuVideoPreference()V
@@ -141,7 +141,7 @@
 .end method
 
 .method static synthetic access$800(Lopenlight/co/camera/view/ftu/FtuHelper;)V
-    .locals 0
+    .registers 1
 
     .line 21
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->closeQualityFtu()V
@@ -150,12 +150,12 @@
 .end method
 
 .method private closeFtuAlertController()V
-    .locals 2
+    .registers 3
 
     .line 357
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuAlertController:Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 358
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuAlertController:Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;
@@ -169,17 +169,17 @@
     .line 359
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuAlertController:Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private closeFtuController()V
-    .locals 2
+    .registers 3
 
     .line 347
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 348
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
@@ -193,17 +193,17 @@
     .line 349
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method private closeQualityFtu()V
-    .locals 2
+    .registers 3
 
     .line 337
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuController:Lopenlight/co/lib/overlays/FtuController;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 338
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuController:Lopenlight/co/lib/overlays/FtuController;
@@ -217,12 +217,12 @@
     .line 339
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuController:Lopenlight/co/lib/overlays/FtuController;
 
-    :cond_0
+    :cond_d
     return-void
 .end method
 
 .method public static get()Lopenlight/co/camera/view/ftu/FtuHelper;
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Lopenlight/co/camera/view/ftu/FtuHelper;->sInstance:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -231,7 +231,7 @@
 .end method
 
 .method private isFirstTimeFocusFailed()Z
-    .locals 1
+    .registers 2
 
     .line 370
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -248,7 +248,7 @@
 .end method
 
 .method private updateDraggerModel()V
-    .locals 1
+    .registers 2
 
     .line 328
     new-instance p0, Lopenlight/co/camera/models/DraggerModelHelper;
@@ -267,7 +267,7 @@
 .end method
 
 .method private updateFtuAlertPreference()V
-    .locals 2
+    .registers 3
 
     .line 320
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -282,7 +282,7 @@
 .end method
 
 .method private updateFtuPlayAllPreference()V
-    .locals 2
+    .registers 3
 
     .line 306
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -297,7 +297,7 @@
 .end method
 
 .method private updateVideoFtuVideoPreference()V
-    .locals 2
+    .registers 3
 
     .line 313
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -314,7 +314,7 @@
 
 # virtual methods
 .method public closeFtu()V
-    .locals 0
+    .registers 1
 
     .line 242
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->closeFtuController()V
@@ -326,7 +326,7 @@
 .end method
 
 .method public isFirstTimeUser()Z
-    .locals 1
+    .registers 2
 
     .line 146
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -341,7 +341,7 @@
 .end method
 
 .method public isFirstTimeVideoUser()Z
-    .locals 1
+    .registers 2
 
     .line 156
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -356,34 +356,34 @@
 .end method
 
 .method public isFtuPlaying()Z
-    .locals 1
+    .registers 2
 
     .line 165
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_b
 
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuController:Lopenlight/co/lib/overlays/FtuController;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_9
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_1
-    :goto_0
+    :cond_b
+    :goto_b
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_c
     return p0
 .end method
 
 .method public onUserActionComplete(Lopenlight/co/camera/enums/FtuView;)V
-    .locals 1
+    .registers 3
 
     .line 281
     sget-object v0, Lopenlight/co/camera/view/ftu/FtuHelper$3;->$SwitchMap$light$co$camera$enums$FtuView:[I
@@ -394,28 +394,28 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_34
 
-    goto :goto_0
+    goto :goto_33
 
     .line 295
-    :pswitch_0
+    :pswitch_c
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_33
 
     .line 296
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->onWheelScrollComplete()V
 
-    goto :goto_0
+    goto :goto_33
 
     .line 289
-    :pswitch_1
+    :pswitch_16
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_33
 
     .line 290
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mListener:Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;
@@ -427,13 +427,13 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->onFlickToPrimeComplete()V
 
-    goto :goto_0
+    goto :goto_33
 
     .line 283
-    :pswitch_2
+    :pswitch_25
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_33
 
     .line 284
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mListener:Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;
@@ -445,20 +445,20 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->onScrollToZoomComplete()V
 
-    :cond_0
-    :goto_0
+    :cond_33
+    :goto_33
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_25
+        :pswitch_16
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public onWaitingUserAction(Lopenlight/co/camera/enums/FtuView;)V
-    .locals 1
+    .registers 3
 
     .line 261
     sget-object v0, Lopenlight/co/camera/view/ftu/FtuHelper$3;->$SwitchMap$light$co$camera$enums$FtuView:[I
@@ -469,25 +469,25 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_22
 
-    goto :goto_0
+    goto :goto_21
 
     .line 268
-    :pswitch_0
+    :pswitch_c
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_21
 
     .line 269
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->setDelayIncorrectUserResponse()V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 264
-    :pswitch_1
+    :pswitch_16
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
     const/4 v0, 0x0
@@ -499,20 +499,20 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->setDelayIncorrectUserResponse()V
 
-    :cond_0
-    :goto_0
+    :cond_21
+    :goto_21
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_22
     .packed-switch 0x1
-        :pswitch_1
-        :pswitch_1
-        :pswitch_0
+        :pswitch_16
+        :pswitch_16
+        :pswitch_c
     .end packed-switch
 .end method
 
 .method public setFtuHelperListener(Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;)V
-    .locals 0
+    .registers 2
 
     .line 252
     iput-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mListener:Lopenlight/co/camera/view/ftu/FtuHelper$FtuHelperListener;
@@ -521,7 +521,7 @@
 .end method
 
 .method public showEditFtu(Landroid/view/ViewGroup;I)V
-    .locals 1
+    .registers 4
 
     .line 196
     new-instance p0, Lopenlight/co/lib/overlays/GalleryEditorFtuOverlay;
@@ -539,25 +539,25 @@
 .end method
 
 .method public showFtuAlert(Landroid/view/ViewGroup;Lopenlight/co/camera/enums/FtuView;)V
-    .locals 2
+    .registers 5
 
     .line 231
     invoke-direct {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->isFirstTimeFocusFailed()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/FtuHelper;->isFtuPlaying()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_25
 
     .line 232
-    :cond_0
+    :cond_d
     new-instance v0, Lopenlight/co/camera/view/ftu/ftuAlert/ImageFtuAlertController;
 
     const v1, 0x7f0b0047
@@ -582,18 +582,18 @@
 
     return-void
 
-    :cond_1
-    :goto_0
+    :cond_25
+    :goto_25
     return-void
 .end method
 
 .method public showImageFtu(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;Lopenlight/co/camera/enums/FtuView;Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 8
+    .registers 14
 
     .line 180
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 181
     new-instance v0, Lopenlight/co/camera/view/ftu/ImageFtuController;
@@ -617,7 +617,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
     .line 184
-    :cond_0
+    :cond_14
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mImageFtuController:Lopenlight/co/camera/view/ftu/ImageFtuController;
 
     iget-object p2, p0, Lopenlight/co/camera/view/ftu/FtuHelper;->mFtuActionListener:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;
@@ -635,7 +635,7 @@
 .end method
 
 .method public showQualityFtu(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 3
+    .registers 6
 
     .line 206
     new-instance v0, Lopenlight/co/lib/overlays/FtuController;

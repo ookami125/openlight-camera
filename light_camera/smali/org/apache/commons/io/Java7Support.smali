@@ -27,14 +27,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 9
+    .registers 9
 
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
     .line 58
-    :try_start_0
+    :try_start_2
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
 
     move-result-object v2
@@ -195,21 +195,21 @@
     move-result-object v2
 
     sput-object v2, Lorg/apache/commons/io/Java7Support;->toFile:Ljava/lang/reflect/Method;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_94
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_94} :catch_95
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_2 .. :try_end_94} :catch_95
 
     move v1, v0
 
     .line 78
-    :catch_0
+    :catch_95
     sput-boolean v1, Lorg/apache/commons/io/Java7Support;->IS_JAVA7:Z
 
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -218,7 +218,7 @@
 .end method
 
 .method public static createSymbolicLink(Ljava/io/File;Ljava/io/File;)Ljava/io/File;
-    .locals 6
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -231,7 +231,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_36
 
     .line 150
     sget-object v0, Lorg/apache/commons/io/Java7Support;->toPath:Ljava/lang/reflect/Method;
@@ -287,16 +287,16 @@
     move-result-object p0
 
     check-cast p0, Ljava/io/File;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_35
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_35} :catch_3f
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_35} :catch_37
 
     return-object p0
 
-    :cond_0
+    :cond_36
     return-object p0
 
-    :catch_0
+    :catch_37
     move-exception p0
 
     .line 158
@@ -309,7 +309,7 @@
 
     throw p0
 
-    :catch_1
+    :catch_3f
     move-exception p0
 
     .line 156
@@ -321,7 +321,7 @@
 .end method
 
 .method public static delete(Ljava/io/File;)V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -352,13 +352,13 @@
     aput-object p0, v3, v1
 
     invoke-virtual {v0, v2, v3}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_14} :catch_1d
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_14} :catch_15
 
     return-void
 
-    :catch_0
+    :catch_15
     move-exception p0
 
     .line 178
@@ -370,7 +370,7 @@
 
     throw p0
 
-    :catch_1
+    :catch_1d
     move-exception p0
 
     .line 176
@@ -382,7 +382,7 @@
 .end method
 
 .method private static exists(Ljava/io/File;)Z
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -428,13 +428,13 @@
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_20} :catch_29
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_20} :catch_21
 
     return p0
 
-    :catch_0
+    :catch_21
     move-exception p0
 
     .line 134
@@ -446,7 +446,7 @@
 
     throw p0
 
-    :catch_1
+    :catch_29
     move-exception p0
 
     .line 132
@@ -458,7 +458,7 @@
 .end method
 
 .method public static isAtLeastJava7()Z
-    .locals 1
+    .registers 1
 
     .line 187
     sget-boolean v0, Lorg/apache/commons/io/Java7Support;->IS_JAVA7:Z
@@ -467,7 +467,7 @@
 .end method
 
 .method public static isSymLink(Ljava/io/File;)Z
-    .locals 4
+    .registers 5
 
     .line 88
     :try_start_0
@@ -502,13 +502,13 @@
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_1b} :catch_23
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_1b} :catch_1c
 
     return p0
 
-    :catch_0
+    :catch_1c
     move-exception p0
 
     .line 94
@@ -518,7 +518,7 @@
 
     throw v0
 
-    :catch_1
+    :catch_23
     move-exception p0
 
     .line 92
@@ -530,7 +530,7 @@
 .end method
 
 .method public static readSymbolicLink(Ljava/io/File;)Ljava/io/File;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -574,13 +574,13 @@
     move-result-object p0
 
     check-cast p0, Ljava/io/File;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1f
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_1f} :catch_27
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_1f} :catch_20
 
     return-object p0
 
-    :catch_0
+    :catch_20
     move-exception p0
 
     .line 114
@@ -590,7 +590,7 @@
 
     throw v0
 
-    :catch_1
+    :catch_27
     move-exception p0
 
     .line 112

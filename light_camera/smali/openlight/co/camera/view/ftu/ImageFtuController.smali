@@ -43,13 +43,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/View;ILopenlight/co/camera/enums/FtuView;Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;)V
-    .locals 0
+    .registers 7
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -118,7 +118,7 @@
 .end method
 
 .method private animateOnDisplay(Lopenlight/co/camera/enums/FtuView;)V
-    .locals 2
+    .registers 4
 
     .line 298
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->getViewForFtu(Lopenlight/co/camera/enums/FtuView;)Lopenlight/co/camera/view/ftu/BaseFtuLayout;
@@ -140,11 +140,11 @@
 
     const/4 v1, 0x1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_34
 
-    goto :goto_0
+    goto :goto_32
 
-    :pswitch_0
+    :pswitch_15
     const/4 p1, 0x0
 
     .line 308
@@ -158,15 +158,15 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_32
 
     .line 311
     invoke-virtual {p0, v1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->updateVisibilityOfView(Z)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 302
-    :pswitch_1
+    :pswitch_26
     invoke-static {v0, v1}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->translateUpAndDownAnimation(Landroid/view/View;Z)V
 
     .line 303
@@ -174,27 +174,27 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_32
 
     .line 304
     invoke-virtual {p0, v1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->updateVisibilityOfView(Z)V
 
-    :cond_0
-    :goto_0
+    :cond_32
+    :goto_32
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_34
     .packed-switch 0x2
-        :pswitch_1
-        :pswitch_0
-        :pswitch_1
+        :pswitch_26
+        :pswitch_15
+        :pswitch_26
     .end packed-switch
 .end method
 
 .method private fadeInScreen(Lopenlight/co/camera/view/ftu/BaseFtuLayout;)V
-    .locals 3
+    .registers 5
 
     .line 284
     new-instance v0, Lopenlight/co/camera/view/ftu/-$$Lambda$ImageFtuController$YTyNbsmVGSX1-GF3NipjTJMd3-Y;
@@ -209,7 +209,7 @@
 .end method
 
 .method private init()V
-    .locals 2
+    .registers 3
 
     .line 243
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mRootContainer:Landroid/view/ViewGroup;
@@ -413,7 +413,7 @@
 .end method
 
 .method public static synthetic lambda$fadeInScreen$1(Lopenlight/co/camera/view/ftu/ImageFtuController;Lopenlight/co/camera/view/ftu/BaseFtuLayout;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -434,7 +434,7 @@
 .end method
 
 .method public static synthetic lambda$showScreen$0(Lopenlight/co/camera/view/ftu/ImageFtuController;Lopenlight/co/camera/view/ftu/BaseFtuLayout;Lopenlight/co/camera/view/ftu/BaseFtuLayout;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -448,7 +448,7 @@
 .end method
 
 .method private showScreen()V
-    .locals 5
+    .registers 6
 
     .line 273
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mPreviousView:Lopenlight/co/camera/enums/FtuView;
@@ -464,9 +464,9 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1a
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1a
 
     .line 276
     new-instance v2, Lopenlight/co/camera/view/ftu/-$$Lambda$ImageFtuController$wC_ggiayw37wvBW6h_oPei_k1pQ;
@@ -477,39 +477,39 @@
 
     invoke-static {v0, v2, v3, v4}, Lopenlight/co/camera/view/ftu/FtuAnimationUtils;->fadeOut(Landroid/view/View;Ljava/lang/Runnable;J)V
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 
 # virtual methods
 .method protected displayFtuScreen()V
-    .locals 2
+    .registers 3
 
     .line 193
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentState:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
     sget-object v1, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;->PAUSED:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_10
 
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentState:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
     sget-object v1, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;->RUNNING:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
-    goto :goto_0
+    goto :goto_10
 
     .line 194
-    :cond_0
+    :cond_d
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
-    goto :goto_1
+    goto :goto_16
 
     .line 193
-    :cond_1
-    :goto_0
+    :cond_10
+    :goto_10
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     .line 194
@@ -517,7 +517,7 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_16
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     .line 195
@@ -536,19 +536,19 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_2c
 
     .line 199
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;->RUNNING:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
     iput-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentState:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
-    :cond_2
+    :cond_2c
     return-void
 .end method
 
 .method protected getViewForFtu(Lopenlight/co/camera/enums/FtuView;)Lopenlight/co/camera/view/ftu/BaseFtuLayout;
-    .locals 1
+    .registers 3
 
     .line 212
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuController$1;->$SwitchMap$light$co$camera$enums$FtuView:[I
@@ -559,96 +559,96 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_2c
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 232
-    :pswitch_0
+    :pswitch_d
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mVideoEnd:Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;
 
     return-object p0
 
     .line 230
-    :pswitch_1
+    :pswitch_10
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mVideoLimitation:Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;
 
     return-object p0
 
     .line 228
-    :pswitch_2
+    :pswitch_13
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mVideoSpec:Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;
 
     return-object p0
 
     .line 226
-    :pswitch_3
+    :pswitch_16
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mVideoStart:Lopenlight/co/camera/view/ftu/ftuVideo/VideoFtuScreen;
 
     return-object p0
 
     .line 224
-    :pswitch_4
+    :pswitch_19
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mEnd:Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;
 
     return-object p0
 
     .line 222
-    :pswitch_5
+    :pswitch_1c
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mFocus:Lopenlight/co/camera/view/ftu/ImageFtuFocus;
 
     return-object p0
 
     .line 220
-    :pswitch_6
+    :pswitch_1f
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mWheel:Lopenlight/co/camera/view/ftu/ImageFtuWheel;
 
     return-object p0
 
     .line 218
-    :pswitch_7
+    :pswitch_22
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mPrime:Lopenlight/co/camera/view/ftu/ImageFtuZoom;
 
     return-object p0
 
     .line 216
-    :pswitch_8
+    :pswitch_25
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mZoom:Lopenlight/co/camera/view/ftu/ImageFtuZoom;
 
     return-object p0
 
     .line 214
-    :pswitch_9
+    :pswitch_28
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mWelcome:Lopenlight/co/camera/view/ftu/ImageFtuCoverScreen;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2c
     .packed-switch 0x1
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_28
+        :pswitch_25
+        :pswitch_22
+        :pswitch_1f
+        :pswitch_1c
+        :pswitch_19
+        :pswitch_16
+        :pswitch_13
+        :pswitch_10
+        :pswitch_d
     .end packed-switch
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 138
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mSkip:Landroid/widget/TextView;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_14
 
     const/4 p1, 0x0
 
@@ -658,7 +658,7 @@
     .line 140
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mRootContainer:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 141
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->displayFtuScreen()V
@@ -668,19 +668,19 @@
 
     invoke-virtual {p0, v0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->setViewVisibility(Landroid/view/View;Z)V
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public onFlickToPrimeComplete()V
-    .locals 4
+    .registers 5
 
     .line 91
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v1, Lopenlight/co/camera/enums/FtuView;->PRIME_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 92
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mMainLooperHandler:Landroid/os/Handler;
@@ -696,12 +696,12 @@
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method protected onIncorrectResponseInPrime()V
-    .locals 0
+    .registers 1
 
     .line 239
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->onFlickToPrimeComplete()V
@@ -710,14 +710,14 @@
 .end method
 
 .method public onScrollToZoomComplete()V
-    .locals 4
+    .registers 5
 
     .line 80
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v1, Lopenlight/co/camera/enums/FtuView;->ZOOM_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_14
 
     .line 81
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mMainLooperHandler:Landroid/os/Handler;
@@ -733,19 +733,19 @@
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_0
+    :cond_14
     return-void
 .end method
 
 .method public onWheelScrollComplete()V
-    .locals 2
+    .registers 3
 
     .line 102
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v1, Lopenlight/co/camera/enums/FtuView;->WHEEL_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_12
 
     .line 103
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mMainLooperHandler:Landroid/os/Handler;
@@ -759,28 +759,28 @@
 
     invoke-virtual {p0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public setDelayIncorrectUserResponse()V
-    .locals 4
+    .registers 5
 
     .line 115
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v1, Lopenlight/co/camera/enums/FtuView;->PRIME_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_c
 
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v1, Lopenlight/co/camera/enums/FtuView;->WHEEL_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1a
 
     .line 116
-    :cond_0
+    :cond_c
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mMainLooperHandler:Landroid/os/Handler;
 
     const/16 v1, 0xc9
@@ -794,12 +794,12 @@
 
     invoke-virtual {p0, v1, v2, v3}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_1
+    :cond_1a
     return-void
 .end method
 
 .method public setFtuActionListener(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 128
     invoke-super {p0, p1}, Lopenlight/co/camera/view/ftu/ImageFtuBaseController;->setFtuActionListener(Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuActionListener;)V
@@ -808,17 +808,17 @@
 .end method
 
 .method protected show(Z)V
-    .locals 3
+    .registers 5
 
     .line 155
     iget-boolean v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mIsShown:Z
 
-    if-eq p1, v0, :cond_6
+    if-eq p1, v0, :cond_76
 
     .line 156
     iput-boolean p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mIsShown:Z
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_66
 
     .line 161
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentType:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;
@@ -827,41 +827,41 @@
 
     const/4 v1, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_27
 
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->ZOOM_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_21
 
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->PRIME_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_21
 
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentView:Lopenlight/co/camera/enums/FtuView;
 
     sget-object v0, Lopenlight/co/camera/enums/FtuView;->WHEEL_SCREEN:Lopenlight/co/camera/enums/FtuView;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_27
 
     .line 164
-    :cond_0
+    :cond_21
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mSkip:Landroid/widget/TextView;
 
     invoke-virtual {p0, p1, v1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->setViewVisibility(Landroid/view/View;Z)V
 
-    goto :goto_0
+    goto :goto_32
 
     .line 165
-    :cond_1
+    :cond_27
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentType:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;
 
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;->SINGLE_RUN:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuType;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_32
 
     .line 167
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mBackDrop:Landroid/view/View;
@@ -869,8 +869,8 @@
     invoke-virtual {p0, p1, v1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->setViewVisibility(Landroid/view/View;Z)V
 
     .line 169
-    :cond_2
-    :goto_0
+    :cond_32
+    :goto_32
     sget-object p1, Lopenlight/co/camera/view/ftu/ImageFtuController;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -896,20 +896,20 @@
 
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;->IDLE:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_56
 
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mCurrentState:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
     sget-object v0, Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;->PAUSED:Lopenlight/co/camera/view/ftu/ImageFtuBaseController$FtuState;
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_59
 
     .line 173
-    :cond_3
+    :cond_56
     invoke-virtual {p0}, Lopenlight/co/camera/view/ftu/ImageFtuController;->displayFtuScreen()V
 
     .line 177
-    :cond_4
+    :cond_59
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mDimmer:Landroid/view/View;
 
     invoke-virtual {p0, p1, v1}, Lopenlight/co/camera/view/ftu/ImageFtuController;->setViewVisibility(Landroid/view/View;Z)V
@@ -921,10 +921,10 @@
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
-    goto :goto_1
+    goto :goto_76
 
     .line 180
-    :cond_5
+    :cond_66
     iget-object p1, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mBackDrop:Landroid/view/View;
 
     const/4 v0, 0x0
@@ -941,13 +941,13 @@
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->removeAllViews()V
 
-    :cond_6
-    :goto_1
+    :cond_76
+    :goto_76
     return-void
 .end method
 
 .method protected updateVisibilityOfView(Z)V
-    .locals 1
+    .registers 3
 
     .line 133
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/ImageFtuController;->mSkip:Landroid/widget/TextView;

@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/view/View$OnClickListener;)V
-    .locals 2
+    .registers 6
 
     .line 302
     sget v0, Landroid/support/design/R$layout;->design_navigation_item:I

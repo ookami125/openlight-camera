@@ -88,7 +88,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 986
     new-instance v0, Lltpb/ViewPreferences$ChannelGain$ProtoAdapter_ChannelGain;
@@ -131,7 +131,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;)V
-    .locals 6
+    .registers 11
 
     .line 1027
     sget-object v5, Lokio/ByteString;->EMPTY:Lokio/ByteString;
@@ -152,7 +152,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Ljava/lang/Float;Lokio/ByteString;)V
-    .locals 1
+    .registers 7
 
     .line 1031
     sget-object v0, Lltpb/ViewPreferences$ChannelGain;->ADAPTER:Lcom/squareup/wire/ProtoAdapter;
@@ -177,26 +177,26 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 1052
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lltpb/ViewPreferences$ChannelGain;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 1053
-    :cond_1
+    :cond_a
     check-cast p1, Lltpb/ViewPreferences$ChannelGain;
 
     .line 1054
@@ -212,7 +212,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     iget-object v1, p0, Lltpb/ViewPreferences$ChannelGain;->r:Ljava/lang/Float;
 
@@ -223,7 +223,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     iget-object v1, p0, Lltpb/ViewPreferences$ChannelGain;->g_r:Ljava/lang/Float;
 
@@ -234,7 +234,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     iget-object v1, p0, Lltpb/ViewPreferences$ChannelGain;->g_b:Ljava/lang/Float;
 
@@ -245,7 +245,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_43
 
     iget-object p0, p0, Lltpb/ViewPreferences$ChannelGain;->b:Ljava/lang/Float;
 
@@ -256,24 +256,24 @@
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_43
 
-    goto :goto_0
+    goto :goto_44
 
-    :cond_2
+    :cond_43
     move v0, v2
 
-    :goto_0
+    :goto_44
     return v0
 .end method
 
 .method public hashCode()I
-    .locals 2
+    .registers 3
 
     .line 1063
     iget v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_32
 
     .line 1065
     invoke-virtual {p0}, Lltpb/ViewPreferences$ChannelGain;->unknownFields()Lokio/ByteString;
@@ -331,12 +331,12 @@
     .line 1070
     iput v0, p0, Lcom/squareup/wire/Message;->hashCode:I
 
-    :cond_0
+    :cond_32
     return v0
 .end method
 
 .method public bridge synthetic newBuilder()Lcom/squareup/wire/Message$Builder;
-    .locals 0
+    .registers 1
 
     .line 985
     invoke-virtual {p0}, Lltpb/ViewPreferences$ChannelGain;->newBuilder()Lltpb/ViewPreferences$ChannelGain$Builder;
@@ -347,7 +347,7 @@
 .end method
 
 .method public newBuilder()Lltpb/ViewPreferences$ChannelGain$Builder;
-    .locals 2
+    .registers 3
 
     .line 1040
     new-instance v0, Lltpb/ViewPreferences$ChannelGain$Builder;
@@ -385,7 +385,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 1077
     new-instance v0, Ljava/lang/StringBuilder;

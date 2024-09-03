@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/ImagePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 171
     iput-object p1, p0, Lopenlight/co/camera/ImagePreviewFragment$2;->this$0:Lopenlight/co/camera/ImagePreviewFragment;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public updateHistogram(Z)V
-    .locals 1
+    .registers 3
 
     .line 174
     iget-object v0, p0, Lopenlight/co/camera/ImagePreviewFragment$2;->this$0:Lopenlight/co/camera/ImagePreviewFragment;
 
+    # invokes: Lopenlight/co/camera/ImagePreviewFragment;->setHistogramEnabled(Z)V
     invoke-static {v0, p1}, Lopenlight/co/camera/ImagePreviewFragment;->access$000(Lopenlight/co/camera/ImagePreviewFragment;Z)V
 
     .line 175
@@ -60,7 +61,7 @@
 .end method
 
 .method public updateMeteringMode(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -98,7 +99,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_31
 
     .line 184
     sget-object p1, Lopenlight/co/camera/ImagePreviewFragment;->TAG:Ljava/lang/String;
@@ -114,6 +115,6 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/managers/focus/FocusManager;->resetFocusStateToIdle()V
 
-    :cond_0
+    :cond_31
     return-void
 .end method

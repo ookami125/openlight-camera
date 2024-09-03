@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -22,14 +22,14 @@
 .end method
 
 .method public static checkArgument(Z)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     return-void
 
     .line 37
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -38,14 +38,14 @@
 .end method
 
 .method public static checkArgument(ZLjava/lang/Object;)V
-    .locals 0
+    .registers 2
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     return-void
 
     .line 51
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -58,26 +58,26 @@
 .end method
 
 .method public static checkArgumentFinite(FLjava/lang/String;)F
-    .locals 1
+    .registers 3
 
     .line 255
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_24
 
     .line 257
     invoke-static {p0}, Ljava/lang/Float;->isInfinite(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     return p0
 
     .line 258
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -99,7 +99,7 @@
     throw p0
 
     .line 256
-    :cond_1
+    :cond_24
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -122,14 +122,14 @@
 .end method
 
 .method public static checkArgumentInRange(FFFLjava/lang/String;)F
-    .locals 5
+    .registers 9
 
     .line 281
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4f
 
     cmpg-float v0, p0, p1
 
@@ -141,16 +141,16 @@
 
     const/4 v4, 0x3
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_31
 
     cmpl-float v0, p0, p2
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_13
 
     return p0
 
     .line 288
-    :cond_0
+    :cond_13
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -184,7 +184,7 @@
     throw p0
 
     .line 284
-    :cond_1
+    :cond_31
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -218,7 +218,7 @@
     throw p0
 
     .line 282
-    :cond_2
+    :cond_4f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -241,7 +241,7 @@
 .end method
 
 .method public static checkArgumentInRange(IIILjava/lang/String;)I
-    .locals 5
+    .registers 9
 
     const/4 v0, 0x2
 
@@ -251,14 +251,14 @@
 
     const/4 v3, 0x3
 
-    if-lt p0, p1, :cond_1
+    if-lt p0, p1, :cond_27
 
-    if-gt p0, p2, :cond_0
+    if-gt p0, p2, :cond_9
 
     return p0
 
     .line 315
-    :cond_0
+    :cond_9
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -292,7 +292,7 @@
     throw p0
 
     .line 311
-    :cond_1
+    :cond_27
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -327,7 +327,7 @@
 .end method
 
 .method public static checkArgumentInRange(JJJLjava/lang/String;)J
-    .locals 5
+    .registers 12
 
     cmp-long v0, p0, p2
 
@@ -339,16 +339,16 @@
 
     const/4 v4, 0x3
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2b
 
     cmp-long v0, p0, p4
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_d
 
     return-wide p0
 
     .line 342
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object p1, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -382,7 +382,7 @@
     throw p0
 
     .line 338
-    :cond_1
+    :cond_2b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object p1, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -417,17 +417,17 @@
 .end method
 
 .method public static checkArgumentNonnegative(I)I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/IntRange;
         from = 0x0L
     .end annotation
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_3
 
     return p0
 
     .line 188
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -436,17 +436,17 @@
 .end method
 
 .method public static checkArgumentNonnegative(ILjava/lang/String;)I
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/IntRange;
         from = 0x0L
     .end annotation
 
-    if-ltz p0, :cond_0
+    if-ltz p0, :cond_3
 
     return p0
 
     .line 172
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -455,18 +455,18 @@
 .end method
 
 .method public static checkArgumentNonnegative(J)J
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_7
 
     return-wide p0
 
     .line 203
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -475,18 +475,18 @@
 .end method
 
 .method public static checkArgumentNonnegative(JLjava/lang/String;)J
-    .locals 2
+    .registers 5
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p0, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_7
 
     return-wide p0
 
     .line 219
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -495,14 +495,14 @@
 .end method
 
 .method public static checkArgumentPositive(ILjava/lang/String;)I
-    .locals 0
+    .registers 2
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_3
 
     return p0
 
     .line 235
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
@@ -511,7 +511,7 @@
 .end method
 
 .method public static checkArrayElementsInRange([FFFLjava/lang/String;)[F
-    .locals 8
+    .registers 12
 
     .line 444
     new-instance v0, Ljava/lang/StringBuilder;
@@ -535,10 +535,10 @@
     move v1, v0
 
     .line 446
-    :goto_0
+    :goto_16
     array-length v2, p0
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_97
 
     .line 447
     aget v2, p0, v1
@@ -548,7 +548,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_78
 
     cmpg-float v3, v2, p1
 
@@ -560,18 +560,18 @@
 
     const/4 v7, 0x1
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_54
 
     cmpl-float v2, v2, p2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_30
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_16
 
     .line 456
-    :cond_0
+    :cond_30
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -611,7 +611,7 @@
     throw p0
 
     .line 452
-    :cond_1
+    :cond_54
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -651,7 +651,7 @@
     throw p0
 
     .line 450
-    :cond_2
+    :cond_78
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance p1, Ljava/lang/StringBuilder;
@@ -678,12 +678,12 @@
 
     throw p0
 
-    :cond_3
+    :cond_97
     return-object p0
 .end method
 
 .method public static checkArrayElementsNotNull([Ljava/lang/Object;Ljava/lang/String;)[Ljava/lang/Object;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -694,29 +694,29 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_29
 
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 365
-    :goto_0
+    :goto_4
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_28
 
     .line 366
     aget-object v2, p0, v1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_e
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_4
 
     .line 367
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/NullPointerException;
 
     sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -746,11 +746,11 @@
 
     throw p0
 
-    :cond_1
+    :cond_28
     return-object p0
 
     .line 362
-    :cond_2
+    :cond_29
     new-instance p0, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -773,7 +773,7 @@
 .end method
 
 .method public static checkCollectionElementsNotNull(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
-    .locals 5
+    .registers 7
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -789,7 +789,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_34
 
     const-wide/16 v0, 0x0
 
@@ -798,27 +798,27 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_8
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_33
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_18
 
     const-wide/16 v3, 0x1
 
     add-long/2addr v0, v3
 
-    goto :goto_0
+    goto :goto_8
 
     .line 395
-    :cond_0
+    :cond_18
     new-instance p0, Ljava/lang/NullPointerException;
 
     sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
@@ -850,11 +850,11 @@
 
     throw p0
 
-    :cond_1
+    :cond_33
     return-object p0
 
     .line 389
-    :cond_2
+    :cond_34
     new-instance p0, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -877,7 +877,7 @@
 .end method
 
 .method public static checkCollectionNotEmpty(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -892,19 +892,19 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_20
 
     .line 420
     invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_9
 
     return-object p0
 
     .line 421
-    :cond_0
+    :cond_9
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -926,7 +926,7 @@
     throw p0
 
     .line 418
-    :cond_1
+    :cond_20
     new-instance p0, Ljava/lang/NullPointerException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -949,16 +949,16 @@
 .end method
 
 .method public static checkFlagsArgument(II)I
-    .locals 3
+    .registers 5
 
     and-int v0, p0, p1
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_5
 
     return p0
 
     .line 153
-    :cond_0
+    :cond_5
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1001,7 +1001,7 @@
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -1013,12 +1013,12 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     return-object p0
 
     .line 98
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-direct {p0}, Ljava/lang/NullPointerException;-><init>()V
@@ -1027,7 +1027,7 @@
 .end method
 
 .method public static checkNotNull(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -1041,12 +1041,12 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     return-object p0
 
     .line 115
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/NullPointerException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
@@ -1059,7 +1059,7 @@
 .end method
 
 .method public static checkState(Z)V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -1070,14 +1070,14 @@
 .end method
 
 .method public static checkState(ZLjava/lang/String;)V
-    .locals 0
+    .registers 2
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
     return-void
 
     .line 130
-    :cond_0
+    :cond_3
     new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
@@ -1086,7 +1086,7 @@
 .end method
 
 .method public static checkStringNotEmpty(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 2
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -1103,12 +1103,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-object p0
 
     .line 65
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-direct {p0}, Ljava/lang/IllegalArgumentException;-><init>()V
@@ -1117,7 +1117,7 @@
 .end method
 
 .method public static checkStringNotEmpty(Ljava/lang/CharSequence;Ljava/lang/Object;)Ljava/lang/CharSequence;
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -1136,12 +1136,12 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-object p0
 
     .line 83
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;

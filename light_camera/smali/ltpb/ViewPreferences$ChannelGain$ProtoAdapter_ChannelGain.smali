@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 1134
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public bridge synthetic decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -55,7 +55,7 @@
 .end method
 
 .method public decode(Lcom/squareup/wire/ProtoReader;)Lltpb/ViewPreferences$ChannelGain;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -73,16 +73,16 @@
     move-result-wide v0
 
     .line 1159
-    :goto_0
+    :goto_9
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->nextTag()I
 
     move-result v2
 
     const/4 v3, -0x1
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_53
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_5c
 
     .line 1166
     invoke-virtual {p1}, Lcom/squareup/wire/ProtoReader;->peekFieldEncoding()Lcom/squareup/wire/FieldEncoding;
@@ -101,10 +101,10 @@
     .line 1168
     invoke-virtual {p0, v2, v3, v4}, Lltpb/ViewPreferences$ChannelGain$Builder;->addUnknownField(ILcom/squareup/wire/FieldEncoding;Ljava/lang/Object;)Lcom/squareup/wire/Message$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1164
-    :pswitch_0
+    :pswitch_23
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -115,10 +115,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$ChannelGain$Builder;->b(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1163
-    :pswitch_1
+    :pswitch_2f
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -129,10 +129,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$ChannelGain$Builder;->g_b(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1162
-    :pswitch_2
+    :pswitch_3b
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -143,10 +143,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$ChannelGain$Builder;->g_r(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1161
-    :pswitch_3
+    :pswitch_47
     sget-object v2, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
 
     invoke-virtual {v2, p1}, Lcom/squareup/wire/ProtoAdapter;->decode(Lcom/squareup/wire/ProtoReader;)Ljava/lang/Object;
@@ -157,10 +157,10 @@
 
     invoke-virtual {p0, v2}, Lltpb/ViewPreferences$ChannelGain$Builder;->r(Ljava/lang/Float;)Lltpb/ViewPreferences$ChannelGain$Builder;
 
-    goto :goto_0
+    goto :goto_9
 
     .line 1172
-    :cond_0
+    :cond_53
     invoke-virtual {p1, v0, v1}, Lcom/squareup/wire/ProtoReader;->endMessage(J)V
 
     .line 1173
@@ -172,17 +172,17 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5c
     .packed-switch 0x1
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_47
+        :pswitch_3b
+        :pswitch_2f
+        :pswitch_23
     .end packed-switch
 .end method
 
 .method public bridge synthetic encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -198,7 +198,7 @@
 .end method
 
 .method public encode(Lcom/squareup/wire/ProtoWriter;Lltpb/ViewPreferences$ChannelGain;)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -252,7 +252,7 @@
 .end method
 
 .method public bridge synthetic encodedSize(Ljava/lang/Object;)I
-    .locals 0
+    .registers 2
 
     .line 1132
     check-cast p1, Lltpb/ViewPreferences$ChannelGain;
@@ -265,7 +265,7 @@
 .end method
 
 .method public encodedSize(Lltpb/ViewPreferences$ChannelGain;)I
-    .locals 3
+    .registers 5
 
     .line 1139
     sget-object p0, Lcom/squareup/wire/ProtoAdapter;->FLOAT:Lcom/squareup/wire/ProtoAdapter;
@@ -332,7 +332,7 @@
 .end method
 
 .method public bridge synthetic redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 1132
     check-cast p1, Lltpb/ViewPreferences$ChannelGain;
@@ -345,7 +345,7 @@
 .end method
 
 .method public redact(Lltpb/ViewPreferences$ChannelGain;)Lltpb/ViewPreferences$ChannelGain;
-    .locals 0
+    .registers 2
 
     .line 1178
     invoke-virtual {p1}, Lltpb/ViewPreferences$ChannelGain;->newBuilder()Lltpb/ViewPreferences$ChannelGain$Builder;

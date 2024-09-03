@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-    .locals 0
+    .registers 4
 
     .line 31
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/app/AppCompatDelegateImplV23;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method wrapWindowCallback(Landroid/view/Window$Callback;)Landroid/view/Window$Callback;
-    .locals 1
+    .registers 3
 
     .line 36
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplN$AppCompatWindowCallbackN;

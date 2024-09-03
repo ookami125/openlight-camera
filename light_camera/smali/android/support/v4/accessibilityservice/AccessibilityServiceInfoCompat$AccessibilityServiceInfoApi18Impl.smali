@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 54
     invoke-direct {p0}, Landroid/support/v4/accessibilityservice/AccessibilityServiceInfoCompat$AccessibilityServiceInfoApi16Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getCapabilities(Landroid/accessibilityservice/AccessibilityServiceInfo;)I
-    .locals 0
+    .registers 2
 
     .line 58
     invoke-virtual {p1}, Landroid/accessibilityservice/AccessibilityServiceInfo;->getCapabilities()I

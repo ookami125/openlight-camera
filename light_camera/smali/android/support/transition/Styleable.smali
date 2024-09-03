@@ -86,14 +86,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const/4 v0, 0x6
 
     .line 29
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_60
 
     sput-object v0, Landroid/support/transition/Styleable;->TRANSITION_TARGET:[I
 
@@ -102,7 +102,7 @@
     .line 54
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_1
+    fill-array-data v1, :array_70
 
     sput-object v1, Landroid/support/transition/Styleable;->TRANSITION_MANAGER:[I
 
@@ -111,7 +111,7 @@
     .line 70
     new-array v1, v1, [I
 
-    fill-array-data v1, :array_2
+    fill-array-data v1, :array_7a
 
     sput-object v1, Landroid/support/transition/Styleable;->TRANSITION:[I
 
@@ -151,7 +151,7 @@
     .line 119
     new-array v2, v2, [I
 
-    fill-array-data v2, :array_3
+    fill-array-data v2, :array_86
 
     sput-object v2, Landroid/support/transition/Styleable;->CHANGE_TRANSFORM:[I
 
@@ -176,7 +176,7 @@
     .line 152
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_4
+    fill-array-data v0, :array_8e
 
     sput-object v0, Landroid/support/transition/Styleable;->ARC_MOTION:[I
 
@@ -191,7 +191,7 @@
 
     return-void
 
-    :array_0
+    :array_60
     .array-data 4
         0x101002f
         0x10103dc
@@ -201,14 +201,14 @@
         0x101044e
     .end array-data
 
-    :array_1
+    :array_70
     .array-data 4
         0x10103dd
         0x10103de
         0x10103df
     .end array-data
 
-    :array_2
+    :array_7a
     .array-data 4
         0x1010141
         0x1010198
@@ -216,13 +216,13 @@
         0x101044f
     .end array-data
 
-    :array_3
+    :array_86
     .array-data 4
         0x10104bc
         0x10104bd
     .end array-data
 
-    :array_4
+    :array_8e
     .array-data 4
         0x101047d
         0x101047e
@@ -231,7 +231,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

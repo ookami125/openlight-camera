@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/lib/utils/Utils;)V
-    .locals 0
+    .registers 2
 
     .line 722
     iput-object p1, p0, Lopenlight/co/lib/utils/Utils$2;->this$0:Lopenlight/co/lib/utils/Utils;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 725
     new-instance v0, Ljava/io/File;
@@ -51,10 +51,10 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_54
 
     .line 727
-    :try_start_0
+    :try_start_11
     new-instance v1, Ljava/io/LineNumberReader;
 
     new-instance v2, Ljava/io/FileReader;
@@ -62,76 +62,78 @@
     invoke-direct {v2, v0}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
 
     invoke-direct {v1, v2}, Ljava/io/LineNumberReader;-><init>(Ljava/io/Reader;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
+    :try_end_1b
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_1b} :catch_3c
 
     const/4 v2, 0x0
 
     .line 728
-    :try_start_1
+    :try_start_1c
     iget-object v3, p0, Lopenlight/co/lib/utils/Utils$2;->this$0:Lopenlight/co/lib/utils/Utils;
 
     invoke-virtual {v1}, Ljava/io/LineNumberReader;->readLine()Ljava/lang/String;
 
     move-result-object v4
 
+    # setter for: Lopenlight/co/lib/utils/Utils;->mDeviceId:Ljava/lang/String;
     invoke-static {v3, v4}, Lopenlight/co/lib/utils/Utils;->access$002(Lopenlight/co/lib/utils/Utils;Ljava/lang/String;)Ljava/lang/String;
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_25
+    .catch Ljava/lang/Throwable; {:try_start_1c .. :try_end_25} :catch_2b
+    .catchall {:try_start_1c .. :try_end_25} :catchall_29
 
     .line 729
-    :try_start_2
+    :try_start_25
     invoke-virtual {v1}, Ljava/io/LineNumberReader;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_28
+    .catch Ljava/io/IOException; {:try_start_25 .. :try_end_28} :catch_3c
 
-    goto :goto_2
+    goto :goto_54
 
-    :catchall_0
+    :catchall_29
     move-exception v3
 
-    goto :goto_0
+    goto :goto_2d
 
-    :catch_0
+    :catch_2b
     move-exception v2
 
     .line 727
-    :try_start_3
+    :try_start_2c
     throw v2
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_2d
+    .catchall {:try_start_2c .. :try_end_2d} :catchall_29
 
-    :goto_0
-    if-eqz v2, :cond_0
+    :goto_2d
+    if-eqz v2, :cond_38
 
     .line 729
-    :try_start_4
+    :try_start_2f
     invoke-virtual {v1}, Ljava/io/LineNumberReader;->close()V
-    :try_end_4
-    .catch Ljava/lang/Throwable; {:try_start_4 .. :try_end_4} :catch_1
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_32
+    .catch Ljava/lang/Throwable; {:try_start_2f .. :try_end_32} :catch_33
+    .catch Ljava/io/IOException; {:try_start_2f .. :try_end_32} :catch_3c
 
-    goto :goto_1
+    goto :goto_3b
 
-    :catch_1
+    :catch_33
     move-exception v1
 
-    :try_start_5
+    :try_start_34
     invoke-virtual {v2, v1}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_0
+    :cond_38
     invoke-virtual {v1}, Ljava/io/LineNumberReader;->close()V
 
-    :goto_1
+    :goto_3b
     throw v3
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    :try_end_3c
+    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_3c} :catch_3c
 
     .line 730
-    :catch_2
+    :catch_3c
+    # getter for: Lopenlight/co/lib/utils/Utils;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/lib/utils/Utils;->access$100()Ljava/lang/String;
 
     move-result-object v1
@@ -153,23 +155,25 @@
     invoke-static {v1, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 733
-    :cond_1
-    :goto_2
+    :cond_54
+    :goto_54
     iget-object v0, p0, Lopenlight/co/lib/utils/Utils$2;->this$0:Lopenlight/co/lib/utils/Utils;
 
+    # getter for: Lopenlight/co/lib/utils/Utils;->mDeviceId:Ljava/lang/String;
     invoke-static {v0}, Lopenlight/co/lib/utils/Utils;->access$000(Lopenlight/co/lib/utils/Utils;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_63
 
     .line 734
     iget-object p0, p0, Lopenlight/co/lib/utils/Utils$2;->this$0:Lopenlight/co/lib/utils/Utils;
 
     const-string v0, "unknown"
 
+    # setter for: Lopenlight/co/lib/utils/Utils;->mDeviceId:Ljava/lang/String;
     invoke-static {p0, v0}, Lopenlight/co/lib/utils/Utils;->access$002(Lopenlight/co/lib/utils/Utils;Ljava/lang/String;)Ljava/lang/String;
 
-    :cond_2
+    :cond_63
     return-void
 .end method

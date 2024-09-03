@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/Activity;)V
-    .locals 0
+    .registers 2
 
     .line 600
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 1
+    .registers 2
 
     .line 615
     iget-object v0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$JellybeanMr2Delegate;->mActivity:Landroid/app/Activity;
@@ -50,25 +50,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 618
     invoke-virtual {v0}, Landroid/app/ActionBar;->getThemedContext()Landroid/content/Context;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 620
-    :cond_0
+    :cond_d
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$JellybeanMr2Delegate;->mActivity:Landroid/app/Activity;
 
-    :goto_0
+    :goto_f
     return-object p0
 .end method
 
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
-    .locals 4
+    .registers 5
 
     .line 606
     invoke-virtual {p0}, Landroid/support/v7/app/ActionBarDrawerToggle$JellybeanMr2Delegate;->getActionBarThemedContext()Landroid/content/Context;
@@ -105,7 +105,7 @@
 .end method
 
 .method public isNavigationVisible()Z
-    .locals 0
+    .registers 1
 
     .line 627
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$JellybeanMr2Delegate;->mActivity:Landroid/app/Activity;
@@ -114,7 +114,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 629
     invoke-virtual {p0}, Landroid/app/ActionBar;->getDisplayOptions()I
@@ -123,21 +123,21 @@
 
     and-int/lit8 p0, p0, 0x4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_13
     return p0
 .end method
 
 .method public setActionBarDescription(I)V
-    .locals 0
+    .registers 2
 
     .line 643
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$JellybeanMr2Delegate;->mActivity:Landroid/app/Activity;
@@ -146,17 +146,17 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 645
     invoke-virtual {p0, p1}, Landroid/app/ActionBar;->setHomeActionContentDescription(I)V
 
-    :cond_0
+    :cond_b
     return-void
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .locals 0
+    .registers 3
 
     .line 634
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$JellybeanMr2Delegate;->mActivity:Landroid/app/Activity;
@@ -165,7 +165,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     .line 636
     invoke-virtual {p0, p1}, Landroid/app/ActionBar;->setHomeAsUpIndicator(Landroid/graphics/drawable/Drawable;)V
@@ -173,6 +173,6 @@
     .line 637
     invoke-virtual {p0, p2}, Landroid/app/ActionBar;->setHomeActionContentDescription(I)V
 
-    :cond_0
+    :cond_e
     return-void
 .end method

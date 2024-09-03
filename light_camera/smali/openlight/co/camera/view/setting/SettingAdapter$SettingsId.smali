@@ -100,7 +100,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 28
+    .registers 28
 
     .line 57
     new-instance v10, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId$1;
@@ -522,7 +522,7 @@
 
     const-string v4, "light.co.lightgallery"
 
-    const-string v5, "openlight.co.gallery.view.ManagePresetsActivity"
+    const-string v5, "light.co.gallery.view.ManagePresetsActivity"
 
     invoke-direct {v2, v4, v5}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -745,7 +745,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZIIILandroid/content/Intent;)V
-    .locals 12
+    .registers 20
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZIII",
@@ -785,7 +785,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIILjava/util/List;Z)V
-    .locals 12
+    .registers 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI",
@@ -828,7 +828,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIILjava/util/List;ZLandroid/content/Intent;)V
-    .locals 0
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI",
@@ -888,7 +888,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIILjava/util/List;ZLopenlight/co/camera/view/setting/SettingAdapter$1;)V
-    .locals 0
+    .registers 12
 
     .line 56
     invoke-direct/range {p0 .. p10}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;-><init>(Ljava/lang/String;IZILjava/lang/String;IIILjava/util/List;Z)V
@@ -897,7 +897,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIIZ)V
-    .locals 12
+    .registers 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI",
@@ -937,7 +937,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIIZLopenlight/co/camera/view/setting/SettingAdapter$1;)V
-    .locals 0
+    .registers 11
 
     .line 56
     invoke-direct/range {p0 .. p9}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;-><init>(Ljava/lang/String;IZILjava/lang/String;IIIZ)V
@@ -946,7 +946,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIZ)V
-    .locals 12
+    .registers 21
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ZI",
@@ -986,7 +986,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIZLopenlight/co/camera/view/setting/SettingAdapter$1;)V
-    .locals 0
+    .registers 10
 
     .line 56
     invoke-direct/range {p0 .. p8}, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;-><init>(Ljava/lang/String;IZILjava/lang/String;IIZ)V
@@ -995,7 +995,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
-    .locals 1
+    .registers 2
 
     .line 56
     const-class v0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -1010,7 +1010,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
-    .locals 1
+    .registers 1
 
     .line 56
     sget-object v0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->$VALUES:[Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -1027,7 +1027,7 @@
 
 # virtual methods
 .method public getIconId()I
-    .locals 0
+    .registers 1
 
     .line 213
     iget p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mIconId:I
@@ -1036,7 +1036,7 @@
 .end method
 
 .method public getIntent()Landroid/content/Intent;
-    .locals 0
+    .registers 1
 
     .line 233
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mIntent:Landroid/content/Intent;
@@ -1045,7 +1045,7 @@
 .end method
 
 .method public getOptionList()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1062,7 +1062,7 @@
 .end method
 
 .method public getOptionalListId()I
-    .locals 0
+    .registers 1
 
     .line 217
     iget p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mOptionalListId:I
@@ -1071,7 +1071,7 @@
 .end method
 
 .method public getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 205
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mPreferenceKey:Ljava/lang/String;
@@ -1080,7 +1080,7 @@
 .end method
 
 .method public getSettingModel()Lopenlight/co/camera/view/setting/SettingModel;
-    .locals 0
+    .registers 1
 
     .line 229
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mSettingModel:Lopenlight/co/camera/view/setting/SettingModel;
@@ -1089,7 +1089,7 @@
 .end method
 
 .method public getSettingsResourceId()I
-    .locals 0
+    .registers 1
 
     .line 193
     iget p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mSettingsResourceId:I
@@ -1098,7 +1098,7 @@
 .end method
 
 .method public getSubTitle()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 201
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mSubTitle:Ljava/lang/String;
@@ -1107,7 +1107,7 @@
 .end method
 
 .method public getTitle()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 197
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -1128,7 +1128,7 @@
 .end method
 
 .method public getType()I
-    .locals 0
+    .registers 1
 
     .line 209
     iget p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mType:I
@@ -1137,7 +1137,7 @@
 .end method
 
 .method public isImplemented()Z
-    .locals 0
+    .registers 1
 
     .line 189
     iget-boolean p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mIsImplemented:Z
@@ -1146,7 +1146,7 @@
 .end method
 
 .method public isSelectionHighlighted()Z
-    .locals 0
+    .registers 1
 
     .line 225
     iget-boolean p0, p0, Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;->mIsHighlighted:Z

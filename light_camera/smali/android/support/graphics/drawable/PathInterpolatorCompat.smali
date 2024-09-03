@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 1
+    .registers 5
 
     .line 67
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -47,7 +47,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;Landroid/util/AttributeSet;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 1
+    .registers 6
 
     .line 71
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method private initCubic(FFFF)V
-    .locals 8
+    .registers 13
 
     .line 129
     new-instance v7, Landroid/graphics/Path;
@@ -105,7 +105,7 @@
 .end method
 
 .method private initPath(Landroid/graphics/Path;)V
-    .locals 10
+    .registers 12
 
     .line 136
     new-instance v0, Landroid/graphics/PathMeasure;
@@ -136,7 +136,7 @@
 
     move-result v2
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_fe
 
     .line 145
     new-array v4, v2, [F
@@ -155,8 +155,8 @@
 
     move v5, v1
 
-    :goto_0
-    if-ge v5, v2, :cond_0
+    :goto_26
+    if-ge v5, v2, :cond_41
 
     int-to-float v6, v5
 
@@ -189,10 +189,10 @@
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_26
 
     .line 157
-    :cond_0
+    :cond_41
     iget-object p1, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
 
     aget p1, p1, v1
@@ -207,7 +207,7 @@
 
     cmpl-double p1, v4, v6
 
-    if-gtz p1, :cond_4
+    if-gtz p1, :cond_be
 
     iget-object p1, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mY:[F
 
@@ -221,7 +221,7 @@
 
     cmpl-double p1, v4, v6
 
-    if-gtz p1, :cond_4
+    if-gtz p1, :cond_be
 
     iget-object p1, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
 
@@ -241,7 +241,7 @@
 
     cmpl-double p1, v8, v6
 
-    if-gtz p1, :cond_4
+    if-gtz p1, :cond_be
 
     iget-object p1, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mY:[F
 
@@ -258,7 +258,7 @@
 
     cmpl-double p1, v4, v6
 
-    if-gtz p1, :cond_4
+    if-gtz p1, :cond_be
 
     const/4 p1, 0x0
 
@@ -266,8 +266,8 @@
 
     move p1, v1
 
-    :goto_1
-    if-ge v1, v2, :cond_2
+    :goto_83
+    if-ge v1, v2, :cond_af
 
     .line 168
     iget-object v4, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
@@ -278,7 +278,7 @@
 
     cmpg-float v3, p1, v3
 
-    if-ltz v3, :cond_1
+    if-ltz v3, :cond_98
 
     .line 172
     iget-object v3, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
@@ -291,10 +291,10 @@
 
     move p1, v5
 
-    goto :goto_1
+    goto :goto_83
 
     .line 170
-    :cond_1
+    :cond_98
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -316,17 +316,17 @@
     throw p0
 
     .line 176
-    :cond_2
+    :cond_af
     invoke-virtual {v0}, Landroid/graphics/PathMeasure;->nextContour()Z
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_b6
 
     return-void
 
     .line 177
-    :cond_3
+    :cond_b6
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The Path should be continuous, can\'t have 2+ contours"
@@ -336,7 +336,7 @@
     throw p0
 
     .line 159
-    :cond_4
+    :cond_be
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -394,7 +394,7 @@
     throw p1
 
     .line 142
-    :cond_5
+    :cond_fe
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -417,7 +417,7 @@
 .end method
 
 .method private initQuad(FF)V
-    .locals 2
+    .registers 5
 
     .line 122
     new-instance v0, Landroid/graphics/Path;
@@ -441,7 +441,7 @@
 .end method
 
 .method private parseInterpolatorFromTypeArray(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 6
+    .registers 9
 
     const-string v0, "pathData"
 
@@ -450,7 +450,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_30
 
     const-string v0, "pathData"
 
@@ -466,15 +466,15 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_19
 
     .line 89
     invoke-direct {p0, p2}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initPath(Landroid/graphics/Path;)V
 
-    goto :goto_0
+    goto :goto_74
 
     .line 86
-    :cond_0
+    :cond_19
     new-instance p0, Landroid/view/InflateException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -495,7 +495,7 @@
 
     throw p0
 
-    :cond_1
+    :cond_30
     const-string v0, "controlX1"
 
     .line 91
@@ -503,7 +503,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_85
 
     const-string v0, "controlY1"
 
@@ -512,7 +512,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7d
 
     const-string v0, "controlX1"
 
@@ -548,16 +548,16 @@
 
     move-result v4
 
-    if-ne v3, v4, :cond_3
+    if-ne v3, v4, :cond_75
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_63
 
     .line 110
     invoke-direct {p0, v0, v1}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initQuad(FF)V
 
-    goto :goto_0
+    goto :goto_74
 
-    :cond_2
+    :cond_63
     const-string v3, "controlX2"
 
     const/4 v4, 0x2
@@ -579,11 +579,11 @@
     .line 116
     invoke-direct {p0, v0, v1, v3, p1}, Landroid/support/graphics/drawable/PathInterpolatorCompat;->initCubic(FFFF)V
 
-    :goto_0
+    :goto_74
     return-void
 
     .line 105
-    :cond_3
+    :cond_75
     new-instance p0, Landroid/view/InflateException;
 
     const-string p1, "pathInterpolator requires both controlX2 and controlY2 for cubic Beziers."
@@ -593,7 +593,7 @@
     throw p0
 
     .line 94
-    :cond_4
+    :cond_7d
     new-instance p0, Landroid/view/InflateException;
 
     const-string p1, "pathInterpolator requires the controlY1 attribute"
@@ -603,7 +603,7 @@
     throw p0
 
     .line 92
-    :cond_5
+    :cond_85
     new-instance p0, Landroid/view/InflateException;
 
     const-string p1, "pathInterpolator requires the controlX1 attribute"
@@ -616,26 +616,26 @@
 
 # virtual methods
 .method public getInterpolation(F)F
-    .locals 6
+    .registers 8
 
     const/4 v0, 0x0
 
     cmpg-float v1, p1, v0
 
-    if-gtz v1, :cond_0
+    if-gtz v1, :cond_6
 
     return v0
 
-    :cond_0
+    :cond_6
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v2, p1, v1
 
-    if-ltz v2, :cond_1
+    if-ltz v2, :cond_d
 
     return v1
 
-    :cond_1
+    :cond_d
     const/4 v1, 0x0
 
     .line 201
@@ -647,10 +647,10 @@
 
     sub-int/2addr v2, v3
 
-    :goto_0
+    :goto_13
     sub-int v4, v2, v1
 
-    if-le v4, v3, :cond_3
+    if-le v4, v3, :cond_27
 
     add-int v4, v1, v2
 
@@ -664,19 +664,19 @@
 
     cmpg-float v5, p1, v5
 
-    if-gez v5, :cond_2
+    if-gez v5, :cond_25
 
     move v2, v4
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_2
+    :cond_25
     move v1, v4
 
-    goto :goto_0
+    goto :goto_13
 
     .line 212
-    :cond_3
+    :cond_27
     iget-object v3, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
 
     aget v3, v3, v2
@@ -689,7 +689,7 @@
 
     cmpl-float v0, v3, v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_39
 
     .line 214
     iget-object p0, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mY:[F
@@ -699,7 +699,7 @@
     return p0
 
     .line 217
-    :cond_4
+    :cond_39
     iget-object v0, p0, Landroid/support/graphics/drawable/PathInterpolatorCompat;->mX:[F
 
     aget v0, v0, v1

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/managers/CameraManager;)V
-    .locals 0
+    .registers 2
 
     .line 1138
     iput-object p1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -33,13 +33,14 @@
 
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 1179
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p0
@@ -52,13 +53,14 @@
 .end method
 
 .method public onConfigureFailed(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 1173
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -70,6 +72,7 @@
     .line 1174
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p0
@@ -80,13 +83,14 @@
 .end method
 
 .method public onConfigured(Landroid/hardware/camera2/CameraCaptureSession;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/hardware/camera2/CameraCaptureSession;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 1142
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -98,6 +102,7 @@
     .line 1143
     iget-object v0, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraStateLock:Ljava/lang/Object;
     invoke-static {v0}, Lopenlight/co/camera/managers/CameraManager;->access$800(Lopenlight/co/camera/managers/CameraManager;)Ljava/lang/Object;
 
     move-result-object v0
@@ -105,16 +110,17 @@
     monitor-enter v0
 
     .line 1145
-    :try_start_0
+    :try_start_10
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     iget-object v1, v1, Lopenlight/co/camera/managers/CameraManager;->mCameraDevice:Landroid/hardware/camera2/CameraDevice;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_21
 
     .line 1146
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p0
@@ -127,17 +133,19 @@
     return-void
 
     .line 1150
-    :cond_0
+    :cond_21
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # setter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureSession:Landroid/hardware/camera2/CameraCaptureSession;
     invoke-static {v1, p1}, Lopenlight/co/camera/managers/CameraManager;->access$1902(Lopenlight/co/camera/managers/CameraManager;Landroid/hardware/camera2/CameraCaptureSession;)Landroid/hardware/camera2/CameraCaptureSession;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_26
+    .catchall {:try_start_10 .. :try_end_26} :catchall_72
 
     .line 1152
-    :try_start_1
+    :try_start_26
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCaptureReqManager:Lopenlight/co/camera/utils/Provider;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$700(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/Provider;
 
     move-result-object p1
@@ -158,6 +166,7 @@
     .line 1154
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p1
@@ -165,12 +174,12 @@
     sget-object v1, Lopenlight/co/camera/utils/CameraState$SessionState;->PREVIEW:Lopenlight/co/camera/utils/CameraState$SessionState;
 
     invoke-virtual {p1, v1}, Lopenlight/co/camera/utils/CameraState;->setSessionState(Lopenlight/co/camera/utils/CameraState$SessionState;)V
-    :try_end_1
-    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_44
+    .catch Ljava/lang/IllegalStateException; {:try_start_26 .. :try_end_44} :catch_66
+    .catchall {:try_start_26 .. :try_end_44} :catchall_72
 
     .line 1159
-    :try_start_2
+    :try_start_44
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     invoke-virtual {p1}, Lopenlight/co/camera/managers/CameraManager;->startRepeatingRequestInPreview()V
@@ -178,6 +187,7 @@
     .line 1161
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCamMode:Lopenlight/co/camera/CameraMode;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$2000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/CameraMode;
 
     move-result-object p1
@@ -186,7 +196,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_5d
 
     .line 1162
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -199,7 +209,7 @@
     invoke-static {p1, v1}, Lopenlight/co/camera/managers/capturerequest/CaptureRequestBuilder;->setAwbLock(Landroid/hardware/camera2/CaptureRequest$Builder;Z)V
 
     .line 1166
-    :cond_1
+    :cond_5d
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$4;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager;->mUpdatePreviewListener:Lopenlight/co/camera/managers/CameraManager$UpdatePreview;
@@ -211,10 +221,11 @@
 
     return-void
 
-    :catch_0
+    :catch_66
     move-exception p0
 
     .line 1156
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -228,13 +239,13 @@
 
     return-void
 
-    :catchall_0
+    :catchall_72
     move-exception p0
 
     .line 1167
     monitor-exit v0
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_74
+    .catchall {:try_start_44 .. :try_end_74} :catchall_72
 
     throw p0
 .end method

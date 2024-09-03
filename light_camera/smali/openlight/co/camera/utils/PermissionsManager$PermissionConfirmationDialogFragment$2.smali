@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;)V
-    .locals 0
+    .registers 2
 
     .line 117
     iput-object p1, p0, Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment$2;->this$0:Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;
@@ -36,11 +36,12 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 0
+    .registers 3
 
     .line 120
     iget-object p0, p0, Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment$2;->this$0:Lopenlight/co/camera/utils/PermissionsManager$PermissionConfirmationDialogFragment;
 
+    # getter for: Lopenlight/co/camera/utils/PermissionsManager;->CAMERA_PERMISSIONS:[Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/PermissionsManager;->access$000()[Ljava/lang/String;
 
     move-result-object p1

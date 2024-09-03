@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(C[F)V
-    .locals 0
+    .registers 3
 
     .line 319
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method constructor <init>(Landroid/support/v4/graphics/PathParser$PathDataNode;)V
-    .locals 2
+    .registers 4
 
     .line 324
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -78,7 +78,7 @@
 .end method
 
 .method private static addCommand(Landroid/graphics/Path;[FCC[F)V
-    .locals 27
+    .registers 32
 
     move-object/from16 v10, p0
 
@@ -114,16 +114,16 @@
     .line 370
     aget v5, p1, v19
 
-    sparse-switch p3, :sswitch_data_0
+    sparse-switch p3, :sswitch_data_2fe
 
-    :goto_0
-    :sswitch_0
+    :goto_1d
+    :sswitch_1d
     move/from16 v20, v16
 
-    goto :goto_2
+    goto :goto_36
 
     .line 377
-    :sswitch_1
+    :sswitch_20
     invoke-virtual/range {p0 .. p0}, Landroid/graphics/Path;->close()V
 
     .line 385
@@ -137,30 +137,30 @@
 
     move v3, v1
 
-    goto :goto_0
+    goto :goto_1d
 
-    :sswitch_2
+    :sswitch_2b
     move/from16 v20, v18
 
-    goto :goto_2
+    goto :goto_36
 
-    :sswitch_3
+    :sswitch_2e
     move/from16 v20, v15
 
-    goto :goto_2
+    goto :goto_36
 
-    :sswitch_4
+    :sswitch_31
     const/4 v6, 0x6
 
-    goto :goto_1
+    goto :goto_34
 
-    :sswitch_5
+    :sswitch_33
     const/4 v6, 0x7
 
-    :goto_1
+    :goto_34
     move/from16 v20, v6
 
-    :goto_2
+    :goto_36
     move v8, v0
 
     move v7, v1
@@ -174,10 +174,10 @@
     move/from16 v0, p2
 
     .line 417
-    :goto_3
+    :goto_3f
     array-length v1, v13
 
-    if-ge v9, v1, :cond_e
+    if-ge v9, v1, :cond_2ee
 
     const/16 v1, 0x51
 
@@ -193,18 +193,18 @@
 
     const/4 v4, 0x0
 
-    sparse-switch p3, :sswitch_data_1
+    sparse-switch p3, :sswitch_data_350
 
     move v12, v7
 
     move v11, v8
 
-    :goto_4
+    :goto_54
     move/from16 v25, v9
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_6
+    :sswitch_58
     add-int/lit8 v0, v9, 0x0
 
     .line 466
@@ -217,33 +217,33 @@
 
     add-float/2addr v7, v0
 
-    goto :goto_4
+    goto :goto_54
 
-    :sswitch_7
-    if-eq v0, v15, :cond_1
+    :sswitch_63
+    if-eq v0, v15, :cond_70
 
-    if-eq v0, v5, :cond_1
+    if-eq v0, v5, :cond_70
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v1, :cond_70
 
     const/16 v1, 0x54
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6e
 
-    goto :goto_5
+    goto :goto_70
 
-    :cond_0
+    :cond_6e
     move v0, v4
 
-    goto :goto_6
+    goto :goto_74
 
-    :cond_1
-    :goto_5
+    :cond_70
+    :goto_70
     sub-float v4, v8, v2
 
     sub-float v0, v7, v3
 
-    :goto_6
+    :goto_74
     add-int/lit8 v1, v9, 0x0
 
     .line 545
@@ -273,32 +273,32 @@
 
     move v2, v4
 
-    goto :goto_4
+    goto :goto_54
 
-    :sswitch_8
-    if-eq v0, v14, :cond_3
+    :sswitch_8a
+    if-eq v0, v14, :cond_9a
 
-    if-eq v0, v6, :cond_3
+    if-eq v0, v6, :cond_9a
 
     const/16 v1, 0x43
 
-    if-eq v0, v1, :cond_3
+    if-eq v0, v1, :cond_9a
 
     const/16 v1, 0x53
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_97
 
-    goto :goto_7
+    goto :goto_9a
 
-    :cond_2
+    :cond_97
     move v1, v4
 
     move v2, v1
 
-    goto :goto_8
+    goto :goto_a0
 
-    :cond_3
-    :goto_7
+    :cond_9a
+    :goto_9a
     sub-float v0, v8, v2
 
     sub-float v1, v7, v3
@@ -307,7 +307,7 @@
 
     move v1, v0
 
-    :goto_8
+    :goto_a0
     add-int/lit8 v14, v9, 0x0
 
     .line 499
@@ -349,9 +349,9 @@
 
     add-float/2addr v7, v2
 
-    goto/16 :goto_9
+    goto/16 :goto_14d
 
-    :sswitch_9
+    :sswitch_c3
     add-int/lit8 v0, v9, 0x0
 
     .line 524
@@ -391,9 +391,9 @@
 
     add-float/2addr v7, v2
 
-    goto :goto_9
+    goto :goto_14d
 
-    :sswitch_a
+    :sswitch_e3
     add-int/lit8 v0, v9, 0x0
 
     .line 420
@@ -408,7 +408,7 @@
 
     add-float/2addr v7, v4
 
-    if-lez v9, :cond_4
+    if-lez v9, :cond_f8
 
     .line 426
     aget v0, v13, v0
@@ -417,10 +417,10 @@
 
     invoke-virtual {v10, v0, v1}, Landroid/graphics/Path;->rLineTo(FF)V
 
-    goto/16 :goto_4
+    goto/16 :goto_54
 
     .line 428
-    :cond_4
+    :cond_f8
     aget v0, v13, v0
 
     aget v1, v13, v1
@@ -431,9 +431,9 @@
 
     move/from16 v21, v8
 
-    goto/16 :goto_4
+    goto/16 :goto_54
 
-    :sswitch_b
+    :sswitch_105
     add-int/lit8 v0, v9, 0x0
 
     .line 448
@@ -455,9 +455,9 @@
 
     add-float/2addr v7, v0
 
-    goto/16 :goto_4
+    goto/16 :goto_54
 
-    :sswitch_c
+    :sswitch_118
     add-int/lit8 v0, v9, 0x0
 
     .line 458
@@ -470,9 +470,9 @@
 
     add-float/2addr v8, v0
 
-    goto/16 :goto_4
+    goto/16 :goto_54
 
-    :sswitch_d
+    :sswitch_124
     add-int/lit8 v0, v9, 0x0
 
     .line 474
@@ -522,14 +522,14 @@
 
     add-float/2addr v7, v2
 
-    :goto_9
+    :goto_14d
     move v2, v0
 
     move v3, v1
 
-    goto/16 :goto_4
+    goto/16 :goto_54
 
-    :sswitch_e
+    :sswitch_151
     add-int/lit8 v14, v9, 0x5
 
     .line 569
@@ -561,32 +561,32 @@
 
     cmpl-float v0, v0, v4
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_174
 
     const/16 v25, 0x1
 
-    goto :goto_a
+    goto :goto_176
 
-    :cond_5
+    :cond_174
     const/16 v25, 0x0
 
-    :goto_a
+    :goto_176
     add-int/lit8 v0, v9, 0x4
 
     aget v0, v13, v0
 
     cmpl-float v0, v0, v4
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_181
 
     const/16 v26, 0x1
 
-    goto :goto_b
+    goto :goto_183
 
-    :cond_6
+    :cond_181
     const/16 v26, 0x0
 
-    :goto_b
+    :goto_183
     move-object/from16 v0, p0
 
     move v1, v8
@@ -623,9 +623,9 @@
 
     add-float v7, v12, v0
 
-    goto/16 :goto_11
+    goto/16 :goto_2e4
 
-    :sswitch_f
+    :sswitch_1a2
     move v11, v8
 
     move/from16 v25, v9
@@ -640,26 +640,26 @@
     .line 471
     aget v7, v13, v9
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_10
+    :sswitch_1b0
     move v12, v7
 
     move v11, v8
 
     move/from16 v25, v9
 
-    if-eq v0, v15, :cond_7
+    if-eq v0, v15, :cond_1be
 
-    if-eq v0, v5, :cond_7
+    if-eq v0, v5, :cond_1be
 
-    if-eq v0, v1, :cond_7
+    if-eq v0, v1, :cond_1be
 
     const/16 v1, 0x54
 
-    if-ne v0, v1, :cond_8
+    if-ne v0, v1, :cond_1c6
 
-    :cond_7
+    :cond_1be
     mul-float v8, v11, v23
 
     sub-float/2addr v8, v2
@@ -672,7 +672,7 @@
 
     move v11, v8
 
-    :cond_8
+    :cond_1c6
     add-int/lit8 v9, v25, 0x0
 
     .line 560
@@ -694,38 +694,38 @@
 
     move v3, v12
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_11
+    :sswitch_1d9
     move v12, v7
 
     move v11, v8
 
     move/from16 v25, v9
 
-    if-eq v0, v14, :cond_a
+    if-eq v0, v14, :cond_1ed
 
-    if-eq v0, v6, :cond_a
+    if-eq v0, v6, :cond_1ed
 
     const/16 v1, 0x43
 
-    if-eq v0, v1, :cond_a
+    if-eq v0, v1, :cond_1ed
 
     const/16 v1, 0x53
 
-    if-ne v0, v1, :cond_9
+    if-ne v0, v1, :cond_1ea
 
-    goto :goto_c
+    goto :goto_1ed
 
-    :cond_9
+    :cond_1ea
     move v1, v11
 
     move v2, v12
 
-    goto :goto_d
+    goto :goto_1f5
 
-    :cond_a
-    :goto_c
+    :cond_1ed
+    :goto_1ed
     mul-float v8, v11, v23
 
     sub-float/2addr v8, v2
@@ -738,7 +738,7 @@
 
     move v1, v8
 
-    :goto_d
+    :goto_1f5
     add-int/lit8 v9, v25, 0x0
 
     .line 516
@@ -772,9 +772,9 @@
     .line 521
     aget v7, v13, v11
 
-    goto :goto_e
+    goto :goto_230
 
-    :sswitch_12
+    :sswitch_213
     move/from16 v25, v9
 
     add-int/lit8 v9, v25, 0x0
@@ -808,14 +808,14 @@
     .line 535
     aget v7, v13, v5
 
-    :goto_e
+    :goto_230
     move v2, v0
 
     move v3, v1
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_13
+    :sswitch_234
     move/from16 v25, v9
 
     add-int/lit8 v9, v25, 0x0
@@ -828,7 +828,7 @@
     .line 435
     aget v7, v13, v0
 
-    if-lez v25, :cond_b
+    if-lez v25, :cond_249
 
     .line 440
     aget v1, v13, v9
@@ -837,10 +837,10 @@
 
     invoke-virtual {v10, v1, v0}, Landroid/graphics/Path;->lineTo(FF)V
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
     .line 442
-    :cond_b
+    :cond_249
     aget v1, v13, v9
 
     aget v0, v13, v0
@@ -851,9 +851,9 @@
 
     move/from16 v21, v8
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_14
+    :sswitch_256
     move/from16 v25, v9
 
     add-int/lit8 v9, v25, 0x0
@@ -873,9 +873,9 @@
     .line 455
     aget v7, v13, v1
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_15
+    :sswitch_269
     move v12, v7
 
     move/from16 v25, v9
@@ -890,9 +890,9 @@
     .line 463
     aget v8, v13, v9
 
-    goto/16 :goto_12
+    goto/16 :goto_2e6
 
-    :sswitch_16
+    :sswitch_277
     move/from16 v25, v9
 
     add-int/lit8 v9, v25, 0x0
@@ -942,9 +942,9 @@
 
     move v2, v1
 
-    goto :goto_12
+    goto :goto_2e6
 
-    :sswitch_17
+    :sswitch_2a2
     move v12, v7
 
     move v11, v8
@@ -978,32 +978,32 @@
 
     cmpl-float v0, v0, v4
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_2c4
 
     const/4 v9, 0x1
 
-    goto :goto_f
+    goto :goto_2c5
 
-    :cond_c
+    :cond_2c4
     const/4 v9, 0x0
 
-    :goto_f
+    :goto_2c5
     add-int/lit8 v0, v25, 0x4
 
     aget v0, v13, v0
 
     cmpl-float v0, v0, v4
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_2d0
 
     const/16 v23, 0x1
 
-    goto :goto_10
+    goto :goto_2d2
 
-    :cond_d
+    :cond_2d0
     const/16 v23, 0x0
 
-    :goto_10
+    :goto_2d2
     move-object/from16 v0, p0
 
     move v1, v11
@@ -1030,12 +1030,12 @@
     .line 596
     aget v7, v13, v15
 
-    :goto_11
+    :goto_2e4
     move v3, v7
 
     move v2, v8
 
-    :goto_12
+    :goto_2e6
     add-int v9, v25, v20
 
     move/from16 v0, p3
@@ -1044,9 +1044,9 @@
 
     const/4 v15, 0x1
 
-    goto/16 :goto_3
+    goto/16 :goto_3f
 
-    :cond_e
+    :cond_2ee
     move v12, v7
 
     move v1, v14
@@ -1073,55 +1073,55 @@
 
     return-void
 
-    :sswitch_data_0
+    :sswitch_data_2fe
     .sparse-switch
-        0x41 -> :sswitch_5
-        0x43 -> :sswitch_4
-        0x48 -> :sswitch_3
-        0x4c -> :sswitch_0
-        0x4d -> :sswitch_0
-        0x51 -> :sswitch_2
-        0x53 -> :sswitch_2
-        0x54 -> :sswitch_0
-        0x56 -> :sswitch_3
-        0x5a -> :sswitch_1
-        0x61 -> :sswitch_5
-        0x63 -> :sswitch_4
-        0x68 -> :sswitch_3
-        0x6c -> :sswitch_0
-        0x6d -> :sswitch_0
-        0x71 -> :sswitch_2
-        0x73 -> :sswitch_2
-        0x74 -> :sswitch_0
-        0x76 -> :sswitch_3
-        0x7a -> :sswitch_1
+        0x41 -> :sswitch_33
+        0x43 -> :sswitch_31
+        0x48 -> :sswitch_2e
+        0x4c -> :sswitch_1d
+        0x4d -> :sswitch_1d
+        0x51 -> :sswitch_2b
+        0x53 -> :sswitch_2b
+        0x54 -> :sswitch_1d
+        0x56 -> :sswitch_2e
+        0x5a -> :sswitch_20
+        0x61 -> :sswitch_33
+        0x63 -> :sswitch_31
+        0x68 -> :sswitch_2e
+        0x6c -> :sswitch_1d
+        0x6d -> :sswitch_1d
+        0x71 -> :sswitch_2b
+        0x73 -> :sswitch_2b
+        0x74 -> :sswitch_1d
+        0x76 -> :sswitch_2e
+        0x7a -> :sswitch_20
     .end sparse-switch
 
-    :sswitch_data_1
+    :sswitch_data_350
     .sparse-switch
-        0x41 -> :sswitch_17
-        0x43 -> :sswitch_16
-        0x48 -> :sswitch_15
-        0x4c -> :sswitch_14
-        0x4d -> :sswitch_13
-        0x51 -> :sswitch_12
-        0x53 -> :sswitch_11
-        0x54 -> :sswitch_10
-        0x56 -> :sswitch_f
-        0x61 -> :sswitch_e
-        0x63 -> :sswitch_d
-        0x68 -> :sswitch_c
-        0x6c -> :sswitch_b
-        0x6d -> :sswitch_a
-        0x71 -> :sswitch_9
-        0x73 -> :sswitch_8
-        0x74 -> :sswitch_7
-        0x76 -> :sswitch_6
+        0x41 -> :sswitch_2a2
+        0x43 -> :sswitch_277
+        0x48 -> :sswitch_269
+        0x4c -> :sswitch_256
+        0x4d -> :sswitch_234
+        0x51 -> :sswitch_213
+        0x53 -> :sswitch_1d9
+        0x54 -> :sswitch_1b0
+        0x56 -> :sswitch_1a2
+        0x61 -> :sswitch_151
+        0x63 -> :sswitch_124
+        0x68 -> :sswitch_118
+        0x6c -> :sswitch_105
+        0x6d -> :sswitch_e3
+        0x71 -> :sswitch_c3
+        0x73 -> :sswitch_8a
+        0x74 -> :sswitch_63
+        0x76 -> :sswitch_58
     .end sparse-switch
 .end method
 
 .method private static arcToBezier(Landroid/graphics/Path;DDDDDDDDD)V
-    .locals 55
+    .registers 74
 
     move-wide/from16 v0, p5
 
@@ -1202,8 +1202,8 @@
 
     move-wide/from16 v14, p15
 
-    :goto_0
-    if-ge v13, v8, :cond_0
+    :goto_44
+    if-ge v13, v8, :cond_e9
 
     add-double v30, v14, v4
 
@@ -1377,14 +1377,14 @@
 
     move-wide/from16 v0, p5
 
-    goto/16 :goto_0
+    goto/16 :goto_44
 
-    :cond_0
+    :cond_e9
     return-void
 .end method
 
 .method private static drawArc(Landroid/graphics/Path;FFFFFFFZZ)V
-    .locals 41
+    .registers 51
 
     move/from16 v1, p1
 
@@ -1505,7 +1505,7 @@
 
     cmpl-double v12, v10, v23
 
-    if-nez v12, :cond_0
+    if-nez v12, :cond_6a
 
     const-string v0, "PathParser"
 
@@ -1516,7 +1516,7 @@
 
     return-void
 
-    :cond_0
+    :cond_6a
     const-wide/high16 v35, 0x3ff0000000000000L    # 1.0
 
     div-double v35, v35, v10
@@ -1527,7 +1527,7 @@
 
     cmpg-double v12, v35, v23
 
-    if-gez v12, :cond_1
+    if-gez v12, :cond_b1
 
     const-string v1, "PathParser"
 
@@ -1587,7 +1587,7 @@
     return-void
 
     .line 653
-    :cond_1
+    :cond_b1
     invoke-static/range {v35 .. v36}, Ljava/lang/Math;->sqrt(D)D
 
     move-result-wide v10
@@ -1600,22 +1600,22 @@
 
     move/from16 v3, p9
 
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_c3
 
     sub-double v21, v21, v10
 
     add-double v33, v33, v8
 
-    goto :goto_0
+    goto :goto_c8
 
-    :cond_2
+    :cond_c3
     const/4 v0, 0x0
 
     add-double v21, v21, v10
 
     sub-double v33, v33, v8
 
-    :goto_0
+    :goto_c8
     const/4 v0, 0x0
 
     sub-double v8, v29, v33
@@ -1640,33 +1640,33 @@
 
     cmpl-double v2, v0, v23
 
-    if-ltz v2, :cond_3
+    if-ltz v2, :cond_e1
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_e2
 
-    :cond_3
+    :cond_e1
     const/4 v6, 0x0
 
-    :goto_1
-    if-eq v3, v6, :cond_5
+    :goto_e2
+    if-eq v3, v6, :cond_ef
 
     const-wide v6, 0x401921fb54442d18L    # 6.283185307179586
 
-    if-lez v2, :cond_4
+    if-lez v2, :cond_ed
 
     sub-double/2addr v0, v6
 
-    goto :goto_2
+    goto :goto_ef
 
-    :cond_4
+    :cond_ed
     const/4 v2, 0x0
 
     add-double/2addr v0, v6
 
-    :cond_5
-    :goto_2
+    :cond_ef
+    :goto_ef
     move-wide/from16 v23, v0
 
     mul-double v21, v21, v31
@@ -1710,7 +1710,7 @@
 .end method
 
 .method public static nodesToPath([Landroid/support/v4/graphics/PathParser$PathDataNode;Landroid/graphics/Path;)V
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x6
 
@@ -1722,10 +1722,10 @@
     const/4 v2, 0x0
 
     .line 338
-    :goto_0
+    :goto_6
     array-length v3, p0
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_1b
 
     .line 339
     aget-object v3, p0, v2
@@ -1745,26 +1745,26 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 
 # virtual methods
 .method public interpolatePathDataNode(Landroid/support/v4/graphics/PathParser$PathDataNode;Landroid/support/v4/graphics/PathParser$PathDataNode;F)V
-    .locals 4
+    .registers 8
 
     const/4 v0, 0x0
 
     .line 355
-    :goto_0
+    :goto_1
     iget-object v1, p1, Landroid/support/v4/graphics/PathParser$PathDataNode;->mParams:[F
 
     array-length v1, v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1b
 
     .line 356
     iget-object v1, p0, Landroid/support/v4/graphics/PathParser$PathDataNode;->mParams:[F
@@ -1791,8 +1791,8 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_1b
     return-void
 .end method

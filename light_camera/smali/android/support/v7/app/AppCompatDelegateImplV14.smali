@@ -32,7 +32,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
-    .locals 0
+    .registers 4
 
     .line 54
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/app/AppCompatDelegateImplV11;-><init>(Landroid/content/Context;Landroid/view/Window;Landroid/support/v7/app/AppCompatCallback;)V
@@ -51,12 +51,12 @@
 .end method
 
 .method private ensureAutoNightModeManager()V
-    .locals 2
+    .registers 3
 
     .line 234
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mAutoNightModeManager:Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     .line 235
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
@@ -71,48 +71,48 @@
 
     iput-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mAutoNightModeManager:Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method private getNightMode()I
-    .locals 2
+    .registers 3
 
     .line 163
     iget v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mLocalNightMode:I
 
     const/16 v1, -0x64
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_9
 
     iget p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mLocalNightMode:I
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_9
     invoke-static {}, Landroid/support/v7/app/AppCompatDelegateImplV14;->getDefaultNightMode()I
 
     move-result p0
 
-    :goto_0
+    :goto_d
     return p0
 .end method
 
 .method private shouldRecreateOnNightModeChange()Z
-    .locals 5
+    .registers 6
 
     .line 246
     iget-boolean v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mApplyDayNightCalled:Z
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mContext:Landroid/content/Context;
 
     instance-of v0, v0, Landroid/app/Activity;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_34
 
     .line 249
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mContext:Landroid/content/Context;
@@ -124,7 +124,7 @@
     const/4 v2, 0x1
 
     .line 251
-    :try_start_0
+    :try_start_12
     new-instance v3, Landroid/content/ComponentName;
 
     iget-object v4, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mContext:Landroid/content/Context;
@@ -145,19 +145,19 @@
 
     .line 255
     iget p0, p0, Landroid/content/pm/ActivityInfo;->configChanges:I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_25
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_12 .. :try_end_25} :catch_2b
 
     and-int/lit16 p0, p0, 0x200
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_2a
 
     move v1, v2
 
-    :cond_0
+    :cond_2a
     return v1
 
-    :catch_0
+    :catch_2b
     move-exception p0
 
     const-string v0, "AppCompatDelegate"
@@ -169,12 +169,12 @@
 
     return v2
 
-    :cond_1
+    :cond_34
     return v1
 .end method
 
 .method private updateForNightMode(I)Z
-    .locals 4
+    .registers 6
 
     .line 191
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mContext:Landroid/content/Context;
@@ -195,24 +195,24 @@
 
     const/4 v3, 0x2
 
-    if-ne p1, v3, :cond_0
+    if-ne p1, v3, :cond_14
 
     const/16 p1, 0x20
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_14
     const/16 p1, 0x10
 
-    :goto_0
-    if-eq v2, p1, :cond_3
+    :goto_16
+    if-eq v2, p1, :cond_44
 
     .line 200
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14;->shouldRecreateOnNightModeChange()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_26
 
     .line 206
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mContext:Landroid/content/Context;
@@ -222,10 +222,10 @@
     .line 207
     invoke-virtual {p0}, Landroid/app/Activity;->recreate()V
 
-    goto :goto_1
+    goto :goto_42
 
     .line 212
-    :cond_1
+    :cond_26
     new-instance p0, Landroid/content/res/Configuration;
 
     invoke-direct {p0, v1}, Landroid/content/res/Configuration;-><init>(Landroid/content/res/Configuration;)V
@@ -252,18 +252,18 @@
 
     const/16 p1, 0x1a
 
-    if-ge p0, p1, :cond_2
+    if-ge p0, p1, :cond_42
 
     .line 221
     invoke-static {v0}, Landroid/support/v7/app/ResourcesFlusher;->flush(Landroid/content/res/Resources;)Z
 
-    :cond_2
-    :goto_1
+    :cond_42
+    :goto_42
     const/4 p0, 0x1
 
     return p0
 
-    :cond_3
+    :cond_44
     const/4 p0, 0x0
 
     return p0
@@ -272,7 +272,7 @@
 
 # virtual methods
 .method public applyDayNight()Z
-    .locals 3
+    .registers 4
 
     .line 90
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14;->getNightMode()I
@@ -286,20 +286,20 @@
 
     const/4 v2, -0x1
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_10
 
     .line 93
     invoke-direct {p0, v1}, Landroid/support/v7/app/AppCompatDelegateImplV14;->updateForNightMode(I)Z
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v1, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_11
+    if-nez v0, :cond_1b
 
     .line 98
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14;->ensureAutoNightModeManager()V
@@ -309,7 +309,7 @@
 
     invoke-virtual {v0}, Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;->setup()V
 
-    :cond_1
+    :cond_1b
     const/4 v0, 0x1
 
     .line 102
@@ -319,7 +319,7 @@
 .end method
 
 .method final getAutoNightModeManager()Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/VisibleForTesting;
     .end annotation
 
@@ -333,7 +333,7 @@
 .end method
 
 .method public isHandleNativeActionModesEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 83
     iget-boolean p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mHandleNativeActionModes:Z
@@ -342,18 +342,18 @@
 .end method
 
 .method mapNightMode(I)I
-    .locals 1
+    .registers 3
 
     const/16 v0, -0x64
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_11
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_7
 
     return p1
 
     .line 151
-    :cond_0
+    :cond_7
     invoke-direct {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14;->ensureAutoNightModeManager()V
 
     .line 152
@@ -365,26 +365,26 @@
 
     return p0
 
-    :cond_1
+    :cond_11
     const/4 p0, -0x1
 
     return p0
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 59
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDelegateImplV11;->onCreate(Landroid/os/Bundle;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_13
 
     .line 61
     iget v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mLocalNightMode:I
 
     const/16 v1, -0x64
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     const-string v0, "appcompat:local_night_mode"
 
@@ -395,12 +395,12 @@
 
     iput p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mLocalNightMode:I
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .registers 2
 
     .line 178
     invoke-super {p0}, Landroid/support/v7/app/AppCompatDelegateImplV11;->onDestroy()V
@@ -408,19 +408,19 @@
     .line 181
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mAutoNightModeManager:Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 182
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mAutoNightModeManager:Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
 
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;->cleanup()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 2
+    .registers 4
 
     .line 168
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDelegateImplV11;->onSaveInstanceState(Landroid/os/Bundle;)V
@@ -430,7 +430,7 @@
 
     const/16 v1, -0x64
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     const-string v0, "appcompat:local_night_mode"
 
@@ -439,12 +439,12 @@
 
     invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public onStart()V
-    .locals 0
+    .registers 1
 
     .line 108
     invoke-super {p0}, Landroid/support/v7/app/AppCompatDelegateImplV11;->onStart()V
@@ -456,7 +456,7 @@
 .end method
 
 .method public onStop()V
-    .locals 1
+    .registers 2
 
     .line 117
     invoke-super {p0}, Landroid/support/v7/app/AppCompatDelegateImplV11;->onStop()V
@@ -464,19 +464,19 @@
     .line 120
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mAutoNightModeManager:Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 121
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mAutoNightModeManager:Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;
 
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14$AutoNightModeManager;->cleanup()V
 
-    :cond_0
+    :cond_c
     return-void
 .end method
 
 .method public setHandleNativeActionModesEnabled(Z)V
-    .locals 0
+    .registers 2
 
     .line 78
     iput-boolean p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mHandleNativeActionModes:Z
@@ -485,9 +485,9 @@
 .end method
 
 .method public setLocalNightMode(I)V
-    .locals 1
+    .registers 3
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1a
 
     const-string p0, "AppCompatDelegate"
 
@@ -496,13 +496,13 @@
     .line 142
     invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_18
 
     .line 132
-    :pswitch_0
+    :pswitch_b
     iget v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mLocalNightMode:I
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_18
 
     .line 133
     iput p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mLocalNightMode:I
@@ -510,28 +510,28 @@
     .line 134
     iget-boolean p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV14;->mApplyDayNightCalled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     .line 137
     invoke-virtual {p0}, Landroid/support/v7/app/AppCompatDelegateImplV14;->applyDayNight()Z
 
-    :cond_0
-    :goto_0
+    :cond_18
+    :goto_18
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1a
     .packed-switch -0x1
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_b
+        :pswitch_b
+        :pswitch_b
+        :pswitch_b
     .end packed-switch
 .end method
 
 .method wrapWindowCallback(Landroid/view/Window$Callback;)Landroid/view/Window$Callback;
-    .locals 1
+    .registers 3
 
     .line 73
     new-instance v0, Landroid/support/v7/app/AppCompatDelegateImplV14$AppCompatWindowCallbackV14;

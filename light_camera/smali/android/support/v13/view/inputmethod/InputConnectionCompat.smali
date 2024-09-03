@@ -22,14 +22,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 166
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x19
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_f
 
     .line 167
     new-instance v0, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatApi25Impl;
@@ -40,17 +40,17 @@
 
     sput-object v0, Landroid/support/v13/view/inputmethod/InputConnectionCompat;->IMPL:Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputConnectionCompatImpl;
 
-    goto :goto_0
+    goto :goto_16
 
     .line 169
-    :cond_0
+    :cond_f
     new-instance v0, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl;
 
     invoke-direct {v0}, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl;-><init>()V
 
     sput-object v0, Landroid/support/v13/view/inputmethod/InputConnectionCompat;->IMPL:Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputConnectionCompatImpl;
 
-    :goto_0
+    :goto_16
     const/4 v0, 0x1
 
     .line 229
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 .end method
 
 .method public static commitContent(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/support/v13/view/inputmethod/InputContentInfoCompat;ILandroid/os/Bundle;)Z
-    .locals 5
+    .registers 10
     .param p0    # Landroid/view/inputmethod/InputConnection;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -103,8 +103,8 @@
 
     move v3, v2
 
-    :goto_0
-    if-ge v3, v1, :cond_1
+    :goto_b
+    if-ge v3, v1, :cond_1a
 
     aget-object v4, p1, v3
 
@@ -113,27 +113,27 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_17
 
     const/4 p1, 0x1
 
-    goto :goto_1
+    goto :goto_1b
 
-    :cond_0
+    :cond_17
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_1
+    :cond_1a
     move p1, v2
 
-    :goto_1
-    if-nez p1, :cond_2
+    :goto_1b
+    if-nez p1, :cond_1e
 
     return v2
 
     .line 199
-    :cond_2
+    :cond_1e
     sget-object p1, Landroid/support/v13/view/inputmethod/InputConnectionCompat;->IMPL:Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputConnectionCompatImpl;
 
     invoke-interface {p1, p0, p2, p3, p4}, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputConnectionCompatImpl;->commitContent(Landroid/view/inputmethod/InputConnection;Landroid/support/v13/view/inputmethod/InputContentInfoCompat;ILandroid/os/Bundle;)Z
@@ -144,7 +144,7 @@
 .end method
 
 .method public static createWrapper(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)Landroid/view/inputmethod/InputConnection;
-    .locals 1
+    .registers 4
     .param p0    # Landroid/view/inputmethod/InputConnection;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -160,11 +160,11 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1d
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_15
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_d
 
     .line 279
     sget-object v0, Landroid/support/v13/view/inputmethod/InputConnectionCompat;->IMPL:Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputConnectionCompatImpl;
@@ -176,7 +176,7 @@
     return-object p0
 
     .line 277
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "onCommitContentListener must be non-null"
@@ -186,7 +186,7 @@
     throw p0
 
     .line 274
-    :cond_1
+    :cond_15
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "editorInfo must be non-null"
@@ -196,7 +196,7 @@
     throw p0
 
     .line 271
-    :cond_2
+    :cond_1d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "inputConnection must be non-null"

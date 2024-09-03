@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 364
     new-instance v0, Lltpb/GPSData$ProcessingMethod;
@@ -174,7 +174,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -191,65 +191,65 @@
 .end method
 
 .method public static fromValue(I)Lltpb/GPSData$ProcessingMethod;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_18
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 394
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_FUSED:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 393
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_MANUAL:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 392
-    :pswitch_2
+    :pswitch_b
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_WLAN:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 391
-    :pswitch_3
+    :pswitch_e
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_CELLID:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 390
-    :pswitch_4
+    :pswitch_11
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_GPS:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     .line 389
-    :pswitch_5
+    :pswitch_14
     sget-object p0, Lltpb/GPSData$ProcessingMethod;->PROCESSING_METHOD_UNKNOWN:Lltpb/GPSData$ProcessingMethod;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
+        :pswitch_14
+        :pswitch_11
+        :pswitch_e
+        :pswitch_b
+        :pswitch_8
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/GPSData$ProcessingMethod;
-    .locals 1
+    .registers 2
 
     .line 363
     const-class v0, Lltpb/GPSData$ProcessingMethod;
@@ -264,7 +264,7 @@
 .end method
 
 .method public static values()[Lltpb/GPSData$ProcessingMethod;
-    .locals 1
+    .registers 1
 
     .line 363
     sget-object v0, Lltpb/GPSData$ProcessingMethod;->$VALUES:[Lltpb/GPSData$ProcessingMethod;
@@ -281,7 +281,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 401
     iget p0, p0, Lltpb/GPSData$ProcessingMethod;->value:I

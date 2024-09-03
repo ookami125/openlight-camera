@@ -31,7 +31,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 45
     new-instance v0, Ljava/util/HashMap;
@@ -126,7 +126,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -140,7 +140,7 @@
 .end method
 
 .method private static add(Ljava/util/Map;Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -171,7 +171,7 @@
 .end method
 
 .method public static isPrimitive(Ljava/lang/reflect/Type;)Z
-    .locals 1
+    .registers 2
 
     .line 72
     sget-object v0, Lcom/google/gson/internal/Primitives;->PRIMITIVE_TO_WRAPPER_TYPE:Ljava/util/Map;
@@ -184,7 +184,7 @@
 .end method
 
 .method public static isWrapperType(Ljava/lang/reflect/Type;)Z
-    .locals 1
+    .registers 2
 
     .line 82
     sget-object v0, Lcom/google/gson/internal/Primitives;->WRAPPER_TO_PRIMITIVE_TYPE:Ljava/util/Map;
@@ -203,7 +203,7 @@
 .end method
 
 .method public static unwrap(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -231,19 +231,19 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object p0, v0
 
-    :goto_0
+    :goto_10
     return-object p0
 .end method
 
 .method public static wrap(Ljava/lang/Class;)Ljava/lang/Class;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -271,13 +271,13 @@
 
     check-cast v0, Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_f
     move-object p0, v0
 
-    :goto_0
+    :goto_10
     return-object p0
 .end method

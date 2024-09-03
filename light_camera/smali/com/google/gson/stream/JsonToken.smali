@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .registers 12
 
     .line 31
     new-instance v0, Lcom/google/gson/stream/JsonToken;
@@ -202,7 +202,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -216,7 +216,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/gson/stream/JsonToken;
-    .locals 1
+    .registers 2
 
     .line 25
     const-class v0, Lcom/google/gson/stream/JsonToken;
@@ -231,7 +231,7 @@
 .end method
 
 .method public static values()[Lcom/google/gson/stream/JsonToken;
-    .locals 1
+    .registers 1
 
     .line 25
     sget-object v0, Lcom/google/gson/stream/JsonToken;->$VALUES:[Lcom/google/gson/stream/JsonToken;

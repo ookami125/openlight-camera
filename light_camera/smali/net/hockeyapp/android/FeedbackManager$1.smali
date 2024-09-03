@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 218
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackManager$1;->val$context:Landroid/content/Context;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+    .registers 6
 
     .line 221
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
@@ -47,7 +47,7 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_22
 
     .line 225
     new-instance v0, Lnet/hockeyapp/android/tasks/ParseFeedbackTask;
@@ -63,6 +63,7 @@
     .line 226
     iget-object p0, p0, Lnet/hockeyapp/android/FeedbackManager$1;->val$context:Landroid/content/Context;
 
+    # invokes: Lnet/hockeyapp/android/FeedbackManager;->getURLString(Landroid/content/Context;)Ljava/lang/String;
     invoke-static {p0}, Lnet/hockeyapp/android/FeedbackManager;->access$000(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object p0
@@ -72,6 +73,6 @@
     .line 227
     invoke-static {v0}, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->execute(Landroid/os/AsyncTask;)V
 
-    :cond_0
+    :cond_22
     return-void
 .end method

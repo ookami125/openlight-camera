@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>([BIIIII)V
-    .locals 0
+    .registers 7
 
     .line 79
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public getActuatorIndex()I
-    .locals 0
+    .registers 1
 
     .line 273
     iget p0, p0, Lcom/immersion/WaveformEffectDefinition;->actuatorIndex:I
@@ -57,7 +57,7 @@
 .end method
 
 .method public getBitDepth()I
-    .locals 0
+    .registers 1
 
     .line 187
     iget p0, p0, Lcom/immersion/WaveformEffectDefinition;->bitDepth:I
@@ -66,7 +66,7 @@
 .end method
 
 .method public getData()[B
-    .locals 0
+    .registers 1
 
     .line 113
     iget-object p0, p0, Lcom/immersion/WaveformEffectDefinition;->data:[B
@@ -75,7 +75,7 @@
 .end method
 
 .method public getDataSize()I
-    .locals 0
+    .registers 1
 
     .line 139
     iget p0, p0, Lcom/immersion/WaveformEffectDefinition;->dataSize:I
@@ -84,7 +84,7 @@
 .end method
 
 .method public getMagnitude()I
-    .locals 0
+    .registers 1
 
     .line 227
     iget p0, p0, Lcom/immersion/WaveformEffectDefinition;->magnitude:I
@@ -93,7 +93,7 @@
 .end method
 
 .method public getSampleRate()I
-    .locals 0
+    .registers 1
 
     .line 161
     iget p0, p0, Lcom/immersion/WaveformEffectDefinition;->sampleRate:I
@@ -102,7 +102,7 @@
 .end method
 
 .method public setActuatorIndex(I)V
-    .locals 0
+    .registers 2
 
     .line 250
     iput p1, p0, Lcom/immersion/WaveformEffectDefinition;->actuatorIndex:I
@@ -111,7 +111,7 @@
 .end method
 
 .method public setBitDepth(I)V
-    .locals 0
+    .registers 2
 
     .line 174
     iput p1, p0, Lcom/immersion/WaveformEffectDefinition;->bitDepth:I
@@ -120,7 +120,7 @@
 .end method
 
 .method public setData([B)V
-    .locals 0
+    .registers 2
 
     .line 99
     iput-object p1, p0, Lcom/immersion/WaveformEffectDefinition;->data:[B
@@ -129,7 +129,7 @@
 .end method
 
 .method public setDataSize(I)V
-    .locals 0
+    .registers 2
 
     .line 126
     iput p1, p0, Lcom/immersion/WaveformEffectDefinition;->dataSize:I
@@ -138,7 +138,7 @@
 .end method
 
 .method public setMagnitude(I)V
-    .locals 0
+    .registers 2
 
     .line 207
     iput p1, p0, Lcom/immersion/WaveformEffectDefinition;->magnitude:I
@@ -147,7 +147,7 @@
 .end method
 
 .method public setSampleRate(I)V
-    .locals 0
+    .registers 2
 
     .line 150
     iput p1, p0, Lcom/immersion/WaveformEffectDefinition;->sampleRate:I

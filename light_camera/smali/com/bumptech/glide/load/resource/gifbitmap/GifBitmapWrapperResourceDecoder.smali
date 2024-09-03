@@ -67,7 +67,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 23
     new-instance v0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder$ImageTypeParser;
@@ -87,7 +87,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 6
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,7 +123,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/ResourceDecoder;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder$ImageTypeParser;Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder$BufferedStreamFactory;)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -164,7 +164,7 @@
 .end method
 
 .method private decode(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II[B)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
-    .locals 1
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -176,27 +176,27 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 71
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->decodeStream(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II[B)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 73
-    :cond_0
+    :cond_b
     invoke-direct {p0, p1, p2, p3}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->decodeBitmapWrapper(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
 
     move-result-object p0
 
-    :goto_0
+    :goto_f
     return-object p0
 .end method
 
 .method private decodeBitmapWrapper(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -212,7 +212,7 @@
 
     const/4 p1, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_f
 
     .line 123
     new-instance p2, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -221,12 +221,12 @@
 
     move-object p1, p2
 
-    :cond_0
+    :cond_f
     return-object p1
 .end method
 
 .method private decodeGifWrapper(Ljava/io/InputStream;II)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -242,7 +242,7 @@
 
     const/4 p2, 0x0
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2d
 
     .line 103
     invoke-interface {p1}, Lcom/bumptech/glide/load/engine/Resource;->get()Ljava/lang/Object;
@@ -258,17 +258,17 @@
 
     const/4 v1, 0x1
 
-    if-le v0, v1, :cond_0
+    if-le v0, v1, :cond_1c
 
     .line 109
     new-instance p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
 
     invoke-direct {p0, p2, p1}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;-><init>(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/engine/Resource;)V
 
-    goto :goto_0
+    goto :goto_2e
 
     .line 111
-    :cond_0
+    :cond_1c
     new-instance p1, Lcom/bumptech/glide/load/resource/bitmap/BitmapResource;
 
     invoke-virtual {p3}, Lcom/bumptech/glide/load/resource/gif/GifDrawable;->getFirstFrame()Landroid/graphics/Bitmap;
@@ -284,17 +284,17 @@
 
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;-><init>(Lcom/bumptech/glide/load/engine/Resource;Lcom/bumptech/glide/load/engine/Resource;)V
 
-    goto :goto_0
+    goto :goto_2e
 
-    :cond_1
+    :cond_2d
     move-object p0, p2
 
-    :goto_0
+    :goto_2e
     return-object p0
 .end method
 
 .method private decodeStream(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II[B)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -330,20 +330,20 @@
     .line 86
     sget-object v1, Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;->GIF:Lcom/bumptech/glide/load/resource/bitmap/ImageHeaderParser$ImageType;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_21
 
     .line 87
     invoke-direct {p0, p4, p2, p3}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->decodeGifWrapper(Ljava/io/InputStream;II)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_22
+    if-nez v0, :cond_31
 
     .line 93
     new-instance v0, Lcom/bumptech/glide/load/model/ImageVideoWrapper;
@@ -359,14 +359,14 @@
 
     move-result-object v0
 
-    :cond_1
+    :cond_31
     return-object v0
 .end method
 
 
 # virtual methods
 .method public decode(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -395,32 +395,32 @@
     move-result-object v1
 
     .line 61
-    :try_start_0
+    :try_start_8
     invoke-direct {p0, p1, p2, p3, v1}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->decode(Lcom/bumptech/glide/load/model/ImageVideoWrapper;II[B)Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
 
     move-result-object p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_c
+    .catchall {:try_start_8 .. :try_end_c} :catchall_19
 
     .line 63
     invoke-virtual {v0, v1}, Lcom/bumptech/glide/util/ByteArrayPool;->releaseBytes([B)Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_17
 
     .line 65
     new-instance p1, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;
 
     invoke-direct {p1, p0}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResource;-><init>(Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;)V
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_17
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_18
     return-object p1
 
-    :catchall_0
+    :catchall_19
     move-exception p0
 
     .line 63
@@ -430,7 +430,7 @@
 .end method
 
 .method public bridge synthetic decode(Ljava/lang/Object;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -448,12 +448,12 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 131
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->id:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 132
     new-instance v0, Ljava/lang/StringBuilder;
@@ -483,7 +483,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->id:Ljava/lang/String;
 
     .line 134
-    :cond_0
+    :cond_21
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceDecoder;->id:Ljava/lang/String;
 
     return-object p0

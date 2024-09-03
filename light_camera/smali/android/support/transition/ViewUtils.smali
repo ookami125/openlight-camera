@@ -39,14 +39,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 44
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x16
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 45
     new-instance v0, Landroid/support/transition/ViewUtilsApi22;
@@ -55,15 +55,15 @@
 
     sput-object v0, Landroid/support/transition/ViewUtils;->IMPL:Landroid/support/transition/ViewUtilsImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 46
-    :cond_0
+    :cond_e
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_1
+    if-lt v0, v1, :cond_1c
 
     .line 47
     new-instance v0, Landroid/support/transition/ViewUtilsApi21;
@@ -72,15 +72,15 @@
 
     sput-object v0, Landroid/support/transition/ViewUtils;->IMPL:Landroid/support/transition/ViewUtilsImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 48
-    :cond_1
+    :cond_1c
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x13
 
-    if-lt v0, v1, :cond_2
+    if-lt v0, v1, :cond_2a
 
     .line 49
     new-instance v0, Landroid/support/transition/ViewUtilsApi19;
@@ -89,15 +89,15 @@
 
     sput-object v0, Landroid/support/transition/ViewUtils;->IMPL:Landroid/support/transition/ViewUtilsImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 50
-    :cond_2
+    :cond_2a
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x12
 
-    if-lt v0, v1, :cond_3
+    if-lt v0, v1, :cond_38
 
     .line 51
     new-instance v0, Landroid/support/transition/ViewUtilsApi18;
@@ -106,10 +106,10 @@
 
     sput-object v0, Landroid/support/transition/ViewUtils;->IMPL:Landroid/support/transition/ViewUtilsImpl;
 
-    goto :goto_0
+    goto :goto_3f
 
     .line 53
-    :cond_3
+    :cond_38
     new-instance v0, Landroid/support/transition/ViewUtilsApi14;
 
     invoke-direct {v0}, Landroid/support/transition/ViewUtilsApi14;-><init>()V
@@ -117,7 +117,7 @@
     sput-object v0, Landroid/support/transition/ViewUtils;->IMPL:Landroid/support/transition/ViewUtilsImpl;
 
     .line 60
-    :goto_0
+    :goto_3f
     new-instance v0, Landroid/support/transition/ViewUtils$1;
 
     const-class v1, Ljava/lang/Float;
@@ -143,7 +143,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -152,7 +152,7 @@
 .end method
 
 .method static clearNonTransitionAlpha(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -167,17 +167,17 @@
 .end method
 
 .method private static fetchViewFlagsField()V
-    .locals 3
+    .registers 3
 
     .line 209
     sget-boolean v0, Landroid/support/transition/ViewUtils;->sViewFlagsFieldFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     const/4 v0, 0x1
 
     .line 211
-    :try_start_0
+    :try_start_5
     const-class v1, Landroid/view/View;
 
     const-string v2, "mViewFlags"
@@ -192,12 +192,12 @@
     sget-object v1, Landroid/support/transition/ViewUtils;->sViewFlagsField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Field;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_5 .. :try_end_14} :catch_15
 
-    goto :goto_0
+    goto :goto_1c
 
-    :catch_0
+    :catch_15
     const-string v1, "ViewUtils"
 
     const-string v2, "fetchViewFlagsField: "
@@ -206,15 +206,15 @@
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 216
-    :goto_0
+    :goto_1c
     sput-boolean v0, Landroid/support/transition/ViewUtils;->sViewFlagsFieldFetched:Z
 
-    :cond_0
+    :cond_1e
     return-void
 .end method
 
 .method static getOverlay(Landroid/view/View;)Landroid/support/transition/ViewOverlayImpl;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -231,7 +231,7 @@
 .end method
 
 .method static getTransitionAlpha(Landroid/view/View;)F
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -248,7 +248,7 @@
 .end method
 
 .method static getWindowId(Landroid/view/View;)Landroid/support/transition/WindowIdImpl;
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -265,7 +265,7 @@
 .end method
 
 .method static saveNonTransitionAlpha(Landroid/view/View;)V
-    .locals 1
+    .registers 2
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -280,7 +280,7 @@
 .end method
 
 .method static setAnimationMatrix(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -299,7 +299,7 @@
 .end method
 
 .method static setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 6
+    .registers 11
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -324,7 +324,7 @@
 .end method
 
 .method static setTransitionAlpha(Landroid/view/View;F)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -339,7 +339,7 @@
 .end method
 
 .method static setTransitionVisibility(Landroid/view/View;I)V
-    .locals 2
+    .registers 4
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -351,10 +351,10 @@
     .line 144
     sget-object v0, Landroid/support/transition/ViewUtils;->sViewFlagsField:Ljava/lang/reflect/Field;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_15
 
     .line 146
-    :try_start_0
+    :try_start_7
     sget-object v0, Landroid/support/transition/ViewUtils;->sViewFlagsField:Ljava/lang/reflect/Field;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->getInt(Ljava/lang/Object;)I
@@ -369,16 +369,16 @@
     or-int/2addr p1, v0
 
     invoke-virtual {v1, p0, p1}, Ljava/lang/reflect/Field;->setInt(Ljava/lang/Object;I)V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_15} :catch_15
 
-    :catch_0
-    :cond_0
+    :catch_15
+    :cond_15
     return-void
 .end method
 
 .method static transformMatrixToGlobal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -397,7 +397,7 @@
 .end method
 
 .method static transformMatrixToLocal(Landroid/view/View;Landroid/graphics/Matrix;)V
-    .locals 1
+    .registers 3
     .param p0    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation

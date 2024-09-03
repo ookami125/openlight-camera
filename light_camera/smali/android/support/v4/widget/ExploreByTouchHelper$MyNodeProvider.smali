@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/widget/ExploreByTouchHelper;)V
-    .locals 0
+    .registers 2
 
     .line 1234
     iput-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 0
+    .registers 2
 
     .line 1241
     iget-object p0, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
@@ -52,40 +52,42 @@
 .end method
 
 .method public findFocus(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_a
 
     .line 1253
     iget-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
     .line 1254
+    # getter for: Landroid/support/v4/widget/ExploreByTouchHelper;->mAccessibilityFocusedVirtualViewId:I
     invoke-static {p1}, Landroid/support/v4/widget/ExploreByTouchHelper;->access$000(Landroid/support/v4/widget/ExploreByTouchHelper;)I
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_a
     iget-object p1, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;
 
+    # getter for: Landroid/support/v4/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
     invoke-static {p1}, Landroid/support/v4/widget/ExploreByTouchHelper;->access$100(Landroid/support/v4/widget/ExploreByTouchHelper;)I
 
     move-result p1
 
-    :goto_0
+    :goto_10
     const/high16 v0, -0x80000000
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_16
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 1258
-    :cond_1
+    :cond_16
     invoke-virtual {p0, p1}, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->createAccessibilityNodeInfo(I)Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;
 
     move-result-object p0
@@ -94,7 +96,7 @@
 .end method
 
 .method public performAction(IILandroid/os/Bundle;)Z
-    .locals 0
+    .registers 4
 
     .line 1248
     iget-object p0, p0, Landroid/support/v4/widget/ExploreByTouchHelper$MyNodeProvider;->this$0:Landroid/support/v4/widget/ExploreByTouchHelper;

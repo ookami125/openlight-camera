@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 50
     new-instance v0, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
@@ -75,7 +75,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -89,7 +89,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
-    .locals 1
+    .registers 2
 
     .line 49
     const-class v0, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
@@ -104,7 +104,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;
-    .locals 1
+    .registers 1
 
     .line 49
     sget-object v0, Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;->$VALUES:[Lopenlight/co/camera/managers/zoom/ZoomManager$ZoomState;

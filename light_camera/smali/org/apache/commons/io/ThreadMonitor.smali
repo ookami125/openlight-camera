@@ -14,7 +14,7 @@
 
 # direct methods
 .method private constructor <init>(Ljava/lang/Thread;J)V
-    .locals 0
+    .registers 4
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method private static sleep(J)V
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InterruptedException;
@@ -44,7 +44,7 @@
     add-long/2addr v0, p0
 
     .line 128
-    :cond_0
+    :cond_5
     invoke-static {p0, p1}, Ljava/lang/Thread;->sleep(J)V
 
     .line 129
@@ -58,13 +58,13 @@
 
     cmp-long v2, p0, v2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_5
 
     return-void
 .end method
 
 .method public static start(J)Ljava/lang/Thread;
-    .locals 1
+    .registers 3
 
     .line 55
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -79,13 +79,13 @@
 .end method
 
 .method public static start(Ljava/lang/Thread;J)Ljava/lang/Thread;
-    .locals 2
+    .registers 5
 
     const-wide/16 v0, 0x0
 
     cmp-long v0, p1, v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1e
 
     .line 70
     new-instance v0, Lorg/apache/commons/io/ThreadMonitor;
@@ -111,31 +111,31 @@
     .line 73
     invoke-virtual {p0}, Ljava/lang/Thread;->start()V
 
-    goto :goto_0
+    goto :goto_1f
 
-    :cond_0
+    :cond_1e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1f
     return-object p0
 .end method
 
 .method public static stop(Ljava/lang/Thread;)V
-    .locals 0
+    .registers 1
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5
 
     .line 85
     invoke-virtual {p0}, Ljava/lang/Thread;->interrupt()V
 
-    :cond_0
+    :cond_5
     return-void
 .end method
 
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 108
     :try_start_0
@@ -147,9 +147,9 @@
     iget-object p0, p0, Lorg/apache/commons/io/ThreadMonitor;->thread:Ljava/lang/Thread;
 
     invoke-virtual {p0}, Ljava/lang/Thread;->interrupt()V
-    :try_end_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_a} :catch_a
 
-    :catch_0
+    :catch_a
     return-void
 .end method

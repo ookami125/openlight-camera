@@ -19,7 +19,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/ViewGroup;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -40,7 +40,7 @@
 .end method
 
 .method private constructor <init>(Landroid/view/ViewGroup;ILandroid/content/Context;)V
-    .locals 1
+    .registers 5
 
     .line 107
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 1
+    .registers 4
     .param p1    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -91,7 +91,7 @@
 .end method
 
 .method static getCurrentScene(Landroid/view/View;)Landroid/support/transition/Scene;
-    .locals 1
+    .registers 2
 
     .line 206
     sget v0, Landroid/support/transition/R$id;->transition_current_scene:I
@@ -106,7 +106,7 @@
 .end method
 
 .method public static getSceneForLayout(Landroid/view/ViewGroup;ILandroid/content/Context;)Landroid/support/transition/Scene;
-    .locals 2
+    .registers 5
     .param p0    # Landroid/view/ViewGroup;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -132,7 +132,7 @@
 
     check-cast v0, Landroid/util/SparseArray;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 65
     new-instance v0, Landroid/util/SparseArray;
@@ -145,19 +145,19 @@
     invoke-virtual {p0, v1, v0}, Landroid/view/ViewGroup;->setTag(ILjava/lang/Object;)V
 
     .line 68
-    :cond_0
+    :cond_14
     invoke-virtual {v0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/support/transition/Scene;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1d
 
     return-object v1
 
     .line 72
-    :cond_1
+    :cond_1d
     new-instance v1, Landroid/support/transition/Scene;
 
     invoke-direct {v1, p0, p1, p2}, Landroid/support/transition/Scene;-><init>(Landroid/view/ViewGroup;ILandroid/content/Context;)V
@@ -169,7 +169,7 @@
 .end method
 
 .method static setCurrentScene(Landroid/view/View;Landroid/support/transition/Scene;)V
-    .locals 1
+    .registers 3
 
     .line 195
     sget v0, Landroid/support/transition/R$id;->transition_current_scene:I
@@ -182,19 +182,19 @@
 
 # virtual methods
 .method public enter()V
-    .locals 3
+    .registers 4
 
     .line 167
     iget v0, p0, Landroid/support/transition/Scene;->mLayoutId:I
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_8
 
     iget-object v0, p0, Landroid/support/transition/Scene;->mLayout:Landroid/view/View;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     .line 169
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Landroid/support/transition/Scene;->getSceneRoot()Landroid/view/ViewGroup;
 
     move-result-object v0
@@ -204,7 +204,7 @@
     .line 171
     iget v0, p0, Landroid/support/transition/Scene;->mLayoutId:I
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_21
 
     .line 172
     iget-object v0, p0, Landroid/support/transition/Scene;->mContext:Landroid/content/Context;
@@ -219,10 +219,10 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    goto :goto_0
+    goto :goto_28
 
     .line 174
-    :cond_1
+    :cond_21
     iget-object v0, p0, Landroid/support/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Landroid/support/transition/Scene;->mLayout:Landroid/view/View;
@@ -230,11 +230,11 @@
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     .line 179
-    :cond_2
-    :goto_0
+    :cond_28
+    :goto_28
     iget-object v0, p0, Landroid/support/transition/Scene;->mEnterAction:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_31
 
     .line 180
     iget-object v0, p0, Landroid/support/transition/Scene;->mEnterAction:Ljava/lang/Runnable;
@@ -242,7 +242,7 @@
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
     .line 183
-    :cond_3
+    :cond_31
     iget-object v0, p0, Landroid/support/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
 
     invoke-static {v0, p0}, Landroid/support/transition/Scene;->setCurrentScene(Landroid/view/View;Landroid/support/transition/Scene;)V
@@ -251,7 +251,7 @@
 .end method
 
 .method public exit()V
-    .locals 1
+    .registers 2
 
     .line 148
     iget-object v0, p0, Landroid/support/transition/Scene;->mSceneRoot:Landroid/view/ViewGroup;
@@ -260,24 +260,24 @@
 
     move-result-object v0
 
-    if-ne v0, p0, :cond_0
+    if-ne v0, p0, :cond_11
 
     .line 149
     iget-object v0, p0, Landroid/support/transition/Scene;->mExitAction:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 150
     iget-object p0, p0, Landroid/support/transition/Scene;->mExitAction:Ljava/lang/Runnable;
 
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public getSceneRoot()Landroid/view/ViewGroup;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -288,26 +288,26 @@
 .end method
 
 .method isCreatedFromLayoutResource()Z
-    .locals 0
+    .registers 1
 
     .line 256
     iget p0, p0, Landroid/support/transition/Scene;->mLayoutId:I
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method public setEnterAction(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -320,7 +320,7 @@
 .end method
 
 .method public setExitAction(Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/Runnable;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation

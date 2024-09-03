@@ -9,7 +9,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 261
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -18,7 +18,7 @@
 .end method
 
 .method public static getColor(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)I
-    .locals 2
+    .registers 5
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -45,7 +45,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 139
     invoke-virtual {p0, p1, p2}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
@@ -55,7 +55,7 @@
     return p0
 
     .line 141
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result p0
@@ -64,7 +64,7 @@
 .end method
 
 .method public static getColorStateList(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
-    .locals 2
+    .registers 5
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -91,7 +91,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 169
     invoke-virtual {p0, p1, p2}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
@@ -101,7 +101,7 @@
     return-object p0
 
     .line 171
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
     move-result-object p0
@@ -110,7 +110,7 @@
 .end method
 
 .method public static getDrawable(Landroid/content/res/Resources;ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 5
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -137,7 +137,7 @@
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 76
     invoke-virtual {p0, p1, p2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
@@ -147,7 +147,7 @@
     return-object p0
 
     .line 78
-    :cond_0
+    :cond_b
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
@@ -156,7 +156,7 @@
 .end method
 
 .method public static getDrawableForDensity(Landroid/content/res/Resources;IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+    .registers 6
     .param p0    # Landroid/content/res/Resources;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -183,7 +183,7 @@
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 109
     invoke-virtual {p0, p1, p2, p3}, Landroid/content/res/Resources;->getDrawableForDensity(IILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
@@ -193,12 +193,12 @@
     return-object p0
 
     .line 110
-    :cond_0
+    :cond_b
     sget p3, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v0, 0xf
 
-    if-lt p3, v0, :cond_1
+    if-lt p3, v0, :cond_16
 
     .line 111
     invoke-virtual {p0, p1, p2}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
@@ -208,7 +208,7 @@
     return-object p0
 
     .line 113
-    :cond_1
+    :cond_16
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
@@ -217,7 +217,7 @@
 .end method
 
 .method public static getFont(Landroid/content/Context;I)Landroid/graphics/Typeface;
-    .locals 3
+    .registers 5
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -242,12 +242,12 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     return-object v1
 
     .line 196
-    :cond_0
+    :cond_8
     new-instance v0, Landroid/util/TypedValue;
 
     invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
@@ -262,7 +262,7 @@
 .end method
 
 .method public static getFont(Landroid/content/Context;ILandroid/util/TypedValue;ILandroid/widget/TextView;)Landroid/graphics/Typeface;
-    .locals 1
+    .registers 6
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -292,14 +292,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 206
-    :cond_0
+    :cond_8
     invoke-static {p0, p1, p2, p3, p4}, Landroid/support/v4/content/res/ResourcesCompat;->loadFont(Landroid/content/Context;ILandroid/util/TypedValue;ILandroid/widget/TextView;)Landroid/graphics/Typeface;
 
     move-result-object p0
@@ -308,7 +308,7 @@
 .end method
 
 .method private static loadFont(Landroid/content/Context;ILandroid/util/TypedValue;ILandroid/widget/TextView;)Landroid/graphics/Typeface;
-    .locals 6
+    .registers 11
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -343,12 +343,12 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     return-object p0
 
     .line 217
-    :cond_0
+    :cond_14
     new-instance p0, Landroid/content/res/Resources$NotFoundException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -376,7 +376,7 @@
 .end method
 
 .method private static loadFont(Landroid/content/Context;Landroid/content/res/Resources;Landroid/util/TypedValue;IILandroid/widget/TextView;)Landroid/graphics/Typeface;
-    .locals 8
+    .registers 14
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -389,7 +389,7 @@
     .line 224
     iget-object v0, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_78
 
     .line 229
     iget-object p2, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
@@ -407,23 +407,23 @@
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     return-object v1
 
     .line 235
-    :cond_0
+    :cond_14
     invoke-static {p1, p3, p4}, Landroid/support/v4/graphics/TypefaceCompat;->findFromCache(Landroid/content/res/Resources;II)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     return-object v0
 
     .line 241
-    :cond_1
-    :try_start_0
+    :cond_1b
+    :try_start_1b
     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
@@ -434,7 +434,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_43
 
     .line 242
     invoke-virtual {p1, p3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
@@ -446,7 +446,7 @@
 
     move-result-object v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_39
 
     const-string p0, "ResourcesCompat"
 
@@ -457,7 +457,7 @@
 
     return-object v1
 
-    :cond_2
+    :cond_39
     move-object v2, p0
 
     move-object v4, p1
@@ -476,17 +476,17 @@
     return-object p0
 
     .line 252
-    :cond_3
+    :cond_43
     invoke-static {p0, p1, p3, p2, p4}, Landroid/support/v4/graphics/TypefaceCompat;->createFromResourcesFontFile(Landroid/content/Context;Landroid/content/res/Resources;ILjava/lang/String;I)Landroid/graphics/Typeface;
 
     move-result-object p0
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_47
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1b .. :try_end_47} :catch_60
+    .catch Ljava/io/IOException; {:try_start_1b .. :try_end_47} :catch_48
 
     return-object p0
 
-    :catch_0
+    :catch_48
     move-exception p0
 
     const-string p1, "ResourcesCompat"
@@ -508,9 +508,9 @@
 
     invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto :goto_77
 
-    :catch_1
+    :catch_60
     move-exception p0
 
     const-string p1, "ResourcesCompat"
@@ -532,11 +532,11 @@
 
     invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
+    :goto_77
     return-object v1
 
     .line 225
-    :cond_4
+    :cond_78
     new-instance p0, Landroid/content/res/Resources$NotFoundException;
 
     new-instance p4, Ljava/lang/StringBuilder;

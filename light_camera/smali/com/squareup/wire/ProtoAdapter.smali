@@ -215,7 +215,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 211
     new-instance v0, Lcom/squareup/wire/ProtoAdapter$1;
@@ -374,7 +374,7 @@
 .end method
 
 .method public constructor <init>(Lcom/squareup/wire/FieldEncoding;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -397,7 +397,7 @@
 .end method
 
 .method private createPacked()Lcom/squareup/wire/ProtoAdapter;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -412,7 +412,7 @@
 
     sget-object v1, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_10
 
     .line 434
     new-instance v0, Lcom/squareup/wire/ProtoAdapter$14;
@@ -426,7 +426,7 @@
     return-object v0
 
     .line 432
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Unable to pack a length-delimited type."
@@ -437,7 +437,7 @@
 .end method
 
 .method private createRepeated()Lcom/squareup/wire/ProtoAdapter;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -460,7 +460,7 @@
 .end method
 
 .method public static get(Lcom/squareup/wire/Message;)Lcom/squareup/wire/ProtoAdapter;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<M:",
@@ -484,7 +484,7 @@
 .end method
 
 .method public static get(Ljava/lang/Class;)Lcom/squareup/wire/ProtoAdapter;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<M:",
@@ -512,13 +512,13 @@
     move-result-object v0
 
     check-cast v0, Lcom/squareup/wire/ProtoAdapter;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_d} :catch_e
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_d} :catch_e
 
     return-object v0
 
-    :catch_0
+    :catch_e
     move-exception v0
 
     .line 92
@@ -552,7 +552,7 @@
 .end method
 
 .method public static get(Ljava/lang/String;)Lcom/squareup/wire/ProtoAdapter;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -566,7 +566,7 @@
     const/16 v0, 0x23
 
     .line 104
-    :try_start_0
+    :try_start_2
     invoke-virtual {p0, v0}, Ljava/lang/String;->indexOf(I)I
 
     move-result v0
@@ -601,14 +601,14 @@
     move-result-object v0
 
     check-cast v0, Lcom/squareup/wire/ProtoAdapter;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_20
+    .catch Ljava/lang/IllegalAccessException; {:try_start_2 .. :try_end_20} :catch_21
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_2 .. :try_end_20} :catch_21
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_2 .. :try_end_20} :catch_21
 
     return-object v0
 
-    :catch_0
+    :catch_21
     move-exception v0
 
     .line 109
@@ -634,7 +634,7 @@
 .end method
 
 .method public static newEnumAdapter(Ljava/lang/Class;)Lcom/squareup/wire/RuntimeEnumAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<E::",
@@ -656,7 +656,7 @@
 .end method
 
 .method public static newMapAdapter(Lcom/squareup/wire/ProtoAdapter;Lcom/squareup/wire/ProtoAdapter;)Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<K:",
@@ -683,7 +683,7 @@
 .end method
 
 .method public static newMessageAdapter(Ljava/lang/Class;)Lcom/squareup/wire/ProtoAdapter;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<M:",
@@ -709,7 +709,7 @@
 
 # virtual methods
 .method public final asPacked()Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -722,24 +722,24 @@
     .line 414
     iget-object v0, p0, Lcom/squareup/wire/ProtoAdapter;->packedAdapter:Lcom/squareup/wire/ProtoAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_b
 
     .line 415
-    :cond_0
+    :cond_5
     invoke-direct {p0}, Lcom/squareup/wire/ProtoAdapter;->createPacked()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/squareup/wire/ProtoAdapter;->packedAdapter:Lcom/squareup/wire/ProtoAdapter;
 
-    :goto_0
+    :goto_b
     return-object v0
 .end method
 
 .method public final asRepeated()Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -752,19 +752,19 @@
     .line 426
     iget-object v0, p0, Lcom/squareup/wire/ProtoAdapter;->repeatedAdapter:Lcom/squareup/wire/ProtoAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_b
 
     .line 427
-    :cond_0
+    :cond_5
     invoke-direct {p0}, Lcom/squareup/wire/ProtoAdapter;->createRepeated()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/squareup/wire/ProtoAdapter;->repeatedAdapter:Lcom/squareup/wire/ProtoAdapter;
 
-    :goto_0
+    :goto_b
     return-object v0
 .end method
 
@@ -785,7 +785,7 @@
 .end method
 
 .method public final decode(Ljava/io/InputStream;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -822,7 +822,7 @@
 .end method
 
 .method public final decode(Lokio/BufferedSource;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -855,7 +855,7 @@
 .end method
 
 .method public final decode(Lokio/ByteString;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -892,7 +892,7 @@
 .end method
 
 .method public final decode([B)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([B)TE;"
@@ -943,7 +943,7 @@
 .end method
 
 .method public final encode(Ljava/io/OutputStream;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -987,7 +987,7 @@
 .end method
 
 .method public final encode(Lokio/BufferedSink;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1023,7 +1023,7 @@
 .end method
 
 .method public final encode(Ljava/lang/Object;)[B
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)[B"
@@ -1041,10 +1041,10 @@
     invoke-direct {v0}, Lokio/Buffer;-><init>()V
 
     .line 163
-    :try_start_0
+    :try_start_a
     invoke-virtual {p0, v0, p1}, Lcom/squareup/wire/ProtoAdapter;->encode(Lokio/BufferedSink;Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_d
+    .catch Ljava/io/IOException; {:try_start_a .. :try_end_d} :catch_12
 
     .line 167
     invoke-virtual {v0}, Lokio/Buffer;->readByteArray()[B
@@ -1053,7 +1053,7 @@
 
     return-object p0
 
-    :catch_0
+    :catch_12
     move-exception p0
 
     .line 165
@@ -1065,7 +1065,7 @@
 .end method
 
 .method public encodeWithTag(Lcom/squareup/wire/ProtoWriter;ILjava/lang/Object;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1080,12 +1080,12 @@
         }
     .end annotation
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_3
 
     return-void
 
     .line 144
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lcom/squareup/wire/ProtoAdapter;->fieldEncoding:Lcom/squareup/wire/FieldEncoding;
 
     invoke-virtual {p1, p2, v0}, Lcom/squareup/wire/ProtoWriter;->writeTag(ILcom/squareup/wire/FieldEncoding;)V
@@ -1095,7 +1095,7 @@
 
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_15
 
     .line 146
     invoke-virtual {p0, p3}, Lcom/squareup/wire/ProtoAdapter;->encodedSize(Ljava/lang/Object;)I
@@ -1105,7 +1105,7 @@
     invoke-virtual {p1, p2}, Lcom/squareup/wire/ProtoWriter;->writeVarint32(I)V
 
     .line 148
-    :cond_1
+    :cond_15
     invoke-virtual {p0, p1, p3}, Lcom/squareup/wire/ProtoAdapter;->encode(Lcom/squareup/wire/ProtoWriter;Ljava/lang/Object;)V
 
     return-void
@@ -1120,21 +1120,21 @@
 .end method
 
 .method public encodedSizeWithTag(ILjava/lang/Object;)I
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(ITE;)I"
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 p0, 0x0
 
     return p0
 
     .line 131
-    :cond_0
+    :cond_4
     invoke-virtual {p0, p2}, Lcom/squareup/wire/ProtoAdapter;->encodedSize(Ljava/lang/Object;)I
 
     move-result p2
@@ -1144,7 +1144,7 @@
 
     sget-object v0, Lcom/squareup/wire/FieldEncoding;->LENGTH_DELIMITED:Lcom/squareup/wire/FieldEncoding;
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_13
 
     .line 133
     invoke-static {p2}, Lcom/squareup/wire/ProtoWriter;->varint32Size(I)I
@@ -1154,7 +1154,7 @@
     add-int/2addr p2, p0
 
     .line 135
-    :cond_1
+    :cond_13
     invoke-static {p1}, Lcom/squareup/wire/ProtoWriter;->tagSize(I)I
 
     move-result p0
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public redact(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)TE;"
@@ -1178,7 +1178,7 @@
 .end method
 
 .method public toString(Ljava/lang/Object;)Ljava/lang/String;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TE;)",
@@ -1195,7 +1195,7 @@
 .end method
 
 .method withLabel(Lcom/squareup/wire/WireField$Label;)Lcom/squareup/wire/ProtoAdapter;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1211,31 +1211,31 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     .line 405
     invoke-virtual {p1}, Lcom/squareup/wire/WireField$Label;->isPacked()Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     .line 406
     invoke-virtual {p0}, Lcom/squareup/wire/ProtoAdapter;->asPacked()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_15
 
     .line 407
-    :cond_0
+    :cond_11
     invoke-virtual {p0}, Lcom/squareup/wire/ProtoAdapter;->asRepeated()Lcom/squareup/wire/ProtoAdapter;
 
     move-result-object p0
 
-    :goto_0
+    :goto_15
     return-object p0
 
-    :cond_1
+    :cond_16
     return-object p0
 .end method

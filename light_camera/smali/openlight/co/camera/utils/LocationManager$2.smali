@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/utils/LocationManager;)V
-    .locals 0
+    .registers 2
 
     .line 98
     iput-object p1, p0, Lopenlight/co/camera/utils/LocationManager$2;->this$0:Lopenlight/co/camera/utils/LocationManager;
@@ -33,9 +33,10 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .registers 3
 
     .line 101
+    # getter for: Lopenlight/co/camera/utils/LocationManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/utils/LocationManager;->access$000()Ljava/lang/String;
 
     move-result-object p1

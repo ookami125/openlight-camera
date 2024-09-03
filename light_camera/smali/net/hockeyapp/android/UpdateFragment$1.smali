@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/UpdateFragment;Landroid/widget/TextView;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
+    .registers 5
 
     .line 138
     iput-object p1, p0, Lnet/hockeyapp/android/UpdateFragment$1;->this$0:Lnet/hockeyapp/android/UpdateFragment;
@@ -45,12 +45,12 @@
 
 # virtual methods
 .method public downloadSuccessful(Lnet/hockeyapp/android/tasks/DownloadFileTask;)V
-    .locals 7
+    .registers 9
 
     .line 141
     instance-of v0, p1, Lnet/hockeyapp/android/tasks/GetFileSizeTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_4c
 
     .line 142
     check-cast p1, Lnet/hockeyapp/android/tasks/GetFileSizeTask;
@@ -129,6 +129,6 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_0
+    :cond_4c
     return-void
 .end method

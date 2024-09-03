@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/BasePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 288
     iput-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -36,9 +36,10 @@
 
 # virtual methods
 .method public onSurfaceTextureAvailable(Landroid/graphics/SurfaceTexture;II)V
-    .locals 2
+    .registers 6
 
     .line 293
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/BasePreviewFragment;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -74,9 +75,10 @@
 .end method
 
 .method public onSurfaceTextureDestroyed(Landroid/graphics/SurfaceTexture;)Z
-    .locals 1
+    .registers 3
 
     .line 312
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/BasePreviewFragment;->access$000()Ljava/lang/String;
 
     move-result-object p1
@@ -103,7 +105,7 @@
     monitor-enter p1
 
     .line 314
-    :try_start_0
+    :try_start_18
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
     const/4 v0, 0x0
@@ -117,25 +119,25 @@
 
     return p0
 
-    :catchall_0
+    :catchall_20
     move-exception p0
 
     monitor-exit p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_22
+    .catchall {:try_start_18 .. :try_end_22} :catchall_20
 
     throw p0
 .end method
 
 .method public onSurfaceTextureSizeChanged(Landroid/graphics/SurfaceTexture;II)V
-    .locals 0
+    .registers 4
 
     .line 300
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
     iget-boolean p1, p1, Lopenlight/co/camera/BasePreviewFragment;->mAspectRatioChange:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_b
 
     .line 301
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -143,12 +145,12 @@
     invoke-virtual {p1, p2, p3}, Lopenlight/co/camera/BasePreviewFragment;->configureTransform(II)V
 
     .line 304
-    :cond_0
+    :cond_b
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
     iget-object p1, p1, Lopenlight/co/camera/BasePreviewFragment;->mCrossHairView:Lopenlight/co/camera/view/focus/CrossHair;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_18
 
     .line 305
     iget-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -158,7 +160,7 @@
     invoke-virtual {p1, p2, p3}, Lopenlight/co/camera/view/focus/CrossHair;->setSize(II)V
 
     .line 307
-    :cond_1
+    :cond_18
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$1;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
     const/4 p1, 0x0
@@ -169,7 +171,7 @@
 .end method
 
 .method public onSurfaceTextureUpdated(Landroid/graphics/SurfaceTexture;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 16
     const-class v0, Lopenlight/co/camera/listener/LocationReceiver;
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 15
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .registers 5
 
     .line 22
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -72,7 +72,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2a
 
     .line 25
     invoke-static {}, Lopenlight/co/camera/utils/LocationManager;->get()Lopenlight/co/camera/utils/LocationManager;
@@ -81,9 +81,9 @@
 
     invoke-virtual {p0}, Lopenlight/co/camera/utils/LocationManager;->checkLocationIsValid()V
 
-    goto :goto_0
+    goto :goto_41
 
-    :cond_0
+    :cond_2a
     const-string p1, "openlight.co.intent.LOCATION_UPDATE"
 
     .line 26
@@ -91,7 +91,7 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_41
 
     const-string p0, "location"
 
@@ -109,7 +109,7 @@
 
     invoke-virtual {p1, p0}, Lopenlight/co/camera/utils/LocationManager;->updateLocation(Landroid/location/Location;)V
 
-    :cond_1
-    :goto_0
+    :cond_41
+    :goto_41
     return-void
 .end method

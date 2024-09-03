@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/io/InputStream;J)V
-    .locals 0
+    .registers 4
 
     .line 44
     invoke-direct {p0, p1}, Ljava/io/FilterInputStream;-><init>(Ljava/io/InputStream;)V
@@ -29,14 +29,14 @@
 .end method
 
 .method private checkReadSoFarOrThrow(I)I
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-ltz p1, :cond_0
+    if-ltz p1, :cond_8
 
     .line 70
     iget v0, p0, Lcom/bumptech/glide/util/ContentLengthInputStream;->readSoFar:I
@@ -45,10 +45,10 @@
 
     iput v0, p0, Lcom/bumptech/glide/util/ContentLengthInputStream;->readSoFar:I
 
-    goto :goto_0
+    goto :goto_14
 
     .line 71
-    :cond_0
+    :cond_8
     iget-wide v0, p0, Lcom/bumptech/glide/util/ContentLengthInputStream;->contentLength:J
 
     iget v2, p0, Lcom/bumptech/glide/util/ContentLengthInputStream;->readSoFar:I
@@ -61,13 +61,13 @@
 
     cmp-long v0, v0, v2
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_15
 
-    :goto_0
+    :goto_14
     return p1
 
     .line 72
-    :cond_1
+    :cond_15
     new-instance p1, Ljava/io/IOException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -100,7 +100,7 @@
 .end method
 
 .method public static obtain(Ljava/io/InputStream;J)Ljava/io/InputStream;
-    .locals 1
+    .registers 4
 
     .line 26
     new-instance v0, Lcom/bumptech/glide/util/ContentLengthInputStream;
@@ -111,7 +111,7 @@
 .end method
 
 .method public static obtain(Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/InputStream;
-    .locals 2
+    .registers 4
 
     .line 22
     invoke-static {p1}, Lcom/bumptech/glide/util/ContentLengthInputStream;->parseContentLength(Ljava/lang/String;)I
@@ -128,26 +128,26 @@
 .end method
 
 .method private static parseContentLength(Ljava/lang/String;)I
-    .locals 4
+    .registers 5
 
     .line 31
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2b
 
     .line 33
-    :try_start_0
+    :try_start_6
     invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/lang/NumberFormatException; {:try_start_6 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_2c
 
-    :catch_0
+    :catch_b
     move-exception v0
 
     const-string v1, "ContentLengthStream"
@@ -159,7 +159,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2b
 
     const-string v1, "ContentLengthStream"
 
@@ -180,17 +180,17 @@
 
     invoke-static {v1, p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_2b
     const/4 v0, -0x1
 
-    :goto_0
+    :goto_2c
     return v0
 .end method
 
 
 # virtual methods
 .method public declared-synchronized available()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -200,7 +200,7 @@
     monitor-enter p0
 
     .line 50
-    :try_start_0
+    :try_start_1
     iget-wide v0, p0, Lcom/bumptech/glide/util/ContentLengthInputStream;->contentLength:J
 
     iget v2, p0, Lcom/bumptech/glide/util/ContentLengthInputStream;->readSoFar:I
@@ -220,8 +220,8 @@
     invoke-static {v0, v1, v2, v3}, Ljava/lang/Math;->max(JJ)J
 
     move-result-wide v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_1 .. :try_end_12} :catchall_15
 
     long-to-int v0, v0
 
@@ -229,7 +229,7 @@
 
     return v0
 
-    :catchall_0
+    :catchall_15
     move-exception v0
 
     monitor-exit p0
@@ -238,7 +238,7 @@
 .end method
 
 .method public declared-synchronized read()I
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -248,7 +248,7 @@
     monitor-enter p0
 
     .line 55
-    :try_start_0
+    :try_start_1
     invoke-super {p0}, Ljava/io/FilterInputStream;->read()I
 
     move-result v0
@@ -256,14 +256,14 @@
     invoke-direct {p0, v0}, Lcom/bumptech/glide/util/ContentLengthInputStream;->checkReadSoFarOrThrow(I)I
 
     move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
     monitor-exit p0
 
     return v0
 
-    :catchall_0
+    :catchall_b
     move-exception v0
 
     monitor-exit p0
@@ -272,7 +272,7 @@
 .end method
 
 .method public read([B)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -292,7 +292,7 @@
 .end method
 
 .method public declared-synchronized read([BII)I
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -302,7 +302,7 @@
     monitor-enter p0
 
     .line 65
-    :try_start_0
+    :try_start_1
     invoke-super {p0, p1, p2, p3}, Ljava/io/FilterInputStream;->read([BII)I
 
     move-result p1
@@ -310,14 +310,14 @@
     invoke-direct {p0, p1}, Lcom/bumptech/glide/util/ContentLengthInputStream;->checkReadSoFarOrThrow(I)I
 
     move-result p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_9
+    .catchall {:try_start_1 .. :try_end_9} :catchall_b
 
     monitor-exit p0
 
     return p1
 
-    :catchall_0
+    :catchall_b
     move-exception p1
 
     monitor-exit p0

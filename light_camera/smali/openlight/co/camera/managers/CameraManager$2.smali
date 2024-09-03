@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/managers/CameraManager;)V
-    .locals 0
+    .registers 2
 
     .line 388
     iput-object p1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -33,13 +33,14 @@
 
 # virtual methods
 .method public onClosed(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/hardware/camera2/CameraDevice;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 435
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object p1
@@ -51,6 +52,7 @@
     .line 436
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p0
@@ -63,13 +65,14 @@
 .end method
 
 .method public onDisconnected(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 4
+    .registers 6
     .param p1    # Landroid/hardware/camera2/CameraDevice;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 405
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -97,6 +100,7 @@
     .line 406
     iget-object v0, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraStateLock:Ljava/lang/Object;
     invoke-static {v0}, Lopenlight/co/camera/managers/CameraManager;->access$800(Lopenlight/co/camera/managers/CameraManager;)Ljava/lang/Object;
 
     move-result-object v0
@@ -104,9 +108,10 @@
     monitor-enter v0
 
     .line 407
-    :try_start_0
+    :try_start_23
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mEventHandler:Landroid/os/Handler;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$900(Lopenlight/co/camera/managers/CameraManager;)Landroid/os/Handler;
 
     move-result-object v1
@@ -118,6 +123,7 @@
     .line 408
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {v1}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object v1
@@ -143,12 +149,13 @@
 
     .line 412
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_47
+    .catchall {:try_start_23 .. :try_end_47} :catchall_60
 
     .line 413
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$1000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/metrics/Metrics;
 
     move-result-object p1
@@ -162,7 +169,7 @@
 
     iget-object p1, p1, Lopenlight/co/camera/managers/CameraManager;->mUpdatePreviewListener:Lopenlight/co/camera/managers/CameraManager$UpdatePreview;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5f
 
     .line 415
     iget-object p0, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
@@ -171,29 +178,30 @@
 
     invoke-interface {p0}, Lopenlight/co/camera/managers/CameraManager$UpdatePreview;->cameraDeviceError()V
 
-    :cond_0
+    :cond_5f
     return-void
 
-    :catchall_0
+    :catchall_60
     move-exception p0
 
     .line 412
-    :try_start_1
+    :try_start_61
     monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_62
+    .catchall {:try_start_61 .. :try_end_62} :catchall_60
 
     throw p0
 .end method
 
 .method public onError(Landroid/hardware/camera2/CameraDevice;I)V
-    .locals 3
+    .registers 6
     .param p1    # Landroid/hardware/camera2/CameraDevice;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 421
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -217,6 +225,7 @@
     .line 422
     iget-object p2, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraStateLock:Ljava/lang/Object;
     invoke-static {p2}, Lopenlight/co/camera/managers/CameraManager;->access$800(Lopenlight/co/camera/managers/CameraManager;)Ljava/lang/Object;
 
     move-result-object p2
@@ -224,9 +233,10 @@
     monitor-enter p2
 
     .line 423
-    :try_start_0
+    :try_start_1f
     iget-object v0, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mEventHandler:Landroid/os/Handler;
     invoke-static {v0}, Lopenlight/co/camera/managers/CameraManager;->access$900(Lopenlight/co/camera/managers/CameraManager;)Landroid/os/Handler;
 
     move-result-object v0
@@ -238,6 +248,7 @@
     .line 424
     iget-object v0, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {v0}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object v0
@@ -263,12 +274,13 @@
 
     .line 428
     monitor-exit p2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_43
+    .catchall {:try_start_1f .. :try_end_43} :catchall_56
 
     .line 429
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraMetrics:Lopenlight/co/camera/metrics/Metrics;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$1000(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/metrics/Metrics;
 
     move-result-object p1
@@ -286,26 +298,27 @@
 
     return-void
 
-    :catchall_0
+    :catchall_56
     move-exception p0
 
     .line 428
-    :try_start_1
+    :try_start_57
     monitor-exit p2
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_58
+    .catchall {:try_start_57 .. :try_end_58} :catchall_56
 
     throw p0
 .end method
 
 .method public onOpened(Landroid/hardware/camera2/CameraDevice;)V
-    .locals 2
+    .registers 4
     .param p1    # Landroid/hardware/camera2/CameraDevice;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
     .end param
 
     .line 392
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->access$100()Ljava/lang/String;
 
     move-result-object v0
@@ -317,6 +330,7 @@
     .line 395
     iget-object v0, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraStateLock:Ljava/lang/Object;
     invoke-static {v0}, Lopenlight/co/camera/managers/CameraManager;->access$800(Lopenlight/co/camera/managers/CameraManager;)Ljava/lang/Object;
 
     move-result-object v0
@@ -324,7 +338,7 @@
     monitor-enter v0
 
     .line 396
-    :try_start_0
+    :try_start_10
     iget-object v1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
     iget-object v1, v1, Lopenlight/co/camera/managers/CameraManager;->mCameraOpenCloseLock:Ljava/util/concurrent/Semaphore;
@@ -339,6 +353,7 @@
     .line 398
     iget-object p1, p0, Lopenlight/co/camera/managers/CameraManager$2;->this$0:Lopenlight/co/camera/managers/CameraManager;
 
+    # getter for: Lopenlight/co/camera/managers/CameraManager;->mCameraState:Lopenlight/co/camera/utils/CameraState;
     invoke-static {p1}, Lopenlight/co/camera/managers/CameraManager;->access$200(Lopenlight/co/camera/managers/CameraManager;)Lopenlight/co/camera/utils/CameraState;
 
     move-result-object p1
@@ -359,12 +374,12 @@
 
     return-void
 
-    :catchall_0
+    :catchall_2f
     move-exception p0
 
     monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_31
+    .catchall {:try_start_10 .. :try_end_31} :catchall_2f
 
     throw p0
 .end method

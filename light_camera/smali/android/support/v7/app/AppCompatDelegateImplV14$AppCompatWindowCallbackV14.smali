@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV14;Landroid/view/Window$Callback;)V
-    .locals 0
+    .registers 3
 
     .line 267
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV14$AppCompatWindowCallbackV14;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV14;
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .locals 1
+    .registers 3
 
     .line 274
     iget-object v0, p0, Landroid/support/v7/app/AppCompatDelegateImplV14$AppCompatWindowCallbackV14;->this$0:Landroid/support/v7/app/AppCompatDelegateImplV14;
@@ -43,7 +43,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 275
     invoke-virtual {p0, p1}, Landroid/support/v7/app/AppCompatDelegateImplV14$AppCompatWindowCallbackV14;->startAsSupportActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
@@ -53,7 +53,7 @@
     return-object p0
 
     .line 278
-    :cond_0
+    :cond_d
     invoke-super {p0, p1}, Landroid/support/v7/app/AppCompatDelegateImplBase$AppCompatWindowCallbackBase;->onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
 
     move-result-object p0
@@ -62,7 +62,7 @@
 .end method
 
 .method final startAsSupportActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .locals 2
+    .registers 4
 
     .line 287
     new-instance v0, Landroid/support/v7/view/SupportActionModeWrapper$CallbackWrapper;
@@ -81,7 +81,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     .line 296
     invoke-virtual {v0, p0}, Landroid/support/v7/view/SupportActionModeWrapper$CallbackWrapper;->getActionModeWrapper(Landroid/support/v7/view/ActionMode;)Landroid/view/ActionMode;
@@ -90,7 +90,7 @@
 
     return-object p0
 
-    :cond_0
+    :cond_16
     const/4 p0, 0x0
 
     return-object p0

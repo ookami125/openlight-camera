@@ -59,7 +59,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 364
     invoke-direct {p0}, Lcom/squareup/wire/Message$Builder;-><init>()V
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public aspect_ratio(Lltpb/ViewPreferences$AspectRatio;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 460
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->aspect_ratio:Lltpb/ViewPreferences$AspectRatio;
@@ -79,7 +79,7 @@
 .end method
 
 .method public awb_gains(Lltpb/ViewPreferences$ChannelGain;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 477
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->awb_gains:Lltpb/ViewPreferences$ChannelGain;
@@ -88,7 +88,7 @@
 .end method
 
 .method public awb_mode(Lltpb/ViewPreferences$AWBMode;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 420
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->awb_mode:Lltpb/ViewPreferences$AWBMode;
@@ -97,7 +97,7 @@
 .end method
 
 .method public bridge synthetic build()Lcom/squareup/wire/Message;
-    .locals 0
+    .registers 1
 
     .line 331
     invoke-virtual {p0}, Lltpb/ViewPreferences$Builder;->build()Lltpb/ViewPreferences;
@@ -108,7 +108,7 @@
 .end method
 
 .method public build()Lltpb/ViewPreferences;
-    .locals 21
+    .registers 22
 
     move-object/from16 v0, p0
 
@@ -167,7 +167,7 @@
 .end method
 
 .method public crop(Lltpb/ViewPreferences$Crop;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 469
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->crop:Lltpb/ViewPreferences$Crop;
@@ -176,7 +176,7 @@
 .end method
 
 .method public disable_cropping(Ljava/lang/Boolean;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 388
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->disable_cropping:Ljava/lang/Boolean;
@@ -185,7 +185,7 @@
 .end method
 
 .method public ev_offset(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 379
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->ev_offset:Ljava/lang/Float;
@@ -194,7 +194,7 @@
 .end method
 
 .method public f_number(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 371
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->f_number:Ljava/lang/Float;
@@ -203,7 +203,7 @@
 .end method
 
 .method public hdr_mode(Lltpb/ViewPreferences$HDRMode;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 396
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->hdr_mode:Lltpb/ViewPreferences$HDRMode;
@@ -212,7 +212,7 @@
 .end method
 
 .method public image_exposure(Ljava/lang/Long;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 444
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->image_exposure:Ljava/lang/Long;
@@ -221,7 +221,7 @@
 .end method
 
 .method public image_gain(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 436
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->image_gain:Ljava/lang/Float;
@@ -230,7 +230,7 @@
 .end method
 
 .method public is_on_tripod(Ljava/lang/Boolean;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 485
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->is_on_tripod:Ljava/lang/Boolean;
@@ -239,7 +239,7 @@
 .end method
 
 .method public orientation(Lltpb/ViewPreferences$Orientation;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 428
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->orientation:Lltpb/ViewPreferences$Orientation;
@@ -248,7 +248,7 @@
 .end method
 
 .method public qc_lux_index(Ljava/lang/Float;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 493
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->qc_lux_index:Ljava/lang/Float;
@@ -257,7 +257,7 @@
 .end method
 
 .method public scene_mode(Lltpb/ViewPreferences$SceneMode;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 412
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->scene_mode:Lltpb/ViewPreferences$SceneMode;
@@ -266,7 +266,7 @@
 .end method
 
 .method public user_rating(Ljava/lang/Integer;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 452
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->user_rating:Ljava/lang/Integer;
@@ -275,7 +275,7 @@
 .end method
 
 .method public view_preset(Lltpb/ViewPreferences$ViewPresets;)Lltpb/ViewPreferences$Builder;
-    .locals 0
+    .registers 2
 
     .line 404
     iput-object p1, p0, Lltpb/ViewPreferences$Builder;->view_preset:Lltpb/ViewPreferences$ViewPresets;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(IIIIIIIII)V
-    .locals 0
+    .registers 10
 
     .line 138
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
 
 # virtual methods
 .method public getActuatorIndex()I
-    .locals 0
+    .registers 1
 
     .line 493
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->actuatorIndex:I
@@ -72,7 +72,7 @@
 .end method
 
 .method public getAttackLevel()I
-    .locals 0
+    .registers 1
 
     .line 385
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->attackLevel:I
@@ -81,7 +81,7 @@
 .end method
 
 .method public getAttackTime()I
-    .locals 0
+    .registers 1
 
     .line 355
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->attackTime:I
@@ -90,7 +90,7 @@
 .end method
 
 .method public getDuration()I
-    .locals 0
+    .registers 1
 
     .line 184
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->duration:I
@@ -99,7 +99,7 @@
 .end method
 
 .method public getFadeLevel()I
-    .locals 0
+    .registers 1
 
     .line 447
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->fadeLevel:I
@@ -108,7 +108,7 @@
 .end method
 
 .method public getFadeTime()I
-    .locals 0
+    .registers 1
 
     .line 417
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->fadeTime:I
@@ -117,7 +117,7 @@
 .end method
 
 .method public getMagnitude()I
-    .locals 0
+    .registers 1
 
     .line 214
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->magnitude:I
@@ -126,7 +126,7 @@
 .end method
 
 .method public getPeriod()I
-    .locals 0
+    .registers 1
 
     .line 270
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->period:I
@@ -135,7 +135,7 @@
 .end method
 
 .method public getStyleAndWaveType()I
-    .locals 0
+    .registers 1
 
     .line 323
     iget p0, p0, Lcom/immersion/PeriodicEffectDefinition;->styleAndWaveType:I
@@ -144,7 +144,7 @@
 .end method
 
 .method public setActuatorIndex(I)V
-    .locals 0
+    .registers 2
 
     .line 470
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->actuatorIndex:I
@@ -153,7 +153,7 @@
 .end method
 
 .method public setAttackLevel(I)V
-    .locals 0
+    .registers 2
 
     .line 370
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->attackLevel:I
@@ -162,7 +162,7 @@
 .end method
 
 .method public setAttackTime(I)V
-    .locals 0
+    .registers 2
 
     .line 339
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->attackTime:I
@@ -171,7 +171,7 @@
 .end method
 
 .method public setDuration(I)V
-    .locals 0
+    .registers 2
 
     .line 165
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->duration:I
@@ -180,7 +180,7 @@
 .end method
 
 .method public setFadeLevel(I)V
-    .locals 0
+    .registers 2
 
     .line 432
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->fadeLevel:I
@@ -189,7 +189,7 @@
 .end method
 
 .method public setFadeTime(I)V
-    .locals 0
+    .registers 2
 
     .line 401
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->fadeTime:I
@@ -198,7 +198,7 @@
 .end method
 
 .method public setMagnitude(I)V
-    .locals 0
+    .registers 2
 
     .line 199
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->magnitude:I
@@ -207,7 +207,7 @@
 .end method
 
 .method public setPeriod(I)V
-    .locals 0
+    .registers 2
 
     .line 242
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->period:I
@@ -216,7 +216,7 @@
 .end method
 
 .method public setStyleAndWaveType(I)V
-    .locals 0
+    .registers 2
 
     .line 297
     iput p1, p0, Lcom/immersion/PeriodicEffectDefinition;->styleAndWaveType:I

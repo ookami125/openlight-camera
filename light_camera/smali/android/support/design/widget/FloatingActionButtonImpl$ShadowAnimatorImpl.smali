@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/support/design/widget/FloatingActionButtonImpl;)V
-    .locals 0
+    .registers 2
 
     .line 423
     iput-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/design/widget/FloatingActionButtonImpl;Landroid/support/design/widget/FloatingActionButtonImpl$1;)V
-    .locals 0
+    .registers 3
 
     .line 423
     invoke-direct {p0, p1}, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;-><init>(Landroid/support/design/widget/FloatingActionButtonImpl;)V
@@ -54,7 +54,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 443
     iget-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -74,12 +74,12 @@
 .end method
 
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
+    .registers 5
 
     .line 431
     iget-boolean v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;->mValidValues:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 432
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -105,7 +105,7 @@
     iput-boolean v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;->mValidValues:Z
 
     .line 437
-    :cond_0
+    :cond_17
     iget-object v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$ShadowAnimatorImpl;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
 
     iget-object v0, v0, Landroid/support/design/widget/FloatingActionButtonImpl;->mShadowDrawable:Landroid/support/design/widget/ShadowDrawableWrapper;

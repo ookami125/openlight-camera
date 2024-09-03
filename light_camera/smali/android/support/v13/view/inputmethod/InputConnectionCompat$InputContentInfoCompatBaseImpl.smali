@@ -35,13 +35,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 48
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method static handlePerformPrivateCommand(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)Z
-    .locals 7
+    .registers 10
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -73,20 +73,20 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     return v0
 
-    :cond_0
-    if-nez p1, :cond_1
+    :cond_a
+    if-nez p1, :cond_d
 
     return v0
 
-    :cond_1
+    :cond_d
     const/4 p0, 0x0
 
     .line 114
-    :try_start_0
+    :try_start_e
     sget-object v1, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl;->COMMIT_CONTENT_RESULT_RECEIVER:Ljava/lang/String;
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -94,11 +94,11 @@
     move-result-object v1
 
     check-cast v1, Landroid/os/ResultReceiver;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_16
+    .catchall {:try_start_e .. :try_end_16} :catchall_4d
 
     .line 115
-    :try_start_1
+    :try_start_16
     sget-object v2, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl;->COMMIT_CONTENT_CONTENT_URI_KEY:Ljava/lang/String;
 
     invoke-virtual {p1, v2}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
@@ -150,40 +150,40 @@
     invoke-interface {p2, v6, v5, p1}, Landroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;->onCommitContent(Landroid/support/v13/view/inputmethod/InputContentInfoCompat;ILandroid/os/Bundle;)Z
 
     move-result p1
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_45
+    .catchall {:try_start_16 .. :try_end_45} :catchall_4b
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4a
 
     .line 126
     invoke-virtual {v1, p1, p0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    :cond_2
+    :cond_4a
     return p1
 
-    :catchall_0
+    :catchall_4b
     move-exception p1
 
-    goto :goto_0
+    goto :goto_4f
 
-    :catchall_1
+    :catchall_4d
     move-exception p1
 
     move-object v1, p0
 
-    :goto_0
-    if-eqz v1, :cond_3
+    :goto_4f
+    if-eqz v1, :cond_54
 
     invoke-virtual {v1, v0, p0}, Landroid/os/ResultReceiver;->send(ILandroid/os/Bundle;)V
 
-    :cond_3
+    :cond_54
     throw p1
 .end method
 
 
 # virtual methods
 .method public commitContent(Landroid/view/inputmethod/InputConnection;Landroid/support/v13/view/inputmethod/InputContentInfoCompat;ILandroid/os/Bundle;)Z
-    .locals 2
+    .registers 7
     .param p1    # Landroid/view/inputmethod/InputConnection;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -250,7 +250,7 @@
 .end method
 
 .method public createWrapper(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)Landroid/view/inputmethod/InputConnection;
-    .locals 1
+    .registers 5
     .param p1    # Landroid/view/inputmethod/InputConnection;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -274,12 +274,12 @@
     .line 85
     array-length p2, p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_8
 
     return-object p1
 
     .line 89
-    :cond_0
+    :cond_8
     new-instance p2, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatBaseImpl$1;
 
     const/4 v0, 0x0

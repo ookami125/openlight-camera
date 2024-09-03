@@ -18,12 +18,12 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/FileFilter;)V
-    .locals 0
+    .registers 2
 
     .line 59
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 63
     iput-object p1, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->fileFilter:Ljava/io/FileFilter;
@@ -36,7 +36,7 @@
     return-void
 
     .line 61
-    :cond_0
+    :cond_b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The FileFilter must not be null"
@@ -47,12 +47,12 @@
 .end method
 
 .method public constructor <init>(Ljava/io/FilenameFilter;)V
-    .locals 0
+    .registers 2
 
     .line 46
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_b
 
     .line 50
     iput-object p1, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->filenameFilter:Ljava/io/FilenameFilter;
@@ -65,7 +65,7 @@
     return-void
 
     .line 48
-    :cond_0
+    :cond_b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The FilenameFilter must not be null"
@@ -78,12 +78,12 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 1
+    .registers 3
 
     .line 75
     iget-object v0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->fileFilter:Ljava/io/FileFilter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 76
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->fileFilter:Ljava/io/FileFilter;
@@ -95,7 +95,7 @@
     return p0
 
     .line 78
-    :cond_0
+    :cond_b
     invoke-super {p0, p1}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;->accept(Ljava/io/File;)Z
 
     move-result p0
@@ -104,12 +104,12 @@
 .end method
 
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 1
+    .registers 4
 
     .line 91
     iget-object v0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->filenameFilter:Ljava/io/FilenameFilter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 92
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->filenameFilter:Ljava/io/FilenameFilter;
@@ -121,7 +121,7 @@
     return p0
 
     .line 94
-    :cond_0
+    :cond_b
     invoke-super {p0, p1, p2}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;->accept(Ljava/io/File;Ljava/lang/String;)Z
 
     move-result p0
@@ -130,29 +130,29 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 105
     iget-object v0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->fileFilter:Ljava/io/FileFilter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     iget-object v0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->fileFilter:Ljava/io/FileFilter;
 
-    :goto_0
+    :goto_6
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;->filenameFilter:Ljava/io/FilenameFilter;
 
-    goto :goto_0
+    goto :goto_6
 
     .line 106
-    :goto_1
+    :goto_e
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V

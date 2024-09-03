@@ -43,7 +43,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/ResourceEncoder;Lcom/bumptech/glide/load/ResourceEncoder;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public encode(Lcom/bumptech/glide/load/engine/Resource;Ljava/io/OutputStream;)Z
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 32
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceEncoder;->bitmapEncoder:Lcom/bumptech/glide/load/ResourceEncoder;
@@ -107,7 +107,7 @@
     return p0
 
     .line 34
-    :cond_0
+    :cond_13
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceEncoder;->gifEncoder:Lcom/bumptech/glide/load/ResourceEncoder;
 
     invoke-virtual {p1}, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;->getGifResource()Lcom/bumptech/glide/load/engine/Resource;
@@ -122,7 +122,7 @@
 .end method
 
 .method public bridge synthetic encode(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
 
     .line 15
     check-cast p1, Lcom/bumptech/glide/load/engine/Resource;
@@ -135,12 +135,12 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 40
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceEncoder;->id:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 41
     new-instance v0, Ljava/lang/StringBuilder;
@@ -170,7 +170,7 @@
     iput-object v0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceEncoder;->id:Ljava/lang/String;
 
     .line 43
-    :cond_0
+    :cond_21
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperResourceEncoder;->id:Ljava/lang/String;
 
     return-object p0

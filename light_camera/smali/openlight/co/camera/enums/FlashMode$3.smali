@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;IIIII)V
-    .locals 10
+    .registers 19
 
     const/4 v9, 0x0
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public isEnabled()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

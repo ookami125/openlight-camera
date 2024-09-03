@@ -40,7 +40,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 101
     new-instance v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
@@ -110,7 +110,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;III)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II)V"
@@ -130,7 +130,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
-    .locals 1
+    .registers 2
 
     .line 99
     const-class v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
@@ -145,7 +145,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
-    .locals 1
+    .registers 1
 
     .line 99
     sget-object v0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->$VALUES:[Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;
@@ -162,7 +162,7 @@
 
 # virtual methods
 .method public getFadedResId()I
-    .locals 0
+    .registers 1
 
     .line 110
     iget p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->mFadedResId:I
@@ -171,7 +171,7 @@
 .end method
 
 .method public getResId()I
-    .locals 0
+    .registers 1
 
     .line 106
     iget p0, p0, Lopenlight/co/camera/view/primarycontrol/ImagePrimaryControl$PictureControls;->mResId:I

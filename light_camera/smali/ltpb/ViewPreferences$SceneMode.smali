@@ -64,7 +64,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 8
+    .registers 8
 
     .line 607
     new-instance v0, Lltpb/ViewPreferences$SceneMode;
@@ -174,7 +174,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -191,65 +191,65 @@
 .end method
 
 .method public static fromValue(I)Lltpb/ViewPreferences$SceneMode;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_18
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 640
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/ViewPreferences$SceneMode;->SCENE_MODE_NONE:Lltpb/ViewPreferences$SceneMode;
 
     return-object p0
 
     .line 639
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/ViewPreferences$SceneMode;->SCENE_MODE_NIGHT:Lltpb/ViewPreferences$SceneMode;
 
     return-object p0
 
     .line 638
-    :pswitch_2
+    :pswitch_b
     sget-object p0, Lltpb/ViewPreferences$SceneMode;->SCENE_MODE_MACRO:Lltpb/ViewPreferences$SceneMode;
 
     return-object p0
 
     .line 637
-    :pswitch_3
+    :pswitch_e
     sget-object p0, Lltpb/ViewPreferences$SceneMode;->SCENE_MODE_SPORT:Lltpb/ViewPreferences$SceneMode;
 
     return-object p0
 
     .line 636
-    :pswitch_4
+    :pswitch_11
     sget-object p0, Lltpb/ViewPreferences$SceneMode;->SCENE_MODE_LANDSCAPE:Lltpb/ViewPreferences$SceneMode;
 
     return-object p0
 
     .line 635
-    :pswitch_5
+    :pswitch_14
     sget-object p0, Lltpb/ViewPreferences$SceneMode;->SCENE_MODE_PORTRAIT:Lltpb/ViewPreferences$SceneMode;
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_18
     .packed-switch 0x0
+        :pswitch_14
+        :pswitch_11
+        :pswitch_e
+        :pswitch_b
+        :pswitch_8
         :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/ViewPreferences$SceneMode;
-    .locals 1
+    .registers 2
 
     .line 606
     const-class v0, Lltpb/ViewPreferences$SceneMode;
@@ -264,7 +264,7 @@
 .end method
 
 .method public static values()[Lltpb/ViewPreferences$SceneMode;
-    .locals 1
+    .registers 1
 
     .line 606
     sget-object v0, Lltpb/ViewPreferences$SceneMode;->$VALUES:[Lltpb/ViewPreferences$SceneMode;
@@ -281,7 +281,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 647
     iget p0, p0, Lltpb/ViewPreferences$SceneMode;->value:I

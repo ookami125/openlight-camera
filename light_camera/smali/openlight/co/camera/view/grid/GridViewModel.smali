@@ -15,13 +15,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 14
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,12 +30,12 @@
 .end method
 
 .method public static getInstance()Lopenlight/co/camera/view/grid/GridViewModel;
-    .locals 1
+    .registers 1
 
     .line 19
     sget-object v0, Lopenlight/co/camera/view/grid/GridViewModel;->mInstance:Lopenlight/co/camera/view/grid/GridViewModel;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 20
     new-instance v0, Lopenlight/co/camera/view/grid/GridViewModel;
@@ -45,7 +45,7 @@
     sput-object v0, Lopenlight/co/camera/view/grid/GridViewModel;->mInstance:Lopenlight/co/camera/view/grid/GridViewModel;
 
     .line 22
-    :cond_0
+    :cond_b
     sget-object v0, Lopenlight/co/camera/view/grid/GridViewModel;->mInstance:Lopenlight/co/camera/view/grid/GridViewModel;
 
     return-object v0
@@ -54,7 +54,7 @@
 
 # virtual methods
 .method public getPreviewHeight()I
-    .locals 0
+    .registers 1
 
     .line 30
     iget p0, p0, Lopenlight/co/camera/view/grid/GridViewModel;->mPreviewHeight:I
@@ -63,7 +63,7 @@
 .end method
 
 .method public getPreviewWidth()I
-    .locals 0
+    .registers 1
 
     .line 38
     iget p0, p0, Lopenlight/co/camera/view/grid/GridViewModel;->mPreviewWidth:I
@@ -72,7 +72,7 @@
 .end method
 
 .method public setPreviewHeight(I)V
-    .locals 0
+    .registers 2
 
     .line 26
     iput p1, p0, Lopenlight/co/camera/view/grid/GridViewModel;->mPreviewHeight:I
@@ -81,7 +81,7 @@
 .end method
 
 .method public setPreviewWidth(I)V
-    .locals 0
+    .registers 2
 
     .line 34
     iput p1, p0, Lopenlight/co/camera/view/grid/GridViewModel;->mPreviewWidth:I

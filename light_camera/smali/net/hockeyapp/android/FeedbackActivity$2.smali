@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/FeedbackActivity;Lnet/hockeyapp/android/objects/FeedbackResponse;)V
-    .locals 0
+    .registers 3
 
     .line 652
     iput-object p1, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .registers 8
 
     .line 656
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
@@ -66,7 +66,7 @@
     .line 662
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->val$feedbackResponse:Lnet/hockeyapp/android/objects/FeedbackResponse;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_f4
 
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->val$feedbackResponse:Lnet/hockeyapp/android/objects/FeedbackResponse;
 
@@ -74,7 +74,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_f4
 
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->val$feedbackResponse:Lnet/hockeyapp/android/objects/FeedbackResponse;
 
@@ -87,7 +87,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_f4
 
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->val$feedbackResponse:Lnet/hockeyapp/android/objects/FeedbackResponse;
 
@@ -104,7 +104,7 @@
 
     move-result v3
 
-    if-lez v3, :cond_2
+    if-lez v3, :cond_f4
 
     .line 666
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
@@ -119,11 +119,13 @@
 
     move-result-object v4
 
+    # setter for: Lnet/hockeyapp/android/FeedbackActivity;->mFeedbackMessages:Ljava/util/ArrayList;
     invoke-static {v3, v4}, Lnet/hockeyapp/android/FeedbackActivity;->access$102(Lnet/hockeyapp/android/FeedbackActivity;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
     .line 668
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mFeedbackMessages:Ljava/util/ArrayList;
     invoke-static {v3}, Lnet/hockeyapp/android/FeedbackActivity;->access$100(Lnet/hockeyapp/android/FeedbackActivity;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -131,9 +133,10 @@
     invoke-static {v3}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
 
     .line 672
-    :try_start_0
+    :try_start_54
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mFeedbackMessages:Ljava/util/ArrayList;
     invoke-static {v3}, Lnet/hockeyapp/android/FeedbackActivity;->access$100(Lnet/hockeyapp/android/FeedbackActivity;)Ljava/util/ArrayList;
 
     move-result-object v3
@@ -157,6 +160,7 @@
     .line 673
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mLastUpdatedTextView:Landroid/widget/TextView;
     invoke-static {v3}, Lnet/hockeyapp/android/FeedbackActivity;->access$200(Lnet/hockeyapp/android/FeedbackActivity;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -186,31 +190,33 @@
     .line 674
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mLastUpdatedTextView:Landroid/widget/TextView;
     invoke-static {v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$200(Lnet/hockeyapp/android/FeedbackActivity;)Landroid/widget/TextView;
 
     move-result-object v0
 
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
-    :try_end_0
-    .catch Ljava/text/ParseException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_8f
+    .catch Ljava/text/ParseException; {:try_start_54 .. :try_end_8f} :catch_90
 
-    goto :goto_0
+    goto :goto_94
 
-    :catch_0
+    :catch_90
     move-exception v0
 
     .line 676
     invoke-virtual {v0}, Ljava/text/ParseException;->printStackTrace()V
 
     .line 679
-    :goto_0
+    :goto_94
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesAdapter:Lnet/hockeyapp/android/adapters/MessagesAdapter;
     invoke-static {v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$300(Lnet/hockeyapp/android/FeedbackActivity;)Lnet/hockeyapp/android/adapters/MessagesAdapter;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b3
 
     .line 680
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
@@ -219,26 +225,30 @@
 
     iget-object v2, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mContext:Landroid/content/Context;
     invoke-static {v2}, Lnet/hockeyapp/android/FeedbackActivity;->access$400(Lnet/hockeyapp/android/FeedbackActivity;)Landroid/content/Context;
 
     move-result-object v2
 
     iget-object v3, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mFeedbackMessages:Ljava/util/ArrayList;
     invoke-static {v3}, Lnet/hockeyapp/android/FeedbackActivity;->access$100(Lnet/hockeyapp/android/FeedbackActivity;)Ljava/util/ArrayList;
 
     move-result-object v3
 
     invoke-direct {v1, v2, v3}, Lnet/hockeyapp/android/adapters/MessagesAdapter;-><init>(Landroid/content/Context;Ljava/util/ArrayList;)V
 
+    # setter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesAdapter:Lnet/hockeyapp/android/adapters/MessagesAdapter;
     invoke-static {v0, v1}, Lnet/hockeyapp/android/FeedbackActivity;->access$302(Lnet/hockeyapp/android/FeedbackActivity;Lnet/hockeyapp/android/adapters/MessagesAdapter;)Lnet/hockeyapp/android/adapters/MessagesAdapter;
 
-    goto :goto_2
+    goto :goto_e5
 
     .line 682
-    :cond_0
+    :cond_b3
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesAdapter:Lnet/hockeyapp/android/adapters/MessagesAdapter;
     invoke-static {v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$300(Lnet/hockeyapp/android/FeedbackActivity;)Lnet/hockeyapp/android/adapters/MessagesAdapter;
 
     move-result-object v0
@@ -248,6 +258,7 @@
     .line 683
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mFeedbackMessages:Ljava/util/ArrayList;
     invoke-static {v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$100(Lnet/hockeyapp/android/FeedbackActivity;)Ljava/util/ArrayList;
 
     move-result-object v0
@@ -256,12 +267,12 @@
 
     move-result-object v0
 
-    :goto_1
+    :goto_c6
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_dc
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -272,18 +283,20 @@
     .line 684
     iget-object v2, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesAdapter:Lnet/hockeyapp/android/adapters/MessagesAdapter;
     invoke-static {v2}, Lnet/hockeyapp/android/FeedbackActivity;->access$300(Lnet/hockeyapp/android/FeedbackActivity;)Lnet/hockeyapp/android/adapters/MessagesAdapter;
 
     move-result-object v2
 
     invoke-virtual {v2, v1}, Lnet/hockeyapp/android/adapters/MessagesAdapter;->add(Lnet/hockeyapp/android/objects/FeedbackMessage;)V
 
-    goto :goto_1
+    goto :goto_c6
 
     .line 687
-    :cond_1
+    :cond_dc
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesAdapter:Lnet/hockeyapp/android/adapters/MessagesAdapter;
     invoke-static {v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$300(Lnet/hockeyapp/android/FeedbackActivity;)Lnet/hockeyapp/android/adapters/MessagesAdapter;
 
     move-result-object v0
@@ -291,21 +304,23 @@
     invoke-virtual {v0}, Lnet/hockeyapp/android/adapters/MessagesAdapter;->notifyDataSetChanged()V
 
     .line 690
-    :goto_2
+    :goto_e5
     iget-object v0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesListView:Landroid/widget/ListView;
     invoke-static {v0}, Lnet/hockeyapp/android/FeedbackActivity;->access$500(Lnet/hockeyapp/android/FeedbackActivity;)Landroid/widget/ListView;
 
     move-result-object v0
 
     iget-object p0, p0, Lnet/hockeyapp/android/FeedbackActivity$2;->this$0:Lnet/hockeyapp/android/FeedbackActivity;
 
+    # getter for: Lnet/hockeyapp/android/FeedbackActivity;->mMessagesAdapter:Lnet/hockeyapp/android/adapters/MessagesAdapter;
     invoke-static {p0}, Lnet/hockeyapp/android/FeedbackActivity;->access$300(Lnet/hockeyapp/android/FeedbackActivity;)Lnet/hockeyapp/android/adapters/MessagesAdapter;
 
     move-result-object p0
 
     invoke-virtual {v0, p0}, Landroid/widget/ListView;->setAdapter(Landroid/widget/ListAdapter;)V
 
-    :cond_2
+    :cond_f4
     return-void
 .end method

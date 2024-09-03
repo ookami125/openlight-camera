@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 22
     new-instance v0, Lcom/bumptech/glide/load/model/GenericLoaderFactory$1;
@@ -52,7 +52,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,7 +82,7 @@
 .end method
 
 .method private cacheModelLoader(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 1
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -108,7 +108,7 @@
 
     check-cast v0, Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     .line 156
     new-instance v0, Ljava/util/HashMap;
@@ -121,14 +121,14 @@
     invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 159
-    :cond_0
+    :cond_14
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
 .method private cacheNullLoader(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -152,7 +152,7 @@
 .end method
 
 .method private getCachedLoader(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -178,7 +178,7 @@
 
     check-cast p0, Ljava/util/Map;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
     .line 166
     invoke-interface {p0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -187,17 +187,17 @@
 
     check-cast p0, Lcom/bumptech/glide/load/model/ModelLoader;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_12
     return-object p0
 .end method
 
 .method private getFactory(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoaderFactory;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -223,7 +223,7 @@
 
     check-cast v0, Ljava/util/Map;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 176
     invoke-interface {v0, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -232,13 +232,13 @@
 
     check-cast v0, Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_2
+    :goto_12
+    if-nez v0, :cond_42
 
     .line 180
     iget-object v1, p0, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->modelClassToResourceFactories:Ljava/util/Map;
@@ -251,12 +251,12 @@
 
     move-result-object v1
 
-    :cond_1
+    :cond_1e
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_42
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -269,7 +269,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1e
 
     .line 187
     iget-object v3, p0, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->modelClassToResourceFactories:Ljava/util/Map;
@@ -280,7 +280,7 @@
 
     check-cast v2, Ljava/util/Map;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1e
 
     .line 190
     invoke-interface {v2, p2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -289,16 +289,16 @@
 
     check-cast v0, Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1e
 
-    :cond_2
+    :cond_42
     return-object v0
 .end method
 
 
 # virtual methods
 .method public declared-synchronized buildModelLoader(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -318,12 +318,12 @@
     monitor-enter p0
 
     .line 126
-    :try_start_0
+    :try_start_1
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->getCachedLoader(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_14
 
     .line 131
     sget-object p1, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->NULL_MODEL_LOADER:Lcom/bumptech/glide/load/model/ModelLoader;
@@ -331,10 +331,10 @@
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_d
+    .catchall {:try_start_1 .. :try_end_d} :catchall_29
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     const/4 p1, 0x0
 
@@ -344,19 +344,19 @@
     return-object p1
 
     .line 134
-    :cond_0
+    :cond_12
     monitor-exit p0
 
     return-object v0
 
     .line 138
-    :cond_1
-    :try_start_1
+    :cond_14
+    :try_start_14
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->getFactory(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_24
 
     .line 140
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->context:Landroid/content/Context;
@@ -368,21 +368,21 @@
     .line 141
     invoke-direct {p0, p1, p2, v0}, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->cacheModelLoader(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoader;)V
 
-    goto :goto_0
+    goto :goto_27
 
     .line 144
-    :cond_2
+    :cond_24
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->cacheNullLoader(Ljava/lang/Class;Ljava/lang/Class;)V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_27
+    .catchall {:try_start_14 .. :try_end_27} :catchall_29
 
     .line 146
-    :goto_0
+    :goto_27
     monitor-exit p0
 
     return-object v0
 
-    :catchall_0
+    :catchall_29
     move-exception p1
 
     .line 125
@@ -392,7 +392,7 @@
 .end method
 
 .method public declared-synchronized buildModelLoader(Ljava/lang/Class;Ljava/lang/Class;Landroid/content/Context;)Lcom/bumptech/glide/load/model/ModelLoader;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -417,18 +417,18 @@
     monitor-enter p0
 
     .line 112
-    :try_start_0
+    :try_start_1
     invoke-virtual {p0, p1, p2}, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->buildModelLoader(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoader;
 
     move-result-object p1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_5
+    .catchall {:try_start_1 .. :try_end_5} :catchall_7
 
     monitor-exit p0
 
     return-object p1
 
-    :catchall_0
+    :catchall_7
     move-exception p1
 
     monitor-exit p0
@@ -437,7 +437,7 @@
 .end method
 
 .method public declared-synchronized register(Ljava/lang/Class;Ljava/lang/Class;Lcom/bumptech/glide/load/model/ModelLoaderFactory;)Lcom/bumptech/glide/load/model/ModelLoaderFactory;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -459,7 +459,7 @@
     monitor-enter p0
 
     .line 73
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->cachedModelLoaders:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
@@ -473,7 +473,7 @@
 
     check-cast v0, Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1a
 
     .line 77
     new-instance v0, Ljava/util/HashMap;
@@ -486,14 +486,14 @@
     invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 81
-    :cond_0
+    :cond_1a
     invoke-interface {v0, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
     check-cast p1, Lcom/bumptech/glide/load/model/ModelLoaderFactory;
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3f
 
     .line 86
     iget-object p2, p0, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->modelClassToResourceFactories:Ljava/util/Map;
@@ -506,12 +506,12 @@
 
     move-result-object p2
 
-    :cond_1
+    :cond_2c
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p3
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_3f
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -523,20 +523,20 @@
     invoke-interface {p3, p1}, Ljava/util/Map;->containsValue(Ljava/lang/Object;)Z
 
     move-result p3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_3c
+    .catchall {:try_start_1 .. :try_end_3c} :catchall_41
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2c
 
     const/4 p1, 0x0
 
     .line 94
-    :cond_2
+    :cond_3f
     monitor-exit p0
 
     return-object p1
 
-    :catchall_0
+    :catchall_41
     move-exception p1
 
     .line 72
@@ -546,7 +546,7 @@
 .end method
 
 .method public declared-synchronized unregister(Ljava/lang/Class;Ljava/lang/Class;)Lcom/bumptech/glide/load/model/ModelLoaderFactory;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -566,7 +566,7 @@
     monitor-enter p0
 
     .line 50
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lcom/bumptech/glide/load/model/GenericLoaderFactory;->cachedModelLoaders:Ljava/util/Map;
 
     invoke-interface {v0}, Ljava/util/Map;->clear()V
@@ -582,7 +582,7 @@
 
     check-cast p1, Ljava/util/Map;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_18
 
     .line 55
     invoke-interface {p1, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -592,16 +592,16 @@
     move-object v0, p1
 
     check-cast v0, Lcom/bumptech/glide/load/model/ModelLoaderFactory;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_18
+    .catchall {:try_start_1 .. :try_end_18} :catchall_1a
 
     .line 57
-    :cond_0
+    :cond_18
     monitor-exit p0
 
     return-object v0
 
-    :catchall_0
+    :catchall_1a
     move-exception p1
 
     .line 49

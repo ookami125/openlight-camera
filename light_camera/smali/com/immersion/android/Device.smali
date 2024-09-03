@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 20
     invoke-direct {p0}, Lcom/immersion/Device;-><init>()V
@@ -16,23 +16,23 @@
 
 # virtual methods
 .method protected finalize()V
-    .locals 2
+    .registers 3
 
     .line 46
     iget v0, p0, Lcom/immersion/android/Device;->deviceHandle:I
 
     const/4 v1, -0x1
 
-    if-eq v1, v0, :cond_0
+    if-eq v1, v0, :cond_8
 
     invoke-virtual {p0}, Lcom/immersion/android/Device;->close()V
 
-    :cond_0
+    :cond_8
     return-void
 .end method
 
 .method protected newEffectHandle(II)Lcom/immersion/EffectHandle;
-    .locals 0
+    .registers 3
 
     .line 27
     new-instance p0, Lcom/immersion/android/EffectHandle;

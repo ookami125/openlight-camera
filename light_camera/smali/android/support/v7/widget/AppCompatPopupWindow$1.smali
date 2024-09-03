@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Field;Landroid/widget/PopupWindow;Landroid/view/ViewTreeObserver$OnScrollChangedListener;)V
-    .locals 0
+    .registers 4
 
     .line 128
     iput-object p1, p0, Landroid/support/v7/widget/AppCompatPopupWindow$1;->val$fieldAnchor:Ljava/lang/reflect/Field;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public onScrollChanged()V
-    .locals 2
+    .registers 3
 
     .line 132
     :try_start_0
@@ -58,32 +58,32 @@
 
     check-cast v0, Ljava/lang/ref/WeakReference;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_19
 
     .line 133
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_13
 
-    goto :goto_0
+    goto :goto_19
 
     .line 136
-    :cond_0
+    :cond_13
     iget-object p0, p0, Landroid/support/v7/widget/AppCompatPopupWindow$1;->val$originalListener:Landroid/view/ViewTreeObserver$OnScrollChangedListener;
 
     invoke-interface {p0}, Landroid/view/ViewTreeObserver$OnScrollChangedListener;->onScrollChanged()V
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_18
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_18} :catch_1a
 
-    goto :goto_1
+    goto :goto_1a
 
-    :cond_1
-    :goto_0
+    :cond_19
+    :goto_19
     return-void
 
-    :catch_0
-    :goto_1
+    :catch_1a
+    :goto_1a
     return-void
 .end method

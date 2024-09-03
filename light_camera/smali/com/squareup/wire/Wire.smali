@@ -5,7 +5,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -14,7 +14,7 @@
 .end method
 
 .method public static get(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -23,13 +23,13 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
-    goto :goto_0
+    goto :goto_4
 
-    :cond_0
+    :cond_3
     move-object p0, p1
 
-    :goto_0
+    :goto_4
     return-object p0
 .end method

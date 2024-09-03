@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
-    .locals 0
+    .registers 3
 
     .line 78
     invoke-direct {p0, p1}, Lcom/bumptech/glide/request/target/ViewTarget;-><init>(Landroid/view/View;)V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method

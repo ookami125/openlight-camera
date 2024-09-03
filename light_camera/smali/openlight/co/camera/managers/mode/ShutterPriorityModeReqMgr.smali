@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Lopenlight/co/camera/managers/mode/ModeReqMgr;-><init>()V
@@ -16,7 +16,7 @@
 
 # virtual methods
 .method protected applyCommonModeSettings(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 2
+    .registers 4
 
     .line 52
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->applyCommonModeSettings(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -61,7 +61,7 @@
 .end method
 
 .method public resetSettingsOnCaptureComplete(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 23
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->resetSettingsOnCaptureComplete(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -73,7 +73,7 @@
 .end method
 
 .method public setBurstCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 29
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->setBurstCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -85,7 +85,7 @@
 .end method
 
 .method public setStillCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 35
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->setStillCaptureRequest(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -97,7 +97,7 @@
 .end method
 
 .method public startAeOrFocus(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 47
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->startAeOrFocus(Landroid/hardware/camera2/CaptureRequest$Builder;)V
@@ -109,7 +109,7 @@
 .end method
 
 .method public startCapture(Landroid/hardware/camera2/CaptureRequest$Builder;)V
-    .locals 0
+    .registers 2
 
     .line 41
     invoke-super {p0, p1}, Lopenlight/co/camera/managers/mode/ModeReqMgr;->startCapture(Landroid/hardware/camera2/CaptureRequest$Builder;)V

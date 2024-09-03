@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public compare(Landroid/support/v4/view/ViewPager$ItemInfo;Landroid/support/v4/view/ViewPager$ItemInfo;)I
-    .locals 0
+    .registers 3
 
     .line 137
     iget p0, p1, Landroid/support/v4/view/ViewPager$ItemInfo;->position:I
@@ -52,7 +52,7 @@
 .end method
 
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 134
     check-cast p1, Landroid/support/v4/view/ViewPager$ItemInfo;

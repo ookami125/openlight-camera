@@ -11,7 +11,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Lnet/hockeyapp/android/metrics/model/TelemetryData;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 1
+    .registers 2
 
     const-string v0, "com.microsoft.applicationinsights.contracts.SessionStateData"
 
@@ -49,13 +49,13 @@
 .end method
 
 .method public SetupAttributes()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getBaseType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "SessionStateData"
 
@@ -63,7 +63,7 @@
 .end method
 
 .method public getEnvelopeName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "Microsoft.ApplicationInsights.SessionState"
 
@@ -71,7 +71,7 @@
 .end method
 
 .method public getProperties()Ljava/util/Map;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -88,7 +88,7 @@
 .end method
 
 .method public getState()Lnet/hockeyapp/android/metrics/model/SessionState;
-    .locals 0
+    .registers 1
 
     .line 64
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/SessionStateData;->state:Lnet/hockeyapp/android/metrics/model/SessionState;
@@ -97,7 +97,7 @@
 .end method
 
 .method public getVer()I
-    .locals 0
+    .registers 1
 
     .line 50
     iget p0, p0, Lnet/hockeyapp/android/metrics/model/SessionStateData;->ver:I
@@ -106,7 +106,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -190,7 +190,7 @@
 .end method
 
 .method public setProperties(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -205,7 +205,7 @@
 .end method
 
 .method public setState(Lnet/hockeyapp/android/metrics/model/SessionState;)V
-    .locals 0
+    .registers 2
 
     .line 71
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/SessionStateData;->state:Lnet/hockeyapp/android/metrics/model/SessionState;
@@ -214,7 +214,7 @@
 .end method
 
 .method public setVer(I)V
-    .locals 0
+    .registers 2
 
     .line 57
     iput p1, p0, Lnet/hockeyapp/android/metrics/model/SessionStateData;->ver:I

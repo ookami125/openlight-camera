@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 670
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method add(Lcom/google/gson/internal/LinkedHashTreeMap$Node;)V
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -81,13 +81,13 @@
     .line 691
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesToSkip:I
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_22
 
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->size:I
 
     and-int/2addr v1, v0
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_22
 
     .line 692
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->size:I
@@ -111,7 +111,7 @@
     iput v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
     .line 697
-    :cond_0
+    :cond_22
     iget-object v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->stack:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
     iput-object v1, p1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -129,13 +129,13 @@
     .line 702
     iget p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesToSkip:I
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_45
 
     iget p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->size:I
 
     and-int/2addr p1, v0
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_45
 
     .line 703
     iget p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->size:I
@@ -158,23 +158,23 @@
 
     iput p1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
-    :cond_1
+    :cond_45
     const/4 p1, 0x4
 
     .line 721
-    :goto_0
+    :goto_46
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->size:I
 
     add-int/lit8 v2, p1, -0x1
 
     and-int/2addr v1, v2
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_8c
 
     .line 722
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_6b
 
     .line 724
     iget-object v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->stack:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -212,15 +212,15 @@
     .line 734
     iput-object v2, v1, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    goto :goto_1
+    goto :goto_89
 
     .line 735
-    :cond_2
+    :cond_6b
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
     const/4 v2, 0x0
 
-    if-ne v1, v0, :cond_3
+    if-ne v1, v0, :cond_82
 
     .line 737
     iget-object v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->stack:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
@@ -247,31 +247,31 @@
     .line 744
     iput v2, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
-    goto :goto_1
+    goto :goto_89
 
     .line 745
-    :cond_3
+    :cond_82
     iget v1, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
     const/4 v3, 0x2
 
-    if-ne v1, v3, :cond_4
+    if-ne v1, v3, :cond_89
 
     .line 746
     iput v2, p0, Lcom/google/gson/internal/LinkedHashTreeMap$AvlBuilder;->leavesSkipped:I
 
-    :cond_4
-    :goto_1
+    :cond_89
+    :goto_89
     mul-int/lit8 p1, p1, 0x2
 
-    goto :goto_0
+    goto :goto_46
 
-    :cond_5
+    :cond_8c
     return-void
 .end method
 
 .method reset(I)V
-    .locals 1
+    .registers 3
 
     .line 679
     invoke-static {p1}, Ljava/lang/Integer;->highestOneBit(I)I
@@ -304,7 +304,7 @@
 .end method
 
 .method root()Lcom/google/gson/internal/LinkedHashTreeMap$Node;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -319,12 +319,12 @@
     .line 753
     iget-object v0, p0, Lcom/google/gson/internal/LinkedHashTreeMap$Node;->parent:Lcom/google/gson/internal/LinkedHashTreeMap$Node;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-object p0
 
     .line 754
-    :cond_0
+    :cond_7
     new-instance p0, Ljava/lang/IllegalStateException;
 
     invoke-direct {p0}, Ljava/lang/IllegalStateException;-><init>()V

@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/reflect/Method;I)V
-    .locals 0
+    .registers 3
 
     .line 69
     iput-object p1, p0, Lcom/google/gson/internal/UnsafeAllocator$2;->val$newInstance:Ljava/lang/reflect/Method;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public newInstance(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",

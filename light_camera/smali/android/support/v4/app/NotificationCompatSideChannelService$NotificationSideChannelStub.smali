@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/NotificationCompatSideChannelService;)V
-    .locals 0
+    .registers 2
 
     .line 74
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->this$0:Landroid/support/v4/app/NotificationCompatSideChannelService;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public cancel(Ljava/lang/String;ILjava/lang/String;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -55,19 +55,19 @@
     move-result-wide v0
 
     .line 94
-    :try_start_0
+    :try_start_d
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->this$0:Landroid/support/v4/app/NotificationCompatSideChannelService;
 
     invoke-virtual {p0, p1, p2, p3}, Landroid/support/v4/app/NotificationCompatSideChannelService;->cancel(Ljava/lang/String;ILjava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_d .. :try_end_12} :catchall_16
 
     .line 96
     invoke-static {v0, v1}, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->restoreCallingIdentity(J)V
 
     return-void
 
-    :catchall_0
+    :catchall_16
     move-exception p0
 
     invoke-static {v0, v1}, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->restoreCallingIdentity(J)V
@@ -76,7 +76,7 @@
 .end method
 
 .method public cancelAll(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 102
     iget-object v0, p0, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->this$0:Landroid/support/v4/app/NotificationCompatSideChannelService;
@@ -93,19 +93,19 @@
     move-result-wide v0
 
     .line 105
-    :try_start_0
+    :try_start_d
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->this$0:Landroid/support/v4/app/NotificationCompatSideChannelService;
 
     invoke-virtual {p0, p1}, Landroid/support/v4/app/NotificationCompatSideChannelService;->cancelAll(Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_d .. :try_end_12} :catchall_16
 
     .line 107
     invoke-static {v0, v1}, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->restoreCallingIdentity(J)V
 
     return-void
 
-    :catchall_0
+    :catchall_16
     move-exception p0
 
     invoke-static {v0, v1}, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->restoreCallingIdentity(J)V
@@ -114,7 +114,7 @@
 .end method
 
 .method public notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -136,19 +136,19 @@
     move-result-wide v0
 
     .line 83
-    :try_start_0
+    :try_start_d
     iget-object p0, p0, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->this$0:Landroid/support/v4/app/NotificationCompatSideChannelService;
 
     invoke-virtual {p0, p1, p2, p3, p4}, Landroid/support/v4/app/NotificationCompatSideChannelService;->notify(Ljava/lang/String;ILjava/lang/String;Landroid/app/Notification;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_12
+    .catchall {:try_start_d .. :try_end_12} :catchall_16
 
     .line 85
     invoke-static {v0, v1}, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->restoreCallingIdentity(J)V
 
     return-void
 
-    :catchall_0
+    :catchall_16
     move-exception p0
 
     invoke-static {v0, v1}, Landroid/support/v4/app/NotificationCompatSideChannelService$NotificationSideChannelStub;->restoreCallingIdentity(J)V

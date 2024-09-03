@@ -25,13 +25,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -44,7 +44,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -61,7 +61,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -78,7 +78,7 @@
 .end method
 
 .method static synthetic access$000()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 14
     sget-object v0, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->TAG:Ljava/lang/String;
@@ -87,7 +87,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/ftu/BaseFtuLayout;)Lopenlight/co/camera/view/ftu/OnFtuActionListener;
-    .locals 0
+    .registers 1
 
     .line 14
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->mListener:Lopenlight/co/camera/view/ftu/OnFtuActionListener;
@@ -104,24 +104,24 @@
 .end method
 
 .method protected onButtonClick()V
-    .locals 1
+    .registers 2
 
     .line 50
     iget-object v0, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->mListener:Lopenlight/co/camera/view/ftu/OnFtuActionListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 51
     iget-object p0, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->mListener:Lopenlight/co/camera/view/ftu/OnFtuActionListener;
 
     invoke-interface {p0}, Lopenlight/co/camera/view/ftu/OnFtuActionListener;->onButtonClicked()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public setFtuActionListener(Lopenlight/co/camera/view/ftu/OnFtuActionListener;)V
-    .locals 0
+    .registers 2
 
     .line 46
     iput-object p1, p0, Lopenlight/co/camera/view/ftu/BaseFtuLayout;->mListener:Lopenlight/co/camera/view/ftu/OnFtuActionListener;
@@ -130,19 +130,19 @@
 .end method
 
 .method public setViewVisibility(Landroid/view/View;Z)V
-    .locals 0
+    .registers 3
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_4
     const/16 p0, 0x8
 
     .line 42
-    :goto_0
+    :goto_6
     invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
 
     return-void

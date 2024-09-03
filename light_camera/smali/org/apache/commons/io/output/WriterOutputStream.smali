@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/Writer;)V
-    .locals 3
+    .registers 5
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -40,7 +40,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/lang/String;)V
-    .locals 2
+    .registers 5
 
     const/16 v0, 0x400
 
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/lang/String;IZ)V
-    .locals 0
+    .registers 5
 
     .line 178
     invoke-static {p2}, Ljava/nio/charset/Charset;->forName(Ljava/lang/String;)Ljava/nio/charset/Charset;
@@ -66,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/nio/charset/Charset;)V
-    .locals 2
+    .registers 5
 
     const/16 v0, 0x400
 
@@ -79,7 +79,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/nio/charset/Charset;IZ)V
-    .locals 1
+    .registers 6
 
     .line 143
     invoke-virtual {p2}, Ljava/nio/charset/Charset;->newDecoder()Ljava/nio/charset/CharsetDecoder;
@@ -110,7 +110,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/nio/charset/CharsetDecoder;)V
-    .locals 2
+    .registers 5
 
     const/16 v0, 0x400
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/Writer;Ljava/nio/charset/CharsetDecoder;IZ)V
-    .locals 1
+    .registers 6
 
     .line 121
     invoke-direct {p0}, Ljava/io/OutputStream;-><init>()V
@@ -164,7 +164,7 @@
 .end method
 
 .method private static checkIbmJdkWithBrokenUTF16(Ljava/nio/charset/Charset;)V
-    .locals 7
+    .registers 8
 
     const-string v0, "UTF-16"
 
@@ -177,11 +177,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_d
 
     return-void
 
-    :cond_0
+    :cond_d
     const-string v0, "v\u00e9s"
 
     .line 316
@@ -219,8 +219,8 @@
 
     move v5, v4
 
-    :goto_0
-    if-ge v5, v3, :cond_2
+    :goto_2a
+    if-ge v5, v3, :cond_4c
 
     .line 323
     aget-byte v6, v0, v5
@@ -232,31 +232,31 @@
 
     add-int/lit8 v6, v3, -0x1
 
-    if-ne v5, v6, :cond_1
+    if-ne v5, v6, :cond_3a
 
     const/4 v6, 0x1
 
-    goto :goto_1
+    goto :goto_3b
 
-    :cond_1
+    :cond_3a
     move v6, v4
 
     .line 326
-    :goto_1
-    :try_start_0
+    :goto_3b
+    :try_start_3b
     invoke-virtual {p0, v1, v2, v6}, Ljava/nio/charset/CharsetDecoder;->decode(Ljava/nio/ByteBuffer;Ljava/nio/CharBuffer;Z)Ljava/nio/charset/CoderResult;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3b .. :try_end_3e} :catch_44
 
     .line 331
     invoke-virtual {v1}, Ljava/nio/ByteBuffer;->compact()Ljava/nio/ByteBuffer;
 
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 328
-    :catch_0
+    :catch_44
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string v0, "UTF-16 requested when runninng on an IBM JDK with broken UTF-16 support. Please find a JDK that supports UTF-16 if you intend to use UF-16 with WriterOutputStream"
@@ -266,7 +266,7 @@
     throw p0
 
     .line 333
-    :cond_2
+    :cond_4c
     invoke-virtual {v2}, Ljava/nio/CharBuffer;->rewind()Ljava/nio/Buffer;
 
     const-string p0, "v\u00e9s"
@@ -280,12 +280,12 @@
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_5c
 
     return-void
 
     .line 335
-    :cond_3
+    :cond_5c
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     const-string v0, "UTF-16 requested when runninng on an IBM JDK with broken UTF-16 support. Please find a JDK that supports UTF-16 if you intend to use UF-16 with WriterOutputStream"
@@ -296,7 +296,7 @@
 .end method
 
 .method private flushOutput()V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -310,7 +310,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1f
 
     .line 308
     iget-object v0, p0, Lorg/apache/commons/io/output/WriterOutputStream;->writer:Ljava/io/Writer;
@@ -336,12 +336,12 @@
 
     invoke-virtual {p0}, Ljava/nio/CharBuffer;->rewind()Ljava/nio/Buffer;
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method private processInput(Z)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -354,7 +354,7 @@
     invoke-virtual {v0}, Ljava/nio/ByteBuffer;->flip()Ljava/nio/Buffer;
 
     .line 286
-    :goto_0
+    :goto_5
     iget-object v0, p0, Lorg/apache/commons/io/output/WriterOutputStream;->decoder:Ljava/nio/charset/CharsetDecoder;
 
     iget-object v1, p0, Lorg/apache/commons/io/output/WriterOutputStream;->decoderIn:Ljava/nio/ByteBuffer;
@@ -370,20 +370,20 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 288
     invoke-direct {p0}, Lorg/apache/commons/io/output/WriterOutputStream;->flushOutput()V
 
-    goto :goto_0
+    goto :goto_5
 
     .line 289
-    :cond_0
+    :cond_19
     invoke-virtual {v0}, Ljava/nio/charset/CoderResult;->isUnderflow()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_25
 
     .line 298
     iget-object p0, p0, Lorg/apache/commons/io/output/WriterOutputStream;->decoderIn:Ljava/nio/ByteBuffer;
@@ -393,7 +393,7 @@
     return-void
 
     .line 294
-    :cond_1
+    :cond_25
     new-instance p0, Ljava/io/IOException;
 
     const-string p1, "Unexpected coder result"
@@ -406,7 +406,7 @@
 
 # virtual methods
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -430,7 +430,7 @@
 .end method
 
 .method public flush()V
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -449,7 +449,7 @@
 .end method
 
 .method public write(I)V
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -473,7 +473,7 @@
 .end method
 
 .method public write([B)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -491,7 +491,7 @@
 .end method
 
 .method public write([BII)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -499,7 +499,7 @@
     .end annotation
 
     :goto_0
-    if-lez p3, :cond_0
+    if-lez p3, :cond_18
 
     .line 217
     iget-object v0, p0, Lorg/apache/commons/io/output/WriterOutputStream;->decoderIn:Ljava/nio/ByteBuffer;
@@ -529,14 +529,14 @@
     goto :goto_0
 
     .line 223
-    :cond_0
+    :cond_18
     iget-boolean p1, p0, Lorg/apache/commons/io/output/WriterOutputStream;->writeImmediately:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_1f
 
     .line 224
     invoke-direct {p0}, Lorg/apache/commons/io/output/WriterOutputStream;->flushOutput()V
 
-    :cond_1
+    :cond_1f
     return-void
 .end method

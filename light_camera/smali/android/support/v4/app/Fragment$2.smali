@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/app/Fragment;)V
-    .locals 0
+    .registers 2
 
     .line 2296
     iput-object p1, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public instantiate(Landroid/content/Context;Ljava/lang/String;Landroid/os/Bundle;)Landroid/support/v4/app/Fragment;
-    .locals 0
+    .registers 4
 
     .line 2313
     iget-object p0, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;
@@ -48,7 +48,7 @@
 .end method
 
 .method public onFindViewById(I)Landroid/view/View;
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
@@ -57,7 +57,7 @@
 
     iget-object v0, v0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_f
 
     .line 2303
     iget-object p0, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;
@@ -71,7 +71,7 @@
     return-object p0
 
     .line 2301
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Fragment does not have a view"
@@ -82,22 +82,22 @@
 .end method
 
 .method public onHasView()Z
-    .locals 0
+    .registers 1
 
     .line 2308
     iget-object p0, p0, Landroid/support/v4/app/Fragment$2;->this$0:Landroid/support/v4/app/Fragment;
 
     iget-object p0, p0, Landroid/support/v4/app/Fragment;->mView:Landroid/view/View;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method

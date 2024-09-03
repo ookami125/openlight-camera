@@ -40,14 +40,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/4 v0, 0x6
 
     .line 164
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_12
 
     sput-object v0, Landroid/support/v13/R$styleable;->FontFamily:[I
 
@@ -56,7 +56,7 @@
     .line 171
     new-array v0, v0, [I
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_22
 
     sput-object v0, Landroid/support/v13/R$styleable;->FontFamilyFont:[I
 
@@ -64,7 +64,7 @@
 
     nop
 
-    :array_0
+    :array_12
     .array-data 4
         0x7f0400ae
         0x7f0400af
@@ -74,7 +74,7 @@
         0x7f0400b3
     .end array-data
 
-    :array_1
+    :array_22
     .array-data 4
         0x7f0400ac
         0x7f0400b4
@@ -83,7 +83,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 162
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

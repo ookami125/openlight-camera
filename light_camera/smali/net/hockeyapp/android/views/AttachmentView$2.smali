@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/views/AttachmentView;)V
-    .locals 0
+    .registers 2
 
     .line 225
     iput-object p1, p0, Lnet/hockeyapp/android/views/AttachmentView$2;->this$0:Lnet/hockeyapp/android/views/AttachmentView;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 228
     iget-object p0, p0, Lnet/hockeyapp/android/views/AttachmentView$2;->this$0:Lnet/hockeyapp/android/views/AttachmentView;

@@ -34,7 +34,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,7 +54,7 @@
 .end method
 
 .method private static toFileUri(Ljava/lang/String;)Landroid/net/Uri;
-    .locals 1
+    .registers 2
 
     .line 42
     new-instance v0, Ljava/io/File;
@@ -71,7 +71,7 @@
 
 # virtual methods
 .method public bridge synthetic getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
 
     .line 16
     check-cast p1, Ljava/lang/String;
@@ -84,7 +84,7 @@
 .end method
 
 .method public getResourceFetcher(Ljava/lang/String;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,13 +100,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_8
     const-string v0, "/"
 
     .line 28
@@ -114,17 +114,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     .line 29
     invoke-static {p1}, Lcom/bumptech/glide/load/model/StringLoader;->toFileUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_25
 
     .line 31
-    :cond_1
+    :cond_15
     invoke-static {p1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
@@ -134,20 +134,20 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_24
 
     .line 34
     invoke-static {p1}, Lcom/bumptech/glide/load/model/StringLoader;->toFileUri(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p1
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_2
+    :cond_24
     move-object p1, v0
 
     .line 38
-    :goto_0
+    :goto_25
     iget-object p0, p0, Lcom/bumptech/glide/load/model/StringLoader;->uriLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
     invoke-interface {p0, p1, p2, p3}, Lcom/bumptech/glide/load/model/ModelLoader;->getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;

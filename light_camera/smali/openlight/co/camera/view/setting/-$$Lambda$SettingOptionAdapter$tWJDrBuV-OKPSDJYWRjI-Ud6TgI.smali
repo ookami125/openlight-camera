@@ -14,7 +14,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/view/setting/SettingOptionAdapter;Lopenlight/co/camera/view/setting/SettingOptionAdapter$SettingHolder;)V
-    .locals 0
+    .registers 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     iget-object v0, p0, Lopenlight/co/camera/view/setting/-$$Lambda$SettingOptionAdapter$tWJDrBuV-OKPSDJYWRjI-Ud6TgI;->f$0:Lopenlight/co/camera/view/setting/SettingOptionAdapter;
 

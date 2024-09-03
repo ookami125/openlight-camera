@@ -35,7 +35,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     const-wide/high16 v0, 0x4014000000000000L    # 5.0
 
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 0
+    .registers 3
 
     .line 62
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -103,7 +103,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Landroid/view/ViewGroup;)V
-    .locals 0
+    .registers 4
 
     .line 50
     invoke-direct {p0, p1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
@@ -152,7 +152,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/grid/GridView;)Lopenlight/co/camera/view/grid/GridViewModel;
-    .locals 0
+    .registers 1
 
     .line 19
     iget-object p0, p0, Lopenlight/co/camera/view/grid/GridView;->mGridViewModel:Lopenlight/co/camera/view/grid/GridViewModel;
@@ -161,7 +161,7 @@
 .end method
 
 .method static synthetic access$102(Lopenlight/co/camera/view/grid/GridView;I)I
-    .locals 0
+    .registers 2
 
     .line 19
     iput p1, p0, Lopenlight/co/camera/view/grid/GridView;->mPaddingFront:I
@@ -170,7 +170,7 @@
 .end method
 
 .method static synthetic access$202(Lopenlight/co/camera/view/grid/GridView;I)I
-    .locals 0
+    .registers 2
 
     .line 19
     iput p1, p0, Lopenlight/co/camera/view/grid/GridView;->mViewWidth:I
@@ -179,7 +179,7 @@
 .end method
 
 .method static synthetic access$302(Lopenlight/co/camera/view/grid/GridView;I)I
-    .locals 0
+    .registers 2
 
     .line 19
     iput p1, p0, Lopenlight/co/camera/view/grid/GridView;->mViewHeight:I
@@ -188,7 +188,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/grid/GridView;)I
-    .locals 0
+    .registers 1
 
     .line 19
     iget p0, p0, Lopenlight/co/camera/view/grid/GridView;->mPrevViewWidth:I
@@ -197,7 +197,7 @@
 .end method
 
 .method static synthetic access$402(Lopenlight/co/camera/view/grid/GridView;I)I
-    .locals 0
+    .registers 2
 
     .line 19
     iput p1, p0, Lopenlight/co/camera/view/grid/GridView;->mPrevViewWidth:I
@@ -206,7 +206,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/grid/GridView;)I
-    .locals 0
+    .registers 1
 
     .line 19
     iget p0, p0, Lopenlight/co/camera/view/grid/GridView;->mPrevViewHeight:I
@@ -215,7 +215,7 @@
 .end method
 
 .method static synthetic access$502(Lopenlight/co/camera/view/grid/GridView;I)I
-    .locals 0
+    .registers 2
 
     .line 19
     iput p1, p0, Lopenlight/co/camera/view/grid/GridView;->mPrevViewHeight:I
@@ -224,18 +224,18 @@
 .end method
 
 .method private drawGrid(Landroid/graphics/Canvas;I)V
-    .locals 11
+    .registers 14
 
     .line 140
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewWidth:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3d
 
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewHeight:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3d
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_3d
 
     .line 141
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewWidth:I
@@ -249,8 +249,8 @@
 
     const/4 v2, 0x1
 
-    :goto_0
-    if-ge v2, p2, :cond_0
+    :goto_11
+    if-ge v2, p2, :cond_3d
 
     .line 146
     iget v3, p0, Lopenlight/co/camera/view/grid/GridView;->mPaddingFront:I
@@ -306,35 +306,35 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_3d
     return-void
 .end method
 
 .method private drawGridDense(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
 
     .line 185
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewHeight:I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_41
 
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewWidth:I
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_41
 
     const/4 v0, 0x0
 
     move v1, v0
 
     .line 190
-    :goto_0
+    :goto_a
     iget v2, p0, Lopenlight/co/camera/view/grid/GridView;->mViewWidth:I
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_25
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_22
 
     .line 192
     iget v2, p0, Lopenlight/co/camera/view/grid/GridView;->mPaddingFront:I
@@ -361,21 +361,21 @@
 
     invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    :cond_0
+    :cond_22
     add-int/lit8 v1, v1, 0x78
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_1
+    :cond_25
     move v1, v0
 
     .line 199
-    :goto_1
+    :goto_26
     iget v2, p0, Lopenlight/co/camera/view/grid/GridView;->mViewHeight:I
 
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_41
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3e
 
     .line 201
     iget v2, p0, Lopenlight/co/camera/view/grid/GridView;->mPaddingFront:I
@@ -402,26 +402,26 @@
 
     invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    :cond_2
+    :cond_3e
     add-int/lit8 v1, v1, 0x78
 
-    goto :goto_1
+    goto :goto_26
 
-    :cond_3
+    :cond_41
     return-void
 .end method
 
 .method private drawPhiGoldenRatioGrid(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
 
     .line 157
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewWidth:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7b
 
     iget v0, p0, Lopenlight/co/camera/view/grid/GridView;->mViewHeight:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7b
 
     .line 158
     sget v0, Lopenlight/co/camera/view/grid/GridView;->GOLDEN_RATIO:F
@@ -570,12 +570,12 @@
 
     invoke-virtual/range {v3 .. v8}, Landroid/graphics/Canvas;->drawLine(FFFFLandroid/graphics/Paint;)V
 
-    :cond_0
+    :cond_7b
     return-void
 .end method
 
 .method private init()V
-    .locals 2
+    .registers 3
 
     .line 84
     new-instance v0, Landroid/graphics/Paint;
@@ -620,7 +620,7 @@
 
 # virtual methods
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 5
+    .registers 7
 
     .line 92
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -641,119 +641,119 @@
 
     const/4 v4, 0x3
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_41
 
     const v2, 0xaefd55
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_37
 
     const v2, 0x5a89840
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_2d
 
     const v2, 0x5b0c31f
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_23
 
-    goto :goto_0
+    goto :goto_4b
 
-    :cond_0
+    :cond_23
     const-string v1, "dense"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     move v0, v4
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_1
+    :cond_2d
     const-string v1, "cross"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     const/4 v0, 0x1
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_2
+    :cond_37
     const-string v1, "golden_ratio"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     move v0, v3
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_3
+    :cond_41
     const-string v1, "3x3"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_4c
 
-    :cond_4
-    :goto_0
+    :cond_4b
+    :goto_4b
     const/4 v0, -0x1
 
-    :goto_1
-    packed-switch v0, :pswitch_data_0
+    :goto_4c
+    packed-switch v0, :pswitch_data_60
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 108
-    :pswitch_0
+    :pswitch_50
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/grid/GridView;->drawGridDense(Landroid/graphics/Canvas;)V
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 104
-    :pswitch_1
+    :pswitch_54
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/grid/GridView;->drawPhiGoldenRatioGrid(Landroid/graphics/Canvas;)V
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 100
-    :pswitch_2
+    :pswitch_58
     invoke-direct {p0, p1, v3}, Lopenlight/co/camera/view/grid/GridView;->drawGrid(Landroid/graphics/Canvas;I)V
 
-    goto :goto_2
+    goto :goto_5f
 
     .line 96
-    :pswitch_3
+    :pswitch_5c
     invoke-direct {p0, p1, v4}, Lopenlight/co/camera/view/grid/GridView;->drawGrid(Landroid/graphics/Canvas;I)V
 
-    :goto_2
+    :goto_5f
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_60
     .packed-switch 0x0
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5c
+        :pswitch_58
+        :pswitch_54
+        :pswitch_50
     .end packed-switch
 .end method
 
 .method protected onSizeChanged(IIII)V
-    .locals 0
+    .registers 5
 
     .line 77
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
@@ -793,7 +793,7 @@
 .end method
 
 .method public updateGridType(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 71
     iput-object p1, p0, Lopenlight/co/camera/view/grid/GridView;->mGridType:Ljava/lang/String;
@@ -805,7 +805,7 @@
 .end method
 
 .method public updateScreenParams()V
-    .locals 0
+    .registers 1
 
     .line 136
     iget-object p0, p0, Lopenlight/co/camera/view/grid/GridView;->captureScreenParam:Ljava/lang/Runnable;

@@ -9,14 +9,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 30
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x15
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_e
 
     .line 31
     new-instance v0, Landroid/support/transition/PropertyValuesHolderUtilsApi21;
@@ -25,22 +25,22 @@
 
     sput-object v0, Landroid/support/transition/PropertyValuesHolderUtils;->IMPL:Landroid/support/transition/PropertyValuesHolderUtilsImpl;
 
-    goto :goto_0
+    goto :goto_15
 
     .line 33
-    :cond_0
+    :cond_e
     new-instance v0, Landroid/support/transition/PropertyValuesHolderUtilsApi14;
 
     invoke-direct {v0}, Landroid/support/transition/PropertyValuesHolderUtilsApi14;-><init>()V
 
     sput-object v0, Landroid/support/transition/PropertyValuesHolderUtils;->IMPL:Landroid/support/transition/PropertyValuesHolderUtilsImpl;
 
-    :goto_0
+    :goto_15
     return-void
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
 .end method
 
 .method static ofPointF(Landroid/util/Property;Landroid/graphics/Path;)Landroid/animation/PropertyValuesHolder;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

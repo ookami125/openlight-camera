@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>([BLjava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 16
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,19 +42,19 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public cleanup()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 33
     iget-object p0, p0, Lcom/bumptech/glide/load/data/ByteArrayFetcher;->id:Ljava/lang/String;
@@ -63,7 +63,7 @@
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;)Ljava/io/InputStream;
-    .locals 0
+    .registers 2
 
     .line 23
     new-instance p1, Ljava/io/ByteArrayInputStream;
@@ -76,7 +76,7 @@
 .end method
 
 .method public bridge synthetic loadData(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;

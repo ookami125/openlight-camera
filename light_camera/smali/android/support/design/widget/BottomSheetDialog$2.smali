@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BottomSheetDialog;)V
-    .locals 0
+    .registers 2
 
     .line 153
     iput-object p1, p0, Landroid/support/design/widget/BottomSheetDialog$2;->this$0:Landroid/support/design/widget/BottomSheetDialog;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
-    .locals 0
+    .registers 3
 
     .line 157
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AccessibilityDelegateCompat;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -43,7 +43,7 @@
 
     iget-boolean p0, p0, Landroid/support/design/widget/BottomSheetDialog;->mCancelable:Z
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_13
 
     const/high16 p0, 0x100000
 
@@ -55,31 +55,31 @@
     .line 160
     invoke-virtual {p2, p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setDismissable(Z)V
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_13
     const/4 p0, 0x0
 
     .line 162
     invoke-virtual {p2, p0}, Landroid/support/v4/view/accessibility/AccessibilityNodeInfoCompat;->setDismissable(Z)V
 
-    :goto_0
+    :goto_17
     return-void
 .end method
 
 .method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 1
+    .registers 5
 
     const/high16 v0, 0x100000
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_11
 
     .line 168
     iget-object v0, p0, Landroid/support/design/widget/BottomSheetDialog$2;->this$0:Landroid/support/design/widget/BottomSheetDialog;
 
     iget-boolean v0, v0, Landroid/support/design/widget/BottomSheetDialog;->mCancelable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 169
     iget-object p0, p0, Landroid/support/design/widget/BottomSheetDialog$2;->this$0:Landroid/support/design/widget/BottomSheetDialog;
@@ -91,7 +91,7 @@
     return p0
 
     .line 172
-    :cond_0
+    :cond_11
     invoke-super {p0, p1, p2, p3}, Landroid/support/v4/view/AccessibilityDelegateCompat;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result p0

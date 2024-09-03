@@ -29,7 +29,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 10
     new-instance v0, Lcom/bumptech/glide/MemoryCategory;
@@ -93,7 +93,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;IF)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(F)V"
@@ -110,7 +110,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/MemoryCategory;
-    .locals 1
+    .registers 2
 
     .line 6
     const-class v0, Lcom/bumptech/glide/MemoryCategory;
@@ -125,7 +125,7 @@
 .end method
 
 .method public static values()[Lcom/bumptech/glide/MemoryCategory;
-    .locals 1
+    .registers 1
 
     .line 6
     sget-object v0, Lcom/bumptech/glide/MemoryCategory;->$VALUES:[Lcom/bumptech/glide/MemoryCategory;
@@ -142,7 +142,7 @@
 
 # virtual methods
 .method public getMultiplier()F
-    .locals 0
+    .registers 1
 
     .line 31
     iget p0, p0, Lcom/bumptech/glide/MemoryCategory;->multiplier:F

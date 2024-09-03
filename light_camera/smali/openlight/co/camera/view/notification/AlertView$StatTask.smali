@@ -31,7 +31,7 @@
 
 # direct methods
 .method private constructor <init>(Lopenlight/co/camera/view/notification/AlertView;)V
-    .locals 0
+    .registers 2
 
     .line 199
     iput-object p1, p0, Lopenlight/co/camera/view/notification/AlertView$StatTask;->this$0:Lopenlight/co/camera/view/notification/AlertView;
@@ -42,7 +42,7 @@
 .end method
 
 .method synthetic constructor <init>(Lopenlight/co/camera/view/notification/AlertView;Lopenlight/co/camera/view/notification/AlertView$1;)V
-    .locals 0
+    .registers 3
 
     .line 199
     invoke-direct {p0, p1}, Lopenlight/co/camera/view/notification/AlertView$StatTask;-><init>(Lopenlight/co/camera/view/notification/AlertView;)V
@@ -53,7 +53,7 @@
 
 # virtual methods
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 199
     check-cast p1, [Ljava/lang/Boolean;
@@ -66,7 +66,7 @@
 .end method
 
 .method protected varargs doInBackground([Ljava/lang/Boolean;)[I
-    .locals 9
+    .registers 11
 
     .line 202
     new-instance v0, Landroid/os/StatFs;
@@ -144,16 +144,16 @@
 
     const/16 v0, 0xc8
 
-    if-lt p0, v0, :cond_0
+    if-lt p0, v0, :cond_43
 
     const v0, 0x7f080150
 
-    goto :goto_0
+    goto :goto_46
 
-    :cond_0
+    :cond_43
     const v0, 0x7f080151
 
-    :goto_0
+    :goto_46
     const/4 v1, 0x3
 
     .line 217
@@ -181,7 +181,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 199
     check-cast p1, [I
@@ -192,11 +192,12 @@
 .end method
 
 .method protected onPostExecute([I)V
-    .locals 4
+    .registers 6
 
     .line 221
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView$StatTask;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mStorageIcon:Landroid/widget/ImageView;
     invoke-static {v0}, Lopenlight/co/camera/view/notification/AlertView;->access$400(Lopenlight/co/camera/view/notification/AlertView;)Landroid/widget/ImageView;
 
     move-result-object v0
@@ -220,6 +221,7 @@
     .line 224
     iget-object v3, p0, Lopenlight/co/camera/view/notification/AlertView$StatTask;->this$0:Lopenlight/co/camera/view/notification/AlertView;
 
+    # getter for: Lopenlight/co/camera/view/notification/AlertView;->mRemainingImageCount:Landroid/widget/TextView;
     invoke-static {v3}, Lopenlight/co/camera/view/notification/AlertView;->access$500(Lopenlight/co/camera/view/notification/AlertView;)Landroid/widget/TextView;
 
     move-result-object v3
@@ -231,7 +233,7 @@
     .line 226
     aget p1, p1, v2
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_29
 
     .line 227
     iget-object p1, p0, Lopenlight/co/camera/view/notification/AlertView$StatTask;->this$0:Lopenlight/co/camera/view/notification/AlertView;
@@ -240,8 +242,9 @@
 
     iget p0, p0, Lopenlight/co/camera/view/notification/AlertView$StatTask;->mAvailableStorageSpace:F
 
+    # invokes: Lopenlight/co/camera/view/notification/AlertView;->displayNotificationAlert(JF)V
     invoke-static {p1, v0, v1, p0}, Lopenlight/co/camera/view/notification/AlertView;->access$600(Lopenlight/co/camera/view/notification/AlertView;JF)V
 
-    :cond_0
+    :cond_29
     return-void
 .end method

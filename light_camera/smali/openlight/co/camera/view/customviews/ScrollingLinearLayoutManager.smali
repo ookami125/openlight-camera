@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;IZI)V
-    .locals 0
+    .registers 5
 
     .line 14
     invoke-direct {p0, p1, p2, p3}, Landroid/support/v7/widget/LinearLayoutManager;-><init>(Landroid/content/Context;IZ)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public smoothScrollToPosition(Landroid/support/v7/widget/RecyclerView;Landroid/support/v7/widget/RecyclerView$State;I)V
-    .locals 2
+    .registers 6
 
     const/4 p2, 0x0
 
@@ -59,7 +59,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1e
 
     .line 26
     invoke-virtual {p2}, Landroid/view/View;->getY()F
@@ -73,7 +73,7 @@
     float-to-int v0, p2
 
     .line 28
-    :cond_0
+    :cond_1e
     new-instance p2, Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager$SmoothScroller;
 
     invoke-virtual {p1}, Landroid/support/v7/widget/RecyclerView;->getContext()Landroid/content/Context;

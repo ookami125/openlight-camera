@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 83
     new-instance v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -106,7 +106,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -120,7 +120,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
-    .locals 1
+    .registers 2
 
     .line 82
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
@@ -135,7 +135,7 @@
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;
-    .locals 1
+    .registers 1
 
     .line 82
     sget-object v0, Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;->$VALUES:[Landroid/support/constraint/solver/widgets/ConstraintWidget$DimensionBehaviour;

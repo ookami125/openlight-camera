@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 73
     invoke-direct {p0}, Landroid/support/v4/view/ViewGroupCompat$ViewGroupCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getLayoutMode(Landroid/view/ViewGroup;)I
-    .locals 0
+    .registers 2
 
     .line 76
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getLayoutMode()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public setLayoutMode(Landroid/view/ViewGroup;I)V
-    .locals 0
+    .registers 3
 
     .line 81
     invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->setLayoutMode(I)V

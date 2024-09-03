@@ -71,7 +71,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;)V
-    .locals 10
+    .registers 15
 
     const/4 v5, 0x0
 
@@ -100,7 +100,7 @@
 .end method
 
 .method constructor <init>(Lcom/bumptech/glide/load/engine/cache/MemoryCache;Lcom/bumptech/glide/load/engine/cache/DiskCache$Factory;Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;Ljava/util/Map;Lcom/bumptech/glide/load/engine/EngineKeyFactory;Ljava/util/Map;Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;Lcom/bumptech/glide/load/engine/ResourceRecycler;)V
-    .locals 1
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -137,7 +137,7 @@
 
     iput-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->diskCacheProvider:Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;
 
-    if-nez p7, :cond_0
+    if-nez p7, :cond_13
 
     .line 75
     new-instance p7, Ljava/util/HashMap;
@@ -145,10 +145,10 @@
     invoke-direct {p7}, Ljava/util/HashMap;-><init>()V
 
     .line 77
-    :cond_0
+    :cond_13
     iput-object p7, p0, Lcom/bumptech/glide/load/engine/Engine;->activeResources:Ljava/util/Map;
 
-    if-nez p6, :cond_1
+    if-nez p6, :cond_1c
 
     .line 80
     new-instance p6, Lcom/bumptech/glide/load/engine/EngineKeyFactory;
@@ -156,10 +156,10 @@
     invoke-direct {p6}, Lcom/bumptech/glide/load/engine/EngineKeyFactory;-><init>()V
 
     .line 82
-    :cond_1
+    :cond_1c
     iput-object p6, p0, Lcom/bumptech/glide/load/engine/Engine;->keyFactory:Lcom/bumptech/glide/load/engine/EngineKeyFactory;
 
-    if-nez p5, :cond_2
+    if-nez p5, :cond_25
 
     .line 85
     new-instance p5, Ljava/util/HashMap;
@@ -167,10 +167,10 @@
     invoke-direct {p5}, Ljava/util/HashMap;-><init>()V
 
     .line 87
-    :cond_2
+    :cond_25
     iput-object p5, p0, Lcom/bumptech/glide/load/engine/Engine;->jobs:Ljava/util/Map;
 
-    if-nez p8, :cond_3
+    if-nez p8, :cond_2e
 
     .line 90
     new-instance p8, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
@@ -178,10 +178,10 @@
     invoke-direct {p8, p3, p4, p0}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;-><init>(Ljava/util/concurrent/ExecutorService;Ljava/util/concurrent/ExecutorService;Lcom/bumptech/glide/load/engine/EngineJobListener;)V
 
     .line 92
-    :cond_3
+    :cond_2e
     iput-object p8, p0, Lcom/bumptech/glide/load/engine/Engine;->engineJobFactory:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
-    if-nez p9, :cond_4
+    if-nez p9, :cond_37
 
     .line 95
     new-instance p9, Lcom/bumptech/glide/load/engine/ResourceRecycler;
@@ -189,7 +189,7 @@
     invoke-direct {p9}, Lcom/bumptech/glide/load/engine/ResourceRecycler;-><init>()V
 
     .line 97
-    :cond_4
+    :cond_37
     iput-object p9, p0, Lcom/bumptech/glide/load/engine/Engine;->resourceRecycler:Lcom/bumptech/glide/load/engine/ResourceRecycler;
 
     .line 99
@@ -199,7 +199,7 @@
 .end method
 
 .method private getEngineResourceFromCache(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/load/engine/EngineResource;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -217,25 +217,25 @@
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_18
 
     .line 237
-    :cond_0
+    :cond_a
     instance-of p1, p0, Lcom/bumptech/glide/load/engine/EngineResource;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_11
 
     .line 239
     check-cast p0, Lcom/bumptech/glide/load/engine/EngineResource;
 
-    goto :goto_0
+    goto :goto_18
 
     .line 241
-    :cond_1
+    :cond_11
     new-instance p1, Lcom/bumptech/glide/load/engine/EngineResource;
 
     const/4 v0, 0x1
@@ -244,12 +244,12 @@
 
     move-object p0, p1
 
-    :goto_0
+    :goto_18
     return-object p0
 .end method
 
 .method private getReferenceQueue()Ljava/lang/ref/ReferenceQueue;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -262,7 +262,7 @@
     .line 302
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->resourceReferenceQueue:Ljava/lang/ref/ReferenceQueue;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 303
     new-instance v0, Ljava/lang/ref/ReferenceQueue;
@@ -288,14 +288,14 @@
     invoke-virtual {v0, v1}, Landroid/os/MessageQueue;->addIdleHandler(Landroid/os/MessageQueue$IdleHandler;)V
 
     .line 307
-    :cond_0
+    :cond_1b
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->resourceReferenceQueue:Ljava/lang/ref/ReferenceQueue;
 
     return-object p0
 .end method
 
 .method private loadFromActiveResources(Lcom/bumptech/glide/load/Key;Z)Lcom/bumptech/glide/load/engine/EngineResource;
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -308,12 +308,12 @@
 
     const/4 v0, 0x0
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     return-object v0
 
     .line 204
-    :cond_0
+    :cond_4
     iget-object p2, p0, Lcom/bumptech/glide/load/engine/Engine;->activeResources:Ljava/util/Map;
 
     invoke-interface {p2, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -322,7 +322,7 @@
 
     check-cast p2, Ljava/lang/ref/WeakReference;
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_20
 
     .line 206
     invoke-virtual {p2}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -333,26 +333,26 @@
 
     check-cast v0, Lcom/bumptech/glide/load/engine/EngineResource;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     .line 208
     invoke-virtual {v0}, Lcom/bumptech/glide/load/engine/EngineResource;->acquire()V
 
-    goto :goto_0
+    goto :goto_20
 
     .line 210
-    :cond_1
+    :cond_1b
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->activeResources:Ljava/util/Map;
 
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
-    :goto_0
+    :cond_20
+    :goto_20
     return-object v0
 .end method
 
 .method private loadFromCache(Lcom/bumptech/glide/load/Key;Z)Lcom/bumptech/glide/load/engine/EngineResource;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -363,19 +363,19 @@
         }
     .end annotation
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 222
-    :cond_0
+    :cond_4
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/engine/Engine;->getEngineResourceFromCache(Lcom/bumptech/glide/load/Key;)Lcom/bumptech/glide/load/engine/EngineResource;
 
     move-result-object p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_1b
 
     .line 224
     invoke-virtual {p2}, Lcom/bumptech/glide/load/engine/EngineResource;->acquire()V
@@ -393,12 +393,12 @@
 
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_1
+    :cond_1b
     return-object p2
 .end method
 
 .method private static logWithTimeAndKey(Ljava/lang/String;JLcom/bumptech/glide/load/Key;)V
-    .locals 2
+    .registers 6
 
     const-string v0, "Engine"
 
@@ -437,7 +437,7 @@
 
 # virtual methods
 .method public clearDiskCache()V
-    .locals 0
+    .registers 1
 
     .line 298
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->diskCacheProvider:Lcom/bumptech/glide/load/engine/Engine$LazyDiskCacheProvider;
@@ -452,7 +452,7 @@
 .end method
 
 .method public load(Lcom/bumptech/glide/load/Key;IILcom/bumptech/glide/load/data/DataFetcher;Lcom/bumptech/glide/provider/DataLoadProvider;Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/resource/transcode/ResourceTranscoder;Lcom/bumptech/glide/Priority;ZLcom/bumptech/glide/load/engine/DiskCacheStrategy;Lcom/bumptech/glide/request/ResourceCallback;)Lcom/bumptech/glide/load/engine/Engine$LoadStatus;
-    .locals 27
+    .registers 39
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -542,7 +542,7 @@
 
     const/4 v8, 0x2
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_4a
 
     .line 155
     invoke-interface {v2, v6}, Lcom/bumptech/glide/request/ResourceCallback;->onResourceReady(Lcom/bumptech/glide/load/engine/Resource;)V
@@ -554,23 +554,23 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_49
 
     const-string v0, "Loaded resource from cache"
 
     .line 157
     invoke-static {v0, v3, v4, v5}, Lcom/bumptech/glide/load/engine/Engine;->logWithTimeAndKey(Ljava/lang/String;JLcom/bumptech/glide/load/Key;)V
 
-    :cond_0
+    :cond_49
     return-object v7
 
     .line 162
-    :cond_1
+    :cond_4a
     invoke-direct {v0, v5, v1}, Lcom/bumptech/glide/load/engine/Engine;->loadFromActiveResources(Lcom/bumptech/glide/load/Key;Z)Lcom/bumptech/glide/load/engine/EngineResource;
 
     move-result-object v6
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_61
 
     .line 164
     invoke-interface {v2, v6}, Lcom/bumptech/glide/request/ResourceCallback;->onResourceReady(Lcom/bumptech/glide/load/engine/Resource;)V
@@ -582,18 +582,18 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_60
 
     const-string v0, "Loaded resource from active resources"
 
     .line 166
     invoke-static {v0, v3, v4, v5}, Lcom/bumptech/glide/load/engine/Engine;->logWithTimeAndKey(Ljava/lang/String;JLcom/bumptech/glide/load/Key;)V
 
-    :cond_2
+    :cond_60
     return-object v7
 
     .line 171
-    :cond_3
+    :cond_61
     iget-object v6, v0, Lcom/bumptech/glide/load/engine/Engine;->jobs:Ljava/util/Map;
 
     invoke-interface {v6, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -602,7 +602,7 @@
 
     check-cast v6, Lcom/bumptech/glide/load/engine/EngineJob;
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_81
 
     .line 173
     invoke-virtual {v6, v2}, Lcom/bumptech/glide/load/engine/EngineJob;->addCallback(Lcom/bumptech/glide/request/ResourceCallback;)V
@@ -614,7 +614,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7b
 
     const-string v0, "Added to existing load"
 
@@ -622,7 +622,7 @@
     invoke-static {v0, v3, v4, v5}, Lcom/bumptech/glide/load/engine/Engine;->logWithTimeAndKey(Ljava/lang/String;JLcom/bumptech/glide/load/Key;)V
 
     .line 177
-    :cond_4
+    :cond_7b
     new-instance v0, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;
 
     invoke-direct {v0, v2, v6}, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;-><init>(Lcom/bumptech/glide/request/ResourceCallback;Lcom/bumptech/glide/load/engine/EngineJob;)V
@@ -630,7 +630,7 @@
     return-object v0
 
     .line 180
-    :cond_5
+    :cond_81
     iget-object v6, v0, Lcom/bumptech/glide/load/engine/Engine;->engineJobFactory:Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;
 
     invoke-virtual {v6, v5, v1}, Lcom/bumptech/glide/load/engine/Engine$EngineJobFactory;->build(Lcom/bumptech/glide/load/Key;Z)Lcom/bumptech/glide/load/engine/EngineJob;
@@ -691,7 +691,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_c3
 
     const-string v0, "Started new load"
 
@@ -699,7 +699,7 @@
     invoke-static {v0, v3, v4, v5}, Lcom/bumptech/glide/load/engine/Engine;->logWithTimeAndKey(Ljava/lang/String;JLcom/bumptech/glide/load/Key;)V
 
     .line 191
-    :cond_6
+    :cond_c3
     new-instance v0, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;
 
     invoke-direct {v0, v2, v1}, Lcom/bumptech/glide/load/engine/Engine$LoadStatus;-><init>(Lcom/bumptech/glide/request/ResourceCallback;Lcom/bumptech/glide/load/engine/EngineJob;)V
@@ -708,7 +708,7 @@
 .end method
 
 .method public onEngineJobCancelled(Lcom/bumptech/glide/load/engine/EngineJob;Lcom/bumptech/glide/load/Key;)V
-    .locals 1
+    .registers 4
 
     .line 273
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -727,19 +727,19 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_16
 
     .line 276
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->jobs:Ljava/util/Map;
 
     invoke-interface {p0, p2}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
+    :cond_16
     return-void
 .end method
 
 .method public onEngineJobComplete(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource;)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -752,7 +752,7 @@
     .line 258
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1c
 
     .line 261
     invoke-virtual {p2, p1, p0}, Lcom/bumptech/glide/load/engine/EngineResource;->setResourceListener(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;)V
@@ -762,7 +762,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 264
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/Engine;->activeResources:Ljava/util/Map;
@@ -778,7 +778,7 @@
     invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 268
-    :cond_0
+    :cond_1c
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->jobs:Ljava/util/Map;
 
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
@@ -787,7 +787,7 @@
 .end method
 
 .method public onResourceReleased(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource;)V
-    .locals 1
+    .registers 4
 
     .line 288
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -802,27 +802,27 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     .line 291
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->cache:Lcom/bumptech/glide/load/engine/cache/MemoryCache;
 
     invoke-interface {p0, p1, p2}, Lcom/bumptech/glide/load/engine/cache/MemoryCache;->put(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/Resource;)Lcom/bumptech/glide/load/engine/Resource;
 
-    goto :goto_0
+    goto :goto_19
 
     .line 293
-    :cond_0
+    :cond_14
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/Engine;->resourceRecycler:Lcom/bumptech/glide/load/engine/ResourceRecycler;
 
     invoke-virtual {p0, p2}, Lcom/bumptech/glide/load/engine/ResourceRecycler;->recycle(Lcom/bumptech/glide/load/engine/Resource;)V
 
-    :goto_0
+    :goto_19
     return-void
 .end method
 
 .method public onResourceRemoved(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -843,7 +843,7 @@
 .end method
 
 .method public release(Lcom/bumptech/glide/load/engine/Resource;)V
-    .locals 0
+    .registers 2
 
     .line 247
     invoke-static {}, Lcom/bumptech/glide/util/Util;->assertMainThread()V
@@ -851,7 +851,7 @@
     .line 248
     instance-of p0, p1, Lcom/bumptech/glide/load/engine/EngineResource;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
     .line 249
     check-cast p1, Lcom/bumptech/glide/load/engine/EngineResource;
@@ -861,7 +861,7 @@
     return-void
 
     .line 251
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Cannot release anything but an EngineResource"

@@ -30,7 +30,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
     .param p1    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -75,7 +75,7 @@
 
 # virtual methods
 .method public inflate(ILandroid/view/ViewGroup;Landroid/support/v4/view/AsyncLayoutInflater$OnInflateFinishedListener;)V
-    .locals 1
+    .registers 5
     .param p1    # I
         .annotation build Landroid/support/annotation/LayoutRes;
         .end annotation
@@ -91,7 +91,7 @@
     .annotation build Landroid/support/annotation/UiThread;
     .end annotation
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_16
 
     .line 86
     iget-object v0, p0, Landroid/support/v4/view/AsyncLayoutInflater;->mInflateThread:Landroid/support/v4/view/AsyncLayoutInflater$InflateThread;
@@ -120,7 +120,7 @@
     return-void
 
     .line 84
-    :cond_0
+    :cond_16
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "callback argument may not be null!"

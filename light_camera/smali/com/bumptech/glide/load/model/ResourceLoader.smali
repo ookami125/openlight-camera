@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -62,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/res/Resources;Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -88,7 +88,7 @@
 
 # virtual methods
 .method public getResourceFetcher(Ljava/lang/Integer;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 5
+    .registers 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -102,7 +102,7 @@
     const/4 v0, 0x0
 
     .line 36
-    :try_start_0
+    :try_start_1
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -160,12 +160,12 @@
     invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
-    :try_end_0
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_42
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_42} :catch_43
 
-    goto :goto_0
+    goto :goto_64
 
-    :catch_0
+    :catch_43
     move-exception v1
 
     const-string v2, "ResourceLoader"
@@ -177,7 +177,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_63
 
     const-string v2, "ResourceLoader"
 
@@ -198,11 +198,11 @@
 
     invoke-static {v2, p1, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
+    :cond_63
     move-object v1, v0
 
-    :goto_0
-    if-eqz v1, :cond_1
+    :goto_64
+    if-eqz v1, :cond_6d
 
     .line 47
     iget-object p0, p0, Lcom/bumptech/glide/load/model/ResourceLoader;->uriLoader:Lcom/bumptech/glide/load/model/ModelLoader;
@@ -213,12 +213,12 @@
 
     return-object p0
 
-    :cond_1
+    :cond_6d
     return-object v0
 .end method
 
 .method public bridge synthetic getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
 
     .line 17
     check-cast p1, Ljava/lang/Integer;

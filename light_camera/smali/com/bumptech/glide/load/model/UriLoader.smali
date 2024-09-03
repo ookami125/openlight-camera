@@ -36,7 +36,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
 .end method
 
 .method private static isLocalUri(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, "file"
 
@@ -69,7 +69,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     const-string v0, "content"
 
@@ -77,7 +77,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_1b
 
     const-string v0, "android.resource"
 
@@ -85,20 +85,20 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_19
 
-    goto :goto_0
+    goto :goto_1b
 
-    :cond_0
+    :cond_19
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_1c
 
-    :cond_1
-    :goto_0
+    :cond_1b
+    :goto_1b
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_1c
     return p0
 .end method
 
@@ -131,7 +131,7 @@
 .end method
 
 .method public final getResourceFetcher(Landroid/net/Uri;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -152,14 +152,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_22
 
     .line 31
     invoke-static {p1}, Lcom/bumptech/glide/load/model/AssetUriParser;->isAssetUri(Landroid/net/Uri;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1b
 
     .line 32
     invoke-static {p1}, Lcom/bumptech/glide/load/model/AssetUriParser;->toAssetPath(Landroid/net/Uri;)Ljava/lang/String;
@@ -173,23 +173,23 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_47
 
     .line 35
-    :cond_0
+    :cond_1b
     iget-object p2, p0, Lcom/bumptech/glide/load/model/UriLoader;->context:Landroid/content/Context;
 
     invoke-virtual {p0, p2, p1}, Lcom/bumptech/glide/load/model/UriLoader;->getLocalUriFetcher(Landroid/content/Context;Landroid/net/Uri;)Lcom/bumptech/glide/load/data/DataFetcher;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_47
 
     .line 37
-    :cond_1
+    :cond_22
     iget-object v1, p0, Lcom/bumptech/glide/load/model/UriLoader;->urlLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_46
 
     const-string v1, "http"
 
@@ -197,7 +197,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_36
 
     const-string v1, "https"
 
@@ -205,10 +205,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_46
 
     .line 38
-    :cond_2
+    :cond_36
     iget-object p0, p0, Lcom/bumptech/glide/load/model/UriLoader;->urlLoader:Lcom/bumptech/glide/load/model/ModelLoader;
 
     new-instance v0, Lcom/bumptech/glide/load/model/GlideUrl;
@@ -223,17 +223,17 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_47
 
-    :cond_3
+    :cond_46
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_47
     return-object p0
 .end method
 
 .method public bridge synthetic getResourceFetcher(Ljava/lang/Object;II)Lcom/bumptech/glide/load/data/DataFetcher;
-    .locals 0
+    .registers 4
 
     .line 16
     check-cast p1, Landroid/net/Uri;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getFeedback()Lnet/hockeyapp/android/objects/Feedback;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackResponse;->mFeedback:Lnet/hockeyapp/android/objects/Feedback;
@@ -40,7 +40,7 @@
 .end method
 
 .method public getStatus()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 19
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackResponse;->mStatus:Ljava/lang/String;
@@ -49,7 +49,7 @@
 .end method
 
 .method public getToken()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 35
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackResponse;->mToken:Ljava/lang/String;
@@ -58,7 +58,7 @@
 .end method
 
 .method public setFeedback(Lnet/hockeyapp/android/objects/Feedback;)V
-    .locals 0
+    .registers 2
 
     .line 31
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackResponse;->mFeedback:Lnet/hockeyapp/android/objects/Feedback;
@@ -67,7 +67,7 @@
 .end method
 
 .method public setStatus(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 23
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackResponse;->mStatus:Ljava/lang/String;
@@ -76,7 +76,7 @@
 .end method
 
 .method public setToken(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 39
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackResponse;->mToken:Ljava/lang/String;

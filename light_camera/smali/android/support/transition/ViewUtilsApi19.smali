@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroid/support/transition/ViewUtilsApi18;-><init>()V
@@ -32,17 +32,17 @@
 .end method
 
 .method private fetchGetTransitionAlphaMethod()V
-    .locals 3
+    .registers 4
 
     .line 92
     sget-boolean p0, Landroid/support/transition/ViewUtilsApi19;->sGetTransitionAlphaMethodFetched:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_22
 
     const/4 p0, 0x1
 
     .line 94
-    :try_start_0
+    :try_start_5
     const-class v0, Landroid/view/View;
 
     const-string v1, "getTransitionAlpha"
@@ -61,12 +61,12 @@
     sget-object v0, Landroid/support/transition/ViewUtilsApi19;->sGetTransitionAlphaMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_17
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_17} :catch_18
 
-    goto :goto_0
+    goto :goto_20
 
-    :catch_0
+    :catch_18
     move-exception v0
 
     const-string v1, "ViewUtilsApi19"
@@ -77,25 +77,25 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 99
-    :goto_0
+    :goto_20
     sput-boolean p0, Landroid/support/transition/ViewUtilsApi19;->sGetTransitionAlphaMethodFetched:Z
 
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method private fetchSetTransitionAlphaMethod()V
-    .locals 5
+    .registers 6
 
     .line 79
     sget-boolean p0, Landroid/support/transition/ViewUtilsApi19;->sSetTransitionAlphaMethodFetched:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_26
 
     const/4 p0, 0x1
 
     .line 81
-    :try_start_0
+    :try_start_5
     const-class v0, Landroid/view/View;
 
     const-string v1, "setTransitionAlpha"
@@ -118,12 +118,12 @@
     sget-object v0, Landroid/support/transition/ViewUtilsApi19;->sSetTransitionAlphaMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_1b} :catch_1c
 
-    goto :goto_0
+    goto :goto_24
 
-    :catch_0
+    :catch_1c
     move-exception v0
 
     const-string v1, "ViewUtilsApi19"
@@ -134,17 +134,17 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 87
-    :goto_0
+    :goto_24
     sput-boolean p0, Landroid/support/transition/ViewUtilsApi19;->sSetTransitionAlphaMethodFetched:Z
 
-    :cond_0
+    :cond_26
     return-void
 .end method
 
 
 # virtual methods
 .method public clearNonTransitionAlpha(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -154,7 +154,7 @@
 .end method
 
 .method public getTransitionAlpha(Landroid/view/View;)F
-    .locals 2
+    .registers 4
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -166,10 +166,10 @@
     .line 56
     sget-object v0, Landroid/support/transition/ViewUtilsApi19;->sGetTransitionAlphaMethod:Ljava/lang/reflect/Method;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 58
-    :try_start_0
+    :try_start_7
     sget-object v0, Landroid/support/transition/ViewUtilsApi19;->sGetTransitionAlphaMethod:Ljava/lang/reflect/Method;
 
     const/4 v1, 0x0
@@ -185,13 +185,13 @@
     invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_16} :catch_22
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_16} :catch_17
 
     return v0
 
-    :catch_0
+    :catch_17
     move-exception p0
 
     .line 62
@@ -206,8 +206,8 @@
     throw p1
 
     .line 65
-    :catch_1
-    :cond_0
+    :catch_22
+    :cond_22
     invoke-super {p0, p1}, Landroid/support/transition/ViewUtilsApi18;->getTransitionAlpha(Landroid/view/View;)F
 
     move-result p0
@@ -216,7 +216,7 @@
 .end method
 
 .method public saveNonTransitionAlpha(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -226,7 +226,7 @@
 .end method
 
 .method public setTransitionAlpha(Landroid/view/View;F)V
-    .locals 2
+    .registers 5
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -238,10 +238,10 @@
     .line 40
     sget-object p0, Landroid/support/transition/ViewUtilsApi19;->sSetTransitionAlphaMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_22
 
     .line 42
-    :try_start_0
+    :try_start_7
     sget-object p0, Landroid/support/transition/ViewUtilsApi19;->sSetTransitionAlphaMethod:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x1
@@ -257,13 +257,13 @@
     aput-object p2, v0, v1
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_16} :catch_25
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_16} :catch_17
 
-    goto :goto_0
+    goto :goto_25
 
-    :catch_0
+    :catch_17
     move-exception p0
 
     .line 46
@@ -278,10 +278,10 @@
     throw p1
 
     .line 49
-    :cond_0
+    :cond_22
     invoke-virtual {p1, p2}, Landroid/view/View;->setAlpha(F)V
 
-    :catch_1
-    :goto_0
+    :catch_25
+    :goto_25
     return-void
 .end method

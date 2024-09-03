@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/util/TimingLogger;)V
-    .locals 0
+    .registers 3
 
     .line 248
     iput-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$3;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -37,11 +37,12 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;Z)V
-    .locals 0
+    .registers 3
 
     .line 256
     iget-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$3;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
     invoke-static {p1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$300(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/widget/ImageView;
 
     move-result-object p1
@@ -53,15 +54,17 @@
     .line 257
     iget-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$3;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mIsAncillaryToolbarShown:Z
     invoke-static {p1}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$600(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1f
 
     .line 258
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$3;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mParentView:Landroid/view/View;
     invoke-static {p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$700(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/view/View;
 
     move-result-object p0
@@ -70,16 +73,17 @@
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_0
+    :cond_1f
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;Z)V
-    .locals 0
+    .registers 3
 
     .line 251
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$3;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumb:Landroid/widget/ImageView;
     invoke-static {p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$300(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/widget/ImageView;
 
     move-result-object p0

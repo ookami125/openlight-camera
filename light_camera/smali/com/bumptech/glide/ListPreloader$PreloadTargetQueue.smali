@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(I)V
-    .locals 4
+    .registers 6
 
     .line 284
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,8 +42,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p1, :cond_0
+    :goto_a
+    if-ge v0, p1, :cond_1a
 
     .line 288
     iget-object v1, p0, Lcom/bumptech/glide/ListPreloader$PreloadTargetQueue;->queue:Ljava/util/Queue;
@@ -58,16 +58,16 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_1a
     return-void
 .end method
 
 
 # virtual methods
 .method public next(II)Lcom/bumptech/glide/ListPreloader$PreloadTarget;
-    .locals 1
+    .registers 4
 
     .line 293
     iget-object v0, p0, Lcom/bumptech/glide/ListPreloader$PreloadTargetQueue;->queue:Ljava/util/Queue;
@@ -84,9 +84,11 @@
     invoke-interface {p0, v0}, Ljava/util/Queue;->offer(Ljava/lang/Object;)Z
 
     .line 295
+    # setter for: Lcom/bumptech/glide/ListPreloader$PreloadTarget;->photoWidth:I
     invoke-static {v0, p1}, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->access$102(Lcom/bumptech/glide/ListPreloader$PreloadTarget;I)I
 
     .line 296
+    # setter for: Lcom/bumptech/glide/ListPreloader$PreloadTarget;->photoHeight:I
     invoke-static {v0, p2}, Lcom/bumptech/glide/ListPreloader$PreloadTarget;->access$202(Lcom/bumptech/glide/ListPreloader$PreloadTarget;I)I
 
     return-object v0

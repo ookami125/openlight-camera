@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/ClassLoader;Ljava/io/InputStream;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
-    .locals 3
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,13 +60,13 @@
     invoke-static {v0, v1, v2}, Ljava/lang/Class;->forName(Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_b} :catch_c
 
     return-object v0
 
     .line 72
-    :catch_0
+    :catch_c
     invoke-super {p0, p1}, Ljava/io/ObjectInputStream;->resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
 
     move-result-object p0
@@ -75,7 +75,7 @@
 .end method
 
 .method protected resolveProxyClass([Ljava/lang/String;)Ljava/lang/Class;
-    .locals 5
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -103,10 +103,10 @@
     move v2, v1
 
     .line 91
-    :goto_0
+    :goto_5
     array-length v3, p1
 
-    if-ge v2, v3, :cond_0
+    if-ge v2, v3, :cond_15
 
     .line 92
     aget-object v3, p1, v2
@@ -121,23 +121,23 @@
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_5
 
     .line 95
-    :cond_0
-    :try_start_0
+    :cond_15
+    :try_start_15
     iget-object v1, p0, Lorg/apache/commons/io/input/ClassLoaderObjectInputStream;->classLoader:Ljava/lang/ClassLoader;
 
     invoke-static {v1, v0}, Ljava/lang/reflect/Proxy;->getProxyClass(Ljava/lang/ClassLoader;[Ljava/lang/Class;)Ljava/lang/Class;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_15 .. :try_end_1b} :catch_1c
 
     return-object v0
 
     .line 97
-    :catch_0
+    :catch_1c
     invoke-super {p0, p1}, Ljava/io/ObjectInputStream;->resolveProxyClass([Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object p0

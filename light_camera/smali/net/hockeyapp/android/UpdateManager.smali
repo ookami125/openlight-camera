@@ -15,13 +15,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 26
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method private static checkExpiryDate(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/UpdateManagerListener;)Z
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -47,43 +47,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 187
     invoke-virtual {p1}, Lnet/hockeyapp/android/UpdateManagerListener;->onBuildExpired()Z
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 p1, 0x0
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_c
+    if-eqz v0, :cond_13
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_13
 
     .line 191
     invoke-static {p0}, Lnet/hockeyapp/android/UpdateManager;->startExpiryInfoIntent(Ljava/lang/ref/WeakReference;)V
 
-    :cond_1
+    :cond_13
     return v0
 .end method
 
 .method private static checkExpiryDateForBackground(Lnet/hockeyapp/android/UpdateManagerListener;)Z
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     .line 205
     invoke-virtual {p0}, Lnet/hockeyapp/android/UpdateManagerListener;->getExpiryDate()Ljava/util/Date;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_16
 
     .line 206
     new-instance v1, Ljava/util/Date;
@@ -94,18 +94,18 @@
 
     move-result p0
 
-    if-lez p0, :cond_0
+    if-lez p0, :cond_16
 
     const/4 p0, 0x1
 
     move v0, p0
 
-    :cond_0
+    :cond_16
     return v0
 .end method
 
 .method private static dialogShown(Ljava/lang/ref/WeakReference;)Z
-    .locals 2
+    .registers 3
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -121,7 +121,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_19
 
     .line 294
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -130,7 +130,7 @@
 
     check-cast p0, Landroid/app/Activity;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_19
 
     .line 296
     invoke-virtual {p0}, Landroid/app/Activity;->getFragmentManager()Landroid/app/FragmentManager;
@@ -143,19 +143,19 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_18
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_18
     return v0
 
-    :cond_1
+    :cond_19
     return v0
 .end method
 
 .method public static getLastListener()Lnet/hockeyapp/android/UpdateManagerListener;
-    .locals 1
+    .registers 1
 
     .line 310
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->lastListener:Lnet/hockeyapp/android/UpdateManagerListener;
@@ -164,7 +164,7 @@
 .end method
 
 .method protected static installedFromMarket(Ljava/lang/ref/WeakReference;)Z
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -184,10 +184,10 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_35
 
     .line 221
-    :try_start_0
+    :try_start_9
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
@@ -204,20 +204,20 @@
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
-    :try_end_0
-    .catch Ljava/lang/Throwable; {:try_start_0 .. :try_end_0} :catch_1
+    :try_end_19
+    .catch Ljava/lang/Throwable; {:try_start_9 .. :try_end_19} :catch_35
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_35
 
     const/4 v1, 0x1
 
     .line 228
-    :try_start_1
+    :try_start_1c
     sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v3, 0x18
 
-    if-lt v2, v3, :cond_0
+    if-lt v2, v3, :cond_2b
 
     const-string v2, "com.google.android.packageinstaller"
 
@@ -225,36 +225,36 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2b
 
     move v1, v0
 
-    :cond_0
+    :cond_2b
     const-string v2, "adb"
 
     .line 233
     invoke-static {p0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result p0
-    :try_end_1
-    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_31
+    .catch Ljava/lang/Throwable; {:try_start_1c .. :try_end_31} :catch_34
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_34
 
-    goto :goto_0
+    goto :goto_35
 
-    :catch_0
-    :cond_1
+    :catch_34
+    :cond_34
     move v0, v1
 
-    :catch_1
-    :cond_2
-    :goto_0
+    :catch_35
+    :cond_35
+    :goto_35
     return v0
 .end method
 
 .method public static register(Landroid/app/Activity;)V
-    .locals 2
+    .registers 3
 
     .line 47
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->getAppIdentifier(Landroid/content/Context;)Ljava/lang/String;
@@ -266,7 +266,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 51
     invoke-static {p0, v0}, Lnet/hockeyapp/android/UpdateManager;->register(Landroid/app/Activity;Ljava/lang/String;)V
@@ -274,7 +274,7 @@
     return-void
 
     .line 49
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "HockeyApp app identifier was not configured correctly in manifest or build configuration."
@@ -285,7 +285,7 @@
 .end method
 
 .method public static register(Landroid/app/Activity;Ljava/lang/String;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x1
 
@@ -296,7 +296,7 @@
 .end method
 
 .method public static register(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
-    .locals 1
+    .registers 5
 
     const/4 v0, 0x1
 
@@ -307,7 +307,7 @@
 .end method
 
 .method public static register(Landroid/app/Activity;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;Z)V
-    .locals 1
+    .registers 6
 
     .line 120
     invoke-static {p2}, Lnet/hockeyapp/android/utils/Util;->sanitizeAppIdentifier(Ljava/lang/String;)Ljava/lang/String;
@@ -331,49 +331,49 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     invoke-static {v0}, Lnet/hockeyapp/android/UpdateManager;->dialogShown(Ljava/lang/ref/WeakReference;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     return-void
 
     .line 129
-    :cond_0
+    :cond_1c
     invoke-static {v0, p3}, Lnet/hockeyapp/android/UpdateManager;->checkExpiryDate(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/UpdateManagerListener;)Z
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_33
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_2a
 
     invoke-virtual {p3}, Lnet/hockeyapp/android/UpdateManagerListener;->canUpdateInMarket()Z
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_30
 
-    :cond_1
+    :cond_2a
     invoke-static {v0}, Lnet/hockeyapp/android/UpdateManager;->installedFromMarket(Ljava/lang/ref/WeakReference;)Z
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_33
 
     .line 130
-    :cond_2
+    :cond_30
     invoke-static {v0, p1, p2, p3, p4}, Lnet/hockeyapp/android/UpdateManager;->startUpdateTask(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;Z)V
 
-    :cond_3
+    :cond_33
     return-void
 .end method
 
 .method public static register(Landroid/app/Activity;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
-    .locals 2
+    .registers 5
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -386,7 +386,7 @@
 .end method
 
 .method public static register(Landroid/app/Activity;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;Z)V
-    .locals 1
+    .registers 5
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -397,7 +397,7 @@
 .end method
 
 .method public static register(Landroid/app/Activity;Ljava/lang/String;Z)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -408,7 +408,7 @@
 .end method
 
 .method public static registerForBackground(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
-    .locals 1
+    .registers 5
 
     .line 154
     invoke-static {p2}, Lnet/hockeyapp/android/utils/Util;->sanitizeAppIdentifier(Ljava/lang/String;)Ljava/lang/String;
@@ -428,33 +428,33 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_22
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_19
 
     invoke-virtual {p3}, Lnet/hockeyapp/android/UpdateManagerListener;->canUpdateInMarket()Z
 
     move-result p0
 
-    if-nez p0, :cond_1
+    if-nez p0, :cond_1f
 
-    :cond_0
+    :cond_19
     invoke-static {v0}, Lnet/hockeyapp/android/UpdateManager;->installedFromMarket(Ljava/lang/ref/WeakReference;)Z
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_22
 
     .line 161
-    :cond_1
+    :cond_1f
     invoke-static {v0, p1, p2, p3}, Lnet/hockeyapp/android/UpdateManager;->startUpdateTaskForBackground(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
 
-    :cond_2
+    :cond_22
     return-void
 .end method
 
 .method public static registerForBackground(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
-    .locals 1
+    .registers 4
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -465,7 +465,7 @@
 .end method
 
 .method private static startExpiryInfoIntent(Ljava/lang/ref/WeakReference;)V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -475,7 +475,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     .line 251
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -484,7 +484,7 @@
 
     check-cast p0, Landroid/app/Activity;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     .line 253
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
@@ -504,12 +504,12 @@
     .line 257
     invoke-virtual {p0, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
 
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method private static startUpdateTask(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;Z)V
-    .locals 7
+    .registers 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -526,7 +526,7 @@
     .line 267
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
@@ -536,21 +536,21 @@
 
     sget-object v1, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
-    goto :goto_0
+    goto :goto_15
 
     .line 271
-    :cond_0
+    :cond_f
     sget-object p1, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
     invoke-virtual {p1, p0}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->attach(Ljava/lang/ref/WeakReference;)V
 
-    goto :goto_1
+    goto :goto_27
 
     .line 268
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     new-instance v6, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;
 
     move-object v0, v6
@@ -574,12 +574,12 @@
 
     invoke-static {p0}, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->execute(Landroid/os/AsyncTask;)V
 
-    :goto_1
+    :goto_27
     return-void
 .end method
 
 .method private static startUpdateTaskForBackground(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
-    .locals 2
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -596,7 +596,7 @@
     .line 280
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_15
 
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
@@ -606,21 +606,21 @@
 
     sget-object v1, Landroid/os/AsyncTask$Status;->FINISHED:Landroid/os/AsyncTask$Status;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
-    goto :goto_0
+    goto :goto_15
 
     .line 284
-    :cond_0
+    :cond_f
     sget-object p1, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
     invoke-virtual {p1, p0}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->attach(Ljava/lang/ref/WeakReference;)V
 
-    goto :goto_1
+    goto :goto_21
 
     .line 281
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     new-instance v0, Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
     invoke-direct {v0, p0, p1, p2, p3}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;-><init>(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;)V
@@ -632,19 +632,19 @@
 
     invoke-static {p0}, Lnet/hockeyapp/android/utils/AsyncTaskUtils;->execute(Landroid/os/AsyncTask;)V
 
-    :goto_1
+    :goto_21
     return-void
 .end method
 
 .method public static unregister()V
-    .locals 3
+    .registers 3
 
     .line 169
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 170
     sget-object v0, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
@@ -662,7 +662,7 @@
     sput-object v1, Lnet/hockeyapp/android/UpdateManager;->updateTask:Lnet/hockeyapp/android/tasks/CheckUpdateTask;
 
     .line 175
-    :cond_0
+    :cond_12
     sput-object v1, Lnet/hockeyapp/android/UpdateManager;->lastListener:Lnet/hockeyapp/android/UpdateManagerListener;
 
     return-void

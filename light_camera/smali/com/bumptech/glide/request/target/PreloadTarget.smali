@@ -17,7 +17,7 @@
 
 # direct methods
 .method private constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 26
     invoke-direct {p0, p1, p2}, Lcom/bumptech/glide/request/target/SimpleTarget;-><init>(II)V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static obtain(II)Lcom/bumptech/glide/request/target/PreloadTarget;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<Z:",
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TZ;",

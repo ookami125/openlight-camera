@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/helper/ItemTouchHelper;)V
-    .locals 0
+    .registers 2
 
     .line 2245
     iput-object p1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onDown(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 
@@ -41,7 +41,7 @@
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 3
+    .registers 5
 
     .line 2255
     iget-object v0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -50,7 +50,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5d
 
     .line 2257
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -61,7 +61,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5d
 
     .line 2259
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -76,11 +76,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_21
 
     return-void
 
-    :cond_0
+    :cond_21
     const/4 v1, 0x0
 
     .line 2262
@@ -93,7 +93,7 @@
 
     iget v2, v2, Landroid/support/v7/widget/helper/ItemTouchHelper;->mActivePointerId:I
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_5d
 
     .line 2267
     iget-object v1, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -144,7 +144,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_5d
 
     .line 2278
     iget-object p0, p0, Landroid/support/v7/widget/helper/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroid/support/v7/widget/helper/ItemTouchHelper;
@@ -153,6 +153,6 @@
 
     invoke-virtual {p0, v0, p1}, Landroid/support/v7/widget/helper/ItemTouchHelper;->select(Landroid/support/v7/widget/RecyclerView$ViewHolder;I)V
 
-    :cond_1
+    :cond_5d
     return-void
 .end method

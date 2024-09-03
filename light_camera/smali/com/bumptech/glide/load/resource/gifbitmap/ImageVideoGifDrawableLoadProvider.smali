@@ -64,7 +64,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/provider/DataLoadProvider;Lcom/bumptech/glide/provider/DataLoadProvider;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,7 +139,7 @@
 
 # virtual methods
 .method public getCacheDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -157,7 +157,7 @@
 .end method
 
 .method public getEncoder()Lcom/bumptech/glide/load/ResourceEncoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -174,7 +174,7 @@
 .end method
 
 .method public getSourceDecoder()Lcom/bumptech/glide/load/ResourceDecoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -192,7 +192,7 @@
 .end method
 
 .method public getSourceEncoder()Lcom/bumptech/glide/load/Encoder;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",

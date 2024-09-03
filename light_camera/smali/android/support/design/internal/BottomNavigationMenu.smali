@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 36
     invoke-direct {p0, p1}, Landroid/support/v7/view/menu/MenuBuilder;-><init>(Landroid/content/Context;)V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method protected addInternal(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
-    .locals 3
+    .registers 8
 
     .line 46
     invoke-virtual {p0}, Landroid/support/design/internal/BottomNavigationMenu;->size()I
@@ -41,7 +41,7 @@
 
     const/4 v2, 0x5
 
-    if-gt v0, v2, :cond_1
+    if-gt v0, v2, :cond_1e
 
     .line 51
     invoke-virtual {p0}, Landroid/support/design/internal/BottomNavigationMenu;->stopDispatchingItemsChanged()V
@@ -54,7 +54,7 @@
     .line 53
     instance-of p2, p1, Landroid/support/v7/view/menu/MenuItemImpl;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1a
 
     .line 54
     move-object p2, p1
@@ -64,13 +64,13 @@
     invoke-virtual {p2, v1}, Landroid/support/v7/view/menu/MenuItemImpl;->setExclusiveCheckable(Z)V
 
     .line 56
-    :cond_0
+    :cond_1a
     invoke-virtual {p0}, Landroid/support/design/internal/BottomNavigationMenu;->startDispatchingItemsChanged()V
 
     return-object p1
 
     .line 47
-    :cond_1
+    :cond_1e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Maximum number of items supported by BottomNavigationView is 5. Limit can be checked with BottomNavigationView#getMaxItemCount()"
@@ -81,7 +81,7 @@
 .end method
 
 .method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 0
+    .registers 5
 
     .line 41
     new-instance p0, Ljava/lang/UnsupportedOperationException;

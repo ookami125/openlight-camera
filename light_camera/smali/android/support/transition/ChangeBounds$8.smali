@@ -34,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/ChangeBounds;Landroid/view/View;Landroid/graphics/Rect;IIII)V
-    .locals 0
+    .registers 8
 
     .line 366
     iput-object p1, p0, Landroid/support/transition/ChangeBounds$8;->this$0:Landroid/support/transition/ChangeBounds;
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -70,12 +70,12 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .registers 5
 
     .line 376
     iget-boolean p1, p0, Landroid/support/transition/ChangeBounds$8;->mIsCanceled:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_18
 
     .line 377
     iget-object p1, p0, Landroid/support/transition/ChangeBounds$8;->val$view:Landroid/view/View;
@@ -97,6 +97,6 @@
 
     invoke-static {p1, v0, v1, v2, p0}, Landroid/support/transition/ViewUtils;->setLeftTopRightBottom(Landroid/view/View;IIII)V
 
-    :cond_0
+    :cond_18
     return-void
 .end method

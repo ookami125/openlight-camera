@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/app/AppCompatDelegateImplV9$5;)V
-    .locals 0
+    .registers 2
 
     .line 789
     iput-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$5;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 797
     iget-object p1, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$5;
@@ -68,7 +68,7 @@
 .end method
 
 .method public onAnimationStart(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 792
     iget-object p0, p0, Landroid/support/v7/app/AppCompatDelegateImplV9$5$1;->this$1:Landroid/support/v7/app/AppCompatDelegateImplV9$5;

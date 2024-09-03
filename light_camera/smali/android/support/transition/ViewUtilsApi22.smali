@@ -19,7 +19,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-direct {p0}, Landroid/support/transition/ViewUtilsApi21;-><init>()V
@@ -28,7 +28,7 @@
 .end method
 
 .method private fetchSetLeftTopRightBottomMethod()V
-    .locals 5
+    .registers 6
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "PrivateApi"
@@ -38,12 +38,12 @@
     .line 51
     sget-boolean p0, Landroid/support/transition/ViewUtilsApi22;->sSetLeftTopRightBottomMethodFetched:Z
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_35
 
     const/4 p0, 0x1
 
     .line 53
-    :try_start_0
+    :try_start_5
     const-class v0, Landroid/view/View;
 
     const-string v1, "setLeftTopRightBottom"
@@ -84,12 +84,12 @@
     sget-object v0, Landroid/support/transition/ViewUtilsApi22;->sSetLeftTopRightBottomMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v0, p0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2a
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_2a} :catch_2b
 
-    goto :goto_0
+    goto :goto_33
 
-    :catch_0
+    :catch_2b
     move-exception v0
 
     const-string v1, "ViewUtilsApi22"
@@ -100,17 +100,17 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 59
-    :goto_0
+    :goto_33
     sput-boolean p0, Landroid/support/transition/ViewUtilsApi22;->sSetLeftTopRightBottomMethodFetched:Z
 
-    :cond_0
+    :cond_35
     return-void
 .end method
 
 
 # virtual methods
 .method public setLeftTopRightBottom(Landroid/view/View;IIII)V
-    .locals 2
+    .registers 8
 
     .line 37
     invoke-direct {p0}, Landroid/support/transition/ViewUtilsApi22;->fetchSetLeftTopRightBottomMethod()V
@@ -118,10 +118,10 @@
     .line 38
     sget-object p0, Landroid/support/transition/ViewUtilsApi22;->sSetLeftTopRightBottomMethod:Ljava/lang/reflect/Method;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_37
 
     .line 40
-    :try_start_0
+    :try_start_7
     sget-object p0, Landroid/support/transition/ViewUtilsApi22;->sSetLeftTopRightBottomMethod:Ljava/lang/reflect/Method;
 
     const/4 v0, 0x4
@@ -161,13 +161,13 @@
     aput-object p3, v0, p2
 
     invoke-virtual {p0, p1, v0}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_2b
+    .catch Ljava/lang/IllegalAccessException; {:try_start_7 .. :try_end_2b} :catch_37
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_7 .. :try_end_2b} :catch_2c
 
-    goto :goto_0
+    goto :goto_37
 
-    :catch_0
+    :catch_2c
     move-exception p0
 
     .line 44
@@ -181,8 +181,8 @@
 
     throw p1
 
-    :catch_1
-    :cond_0
-    :goto_0
+    :catch_37
+    :cond_37
+    :goto_37
     return-void
 .end method

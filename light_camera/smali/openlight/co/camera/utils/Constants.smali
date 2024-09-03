@@ -42,20 +42,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/16 v0, 0x35
 
     .line 22
     new-array v0, v0, [J
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lopenlight/co/camera/utils/Constants;->exposureTimes:[J
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 8
         0x37e11d600L
         0x2cb417800L

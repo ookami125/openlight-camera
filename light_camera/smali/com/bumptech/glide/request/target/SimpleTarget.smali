@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/high16 v0, -0x80000000
 
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 45
     invoke-direct {p0}, Lcom/bumptech/glide/request/target/BaseTarget;-><init>()V
@@ -51,7 +51,7 @@
 
 # virtual methods
 .method public final getSize(Lcom/bumptech/glide/request/target/SizeReadyCallback;)V
-    .locals 2
+    .registers 4
 
     .line 57
     iget v0, p0, Lcom/bumptech/glide/request/target/SimpleTarget;->width:I
@@ -62,7 +62,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_12
 
     .line 62
     iget v0, p0, Lcom/bumptech/glide/request/target/SimpleTarget;->width:I
@@ -74,7 +74,7 @@
     return-void
 
     .line 58
-    :cond_0
+    :cond_12
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;

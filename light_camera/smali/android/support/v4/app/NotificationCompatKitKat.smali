@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 .end method
 
 .method public static getAction(Landroid/app/Notification;ILandroid/support/v4/app/NotificationCompatBase$Action$Factory;Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;)Landroid/support/v4/app/NotificationCompatBase$Action;
-    .locals 7
+    .registers 11
 
     .line 135
     iget-object v0, p0, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
@@ -42,7 +42,7 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_15
 
     .line 140
     invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
@@ -51,12 +51,12 @@
 
     check-cast p0, Landroid/os/Bundle;
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_16
     move-object v6, p0
 
     .line 142

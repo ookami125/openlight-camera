@@ -46,7 +46,7 @@
 
 # direct methods
 .method public constructor <init>(II)V
-    .locals 0
+    .registers 3
 
     .line 694
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
@@ -60,7 +60,7 @@
 .end method
 
 .method public constructor <init>(IIF)V
-    .locals 0
+    .registers 4
 
     .line 698
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(IIF)V
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
 
     .line 681
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout$LayoutParams;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -109,7 +109,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_29
 
     .line 685
     sget v0, Landroid/support/design/R$styleable;->AppBarLayout_Layout_layout_scrollInterpolator:I
@@ -126,14 +126,14 @@
     iput-object p1, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollInterpolator:Landroid/view/animation/Interpolator;
 
     .line 690
-    :cond_0
+    :cond_29
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/support/design/widget/AppBarLayout$LayoutParams;)V
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/RequiresApi;
         value = 0x13
     .end annotation
@@ -160,7 +160,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 0
+    .registers 2
 
     .line 702
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
@@ -174,7 +174,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
-    .locals 0
+    .registers 2
 
     .line 706
     invoke-direct {p0, p1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
@@ -188,7 +188,7 @@
 .end method
 
 .method public constructor <init>(Landroid/widget/LinearLayout$LayoutParams;)V
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/RequiresApi;
         value = 0x13
     .end annotation
@@ -207,7 +207,7 @@
 
 # virtual methods
 .method public getScrollFlags()I
-    .locals 0
+    .registers 1
 
     .line 747
     iget p0, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollFlags:I
@@ -216,7 +216,7 @@
 .end method
 
 .method public getScrollInterpolator()Landroid/view/animation/Interpolator;
-    .locals 0
+    .registers 1
 
     .line 771
     iget-object p0, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollInterpolator:Landroid/view/animation/Interpolator;
@@ -225,7 +225,7 @@
 .end method
 
 .method isCollapsible()Z
-    .locals 2
+    .registers 3
 
     .line 778
     iget v0, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollFlags:I
@@ -234,25 +234,25 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_d
 
     iget p0, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollFlags:I
 
     and-int/lit8 p0, p0, 0xa
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_d
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     const/4 v1, 0x0
 
-    :goto_0
+    :goto_e
     return v1
 .end method
 
 .method public setScrollFlags(I)V
-    .locals 0
+    .registers 2
 
     .line 735
     iput p1, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollFlags:I
@@ -261,7 +261,7 @@
 .end method
 
 .method public setScrollInterpolator(Landroid/view/animation/Interpolator;)V
-    .locals 0
+    .registers 2
 
     .line 760
     iput-object p1, p0, Landroid/support/design/widget/AppBarLayout$LayoutParams;->mScrollInterpolator:Landroid/view/animation/Interpolator;

@@ -15,7 +15,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 13
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -29,7 +29,7 @@
 .end method
 
 .method private doUploadSettingChange(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
 
     const-string p0, "com.fihtdc.AprUploadAgent.receiver(7.0010.05(Evenwell_s))"
 
@@ -71,7 +71,7 @@
 .end method
 
 .method private doWifiOnlyChange(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+    .registers 4
 
     const-string p0, "com.fihtdc.AprUploadAgent.receiver(7.0010.05(Evenwell_s))"
 
@@ -115,7 +115,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .registers 5
 
     const-string v0, "com.fihtdc.AprUploadAgent.receiver(7.0010.05(Evenwell_s))"
 
@@ -136,14 +136,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_17
 
     .line 23
     invoke-direct {p0, p1, p2}, Lcom/fihtdc/UploadAgentService/SettingReceiver;->doUploadSettingChange(Landroid/content/Context;Landroid/content/Intent;)V
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_17
     const-string v1, "com.fihtdc.uploadservice.intent.monitor.wifionly"
 
     .line 24
@@ -151,12 +151,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 25
     invoke-direct {p0, p1, p2}, Lcom/fihtdc/UploadAgentService/SettingReceiver;->doWifiOnlyChange(Landroid/content/Context;Landroid/content/Intent;)V
 
-    :cond_1
-    :goto_0
+    :cond_22
+    :goto_22
     return-void
 .end method

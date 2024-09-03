@@ -40,21 +40,21 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const/16 v0, 0x40
 
     .line 548
     new-array v1, v0, [B
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_12
 
     sput-object v1, Lnet/hockeyapp/android/utils/Base64$Encoder;->ENCODE:[B
 
     .line 559
     new-array v0, v0, [B
 
-    fill-array-data v0, :array_1
+    fill-array-data v0, :array_36
 
     sput-object v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->ENCODE_WEBSAFE:[B
 
@@ -62,7 +62,7 @@
 
     nop
 
-    :array_0
+    :array_12
     .array-data 1
         0x41t
         0x42t
@@ -130,7 +130,7 @@
         0x2ft
     .end array-data
 
-    :array_1
+    :array_36
     .array-data 1
         0x41t
         0x42t
@@ -200,7 +200,7 @@
 .end method
 
 .method public constructor <init>(I[B)V
-    .locals 2
+    .registers 5
 
     .line 575
     invoke-direct {p0}, Lnet/hockeyapp/android/utils/Base64$Coder;-><init>()V
@@ -214,60 +214,60 @@
 
     const/4 v1, 0x1
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_d
 
     move p2, v1
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move p2, v0
 
     .line 578
-    :goto_0
+    :goto_e
     iput-boolean p2, p0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_padding:Z
 
     and-int/lit8 p2, p1, 0x2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_16
 
     move p2, v1
 
-    goto :goto_1
+    goto :goto_17
 
-    :cond_1
+    :cond_16
     move p2, v0
 
     .line 579
-    :goto_1
+    :goto_17
     iput-boolean p2, p0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_newline:Z
 
     and-int/lit8 p2, p1, 0x4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1e
 
-    goto :goto_2
+    goto :goto_1f
 
-    :cond_2
+    :cond_1e
     move v1, v0
 
     .line 580
-    :goto_2
+    :goto_1f
     iput-boolean v1, p0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
     and-int/lit8 p1, p1, 0x8
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_28
 
     .line 581
     sget-object p1, Lnet/hockeyapp/android/utils/Base64$Encoder;->ENCODE:[B
 
-    goto :goto_3
+    goto :goto_2a
 
-    :cond_3
+    :cond_28
     sget-object p1, Lnet/hockeyapp/android/utils/Base64$Encoder;->ENCODE_WEBSAFE:[B
 
-    :goto_3
+    :goto_2a
     iput-object p1, p0, Lnet/hockeyapp/android/utils/Base64$Encoder;->alphabet:[B
 
     const/4 p1, 0x2
@@ -283,16 +283,16 @@
     .line 586
     iget-boolean p1, p0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_newline:Z
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3a
 
     const/16 p1, 0x13
 
-    goto :goto_4
+    goto :goto_3b
 
-    :cond_4
+    :cond_3a
     const/4 p1, -0x1
 
-    :goto_4
+    :goto_3b
     iput p1, p0, Lnet/hockeyapp/android/utils/Base64$Encoder;->count:I
 
     return-void
@@ -301,7 +301,7 @@
 
 # virtual methods
 .method public maxOutputSize(I)I
-    .locals 0
+    .registers 2
 
     mul-int/lit8 p1, p1, 0x8
 
@@ -314,7 +314,7 @@
 .end method
 
 .method public process([BIIZ)Z
-    .locals 18
+    .registers 23
 
     move-object/from16 v0, p0
 
@@ -338,14 +338,14 @@
 
     const/4 v10, 0x1
 
-    packed-switch v7, :pswitch_data_0
+    packed-switch v7, :pswitch_data_218
 
-    goto :goto_0
+    goto :goto_4f
 
-    :pswitch_0
+    :pswitch_13
     add-int/lit8 v7, p2, 0x1
 
-    if-gt v7, v6, :cond_0
+    if-gt v7, v6, :cond_4f
 
     .line 631
     iget-object v11, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
@@ -375,12 +375,12 @@
     .line 634
     iput v9, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
-    goto :goto_1
+    goto :goto_52
 
-    :pswitch_1
+    :pswitch_30
     add-int/lit8 v7, p2, 0x2
 
-    if-gt v7, v6, :cond_0
+    if-gt v7, v6, :cond_4f
 
     .line 621
     iget-object v7, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
@@ -412,16 +412,16 @@
     .line 624
     iput v9, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
-    goto :goto_1
+    goto :goto_52
 
-    :cond_0
-    :goto_0
-    :pswitch_2
+    :cond_4f
+    :goto_4f
+    :pswitch_4f
     move/from16 v7, p2
 
     move v2, v8
 
-    :goto_1
+    :goto_52
     const/4 v12, 0x4
 
     const/16 v13, 0xd
@@ -430,7 +430,7 @@
 
     const/4 v15, 0x2
 
-    if-eq v2, v8, :cond_3
+    if-eq v2, v8, :cond_90
 
     shr-int/lit8 v8, v2, 0x12
 
@@ -470,23 +470,23 @@
 
     add-int/lit8 v5, v5, -0x1
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_8d
 
     .line 645
     iget-boolean v2, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_85
 
     const/4 v2, 0x5
 
     aput-byte v13, v4, v12
 
-    goto :goto_2
+    goto :goto_86
 
-    :cond_1
+    :cond_85
     move v2, v12
 
-    :goto_2
+    :goto_86
     add-int/lit8 v5, v2, 0x1
 
     .line 646
@@ -494,24 +494,24 @@
 
     const/16 v2, 0x13
 
-    goto :goto_3
+    goto :goto_92
 
-    :cond_2
+    :cond_8d
     move v2, v5
 
     move v5, v12
 
-    goto :goto_3
+    goto :goto_92
 
-    :cond_3
+    :cond_90
     move v2, v5
 
     move v5, v9
 
-    :goto_3
+    :goto_92
     add-int/lit8 v8, v7, 0x3
 
-    if-gt v8, v6, :cond_6
+    if-gt v8, v6, :cond_eb
 
     .line 657
     aget-byte v11, p1, v7
@@ -582,23 +582,23 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_e8
 
     .line 667
     iget-boolean v2, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_df
 
     add-int/lit8 v2, v5, 0x1
 
     aput-byte v13, v4, v5
 
-    goto :goto_4
+    goto :goto_e0
 
-    :cond_4
+    :cond_df
     move v2, v5
 
-    :goto_4
+    :goto_e0
     add-int/lit8 v5, v2, 0x1
 
     .line 668
@@ -608,18 +608,18 @@
 
     const/16 v2, 0x13
 
-    goto :goto_5
+    goto :goto_e9
 
-    :cond_5
+    :cond_e8
     move v7, v8
 
-    :goto_5
+    :goto_e9
     const/4 v15, 0x2
 
-    goto :goto_3
+    goto :goto_92
 
-    :cond_6
-    if-eqz p4, :cond_14
+    :cond_eb
+    if-eqz p4, :cond_1e4
 
     .line 679
     iget v8, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
@@ -628,12 +628,12 @@
 
     add-int/lit8 v11, v6, -0x1
 
-    if-ne v8, v11, :cond_a
+    if-ne v8, v11, :cond_140
 
     .line 681
     iget v8, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
-    if-lez v8, :cond_7
+    if-lez v8, :cond_ff
 
     iget-object v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
 
@@ -641,16 +641,16 @@
 
     move v9, v10
 
-    goto :goto_6
+    goto :goto_104
 
-    :cond_7
+    :cond_ff
     add-int/lit8 v8, v7, 0x1
 
     aget-byte v1, p1, v7
 
     move v7, v8
 
-    :goto_6
+    :goto_104
     and-int/lit16 v1, v1, 0xff
 
     shl-int/2addr v1, v12
@@ -685,7 +685,7 @@
     .line 685
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_padding:Z
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_12c
 
     add-int/lit8 v1, v5, 0x1
 
@@ -700,47 +700,47 @@
     aput-byte v3, v4, v1
 
     .line 689
-    :cond_8
+    :cond_12c
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_newline:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1cf
 
     .line 690
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_139
 
     add-int/lit8 v1, v5, 0x1
 
     aput-byte v13, v4, v5
 
-    goto :goto_7
+    goto :goto_13a
 
-    :cond_9
+    :cond_139
     move v1, v5
 
-    :goto_7
+    :goto_13a
     add-int/lit8 v5, v1, 0x1
 
     .line 691
     aput-byte v14, v4, v1
 
-    goto/16 :goto_c
+    goto/16 :goto_1cf
 
     .line 693
-    :cond_a
+    :cond_140
     iget v8, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
     sub-int v8, v7, v8
 
     add-int/lit8 v11, v6, -0x2
 
-    if-ne v8, v11, :cond_10
+    if-ne v8, v11, :cond_1b6
 
     .line 695
     iget v8, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
-    if-le v8, v10, :cond_b
+    if-le v8, v10, :cond_157
 
     iget-object v8, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
 
@@ -754,21 +754,21 @@
 
     move/from16 v7, v17
 
-    goto :goto_8
+    goto :goto_15b
 
-    :cond_b
+    :cond_157
     add-int/lit8 v8, v7, 0x1
 
     aget-byte v7, p1, v7
 
-    :goto_8
+    :goto_15b
     and-int/lit16 v7, v7, 0xff
 
     shl-int/2addr v7, v14
 
     iget v11, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
-    if-lez v11, :cond_c
+    if-lez v11, :cond_169
 
     iget-object v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
 
@@ -776,9 +776,9 @@
 
     aget-byte v1, v1, v9
 
-    goto :goto_9
+    goto :goto_16f
 
-    :cond_c
+    :cond_169
     add-int/lit8 v11, v8, 0x1
 
     aget-byte v1, p1, v8
@@ -787,7 +787,7 @@
 
     move v11, v9
 
-    :goto_9
+    :goto_16f
     and-int/lit16 v1, v1, 0xff
 
     const/4 v9, 0x2
@@ -837,7 +837,7 @@
     .line 701
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_padding:Z
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_1a0
 
     add-int/lit8 v1, v7, 0x1
 
@@ -846,21 +846,21 @@
     .line 702
     aput-byte v3, v4, v7
 
-    goto :goto_a
+    goto :goto_1a1
 
-    :cond_d
+    :cond_1a0
     move v1, v7
 
     .line 704
-    :goto_a
+    :goto_1a1
     iget-boolean v3, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_newline:Z
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_1b3
 
     .line 705
     iget-boolean v3, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_1ae
 
     add-int/lit8 v3, v1, 0x1
 
@@ -868,7 +868,7 @@
 
     move v1, v3
 
-    :cond_e
+    :cond_1ae
     add-int/lit8 v3, v1, 0x1
 
     .line 706
@@ -876,40 +876,40 @@
 
     move v1, v3
 
-    :cond_f
+    :cond_1b3
     move v5, v1
 
     move v7, v8
 
-    goto :goto_c
+    goto :goto_1cf
 
     .line 708
-    :cond_10
+    :cond_1b6
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_newline:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_1cf
 
-    if-lez v5, :cond_12
+    if-lez v5, :cond_1cf
 
     const/16 v1, 0x13
 
-    if-eq v2, v1, :cond_12
+    if-eq v2, v1, :cond_1cf
 
     .line 709
     iget-boolean v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->do_cr:Z
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_1c9
 
     add-int/lit8 v1, v5, 0x1
 
     aput-byte v13, v4, v5
 
-    goto :goto_b
+    goto :goto_1ca
 
-    :cond_11
+    :cond_1c9
     move v1, v5
 
-    :goto_b
+    :goto_1ca
     add-int/lit8 v3, v1, 0x1
 
     .line 710
@@ -918,11 +918,11 @@
     move v5, v3
 
     .line 713
-    :cond_12
-    :goto_c
+    :cond_1cf
+    :goto_1cf
     iget v1, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tailLen:I
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_1da
 
     const-string v1, "BASE64"
 
@@ -931,8 +931,8 @@
     .line 714
     invoke-static {v1, v3}, Lnet/hockeyapp/android/utils/HockeyLog;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_13
-    if-eq v7, v6, :cond_16
+    :cond_1da
+    if-eq v7, v6, :cond_212
 
     const-string v1, "BASE64"
 
@@ -941,12 +941,12 @@
     .line 718
     invoke-static {v1, v3}, Lnet/hockeyapp/android/utils/HockeyLog;->error(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_d
+    goto :goto_212
 
-    :cond_14
+    :cond_1e4
     add-int/lit8 v3, v6, -0x1
 
-    if-ne v7, v3, :cond_15
+    if-ne v7, v3, :cond_1f5
 
     .line 726
     iget-object v3, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
@@ -961,14 +961,14 @@
 
     aput-byte v1, v3, v4
 
-    goto :goto_d
+    goto :goto_212
 
-    :cond_15
+    :cond_1f5
     const/4 v3, 0x2
 
     sub-int/2addr v6, v3
 
-    if-ne v7, v6, :cond_16
+    if-ne v7, v6, :cond_212
 
     .line 728
     iget-object v3, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->tail:[B
@@ -999,8 +999,8 @@
     aput-byte v1, v3, v4
 
     .line 733
-    :cond_16
-    :goto_d
+    :cond_212
+    :goto_212
     iput v5, v0, Lnet/hockeyapp/android/utils/Base64$Encoder;->op:I
 
     .line 734
@@ -1010,10 +1010,10 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_218
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_4f
+        :pswitch_30
+        :pswitch_13
     .end packed-switch
 .end method

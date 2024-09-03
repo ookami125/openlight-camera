@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/content/Intent;Landroid/content/BroadcastReceiver$PendingResult;)V
-    .locals 0
+    .registers 4
 
     .line 136
     invoke-direct {p0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;-><init>()V
@@ -44,7 +44,7 @@
 .end method
 
 .method private finish()V
-    .locals 1
+    .registers 2
 
     .line 170
     iget-object v0, p0, Landroid/support/v4/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->mMediaBrowser:Landroid/support/v4/media/MediaBrowserCompat;
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public onConnected()V
-    .locals 3
+    .registers 4
 
     .line 149
     :try_start_0
@@ -92,12 +92,12 @@
 
     .line 152
     invoke-virtual {v0, v1}, Landroid/support/v4/media/session/MediaControllerCompat;->dispatchMediaButtonEvent(Landroid/view/KeyEvent;)Z
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1a
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_1a} :catch_1b
 
-    goto :goto_0
+    goto :goto_23
 
-    :catch_0
+    :catch_1b
     move-exception v0
 
     const-string v1, "MediaButtonReceiver"
@@ -108,14 +108,14 @@
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 156
-    :goto_0
+    :goto_23
     invoke-direct {p0}, Landroid/support/v4/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->finish()V
 
     return-void
 .end method
 
 .method public onConnectionFailed()V
-    .locals 0
+    .registers 1
 
     .line 166
     invoke-direct {p0}, Landroid/support/v4/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->finish()V
@@ -124,7 +124,7 @@
 .end method
 
 .method public onConnectionSuspended()V
-    .locals 0
+    .registers 1
 
     .line 161
     invoke-direct {p0}, Landroid/support/v4/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->finish()V
@@ -133,7 +133,7 @@
 .end method
 
 .method setMediaBrowser(Landroid/support/v4/media/MediaBrowserCompat;)V
-    .locals 0
+    .registers 2
 
     .line 143
     iput-object p1, p0, Landroid/support/v4/media/session/MediaButtonReceiver$MediaButtonConnectionCallback;->mMediaBrowser:Landroid/support/v4/media/MediaBrowserCompat;

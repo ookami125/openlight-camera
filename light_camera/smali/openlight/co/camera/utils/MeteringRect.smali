@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 31
     new-instance v0, Lopenlight/co/camera/utils/MeteringRect;
@@ -24,7 +24,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 27
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/MeteringRect;
-    .locals 1
+    .registers 1
 
     .line 34
     sget-object v0, Lopenlight/co/camera/utils/MeteringRect;->sInstance:Lopenlight/co/camera/utils/MeteringRect;
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getMeteringRectAndScreenPoint(Lopenlight/co/camera/models/MeteringPoint;Landroid/view/TextureView;Z)Landroid/util/Pair;
-    .locals 12
+    .registers 16
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -69,12 +69,12 @@
 
     const/4 v0, 0x0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_c
 
     return-object v0
 
     .line 58
-    :cond_0
+    :cond_c
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
 
     move-result-object v1
@@ -110,26 +110,26 @@
 
     mul-int v8, v4, v5
 
-    if-ge v7, v8, :cond_1
+    if-ge v7, v8, :cond_31
 
     int-to-float v7, v3
 
     int-to-float v8, v5
 
-    :goto_0
+    :goto_2f
     div-float/2addr v7, v8
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_1
+    :cond_31
     int-to-float v7, v4
 
     int-to-float v8, v6
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 79
-    :goto_1
+    :goto_34
     sget-object v8, Lopenlight/co/camera/utils/MeteringRect;->TAG:Ljava/lang/String;
 
     new-instance v9, Ljava/lang/StringBuilder;
@@ -153,9 +153,9 @@
 
     move-result v8
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_76
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_69
 
     .line 83
     sget-object p0, Lopenlight/co/camera/utils/MeteringRect;->TAG:Ljava/lang/String;
@@ -182,7 +182,7 @@
     return-object p0
 
     .line 90
-    :cond_2
+    :cond_69
     invoke-static {v1}, Lopenlight/co/camera/utils/Util;->getWidthOfScreen(Landroid/content/Context;)I
 
     move-result p1
@@ -196,10 +196,10 @@
 
     div-int/lit8 p3, p3, 0x2
 
-    goto :goto_2
+    goto :goto_81
 
     .line 94
-    :cond_3
+    :cond_76
     invoke-virtual {p1}, Lopenlight/co/camera/models/MeteringPoint;->getX()I
 
     move-result p3
@@ -216,7 +216,7 @@
     move p1, v11
 
     .line 98
-    :goto_2
+    :goto_81
     new-instance v1, Landroid/graphics/Point;
 
     invoke-direct {v1, p1, p3}, Landroid/graphics/Point;-><init>(II)V
@@ -300,7 +300,7 @@
 
     move-result-object p3
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_d1
 
     .line 117
     sget-object v5, Landroid/hardware/camera2/CaptureResult;->SCALER_CROP_REGION:Landroid/hardware/camera2/CaptureResult$Key;
@@ -311,21 +311,21 @@
 
     check-cast p3, Landroid/graphics/Rect;
 
-    goto :goto_3
+    goto :goto_d2
 
-    :cond_4
+    :cond_d1
     move-object p3, v0
 
-    :goto_3
-    if-nez p3, :cond_5
+    :goto_d2
+    if-nez p3, :cond_d5
 
-    goto :goto_4
+    goto :goto_d6
 
-    :cond_5
+    :cond_d5
     move-object p0, p3
 
     .line 124
-    :goto_4
+    :goto_d6
     iget p3, p0, Landroid/graphics/Rect;->left:I
 
     int-to-float p3, p3
@@ -404,14 +404,14 @@
 
     move-result p0
 
-    if-ltz p1, :cond_7
+    if-ltz p1, :cond_137
 
-    if-gez p0, :cond_6
+    if-gez p0, :cond_10d
 
-    goto :goto_5
+    goto :goto_137
 
     .line 140
-    :cond_6
+    :cond_10d
     new-instance p2, Landroid/graphics/Rect;
 
     add-int p3, p1, v2
@@ -452,7 +452,7 @@
 
     return-object p0
 
-    :cond_7
-    :goto_5
+    :cond_137
+    :goto_137
     return-object v0
 .end method

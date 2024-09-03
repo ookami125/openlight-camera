@@ -62,7 +62,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 557
     new-instance v0, Lltpb/ViewPreferences$ViewPresets;
@@ -157,7 +157,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)V"
@@ -174,56 +174,56 @@
 .end method
 
 .method public static fromValue(I)Lltpb/ViewPreferences$ViewPresets;
-    .locals 0
+    .registers 1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_14
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 584
-    :pswitch_0
+    :pswitch_5
     sget-object p0, Lltpb/ViewPreferences$ViewPresets;->VIEW_PRESET_PORTRAIT:Lltpb/ViewPreferences$ViewPresets;
 
     return-object p0
 
     .line 583
-    :pswitch_1
+    :pswitch_8
     sget-object p0, Lltpb/ViewPreferences$ViewPresets;->VIEW_PRESET_LANDSCAPE:Lltpb/ViewPreferences$ViewPresets;
 
     return-object p0
 
     .line 582
-    :pswitch_2
+    :pswitch_b
     sget-object p0, Lltpb/ViewPreferences$ViewPresets;->VIEW_PRESET_FAITHFUL:Lltpb/ViewPreferences$ViewPresets;
 
     return-object p0
 
     .line 581
-    :pswitch_3
+    :pswitch_e
     sget-object p0, Lltpb/ViewPreferences$ViewPresets;->VIEW_PRESET_NATURAL:Lltpb/ViewPreferences$ViewPresets;
 
     return-object p0
 
     .line 580
-    :pswitch_4
+    :pswitch_11
     sget-object p0, Lltpb/ViewPreferences$ViewPresets;->VIEW_PRESET_NONE:Lltpb/ViewPreferences$ViewPresets;
 
     return-object p0
 
-    :pswitch_data_0
+    :pswitch_data_14
     .packed-switch 0x0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_11
+        :pswitch_e
+        :pswitch_b
+        :pswitch_8
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lltpb/ViewPreferences$ViewPresets;
-    .locals 1
+    .registers 2
 
     .line 553
     const-class v0, Lltpb/ViewPreferences$ViewPresets;
@@ -238,7 +238,7 @@
 .end method
 
 .method public static values()[Lltpb/ViewPreferences$ViewPresets;
-    .locals 1
+    .registers 1
 
     .line 553
     sget-object v0, Lltpb/ViewPreferences$ViewPresets;->$VALUES:[Lltpb/ViewPreferences$ViewPresets;
@@ -255,7 +255,7 @@
 
 # virtual methods
 .method public getValue()I
-    .locals 0
+    .registers 1
 
     .line 591
     iget p0, p0, Lltpb/ViewPreferences$ViewPresets;->value:I

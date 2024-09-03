@@ -41,7 +41,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/Transformation;Lcom/bumptech/glide/load/Transformation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -67,7 +67,7 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Lcom/bumptech/glide/load/Transformation;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 
 # virtual methods
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 51
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;->bitmapTransformation:Lcom/bumptech/glide/load/Transformation;
@@ -104,7 +104,7 @@
 .end method
 
 .method public transform(Lcom/bumptech/glide/load/engine/Resource;II)Lcom/bumptech/glide/load/engine/Resource;
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -139,12 +139,12 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_3b
 
     .line 33
     iget-object v2, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;->bitmapTransformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_3b
 
     .line 34
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;->bitmapTransformation:Lcom/bumptech/glide/load/Transformation;
@@ -158,7 +158,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_62
 
     .line 36
     new-instance p2, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -182,13 +182,13 @@
 
     return-object p0
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_3b
+    if-eqz v1, :cond_62
 
     .line 39
     iget-object v0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;->gifDataTransformation:Lcom/bumptech/glide/load/Transformation;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_62
 
     .line 40
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapperTransformation;->gifDataTransformation:Lcom/bumptech/glide/load/Transformation;
@@ -202,7 +202,7 @@
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_62
 
     .line 42
     new-instance p2, Lcom/bumptech/glide/load/resource/gifbitmap/GifBitmapWrapper;
@@ -226,6 +226,6 @@
 
     return-object p0
 
-    :cond_1
+    :cond_62
     return-object p1
 .end method

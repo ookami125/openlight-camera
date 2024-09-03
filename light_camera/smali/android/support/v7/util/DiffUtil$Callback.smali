@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 281
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public getChangePayload(II)Ljava/lang/Object;
-    .locals 0
+    .registers 3
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 

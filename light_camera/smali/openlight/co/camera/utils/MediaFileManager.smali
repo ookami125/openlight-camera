@@ -57,7 +57,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 50
     new-instance v0, Lopenlight/co/camera/utils/MediaFileManager;
@@ -92,7 +92,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 488
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -108,19 +108,19 @@
 .end method
 
 .method private static convertToLri(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 127
     invoke-static {p0}, Lopenlight/co/camera/utils/MediaFileManager;->isLriFile(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_7
 
     return-object p0
 
     .line 130
-    :cond_0
+    :cond_7
     invoke-static {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getExtensionStartIndex(Ljava/lang/String;)I
 
     move-result v0
@@ -150,7 +150,7 @@
 .end method
 
 .method private createFileFolder(Ljava/lang/String;)Z
-    .locals 0
+    .registers 2
 
     .line 484
     new-instance p0, Ljava/io/File;
@@ -162,31 +162,31 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_14
 
     invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_0
+    :cond_12
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
-    :goto_0
+    :cond_14
+    :goto_14
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_15
     return p0
 .end method
 
 .method private fileIndexFromNumber(I)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 455
     invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
@@ -200,7 +200,7 @@
 
     const/4 v0, 0x5
 
-    if-ge p1, v0, :cond_0
+    if-ge p1, v0, :cond_19
 
     const-string p1, "00000"
 
@@ -218,7 +218,7 @@
     move-result-object p0
 
     .line 459
-    :cond_0
+    :cond_19
     sget-object p1, Lopenlight/co/camera/utils/MediaFileManager;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -241,7 +241,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/MediaFileManager;
-    .locals 1
+    .registers 1
 
     .line 79
     sget-object v0, Lopenlight/co/camera/utils/MediaFileManager;->sInstance:Lopenlight/co/camera/utils/MediaFileManager;
@@ -250,7 +250,7 @@
 .end method
 
 .method private static getAvailableFiles(Landroid/content/Context;)Ljava/util/List;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -272,9 +272,9 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_4b
 
-    :try_start_0
+    :try_start_b
     const-string v1, "_data"
 
     .line 380
@@ -283,13 +283,13 @@
     move-result v1
 
     .line 381
-    :cond_0
-    :goto_0
+    :cond_11
+    :goto_11
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_42
 
     .line 382
     invoke-interface {p0, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -308,7 +308,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_11
 
     const-string v4, "/DCIM/"
 
@@ -317,7 +317,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_38
 
     const-string v4, "/Trash/"
 
@@ -325,30 +325,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     .line 386
-    :cond_1
+    :cond_38
     invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_11
 
     .line 387
     invoke-interface {v0, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_41
+    .catchall {:try_start_b .. :try_end_41} :catchall_46
 
-    goto :goto_0
+    goto :goto_11
 
     .line 391
-    :cond_2
+    :cond_42
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
-    goto :goto_1
+    goto :goto_4b
 
-    :catchall_0
+    :catchall_46
     move-exception v0
 
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
@@ -356,20 +356,20 @@
     .line 392
     throw v0
 
-    :cond_3
-    :goto_1
+    :cond_4b
+    :goto_4b
     return-object v0
 .end method
 
 .method private static getExtensionStartIndex(Ljava/lang/String;)I
-    .locals 2
+    .registers 3
 
     .line 160
     invoke-static {p0}, Lopenlight/co/camera/utils/MediaFileManager;->isProcessedOutput(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     const-string v0, "_1.jpg"
 
@@ -378,9 +378,9 @@
 
     move-result v0
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_d
     const/16 v0, 0x2e
 
     .line 162
@@ -388,22 +388,22 @@
 
     move-result v0
 
-    :goto_0
+    :goto_13
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_1a
 
     .line 163
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    :cond_1
+    :cond_1a
     return v0
 .end method
 
 .method private getFileName(I)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     .line 279
     sget-object v0, Lopenlight/co/camera/utils/MediaFileManager;->TAG:Ljava/lang/String;
@@ -458,20 +458,20 @@
 .end method
 
 .method private getLastFileIndex()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 430
     invoke-direct {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getLastFilePath()Ljava/lang/String;
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_9
 
     const-string p0, "00000"
 
     return-object p0
 
-    :cond_0
+    :cond_9
     const-string v0, "L16_"
 
     .line 434
@@ -492,7 +492,7 @@
 .end method
 
 .method private getLastFileNumber()I
-    .locals 4
+    .registers 5
 
     .line 291
     invoke-direct {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getLastFileIndex()Ljava/lang/String;
@@ -527,7 +527,7 @@
 .end method
 
 .method private getLastFilePath()Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     const-string p0, "00000"
 
@@ -547,20 +547,20 @@
 
     const/4 v2, 0x0
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_3e
 
     .line 313
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_0
-    :goto_0
+    :cond_15
+    :goto_15
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3e
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -580,7 +580,7 @@
 
     move-result v3
 
-    if-ltz v3, :cond_0
+    if-ltz v3, :cond_15
 
     add-int/lit8 v4, v3, 0x4
 
@@ -596,20 +596,20 @@
 
     move-result v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_15
 
     move-object v2, v1
 
     move-object p0, v3
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_1
+    :cond_3e
     return-object v2
 .end method
 
 .method private getLastSavedFileNumber()I
-    .locals 1
+    .registers 2
 
     .line 445
     iget-object p0, p0, Lopenlight/co/camera/utils/MediaFileManager;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -624,7 +624,7 @@
 .end method
 
 .method private static getMediaItemCursor(Landroid/content/Context;)Landroid/database/Cursor;
-    .locals 7
+    .registers 8
 
     const-string v0, "external"
 
@@ -684,7 +684,7 @@
 .end method
 
 .method private getNextFileNumber()I
-    .locals 2
+    .registers 3
 
     .line 336
     iget-object v0, p0, Lopenlight/co/camera/utils/MediaFileManager;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -708,7 +708,7 @@
 .end method
 
 .method private getNextFilePath(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     .line 167
     invoke-virtual {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getImagePath()Ljava/lang/String;
@@ -720,14 +720,14 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_d
 
     const-string p0, ""
 
     return-object p0
 
     .line 174
-    :cond_0
+    :cond_d
     invoke-direct {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getNextFileNumber()I
 
     move-result v1
@@ -760,7 +760,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_d
 
     .line 177
     sget-object p0, Lopenlight/co/camera/utils/MediaFileManager;->TAG:Ljava/lang/String;
@@ -785,7 +785,7 @@
 .end method
 
 .method private getVideoFileNextSuffixNumber()I
-    .locals 2
+    .registers 3
 
     .line 355
     iget-object v0, p0, Lopenlight/co/camera/utils/MediaFileManager;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -811,7 +811,7 @@
 .end method
 
 .method private static isLriFile(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, ".lri"
 
@@ -824,7 +824,7 @@
 .end method
 
 .method private static isProcessedOutput(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const-string v0, "_1.jpg"
 
@@ -837,7 +837,7 @@
 .end method
 
 .method public static synthetic lambda$checkLastFileName$0(Lopenlight/co/camera/utils/MediaFileManager;)V
-    .locals 3
+    .registers 4
 
     .line 263
     sget-object v0, Lopenlight/co/camera/utils/MediaFileManager;->TAG:Ljava/lang/String;
@@ -877,7 +877,7 @@
 .end method
 
 .method private padWithZeroes(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     .line 469
     new-instance p0, Ljava/lang/StringBuilder;
@@ -911,7 +911,7 @@
 .end method
 
 .method private parseFileIndex(Ljava/lang/String;)I
-    .locals 0
+    .registers 2
 
     .line 480
     invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
@@ -922,7 +922,7 @@
 .end method
 
 .method private setLastFileNumber(I)V
-    .locals 1
+    .registers 3
 
     .line 347
     iget-object p0, p0, Lopenlight/co/camera/utils/MediaFileManager;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -935,7 +935,7 @@
 .end method
 
 .method private setVideoSuffixNumber(I)V
-    .locals 1
+    .registers 3
 
     .line 366
     iget-object p0, p0, Lopenlight/co/camera/utils/MediaFileManager;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -950,7 +950,7 @@
 
 # virtual methods
 .method public checkLastFileName()V
-    .locals 2
+    .registers 3
 
     .line 261
     iget-object v0, p0, Lopenlight/co/camera/utils/MediaFileManager;->mCameraPref:Lopenlight/co/lib/content/Prefs;
@@ -963,7 +963,7 @@
 
     const/4 v1, -0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_18
 
     .line 262
     new-instance v0, Ljava/lang/Thread;
@@ -977,12 +977,12 @@
     .line 268
     invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method public deleteTempVideoFile()V
-    .locals 1
+    .registers 2
 
     .line 210
     new-instance v0, Ljava/io/File;
@@ -998,17 +998,17 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     .line 213
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    :cond_0
+    :cond_12
     return-void
 .end method
 
 .method public getFirstMedia()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 88
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -1020,9 +1020,9 @@
 
     move-result-object p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_42
 
-    :try_start_0
+    :try_start_a
     const-string v0, "_data"
 
     .line 94
@@ -1031,12 +1031,12 @@
     move-result v0
 
     .line 95
-    :cond_0
+    :cond_10
     invoke-interface {p0}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_39
 
     .line 97
     invoke-interface {p0, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
@@ -1050,7 +1050,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     const-string v2, "thumbnails"
 
@@ -1059,7 +1059,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_10
 
     new-instance v2, Ljava/io/File;
 
@@ -1069,22 +1069,22 @@
     invoke-virtual {v2}, Ljava/io/File;->exists()Z
 
     move-result v2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_33
+    .catchall {:try_start_a .. :try_end_33} :catchall_3d
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_10
 
     .line 106
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
     return-object v1
 
-    :cond_1
+    :cond_39
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
 
-    goto :goto_0
+    goto :goto_42
 
-    :catchall_0
+    :catchall_3d
     move-exception v0
 
     invoke-interface {p0}, Landroid/database/Cursor;->close()V
@@ -1092,15 +1092,15 @@
     .line 107
     throw v0
 
-    :cond_2
-    :goto_0
+    :cond_42
+    :goto_42
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public getImagePath()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 114
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1124,18 +1124,18 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_1c
 
     const-string p0, ""
 
     return-object p0
 
-    :cond_0
+    :cond_1c
     return-object v0
 .end method
 
 .method public getNextProcessedAndRawFileNames()Landroid/util/Pair;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -1167,18 +1167,18 @@
     .line 186
     new-instance v1, Ljava/io/File;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     invoke-static {p0}, Lopenlight/co/camera/utils/CipherManager;->encryptedName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_19
     move-object v0, p0
 
-    :goto_0
+    :goto_1a
     invoke-direct {v1, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 187
@@ -1219,13 +1219,13 @@
     .line 192
     new-instance v2, Ljava/io/File;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     invoke-static {p0}, Lopenlight/co/camera/utils/CipherManager;->encryptedName(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    :cond_1
+    :cond_49
     invoke-direct {v2, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
     .line 193
@@ -1256,7 +1256,7 @@
 .end method
 
 .method public getVideoDurationText(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 6
+    .registers 9
 
     .line 218
     invoke-static {p2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
@@ -1267,14 +1267,14 @@
 
     move-result-object p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_c
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 222
-    :cond_0
+    :cond_c
     invoke-virtual {p0}, Landroid/media/MediaPlayer;->getDuration()I
 
     move-result p2
@@ -1339,7 +1339,7 @@
 .end method
 
 .method public getVideoFilePath()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const-string v0, ".mp4"
 
@@ -1352,7 +1352,7 @@
 .end method
 
 .method public getVideoFilePathWithSuffix()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 244
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1404,7 +1404,7 @@
 .end method
 
 .method public getVideoTempFilePath()Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     .line 202
     invoke-virtual {p0}, Lopenlight/co/camera/utils/MediaFileManager;->getImagePath()Ljava/lang/String;
@@ -1430,7 +1430,7 @@
 .end method
 
 .method public resetVideoSuffixNumber()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 

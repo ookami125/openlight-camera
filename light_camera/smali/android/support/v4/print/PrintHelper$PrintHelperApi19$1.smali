@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/print/PrintHelper$PrintHelperApi19;Ljava/lang/String;ILandroid/graphics/Bitmap;Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;)V
-    .locals 0
+    .registers 6
 
     .line 369
     iput-object p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$1;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
@@ -51,24 +51,24 @@
 
 # virtual methods
 .method public onFinish()V
-    .locals 1
+    .registers 2
 
     .line 400
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$1;->val$callback:Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 401
     iget-object p0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$1;->val$callback:Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
 
     invoke-interface {p0}, Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;->onFinish()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public onLayout(Landroid/print/PrintAttributes;Landroid/print/PrintAttributes;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$LayoutResultCallback;Landroid/os/Bundle;)V
-    .locals 0
+    .registers 6
 
     .line 379
     iput-object p2, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$1;->mAttributes:Landroid/print/PrintAttributes;
@@ -111,7 +111,7 @@
 .end method
 
 .method public onWrite([Landroid/print/PageRange;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
-    .locals 7
+    .registers 12
 
     .line 394
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$1;->this$0:Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
@@ -128,6 +128,7 @@
 
     move-object v6, p4
 
+    # invokes: Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->writeBitmap(Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
     invoke-static/range {v0 .. v6}, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;->access$000(Landroid/support/v4/print/PrintHelper$PrintHelperApi19;Landroid/print/PrintAttributes;ILandroid/graphics/Bitmap;Landroid/os/ParcelFileDescriptor;Landroid/os/CancellationSignal;Landroid/print/PrintDocumentAdapter$WriteResultCallback;)V
 
     return-void

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/CoordinatorLayout;)V
-    .locals 0
+    .registers 2
 
     .line 1927
     iput-object p1, p0, Landroid/support/design/widget/CoordinatorLayout$OnPreDrawListener;->this$0:Landroid/support/design/widget/CoordinatorLayout;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onPreDraw()Z
-    .locals 1
+    .registers 2
 
     .line 1930
     iget-object p0, p0, Landroid/support/design/widget/CoordinatorLayout$OnPreDrawListener;->this$0:Landroid/support/design/widget/CoordinatorLayout;

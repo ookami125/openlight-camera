@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/ref/WeakReference;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/UpdateManagerListener;Z)V
-    .locals 0
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,7 +43,7 @@
     .line 38
     iput-boolean p2, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mIsDialogRequired:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_15
 
     .line 44
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -55,14 +55,14 @@
     iput-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
 
     .line 47
-    :cond_0
+    :cond_15
     iput-boolean p5, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mIsDialogRequired:Z
 
     return-void
 .end method
 
 .method static synthetic access$000(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;)Landroid/app/Activity;
-    .locals 0
+    .registers 1
 
     .line 34
     iget-object p0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
@@ -71,7 +71,7 @@
 .end method
 
 .method static synthetic access$100(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;Lorg/json/JSONArray;)V
-    .locals 0
+    .registers 2
 
     .line 34
     invoke-direct {p0, p1}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->showUpdateFragment(Lorg/json/JSONArray;)V
@@ -80,7 +80,7 @@
 .end method
 
 .method static synthetic access$200(Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;Lorg/json/JSONArray;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 3
 
     .line 34
     invoke-direct {p0, p1, p2}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->startUpdateIntent(Lorg/json/JSONArray;Ljava/lang/Boolean;)V
@@ -89,7 +89,7 @@
 .end method
 
 .method private showDialog(Lorg/json/JSONArray;)V
-    .locals 5
+    .registers 7
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -99,7 +99,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_16
 
     const-string v0, "HockeyUpdate"
 
@@ -118,10 +118,10 @@
     invoke-static {v0, v1}, Lnet/hockeyapp/android/utils/VersionCache;->setVersionInfo(Landroid/content/Context;Ljava/lang/String;)V
 
     .line 81
-    :cond_0
+    :cond_16
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_8d
 
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
 
@@ -129,12 +129,12 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_23
 
-    goto :goto_1
+    goto :goto_8d
 
     .line 85
-    :cond_1
+    :cond_23
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
@@ -153,7 +153,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_64
 
     .line 89
     sget v1, Lnet/hockeyapp/android/R$string;->hockeyapp_update_dialog_message:I
@@ -197,10 +197,10 @@
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
 
-    goto :goto_0
+    goto :goto_8c
 
     .line 127
-    :cond_2
+    :cond_64
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
 
     invoke-static {v0}, Lnet/hockeyapp/android/utils/Util;->getAppName(Landroid/content/Context;)Ljava/lang/String;
@@ -244,16 +244,16 @@
 
     invoke-direct {p0, p1, v0}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->startUpdateIntent(Lorg/json/JSONArray;Ljava/lang/Boolean;)V
 
-    :goto_0
+    :goto_8c
     return-void
 
-    :cond_3
-    :goto_1
+    :cond_8d
+    :goto_8d
     return-void
 .end method
 
 .method private showUpdateFragment(Lorg/json/JSONArray;)V
-    .locals 9
+    .registers 11
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -261,7 +261,7 @@
     .line 137
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_74
 
     .line 138
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
@@ -292,12 +292,12 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_24
 
     .line 143
     invoke-virtual {v0, v1}, Landroid/app/FragmentTransaction;->remove(Landroid/app/Fragment;)Landroid/app/FragmentTransaction;
 
-    :cond_0
+    :cond_24
     const/4 v1, 0x0
 
     .line 145
@@ -309,7 +309,7 @@
     .line 149
     iget-object v3, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_34
 
     .line 150
     iget-object v2, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
@@ -318,10 +318,10 @@
 
     move-result-object v2
 
-    :cond_1
+    :cond_34
     const/4 v3, 0x0
 
-    :try_start_0
+    :try_start_35
     const-string v4, "newInstance"
 
     const/4 v5, 0x2
@@ -366,12 +366,12 @@
 
     .line 156
     invoke-virtual {v1, v0, v2}, Landroid/app/DialogFragment;->show(Landroid/app/FragmentTransaction;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5e
+    .catch Ljava/lang/Exception; {:try_start_35 .. :try_end_5e} :catch_5f
 
-    goto :goto_0
+    goto :goto_74
 
-    :catch_0
+    :catch_5f
     move-exception v0
 
     const-string v1, "An exception happened while showing the update fragment:"
@@ -394,18 +394,18 @@
 
     invoke-direct {p0, p1, v0}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->startUpdateIntent(Lorg/json/JSONArray;Ljava/lang/Boolean;)V
 
-    :cond_2
-    :goto_0
+    :cond_74
+    :goto_74
     return-void
 .end method
 
 .method private startUpdateIntent(Lorg/json/JSONArray;Ljava/lang/Boolean;)V
-    .locals 3
+    .registers 6
 
     .line 168
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 169
     iget-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->listener:Lnet/hockeyapp/android/UpdateManagerListener;
@@ -414,22 +414,22 @@
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_0
+    :cond_b
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_c
+    if-nez v0, :cond_10
 
     .line 172
     const-class v0, Lnet/hockeyapp/android/UpdateActivity;
 
     .line 175
-    :cond_1
+    :cond_10
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_42
 
     .line 176
     new-instance v1, Landroid/content/Intent;
@@ -471,7 +471,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_42
 
     .line 183
     iget-object p1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mActivity:Landroid/app/Activity;
@@ -479,7 +479,7 @@
     invoke-virtual {p1}, Landroid/app/Activity;->finish()V
 
     .line 187
-    :cond_2
+    :cond_42
     invoke-virtual {p0}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->cleanUp()V
 
     return-void
@@ -488,7 +488,7 @@
 
 # virtual methods
 .method protected cleanUp()V
-    .locals 1
+    .registers 2
 
     .line 192
     invoke-super {p0}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->cleanUp()V
@@ -505,7 +505,7 @@
 .end method
 
 .method public detach()V
-    .locals 2
+    .registers 3
 
     .line 52
     invoke-super {p0}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->detach()V
@@ -518,7 +518,7 @@
     .line 56
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mDialog:Landroid/app/AlertDialog;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     .line 57
     iget-object v1, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mDialog:Landroid/app/AlertDialog;
@@ -528,12 +528,12 @@
     .line 58
     iput-object v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mDialog:Landroid/app/AlertDialog;
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 34
     check-cast p1, Lorg/json/JSONArray;
@@ -544,21 +544,21 @@
 .end method
 
 .method protected onPostExecute(Lorg/json/JSONArray;)V
-    .locals 1
+    .registers 3
 
     .line 64
     invoke-super {p0, p1}, Lnet/hockeyapp/android/tasks/CheckUpdateTask;->onPostExecute(Lorg/json/JSONArray;)V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 66
     iget-boolean v0, p0, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->mIsDialogRequired:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_c
 
     .line 67
     invoke-direct {p0, p1}, Lnet/hockeyapp/android/tasks/CheckUpdateTaskWithUI;->showDialog(Lorg/json/JSONArray;)V
 
-    :cond_0
+    :cond_c
     return-void
 .end method

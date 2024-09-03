@@ -28,7 +28,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[J)V
-    .locals 0
+    .registers 7
 
     .line 672
     iput-object p1, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;->this$0:Lcom/bumptech/glide/disklrucache/DiskLruCache;
@@ -51,7 +51,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[JLcom/bumptech/glide/disklrucache/DiskLruCache$1;)V
-    .locals 0
+    .registers 8
 
     .line 666
     invoke-direct/range {p0 .. p6}, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;-><init>(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;J[Ljava/io/File;[J)V
@@ -62,7 +62,7 @@
 
 # virtual methods
 .method public edit()Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -76,6 +76,7 @@
 
     iget-wide v2, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;->sequenceNumber:J
 
+    # invokes: Lcom/bumptech/glide/disklrucache/DiskLruCache;->edit(Ljava/lang/String;J)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
     invoke-static {v0, v1, v2, v3}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->access$1600(Lcom/bumptech/glide/disklrucache/DiskLruCache;Ljava/lang/String;J)Lcom/bumptech/glide/disklrucache/DiskLruCache$Editor;
 
     move-result-object p0
@@ -84,7 +85,7 @@
 .end method
 
 .method public getFile(I)Ljava/io/File;
-    .locals 0
+    .registers 2
 
     .line 689
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;->files:[Ljava/io/File;
@@ -95,7 +96,7 @@
 .end method
 
 .method public getLength(I)J
-    .locals 2
+    .registers 4
 
     .line 700
     iget-object p0, p0, Lcom/bumptech/glide/disklrucache/DiskLruCache$Value;->lengths:[J
@@ -106,7 +107,7 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -123,6 +124,7 @@
     invoke-direct {v0, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
 
     .line 695
+    # invokes: Lcom/bumptech/glide/disklrucache/DiskLruCache;->inputStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
     invoke-static {v0}, Lcom/bumptech/glide/disklrucache/DiskLruCache;->access$1700(Ljava/io/InputStream;)Ljava/lang/String;
 
     move-result-object p0

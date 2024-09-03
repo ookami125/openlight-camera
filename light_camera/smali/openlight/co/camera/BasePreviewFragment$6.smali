@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/BasePreviewFragment;)V
-    .locals 0
+    .registers 2
 
     .line 724
     iput-object p1, p0, Lopenlight/co/camera/BasePreviewFragment$6;->this$0:Lopenlight/co/camera/BasePreviewFragment;
@@ -33,9 +33,10 @@
 
 # virtual methods
 .method public onEvent(Lopenlight/co/touchstrip/TouchStrip$Event;)V
-    .locals 3
+    .registers 5
 
     .line 728
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/BasePreviewFragment;->access$000()Ljava/lang/String;
 
     move-result-object v0
@@ -75,39 +76,42 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_42
 
     .line 730
     sget-object v0, Lopenlight/co/touchstrip/TouchStrip$Event;->FLING_RIGHT:Lopenlight/co/touchstrip/TouchStrip$Event;
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_37
 
     .line 731
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$6;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
     const/4 p1, 0x1
 
+    # invokes: Lopenlight/co/camera/BasePreviewFragment;->setZoomToNextPrimeLevel(Z)V
     invoke-static {p0, p1}, Lopenlight/co/camera/BasePreviewFragment;->access$400(Lopenlight/co/camera/BasePreviewFragment;Z)V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 732
-    :cond_0
+    :cond_37
     sget-object v0, Lopenlight/co/touchstrip/TouchStrip$Event;->FLING_LEFT:Lopenlight/co/touchstrip/TouchStrip$Event;
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v0, :cond_4b
 
     .line 733
     iget-object p0, p0, Lopenlight/co/camera/BasePreviewFragment$6;->this$0:Lopenlight/co/camera/BasePreviewFragment;
 
     const/4 p1, 0x0
 
+    # invokes: Lopenlight/co/camera/BasePreviewFragment;->setZoomToNextPrimeLevel(Z)V
     invoke-static {p0, p1}, Lopenlight/co/camera/BasePreviewFragment;->access$400(Lopenlight/co/camera/BasePreviewFragment;Z)V
 
-    goto :goto_0
+    goto :goto_4b
 
     .line 738
-    :cond_1
+    :cond_42
+    # getter for: Lopenlight/co/camera/BasePreviewFragment;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/BasePreviewFragment;->access$000()Ljava/lang/String;
 
     move-result-object p0
@@ -116,7 +120,7 @@
 
     invoke-static {p0, p1}, Lopenlight/co/lib/utils/LogUtil;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
-    :goto_0
+    :cond_4b
+    :goto_4b
     return-void
 .end method

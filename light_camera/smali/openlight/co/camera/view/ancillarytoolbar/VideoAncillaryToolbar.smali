@@ -18,7 +18,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 25
     const-class v0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
@@ -49,7 +49,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
-    .locals 0
+    .registers 4
 
     .line 40
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;-><init>(Landroid/content/Context;ILandroid/view/ViewGroup;)V
@@ -78,7 +78,7 @@
 .end method
 
 .method private getQualityProfile()Lopenlight/co/camera/models/AncillaryModel;
-    .locals 3
+    .registers 4
 
     .line 115
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->mCamPref:Lopenlight/co/lib/content/Prefs;
@@ -129,7 +129,7 @@
 .end method
 
 .method private getQualityProfileOptions()[Lopenlight/co/camera/models/AncillaryModel;
-    .locals 9
+    .registers 10
 
     .line 127
     invoke-static {}, Lopenlight/co/camera/enums/VideoQualityMode;->values()[Lopenlight/co/camera/enums/VideoQualityMode;
@@ -160,8 +160,8 @@
 
     move v4, v3
 
-    :goto_0
-    if-ge v3, v2, :cond_0
+    :goto_16
+    if-ge v3, v2, :cond_3b
 
     aget-object v5, v1, v3
 
@@ -200,16 +200,16 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_3b
     return-object v0
 .end method
 
 
 # virtual methods
 .method protected getListItems()[Lopenlight/co/camera/models/AncillaryModel;
-    .locals 5
+    .registers 6
 
     .line 99
     sget-boolean v0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->QUALITY_PROFILES_SUPPORTED:Z
@@ -220,7 +220,7 @@
 
     const/4 v3, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1d
 
     const/4 v0, 0x3
 
@@ -245,9 +245,9 @@
 
     aput-object p0, v0, v1
 
-    goto :goto_0
+    goto :goto_2b
 
-    :cond_0
+    :cond_1d
     new-array v0, v1, [Lopenlight/co/camera/models/AncillaryModel;
 
     .line 101
@@ -263,12 +263,12 @@
 
     aput-object p0, v0, v2
 
-    :goto_0
+    :goto_2b
     return-object v0
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 50
     sget-object p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->TAG:Ljava/lang/String;
@@ -277,7 +277,7 @@
 .end method
 
 .method protected getSettings()Lopenlight/co/camera/models/AncillaryModel;
-    .locals 3
+    .registers 4
 
     .line 106
     new-instance v0, Lopenlight/co/camera/models/AncillaryModel$Builder;
@@ -309,7 +309,7 @@
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 3
+    .registers 5
 
     .line 56
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -318,7 +318,7 @@
 
     const v1, 0x7f090022
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_74
 
     .line 58
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -327,7 +327,7 @@
 
     check-cast v0, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_74
 
     .line 60
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getKey()Ljava/lang/String;
@@ -341,7 +341,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_27
 
     .line 62
     iput-object v1, p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->mSelectedSettingKey:Ljava/lang/String;
@@ -356,7 +356,7 @@
     return-void
 
     .line 65
-    :cond_0
+    :cond_27
     sget-object v2, Lopenlight/co/camera/enums/VideoQualityMode;->QUALITY_480P:Lopenlight/co/camera/enums/VideoQualityMode;
 
     invoke-virtual {v2}, Lopenlight/co/camera/enums/VideoQualityMode;->toString()Ljava/lang/String;
@@ -367,7 +367,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_63
 
     sget-object v2, Lopenlight/co/camera/enums/VideoQualityMode;->QUALITY_720P:Lopenlight/co/camera/enums/VideoQualityMode;
 
@@ -380,7 +380,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_63
 
     sget-object v2, Lopenlight/co/camera/enums/VideoQualityMode;->QUALITY_1080P:Lopenlight/co/camera/enums/VideoQualityMode;
 
@@ -393,7 +393,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_63
 
     sget-object v2, Lopenlight/co/camera/enums/VideoQualityMode;->QUALITY_2160P:Lopenlight/co/camera/enums/VideoQualityMode;
 
@@ -406,7 +406,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_63
 
     sget-object v2, Lopenlight/co/camera/enums/VideoQualityMode;->QUALITY_HIGH:Lopenlight/co/camera/enums/VideoQualityMode;
 
@@ -419,10 +419,10 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_74
 
     .line 70
-    :cond_1
+    :cond_63
     iget-object p1, p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter$ViewHolder;->getItemPosition()I
@@ -441,19 +441,19 @@
     return-void
 
     .line 76
-    :cond_2
+    :cond_74
     invoke-super {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbar;->onClick(Landroid/view/View;)V
 
     return-void
 .end method
 
 .method public resetItemsToFirstLevel()V
-    .locals 2
+    .registers 3
 
     .line 84
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->mSelectedSettingKey:Ljava/lang/String;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->mTitleView:Landroid/widget/TextView;
 
@@ -461,9 +461,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
-    :cond_0
+    :cond_c
     const/4 v0, 0x0
 
     .line 85
@@ -489,7 +489,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 90
-    :cond_1
+    :cond_21
     iget-object v0, p0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->mAdapter:Lopenlight/co/camera/view/ancillarytoolbar/AncillaryToolbarAdapter;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->getListItems()[Lopenlight/co/camera/models/AncillaryModel;

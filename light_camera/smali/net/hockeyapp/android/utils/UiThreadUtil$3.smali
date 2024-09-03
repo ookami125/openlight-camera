@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/utils/UiThreadUtil;Landroid/app/Activity;Ljava/lang/String;I)V
-    .locals 0
+    .registers 5
 
     .line 70
     iput-object p1, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$3;->this$0:Lnet/hockeyapp/android/utils/UiThreadUtil;
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 73
     iget-object v0, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$3;->val$activity:Landroid/app/Activity;

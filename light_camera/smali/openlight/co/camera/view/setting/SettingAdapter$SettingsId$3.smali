@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZILjava/lang/String;IIZ)V
-    .locals 10
+    .registers 19
 
     const/4 v9, 0x0
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public getSubTitle()Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 114
     invoke-static {}, Lopenlight/co/camera/utils/CipherManager;->get()Lopenlight/co/camera/utils/CipherManager;
@@ -63,7 +63,7 @@
 
     move-result-object v0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_16
 
     const p0, 0x7f0e004f
 
@@ -72,9 +72,9 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_16
     const v1, 0x7f0e0108
 
     const/4 v2, 0x1
@@ -90,6 +90,6 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_23
     return-object p0
 .end method

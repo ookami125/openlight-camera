@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1;)V
-    .locals 0
+    .registers 2
 
     .line 616
     iput-object p1, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1$1;->this$2:Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public onCancel()V
-    .locals 1
+    .registers 2
 
     .line 619
     iget-object v0, p0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1$1;->this$2:Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1;
 
     iget-object v0, v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3$1;->this$1:Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;
 
+    # invokes: Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->cancelLoad()V
     invoke-static {v0}, Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;->access$300(Landroid/support/v4/print/PrintHelper$PrintHelperApi19$3;)V
 
     .line 620

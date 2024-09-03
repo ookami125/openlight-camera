@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 83
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public build()Landroid/view/animation/Animation;
-    .locals 3
+    .registers 4
 
     .line 89
     new-instance v0, Landroid/view/animation/AlphaAnimation;

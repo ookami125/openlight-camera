@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 79
     invoke-direct {p0}, Landroid/support/v13/app/FragmentCompat$FragmentCompatBaseImpl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public setUserVisibleHint(Landroid/app/Fragment;Z)V
-    .locals 0
+    .registers 3
 
     .line 82
     invoke-virtual {p1, p2}, Landroid/app/Fragment;->setUserVisibleHint(Z)V

@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lopenlight/co/camera/view/customviews/TouchImageView;FFFLandroid/widget/ImageView$ScaleType;)V
-    .locals 0
+    .registers 6
 
     .line 1353
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$ZoomVariables;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;

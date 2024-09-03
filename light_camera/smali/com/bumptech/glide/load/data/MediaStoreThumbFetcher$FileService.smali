@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 123
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public exists(Ljava/io/File;)Z
-    .locals 0
+    .registers 2
 
     .line 125
     invoke-virtual {p1}, Ljava/io/File;->exists()Z
@@ -38,7 +38,7 @@
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/io/File;
-    .locals 0
+    .registers 2
 
     .line 133
     new-instance p0, Ljava/io/File;
@@ -49,7 +49,7 @@
 .end method
 
 .method public length(Ljava/io/File;)J
-    .locals 0
+    .registers 2
 
     .line 129
     invoke-virtual {p1}, Ljava/io/File;->length()J

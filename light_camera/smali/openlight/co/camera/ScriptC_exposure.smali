@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/renderscript/RenderScript;)V
-    .locals 3
+    .registers 5
 
     const-string v0, "exposure"
 
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public forEach_exposure(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -58,7 +58,7 @@
 .end method
 
 .method public forEach_exposure(Landroid/renderscript/Allocation;Landroid/renderscript/Allocation;Landroid/renderscript/Script$LaunchOptions;)V
-    .locals 8
+    .registers 12
 
     .line 57
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -75,7 +75,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_7e
 
     .line 61
     invoke-virtual {p2}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -92,7 +92,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_76
 
     .line 65
     invoke-virtual {p1}, Landroid/renderscript/Allocation;->getType()Landroid/renderscript/Type;
@@ -113,7 +113,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_6e
 
     .line 68
     invoke-virtual {v0}, Landroid/renderscript/Type;->getX()I
@@ -124,7 +124,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_6e
 
     .line 69
     invoke-virtual {v0}, Landroid/renderscript/Type;->getY()I
@@ -135,7 +135,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_6e
 
     .line 70
     invoke-virtual {v0}, Landroid/renderscript/Type;->getZ()I
@@ -146,7 +146,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_6e
 
     .line 71
     invoke-virtual {v0}, Landroid/renderscript/Type;->hasFaces()Z
@@ -157,7 +157,7 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-ne v2, v3, :cond_6e
 
     .line 72
     invoke-virtual {v0}, Landroid/renderscript/Type;->hasMipmaps()Z
@@ -168,7 +168,7 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_6e
 
     const/4 v3, 0x1
 
@@ -188,7 +188,7 @@
     return-void
 
     .line 73
-    :cond_0
+    :cond_6e
     new-instance p0, Landroid/renderscript/RSRuntimeException;
 
     const-string p1, "Dimension mismatch between parameters ain and aout!"
@@ -198,7 +198,7 @@
     throw p0
 
     .line 62
-    :cond_1
+    :cond_76
     new-instance p0, Landroid/renderscript/RSRuntimeException;
 
     const-string p1, "Type mismatch with U8_4!"
@@ -208,7 +208,7 @@
     throw p0
 
     .line 58
-    :cond_2
+    :cond_7e
     new-instance p0, Landroid/renderscript/RSRuntimeException;
 
     const-string p1, "Type mismatch with U8_4!"
@@ -219,7 +219,7 @@
 .end method
 
 .method public getInvokeID_setExposure()Landroid/renderscript/Script$InvokeID;
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -232,7 +232,7 @@
 .end method
 
 .method public getKernelID_exposure()Landroid/renderscript/Script$KernelID;
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -249,7 +249,7 @@
 .end method
 
 .method public invoke_setExposure(F)V
-    .locals 2
+    .registers 4
 
     .line 85
     new-instance v0, Landroid/renderscript/FieldPacker;

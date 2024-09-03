@@ -15,13 +15,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 14
     invoke-direct {p0}, Landroid/app/Activity;-><init>()V
@@ -50,7 +50,7 @@
 
 # virtual methods
 .method public onGenericMotionEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .registers 6
 
     .line 71
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getSource()I
@@ -63,17 +63,17 @@
 
     const v3, 0x100008
 
-    if-ne v0, v3, :cond_0
+    if-ne v0, v3, :cond_d
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_e
 
-    :cond_0
+    :cond_d
     move v0, v1
 
-    :goto_0
-    if-eqz v0, :cond_1
+    :goto_e
+    if-eqz v0, :cond_19
 
     .line 72
     iget-object p0, p0, Lopenlight/co/camera/BaseActivity;->mTouchStrip:Lopenlight/co/touchstrip/TouchStrip;
@@ -82,16 +82,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_19
 
     move v1, v2
 
-    :cond_1
+    :cond_19
     return v1
 .end method
 
 .method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 6
 
     .line 41
     sget-object v0, Lopenlight/co/camera/BaseActivity;->TAG:Ljava/lang/String;
@@ -121,32 +121,32 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 45
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_27
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_27
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_2a
     return p0
 .end method
 
 .method public onKeyLongPress(ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 6
 
     .line 50
     sget-object v0, Lopenlight/co/camera/BaseActivity;->TAG:Ljava/lang/String;
@@ -176,32 +176,32 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 53
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyLongPress(ILandroid/view/KeyEvent;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_27
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_27
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_2a
     return p0
 .end method
 
 .method public onKeyUp(ILandroid/view/KeyEvent;)Z
-    .locals 3
+    .registers 6
 
     .line 58
     sget-object v0, Lopenlight/co/camera/BaseActivity;->TAG:Ljava/lang/String;
@@ -231,32 +231,32 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_29
 
     .line 61
     invoke-super {p0, p1, p2}, Landroid/app/Activity;->onKeyUp(ILandroid/view/KeyEvent;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_27
 
-    goto :goto_0
+    goto :goto_29
 
-    :cond_0
+    :cond_27
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_2a
 
-    :cond_1
-    :goto_0
+    :cond_29
+    :goto_29
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_2a
     return p0
 .end method
 
 .method public onPause()V
-    .locals 0
+    .registers 1
 
     .line 28
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
@@ -268,7 +268,7 @@
 .end method
 
 .method public onResume()V
-    .locals 1
+    .registers 2
 
     .line 22
     invoke-super {p0}, Landroid/app/Activity;->onResume()V

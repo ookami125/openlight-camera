@@ -40,7 +40,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/16 v0, 0xfa
 
@@ -51,7 +51,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -69,7 +69,7 @@
 
 # virtual methods
 .method public get(Ljava/lang/Object;II)Ljava/lang/Object;
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;II)TB;"
@@ -95,7 +95,7 @@
 .end method
 
 .method public put(Ljava/lang/Object;IILjava/lang/Object;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TA;IITB;)V"

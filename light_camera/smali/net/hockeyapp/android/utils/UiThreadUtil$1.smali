@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/utils/UiThreadUtil;Landroid/app/ProgressDialog;Landroid/app/Activity;I)V
-    .locals 0
+    .registers 5
 
     .line 33
     iput-object p1, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;->this$0:Lnet/hockeyapp/android/utils/UiThreadUtil;
@@ -48,12 +48,12 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .registers 2
 
     .line 38
     iget-object v0, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;->val$progressDialog:Landroid/app/ProgressDialog;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     iget-object v0, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;->val$progressDialog:Landroid/app/ProgressDialog;
 
@@ -61,7 +61,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 39
     iget-object v0, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;->val$progressDialog:Landroid/app/ProgressDialog;
@@ -69,7 +69,7 @@
     invoke-virtual {v0}, Landroid/app/ProgressDialog;->dismiss()V
 
     .line 42
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;->val$activity:Landroid/app/Activity;
 
     iget p0, p0, Lnet/hockeyapp/android/utils/UiThreadUtil$1;->val$errorDialogId:I

@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/FloatingActionButtonImpl;ZLandroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;)V
-    .locals 0
+    .registers 4
 
     .line 221
     iput-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     const/4 p1, 0x1
 
@@ -54,7 +54,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
 
     .line 237
     iget-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -66,7 +66,7 @@
     .line 239
     iget-boolean p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->mCancelled:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_23
 
     .line 240
     iget-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;
@@ -75,16 +75,16 @@
 
     iget-boolean v0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->val$fromUser:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_14
 
     const/16 v0, 0x8
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 v0, 0x4
 
-    :goto_0
+    :goto_15
     iget-boolean v1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->val$fromUser:Z
 
     invoke-virtual {p1, v0, v1}, Landroid/support/design/widget/VisibilityAwareImageButton;->internalSetVisibility(IZ)V
@@ -92,19 +92,19 @@
     .line 242
     iget-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->val$listener:Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_23
 
     .line 243
     iget-object p0, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->val$listener:Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;
 
     invoke-interface {p0}, Landroid/support/design/widget/FloatingActionButtonImpl$InternalVisibilityChangedListener;->onHidden()V
 
-    :cond_1
+    :cond_23
     return-void
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    .registers 4
 
     .line 226
     iget-object p1, p0, Landroid/support/design/widget/FloatingActionButtonImpl$1;->this$0:Landroid/support/design/widget/FloatingActionButtonImpl;

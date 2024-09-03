@@ -65,7 +65,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
-    .locals 1
+    .registers 4
 
     .line 68
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -133,7 +133,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
@@ -142,7 +142,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/View;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
@@ -151,7 +151,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/view/notification/AlertView;)Landroid/view/ViewGroup;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -160,7 +160,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/view/notification/AlertView;)Landroid/widget/ImageView;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mStorageIcon:Landroid/widget/ImageView;
@@ -169,7 +169,7 @@
 .end method
 
 .method static synthetic access$500(Lopenlight/co/camera/view/notification/AlertView;)Landroid/widget/TextView;
-    .locals 0
+    .registers 1
 
     .line 27
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mRemainingImageCount:Landroid/widget/TextView;
@@ -178,7 +178,7 @@
 .end method
 
 .method static synthetic access$600(Lopenlight/co/camera/view/notification/AlertView;JF)V
-    .locals 0
+    .registers 4
 
     .line 27
     invoke-direct {p0, p1, p2, p3}, Lopenlight/co/camera/view/notification/AlertView;->displayNotificationAlert(JF)V
@@ -187,32 +187,32 @@
 .end method
 
 .method private displayNotificationAlert(JF)V
-    .locals 2
+    .registers 6
 
     const-wide/16 v0, 0xc8
 
     cmp-long v0, p1, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_b
 
     .line 260
     sget-object p1, Lopenlight/co/camera/view/notification/AlertView$AlertState;->NONE:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
     iput-object p1, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertState:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_0
+    :cond_b
     const v1, 0x7f08010e
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_25
 
     .line 261
     invoke-direct {p0}, Lopenlight/co/camera/view/notification/AlertView;->isAlertNone()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_25
 
     .line 262
     sget-object p3, Lopenlight/co/camera/view/notification/AlertView$AlertState;->LOW_COUNT:Lopenlight/co/camera/view/notification/AlertView$AlertState;
@@ -229,30 +229,30 @@
     .line 264
     invoke-direct {p0, p1, p2, v1}, Lopenlight/co/camera/view/notification/AlertView;->updateNotificationAlert(Ljava/lang/String;II)V
 
-    goto :goto_0
+    goto :goto_45
 
-    :cond_1
+    :cond_25
     const/high16 p1, 0x40a00000    # 5.0f
 
     cmpg-float p1, p3, p1
 
-    if-gtz p1, :cond_3
+    if-gtz p1, :cond_45
 
     .line 267
     invoke-direct {p0}, Lopenlight/co/camera/view/notification/AlertView;->isAlertLowCount()Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_37
 
     invoke-direct {p0}, Lopenlight/co/camera/view/notification/AlertView;->isAlertNone()Z
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_45
 
     .line 268
-    :cond_2
+    :cond_37
     sget-object p1, Lopenlight/co/camera/view/notification/AlertView$AlertState;->LOW_SPACE:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
     iput-object p1, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertState:Lopenlight/co/camera/view/notification/AlertView$AlertState;
@@ -266,13 +266,13 @@
 
     invoke-direct {p0, p1, p2, v1}, Lopenlight/co/camera/view/notification/AlertView;->updateNotificationAlert(Ljava/lang/String;II)V
 
-    :cond_3
-    :goto_0
+    :cond_45
+    :goto_45
     return-void
 .end method
 
 .method private getAvailableStorageText(F)Ljava/lang/String;
-    .locals 2
+    .registers 4
 
     .line 287
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mCamApp:Lopenlight/co/camera/CameraApp;
@@ -309,49 +309,49 @@
 .end method
 
 .method private isAlertLowCount()Z
-    .locals 1
+    .registers 2
 
     .line 296
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertState:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
     sget-object v0, Lopenlight/co/camera/view/notification/AlertView$AlertState;->LOW_COUNT:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method private isAlertNone()Z
-    .locals 1
+    .registers 2
 
     .line 292
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertState:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
     sget-object v0, Lopenlight/co/camera/view/notification/AlertView$AlertState;->NONE:Lopenlight/co/camera/view/notification/AlertView$AlertState;
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, v0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method private updateIconBattery(II)V
-    .locals 5
+    .registers 8
 
     .line 170
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mBatteryInfo:Landroid/widget/TextView;
@@ -380,62 +380,62 @@
 
     const/4 v0, 0x2
 
-    if-ne p2, v0, :cond_1
+    if-ne p2, v0, :cond_27
 
     const/16 p2, 0x19
 
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_23
 
     const p1, 0x7f08014e
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_0
+    :cond_23
     const p1, 0x7f08014d
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_1
+    :cond_27
     const/16 p2, 0x5a
 
-    if-lt p1, p2, :cond_2
+    if-lt p1, p2, :cond_2f
 
     const p1, 0x7f08014f
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_2
+    :cond_2f
     const/16 p2, 0x3c
 
-    if-lt p1, p2, :cond_3
+    if-lt p1, p2, :cond_37
 
     const p1, 0x7f08014c
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_3
+    :cond_37
     const/16 p2, 0x23
 
-    if-lt p1, p2, :cond_4
+    if-lt p1, p2, :cond_3f
 
     const p1, 0x7f08014b
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_4
+    :cond_3f
     const/16 p2, 0xf
 
-    if-lt p1, p2, :cond_5
+    if-lt p1, p2, :cond_47
 
     const p1, 0x7f08014a
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_5
+    :cond_47
     const p1, 0x7f08006a
 
     .line 188
-    :goto_0
+    :goto_4a
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mBatteryIcon:Landroid/widget/ImageView;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -444,7 +444,7 @@
 .end method
 
 .method private updateInitialOrientation()V
-    .locals 5
+    .registers 6
 
     .line 106
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -475,16 +475,16 @@
 
     const/16 v4, 0x8
 
-    if-ne v0, v2, :cond_0
+    if-ne v0, v2, :cond_1d
 
     move v2, v4
 
-    goto :goto_0
+    goto :goto_1e
 
-    :cond_0
+    :cond_1d
     move v2, v3
 
-    :goto_0
+    :goto_1e
     invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
 
     .line 110
@@ -492,18 +492,18 @@
 
     sget-object v1, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_28
 
     move v3, v4
 
-    :cond_1
+    :cond_28
     invoke-virtual {p0, v3}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method private updateNotificationAlert(Ljava/lang/String;II)V
-    .locals 9
+    .registers 13
 
     .line 276
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
@@ -567,7 +567,7 @@
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 1
+    .registers 2
 
     .line 78
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -583,7 +583,7 @@
 .end method
 
 .method public closeAll()V
-    .locals 2
+    .registers 3
 
     .line 149
     invoke-virtual {p0}, Lopenlight/co/camera/view/notification/AlertView;->removeModeSelection()V
@@ -591,7 +591,7 @@
     .line 150
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mStatTask:Lopenlight/co/camera/view/notification/AlertView$StatTask;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     .line 151
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mStatTask:Lopenlight/co/camera/view/notification/AlertView$StatTask;
@@ -606,7 +606,7 @@
     iput-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mStatTask:Lopenlight/co/camera/view/notification/AlertView$StatTask;
 
     .line 154
-    :cond_0
+    :cond_10
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
 
     const/16 v0, 0x8
@@ -617,7 +617,7 @@
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 254
     const-class p0, Lopenlight/co/camera/view/notification/AlertView;
@@ -630,7 +630,7 @@
 .end method
 
 .method public initChildView()V
-    .locals 2
+    .registers 3
 
     .line 84
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
@@ -784,7 +784,7 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 4
+    .registers 6
 
     .line 244
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -807,16 +807,16 @@
 
     const/16 v3, 0x8
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_16
 
     move v1, v3
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_16
     move v1, v2
 
-    :goto_0
+    :goto_17
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 248
@@ -824,27 +824,27 @@
 
     sget-object v0, Lopenlight/co/camera/enums/OrientationConfig;->PORTRAIT_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_21
 
     move v2, v3
 
-    :cond_1
+    :cond_21
     invoke-virtual {p0, v2}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public removeModeSelection()V
-    .locals 8
+    .registers 9
 
     .line 120
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mImageFragmentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3b
 
     .line 121
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
@@ -853,7 +853,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_22
 
     .line 122
     iget-object v1, p0, Lopenlight/co/camera/view/notification/AlertView;->mNotificationAlertLayout:Landroid/view/View;
@@ -874,10 +874,10 @@
 
     invoke-static/range {v1 .. v7}, Lopenlight/co/lib/utils/AnimationUtils;->translateAnimationView(Landroid/view/View;FFFFLandroid/view/animation/Animation$AnimationListener;I)V
 
-    goto :goto_0
+    goto :goto_30
 
     .line 140
-    :cond_0
+    :cond_22
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mImageFragmentView:Landroid/view/ViewGroup;
 
     iget-object v1, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
@@ -892,7 +892,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     .line 143
-    :goto_0
+    :goto_30
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
 
     move-result-object v0
@@ -903,12 +903,12 @@
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/rotate/OrientationsController;->unregisterOrientationListenerWithTag(Ljava/lang/String;)V
 
-    :cond_1
+    :cond_3b
     return-void
 .end method
 
 .method public setAlpha(Z)V
-    .locals 1
+    .registers 3
 
     .line 115
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
@@ -921,28 +921,28 @@
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 159
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
 .end method
 
 .method public show()V
-    .locals 1
+    .registers 2
 
     .line 166
     iget-object p0, p0, Lopenlight/co/camera/view/notification/AlertView;->mAlertLayoutView:Landroid/view/View;
@@ -955,14 +955,14 @@
 .end method
 
 .method public updateBatteryStatus(II)V
-    .locals 3
+    .registers 6
 
     .line 233
     invoke-direct {p0, p1, p2}, Lopenlight/co/camera/view/notification/AlertView;->updateIconBattery(II)V
 
     const/16 p2, 0xb
 
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_23
 
     .line 235
     iget-object p2, p0, Lopenlight/co/camera/view/notification/AlertView;->mContext:Landroid/content/Context;
@@ -993,19 +993,19 @@
     .line 235
     invoke-direct {p0, p1, p2, v0}, Lopenlight/co/camera/view/notification/AlertView;->updateNotificationAlert(Ljava/lang/String;II)V
 
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public updateStorageAndImageCountNotification(Z)V
-    .locals 3
+    .registers 5
 
     .line 192
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mStatTask:Lopenlight/co/camera/view/notification/AlertView$StatTask;
 
     const/4 v1, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 193
     iget-object v0, p0, Lopenlight/co/camera/view/notification/AlertView;->mStatTask:Lopenlight/co/camera/view/notification/AlertView$StatTask;
@@ -1013,7 +1013,7 @@
     invoke-virtual {v0, v1}, Lopenlight/co/camera/view/notification/AlertView$StatTask;->cancel(Z)Z
 
     .line 195
-    :cond_0
+    :cond_a
     new-instance v0, Lopenlight/co/camera/view/notification/AlertView$StatTask;
 
     const/4 v2, 0x0

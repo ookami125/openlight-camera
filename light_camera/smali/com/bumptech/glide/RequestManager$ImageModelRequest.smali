@@ -40,7 +40,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/RequestManager;Lcom/bumptech/glide/load/model/ModelLoader;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -65,7 +65,7 @@
 
 # virtual methods
 .method public from(Ljava/lang/Class;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 11
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -79,6 +79,7 @@
     .line 684
     iget-object v0, p0, Lcom/bumptech/glide/RequestManager$ImageModelRequest;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->optionsApplier:Lcom/bumptech/glide/RequestManager$OptionsApplier;
     invoke-static {v0}, Lcom/bumptech/glide/RequestManager;->access$500(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/RequestManager$OptionsApplier;
 
     move-result-object v0
@@ -89,30 +90,35 @@
 
     iget-object v1, p0, Lcom/bumptech/glide/RequestManager$ImageModelRequest;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->context:Landroid/content/Context;
     invoke-static {v1}, Lcom/bumptech/glide/RequestManager;->access$100(Lcom/bumptech/glide/RequestManager;)Landroid/content/Context;
 
     move-result-object v5
 
     iget-object v1, p0, Lcom/bumptech/glide/RequestManager$ImageModelRequest;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->glide:Lcom/bumptech/glide/Glide;
     invoke-static {v1}, Lcom/bumptech/glide/RequestManager;->access$200(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/Glide;
 
     move-result-object v6
 
     iget-object v1, p0, Lcom/bumptech/glide/RequestManager$ImageModelRequest;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->requestTracker:Lcom/bumptech/glide/manager/RequestTracker;
     invoke-static {v1}, Lcom/bumptech/glide/RequestManager;->access$300(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/manager/RequestTracker;
 
     move-result-object v7
 
     iget-object v1, p0, Lcom/bumptech/glide/RequestManager$ImageModelRequest;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->lifecycle:Lcom/bumptech/glide/manager/Lifecycle;
     invoke-static {v1}, Lcom/bumptech/glide/RequestManager;->access$400(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/manager/Lifecycle;
 
     move-result-object v8
 
     iget-object p0, p0, Lcom/bumptech/glide/RequestManager$ImageModelRequest;->this$0:Lcom/bumptech/glide/RequestManager;
 
+    # getter for: Lcom/bumptech/glide/RequestManager;->optionsApplier:Lcom/bumptech/glide/RequestManager$OptionsApplier;
     invoke-static {p0}, Lcom/bumptech/glide/RequestManager;->access$500(Lcom/bumptech/glide/RequestManager;)Lcom/bumptech/glide/RequestManager$OptionsApplier;
 
     move-result-object v9
@@ -135,7 +141,7 @@
 .end method
 
 .method public load(Ljava/lang/Object;)Lcom/bumptech/glide/DrawableTypeRequest;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)",
@@ -145,6 +151,7 @@
     .end annotation
 
     .line 697
+    # invokes: Lcom/bumptech/glide/RequestManager;->getSafeClass(Ljava/lang/Object;)Ljava/lang/Class;
     invoke-static {p1}, Lcom/bumptech/glide/RequestManager;->access$000(Ljava/lang/Object;)Ljava/lang/Class;
 
     move-result-object v0

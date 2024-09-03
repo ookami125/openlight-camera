@@ -53,7 +53,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 19
     invoke-direct {p0}, Landroid/os/Binder;-><init>()V
@@ -67,15 +67,15 @@
 .end method
 
 .method public static asInterface(Landroid/os/IBinder;)Landroid/support/v4/media/session/IMediaControllerCallback;
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
-    :cond_0
+    :cond_4
     const-string v0, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 31
@@ -83,12 +83,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_13
 
     .line 32
     instance-of v1, v0, Landroid/support/v4/media/session/IMediaControllerCallback;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_13
 
     .line 33
     check-cast v0, Landroid/support/v4/media/session/IMediaControllerCallback;
@@ -96,7 +96,7 @@
     return-object v0
 
     .line 35
-    :cond_1
+    :cond_13
     new-instance v0, Landroid/support/v4/media/session/IMediaControllerCallback$Stub$Proxy;
 
     invoke-direct {v0, p0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub$Proxy;-><init>(Landroid/os/IBinder;)V
@@ -107,13 +107,13 @@
 
 # virtual methods
 .method public asBinder()Landroid/os/IBinder;
-    .locals 0
+    .registers 1
 
     return-object p0
 .end method
 
 .method public onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
-    .locals 3
+    .registers 8
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -124,13 +124,13 @@
 
     const/4 v1, 0x1
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_f6
 
     const/4 v0, 0x0
 
     const/4 v2, 0x0
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_fc
 
     .line 177
     invoke-super {p0, p1, p2, p3, p4}, Landroid/os/Binder;->onTransact(ILandroid/os/Parcel;Landroid/os/Parcel;I)Z
@@ -139,7 +139,7 @@
 
     return p0
 
-    :pswitch_0
+    :pswitch_10
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 170
@@ -155,7 +155,7 @@
 
     return v1
 
-    :pswitch_1
+    :pswitch_1d
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 162
@@ -166,17 +166,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     move v0, v1
 
     .line 165
-    :cond_0
+    :cond_29
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onCaptioningEnabledChanged(Z)V
 
     return v1
 
-    :pswitch_2
+    :pswitch_2d
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 154
@@ -187,17 +187,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_39
 
     move v0, v1
 
     .line 157
-    :cond_1
+    :cond_39
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onShuffleModeChangedDeprecated(Z)V
 
     return v1
 
-    :pswitch_3
+    :pswitch_3d
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 146
@@ -213,7 +213,7 @@
 
     return v1
 
-    :pswitch_4
+    :pswitch_4a
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 133
@@ -224,7 +224,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5e
 
     .line 136
     sget-object p1, Landroid/support/v4/media/session/ParcelableVolumeInfo;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -238,12 +238,12 @@
     check-cast v2, Landroid/support/v4/media/session/ParcelableVolumeInfo;
 
     .line 141
-    :cond_2
+    :cond_5e
     invoke-virtual {p0, v2}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onVolumeInfoChanged(Landroid/support/v4/media/session/ParcelableVolumeInfo;)V
 
     return v1
 
-    :pswitch_5
+    :pswitch_62
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 120
@@ -254,7 +254,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_76
 
     .line 123
     sget-object p1, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -268,12 +268,12 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 128
-    :cond_3
+    :cond_76
     invoke-virtual {p0, v2}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onExtrasChanged(Landroid/os/Bundle;)V
 
     return v1
 
-    :pswitch_6
+    :pswitch_7a
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 107
@@ -284,7 +284,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_8e
 
     .line 110
     sget-object p1, Landroid/text/TextUtils;->CHAR_SEQUENCE_CREATOR:Landroid/os/Parcelable$Creator;
@@ -298,12 +298,12 @@
     check-cast v2, Ljava/lang/CharSequence;
 
     .line 115
-    :cond_4
+    :cond_8e
     invoke-virtual {p0, v2}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onQueueTitleChanged(Ljava/lang/CharSequence;)V
 
     return v1
 
-    :pswitch_7
+    :pswitch_92
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 99
@@ -321,7 +321,7 @@
 
     return v1
 
-    :pswitch_8
+    :pswitch_a1
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 86
@@ -332,7 +332,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_b5
 
     .line 89
     sget-object p1, Landroid/support/v4/media/MediaMetadataCompat;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -346,12 +346,12 @@
     check-cast v2, Landroid/support/v4/media/MediaMetadataCompat;
 
     .line 94
-    :cond_5
+    :cond_b5
     invoke-virtual {p0, v2}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onMetadataChanged(Landroid/support/v4/media/MediaMetadataCompat;)V
 
     return v1
 
-    :pswitch_9
+    :pswitch_b9
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 73
@@ -362,7 +362,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_cd
 
     .line 76
     sget-object p1, Landroid/support/v4/media/session/PlaybackStateCompat;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -376,12 +376,12 @@
     check-cast v2, Landroid/support/v4/media/session/PlaybackStateCompat;
 
     .line 81
-    :cond_6
+    :cond_cd
     invoke-virtual {p0, v2}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onPlaybackStateChanged(Landroid/support/v4/media/session/PlaybackStateCompat;)V
 
     return v1
 
-    :pswitch_a
+    :pswitch_d1
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 67
@@ -392,7 +392,7 @@
 
     return v1
 
-    :pswitch_b
+    :pswitch_da
     const-string p1, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 52
@@ -408,7 +408,7 @@
 
     move-result p3
 
-    if-eqz p3, :cond_7
+    if-eqz p3, :cond_f2
 
     .line 57
     sget-object p3, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
@@ -422,12 +422,12 @@
     check-cast v2, Landroid/os/Bundle;
 
     .line 62
-    :cond_7
+    :cond_f2
     invoke-virtual {p0, p1, v2}, Landroid/support/v4/media/session/IMediaControllerCallback$Stub;->onEvent(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return v1
 
-    :cond_8
+    :cond_f6
     const-string p0, "android.support.v4.media.session.IMediaControllerCallback"
 
     .line 47
@@ -435,19 +435,19 @@
 
     return v1
 
-    :pswitch_data_0
+    :pswitch_data_fc
     .packed-switch 0x1
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_da
+        :pswitch_d1
+        :pswitch_b9
+        :pswitch_a1
+        :pswitch_92
+        :pswitch_7a
+        :pswitch_62
+        :pswitch_4a
+        :pswitch_3d
+        :pswitch_2d
+        :pswitch_1d
+        :pswitch_10
     .end packed-switch
 .end method

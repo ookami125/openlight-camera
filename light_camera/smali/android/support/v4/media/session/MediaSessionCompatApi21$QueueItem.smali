@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 258
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 .end method
 
 .method public static createItem(Ljava/lang/Object;J)Ljava/lang/Object;
-    .locals 1
+    .registers 4
 
     .line 261
     new-instance v0, Landroid/media/session/MediaSession$QueueItem;
@@ -38,7 +38,7 @@
 .end method
 
 .method public static getDescription(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 265
     check-cast p0, Landroid/media/session/MediaSession$QueueItem;
@@ -51,7 +51,7 @@
 .end method
 
 .method public static getQueueId(Ljava/lang/Object;)J
-    .locals 2
+    .registers 3
 
     .line 269
     check-cast p0, Landroid/media/session/MediaSession$QueueItem;

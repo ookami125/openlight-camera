@@ -26,7 +26,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 27
     new-instance v0, Landroid/support/v4/view/AbsSavedState$1;
@@ -46,7 +46,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 34
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,7 +60,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -71,7 +71,7 @@
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .registers 3
 
     .line 65
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,45 +81,45 @@
 
     move-result-object p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
-    goto :goto_0
+    goto :goto_c
 
     .line 67
-    :cond_0
+    :cond_a
     sget-object p1, Landroid/support/v4/view/AbsSavedState;->EMPTY_STATE:Landroid/support/v4/view/AbsSavedState;
 
-    :goto_0
+    :goto_c
     iput-object p1, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
     return-void
 .end method
 
 .method protected constructor <init>(Landroid/os/Parcelable;)V
-    .locals 1
+    .registers 3
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_e
 
     .line 47
     sget-object v0, Landroid/support/v4/view/AbsSavedState;->EMPTY_STATE:Landroid/support/v4/view/AbsSavedState;
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_a
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_0
+    :cond_a
     const/4 p1, 0x0
 
-    :goto_0
+    :goto_b
     iput-object p1, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
 
     return-void
 
     .line 45
-    :cond_1
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "superState must not be null"
@@ -130,7 +130,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v4/view/AbsSavedState$1;)V
-    .locals 0
+    .registers 2
 
     .line 26
     invoke-direct {p0}, Landroid/support/v4/view/AbsSavedState;-><init>()V
@@ -141,7 +141,7 @@
 
 # virtual methods
 .method public describeContents()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -149,7 +149,7 @@
 .end method
 
 .method public final getSuperState()Landroid/os/Parcelable;
-    .locals 0
+    .registers 1
 
     .line 71
     iget-object p0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
@@ -158,7 +158,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+    .registers 3
 
     .line 81
     iget-object p0, p0, Landroid/support/v4/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;

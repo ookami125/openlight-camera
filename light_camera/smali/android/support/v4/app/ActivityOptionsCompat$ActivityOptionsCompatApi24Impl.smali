@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;)V
-    .locals 0
+    .registers 2
 
     .line 289
     invoke-direct {p0, p1}, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi23Impl;-><init>(Landroid/app/ActivityOptions;)V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getLaunchBounds()Landroid/graphics/Rect;
-    .locals 0
+    .registers 1
 
     .line 300
     iget-object p0, p0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi24Impl;->mActivityOptions:Landroid/app/ActivityOptions;
@@ -44,7 +44,7 @@
 .end method
 
 .method public setLaunchBounds(Landroid/graphics/Rect;)Landroid/support/v4/app/ActivityOptionsCompat;
-    .locals 1
+    .registers 3
     .param p1    # Landroid/graphics/Rect;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation

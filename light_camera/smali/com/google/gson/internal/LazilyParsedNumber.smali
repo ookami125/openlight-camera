@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 30
     invoke-direct {p0}, Ljava/lang/Number;-><init>()V
@@ -21,7 +21,7 @@
 .end method
 
 .method private writeReplace()Ljava/lang/Object;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/ObjectStreamException;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public doubleValue()D
-    .locals 2
+    .registers 3
 
     .line 63
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -54,21 +54,21 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
     .line 90
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lcom/google/gson/internal/LazilyParsedNumber;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1e
 
     .line 91
     check-cast p1, Lcom/google/gson/internal/LazilyParsedNumber;
@@ -78,7 +78,7 @@
 
     iget-object v3, p1, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v3, :cond_1d
 
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
 
@@ -88,23 +88,23 @@
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1c
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_1
+    :cond_1c
     move v0, v2
 
-    :cond_2
-    :goto_0
+    :cond_1d
+    :goto_1d
     return v0
 
-    :cond_3
+    :cond_1e
     return v2
 .end method
 
 .method public floatValue()F
-    .locals 0
+    .registers 1
 
     .line 58
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -117,7 +117,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 82
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -130,7 +130,7 @@
 .end method
 
 .method public intValue()I
-    .locals 2
+    .registers 3
 
     .line 37
     :try_start_0
@@ -139,28 +139,28 @@
     invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_6} :catch_7
 
     return v0
 
     .line 40
-    :catch_0
-    :try_start_1
+    :catch_7
+    :try_start_7
     iget-object v0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
 
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
-    :try_end_1
-    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_d
+    .catch Ljava/lang/NumberFormatException; {:try_start_7 .. :try_end_d} :catch_f
 
     long-to-int p0, v0
 
     return p0
 
     .line 42
-    :catch_1
+    :catch_f
     new-instance v0, Ljava/math/BigDecimal;
 
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -175,7 +175,7 @@
 .end method
 
 .method public longValue()J
-    .locals 2
+    .registers 3
 
     .line 50
     :try_start_0
@@ -184,13 +184,13 @@
     invoke-static {v0}, Ljava/lang/Long;->parseLong(Ljava/lang/String;)J
 
     move-result-wide v0
-    :try_end_0
-    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-wide v0
 
     .line 52
-    :catch_0
+    :catch_7
     new-instance v0, Ljava/math/BigDecimal;
 
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;
@@ -205,7 +205,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 68
     iget-object p0, p0, Lcom/google/gson/internal/LazilyParsedNumber;->value:Ljava/lang/String;

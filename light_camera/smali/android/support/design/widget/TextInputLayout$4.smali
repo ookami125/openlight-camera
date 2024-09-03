@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TextInputLayout;)V
-    .locals 0
+    .registers 2
 
     .line 1107
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout$4;->this$0:Landroid/support/design/widget/TextInputLayout;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 0
+    .registers 2
 
     .line 1110
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout$4;->this$0:Landroid/support/design/widget/TextInputLayout;
 
     const/4 p1, 0x0
 
+    # invokes: Landroid/support/design/widget/TextInputLayout;->passwordVisibilityToggleRequested(Z)V
     invoke-static {p0, p1}, Landroid/support/design/widget/TextInputLayout;->access$100(Landroid/support/design/widget/TextInputLayout;Z)V
 
     return-void

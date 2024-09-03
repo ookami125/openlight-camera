@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/DecodeJob;Lcom/bumptech/glide/load/Encoder;Ljava/lang/Object;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -76,14 +76,15 @@
 
 # virtual methods
 .method public write(Ljava/io/File;)Z
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 269
-    :try_start_0
+    :try_start_1
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/DecodeJob$SourceWriter;->this$0:Lcom/bumptech/glide/load/engine/DecodeJob;
 
+    # getter for: Lcom/bumptech/glide/load/engine/DecodeJob;->fileOpener:Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;
     invoke-static {v1}, Lcom/bumptech/glide/load/engine/DecodeJob;->access$000(Lcom/bumptech/glide/load/engine/DecodeJob;)Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;
 
     move-result-object v1
@@ -91,12 +92,12 @@
     invoke-virtual {v1, p1}, Lcom/bumptech/glide/load/engine/DecodeJob$FileOpener;->open(Ljava/io/File;)Ljava/io/OutputStream;
 
     move-result-object p1
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_b
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_b} :catch_21
+    .catchall {:try_start_1 .. :try_end_b} :catchall_1f
 
     .line 270
-    :try_start_1
+    :try_start_b
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$SourceWriter;->encoder:Lcom/bumptech/glide/load/Encoder;
 
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/DecodeJob$SourceWriter;->data:Ljava/lang/Object;
@@ -104,44 +105,44 @@
     invoke-interface {v0, p0, p1}, Lcom/bumptech/glide/load/Encoder;->encode(Ljava/lang/Object;Ljava/io/OutputStream;)Z
 
     move-result p0
-    :try_end_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_13
+    .catch Ljava/io/FileNotFoundException; {:try_start_b .. :try_end_13} :catch_1c
+    .catchall {:try_start_b .. :try_end_13} :catchall_19
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_38
 
     .line 278
-    :try_start_2
+    :try_start_15
     invoke-virtual {p1}, Ljava/io/OutputStream;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    :try_end_18
+    .catch Ljava/io/IOException; {:try_start_15 .. :try_end_18} :catch_38
 
-    goto :goto_1
+    goto :goto_38
 
-    :catchall_0
+    :catchall_19
     move-exception p0
 
     move-object v0, p1
 
-    goto :goto_2
+    goto :goto_39
 
-    :catch_0
+    :catch_1c
     move-exception p0
 
     move-object v0, p1
 
-    goto :goto_0
+    goto :goto_22
 
-    :catchall_1
+    :catchall_1f
     move-exception p0
 
-    goto :goto_2
+    goto :goto_39
 
-    :catch_1
+    :catch_21
     move-exception p0
 
-    :goto_0
-    :try_start_3
+    :goto_22
+    :try_start_22
     const-string p1, "DecodeJob"
 
     const/4 v1, 0x3
@@ -151,7 +152,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_32
 
     const-string p1, "DecodeJob"
 
@@ -159,37 +160,37 @@
 
     .line 273
     invoke-static {p1, v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_32
+    .catchall {:try_start_22 .. :try_end_32} :catchall_1f
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_32
+    if-eqz v0, :cond_37
 
     .line 278
-    :try_start_4
+    :try_start_34
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_37
+    .catch Ljava/io/IOException; {:try_start_34 .. :try_end_37} :catch_37
 
-    :catch_2
-    :cond_1
+    :catch_37
+    :cond_37
     const/4 p0, 0x0
 
-    :catch_3
-    :cond_2
-    :goto_1
+    :catch_38
+    :cond_38
+    :goto_38
     return p0
 
-    :goto_2
-    if-eqz v0, :cond_3
+    :goto_39
+    if-eqz v0, :cond_3e
 
-    :try_start_5
+    :try_start_3b
     invoke-virtual {v0}, Ljava/io/OutputStream;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_4
+    :try_end_3e
+    .catch Ljava/io/IOException; {:try_start_3b .. :try_end_3e} :catch_3e
 
     .line 281
-    :catch_4
-    :cond_3
+    :catch_3e
+    :cond_3e
     throw p0
 .end method

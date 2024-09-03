@@ -23,7 +23,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/support/v4/view/ViewPager;)V
-    .locals 0
+    .registers 2
 
     .line 2164
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,13 +37,13 @@
 
 # virtual methods
 .method public onTabReselected(Landroid/support/design/widget/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onTabSelected(Landroid/support/design/widget/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
 
     .line 2170
     iget-object p0, p0, Landroid/support/design/widget/TabLayout$ViewPagerOnTabSelectedListener;->mViewPager:Landroid/support/v4/view/ViewPager;
@@ -58,7 +58,7 @@
 .end method
 
 .method public onTabUnselected(Landroid/support/design/widget/TabLayout$Tab;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

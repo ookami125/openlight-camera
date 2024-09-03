@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/widget/ImageView;)V
-    .locals 0
+    .registers 3
 
     .line 204
     iput-object p1, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$2;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
@@ -33,7 +33,7 @@
 
 # virtual methods
 .method public onResourceReady(Lcom/bumptech/glide/load/resource/drawable/GlideDrawable;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,17 +53,19 @@
 
     iget-object p0, p0, Lopenlight/co/camera/view/thumbnail/ThumbnailView$2;->this$0:Lopenlight/co/camera/view/thumbnail/ThumbnailView;
 
+    # getter for: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->mGalleryThumbnailTiming:Landroid/util/TimingLogger;
     invoke-static {p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$000(Lopenlight/co/camera/view/thumbnail/ThumbnailView;)Landroid/util/TimingLogger;
 
     move-result-object p0
 
+    # invokes: Lopenlight/co/camera/view/thumbnail/ThumbnailView;->addAnimationAfterCapture(Landroid/util/TimingLogger;)V
     invoke-static {p1, p0}, Lopenlight/co/camera/view/thumbnail/ThumbnailView;->access$500(Lopenlight/co/camera/view/thumbnail/ThumbnailView;Landroid/util/TimingLogger;)V
 
     return-void
 .end method
 
 .method public bridge synthetic onResourceReady(Ljava/lang/Object;Lcom/bumptech/glide/request/animation/GlideAnimation;)V
-    .locals 0
+    .registers 3
 
     .line 204
     check-cast p1, Lcom/bumptech/glide/load/resource/drawable/GlideDrawable;

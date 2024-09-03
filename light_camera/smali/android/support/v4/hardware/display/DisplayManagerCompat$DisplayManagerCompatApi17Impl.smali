@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     .line 137
     invoke-direct {p0}, Landroid/support/v4/hardware/display/DisplayManagerCompat;-><init>()V
@@ -46,7 +46,7 @@
 
 # virtual methods
 .method public getDisplay(I)Landroid/view/Display;
-    .locals 0
+    .registers 2
 
     .line 143
     iget-object p0, p0, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi17Impl;->mDisplayManager:Landroid/hardware/display/DisplayManager;
@@ -59,7 +59,7 @@
 .end method
 
 .method public getDisplays()[Landroid/view/Display;
-    .locals 0
+    .registers 1
 
     .line 148
     iget-object p0, p0, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi17Impl;->mDisplayManager:Landroid/hardware/display/DisplayManager;
@@ -72,7 +72,7 @@
 .end method
 
 .method public getDisplays(Ljava/lang/String;)[Landroid/view/Display;
-    .locals 0
+    .registers 2
 
     .line 153
     iget-object p0, p0, Landroid/support/v4/hardware/display/DisplayManagerCompat$DisplayManagerCompatApi17Impl;->mDisplayManager:Landroid/hardware/display/DisplayManager;

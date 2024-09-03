@@ -50,7 +50,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -61,7 +61,7 @@
 
 # virtual methods
 .method public getAppId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 148
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mAppId:Ljava/lang/String;
@@ -70,7 +70,7 @@
 .end method
 
 .method public getCleanText()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 132
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mCleanText:Ljava/lang/String;
@@ -79,7 +79,7 @@
 .end method
 
 .method public getCreatedAt()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 92
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mCreatedAt:Ljava/lang/String;
@@ -88,7 +88,7 @@
 .end method
 
 .method public getFeedbackAttachments()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -105,7 +105,7 @@
 .end method
 
 .method public getId()I
-    .locals 0
+    .registers 1
 
     .line 100
     iget p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mId:I
@@ -114,7 +114,7 @@
 .end method
 
 .method public getModel()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 76
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mDeviceModel:Ljava/lang/String;
@@ -123,7 +123,7 @@
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 140
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mName:Ljava/lang/String;
@@ -132,7 +132,7 @@
 .end method
 
 .method public getOem()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 68
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mDeviceOem:Ljava/lang/String;
@@ -141,7 +141,7 @@
 .end method
 
 .method public getOsVersion()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 84
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mDeviceOsVersion:Ljava/lang/String;
@@ -150,7 +150,7 @@
 .end method
 
 .method public getSubjec()Ljava/lang/String;
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -161,7 +161,7 @@
 .end method
 
 .method public getSubject()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 51
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mSubject:Ljava/lang/String;
@@ -170,7 +170,7 @@
 .end method
 
 .method public getText()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 60
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mText:Ljava/lang/String;
@@ -179,7 +179,7 @@
 .end method
 
 .method public getToken()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 108
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mToken:Ljava/lang/String;
@@ -188,7 +188,7 @@
 .end method
 
 .method public getUserString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 124
     iget-object p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mUserString:Ljava/lang/String;
@@ -197,7 +197,7 @@
 .end method
 
 .method public getVia()I
-    .locals 0
+    .registers 1
 
     .line 116
     iget p0, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mVia:I
@@ -206,7 +206,7 @@
 .end method
 
 .method public setAppId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 152
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mAppId:Ljava/lang/String;
@@ -215,7 +215,7 @@
 .end method
 
 .method public setCleanText(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 136
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mCleanText:Ljava/lang/String;
@@ -224,7 +224,7 @@
 .end method
 
 .method public setCreatedAt(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 96
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mCreatedAt:Ljava/lang/String;
@@ -233,7 +233,7 @@
 .end method
 
 .method public setFeedbackAttachments(Ljava/util/List;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -250,7 +250,7 @@
 .end method
 
 .method public setId(I)V
-    .locals 0
+    .registers 2
 
     .line 104
     iput p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mId:I
@@ -259,7 +259,7 @@
 .end method
 
 .method public setModel(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 80
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mDeviceModel:Ljava/lang/String;
@@ -268,7 +268,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 144
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mName:Ljava/lang/String;
@@ -277,7 +277,7 @@
 .end method
 
 .method public setOem(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 72
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mDeviceOem:Ljava/lang/String;
@@ -286,7 +286,7 @@
 .end method
 
 .method public setOsVersion(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 88
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mDeviceOsVersion:Ljava/lang/String;
@@ -295,7 +295,7 @@
 .end method
 
 .method public setSubjec(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -306,7 +306,7 @@
 .end method
 
 .method public setSubject(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 55
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mSubject:Ljava/lang/String;
@@ -315,7 +315,7 @@
 .end method
 
 .method public setText(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 64
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mText:Ljava/lang/String;
@@ -324,7 +324,7 @@
 .end method
 
 .method public setToken(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 112
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mToken:Ljava/lang/String;
@@ -333,7 +333,7 @@
 .end method
 
 .method public setUserString(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 128
     iput-object p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mUserString:Ljava/lang/String;
@@ -342,7 +342,7 @@
 .end method
 
 .method public setVia(I)V
-    .locals 0
+    .registers 2
 
     .line 120
     iput p1, p0, Lnet/hockeyapp/android/objects/FeedbackMessage;->mVia:I

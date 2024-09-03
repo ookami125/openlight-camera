@@ -37,13 +37,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method private constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     .line 88
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -72,7 +72,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/utils/UsbMgr;)Z
-    .locals 0
+    .registers 1
 
     .line 17
     iget-boolean p0, p0, Lopenlight/co/camera/utils/UsbMgr;->mUsbConnected:Z
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$002(Lopenlight/co/camera/utils/UsbMgr;Z)Z
-    .locals 0
+    .registers 2
 
     .line 17
     iput-boolean p1, p0, Lopenlight/co/camera/utils/UsbMgr;->mUsbConnected:Z
@@ -90,7 +90,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/utils/UsbMgr;)Ljava/util/HashSet;
-    .locals 0
+    .registers 1
 
     .line 17
     iget-object p0, p0, Lopenlight/co/camera/utils/UsbMgr;->mListeners:Ljava/util/HashSet;
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$200()Ljava/lang/String;
-    .locals 1
+    .registers 1
 
     .line 17
     sget-object v0, Lopenlight/co/camera/utils/UsbMgr;->TAG:Ljava/lang/String;
@@ -108,7 +108,7 @@
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/UsbMgr;
-    .locals 1
+    .registers 1
 
     .line 46
     sget-object v0, Lopenlight/co/camera/utils/UsbMgr;->sInstance:Lopenlight/co/camera/utils/UsbMgr;
@@ -117,7 +117,7 @@
 .end method
 
 .method public static init(Landroid/content/Context;)V
-    .locals 1
+    .registers 2
 
     .line 85
     new-instance v0, Lopenlight/co/camera/utils/UsbMgr;
@@ -132,9 +132,9 @@
 
 # virtual methods
 .method public addOnUsbStateChangeListener(Lopenlight/co/camera/utils/UsbMgr$OnUsbConnectedListener;)Z
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_9
 
     .line 67
     iget-object p0, p0, Lopenlight/co/camera/utils/UsbMgr;->mListeners:Ljava/util/HashSet;
@@ -146,7 +146,7 @@
     return p0
 
     .line 65
-    :cond_0
+    :cond_9
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "listener must be non-null"
@@ -157,7 +157,7 @@
 .end method
 
 .method public isUsbConnected()Z
-    .locals 0
+    .registers 1
 
     .line 54
     iget-boolean p0, p0, Lopenlight/co/camera/utils/UsbMgr;->mUsbConnected:Z
@@ -166,7 +166,7 @@
 .end method
 
 .method public removeOnUsbStateChangeListener(Lopenlight/co/camera/utils/UsbMgr$OnUsbConnectedListener;)Z
-    .locals 0
+    .registers 2
 
     .line 77
     iget-object p0, p0, Lopenlight/co/camera/utils/UsbMgr;->mListeners:Ljava/util/HashSet;

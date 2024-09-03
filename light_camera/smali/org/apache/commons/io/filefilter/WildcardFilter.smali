@@ -21,12 +21,12 @@
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 65
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_e
 
     const/4 v0, 0x1
 
@@ -42,7 +42,7 @@
     return-void
 
     .line 67
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The wildcard must not be null"
@@ -53,7 +53,7 @@
 .end method
 
 .method public constructor <init>(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,7 +66,7 @@
     .line 93
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_14
 
     .line 97
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -86,7 +86,7 @@
     return-void
 
     .line 95
-    :cond_0
+    :cond_14
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The wildcard list must not be null"
@@ -97,12 +97,12 @@
 .end method
 
 .method public constructor <init>([Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     .line 78
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_12
 
     .line 82
     array-length v0, p1
@@ -123,7 +123,7 @@
     return-void
 
     .line 80
-    :cond_0
+    :cond_12
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "The wildcard array must not be null"
@@ -136,7 +136,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 5
+    .registers 7
 
     .line 131
     invoke-virtual {p1}, Ljava/io/File;->isDirectory()Z
@@ -145,20 +145,20 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     return v1
 
     .line 135
-    :cond_0
+    :cond_8
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/WildcardFilter;->wildcards:[Ljava/lang/String;
 
     array-length v0, p0
 
     move v2, v1
 
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_c
+    if-ge v2, v0, :cond_1f
 
     aget-object v3, p0, v2
 
@@ -171,27 +171,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_1c
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_1c
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_c
 
-    :cond_2
+    :cond_1f
     return v1
 .end method
 
 .method public accept(Ljava/io/File;Ljava/lang/String;)Z
-    .locals 3
+    .registers 6
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     .line 110
     new-instance v1, Ljava/io/File;
@@ -202,20 +202,20 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_f
 
     return v0
 
     .line 114
-    :cond_0
+    :cond_f
     iget-object p0, p0, Lorg/apache/commons/io/filefilter/WildcardFilter;->wildcards:[Ljava/lang/String;
 
     array-length p1, p0
 
     move v1, v0
 
-    :goto_0
-    if-ge v1, p1, :cond_2
+    :goto_13
+    if-ge v1, p1, :cond_22
 
     aget-object v2, p0, v1
 
@@ -224,17 +224,17 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_1f
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_1f
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_2
+    :cond_22
     return v0
 .end method

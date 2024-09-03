@@ -10,28 +10,28 @@
 
 .field private static final STACK_TRACES_FOUND_NEW:I = 0x1
 
-.field private static final STACK_TRACES_FOUND_NONE:I
+.field private static final STACK_TRACES_FOUND_NONE:I = 0x0
 
-.field private static didCrashInLastSession:Z
+.field private static didCrashInLastSession:Z = false
 
-.field private static identifier:Ljava/lang/String;
+.field private static identifier:Ljava/lang/String; = null
 
-.field private static initializeTimestamp:J
+.field private static initializeTimestamp:J = 0x0L
 
-.field private static submitting:Z
+.field private static submitting:Z = false
 
 .field private static urlString:Ljava/lang/String;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 43
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 .end method
 
 .method static synthetic access$002(Z)Z
-    .locals 0
+    .registers 1
 
     .line 43
     sput-boolean p0, Lnet/hockeyapp/android/CrashManager;->submitting:Z
@@ -49,7 +49,7 @@
 .end method
 
 .method private static contentsOfFile(Ljava/lang/ref/WeakReference;Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,7 +64,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_57
 
     .line 696
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -73,7 +73,7 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_57
 
     .line 698
     new-instance v1, Ljava/lang/StringBuilder;
@@ -81,7 +81,7 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 701
-    :try_start_0
+    :try_start_10
     new-instance v2, Ljava/io/BufferedReader;
 
     new-instance v3, Ljava/io/InputStreamReader;
@@ -93,19 +93,19 @@
     invoke-direct {v3, p0}, Ljava/io/InputStreamReader;-><init>(Ljava/io/InputStream;)V
 
     invoke-direct {v2, v3}, Ljava/io/BufferedReader;-><init>(Ljava/io/Reader;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_4
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_1e
+    .catch Ljava/io/FileNotFoundException; {:try_start_10 .. :try_end_1e} :catch_4f
+    .catch Ljava/io/IOException; {:try_start_10 .. :try_end_1e} :catch_3f
+    .catchall {:try_start_10 .. :try_end_1e} :catchall_3d
 
     .line 703
-    :goto_0
-    :try_start_1
+    :goto_1e
+    :try_start_1e
     invoke-virtual {v2}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_31
 
     .line 704
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -118,102 +118,102 @@
     move-result-object p0
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_30
+    .catch Ljava/io/FileNotFoundException; {:try_start_1e .. :try_end_30} :catch_3b
+    .catch Ljava/io/IOException; {:try_start_1e .. :try_end_30} :catch_38
+    .catchall {:try_start_1e .. :try_end_30} :catchall_35
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 713
-    :cond_0
-    :try_start_2
+    :cond_31
+    :try_start_31
     invoke-virtual {v2}, Ljava/io/BufferedReader;->close()V
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_5
+    :try_end_34
+    .catch Ljava/io/IOException; {:try_start_31 .. :try_end_34} :catch_52
 
-    goto :goto_5
+    goto :goto_52
 
-    :catchall_0
+    :catchall_35
     move-exception p0
 
     move-object v0, v2
 
-    goto :goto_3
+    goto :goto_49
 
-    :catch_0
+    :catch_38
     move-exception p0
 
     move-object v0, v2
 
-    goto :goto_1
+    goto :goto_40
 
-    :catch_1
+    :catch_3b
     move-object v0, v2
 
-    goto :goto_4
+    goto :goto_4f
 
-    :catchall_1
+    :catchall_3d
     move-exception p0
 
-    goto :goto_3
+    goto :goto_49
 
-    :catch_2
+    :catch_3f
     move-exception p0
 
     .line 709
-    :goto_1
-    :try_start_3
+    :goto_40
+    :try_start_40
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+    :try_end_43
+    .catchall {:try_start_40 .. :try_end_43} :catchall_3d
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_52
 
     .line 713
-    :goto_2
-    :try_start_4
+    :goto_45
+    :try_start_45
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_5
+    :try_end_48
+    .catch Ljava/io/IOException; {:try_start_45 .. :try_end_48} :catch_52
 
-    goto :goto_5
+    goto :goto_52
 
-    :goto_3
-    if-eqz v0, :cond_1
+    :goto_49
+    if-eqz v0, :cond_4e
 
-    :try_start_5
+    :try_start_4b
     invoke-virtual {v0}, Ljava/io/BufferedReader;->close()V
-    :try_end_5
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_3
+    :try_end_4e
+    .catch Ljava/io/IOException; {:try_start_4b .. :try_end_4e} :catch_4e
 
     .line 715
-    :catch_3
-    :cond_1
+    :catch_4e
+    :cond_4e
     throw p0
 
-    :catch_4
-    :goto_4
-    if-eqz v0, :cond_2
+    :catch_4f
+    :goto_4f
+    if-eqz v0, :cond_52
 
-    goto :goto_2
+    goto :goto_45
 
     .line 719
-    :catch_5
-    :cond_2
-    :goto_5
+    :catch_52
+    :cond_52
+    :goto_52
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_3
+    :cond_57
     return-object v0
 .end method
 
 .method private static deleteRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -225,7 +225,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2c
 
     .line 657
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -234,7 +234,7 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2c
 
     const-string p2, "HockeySDK"
 
@@ -270,12 +270,12 @@
     .line 662
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_0
+    :cond_2c
     return-void
 .end method
 
 .method private static deleteStackTrace(Ljava/lang/ref/WeakReference;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -287,7 +287,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2e
 
     .line 674
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -296,7 +296,7 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2e
 
     .line 676
     invoke-virtual {p0, p1}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
@@ -337,12 +337,12 @@
     .line 685
     invoke-virtual {p0, p1}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
 
-    :cond_0
+    :cond_2e
     return-void
 .end method
 
 .method public static deleteStackTraces(Ljava/lang/ref/WeakReference;)V
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -357,12 +357,12 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5e
 
     .line 389
     array-length v1, v0
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_5e
 
     .line 390
     new-instance v1, Ljava/lang/StringBuilder;
@@ -390,15 +390,15 @@
     const/4 v1, 0x0
 
     .line 392
-    :goto_0
+    :goto_24
     array-length v2, v0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_5e
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_5b
 
     .line 396
-    :try_start_0
+    :try_start_29
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -433,35 +433,35 @@
 
     check-cast v2, Landroid/content/Context;
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5b
 
     .line 401
     aget-object v3, v0, v1
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->deleteFile(Ljava/lang/String;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_56
+    .catch Ljava/lang/Exception; {:try_start_29 .. :try_end_56} :catch_57
 
-    goto :goto_1
+    goto :goto_5b
 
-    :catch_0
+    :catch_57
     move-exception v2
 
     .line 405
     invoke-virtual {v2}, Ljava/lang/Exception;->printStackTrace()V
 
-    :cond_0
-    :goto_1
+    :cond_5b
+    :goto_5b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_5e
     return-void
 .end method
 
 .method public static didCrashInLastSession()Z
-    .locals 1
+    .registers 1
 
     .line 238
     sget-boolean v0, Lnet/hockeyapp/android/CrashManager;->didCrashInLastSession:Z
@@ -470,29 +470,29 @@
 .end method
 
 .method public static execute(Landroid/content/Context;Lnet/hockeyapp/android/CrashManagerListener;)V
-    .locals 5
+    .registers 7
 
     const/4 v0, 0x0
 
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_c
 
     .line 167
     invoke-virtual {p1}, Lnet/hockeyapp/android/CrashManagerListener;->ignoreDefaultHandler()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_c
 
     move v2, v1
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_c
     move v2, v0
 
-    :goto_0
+    :goto_d
     invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
@@ -507,7 +507,7 @@
 
     move-result v4
 
-    if-ne v4, v1, :cond_4
+    if-ne v4, v1, :cond_70
 
     .line 172
     sput-boolean v1, Lnet/hockeyapp/android/CrashManager;->didCrashInLastSession:Z
@@ -515,14 +515,14 @@
     .line 173
     instance-of v4, p0, Landroid/app/Activity;
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_23
 
-    goto :goto_1
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     move v1, v0
 
-    :goto_1
+    :goto_24
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
@@ -549,7 +549,7 @@
 
     move-result-object p0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_5a
 
     .line 178
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
@@ -585,12 +585,12 @@
     invoke-virtual {p1}, Lnet/hockeyapp/android/CrashManagerListener;->onNewCrashesFound()V
 
     .line 184
-    :cond_2
+    :cond_5a
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_68
 
     .line 185
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
@@ -599,52 +599,52 @@
 
     invoke-static {v3, p1, p0}, Lnet/hockeyapp/android/CrashManager;->showDialog(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
 
-    goto :goto_2
+    goto :goto_87
 
     .line 187
-    :cond_3
+    :cond_68
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 
     invoke-static {v3, p1, p0}, Lnet/hockeyapp/android/CrashManager;->sendCrashes(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
 
-    goto :goto_2
+    goto :goto_87
 
-    :cond_4
+    :cond_70
     const/4 p0, 0x2
 
-    if-ne v4, p0, :cond_6
+    if-ne v4, p0, :cond_80
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_78
 
     .line 191
     invoke-virtual {p1}, Lnet/hockeyapp/android/CrashManagerListener;->onConfirmedCrashesFound()V
 
     .line 194
-    :cond_5
+    :cond_78
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 
     invoke-static {v3, p1, p0}, Lnet/hockeyapp/android/CrashManager;->sendCrashes(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
 
-    goto :goto_2
+    goto :goto_87
 
     .line 196
-    :cond_6
+    :cond_80
     invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result p0
 
     invoke-static {v3, p1, p0}, Lnet/hockeyapp/android/CrashManager;->registerHandler(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
 
-    :goto_2
+    :goto_87
     return-void
 .end method
 
 .method private static getAlertTitle(Landroid/content/Context;)Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 553
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->getAppName(Landroid/content/Context;)Ljava/lang/String;
@@ -675,7 +675,7 @@
 .end method
 
 .method private static getConfirmedFilenames(Ljava/lang/ref/WeakReference;)Ljava/util/List;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -688,7 +688,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_24
 
     .line 792
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -697,7 +697,7 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_24
 
     const-string v0, "HockeySDK"
 
@@ -727,17 +727,17 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_0
+    :cond_24
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_25
     return-object p0
 .end method
 
 .method public static getInitializeTimestamp()J
-    .locals 2
+    .registers 2
 
     .line 802
     sget-wide v0, Lnet/hockeyapp/android/CrashManager;->initializeTimestamp:J
@@ -746,25 +746,25 @@
 .end method
 
 .method public static getLastCrashDetails()Lnet/hockeyapp/android/objects/CrashDetails;
-    .locals 10
+    .registers 10
 
     .line 242
     sget-object v0, Lnet/hockeyapp/android/Constants;->FILES_PATH:Ljava/lang/String;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5b
 
     invoke-static {}, Lnet/hockeyapp/android/CrashManager;->didCrashInLastSession()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_c
 
-    goto :goto_2
+    goto :goto_5b
 
     .line 246
-    :cond_0
+    :cond_c
     new-instance v0, Ljava/io/File;
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -803,8 +803,8 @@
 
     move-object v6, v1
 
-    :goto_0
-    if-ge v5, v4, :cond_2
+    :goto_32
+    if-ge v5, v4, :cond_46
 
     aget-object v7, v0, v5
 
@@ -815,7 +815,7 @@
 
     cmp-long v8, v8, v2
 
-    if-lez v8, :cond_1
+    if-lez v8, :cond_43
 
     .line 259
     invoke-virtual {v7}, Ljava/io/File;->lastModified()J
@@ -824,32 +824,32 @@
 
     move-object v6, v7
 
-    :cond_1
+    :cond_43
     add-int/lit8 v5, v5, 0x1
 
-    goto :goto_0
+    goto :goto_32
 
-    :cond_2
-    if-eqz v6, :cond_3
+    :cond_46
+    if-eqz v6, :cond_5a
 
     .line 264
     invoke-virtual {v6}, Ljava/io/File;->exists()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5a
 
     .line 266
-    :try_start_0
+    :try_start_4e
     invoke-static {v6}, Lnet/hockeyapp/android/objects/CrashDetails;->fromFile(Ljava/io/File;)Lnet/hockeyapp/android/objects/CrashDetails;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_52
+    .catch Ljava/io/IOException; {:try_start_4e .. :try_end_52} :catch_53
 
-    goto :goto_1
+    goto :goto_5a
 
-    :catch_0
+    :catch_53
     move-exception v0
 
     .line 268
@@ -859,17 +859,17 @@
 
     throw v1
 
-    :cond_3
-    :goto_1
+    :cond_5a
+    :goto_5a
     return-object v1
 
-    :cond_4
-    :goto_2
+    :cond_5b
+    :goto_5b
     return-object v1
 .end method
 
 .method private static getURLString()Ljava/lang/String;
-    .locals 2
+    .registers 2
 
     .line 620
     new-instance v0, Ljava/lang/StringBuilder;
@@ -900,7 +900,7 @@
 .end method
 
 .method public static handleUserInput(Lnet/hockeyapp/android/objects/CrashManagerUserInput;Lnet/hockeyapp/android/objects/CrashMetaData;Lnet/hockeyapp/android/CrashManagerListener;Ljava/lang/ref/WeakReference;Z)Z
-    .locals 2
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -926,20 +926,20 @@
 
     const/4 v1, 0x1
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_40
 
     return v0
 
     .line 453
-    :pswitch_0
+    :pswitch_e
     invoke-static {p3, p2, p4, p1}, Lnet/hockeyapp/android/CrashManager;->sendCrashes(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;ZLnet/hockeyapp/android/objects/CrashMetaData;)V
 
     return v1
 
-    :pswitch_1
+    :pswitch_12
     const/4 p0, 0x0
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_1b
 
     .line 440
     invoke-virtual {p3}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -948,13 +948,13 @@
 
     check-cast p0, Landroid/content/Context;
 
-    :cond_0
-    if-nez p0, :cond_1
+    :cond_1b
+    if-nez p0, :cond_1e
 
     return v0
 
     .line 447
-    :cond_1
+    :cond_1e
     invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
 
     move-result-object p0
@@ -977,14 +977,14 @@
 
     return v1
 
-    :pswitch_2
-    if-eqz p2, :cond_2
+    :pswitch_33
+    if-eqz p2, :cond_38
 
     .line 431
     invoke-virtual {p2}, Lnet/hockeyapp/android/CrashManagerListener;->onUserDeniedCrashes()V
 
     .line 434
-    :cond_2
+    :cond_38
     invoke-static {p3}, Lnet/hockeyapp/android/CrashManager;->deleteStackTraces(Ljava/lang/ref/WeakReference;)V
 
     .line 435
@@ -994,16 +994,16 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_40
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_33
+        :pswitch_12
+        :pswitch_e
     .end packed-switch
 .end method
 
 .method public static hasStackTraces(Ljava/lang/ref/WeakReference;)I
-    .locals 6
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1022,36 +1022,36 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_26
 
     .line 212
     array-length v3, v0
 
-    if-lez v3, :cond_3
+    if-lez v3, :cond_26
 
     .line 214
-    :try_start_0
+    :try_start_b
     invoke-static {p0}, Lnet/hockeyapp/android/CrashManager;->getConfirmedFilenames(Ljava/lang/ref/WeakReference;)Ljava/util/List;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_f} :catch_10
 
-    goto :goto_0
+    goto :goto_11
 
-    :catch_0
+    :catch_10
     const/4 p0, 0x0
 
-    :goto_0
-    if-eqz p0, :cond_2
+    :goto_11
+    if-eqz p0, :cond_25
 
     const/4 v3, 0x2
 
     .line 223
     array-length v4, v0
 
-    :goto_1
-    if-ge v1, v4, :cond_1
+    :goto_15
+    if-ge v1, v4, :cond_23
 
     aget-object v5, v0, v1
 
@@ -1060,31 +1060,31 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_20
 
-    goto :goto_2
+    goto :goto_25
 
-    :cond_0
+    :cond_20
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_23
     move v1, v3
 
-    goto :goto_3
+    goto :goto_26
 
-    :cond_2
-    :goto_2
+    :cond_25
+    :goto_25
     move v1, v2
 
-    :cond_3
-    :goto_3
+    :cond_26
+    :goto_26
     return v1
 .end method
 
 .method public static initialize(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/CrashManagerListener;)V
-    .locals 1
+    .registers 5
 
     const/4 v0, 0x1
 
@@ -1095,9 +1095,9 @@
 .end method
 
 .method private static initialize(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/CrashManagerListener;Z)V
-    .locals 4
+    .registers 9
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_41
 
     .line 486
     sget-wide v0, Lnet/hockeyapp/android/CrashManager;->initializeTimestamp:J
@@ -1106,7 +1106,7 @@
 
     cmp-long v0, v0, v2
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 487
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1116,7 +1116,7 @@
     sput-wide v0, Lnet/hockeyapp/android/CrashManager;->initializeTimestamp:J
 
     .line 489
-    :cond_0
+    :cond_10
     sput-object p1, Lnet/hockeyapp/android/CrashManager;->urlString:Ljava/lang/String;
 
     .line 490
@@ -1137,28 +1137,28 @@
     .line 495
     sget-object p2, Lnet/hockeyapp/android/CrashManager;->identifier:Ljava/lang/String;
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_26
 
     .line 496
     sget-object p2, Lnet/hockeyapp/android/Constants;->APP_PACKAGE:Ljava/lang/String;
 
     sput-object p2, Lnet/hockeyapp/android/CrashManager;->identifier:Ljava/lang/String;
 
-    :cond_1
-    if-eqz p4, :cond_3
+    :cond_26
+    if-eqz p4, :cond_41
 
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_31
 
     .line 500
     invoke-virtual {p3}, Lnet/hockeyapp/android/CrashManagerListener;->ignoreDefaultHandler()Z
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_31
 
     const/4 p1, 0x1
 
-    :cond_2
+    :cond_31
     invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p1
@@ -1175,12 +1175,12 @@
 
     invoke-static {p2, p3, p0}, Lnet/hockeyapp/android/CrashManager;->registerHandler(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
 
-    :cond_3
+    :cond_41
     return-void
 .end method
 
 .method public static initialize(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/CrashManagerListener;)V
-    .locals 2
+    .registers 5
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -1193,7 +1193,7 @@
 .end method
 
 .method private static joinArray([Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 5
 
     .line 752
     new-instance v0, Ljava/lang/StringBuffer;
@@ -1203,10 +1203,10 @@
     const/4 v1, 0x0
 
     .line 753
-    :goto_0
+    :goto_6
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_19
 
     .line 754
     aget-object v2, p0, v1
@@ -1218,18 +1218,18 @@
 
     add-int/lit8 v2, v2, -0x1
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_16
 
     .line 756
     invoke-virtual {v0, p1}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    :cond_0
+    :cond_16
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
     .line 759
-    :cond_1
+    :cond_19
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -1238,7 +1238,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;)V
-    .locals 2
+    .registers 3
 
     .line 81
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->getAppIdentifier(Landroid/content/Context;)Ljava/lang/String;
@@ -1250,7 +1250,7 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_e
 
     .line 85
     invoke-static {p0, v0}, Lnet/hockeyapp/android/CrashManager;->register(Landroid/content/Context;Ljava/lang/String;)V
@@ -1258,7 +1258,7 @@
     return-void
 
     .line 83
-    :cond_0
+    :cond_e
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "HockeyApp app identifier was not configured correctly in manifest or build configuration."
@@ -1269,7 +1269,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -1282,7 +1282,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lnet/hockeyapp/android/CrashManagerListener;)V
-    .locals 1
+    .registers 5
 
     const/4 v0, 0x0
 
@@ -1296,7 +1296,7 @@
 .end method
 
 .method public static register(Landroid/content/Context;Ljava/lang/String;Lnet/hockeyapp/android/CrashManagerListener;)V
-    .locals 1
+    .registers 4
 
     const-string v0, "https://sdk.hockeyapp.net/"
 
@@ -1307,7 +1307,7 @@
 .end method
 
 .method private static registerHandler(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1326,7 +1326,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_45
 
     sget-object p0, Lnet/hockeyapp/android/Constants;->APP_PACKAGE:Ljava/lang/String;
 
@@ -1334,14 +1334,14 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_45
 
     .line 600
     invoke-static {}, Ljava/lang/Thread;->getDefaultUncaughtExceptionHandler()Ljava/lang/Thread$UncaughtExceptionHandler;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_32
 
     .line 602
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1369,40 +1369,40 @@
     invoke-static {v0}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;)V
 
     .line 606
-    :cond_0
+    :cond_32
     instance-of v0, p0, Lnet/hockeyapp/android/ExceptionHandler;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3c
 
     .line 607
     check-cast p0, Lnet/hockeyapp/android/ExceptionHandler;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/ExceptionHandler;->setListener(Lnet/hockeyapp/android/CrashManagerListener;)V
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 609
-    :cond_1
+    :cond_3c
     new-instance v0, Lnet/hockeyapp/android/ExceptionHandler;
 
     invoke-direct {v0, p0, p1, p2}, Lnet/hockeyapp/android/ExceptionHandler;-><init>(Ljava/lang/Thread$UncaughtExceptionHandler;Lnet/hockeyapp/android/CrashManagerListener;Z)V
 
     invoke-static {v0}, Ljava/lang/Thread;->setDefaultUncaughtExceptionHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
-    goto :goto_0
+    goto :goto_4a
 
-    :cond_2
+    :cond_45
     const-string p0, "Exception handler not set because version or package is null."
 
     .line 612
     invoke-static {p0}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;)V
 
-    :goto_0
+    :goto_4a
     return-void
 .end method
 
 .method public static resetAlwaysSend(Ljava/lang/ref/WeakReference;)V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1412,7 +1412,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1b
 
     .line 470
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -1421,7 +1421,7 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1b
 
     .line 473
     invoke-static {p0}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
@@ -1441,12 +1441,12 @@
 
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_0
+    :cond_1b
     return-void
 .end method
 
 .method private static saveConfirmedStackTraces(Ljava/lang/ref/WeakReference;)V
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1456,7 +1456,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_27
 
     .line 732
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -1465,10 +1465,10 @@
 
     check-cast p0, Landroid/content/Context;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_27
 
     .line 735
-    :try_start_0
+    :try_start_a
     invoke-static {}, Lnet/hockeyapp/android/CrashManager;->searchForStackTraces()[Ljava/lang/String;
 
     move-result-object v0
@@ -1500,21 +1500,21 @@
 
     .line 739
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_27
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_27} :catch_27
 
-    :catch_0
-    :cond_0
+    :catch_27
+    :cond_27
     return-void
 .end method
 
 .method private static searchForStackTraces()[Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 766
     sget-object v0, Lnet/hockeyapp/android/Constants;->FILES_PATH:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_4c
 
     .line 767
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1561,14 +1561,14 @@
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_42
 
     .line 772
     invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_42
 
     const/4 v0, 0x0
 
@@ -1578,7 +1578,7 @@
     return-object v0
 
     .line 777
-    :cond_0
+    :cond_42
     new-instance v1, Lnet/hockeyapp/android/CrashManager$6;
 
     invoke-direct {v1}, Lnet/hockeyapp/android/CrashManager$6;-><init>()V
@@ -1590,7 +1590,7 @@
 
     return-object v0
 
-    :cond_1
+    :cond_4c
     const-string v0, "Can\'t search for exception as file path is null."
 
     .line 784
@@ -1602,7 +1602,7 @@
 .end method
 
 .method private static sendCrashes(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1623,7 +1623,7 @@
 .end method
 
 .method private static sendCrashes(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;ZLnet/hockeyapp/android/objects/CrashMetaData;)V
-    .locals 0
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1650,22 +1650,22 @@
 
     check-cast p2, Landroid/content/Context;
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_15
 
     .line 576
     invoke-static {p2}, Lnet/hockeyapp/android/utils/Util;->isConnectedToNetwork(Landroid/content/Context;)Z
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_15
 
     return-void
 
     .line 581
-    :cond_0
+    :cond_15
     sget-boolean p2, Lnet/hockeyapp/android/CrashManager;->submitting:Z
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_24
 
     const/4 p2, 0x1
 
@@ -1680,12 +1680,12 @@
     .line 590
     invoke-virtual {p2}, Lnet/hockeyapp/android/CrashManager$5;->start()V
 
-    :cond_1
+    :cond_24
     return-void
 .end method
 
 .method private static showDialog(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Z)V
-    .locals 3
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1697,7 +1697,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_9
 
     .line 514
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -1706,30 +1706,30 @@
 
     check-cast v0, Landroid/content/Context;
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_0
+    :cond_9
     const/4 v0, 0x0
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_a
+    if-nez v0, :cond_d
 
     return-void
 
-    :cond_1
-    if-eqz p1, :cond_2
+    :cond_d
+    if-eqz p1, :cond_16
 
     .line 521
     invoke-virtual {p1}, Lnet/hockeyapp/android/CrashManagerListener;->onHandleAlertView()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_16
 
     return-void
 
     .line 525
-    :cond_2
+    :cond_16
     new-instance v1, Landroid/app/AlertDialog$Builder;
 
     invoke-direct {v1, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
@@ -1785,7 +1785,7 @@
 .end method
 
 .method public static submitStackTraces(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1806,7 +1806,7 @@
 .end method
 
 .method public static submitStackTraces(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Lnet/hockeyapp/android/objects/CrashMetaData;)V
-    .locals 16
+    .registers 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1833,12 +1833,12 @@
 
     move-result-object v0
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_1c6
 
     .line 296
     array-length v6, v4
 
-    if-lez v6, :cond_11
+    if-lez v6, :cond_1c6
 
     .line 297
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1868,15 +1868,15 @@
     move v6, v5
 
     .line 299
-    :goto_0
+    :goto_2c
     array-length v0, v4
 
-    if-ge v6, v0, :cond_11
+    if-ge v6, v0, :cond_1c6
 
     const/4 v8, 0x0
 
     .line 303
-    :try_start_0
+    :try_start_30
     aget-object v0, v4, v6
 
     .line 304
@@ -1889,7 +1889,7 @@
 
     move-result v10
 
-    if-lez v10, :cond_7
+    if-lez v10, :cond_113
 
     .line 308
     new-instance v10, Ljava/lang/StringBuilder;
@@ -1934,7 +1934,7 @@
 
     move-result-object v11
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_80
 
     .line 315
     invoke-virtual/range {p2 .. p2}, Lnet/hockeyapp/android/objects/CrashMetaData;->getUserID()Ljava/lang/String;
@@ -1946,12 +1946,12 @@
 
     move-result v13
 
-    if-nez v13, :cond_0
+    if-nez v13, :cond_75
 
     move-object v10, v12
 
     .line 319
-    :cond_0
+    :cond_75
     invoke-virtual/range {p2 .. p2}, Lnet/hockeyapp/android/objects/CrashMetaData;->getUserEmail()Ljava/lang/String;
 
     move-result-object v12
@@ -1961,11 +1961,11 @@
 
     move-result v13
 
-    if-nez v13, :cond_1
+    if-nez v13, :cond_80
 
     move-object v11, v12
 
-    :cond_1
+    :cond_80
     const-string v12, ".stacktrace"
 
     const-string v13, ".description"
@@ -1979,34 +1979,34 @@
 
     move-result-object v0
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_93
 
     .line 327
     invoke-virtual/range {p2 .. p2}, Lnet/hockeyapp/android/objects/CrashMetaData;->getUserDescription()Ljava/lang/String;
 
     move-result-object v12
 
-    goto :goto_1
+    goto :goto_95
 
-    :cond_2
+    :cond_93
     const-string v12, ""
 
     .line 328
-    :goto_1
+    :goto_95
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v13
 
     const/4 v14, 0x1
 
-    if-nez v13, :cond_4
+    if-nez v13, :cond_ba
 
     .line 329
     invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v13
 
-    if-nez v13, :cond_3
+    if-nez v13, :cond_b0
 
     const-string v13, "%s\n\nLog:\n%s"
 
@@ -2023,9 +2023,9 @@
 
     move-result-object v12
 
-    goto :goto_2
+    goto :goto_ba
 
-    :cond_3
+    :cond_b0
     const-string v12, "Log:\n%s"
 
     .line 332
@@ -2038,8 +2038,8 @@
     move-result-object v12
 
     .line 336
-    :cond_4
-    :goto_2
+    :cond_ba
+    :goto_ba
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -2103,73 +2103,73 @@
     invoke-virtual {v0}, Lnet/hockeyapp/android/utils/HttpURLConnectionBuilder;->build()Ljava/net/HttpURLConnection;
 
     move-result-object v9
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+    :try_end_f8
+    .catch Ljava/lang/Exception; {:try_start_30 .. :try_end_f8} :catch_14f
+    .catchall {:try_start_30 .. :try_end_f8} :catchall_14d
 
     .line 350
-    :try_start_1
+    :try_start_f8
     invoke-virtual {v9}, Ljava/net/HttpURLConnection;->getResponseCode()I
 
     move-result v0
 
     const/16 v8, 0xca
 
-    if-eq v0, v8, :cond_6
+    if-eq v0, v8, :cond_106
 
     const/16 v8, 0xc9
 
-    if-ne v0, v8, :cond_5
+    if-ne v0, v8, :cond_105
 
-    goto :goto_3
+    goto :goto_106
 
-    :cond_5
+    :cond_105
     move v14, v5
 
     .line 352
-    :cond_6
-    :goto_3
+    :cond_106
+    :goto_106
     invoke-static {v14}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_10a
+    .catch Ljava/lang/Exception; {:try_start_f8 .. :try_end_10a} :catch_110
+    .catchall {:try_start_f8 .. :try_end_10a} :catchall_10c
 
     move-object v8, v9
 
-    goto :goto_4
+    goto :goto_114
 
-    :catchall_0
+    :catchall_10c
     move-exception v0
 
     move-object v8, v9
 
-    goto/16 :goto_8
+    goto/16 :goto_18e
 
-    :catch_0
+    :catch_110
     move-exception v0
 
     move-object v8, v9
 
-    goto :goto_6
+    goto :goto_150
 
-    :cond_7
+    :cond_113
     move-object v0, v7
 
-    :goto_4
-    if-eqz v8, :cond_8
+    :goto_114
+    if-eqz v8, :cond_119
 
     .line 359
     invoke-virtual {v8}, Ljava/net/HttpURLConnection;->disconnect()V
 
     .line 361
-    :cond_8
+    :cond_119
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_138
 
     const-string v7, "Transmission succeeded"
 
@@ -2181,7 +2181,7 @@
 
     invoke-static {v1, v7}, Lnet/hockeyapp/android/CrashManager;->deleteStackTrace(Ljava/lang/ref/WeakReference;Ljava/lang/String;)V
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_14b
 
     .line 366
     invoke-virtual/range {p1 .. p1}, Lnet/hockeyapp/android/CrashManagerListener;->onCrashesSent()V
@@ -2195,15 +2195,15 @@
 
     invoke-static {v1, v7, v8}, Lnet/hockeyapp/android/CrashManager;->deleteRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    goto :goto_5
+    goto :goto_14b
 
-    :cond_9
+    :cond_138
     const-string v7, "Transmission failed, will retry on next register() call"
 
     .line 370
     invoke-static {v7}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_a
+    if-eqz p1, :cond_14b
 
     .line 372
     invoke-virtual/range {p1 .. p1}, Lnet/hockeyapp/android/CrashManagerListener;->onCrashesNotSent()V
@@ -2217,39 +2217,39 @@
 
     invoke-static {v1, v7, v8}, Lnet/hockeyapp/android/CrashManager;->updateRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    :cond_a
-    :goto_5
+    :cond_14b
+    :goto_14b
     move-object v7, v0
 
-    goto :goto_7
+    goto :goto_18a
 
-    :catchall_1
+    :catchall_14d
     move-exception v0
 
-    goto :goto_8
+    goto :goto_18e
 
-    :catch_1
+    :catch_14f
     move-exception v0
 
     .line 356
-    :goto_6
-    :try_start_2
+    :goto_150
+    :try_start_150
     invoke-virtual {v0}, Ljava/lang/Exception;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_153
+    .catchall {:try_start_150 .. :try_end_153} :catchall_14d
 
-    if-eqz v8, :cond_b
+    if-eqz v8, :cond_158
 
     .line 359
     invoke-virtual {v8}, Ljava/net/HttpURLConnection;->disconnect()V
 
     .line 361
-    :cond_b
+    :cond_158
     invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v0
 
-    if-eqz v0, :cond_c
+    if-eqz v0, :cond_177
 
     const-string v0, "Transmission succeeded"
 
@@ -2261,7 +2261,7 @@
 
     invoke-static {v1, v0}, Lnet/hockeyapp/android/CrashManager;->deleteStackTrace(Ljava/lang/ref/WeakReference;Ljava/lang/String;)V
 
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_18a
 
     .line 366
     invoke-virtual/range {p1 .. p1}, Lnet/hockeyapp/android/CrashManagerListener;->onCrashesSent()V
@@ -2275,15 +2275,15 @@
 
     invoke-static {v1, v0, v8}, Lnet/hockeyapp/android/CrashManager;->deleteRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    goto :goto_7
+    goto :goto_18a
 
-    :cond_c
+    :cond_177
     const-string v0, "Transmission failed, will retry on next register() call"
 
     .line 370
     invoke-static {v0}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_d
+    if-eqz p1, :cond_18a
 
     .line 372
     invoke-virtual/range {p1 .. p1}, Lnet/hockeyapp/android/CrashManagerListener;->onCrashesNotSent()V
@@ -2297,25 +2297,25 @@
 
     invoke-static {v1, v0, v8}, Lnet/hockeyapp/android/CrashManager;->updateRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    :cond_d
-    :goto_7
+    :cond_18a
+    :goto_18a
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2c
 
-    :goto_8
-    if-eqz v8, :cond_e
+    :goto_18e
+    if-eqz v8, :cond_193
 
     .line 359
     invoke-virtual {v8}, Ljava/net/HttpURLConnection;->disconnect()V
 
     .line 361
-    :cond_e
+    :cond_193
     invoke-virtual {v7}, Ljava/lang/Boolean;->booleanValue()Z
 
     move-result v3
 
-    if-eqz v3, :cond_f
+    if-eqz v3, :cond_1b2
 
     const-string v3, "Transmission succeeded"
 
@@ -2327,7 +2327,7 @@
 
     invoke-static {v1, v3}, Lnet/hockeyapp/android/CrashManager;->deleteStackTrace(Ljava/lang/ref/WeakReference;Ljava/lang/String;)V
 
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_1c5
 
     .line 366
     invoke-virtual/range {p1 .. p1}, Lnet/hockeyapp/android/CrashManagerListener;->onCrashesSent()V
@@ -2341,15 +2341,15 @@
 
     invoke-static {v1, v3, v2}, Lnet/hockeyapp/android/CrashManager;->deleteRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    goto :goto_9
+    goto :goto_1c5
 
-    :cond_f
+    :cond_1b2
     const-string v3, "Transmission failed, will retry on next register() call"
 
     .line 370
     invoke-static {v3}, Lnet/hockeyapp/android/utils/HockeyLog;->debug(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_10
+    if-eqz p1, :cond_1c5
 
     .line 372
     invoke-virtual/range {p1 .. p1}, Lnet/hockeyapp/android/CrashManagerListener;->onCrashesNotSent()V
@@ -2363,16 +2363,16 @@
 
     invoke-static {v1, v3, v2}, Lnet/hockeyapp/android/CrashManager;->updateRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    :cond_10
-    :goto_9
+    :cond_1c5
+    :goto_1c5
     throw v0
 
-    :cond_11
+    :cond_1c6
     return-void
 .end method
 
 .method private static updateRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
-    .locals 5
+    .registers 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -2386,12 +2386,12 @@
 
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_4
 
     return-void
 
-    :cond_0
-    if-eqz p0, :cond_2
+    :cond_4
+    if-eqz p0, :cond_50
 
     .line 633
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -2400,7 +2400,7 @@
 
     check-cast v0, Landroid/content/Context;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_50
 
     const-string v1, "HockeySDK"
 
@@ -2435,7 +2435,7 @@
 
     move-result v0
 
-    if-lt v0, p2, :cond_1
+    if-lt v0, p2, :cond_37
 
     .line 640
     invoke-static {p0, p1}, Lnet/hockeyapp/android/CrashManager;->deleteStackTrace(Ljava/lang/ref/WeakReference;Ljava/lang/String;)V
@@ -2443,10 +2443,10 @@
     .line 641
     invoke-static {p0, p1, p2}, Lnet/hockeyapp/android/CrashManager;->deleteRetryCounter(Ljava/lang/ref/WeakReference;Ljava/lang/String;I)V
 
-    goto :goto_0
+    goto :goto_50
 
     .line 643
-    :cond_1
+    :cond_37
     new-instance p0, Ljava/lang/StringBuilder;
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2468,7 +2468,7 @@
     .line 644
     invoke-interface {v1}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_2
-    :goto_0
+    :cond_50
+    :goto_50
     return-void
 .end method

@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 460
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public createFromParcel(Landroid/os/Parcel;)Landroid/support/design/widget/BottomNavigationView$SavedState;
-    .locals 1
+    .registers 3
 
     .line 468
     new-instance p0, Landroid/support/design/widget/BottomNavigationView$SavedState;
@@ -52,7 +52,7 @@
 .end method
 
 .method public createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/design/widget/BottomNavigationView$SavedState;
-    .locals 0
+    .registers 3
 
     .line 463
     new-instance p0, Landroid/support/design/widget/BottomNavigationView$SavedState;
@@ -63,7 +63,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 460
     invoke-virtual {p0, p1}, Landroid/support/design/widget/BottomNavigationView$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Landroid/support/design/widget/BottomNavigationView$SavedState;
@@ -74,7 +74,7 @@
 .end method
 
 .method public bridge synthetic createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Ljava/lang/Object;
-    .locals 0
+    .registers 3
 
     .line 460
     invoke-virtual {p0, p1, p2}, Landroid/support/design/widget/BottomNavigationView$SavedState$1;->createFromParcel(Landroid/os/Parcel;Ljava/lang/ClassLoader;)Landroid/support/design/widget/BottomNavigationView$SavedState;
@@ -85,7 +85,7 @@
 .end method
 
 .method public newArray(I)[Landroid/support/design/widget/BottomNavigationView$SavedState;
-    .locals 0
+    .registers 2
 
     .line 473
     new-array p0, p1, [Landroid/support/design/widget/BottomNavigationView$SavedState;
@@ -94,7 +94,7 @@
 .end method
 
 .method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 460
     invoke-virtual {p0, p1}, Landroid/support/design/widget/BottomNavigationView$SavedState$1;->newArray(I)[Landroid/support/design/widget/BottomNavigationView$SavedState;

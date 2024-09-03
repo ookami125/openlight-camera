@@ -48,7 +48,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/bumptech/glide/load/engine/Resource;Z)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -60,7 +60,7 @@
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_a
 
     .line 29
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
@@ -71,7 +71,7 @@
     return-void
 
     .line 27
-    :cond_0
+    :cond_a
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "Wrapped resource must not be null"
@@ -84,12 +84,12 @@
 
 # virtual methods
 .method acquire()V
-    .locals 2
+    .registers 3
 
     .line 74
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isRecycled:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_21
 
     .line 77
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -104,7 +104,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_19
 
     .line 80
     iget v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
@@ -116,7 +116,7 @@
     return-void
 
     .line 78
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/lang/IllegalThreadStateException;
 
     const-string v0, "Must call acquire on the main thread"
@@ -126,7 +126,7 @@
     throw p0
 
     .line 75
-    :cond_1
+    :cond_21
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Cannot acquire a recycled resource"
@@ -137,7 +137,7 @@
 .end method
 
 .method public get()Ljava/lang/Object;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TZ;"
@@ -155,7 +155,7 @@
 .end method
 
 .method public getSize()I
-    .locals 0
+    .registers 1
 
     .line 49
     iget-object p0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->resource:Lcom/bumptech/glide/load/engine/Resource;
@@ -168,7 +168,7 @@
 .end method
 
 .method isCacheable()Z
-    .locals 0
+    .registers 1
 
     .line 39
     iget-boolean p0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isCacheable:Z
@@ -177,17 +177,17 @@
 .end method
 
 .method public recycle()V
-    .locals 1
+    .registers 2
 
     .line 54
     iget v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
 
-    if-gtz v0, :cond_1
+    if-gtz v0, :cond_19
 
     .line 57
     iget-boolean v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->isRecycled:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_11
 
     const/4 v0, 0x1
 
@@ -202,7 +202,7 @@
     return-void
 
     .line 58
-    :cond_0
+    :cond_11
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Cannot recycle a resource that has already been recycled"
@@ -212,7 +212,7 @@
     throw p0
 
     .line 55
-    :cond_1
+    :cond_19
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Cannot recycle a resource while it is still acquired"
@@ -223,12 +223,12 @@
 .end method
 
 .method release()V
-    .locals 2
+    .registers 3
 
     .line 93
     iget v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_2a
 
     .line 96
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -243,7 +243,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_22
 
     .line 99
     iget v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
@@ -252,7 +252,7 @@
 
     iput v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->acquired:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_21
 
     .line 100
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/EngineResource;->listener:Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;
@@ -261,11 +261,11 @@
 
     invoke-interface {v0, v1, p0}, Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;->onResourceReleased(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource;)V
 
-    :cond_0
+    :cond_21
     return-void
 
     .line 97
-    :cond_1
+    :cond_22
     new-instance p0, Ljava/lang/IllegalThreadStateException;
 
     const-string v0, "Must call release on the main thread"
@@ -275,7 +275,7 @@
     throw p0
 
     .line 94
-    :cond_2
+    :cond_2a
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "Cannot release a recycled or not yet acquired resource"
@@ -286,7 +286,7 @@
 .end method
 
 .method setResourceListener(Lcom/bumptech/glide/load/Key;Lcom/bumptech/glide/load/engine/EngineResource$ResourceListener;)V
-    .locals 0
+    .registers 3
 
     .line 34
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/EngineResource;->key:Lcom/bumptech/glide/load/Key;

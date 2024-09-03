@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 719
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
+    .registers 3
 
     .line 719
     check-cast p1, [B
@@ -53,14 +53,14 @@
 .end method
 
 .method public compare([B[B)I
-    .locals 3
+    .registers 6
 
     .line 722
     array-length p0, p1
 
     array-length v0, p2
 
-    if-eq p0, v0, :cond_0
+    if-eq p0, v0, :cond_8
 
     .line 723
     array-length p0, p1
@@ -71,23 +71,23 @@
 
     return p0
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
     move v0, p0
 
     .line 725
-    :goto_0
+    :goto_a
     array-length v1, p1
 
-    if-ge v0, v1, :cond_2
+    if-ge v0, v1, :cond_1c
 
     .line 726
     aget-byte v1, p1, v0
 
     aget-byte v2, p2, v0
 
-    if-eq v1, v2, :cond_1
+    if-eq v1, v2, :cond_19
 
     .line 727
     aget-byte p0, p1, v0
@@ -98,11 +98,11 @@
 
     return p0
 
-    :cond_1
+    :cond_19
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
-    :cond_2
+    :cond_1c
     return p0
 .end method

@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Lnet/hockeyapp/android/views/PaintView;)V
-    .locals 0
+    .registers 2
 
     .line 142
     iput-object p1, p0, Lnet/hockeyapp/android/views/PaintView$1;->this$0:Lnet/hockeyapp/android/views/PaintView;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method protected varargs doInBackground([Ljava/lang/Object;)Landroid/graphics/Bitmap;
-    .locals 3
+    .registers 5
 
     const/4 p0, 0x0
 
@@ -74,7 +74,7 @@
     check-cast p1, Ljava/lang/Integer;
 
     .line 157
-    :try_start_0
+    :try_start_14
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
@@ -87,15 +87,16 @@
 
     move-result p1
 
+    # invokes: Lnet/hockeyapp/android/views/PaintView;->decodeSampledBitmapFromResource(Landroid/content/ContentResolver;Landroid/net/Uri;II)Landroid/graphics/Bitmap;
     invoke-static {p0, v0, v1, p1}, Lnet/hockeyapp/android/views/PaintView;->access$000(Landroid/content/ContentResolver;Landroid/net/Uri;II)Landroid/graphics/Bitmap;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_24
+    .catch Ljava/io/IOException; {:try_start_14 .. :try_end_24} :catch_25
 
     return-object p0
 
-    :catch_0
+    :catch_25
     move-exception p0
 
     const-string p1, "Could not load image into ImageView."
@@ -109,7 +110,7 @@
 .end method
 
 .method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 142
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/views/PaintView$1;->doInBackground([Ljava/lang/Object;)Landroid/graphics/Bitmap;
@@ -120,14 +121,14 @@
 .end method
 
 .method protected onPostExecute(Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_3
 
     return-void
 
     .line 169
-    :cond_0
+    :cond_3
     iget-object p0, p0, Lnet/hockeyapp/android/views/PaintView$1;->this$0:Lnet/hockeyapp/android/views/PaintView;
 
     invoke-virtual {p0, p1}, Lnet/hockeyapp/android/views/PaintView;->setImageBitmap(Landroid/graphics/Bitmap;)V
@@ -136,7 +137,7 @@
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
-    .locals 0
+    .registers 2
 
     .line 142
     check-cast p1, Landroid/graphics/Bitmap;
@@ -147,7 +148,7 @@
 .end method
 
 .method protected onPreExecute()V
-    .locals 1
+    .registers 2
 
     .line 147
     iget-object p0, p0, Lnet/hockeyapp/android/views/PaintView$1;->this$0:Lnet/hockeyapp/android/views/PaintView;

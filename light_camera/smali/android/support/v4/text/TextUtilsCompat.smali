@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .registers 3
 
     .line 37
     new-instance v0, Ljava/util/Locale;
@@ -33,7 +33,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 136
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,7 +42,7 @@
 .end method
 
 .method private static getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
-    .locals 1
+    .registers 2
     .param p0    # Ljava/util/Locale;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -63,26 +63,26 @@
 
     move-result p0
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_14
 
     return v0
 
-    :pswitch_0
+    :pswitch_11
     const/4 p0, 0x1
 
     return p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_14
     .packed-switch 0x1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_11
+        :pswitch_11
     .end packed-switch
 .end method
 
 .method public static getLayoutDirectionFromLocale(Ljava/util/Locale;)I
-    .locals 2
+    .registers 3
     .param p0    # Ljava/util/Locale;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -93,7 +93,7 @@
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 96
     invoke-static {p0}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
@@ -102,8 +102,8 @@
 
     return p0
 
-    :cond_0
-    if-eqz p0, :cond_3
+    :cond_b
+    if-eqz p0, :cond_32
 
     .line 98
     sget-object v0, Landroid/support/v4/text/TextUtilsCompat;->ROOT:Ljava/util/Locale;
@@ -112,14 +112,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_32
 
     .line 99
     invoke-static {p0}, Landroid/support/v4/text/ICUCompat;->maximizeAndGetScript(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_20
 
     .line 100
     invoke-static {p0}, Landroid/support/v4/text/TextUtilsCompat;->getLayoutDirectionFromFirstChar(Ljava/util/Locale;)I
@@ -128,7 +128,7 @@
 
     return p0
 
-    :cond_1
+    :cond_20
     const-string p0, "Arab"
 
     .line 104
@@ -136,7 +136,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_2
+    if-nez p0, :cond_30
 
     const-string p0, "Hebr"
 
@@ -145,21 +145,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_32
 
-    :cond_2
+    :cond_30
     const/4 p0, 0x1
 
     return p0
 
-    :cond_3
+    :cond_32
     const/4 p0, 0x0
 
     return p0
 .end method
 
 .method public static htmlEncode(Ljava/lang/String;)Ljava/lang/String;
-    .locals 4
+    .registers 5
     .param p0    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -172,7 +172,7 @@
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 51
     invoke-static {p0}, Landroid/text/TextUtils;->htmlEncode(Ljava/lang/String;)Ljava/lang/String;
@@ -182,7 +182,7 @@
     return-object p0
 
     .line 53
-    :cond_0
+    :cond_b
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -190,12 +190,12 @@
     const/4 v1, 0x0
 
     .line 55
-    :goto_0
+    :goto_11
     invoke-virtual {p0}, Ljava/lang/String;->length()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_4
+    if-ge v1, v2, :cond_4e
 
     .line 56
     invoke-virtual {p0, v1}, Ljava/lang/String;->charAt(I)C
@@ -204,68 +204,68 @@
 
     const/16 v3, 0x22
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_46
 
     const/16 v3, 0x3c
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_40
 
     const/16 v3, 0x3e
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_3a
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_54
 
     .line 79
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4b
 
-    :pswitch_0
+    :pswitch_2e
     const-string v2, "&#39;"
 
     .line 73
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4b
 
-    :pswitch_1
+    :pswitch_34
     const-string v2, "&amp;"
 
     .line 65
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_1
+    :cond_3a
     const-string v2, "&gt;"
 
     .line 62
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_2
+    :cond_40
     const-string v2, "&lt;"
 
     .line 59
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto :goto_4b
 
-    :cond_3
+    :cond_46
     const-string v2, "&quot;"
 
     .line 76
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :goto_1
+    :goto_4b
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
     .line 82
-    :cond_4
+    :cond_4e
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -274,9 +274,9 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_54
     .packed-switch 0x26
-        :pswitch_1
-        :pswitch_0
+        :pswitch_34
+        :pswitch_2e
     .end packed-switch
 .end method

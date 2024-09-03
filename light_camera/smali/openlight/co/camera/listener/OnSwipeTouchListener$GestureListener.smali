@@ -26,7 +26,7 @@
 
 # direct methods
 .method private constructor <init>(Lopenlight/co/camera/listener/OnSwipeTouchListener;)V
-    .locals 0
+    .registers 2
 
     .line 59
     iput-object p1, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
@@ -37,7 +37,7 @@
 .end method
 
 .method synthetic constructor <init>(Lopenlight/co/camera/listener/OnSwipeTouchListener;Lopenlight/co/camera/listener/OnSwipeTouchListener$1;)V
-    .locals 0
+    .registers 3
 
     .line 59
     invoke-direct {p0, p1}, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;-><init>(Lopenlight/co/camera/listener/OnSwipeTouchListener;)V
@@ -48,7 +48,7 @@
 
 # virtual methods
 .method public onDown(Landroid/view/MotionEvent;)Z
-    .locals 0
+    .registers 2
 
     const/4 p0, 0x1
 
@@ -56,7 +56,7 @@
 .end method
 
 .method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 4
+    .registers 9
 
     .line 98
     sget v0, Lopenlight/co/camera/view/customviews/TouchImageView;->normalizedScale:F
@@ -67,13 +67,13 @@
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     return v1
 
     .line 102
-    :cond_0
-    :try_start_0
+    :cond_a
+    :try_start_a
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
 
     move-result v0
@@ -110,7 +110,7 @@
 
     const/high16 v3, 0x42c80000    # 100.0f
 
-    if-lez p1, :cond_2
+    if-lez p1, :cond_4b
 
     .line 106
     invoke-static {p2}, Ljava/lang/Math;->abs(F)F
@@ -119,7 +119,7 @@
 
     cmpl-float p1, p1, v3
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_6a
 
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
@@ -127,36 +127,36 @@
 
     cmpl-float p1, p1, v3
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_6a
 
     cmpl-float p1, p2, v2
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_45
 
     .line 108
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onSwipeRight()V
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 110
-    :cond_1
+    :cond_45
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onSwipeLeft()V
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 115
-    :cond_2
+    :cond_4b
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result p1
 
     cmpl-float p1, p1, v3
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_6a
 
     invoke-static {p4}, Ljava/lang/Math;->abs(F)F
 
@@ -164,45 +164,45 @@
 
     cmpl-float p1, p1, v3
 
-    if-lez p1, :cond_4
+    if-lez p1, :cond_6a
 
     cmpl-float p1, v0, v2
 
-    if-lez p1, :cond_3
+    if-lez p1, :cond_65
 
     .line 117
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onSwipeBottom()V
 
-    goto :goto_0
+    goto :goto_6a
 
     .line 119
-    :cond_3
+    :cond_65
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onSwipeTop()V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_6a} :catch_6c
 
-    :cond_4
-    :goto_0
+    :cond_6a
+    :goto_6a
     const/4 v1, 0x1
 
-    goto :goto_1
+    goto :goto_70
 
-    :catch_0
+    :catch_6c
     move-exception p0
 
     .line 125
     invoke-virtual {p0}, Ljava/lang/Exception;->printStackTrace()V
 
-    :goto_1
+    :goto_70
     return v1
 .end method
 
 .method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 0
+    .registers 2
 
     .line 77
     invoke-super {p0, p1}, Landroid/view/GestureDetector$SimpleOnGestureListener;->onLongPress(Landroid/view/MotionEvent;)V
@@ -217,18 +217,20 @@
 
     const/4 p1, 0x1
 
+    # setter for: Lopenlight/co/camera/listener/OnSwipeTouchListener;->isLongPress:Z
     invoke-static {p0, p1}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->access$102(Lopenlight/co/camera/listener/OnSwipeTouchListener;Z)Z
 
     return-void
 .end method
 
 .method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 0
+    .registers 5
 
     .line 84
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/GestureDetector$SimpleOnGestureListener;->onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
 
     .line 85
+    # getter for: Lopenlight/co/camera/listener/OnSwipeTouchListener;->TAG:Ljava/lang/String;
     invoke-static {}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->access$200()Ljava/lang/String;
 
     move-result-object p1
@@ -253,29 +255,29 @@
 
     cmpg-float p1, p4, p1
 
-    if-gez p1, :cond_0
+    if-gez p1, :cond_26
 
     .line 87
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onScrollBottom()V
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 89
-    :cond_0
+    :cond_26
     iget-object p0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;
 
     invoke-virtual {p0}, Lopenlight/co/camera/listener/OnSwipeTouchListener;->onScrollTop()V
 
-    :goto_0
+    :goto_2b
     const/4 p0, 0x1
 
     return p0
 .end method
 
 .method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .locals 1
+    .registers 3
 
     .line 71
     iget-object v0, p0, Lopenlight/co/camera/listener/OnSwipeTouchListener$GestureListener;->this$0:Lopenlight/co/camera/listener/OnSwipeTouchListener;

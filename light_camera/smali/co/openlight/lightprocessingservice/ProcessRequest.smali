@@ -81,7 +81,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     new-instance v0, Lco/openlight/lightprocessingservice/ProcessRequest$1;
@@ -94,7 +94,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 95
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -119,7 +119,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
-    .locals 1
+    .registers 3
 
     .line 91
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -147,7 +147,7 @@
 .end method
 
 .method private readFromParcel(Landroid/os/Parcel;)V
-    .locals 5
+    .registers 7
 
     .line 132
     invoke-virtual {p1}, Landroid/os/Parcel;->readString()Ljava/lang/String;
@@ -197,16 +197,16 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2c
 
     move v0, v2
 
-    goto :goto_0
+    goto :goto_2d
 
-    :cond_0
+    :cond_2c
     move v0, v1
 
-    :goto_0
+    :goto_2d
     iput-boolean v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mGDepth:Z
 
     .line 138
@@ -235,16 +235,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_49
 
     move v0, v2
 
-    goto :goto_1
+    goto :goto_4a
 
-    :cond_1
+    :cond_49
     move v0, v1
 
-    :goto_1
+    :goto_4a
     iput-boolean v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mSupportSuperRes:Z
 
     .line 142
@@ -252,16 +252,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_54
 
     move v0, v2
 
-    goto :goto_2
+    goto :goto_55
 
-    :cond_2
+    :cond_54
     move v0, v1
 
-    :goto_2
+    :goto_55
     iput-boolean v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteLri:Z
 
     .line 143
@@ -283,16 +283,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6b
 
     move v0, v2
 
-    goto :goto_3
+    goto :goto_6c
 
-    :cond_3
+    :cond_6b
     move v0, v1
 
-    :goto_3
+    :goto_6c
     iput-boolean v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mUpdateMediaStore:Z
 
     .line 146
@@ -314,16 +314,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_82
 
     move v0, v2
 
-    goto :goto_4
+    goto :goto_83
 
-    :cond_4
+    :cond_82
     move v0, v1
 
-    :goto_4
+    :goto_83
     iput-boolean v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteThumbnail:Z
 
     .line 149
@@ -338,11 +338,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_92
 
     move v1, v2
 
-    :cond_5
+    :cond_92
     iput-boolean v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mNeedsPostProcessing:Z
 
     .line 151
@@ -350,7 +350,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_a0
 
     .line 152
     invoke-static {p1}, Landroid/content/ComponentName;->readFromParcel(Landroid/os/Parcel;)Landroid/content/ComponentName;
@@ -359,29 +359,29 @@
 
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    :cond_6
+    :cond_a0
     return-void
 .end method
 
 
 # virtual methods
 .method public bokeh(I)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 1
+    .registers 3
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_12
 
     const/4 v0, 0x2
 
-    if-lt p1, v0, :cond_0
+    if-lt p1, v0, :cond_a
 
     const/16 v0, 0xf
 
-    if-gt p1, v0, :cond_0
+    if-gt p1, v0, :cond_a
 
-    goto :goto_0
+    goto :goto_12
 
     .line 234
-    :cond_0
+    :cond_a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Bokeh value must be between 2 and 15. Or 0 if not changes to be made to bokeh"
@@ -391,17 +391,17 @@
     throw p0
 
     .line 231
-    :cond_1
-    :goto_0
+    :cond_12
+    :goto_12
     iput p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mBokeh:I
 
     return-object p0
 .end method
 
 .method public broadcastComponent(Landroid/content/ComponentName;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 393
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
@@ -409,7 +409,7 @@
     return-object p0
 
     .line 391
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "component name cannot be null"
@@ -420,7 +420,7 @@
 .end method
 
 .method public dateTaken(J)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 3
 
     .line 377
     iput-wide p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDateTaken:J
@@ -429,7 +429,7 @@
 .end method
 
 .method public deleteLri(Z)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 272
     iput-boolean p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteLri:Z
@@ -438,7 +438,7 @@
 .end method
 
 .method public deleteThumbnail(Z)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 355
     iput-boolean p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteThumbnail:Z
@@ -447,7 +447,7 @@
 .end method
 
 .method public describeContents()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -455,7 +455,7 @@
 .end method
 
 .method public enabledSuperRes(Z)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 262
     iput-boolean p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mSupportSuperRes:Z
@@ -464,32 +464,32 @@
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
-    .locals 9
+    .registers 11
 
     const/4 v0, 0x1
 
-    if-ne p1, p0, :cond_0
+    if-ne p1, p0, :cond_4
 
     return v0
 
     .line 613
-    :cond_0
+    :cond_4
     instance-of v1, p1, Lco/openlight/lightprocessingservice/ProcessRequest;
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_a
 
     return v2
 
     .line 617
-    :cond_1
+    :cond_a
     check-cast p1, Lco/openlight/lightprocessingservice/ProcessRequest;
 
     .line 621
     iget-object v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedJpegPath:Ljava/lang/String;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_19
 
     .line 622
     iget-object v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedJpegPath:Ljava/lang/String;
@@ -500,26 +500,26 @@
 
     move-result v1
 
-    goto :goto_0
+    goto :goto_20
 
     .line 624
-    :cond_2
+    :cond_19
     iget-object v1, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedJpegPath:Ljava/lang/String;
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_1f
 
     move v1, v0
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_3
+    :cond_1f
     move v1, v2
 
     .line 629
-    :goto_0
+    :goto_20
     iget-object v3, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedDngPath:Ljava/lang/String;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_2d
 
     .line 630
     iget-object v3, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedDngPath:Ljava/lang/String;
@@ -530,26 +530,26 @@
 
     move-result v3
 
-    goto :goto_1
+    goto :goto_34
 
     .line 632
-    :cond_4
+    :cond_2d
     iget-object v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedDngPath:Ljava/lang/String;
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_33
 
     move v3, v0
 
-    goto :goto_1
+    goto :goto_34
 
-    :cond_5
+    :cond_33
     move v3, v2
 
     .line 637
-    :goto_1
+    :goto_34
     iget-object v4, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mThumbnailPath:Ljava/lang/String;
 
-    if-eqz v4, :cond_6
+    if-eqz v4, :cond_41
 
     .line 638
     iget-object v4, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mThumbnailPath:Ljava/lang/String;
@@ -560,26 +560,26 @@
 
     move-result v4
 
-    goto :goto_2
+    goto :goto_48
 
     .line 640
-    :cond_6
+    :cond_41
     iget-object v4, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mThumbnailPath:Ljava/lang/String;
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_47
 
     move v4, v0
 
-    goto :goto_2
+    goto :goto_48
 
-    :cond_7
+    :cond_47
     move v4, v2
 
     .line 644
-    :goto_2
+    :goto_48
     iget-object v5, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mTag:Ljava/lang/String;
 
-    if-eqz v5, :cond_8
+    if-eqz v5, :cond_55
 
     .line 645
     iget-object v5, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mTag:Ljava/lang/String;
@@ -590,31 +590,31 @@
 
     move-result v5
 
-    goto :goto_3
+    goto :goto_5c
 
     .line 647
-    :cond_8
+    :cond_55
     iget-object v5, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mTag:Ljava/lang/String;
 
-    if-nez v5, :cond_9
+    if-nez v5, :cond_5b
 
     move v5, v0
 
-    goto :goto_3
+    goto :goto_5c
 
-    :cond_9
+    :cond_5b
     move v5, v2
 
     .line 651
-    :goto_3
+    :goto_5c
     iget-object v6, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_78
 
     .line 652
     iget-object v6, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_76
 
     .line 653
     iget-object v7, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
@@ -632,28 +632,28 @@
 
     move-result v6
 
-    if-eqz v6, :cond_a
+    if-eqz v6, :cond_76
 
-    :goto_4
+    :goto_74
     move v6, v0
 
-    goto :goto_5
+    goto :goto_7d
 
-    :cond_a
+    :cond_76
     move v6, v2
 
-    goto :goto_5
+    goto :goto_7d
 
     .line 656
-    :cond_b
+    :cond_78
     iget-object v6, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    if-nez v6, :cond_a
+    if-nez v6, :cond_76
 
-    goto :goto_4
+    goto :goto_74
 
     .line 660
-    :goto_5
+    :goto_7d
     iget-object v7, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mLriPath:Ljava/lang/String;
 
     iget-object v8, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mLriPath:Ljava/lang/String;
@@ -662,63 +662,63 @@
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_ec
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_ec
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_ec
 
-    if-eqz v5, :cond_c
+    if-eqz v5, :cond_ec
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_ec
 
     iget-boolean v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mGDepth:Z
 
     iget-boolean v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mGDepth:Z
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget-object v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
     iget-object v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget-object v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingLevel:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
 
     iget-object v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingLevel:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mWidth:I
 
     iget v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mWidth:I
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mHeight:I
 
     iget v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mHeight:I
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mBokeh:I
 
     iget v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mBokeh:I
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget-boolean v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mSupportSuperRes:Z
 
     iget-boolean v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mSupportSuperRes:Z
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget-boolean v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteLri:Z
 
     iget-boolean v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteLri:Z
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mFocusDepthX:F
 
@@ -726,7 +726,7 @@
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_ec
 
     iget v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mFocusDepthY:F
 
@@ -734,19 +734,19 @@
 
     cmpl-float v1, v1, v3
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_ec
 
     iget-boolean v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mUpdateMediaStore:Z
 
     iget-boolean v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mUpdateMediaStore:Z
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget-boolean v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteThumbnail:Z
 
     iget-boolean v3, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteThumbnail:Z
 
-    if-ne v1, v3, :cond_c
+    if-ne v1, v3, :cond_ec
 
     iget-wide v3, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDateTaken:J
 
@@ -754,27 +754,27 @@
 
     cmp-long v1, v3, v7
 
-    if-nez v1, :cond_c
+    if-nez v1, :cond_ec
 
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mNeedsPostProcessing:Z
 
     iget-boolean p1, p1, Lco/openlight/lightprocessingservice/ProcessRequest;->mNeedsPostProcessing:Z
 
-    if-ne p0, p1, :cond_c
+    if-ne p0, p1, :cond_ec
 
-    if-eqz v6, :cond_c
+    if-eqz v6, :cond_ec
 
-    goto :goto_6
+    goto :goto_ed
 
-    :cond_c
+    :cond_ec
     move v0, v2
 
-    :goto_6
+    :goto_ed
     return v0
 .end method
 
 .method public focusDepthPoint(FF)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 4
+    .registers 7
 
     const/4 v0, 0x0
 
@@ -782,31 +782,31 @@
 
     const/high16 v2, -0x40800000    # -1.0f
 
-    if-gez v1, :cond_0
+    if-gez v1, :cond_b
 
     cmpl-float v1, p1, v2
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_22
 
-    :cond_0
+    :cond_b
     const/high16 v1, 0x3f800000    # 1.0f
 
     cmpl-float v3, p1, v1
 
-    if-gtz v3, :cond_2
+    if-gtz v3, :cond_22
 
     cmpg-float v0, p2, v0
 
-    if-gez v0, :cond_1
+    if-gez v0, :cond_19
 
     cmpl-float v0, p2, v2
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_22
 
-    :cond_1
+    :cond_19
     cmpl-float v0, p2, v1
 
-    if-gtz v0, :cond_2
+    if-gtz v0, :cond_22
 
     .line 318
     iput p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mFocusDepthX:F
@@ -817,7 +817,7 @@
     return-object p0
 
     .line 316
-    :cond_2
+    :cond_22
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Invalid coordinates"
@@ -828,7 +828,7 @@
 .end method
 
 .method public gDepth(Z)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 367
     iput-boolean p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mGDepth:Z
@@ -837,7 +837,7 @@
 .end method
 
 .method public getBokeh()I
-    .locals 0
+    .registers 1
 
     .line 476
     iget p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mBokeh:I
@@ -846,7 +846,7 @@
 .end method
 
 .method public getBroadcastComponent()Landroid/content/ComponentName;
-    .locals 0
+    .registers 1
 
     .line 563
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
@@ -855,7 +855,7 @@
 .end method
 
 .method public getDateTaken()J
-    .locals 2
+    .registers 3
 
     .line 554
     iget-wide v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDateTaken:J
@@ -864,7 +864,7 @@
 .end method
 
 .method public getFocusDepthX()F
-    .locals 0
+    .registers 1
 
     .line 511
     iget p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mFocusDepthX:F
@@ -873,7 +873,7 @@
 .end method
 
 .method public getFocusDepthY()F
-    .locals 0
+    .registers 1
 
     .line 519
     iget p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mFocusDepthY:F
@@ -882,7 +882,7 @@
 .end method
 
 .method public getHeight()I
-    .locals 0
+    .registers 1
 
     .line 468
     iget p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mHeight:I
@@ -891,7 +891,7 @@
 .end method
 
 .method public getLevel()Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
-    .locals 0
+    .registers 1
 
     .line 418
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingLevel:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
@@ -900,7 +900,7 @@
 .end method
 
 .method public getLriPath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 402
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mLriPath:Ljava/lang/String;
@@ -909,7 +909,7 @@
 .end method
 
 .method public getProcessedDngPath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 434
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedDngPath:Ljava/lang/String;
@@ -918,7 +918,7 @@
 .end method
 
 .method public getProcessedJpegPath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 426
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedJpegPath:Ljava/lang/String;
@@ -927,7 +927,7 @@
 .end method
 
 .method public getProfile()Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
-    .locals 0
+    .registers 1
 
     .line 410
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
@@ -936,7 +936,7 @@
 .end method
 
 .method public getTag()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 546
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mTag:Ljava/lang/String;
@@ -945,7 +945,7 @@
 .end method
 
 .method public getThumbnailPath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 442
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mThumbnailPath:Ljava/lang/String;
@@ -954,7 +954,7 @@
 .end method
 
 .method public getWidth()I
-    .locals 0
+    .registers 1
 
     .line 459
     iget p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mWidth:I
@@ -963,7 +963,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 3
+    .registers 4
 
     const/16 v0, 0x14
 
@@ -1137,13 +1137,13 @@
 
     iget-object v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_a4
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_aa
 
-    :cond_0
+    :cond_a4
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
     .line 714
@@ -1151,7 +1151,7 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_aa
     const/16 v1, 0x13
 
     aput-object p0, v0, v1
@@ -1165,7 +1165,7 @@
 .end method
 
 .method public isGDepthEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 450
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mGDepth:Z
@@ -1174,7 +1174,7 @@
 .end method
 
 .method public isPostProcessingEnabled()Z
-    .locals 0
+    .registers 1
 
     .line 537
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mNeedsPostProcessing:Z
@@ -1183,7 +1183,7 @@
 .end method
 
 .method public isSuperResSupported()Z
-    .locals 0
+    .registers 1
 
     .line 485
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mSupportSuperRes:Z
@@ -1192,7 +1192,7 @@
 .end method
 
 .method public level(Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 217
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingLevel:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
@@ -1201,9 +1201,9 @@
 .end method
 
 .method public lriPath(Ljava/lang/String;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_5
 
     .line 169
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mLriPath:Ljava/lang/String;
@@ -1211,7 +1211,7 @@
     return-object p0
 
     .line 167
-    :cond_0
+    :cond_5
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Lri Path cannot be null"
@@ -1222,7 +1222,7 @@
 .end method
 
 .method public needsPostProcessing(Z)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 301
     iput-boolean p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mNeedsPostProcessing:Z
@@ -1231,7 +1231,7 @@
 .end method
 
 .method public processedDngPath(Ljava/lang/String;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 197
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedDngPath:Ljava/lang/String;
@@ -1240,7 +1240,7 @@
 .end method
 
 .method public processedJpegPath(Ljava/lang/String;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 183
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedJpegPath:Ljava/lang/String;
@@ -1249,7 +1249,7 @@
 .end method
 
 .method public profile(Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 207
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
@@ -1258,7 +1258,7 @@
 .end method
 
 .method public shouldDeleteLri()Z
-    .locals 0
+    .registers 1
 
     .line 503
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteLri:Z
@@ -1267,7 +1267,7 @@
 .end method
 
 .method public shouldDeleteThumbnail()Z
-    .locals 0
+    .registers 1
 
     .line 494
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mDeleteThumbnail:Z
@@ -1276,7 +1276,7 @@
 .end method
 
 .method public shouldUpdateMediaStore()Z
-    .locals 0
+    .registers 1
 
     .line 528
     iget-boolean p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mUpdateMediaStore:Z
@@ -1285,7 +1285,7 @@
 .end method
 
 .method public size(II)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 3
 
     .line 249
     iput p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mWidth:I
@@ -1297,7 +1297,7 @@
 .end method
 
 .method public tag(Ljava/lang/String;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 332
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mTag:Ljava/lang/String;
@@ -1306,7 +1306,7 @@
 .end method
 
 .method public thumbnail(Ljava/lang/String;)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 345
     iput-object p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mThumbnailPath:Ljava/lang/String;
@@ -1315,7 +1315,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     .line 685
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1480,13 +1480,13 @@
 
     iget-object v1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_ce
 
     const/4 p0, 0x0
 
-    goto :goto_0
+    goto :goto_d4
 
-    :cond_0
+    :cond_ce
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
     .line 705
@@ -1494,7 +1494,7 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_d4
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -1505,7 +1505,7 @@
 .end method
 
 .method public updateMediaStore(Z)Lco/openlight/lightprocessingservice/ProcessRequest;
-    .locals 0
+    .registers 2
 
     .line 283
     iput-boolean p1, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mUpdateMediaStore:Z
@@ -1514,7 +1514,7 @@
 .end method
 
 .method public validate()Z
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -1524,21 +1524,21 @@
     .line 573
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mLriPath:Ljava/lang/String;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_57
 
     .line 577
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedJpegPath:Ljava/lang/String;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_15
 
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessedDngPath:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
-    goto :goto_0
+    goto :goto_15
 
     .line 578
-    :cond_0
+    :cond_d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "The processed image path for a jpeg or dng must be provided"
@@ -1548,34 +1548,34 @@
     throw p0
 
     .line 582
-    :cond_1
-    :goto_0
+    :cond_15
+    :goto_15
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingLevel:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_4f
 
     .line 586
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_47
 
     .line 590
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
     sget-object v1, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;->THUMBNAIL:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_32
 
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingLevel:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
 
     sget-object v1, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;->ZERO:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingLevel;
 
-    if-ne v0, v1, :cond_2
+    if-ne v0, v1, :cond_2a
 
-    goto :goto_1
+    goto :goto_32
 
     .line 592
-    :cond_2
+    :cond_2a
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Thumbnail processing is only supported a level ZERO"
@@ -1585,22 +1585,22 @@
     throw p0
 
     .line 596
-    :cond_3
-    :goto_1
+    :cond_32
+    :goto_32
     iget-boolean v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mGDepth:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_45
 
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mProcessingProfile:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
     sget-object v0, Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;->DESKTOP:Lco/openlight/lightprocessingservice/ProcessRequest$ProcessingProfile;
 
-    if-ne p0, v0, :cond_4
+    if-ne p0, v0, :cond_3d
 
-    goto :goto_2
+    goto :goto_45
 
     .line 597
-    :cond_4
+    :cond_3d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Desktop Profile is required for creating gDepth."
@@ -1609,14 +1609,14 @@
 
     throw p0
 
-    :cond_5
-    :goto_2
+    :cond_45
+    :goto_45
     const/4 p0, 0x1
 
     return p0
 
     .line 587
-    :cond_6
+    :cond_47
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Profile needs to be specified"
@@ -1626,7 +1626,7 @@
     throw p0
 
     .line 583
-    :cond_7
+    :cond_4f
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Level needs to be specified"
@@ -1636,7 +1636,7 @@
     throw p0
 
     .line 574
-    :cond_8
+    :cond_57
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Lri Path cannot be null"
@@ -1647,7 +1647,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 2
+    .registers 5
 
     .line 105
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mLriPath:Ljava/lang/String;
@@ -1759,28 +1759,28 @@
     .line 124
     iget-object v0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6b
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_6c
 
-    :cond_0
+    :cond_6b
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_6c
     int-to-byte v1, v0
 
     .line 125
     invoke-virtual {p1, v1}, Landroid/os/Parcel;->writeByte(B)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_77
 
     .line 127
     iget-object p0, p0, Lco/openlight/lightprocessingservice/ProcessRequest;->mComponentName:Landroid/content/ComponentName;
 
     invoke-virtual {p0, p1, p2}, Landroid/content/ComponentName;->writeToParcel(Landroid/os/Parcel;I)V
 
-    :cond_1
+    :cond_77
     return-void
 .end method

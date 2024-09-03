@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/transition/ChangeClipBounds;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     .line 111
     iput-object p1, p0, Landroid/support/transition/ChangeClipBounds$1;->this$0:Landroid/support/transition/ChangeClipBounds;
@@ -37,7 +37,7 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 114
     iget-object p0, p0, Landroid/support/transition/ChangeClipBounds$1;->val$endView:Landroid/view/View;

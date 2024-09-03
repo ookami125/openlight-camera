@@ -13,7 +13,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 19
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,14 +45,14 @@
 .end method
 
 .method static binarySearch([III)I
-    .locals 3
+    .registers 6
 
     add-int/lit8 p1, p1, -0x1
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-gt v0, p1, :cond_2
+    :goto_3
+    if-gt v0, p1, :cond_18
 
     add-int v1, v0, p1
 
@@ -61,41 +61,41 @@
     .line 51
     aget v2, p0, v1
 
-    if-ge v2, p2, :cond_0
+    if-ge v2, p2, :cond_11
 
     add-int/lit8 v1, v1, 0x1
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_0
-    if-le v2, p2, :cond_1
+    :cond_11
+    if-le v2, p2, :cond_17
 
     add-int/lit8 v1, v1, -0x1
 
     move p1, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
+    :cond_17
     return v1
 
-    :cond_2
+    :cond_18
     not-int p0, v0
 
     return p0
 .end method
 
 .method static binarySearch([JIJ)I
-    .locals 4
+    .registers 8
 
     add-int/lit8 p1, p1, -0x1
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-gt v0, p1, :cond_2
+    :goto_3
+    if-gt v0, p1, :cond_1a
 
     add-int v1, v0, p1
 
@@ -106,70 +106,70 @@
 
     cmp-long v2, v2, p2
 
-    if-gez v2, :cond_0
+    if-gez v2, :cond_13
 
     add-int/lit8 v1, v1, 0x1
 
     move v0, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_0
-    if-lez v2, :cond_1
+    :cond_13
+    if-lez v2, :cond_19
 
     add-int/lit8 v1, v1, -0x1
 
     move p1, v1
 
-    goto :goto_0
+    goto :goto_3
 
-    :cond_1
+    :cond_19
     return v1
 
-    :cond_2
+    :cond_1a
     not-int p0, v0
 
     return p0
 .end method
 
 .method public static equal(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
-    if-eq p0, p1, :cond_1
+    if-eq p0, p1, :cond_d
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
     .line 41
     invoke-virtual {p0, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_b
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
-    goto :goto_1
+    goto :goto_e
 
-    :cond_1
-    :goto_0
+    :cond_d
+    :goto_d
     const/4 p0, 0x1
 
-    :goto_1
+    :goto_e
     return p0
 .end method
 
 .method public static idealByteArraySize(I)I
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x4
 
-    :goto_0
+    :goto_1
     const/16 v1, 0x20
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_f
 
     const/4 v1, 0x1
 
@@ -177,21 +177,21 @@
 
     add-int/lit8 v1, v1, -0xc
 
-    if-gt p0, v1, :cond_0
+    if-gt p0, v1, :cond_c
 
     return v1
 
-    :cond_0
+    :cond_c
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_f
     return p0
 .end method
 
 .method public static idealIntArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x4
 
@@ -206,7 +206,7 @@
 .end method
 
 .method public static idealLongArraySize(I)I
-    .locals 0
+    .registers 1
 
     mul-int/lit8 p0, p0, 0x8
 

@@ -30,13 +30,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;)V
-    .locals 2
+    .registers 5
 
     .line 53
     invoke-direct {p0}, Lopenlight/co/camera/managers/controls/ControlManager;-><init>()V
@@ -71,7 +71,7 @@
     .line 57
     iget-object p2, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_2a
 
     const p2, 0x7f0b0063
 
@@ -87,10 +87,10 @@
     iput-object p1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
 
     .line 61
-    :cond_0
+    :cond_2a
     iget-object p1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_35
 
     .line 62
     iget-object p1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mImageFragmentView:Landroid/view/ViewGroup;
@@ -99,12 +99,12 @@
 
     invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
-    :cond_1
+    :cond_35
     return-void
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/view/statusbar/StatusBar;)Lopenlight/co/camera/view/statusbar/StatusAdapter;
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusAdapter:Lopenlight/co/camera/view/statusbar/StatusAdapter;
@@ -113,7 +113,7 @@
 .end method
 
 .method public static synthetic lambda$initChildView$0(Lopenlight/co/camera/view/statusbar/StatusBar;ILjava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 84
     invoke-virtual {p0, p2}, Lopenlight/co/camera/view/statusbar/StatusBar;->onOpenOptionSetting(Ljava/lang/String;)V
@@ -122,7 +122,7 @@
 .end method
 
 .method private updateInitialOrientation()V
-    .locals 1
+    .registers 2
 
     .line 177
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -144,7 +144,7 @@
 .end method
 
 .method private updateListRotation(I)V
-    .locals 3
+    .registers 5
 
     .line 182
     new-instance v0, Ljava/util/ArrayList;
@@ -154,14 +154,14 @@
     const/4 v1, 0x0
 
     .line 183
-    :goto_0
+    :goto_6
     iget-object v2, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
 
     invoke-virtual {v2}, Landroid/support/v7/widget/LinearLayoutManager;->getChildCount()I
 
     move-result v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_1a
 
     .line 184
     iget-object v2, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
@@ -174,9 +174,9 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_6
 
-    :cond_0
+    :cond_1a
     const/16 p0, 0xa
 
     .line 186
@@ -188,7 +188,7 @@
 
 # virtual methods
 .method public addViewToFragment()V
-    .locals 3
+    .registers 4
 
     .line 68
     new-instance v0, Landroid/support/constraint/ConstraintLayout$LayoutParams;
@@ -226,12 +226,12 @@
 .end method
 
 .method public closeAll()V
-    .locals 2
+    .registers 3
 
     .line 130
     iget-object v0, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mImageFragmentView:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_20
 
     .line 131
     invoke-static {}, Lopenlight/co/camera/view/rotate/OrientationsController;->get()Lopenlight/co/camera/view/rotate/OrientationsController;
@@ -263,24 +263,24 @@
     .line 134
     iput-object v0, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
 
-    :cond_0
+    :cond_20
     return-void
 .end method
 
 .method public disableStatusBar()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 99
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/LinearLayoutManager;->getChildCount()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_23
 
     .line 100
     iget-object v1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusAdapter:Lopenlight/co/camera/view/statusbar/StatusAdapter;
@@ -309,26 +309,26 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_23
     return-void
 .end method
 
 .method public enableStatusBar()V
-    .locals 3
+    .registers 4
 
     const/4 v0, 0x0
 
     .line 108
-    :goto_0
+    :goto_1
     iget-object v1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mLayoutManager:Landroid/support/v7/widget/LinearLayoutManager;
 
     invoke-virtual {v1}, Landroid/support/v7/widget/LinearLayoutManager;->getChildCount()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_22
 
     .line 109
     iget-object v1, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusAdapter:Lopenlight/co/camera/view/statusbar/StatusAdapter;
@@ -357,14 +357,14 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_22
     return-void
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 151
     const-class p0, Lopenlight/co/camera/view/statusbar/StatusBar;
@@ -377,7 +377,7 @@
 .end method
 
 .method public initChildView()V
-    .locals 3
+    .registers 4
 
     .line 79
     iget-object v0, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
@@ -452,13 +452,13 @@
 .end method
 
 .method public onOpenOptionSetting(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 0
+    .registers 2
 
     .line 145
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -472,7 +472,7 @@
 .end method
 
 .method public openLayoutAnimation()V
-    .locals 4
+    .registers 5
 
     .line 117
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
@@ -506,27 +506,27 @@
 .end method
 
 .method public removeModeSelection()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public setVisibility(Z)V
-    .locals 0
+    .registers 2
 
     .line 140
     iget-object p0, p0, Lopenlight/co/camera/view/statusbar/StatusBar;->mStatusBarView:Landroid/view/View;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6
 
     const/4 p1, 0x0
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_0
+    :cond_6
     const/16 p1, 0x8
 
-    :goto_0
+    :goto_8
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
     return-void

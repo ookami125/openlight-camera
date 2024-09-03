@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/TextInputLayout;)V
-    .locals 0
+    .registers 2
 
     .line 364
     iput-object p1, p0, Landroid/support/design/widget/TextInputLayout$1;->this$0:Landroid/support/design/widget/TextInputLayout;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 2
+    .registers 4
 
     .line 367
     iget-object v0, p0, Landroid/support/design/widget/TextInputLayout$1;->this$0:Landroid/support/design/widget/TextInputLayout;
 
     iget-object v1, p0, Landroid/support/design/widget/TextInputLayout$1;->this$0:Landroid/support/design/widget/TextInputLayout;
 
+    # getter for: Landroid/support/design/widget/TextInputLayout;->mRestoringSavedState:Z
     invoke-static {v1}, Landroid/support/design/widget/TextInputLayout;->access$000(Landroid/support/design/widget/TextInputLayout;)Z
 
     move-result v1
@@ -56,7 +57,7 @@
 
     iget-boolean v0, v0, Landroid/support/design/widget/TextInputLayout;->mCounterEnabled:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 369
     iget-object p0, p0, Landroid/support/design/widget/TextInputLayout$1;->this$0:Landroid/support/design/widget/TextInputLayout;
@@ -67,18 +68,18 @@
 
     invoke-virtual {p0, p1}, Landroid/support/design/widget/TextInputLayout;->updateCounter(I)V
 
-    :cond_0
+    :cond_1c
     return-void
 .end method
 
 .method public beforeTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
 
     return-void
 .end method
 
 .method public onTextChanged(Ljava/lang/CharSequence;III)V
-    .locals 0
+    .registers 5
 
     return-void
 .end method

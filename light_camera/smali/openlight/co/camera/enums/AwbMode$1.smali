@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;ILjava/lang/String;IIII)V
-    .locals 9
+    .registers 17
 
     const/4 v8, 0x0
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public isAuto()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

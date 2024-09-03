@@ -20,7 +20,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -31,7 +31,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v4/util/ObjectsCompat$1;)V
-    .locals 0
+    .registers 2
 
     .line 68
     invoke-direct {p0}, Landroid/support/v4/util/ObjectsCompat$ImplApi19;-><init>()V
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
+    .registers 3
 
     .line 71
     invoke-static {p1, p2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z

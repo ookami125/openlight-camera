@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/managers/video/VideoManager;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onError(Landroid/media/MediaRecorder;II)V
-    .locals 0
+    .registers 4
 
     iget-object p0, p0, Lopenlight/co/camera/managers/video/-$$Lambda$VideoManager$XBoP-L7mnQc1H1xbdEP1wbXCVak;->f$0:Lopenlight/co/camera/managers/video/VideoManager;
 

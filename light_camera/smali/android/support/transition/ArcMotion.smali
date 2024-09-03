@@ -27,7 +27,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-wide v0, 0x4041800000000000L    # 35.0
 
@@ -48,7 +48,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 63
     invoke-direct {p0}, Landroid/support/transition/PathMotion;-><init>()V
@@ -81,7 +81,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 4
+    .registers 7
 
     .line 67
     invoke-direct {p0, p1, p2}, Landroid/support/transition/PathMotion;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -163,19 +163,19 @@
 .end method
 
 .method private static toTangent(F)F
-    .locals 2
+    .registers 3
 
     const/4 v0, 0x0
 
     cmpg-float v0, p0, v0
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_19
 
     const/high16 v0, 0x42b40000    # 90.0f
 
     cmpl-float v0, p0, v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_19
 
     const/high16 v0, 0x40000000    # 2.0f
 
@@ -197,7 +197,7 @@
     return p0
 
     .line 174
-    :cond_0
+    :cond_19
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "Arc must be between 0 and 90 degrees"
@@ -210,7 +210,7 @@
 
 # virtual methods
 .method public getMaximumAngle()F
-    .locals 0
+    .registers 1
 
     .line 169
     iget p0, p0, Landroid/support/transition/ArcMotion;->mMaximumAngle:F
@@ -219,7 +219,7 @@
 .end method
 
 .method public getMinimumHorizontalAngle()F
-    .locals 0
+    .registers 1
 
     .line 111
     iget p0, p0, Landroid/support/transition/ArcMotion;->mMinimumHorizontalAngle:F
@@ -228,7 +228,7 @@
 .end method
 
 .method public getMinimumVerticalAngle()F
-    .locals 0
+    .registers 1
 
     .line 142
     iget p0, p0, Landroid/support/transition/ArcMotion;->mMinimumVerticalAngle:F
@@ -237,7 +237,7 @@
 .end method
 
 .method public getPath(FFFF)Landroid/graphics/Path;
-    .locals 11
+    .registers 16
 
     .line 197
     new-instance v7, Landroid/graphics/Path;
@@ -273,17 +273,17 @@
 
     cmpl-float v8, p2, p4
 
-    if-lez v8, :cond_0
+    if-lez v8, :cond_22
 
     const/4 v8, 0x1
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_0
+    :cond_22
     const/4 v8, 0x0
 
     .line 219
-    :goto_0
+    :goto_23
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
     move-result v9
@@ -294,7 +294,7 @@
 
     cmpg-float v9, v9, v10
 
-    if-gez v9, :cond_2
+    if-gez v9, :cond_45
 
     mul-float/2addr v1, v4
 
@@ -305,7 +305,7 @@
 
     move-result v0
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_3b
 
     add-float/2addr v0, p4
 
@@ -313,9 +313,9 @@
 
     move v0, p3
 
-    goto :goto_1
+    goto :goto_3e
 
-    :cond_1
+    :cond_3b
     add-float/2addr v0, p2
 
     move v1, v0
@@ -323,7 +323,7 @@
     move v0, p1
 
     .line 234
-    :goto_1
+    :goto_3e
     iget v2, p0, Landroid/support/transition/ArcMotion;->mMinimumVerticalTangent:F
 
     mul-float/2addr v2, v6
@@ -332,14 +332,14 @@
 
     mul-float/2addr v2, v8
 
-    goto :goto_3
+    goto :goto_56
 
-    :cond_2
+    :cond_45
     mul-float/2addr v0, v4
 
     div-float/2addr v2, v0
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_4d
 
     add-float/2addr v2, p1
 
@@ -347,15 +347,15 @@
 
     move v0, v2
 
-    goto :goto_2
+    goto :goto_50
 
-    :cond_3
+    :cond_4d
     sub-float v0, p3, v2
 
     move v1, p4
 
     .line 247
-    :goto_2
+    :goto_50
     iget v2, p0, Landroid/support/transition/ArcMotion;->mMinimumHorizontalTangent:F
 
     mul-float/2addr v2, v6
@@ -364,7 +364,7 @@
 
     mul-float/2addr v2, v8
 
-    :goto_3
+    :goto_56
     sub-float v8, v3, v0
 
     sub-float v9, v5, v1
@@ -388,26 +388,26 @@
 
     const/4 v9, 0x0
 
-    if-gez v6, :cond_4
+    if-gez v6, :cond_6a
 
     move p0, v2
 
-    goto :goto_4
+    goto :goto_70
 
-    :cond_4
+    :cond_6a
     cmpl-float v2, v8, p0
 
-    if-lez v2, :cond_5
+    if-lez v2, :cond_6f
 
-    goto :goto_4
+    goto :goto_70
 
-    :cond_5
+    :cond_6f
     move p0, v9
 
-    :goto_4
+    :goto_70
     cmpl-float v2, p0, v9
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_82
 
     div-float/2addr p0, v8
 
@@ -432,7 +432,7 @@
 
     add-float v1, v5, p0
 
-    :cond_6
+    :cond_82
     add-float/2addr p1, v0
 
     div-float p0, p1, v4
@@ -464,7 +464,7 @@
 .end method
 
 .method public setMaximumAngle(F)V
-    .locals 0
+    .registers 2
 
     .line 155
     iput p1, p0, Landroid/support/transition/ArcMotion;->mMaximumAngle:F
@@ -480,7 +480,7 @@
 .end method
 
 .method public setMinimumHorizontalAngle(F)V
-    .locals 0
+    .registers 2
 
     .line 96
     iput p1, p0, Landroid/support/transition/ArcMotion;->mMinimumHorizontalAngle:F
@@ -496,7 +496,7 @@
 .end method
 
 .method public setMinimumVerticalAngle(F)V
-    .locals 0
+    .registers 2
 
     .line 126
     iput p1, p0, Landroid/support/transition/ArcMotion;->mMinimumVerticalAngle:F

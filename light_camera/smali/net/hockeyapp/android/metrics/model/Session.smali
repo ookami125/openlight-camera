@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,13 +31,13 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public addToHashMap(Ljava/util/Map;)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,7 +51,7 @@
     .line 85
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Session;->id:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     const-string v0, "ai.session.id"
 
@@ -61,10 +61,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 88
-    :cond_0
+    :cond_b
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Session;->isFirst:Ljava/lang/String;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_16
 
     const-string v0, "ai.session.isFirst"
 
@@ -74,10 +74,10 @@
     invoke-interface {p1, v0, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 91
-    :cond_1
+    :cond_16
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/Session;->isNew:Ljava/lang/String;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_21
 
     const-string v0, "ai.session.isNew"
 
@@ -86,12 +86,12 @@
 
     invoke-interface {p1, v0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
+    :cond_21
     return-void
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 40
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Session;->id:Ljava/lang/String;
@@ -100,7 +100,7 @@
 .end method
 
 .method public getIsFirst()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 54
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Session;->isFirst:Ljava/lang/String;
@@ -109,7 +109,7 @@
 .end method
 
 .method public getIsNew()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 68
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/Session;->isNew:Ljava/lang/String;
@@ -118,14 +118,14 @@
 .end method
 
 .method public serialize(Ljava/io/Writer;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
         }
     .end annotation
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_10
 
     const/16 v0, 0x7b
 
@@ -143,7 +143,7 @@
     return-void
 
     .line 105
-    :cond_0
+    :cond_10
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "writer"
@@ -154,7 +154,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -166,7 +166,7 @@
     .line 120
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Session;->id:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_25
 
     .line 121
     new-instance v1, Ljava/lang/StringBuilder;
@@ -197,10 +197,10 @@
     const-string v0, ","
 
     .line 126
-    :cond_0
+    :cond_25
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Session;->isFirst:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_48
 
     .line 127
     new-instance v1, Ljava/lang/StringBuilder;
@@ -231,10 +231,10 @@
     const-string v0, ","
 
     .line 132
-    :cond_1
+    :cond_48
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/Session;->isNew:Ljava/lang/String;
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_6b
 
     .line 133
     new-instance v1, Ljava/lang/StringBuilder;
@@ -264,12 +264,12 @@
 
     const-string v0, ","
 
-    :cond_2
+    :cond_6b
     return-object v0
 .end method
 
 .method public setId(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 47
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Session;->id:Ljava/lang/String;
@@ -278,7 +278,7 @@
 .end method
 
 .method public setIsFirst(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 61
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Session;->isFirst:Ljava/lang/String;
@@ -287,7 +287,7 @@
 .end method
 
 .method public setIsNew(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 75
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/Session;->isNew:Ljava/lang/String;

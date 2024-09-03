@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,7 +19,7 @@
 .end method
 
 .method public getFeedbackActivityClass()Ljava/lang/Class;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -37,7 +37,7 @@
 .end method
 
 .method public shouldCreateNewFeedbackThread()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 

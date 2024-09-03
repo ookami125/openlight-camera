@@ -16,7 +16,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11057
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,19 +27,19 @@
 
 # virtual methods
 .method public onChanged()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public onItemRangeChanged(II)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onItemRangeChanged(IILjava/lang/Object;)V
-    .locals 0
+    .registers 4
 
     .line 11069
     invoke-virtual {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$AdapterDataObserver;->onItemRangeChanged(II)V
@@ -48,19 +48,19 @@
 .end method
 
 .method public onItemRangeInserted(II)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public onItemRangeMoved(III)V
-    .locals 0
+    .registers 4
 
     return-void
 .end method
 
 .method public onItemRangeRemoved(II)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method

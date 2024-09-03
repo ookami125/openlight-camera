@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/app/ActivityOptions;)V
-    .locals 0
+    .registers 2
 
     .line 255
     invoke-direct {p0}, Landroid/support/v4/app/ActivityOptionsCompat;-><init>()V
@@ -38,7 +38,7 @@
 
 # virtual methods
 .method public toBundle()Landroid/os/Bundle;
-    .locals 0
+    .registers 1
 
     .line 261
     iget-object p0, p0, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi16Impl;->mActivityOptions:Landroid/app/ActivityOptions;
@@ -51,12 +51,12 @@
 .end method
 
 .method public update(Landroid/support/v4/app/ActivityOptionsCompat;)V
-    .locals 1
+    .registers 3
 
     .line 266
     instance-of v0, p1, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi16Impl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_d
 
     .line 267
     check-cast p1, Landroid/support/v4/app/ActivityOptionsCompat$ActivityOptionsCompatApi16Impl;
@@ -68,6 +68,6 @@
 
     invoke-virtual {p0, p1}, Landroid/app/ActivityOptions;->update(Landroid/app/ActivityOptions;)V
 
-    :cond_0
+    :cond_d
     return-void
 .end method

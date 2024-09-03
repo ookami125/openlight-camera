@@ -11,7 +11,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 22
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,7 +20,7 @@
 .end method
 
 .method public static setRatingType(Ljava/lang/Object;I)V
-    .locals 0
+    .registers 2
 
     .line 25
     check-cast p0, Landroid/media/session/MediaSession;

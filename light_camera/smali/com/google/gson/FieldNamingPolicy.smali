@@ -33,7 +33,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .registers 7
 
     .line 37
     new-instance v0, Lcom/google/gson/FieldNamingPolicy$1;
@@ -121,7 +121,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -135,7 +135,7 @@
 .end method
 
 .method synthetic constructor <init>(Ljava/lang/String;ILcom/google/gson/FieldNamingPolicy$1;)V
-    .locals 0
+    .registers 4
 
     .line 31
     invoke-direct {p0, p1, p2}, Lcom/google/gson/FieldNamingPolicy;-><init>(Ljava/lang/String;I)V
@@ -144,14 +144,14 @@
 .end method
 
 .method private static modifyString(CLjava/lang/String;I)Ljava/lang/String;
-    .locals 1
+    .registers 4
 
     .line 162
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v0
 
-    if-ge p2, v0, :cond_0
+    if-ge p2, v0, :cond_1a
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -170,20 +170,20 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_1e
 
     .line 164
-    :cond_0
+    :cond_1a
     invoke-static {p0}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
 
     move-result-object p0
 
-    :goto_0
+    :goto_1e
     return-object p0
 .end method
 
 .method static separateCamelCase(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 7
 
     .line 124
     new-instance v0, Ljava/lang/StringBuilder;
@@ -197,8 +197,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v1, :cond_1
+    :goto_a
+    if-ge v2, v1, :cond_25
 
     .line 126
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
@@ -210,27 +210,27 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1f
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1f
 
     .line 128
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     .line 130
-    :cond_0
+    :cond_1f
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_a
 
     .line 132
-    :cond_1
+    :cond_25
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -239,7 +239,7 @@
 .end method
 
 .method static upperCaseFirstLetter(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .registers 6
 
     .line 139
     new-instance v0, Ljava/lang/StringBuilder;
@@ -258,22 +258,22 @@
 
     move-result v3
 
-    :goto_0
+    :goto_e
     add-int/lit8 v4, v3, -0x1
 
-    if-ge v1, v4, :cond_1
+    if-ge v1, v4, :cond_23
 
     .line 145
     invoke-static {v2}, Ljava/lang/Character;->isLetter(C)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_19
 
-    goto :goto_1
+    goto :goto_23
 
     .line 149
-    :cond_0
+    :cond_19
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     add-int/lit8 v1, v1, 0x1
@@ -283,16 +283,16 @@
 
     move-result v2
 
-    goto :goto_0
+    goto :goto_e
 
     .line 153
-    :cond_1
-    :goto_1
+    :cond_23
+    :goto_23
     invoke-static {v2}, Ljava/lang/Character;->isUpperCase(C)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_3b
 
     .line 154
     invoke-static {v2}, Ljava/lang/Character;->toUpperCase(C)C
@@ -314,12 +314,12 @@
 
     return-object p0
 
-    :cond_2
+    :cond_3b
     return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/google/gson/FieldNamingPolicy;
-    .locals 1
+    .registers 2
 
     .line 31
     const-class v0, Lcom/google/gson/FieldNamingPolicy;
@@ -334,7 +334,7 @@
 .end method
 
 .method public static values()[Lcom/google/gson/FieldNamingPolicy;
-    .locals 1
+    .registers 1
 
     .line 31
     sget-object v0, Lcom/google/gson/FieldNamingPolicy;->$VALUES:[Lcom/google/gson/FieldNamingPolicy;

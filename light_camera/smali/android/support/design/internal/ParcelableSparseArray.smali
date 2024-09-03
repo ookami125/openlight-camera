@@ -37,7 +37,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 66
     new-instance v0, Landroid/support/design/internal/ParcelableSparseArray$1;
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 33
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V
@@ -59,7 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 4
+    .registers 7
 
     .line 37
     invoke-direct {p0}, Landroid/util/SparseArray;-><init>()V
@@ -82,8 +82,8 @@
 
     const/4 p2, 0x0
 
-    :goto_0
-    if-ge p2, v0, :cond_0
+    :goto_11
+    if-ge p2, v0, :cond_1d
 
     .line 43
     aget v2, v1, p2
@@ -94,16 +94,16 @@
 
     add-int/lit8 p2, p2, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_1d
     return-void
 .end method
 
 
 # virtual methods
 .method public describeContents()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -111,7 +111,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 5
+    .registers 8
 
     .line 54
     invoke-virtual {p0}, Landroid/support/design/internal/ParcelableSparseArray;->size()I
@@ -126,8 +126,8 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-ge v3, v0, :cond_0
+    :goto_9
+    if-ge v3, v0, :cond_1c
 
     .line 58
     invoke-virtual {p0, v3}, Landroid/support/design/internal/ParcelableSparseArray;->keyAt(I)I
@@ -147,10 +147,10 @@
 
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 61
-    :cond_0
+    :cond_1c
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeInt(I)V
 
     .line 62

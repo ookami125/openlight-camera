@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 25
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -19,37 +19,37 @@
 
 # virtual methods
 .method public endOfFileReached()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public fileNotFound()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public fileRotated()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public handle(Ljava/lang/Exception;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public handle(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public init(Lorg/apache/commons/io/input/Tailer;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

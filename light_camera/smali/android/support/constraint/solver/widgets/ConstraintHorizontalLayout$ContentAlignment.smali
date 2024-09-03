@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 27
     new-instance v0, Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout$ContentAlignment;
@@ -170,7 +170,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -184,7 +184,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout$ContentAlignment;
-    .locals 1
+    .registers 2
 
     .line 26
     const-class v0, Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout$ContentAlignment;
@@ -199,7 +199,7 @@
 .end method
 
 .method public static values()[Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout$ContentAlignment;
-    .locals 1
+    .registers 1
 
     .line 26
     sget-object v0, Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout$ContentAlignment;->$VALUES:[Landroid/support/constraint/solver/widgets/ConstraintHorizontalLayout$ContentAlignment;

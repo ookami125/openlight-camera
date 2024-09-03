@@ -41,7 +41,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     const-string v0, "[0-9a-f]+"
 
@@ -74,7 +74,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 29
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -83,7 +83,7 @@
 .end method
 
 .method private static buildNotificationPreHoneycomb(Landroid/content/Context;Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;I)Landroid/app/Notification;
-    .locals 9
+    .registers 14
 
     .line 205
     new-instance v0, Landroid/app/Notification;
@@ -97,7 +97,7 @@
     invoke-direct {v0, p4, v1, v2, v3}, Landroid/app/Notification;-><init>(ILjava/lang/CharSequence;J)V
 
     .line 208
-    :try_start_0
+    :try_start_b
     invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p4
@@ -148,15 +148,15 @@
     aput-object p1, v1, v8
 
     invoke-virtual {p4, v0, v1}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_39
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_39} :catch_39
 
-    :catch_0
+    :catch_39
     return-object v0
 .end method
 
 .method private static buildNotificationWithBuilder(Landroid/content/Context;Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;I)Landroid/app/Notification;
-    .locals 1
+    .registers 6
     .annotation build Landroid/annotation/TargetApi;
         value = 0xb
     .end annotation
@@ -191,7 +191,7 @@
 
     const/16 p2, 0x10
 
-    if-ge p1, p2, :cond_0
+    if-ge p1, p2, :cond_20
 
     .line 226
     invoke-virtual {p0}, Landroid/app/Notification$Builder;->getNotification()Landroid/app/Notification;
@@ -201,7 +201,7 @@
     return-object p0
 
     .line 228
-    :cond_0
+    :cond_20
     invoke-virtual {p0}, Landroid/app/Notification$Builder;->build()Landroid/app/Notification;
 
     move-result-object p0
@@ -210,31 +210,31 @@
 .end method
 
 .method public static classExists(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
     .line 168
-    :try_start_0
+    :try_start_1
     invoke-static {p0}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_5
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_1 .. :try_end_5} :catch_9
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_8
     return v0
 
-    :catch_0
+    :catch_9
     return v0
 .end method
 
 .method public static convertAppIdentifierToGuid(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
@@ -246,10 +246,10 @@
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->sanitizeAppIdentifier(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_4
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_4} :catch_28
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_26
 
     .line 316
     new-instance v0, Ljava/lang/StringBuffer;
@@ -283,15 +283,15 @@
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_27
 
-    :cond_0
+    :cond_26
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_27
     return-object p0
 
-    :catch_0
+    :catch_28
     move-exception p0
 
     .line 312
@@ -299,36 +299,36 @@
 .end method
 
 .method public static createNotification(Landroid/content/Context;Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;I)Landroid/app/Notification;
-    .locals 1
+    .registers 6
 
     .line 195
     invoke-static {}, Lnet/hockeyapp/android/utils/Util;->isNotificationBuilderSupported()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 196
     invoke-static {p0, p1, p2, p3, p4}, Lnet/hockeyapp/android/utils/Util;->buildNotificationWithBuilder(Landroid/content/Context;Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;I)Landroid/app/Notification;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_f
 
     .line 198
-    :cond_0
+    :cond_b
     invoke-static {p0, p1, p2, p3, p4}, Lnet/hockeyapp/android/utils/Util;->buildNotificationPreHoneycomb(Landroid/content/Context;Landroid/app/PendingIntent;Ljava/lang/String;Ljava/lang/String;I)Landroid/app/Notification;
 
     move-result-object p0
 
-    :goto_0
+    :goto_f
     return-object p0
 .end method
 
 .method public static dateToISO8601(Ljava/util/Date;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_7
 
     .line 344
     new-instance p0, Ljava/util/Date;
@@ -336,7 +336,7 @@
     invoke-direct {p0}, Ljava/util/Date;-><init>()V
 
     .line 346
-    :cond_0
+    :cond_7
     sget-object v0, Lnet/hockeyapp/android/utils/Util;->DATE_FORMAT_THREAD_LOCAL:Ljava/lang/ThreadLocal;
 
     invoke-virtual {v0}, Ljava/lang/ThreadLocal;->get()Ljava/lang/Object;
@@ -353,7 +353,7 @@
 .end method
 
 .method public static encodeParam(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     :try_start_0
     const-string v0, "UTF-8"
@@ -362,12 +362,12 @@
     invoke-static {p0, v0}, Ljava/net/URLEncoder;->encode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_6
+    .catch Ljava/io/UnsupportedEncodingException; {:try_start_0 .. :try_end_6} :catch_7
 
     return-object p0
 
-    :catch_0
+    :catch_7
     move-exception p0
 
     .line 67
@@ -379,7 +379,7 @@
 .end method
 
 .method public static fragmentsSupported()Ljava/lang/Boolean;
-    .locals 3
+    .registers 3
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "NewApi"
@@ -389,12 +389,12 @@
     const/4 v0, 0x0
 
     .line 90
-    :try_start_0
+    :try_start_1
     sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v2, 0xb
 
-    if-lt v1, v2, :cond_0
+    if-lt v1, v2, :cond_11
 
     const-string v1, "android.app.Fragment"
 
@@ -402,26 +402,26 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_11
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 
-    :cond_0
+    :cond_11
     move v1, v0
 
-    :goto_0
+    :goto_12
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/NoClassDefFoundError; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_16
+    .catch Ljava/lang/NoClassDefFoundError; {:try_start_1 .. :try_end_16} :catch_17
 
     return-object v1
 
     .line 92
-    :catch_0
+    :catch_17
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -430,7 +430,7 @@
 .end method
 
 .method public static getAppIdentifier(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const-string v0, "net.hockeyapp.android.appIdentifier"
 
@@ -443,16 +443,16 @@
 .end method
 
 .method public static getAppName(Landroid/content/Context;)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     const-string p0, ""
 
     return-object p0
 
     .line 280
-    :cond_0
+    :cond_5
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v0
@@ -460,7 +460,7 @@
     const/4 v1, 0x0
 
     .line 283
-    :try_start_0
+    :try_start_a
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
 
     move-result-object v2
@@ -472,13 +472,13 @@
     invoke-virtual {v0, v2, v3}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v2
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_15
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_a .. :try_end_15} :catch_16
 
     move-object v1, v2
 
-    :catch_0
-    if-eqz v1, :cond_1
+    :catch_16
+    if-eqz v1, :cond_1f
 
     .line 286
     invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
@@ -487,9 +487,9 @@
 
     check-cast p0, Ljava/lang/String;
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
+    :cond_1f
     sget v0, Lnet/hockeyapp/android/R$string;->hockeyapp_crash_dialog_app_name_fallback:I
 
     .line 287
@@ -497,12 +497,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_25
     return-object p0
 .end method
 
 .method public static getAppSecret(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const-string v0, "net.hockeyapp.android.appSecret"
 
@@ -515,7 +515,7 @@
 .end method
 
 .method private static getBundle(Landroid/content/Context;)Landroid/os/Bundle;
-    .locals 2
+    .registers 3
 
     .line 259
     :try_start_0
@@ -534,12 +534,12 @@
     move-result-object p0
 
     iget-object p0, p0, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_10
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_10} :catch_11
 
     return-object p0
 
-    :catch_0
+    :catch_11
     move-exception p0
 
     .line 261
@@ -551,7 +551,7 @@
 .end method
 
 .method public static getFormString(Ljava/util/Map;)Ljava/lang/String;
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -583,12 +583,12 @@
 
     move-result-object v1
 
-    :goto_0
+    :goto_d
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_43
 
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -636,9 +636,9 @@
 
     invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_d
 
-    :cond_0
+    :cond_43
     const-string p0, "&"
 
     .line 157
@@ -650,7 +650,7 @@
 .end method
 
 .method public static getManifestString(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
     .line 253
     invoke-static {p0}, Lnet/hockeyapp/android/utils/Util;->getBundle(Landroid/content/Context;)Landroid/os/Bundle;
@@ -665,7 +665,7 @@
 .end method
 
 .method public static getSdkVersionFromManifest(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const-string v0, "net.hockeyapp.android.sdkVersion"
 
@@ -678,7 +678,7 @@
 .end method
 
 .method public static isConnectedToNetwork(Landroid/content/Context;)Z
-    .locals 1
+    .registers 2
 
     .line 267
     invoke-virtual {p0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
@@ -695,33 +695,33 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_1d
 
     .line 269
     invoke-virtual {p0}, Landroid/net/ConnectivityManager;->getActiveNetworkInfo()Landroid/net/NetworkInfo;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     .line 270
     invoke-virtual {p0}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1c
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_1c
     return v0
 
-    :cond_1
+    :cond_1d
     return v0
 .end method
 
 .method public static isEmulator()Z
-    .locals 2
+    .registers 2
 
     .line 332
     sget-object v0, Landroid/os/Build;->BRAND:Ljava/lang/String;
@@ -736,14 +736,14 @@
 .end method
 
 .method public static isNotificationBuilderSupported()Z
-    .locals 2
+    .registers 2
 
     .line 180
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xb
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_10
 
     const-string v0, "android.app.Notification.Builder"
 
@@ -751,28 +751,28 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_10
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_0
+    :cond_10
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_11
     return v0
 .end method
 
 .method public static final isValidEmail(Ljava/lang/String;)Z
-    .locals 1
+    .registers 2
 
     .line 79
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_14
 
     sget-object v0, Landroid/util/Patterns;->EMAIL_ADDRESS:Ljava/util/regex/Pattern;
 
@@ -784,21 +784,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_14
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_15
 
-    :cond_0
+    :cond_14
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_15
     return p0
 .end method
 
 .method public static runsOnTablet(Ljava/lang/ref/WeakReference;)Ljava/lang/Boolean;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -811,7 +811,7 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_27
 
     .line 104
     invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -820,7 +820,7 @@
 
     check-cast p0, Landroid/app/Activity;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_27
 
     .line 106
     invoke-virtual {p0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
@@ -838,7 +838,7 @@
 
     const/4 v2, 0x3
 
-    if-eq v1, v2, :cond_0
+    if-eq v1, v2, :cond_21
 
     iget p0, p0, Landroid/content/res/Configuration;->screenLayout:I
 
@@ -846,12 +846,12 @@
 
     const/4 v1, 0x4
 
-    if-ne p0, v1, :cond_1
+    if-ne p0, v1, :cond_22
 
-    :cond_0
+    :cond_21
     const/4 v0, 0x1
 
-    :cond_1
+    :cond_22
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
@@ -859,7 +859,7 @@
     return-object p0
 
     .line 113
-    :cond_2
+    :cond_27
     invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
@@ -868,14 +868,14 @@
 .end method
 
 .method public static sanitizeAppIdentifier(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_2b
 
     .line 129
     invoke-virtual {p0}, Ljava/lang/String;->trim()Ljava/lang/String;
@@ -896,19 +896,19 @@
 
     const/16 v2, 0x20
 
-    if-ne v1, v2, :cond_1
+    if-ne v1, v2, :cond_23
 
     .line 135
     invoke-virtual {v0}, Ljava/util/regex/Matcher;->matches()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     return-object p0
 
     .line 136
-    :cond_0
+    :cond_1b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "App ID must match regex pattern /[0-9a-f]+/i"
@@ -918,7 +918,7 @@
     throw p0
 
     .line 134
-    :cond_1
+    :cond_23
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "App ID length must be 32 characters."
@@ -928,7 +928,7 @@
     throw p0
 
     .line 126
-    :cond_2
+    :cond_2b
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "App ID must not be null."
@@ -939,22 +939,22 @@
 .end method
 
 .method public static sessionTrackingSupported()Z
-    .locals 2
+    .registers 2
 
     .line 355
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0xe
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_8
 
     const/4 v0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 v0, 0x0
 
-    :goto_0
+    :goto_9
     return v0
 .end method

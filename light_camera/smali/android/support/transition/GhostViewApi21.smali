@@ -47,7 +47,7 @@
 
 # direct methods
 .method private constructor <init>(Landroid/view/View;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/view/View;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -63,7 +63,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/view/View;Landroid/support/transition/GhostViewApi21$1;)V
-    .locals 0
+    .registers 3
 
     .line 30
     invoke-direct {p0, p1}, Landroid/support/transition/GhostViewApi21;-><init>(Landroid/view/View;)V
@@ -72,7 +72,7 @@
 .end method
 
 .method static synthetic access$000()V
-    .locals 0
+    .registers 0
 
     .line 30
     invoke-static {}, Landroid/support/transition/GhostViewApi21;->fetchAddGhostMethod()V
@@ -81,7 +81,7 @@
 .end method
 
 .method static synthetic access$100()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 1
 
     .line 30
     sget-object v0, Landroid/support/transition/GhostViewApi21;->sAddGhostMethod:Ljava/lang/reflect/Method;
@@ -90,7 +90,7 @@
 .end method
 
 .method static synthetic access$300()V
-    .locals 0
+    .registers 0
 
     .line 30
     invoke-static {}, Landroid/support/transition/GhostViewApi21;->fetchRemoveGhostMethod()V
@@ -99,7 +99,7 @@
 .end method
 
 .method static synthetic access$400()Ljava/lang/reflect/Method;
-    .locals 1
+    .registers 1
 
     .line 30
     sget-object v0, Landroid/support/transition/GhostViewApi21;->sRemoveGhostMethod:Ljava/lang/reflect/Method;
@@ -108,17 +108,17 @@
 .end method
 
 .method private static fetchAddGhostMethod()V
-    .locals 6
+    .registers 6
 
     .line 104
     sget-boolean v0, Landroid/support/transition/GhostViewApi21;->sAddGhostMethodFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_33
 
     const/4 v0, 0x1
 
     .line 106
-    :try_start_0
+    :try_start_5
     invoke-static {}, Landroid/support/transition/GhostViewApi21;->fetchGhostViewClass()V
 
     .line 107
@@ -156,12 +156,12 @@
     sget-object v1, Landroid/support/transition/GhostViewApi21;->sAddGhostMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_28} :catch_29
 
-    goto :goto_0
+    goto :goto_31
 
-    :catch_0
+    :catch_29
     move-exception v1
 
     const-string v2, "GhostViewApi21"
@@ -172,22 +172,22 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 113
-    :goto_0
+    :goto_31
     sput-boolean v0, Landroid/support/transition/GhostViewApi21;->sAddGhostMethodFetched:Z
 
-    :cond_0
+    :cond_33
     return-void
 .end method
 
 .method private static fetchGhostViewClass()V
-    .locals 3
+    .registers 3
 
     .line 93
     sget-boolean v0, Landroid/support/transition/GhostViewApi21;->sGhostViewClassFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
-    :try_start_0
+    :try_start_4
     const-string v0, "android.view.GhostView"
 
     .line 95
@@ -196,12 +196,12 @@
     move-result-object v0
 
     sput-object v0, Landroid/support/transition/GhostViewApi21;->sGhostViewClass:Ljava/lang/Class;
-    :try_end_0
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_c
+    .catch Ljava/lang/ClassNotFoundException; {:try_start_4 .. :try_end_c} :catch_d
 
-    goto :goto_0
+    goto :goto_15
 
-    :catch_0
+    :catch_d
     move-exception v0
 
     const-string v1, "GhostViewApi21"
@@ -211,28 +211,28 @@
     .line 97
     invoke-static {v1, v2, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_0
+    :goto_15
     const/4 v0, 0x1
 
     .line 99
     sput-boolean v0, Landroid/support/transition/GhostViewApi21;->sGhostViewClassFetched:Z
 
-    :cond_0
+    :cond_18
     return-void
 .end method
 
 .method private static fetchRemoveGhostMethod()V
-    .locals 6
+    .registers 6
 
     .line 118
     sget-boolean v0, Landroid/support/transition/GhostViewApi21;->sRemoveGhostMethodFetched:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_29
 
     const/4 v0, 0x1
 
     .line 120
-    :try_start_0
+    :try_start_5
     invoke-static {}, Landroid/support/transition/GhostViewApi21;->fetchGhostViewClass()V
 
     .line 121
@@ -258,12 +258,12 @@
     sget-object v1, Landroid/support/transition/GhostViewApi21;->sRemoveGhostMethod:Ljava/lang/reflect/Method;
 
     invoke-virtual {v1, v0}, Ljava/lang/reflect/Method;->setAccessible(Z)V
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/NoSuchMethodException; {:try_start_5 .. :try_end_1e} :catch_1f
 
-    goto :goto_0
+    goto :goto_27
 
-    :catch_0
+    :catch_1f
     move-exception v1
 
     const-string v2, "GhostViewApi21"
@@ -274,23 +274,23 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     .line 126
-    :goto_0
+    :goto_27
     sput-boolean v0, Landroid/support/transition/GhostViewApi21;->sRemoveGhostMethodFetched:Z
 
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 
 # virtual methods
 .method public reserveEndViewTransition(Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public setVisibility(I)V
-    .locals 0
+    .registers 2
 
     .line 84
     iget-object p0, p0, Landroid/support/transition/GhostViewApi21;->mGhostView:Landroid/view/View;

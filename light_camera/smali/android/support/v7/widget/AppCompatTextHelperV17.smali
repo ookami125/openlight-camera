@@ -17,7 +17,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/widget/TextView;)V
-    .locals 0
+    .registers 2
 
     .line 33
     invoke-direct {p0, p1}, Landroid/support/v7/widget/AppCompatTextHelper;-><init>(Landroid/widget/TextView;)V
@@ -28,7 +28,7 @@
 
 # virtual methods
 .method applyCompoundDrawablesTints()V
-    .locals 3
+    .registers 4
 
     .line 58
     invoke-super {p0}, Landroid/support/v7/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
@@ -36,14 +36,14 @@
     .line 60
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelperV17;->mDrawableStartTint:Landroid/support/v7/widget/TintInfo;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelperV17;->mDrawableEndTint:Landroid/support/v7/widget/TintInfo;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_21
 
     .line 61
-    :cond_0
+    :cond_b
     iget-object v0, p0, Landroid/support/v7/widget/AppCompatTextHelperV17;->mView:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getCompoundDrawablesRelative()[Landroid/graphics/drawable/Drawable;
@@ -68,12 +68,12 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/support/v7/widget/AppCompatTextHelperV17;->applyCompoundDrawableTint(Landroid/graphics/drawable/Drawable;Landroid/support/v7/widget/TintInfo;)V
 
-    :cond_1
+    :cond_21
     return-void
 .end method
 
 .method loadFromAttributes(Landroid/util/AttributeSet;I)V
-    .locals 4
+    .registers 7
 
     .line 38
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
@@ -106,7 +106,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_28
 
     .line 46
     sget p2, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableStart:I
@@ -124,14 +124,14 @@
     iput-object p2, p0, Landroid/support/v7/widget/AppCompatTextHelperV17;->mDrawableStartTint:Landroid/support/v7/widget/TintInfo;
 
     .line 49
-    :cond_0
+    :cond_28
     sget p2, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableEnd:I
 
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3c
 
     .line 50
     sget p2, Landroid/support/v7/appcompat/R$styleable;->AppCompatTextHelper_android_drawableEnd:I
@@ -149,7 +149,7 @@
     iput-object p2, p0, Landroid/support/v7/widget/AppCompatTextHelperV17;->mDrawableEndTint:Landroid/support/v7/widget/TintInfo;
 
     .line 53
-    :cond_1
+    :cond_3c
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void

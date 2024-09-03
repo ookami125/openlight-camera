@@ -36,7 +36,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 6
+    .registers 6
 
     .line 55
     new-instance v0, Lopenlight/co/camera/managers/video/VideoManager$ErrorType;
@@ -109,7 +109,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -123,7 +123,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lopenlight/co/camera/managers/video/VideoManager$ErrorType;
-    .locals 1
+    .registers 2
 
     .line 54
     const-class v0, Lopenlight/co/camera/managers/video/VideoManager$ErrorType;
@@ -138,7 +138,7 @@
 .end method
 
 .method public static values()[Lopenlight/co/camera/managers/video/VideoManager$ErrorType;
-    .locals 1
+    .registers 1
 
     .line 54
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$ErrorType;->$VALUES:[Lopenlight/co/camera/managers/video/VideoManager$ErrorType;

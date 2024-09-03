@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -52,7 +52,7 @@
 
 # virtual methods
 .method public getIsDMCMonitoring(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     const-string p0, "AgentSettings"
 
@@ -76,7 +76,7 @@
 .end method
 
 .method public getIsMonitoring(Landroid/content/Context;)Ljava/lang/String;
-    .locals 1
+    .registers 3
 
     const-string p0, "AgentSettings"
 
@@ -100,7 +100,7 @@
 .end method
 
 .method public updateIsDMCMonitoring(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     const-string p0, "AgentSettings"
 
@@ -128,7 +128,7 @@
 .end method
 
 .method public updateIsMonitoring(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 1
+    .registers 4
 
     const-string p0, "AgentSettings"
 

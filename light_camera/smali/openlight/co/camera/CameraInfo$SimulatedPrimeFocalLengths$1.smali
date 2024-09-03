@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;II)V
-    .locals 1
+    .registers 5
 
     const/4 v0, 0x0
 
@@ -29,7 +29,7 @@
 
 # virtual methods
 .method public isDefault(Lopenlight/co/camera/CameraMode;)Z
-    .locals 0
+    .registers 2
 
     .line 52
     invoke-virtual {p1}, Lopenlight/co/camera/CameraMode;->isVideo()Z

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/SnackbarManager;)V
-    .locals 0
+    .registers 2
 
     .line 52
     iput-object p1, p0, Landroid/support/design/widget/SnackbarManager$1;->this$0:Landroid/support/design/widget/SnackbarManager;
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 1
+    .registers 3
 
     .line 55
     iget v0, p1, Landroid/os/Message;->what:I
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_6
 
     const/4 p0, 0x0
 
     return p0
 
     .line 57
-    :cond_0
+    :cond_6
     iget-object p0, p0, Landroid/support/design/widget/SnackbarManager$1;->this$0:Landroid/support/design/widget/SnackbarManager;
 
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;

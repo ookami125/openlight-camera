@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;)V
-    .locals 0
+    .registers 2
 
     .line 1009
     iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
@@ -36,19 +36,19 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 1013
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     iget v0, v0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mState:I
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
     return-void
 
     .line 1016
-    :cond_0
+    :cond_7
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     const/4 v1, 0x2
@@ -58,19 +58,19 @@
     .line 1018
     sget-boolean v0, Landroid/support/v4/media/MediaBrowserCompat;->DEBUG:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_32
 
     .line 1019
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     iget-object v0, v0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mServiceConnection:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$MediaServiceConnection;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_17
 
-    goto :goto_0
+    goto :goto_32
 
     .line 1020
-    :cond_1
+    :cond_17
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -96,20 +96,20 @@
     throw v0
 
     .line 1024
-    :cond_2
-    :goto_0
+    :cond_32
+    :goto_32
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     iget-object v0, v0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mServiceBinderWrapper:Landroid/support/v4/media/MediaBrowserCompat$ServiceBinderWrapper;
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_bb
 
     .line 1028
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     iget-object v0, v0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mCallbacksMessenger:Landroid/os/Messenger;
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_a0
 
     .line 1033
     new-instance v0, Landroid/content/Intent;
@@ -139,7 +139,7 @@
     const/4 v1, 0x0
 
     .line 1039
-    :try_start_0
+    :try_start_58
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
 
     iget-object v2, v2, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mContext:Landroid/content/Context;
@@ -153,12 +153,12 @@
     invoke-virtual {v2, v0, v3, v4}, Landroid/content/Context;->bindService(Landroid/content/Intent;Landroid/content/ServiceConnection;I)Z
 
     move-result v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_65
+    .catch Ljava/lang/Exception; {:try_start_58 .. :try_end_65} :catch_66
 
-    goto :goto_1
+    goto :goto_81
 
-    :catch_0
+    :catch_66
     const-string v0, "MediaBrowserCompat"
 
     .line 1042
@@ -184,8 +184,8 @@
 
     move v0, v1
 
-    :goto_1
-    if-nez v0, :cond_3
+    :goto_81
+    if-nez v0, :cond_8f
 
     .line 1047
     iget-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase$1;->this$0:Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;
@@ -200,10 +200,10 @@
     invoke-virtual {v0}, Landroid/support/v4/media/MediaBrowserCompat$ConnectionCallback;->onConnectionFailed()V
 
     .line 1051
-    :cond_3
+    :cond_8f
     sget-boolean v0, Landroid/support/v4/media/MediaBrowserCompat;->DEBUG:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_9f
 
     const-string v0, "MediaBrowserCompat"
 
@@ -217,11 +217,11 @@
 
     invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->dump()V
 
-    :cond_4
+    :cond_9f
     return-void
 
     .line 1029
-    :cond_5
+    :cond_a0
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -247,7 +247,7 @@
     throw v0
 
     .line 1025
-    :cond_6
+    :cond_bb
     new-instance v0, Ljava/lang/RuntimeException;
 
     new-instance v1, Ljava/lang/StringBuilder;

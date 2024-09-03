@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>([Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;)V
-    .locals 0
+    .registers 2
     .param p1    # [Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -44,7 +44,7 @@
 
 # virtual methods
 .method public getEntries()[Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 

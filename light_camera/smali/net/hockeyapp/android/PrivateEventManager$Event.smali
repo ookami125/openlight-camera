@@ -20,7 +20,7 @@
 
 # direct methods
 .method protected constructor <init>(I)V
-    .locals 0
+    .registers 2
 
     .line 32
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public getType()I
-    .locals 0
+    .registers 1
 
     .line 37
     iget p0, p0, Lnet/hockeyapp/android/PrivateEventManager$Event;->mType:I

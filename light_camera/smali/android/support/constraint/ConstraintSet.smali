@@ -202,14 +202,14 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     const/4 v0, 0x3
 
     .line 191
     new-array v1, v0, [I
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_240
 
     sput-object v1, Landroid/support/constraint/ConstraintSet;->VISIBILITY_FLAGS:[I
 
@@ -788,7 +788,7 @@
 
     return-void
 
-    :array_0
+    :array_240
     .array-data 4
         0x0
         0x4
@@ -797,7 +797,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 55
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -813,7 +813,7 @@
 .end method
 
 .method private createHorizontalChain(IIII[I[FIII)V
-    .locals 12
+    .registers 22
 
     move-object v6, p0
 
@@ -826,21 +826,21 @@
 
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_5
+    if-lt v0, v1, :cond_79
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_18
 
     .line 876
     array-length v0, v8
 
     array-length v1, v7
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
-    goto :goto_0
+    goto :goto_18
 
     .line 877
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "must have 2 or more widgets in a chain"
@@ -849,11 +849,11 @@
 
     throw v0
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x0
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_25
 
     .line 880
     aget v1, v7, v0
@@ -867,7 +867,7 @@
     iput v2, v1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalWeight:F
 
     .line 882
-    :cond_2
+    :cond_25
     aget v1, v7, v0
 
     invoke-direct {p0, v1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -898,10 +898,10 @@
     move v10, v9
 
     .line 884
-    :goto_1
+    :goto_3c
     array-length v0, v7
 
-    if-ge v10, v0, :cond_4
+    if-ge v10, v0, :cond_6a
 
     .line 885
     aget v0, v7, v10
@@ -934,7 +934,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_67
 
     .line 889
     aget v0, v7, v10
@@ -947,13 +947,13 @@
 
     iput v1, v0, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalWeight:F
 
-    :cond_3
+    :cond_67
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_3c
 
     .line 893
-    :cond_4
+    :cond_6a
     array-length v0, v7
 
     sub-int/2addr v0, v9
@@ -975,7 +975,7 @@
     return-void
 
     .line 874
-    :cond_5
+    :cond_79
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "must have 2 or more widgets in a chain"
@@ -986,7 +986,7 @@
 .end method
 
 .method private fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/support/constraint/ConstraintSet$Constraint;
-    .locals 2
+    .registers 5
 
     .line 1899
     new-instance v0, Landroid/support/constraint/ConstraintSet$Constraint;
@@ -1012,7 +1012,7 @@
 .end method
 
 .method private get(I)Landroid/support/constraint/ConstraintSet$Constraint;
-    .locals 4
+    .registers 6
 
     .line 1822
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -1025,7 +1025,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 1823
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -1043,7 +1043,7 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1825
-    :cond_0
+    :cond_1b
     iget-object p0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1060,7 +1060,7 @@
 .end method
 
 .method private static lookupID(Landroid/content/res/TypedArray;II)I
-    .locals 1
+    .registers 4
 
     .line 1891
     invoke-virtual {p0, p1, p2}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1069,19 +1069,19 @@
 
     const/4 v0, -0x1
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_b
 
     .line 1893
     invoke-virtual {p0, p1, v0}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result p2
 
-    :cond_0
+    :cond_b
     return p2
 .end method
 
 .method private populateConstraint(Landroid/support/constraint/ConstraintSet$Constraint;Landroid/content/res/TypedArray;)V
-    .locals 5
+    .registers 8
 
     .line 1907
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->getIndexCount()I
@@ -1090,8 +1090,8 @@
 
     const/4 v0, 0x0
 
-    :goto_0
-    if-ge v0, p0, :cond_1
+    :goto_5
+    if-ge v0, p0, :cond_281
 
     .line 1909
     invoke-virtual {p2, v0}, Landroid/content/res/TypedArray;->getIndex(I)I
@@ -1107,9 +1107,9 @@
 
     const/16 v3, 0x3c
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_255
 
-    packed-switch v2, :pswitch_data_0
+    packed-switch v2, :pswitch_data_282
 
     const-string v2, "ConstraintSet"
 
@@ -1148,10 +1148,10 @@
     .line 2115
     invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2090
-    :pswitch_0
+    :pswitch_42
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->translationZ:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1160,10 +1160,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->translationZ:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2087
-    :pswitch_1
+    :pswitch_4c
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->translationY:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1172,10 +1172,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->translationY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2084
-    :pswitch_2
+    :pswitch_56
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->translationX:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1184,10 +1184,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->translationX:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2081
-    :pswitch_3
+    :pswitch_60
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->transformPivotY:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1196,10 +1196,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->transformPivotY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2078
-    :pswitch_4
+    :pswitch_6a
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->transformPivotX:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1208,10 +1208,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->transformPivotX:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2075
-    :pswitch_5
+    :pswitch_74
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->scaleY:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1220,10 +1220,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->scaleY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2072
-    :pswitch_6
+    :pswitch_7e
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->scaleX:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1232,10 +1232,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->scaleX:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2069
-    :pswitch_7
+    :pswitch_88
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rotationY:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1244,10 +1244,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rotationY:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2066
-    :pswitch_8
+    :pswitch_92
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rotationX:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1256,9 +1256,9 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rotationX:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
-    :pswitch_9
+    :pswitch_9c
     const/4 v2, 0x1
 
     .line 2062
@@ -1273,10 +1273,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->elevation:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2059
-    :pswitch_a
+    :pswitch_a9
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->alpha:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1285,10 +1285,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->alpha:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2099
-    :pswitch_b
+    :pswitch_b3
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalChainStyle:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1297,10 +1297,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalChainStyle:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2102
-    :pswitch_c
+    :pswitch_bd
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalChainStyle:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1309,10 +1309,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalChainStyle:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2093
-    :pswitch_d
+    :pswitch_c7
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalWeight:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1321,10 +1321,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalWeight:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2096
-    :pswitch_e
+    :pswitch_d1
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalWeight:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1333,10 +1333,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalWeight:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2105
-    :pswitch_f
+    :pswitch_db
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->mViewId:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
@@ -1345,10 +1345,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->mViewId:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2028
-    :pswitch_10
+    :pswitch_e5
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalBias:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1357,10 +1357,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalBias:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1962
-    :pswitch_11
+    :pswitch_ef
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToTop:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1369,10 +1369,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToTop:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1965
-    :pswitch_12
+    :pswitch_f9
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1381,10 +1381,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2043
-    :pswitch_13
+    :pswitch_103
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1393,10 +1393,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1998
-    :pswitch_14
+    :pswitch_10d
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToStart:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1405,10 +1405,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToStart:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1995
-    :pswitch_15
+    :pswitch_117
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1417,10 +1417,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2037
-    :pswitch_16
+    :pswitch_121
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1429,10 +1429,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1959
-    :pswitch_17
+    :pswitch_12b
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1441,10 +1441,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1956
-    :pswitch_18
+    :pswitch_135
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToLeft:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1453,10 +1453,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToLeft:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2034
-    :pswitch_19
+    :pswitch_13f
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1465,10 +1465,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1992
-    :pswitch_1a
+    :pswitch_149
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->orientation:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1477,10 +1477,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->orientation:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1953
-    :pswitch_1b
+    :pswitch_153
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1489,10 +1489,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1950
-    :pswitch_1c
+    :pswitch_15d
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1501,10 +1501,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2031
-    :pswitch_1d
+    :pswitch_167
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1513,10 +1513,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2049
-    :pswitch_1e
+    :pswitch_171
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->mWidth:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
@@ -1525,10 +1525,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->mWidth:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2055
-    :pswitch_1f
+    :pswitch_17b
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->visibility:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
@@ -1546,10 +1546,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->visibility:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2052
-    :pswitch_20
+    :pswitch_18d
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->mHeight:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getLayoutDimension(II)I
@@ -1558,10 +1558,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->mHeight:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2025
-    :pswitch_21
+    :pswitch_197
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalBias:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1570,10 +1570,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalBias:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1989
-    :pswitch_22
+    :pswitch_1a1
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->guidePercent:F
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
@@ -1582,10 +1582,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->guidePercent:F
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1986
-    :pswitch_23
+    :pswitch_1ab
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->guideEnd:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -1594,10 +1594,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->guideEnd:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 1983
-    :pswitch_24
+    :pswitch_1b5
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->guideBegin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -1606,10 +1606,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->guideBegin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2010
-    :pswitch_25
+    :pswitch_1bf
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneTopMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1618,10 +1618,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneTopMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2019
-    :pswitch_26
+    :pswitch_1c9
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneStartMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1630,10 +1630,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneStartMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2013
-    :pswitch_27
+    :pswitch_1d3
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneRightMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1642,10 +1642,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneRightMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2007
-    :pswitch_28
+    :pswitch_1dd
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneLeftMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1654,10 +1654,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneLeftMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2022
-    :pswitch_29
+    :pswitch_1e7
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneEndMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1666,10 +1666,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneEndMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2016
-    :pswitch_2a
+    :pswitch_1f1
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneBottomMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1678,10 +1678,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->goneBottomMargin:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2001
-    :pswitch_2b
+    :pswitch_1fb
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1690,10 +1690,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2004
-    :pswitch_2c
+    :pswitch_205
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToEnd:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1702,10 +1702,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToTop:I
 
-    goto/16 :goto_1
+    goto/16 :goto_27d
 
     .line 2040
-    :pswitch_2d
+    :pswitch_20f
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1714,10 +1714,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endMargin:I
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 1980
-    :pswitch_2e
+    :pswitch_218
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->editorAbsoluteY:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -1726,10 +1726,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->editorAbsoluteY:I
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 1977
-    :pswitch_2f
+    :pswitch_221
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->editorAbsoluteX:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelOffset(II)I
@@ -1738,20 +1738,20 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->editorAbsoluteX:I
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 2108
-    :pswitch_30
+    :pswitch_22a
     invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     iput-object v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->dimensionRatio:Ljava/lang/String;
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 1968
-    :pswitch_31
+    :pswitch_231
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToTop:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1760,10 +1760,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToTop:I
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 1971
-    :pswitch_32
+    :pswitch_23a
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToBottom:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1772,10 +1772,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToBottom:I
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 2046
-    :pswitch_33
+    :pswitch_243
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomMargin:I
 
     invoke-virtual {p2, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
@@ -1784,10 +1784,10 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomMargin:I
 
-    goto :goto_1
+    goto :goto_27d
 
     .line 1974
-    :pswitch_34
+    :pswitch_24c
     iget v2, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
     invoke-static {p2, v1, v2}, Landroid/support/constraint/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
@@ -1796,9 +1796,9 @@
 
     iput v1, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto :goto_1
+    goto :goto_27d
 
-    :cond_0
+    :cond_255
     const-string v2, "ConstraintSet"
 
     .line 2111
@@ -1836,149 +1836,149 @@
     .line 2111
     invoke-static {v2, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
+    :goto_27d
     add-int/lit8 v0, v0, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_5
 
-    :cond_1
+    :cond_281
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_282
     .packed-switch 0x1
-        :pswitch_34
-        :pswitch_33
-        :pswitch_32
-        :pswitch_31
-        :pswitch_30
-        :pswitch_2f
-        :pswitch_2e
-        :pswitch_2d
-        :pswitch_2c
-        :pswitch_2b
-        :pswitch_2a
-        :pswitch_29
-        :pswitch_28
-        :pswitch_27
-        :pswitch_26
-        :pswitch_25
-        :pswitch_24
-        :pswitch_23
-        :pswitch_22
-        :pswitch_21
-        :pswitch_20
-        :pswitch_1f
-        :pswitch_1e
-        :pswitch_1d
-        :pswitch_1c
-        :pswitch_1b
-        :pswitch_1a
-        :pswitch_19
-        :pswitch_18
-        :pswitch_17
-        :pswitch_16
-        :pswitch_15
-        :pswitch_14
-        :pswitch_13
-        :pswitch_12
-        :pswitch_11
-        :pswitch_10
-        :pswitch_f
-        :pswitch_e
-        :pswitch_d
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_24c
+        :pswitch_243
+        :pswitch_23a
+        :pswitch_231
+        :pswitch_22a
+        :pswitch_221
+        :pswitch_218
+        :pswitch_20f
+        :pswitch_205
+        :pswitch_1fb
+        :pswitch_1f1
+        :pswitch_1e7
+        :pswitch_1dd
+        :pswitch_1d3
+        :pswitch_1c9
+        :pswitch_1bf
+        :pswitch_1b5
+        :pswitch_1ab
+        :pswitch_1a1
+        :pswitch_197
+        :pswitch_18d
+        :pswitch_17b
+        :pswitch_171
+        :pswitch_167
+        :pswitch_15d
+        :pswitch_153
+        :pswitch_149
+        :pswitch_13f
+        :pswitch_135
+        :pswitch_12b
+        :pswitch_121
+        :pswitch_117
+        :pswitch_10d
+        :pswitch_103
+        :pswitch_f9
+        :pswitch_ef
+        :pswitch_e5
+        :pswitch_db
+        :pswitch_d1
+        :pswitch_c7
+        :pswitch_bd
+        :pswitch_b3
+        :pswitch_a9
+        :pswitch_9c
+        :pswitch_92
+        :pswitch_88
+        :pswitch_7e
+        :pswitch_74
+        :pswitch_6a
+        :pswitch_60
+        :pswitch_56
+        :pswitch_4c
+        :pswitch_42
     .end packed-switch
 .end method
 
 .method private sideToString(I)Ljava/lang/String;
-    .locals 0
+    .registers 2
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1c
 
     const-string p0, "undefined"
 
     return-object p0
 
-    :pswitch_0
+    :pswitch_6
     const-string p0, "end"
 
     return-object p0
 
-    :pswitch_1
+    :pswitch_9
     const-string p0, "start"
 
     return-object p0
 
-    :pswitch_2
+    :pswitch_c
     const-string p0, "baseline"
 
     return-object p0
 
-    :pswitch_3
+    :pswitch_f
     const-string p0, "bottom"
 
     return-object p0
 
-    :pswitch_4
+    :pswitch_12
     const-string p0, "top"
 
     return-object p0
 
-    :pswitch_5
+    :pswitch_15
     const-string p0, "right"
 
     return-object p0
 
-    :pswitch_6
+    :pswitch_18
     const-string p0, "left"
 
     return-object p0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x1
+        :pswitch_18
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
+        :pswitch_c
+        :pswitch_9
         :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
     .end packed-switch
 .end method
 
 
 # virtual methods
 .method public addToHorizontalChain(III)V
-    .locals 8
+    .registers 12
 
     const/4 v6, 0x2
 
     const/4 v7, 0x1
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move v4, v6
 
-    :goto_0
+    :goto_7
     const/4 v5, 0x0
 
     const/4 v2, 0x1
@@ -1994,16 +1994,16 @@
 
     const/4 v2, 0x2
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_14
 
     move v4, v6
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     move v4, v7
 
-    :goto_1
+    :goto_15
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -2015,7 +2015,7 @@
     .line 1642
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_27
 
     const/4 v2, 0x2
 
@@ -2032,8 +2032,8 @@
     .line 1644
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_27
+    if-eqz p3, :cond_32
 
     const/4 v2, 0x1
 
@@ -2050,27 +2050,27 @@
     .line 1647
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_3
+    :cond_32
     return-void
 .end method
 
 .method public addToHorizontalChainRTL(III)V
-    .locals 8
+    .registers 12
 
     const/4 v6, 0x7
 
     const/4 v7, 0x6
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move v4, v6
 
-    :goto_0
+    :goto_7
     const/4 v5, 0x0
 
     const/4 v2, 0x6
@@ -2086,16 +2086,16 @@
 
     const/4 v2, 0x7
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_14
 
     move v4, v6
 
-    goto :goto_1
+    goto :goto_15
 
-    :cond_1
+    :cond_14
     move v4, v7
 
-    :goto_1
+    :goto_15
     const/4 v5, 0x0
 
     move-object v0, p0
@@ -2107,7 +2107,7 @@
     .line 1660
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_27
 
     const/4 v2, 0x7
 
@@ -2124,8 +2124,8 @@
     .line 1662
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_2
-    if-eqz p3, :cond_3
+    :cond_27
+    if-eqz p3, :cond_32
 
     const/4 v2, 0x6
 
@@ -2142,27 +2142,27 @@
     .line 1665
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_3
+    :cond_32
     return-void
 .end method
 
 .method public addToVerticalChain(III)V
-    .locals 14
+    .registers 18
 
     const/4 v6, 0x4
 
     const/4 v7, 0x3
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_6
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     move v4, v6
 
-    :goto_0
+    :goto_7
     const/4 v5, 0x0
 
     const/4 v2, 0x3
@@ -2178,16 +2178,16 @@
 
     const/4 v10, 0x4
 
-    if-nez p3, :cond_1
+    if-nez p3, :cond_15
 
     move v12, v6
 
-    goto :goto_1
+    goto :goto_16
 
-    :cond_1
+    :cond_15
     move v12, v7
 
-    :goto_1
+    :goto_16
     const/4 v13, 0x0
 
     move-object v8, p0
@@ -2199,7 +2199,7 @@
     .line 1678
     invoke-virtual/range {v8 .. v13}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_2a
 
     const/4 v2, 0x4
 
@@ -2216,8 +2216,8 @@
     .line 1680
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_2
-    if-eqz p2, :cond_3
+    :cond_2a
+    if-eqz p2, :cond_36
 
     const/4 v2, 0x3
 
@@ -2234,12 +2234,12 @@
     .line 1683
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_3
+    :cond_36
     return-void
 .end method
 
 .method public applyTo(Landroid/support/constraint/ConstraintLayout;)V
-    .locals 0
+    .registers 2
 
     .line 640
     invoke-virtual {p0, p1}, Landroid/support/constraint/ConstraintSet;->applyToInternal(Landroid/support/constraint/ConstraintLayout;)V
@@ -2253,7 +2253,7 @@
 .end method
 
 .method applyToInternal(Landroid/support/constraint/ConstraintLayout;)V
-    .locals 7
+    .registers 9
 
     .line 648
     invoke-virtual {p1}, Landroid/support/constraint/ConstraintLayout;->getChildCount()I
@@ -2273,8 +2273,8 @@
 
     const/4 v2, 0x0
 
-    :goto_0
-    if-ge v2, v0, :cond_1
+    :goto_10
+    if-ge v2, v0, :cond_95
 
     .line 652
     invoke-virtual {p1, v2}, Landroid/support/constraint/ConstraintLayout;->getChildAt(I)Landroid/view/View;
@@ -2297,7 +2297,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_91
 
     .line 655
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -2342,7 +2342,7 @@
 
     const/16 v6, 0x11
 
-    if-lt v5, v6, :cond_0
+    if-lt v5, v6, :cond_91
 
     .line 663
     iget v5, v4, Landroid/support/constraint/ConstraintSet$Constraint;->alpha:F
@@ -2394,7 +2394,7 @@
 
     const/16 v6, 0x15
 
-    if-lt v5, v6, :cond_0
+    if-lt v5, v6, :cond_91
 
     .line 673
     iget v5, v4, Landroid/support/constraint/ConstraintSet$Constraint;->translationZ:F
@@ -2404,31 +2404,31 @@
     .line 674
     iget-boolean v5, v4, Landroid/support/constraint/ConstraintSet$Constraint;->applyElevation:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v5, :cond_91
 
     .line 675
     iget v4, v4, Landroid/support/constraint/ConstraintSet$Constraint;->elevation:F
 
     invoke-virtual {v3, v4}, Landroid/view/View;->setElevation(F)V
 
-    :cond_0
+    :cond_91
     add-int/lit8 v2, v2, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_10
 
     .line 681
-    :cond_1
+    :cond_95
     invoke-virtual {v1}, Ljava/util/HashSet;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_2
-    :goto_1
+    :cond_99
+    :goto_99
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_cc
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2448,7 +2448,7 @@
     .line 683
     iget-boolean v3, v2, Landroid/support/constraint/ConstraintSet$Constraint;->mIsGuideline:Z
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_99
 
     .line 684
     new-instance v3, Landroid/support/constraint/Guideline;
@@ -2477,14 +2477,14 @@
     .line 688
     invoke-virtual {p1, v3, v1}, Landroid/support/constraint/ConstraintLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    goto :goto_1
+    goto :goto_99
 
-    :cond_3
+    :cond_cc
     return-void
 .end method
 
 .method public center(IIIIIIIF)V
-    .locals 8
+    .registers 17
 
     move-object v6, p0
 
@@ -2492,44 +2492,44 @@
 
     move/from16 v7, p8
 
-    if-ltz p4, :cond_6
+    if-ltz p4, :cond_8e
 
-    if-ltz p7, :cond_5
+    if-ltz p7, :cond_86
 
     const/4 v0, 0x0
 
     cmpg-float v0, v7, v0
 
-    if-lez v0, :cond_4
+    if-lez v0, :cond_7e
 
     const/high16 v0, 0x3f800000    # 1.0f
 
     cmpl-float v0, v7, v0
 
-    if-gtz v0, :cond_4
+    if-gtz v0, :cond_7e
 
     const/4 v0, 0x1
 
-    if-eq v4, v0, :cond_3
+    if-eq v4, v0, :cond_5f
 
     const/4 v0, 0x2
 
-    if-ne v4, v0, :cond_0
+    if-ne v4, v0, :cond_1a
 
-    goto :goto_1
+    goto :goto_5f
 
-    :cond_0
+    :cond_1a
     const/4 v0, 0x6
 
-    if-eq v4, v0, :cond_2
+    if-eq v4, v0, :cond_40
 
     const/4 v0, 0x7
 
-    if-ne v4, v0, :cond_1
+    if-ne v4, v0, :cond_21
 
-    goto :goto_0
+    goto :goto_40
 
-    :cond_1
+    :cond_21
     const/4 v2, 0x3
 
     move-object v0, p0
@@ -2572,10 +2572,10 @@
     .line 735
     iput v7, v0, Landroid/support/constraint/ConstraintSet$Constraint;->verticalBias:F
 
-    goto :goto_2
+    goto :goto_7d
 
-    :cond_2
-    :goto_0
+    :cond_40
+    :goto_40
     const/4 v2, 0x6
 
     move-object v0, p0
@@ -2618,10 +2618,10 @@
     .line 730
     iput v7, v0, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalBias:F
 
-    goto :goto_2
+    goto :goto_7d
 
-    :cond_3
-    :goto_1
+    :cond_5f
+    :goto_5f
     const/4 v2, 0x1
 
     move-object v0, p0
@@ -2664,11 +2664,11 @@
     .line 725
     iput v7, v0, Landroid/support/constraint/ConstraintSet$Constraint;->horizontalBias:F
 
-    :goto_2
+    :goto_7d
     return-void
 
     .line 718
-    :cond_4
+    :cond_7e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "bias must be between 0 and 1 inclusive"
@@ -2678,7 +2678,7 @@
     throw v0
 
     .line 715
-    :cond_5
+    :cond_86
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "margin must be > 0"
@@ -2688,7 +2688,7 @@
     throw v0
 
     .line 712
-    :cond_6
+    :cond_8e
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "margin must be > 0"
@@ -2699,9 +2699,9 @@
 .end method
 
 .method public centerHorizontally(II)V
-    .locals 9
+    .registers 12
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_10
 
     const/4 v2, 0x0
 
@@ -2724,9 +2724,9 @@
     .line 1122
     invoke-virtual/range {v0 .. v8}, Landroid/support/constraint/ConstraintSet;->center(IIIIIIIF)V
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_10
     const/4 v3, 0x2
 
     const/4 v4, 0x0
@@ -2748,12 +2748,12 @@
     .line 1124
     invoke-virtual/range {v0 .. v8}, Landroid/support/constraint/ConstraintSet;->center(IIIIIIIF)V
 
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public centerHorizontally(IIIIIIIF)V
-    .locals 9
+    .registers 18
 
     const/4 v2, 0x1
 
@@ -2807,9 +2807,9 @@
 .end method
 
 .method public centerHorizontallyRtl(II)V
-    .locals 9
+    .registers 12
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_10
 
     const/4 v2, 0x0
 
@@ -2832,9 +2832,9 @@
     .line 1136
     invoke-virtual/range {v0 .. v8}, Landroid/support/constraint/ConstraintSet;->center(IIIIIIIF)V
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_10
     const/4 v3, 0x7
 
     const/4 v4, 0x0
@@ -2856,12 +2856,12 @@
     .line 1138
     invoke-virtual/range {v0 .. v8}, Landroid/support/constraint/ConstraintSet;->center(IIIIIIIF)V
 
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public centerHorizontallyRtl(IIIIIIIF)V
-    .locals 9
+    .registers 18
 
     const/4 v2, 0x6
 
@@ -2915,9 +2915,9 @@
 .end method
 
 .method public centerVertically(II)V
-    .locals 9
+    .registers 12
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_10
 
     const/4 v2, 0x0
 
@@ -2940,9 +2940,9 @@
     .line 1151
     invoke-virtual/range {v0 .. v8}, Landroid/support/constraint/ConstraintSet;->center(IIIIIIIF)V
 
-    goto :goto_0
+    goto :goto_1d
 
-    :cond_0
+    :cond_10
     const/4 v3, 0x4
 
     const/4 v4, 0x0
@@ -2964,12 +2964,12 @@
     .line 1153
     invoke-virtual/range {v0 .. v8}, Landroid/support/constraint/ConstraintSet;->center(IIIIIIIF)V
 
-    :goto_0
+    :goto_1d
     return-void
 .end method
 
 .method public centerVertically(IIIIIIIF)V
-    .locals 9
+    .registers 18
 
     const/4 v2, 0x3
 
@@ -3023,7 +3023,7 @@
 .end method
 
 .method public clear(I)V
-    .locals 0
+    .registers 2
 
     .line 1163
     iget-object p0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3038,7 +3038,7 @@
 .end method
 
 .method public clear(II)V
-    .locals 2
+    .registers 5
 
     .line 1173
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3051,7 +3051,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5c
 
     .line 1174
     iget-object p0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3068,7 +3068,7 @@
 
     const/4 p1, -0x1
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_5e
 
     .line 1217
     new-instance p0, Ljava/lang/IllegalArgumentException;
@@ -3080,7 +3080,7 @@
     throw p0
 
     .line 1211
-    :pswitch_0
+    :pswitch_24
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
 
     .line 1212
@@ -3092,10 +3092,10 @@
     .line 1214
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneEndMargin:I
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 1205
-    :pswitch_1
+    :pswitch_2d
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
 
     .line 1206
@@ -3107,16 +3107,16 @@
     .line 1208
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneStartMargin:I
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 1202
-    :pswitch_2
+    :pswitch_36
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 1195
-    :pswitch_3
+    :pswitch_39
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToTop:I
 
     .line 1196
@@ -3128,10 +3128,10 @@
     .line 1198
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneBottomMargin:I
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 1189
-    :pswitch_4
+    :pswitch_42
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
 
     .line 1190
@@ -3143,10 +3143,10 @@
     .line 1192
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneTopMargin:I
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 1183
-    :pswitch_5
+    :pswitch_4b
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
     .line 1184
@@ -3158,10 +3158,10 @@
     .line 1186
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneRightMargin:I
 
-    goto :goto_0
+    goto :goto_5c
 
     .line 1177
-    :pswitch_6
+    :pswitch_54
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
 
     .line 1178
@@ -3173,26 +3173,26 @@
     .line 1180
     iput p1, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneLeftMargin:I
 
-    :cond_0
-    :goto_0
+    :cond_5c
+    :goto_5c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_5e
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_54
+        :pswitch_4b
+        :pswitch_42
+        :pswitch_39
+        :pswitch_36
+        :pswitch_2d
+        :pswitch_24
     .end packed-switch
 .end method
 
 .method public clone(Landroid/content/Context;I)V
-    .locals 1
+    .registers 4
 
     .line 580
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
@@ -3213,7 +3213,7 @@
 .end method
 
 .method public clone(Landroid/support/constraint/ConstraintLayout;)V
-    .locals 9
+    .registers 11
 
     .line 601
     invoke-virtual {p1}, Landroid/support/constraint/ConstraintLayout;->getChildCount()I
@@ -3227,8 +3227,8 @@
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-ge v1, v0, :cond_2
+    :goto_a
+    if-ge v1, v0, :cond_a0
 
     .line 604
     invoke-virtual {p1, v1}, Landroid/support/constraint/ConstraintLayout;->getChildAt(I)Landroid/view/View;
@@ -3258,7 +3258,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_0
+    if-nez v5, :cond_35
 
     .line 609
     iget-object v5, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3276,7 +3276,7 @@
     invoke-virtual {v5, v6, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 611
-    :cond_0
+    :cond_35
     iget-object v5, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3290,6 +3290,7 @@
     check-cast v5, Landroid/support/constraint/ConstraintSet$Constraint;
 
     .line 612
+    # invokes: Landroid/support/constraint/ConstraintSet$Constraint;->fillFrom(ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
     invoke-static {v5, v4, v3}, Landroid/support/constraint/ConstraintSet$Constraint;->access$100(Landroid/support/constraint/ConstraintSet$Constraint;ILandroid/support/constraint/ConstraintLayout$LayoutParams;)V
 
     .line 613
@@ -3304,7 +3305,7 @@
 
     const/16 v4, 0x11
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_9c
 
     .line 615
     invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
@@ -3374,7 +3375,7 @@
 
     const/16 v4, 0x15
 
-    if-lt v3, v4, :cond_1
+    if-lt v3, v4, :cond_9c
 
     .line 625
     invoke-virtual {v2}, Landroid/view/View;->getTranslationZ()F
@@ -3386,7 +3387,7 @@
     .line 626
     iget-boolean v3, v5, Landroid/support/constraint/ConstraintSet$Constraint;->applyElevation:Z
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_9c
 
     .line 627
     invoke-virtual {v2}, Landroid/view/View;->getElevation()F
@@ -3395,17 +3396,17 @@
 
     iput v2, v5, Landroid/support/constraint/ConstraintSet$Constraint;->elevation:F
 
-    :cond_1
+    :cond_9c
     add-int/lit8 v1, v1, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_a
 
-    :cond_2
+    :cond_a0
     return-void
 .end method
 
 .method public clone(Landroid/support/constraint/ConstraintSet;)V
-    .locals 4
+    .registers 6
 
     .line 589
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3423,12 +3424,12 @@
 
     move-result-object v0
 
-    :goto_0
+    :goto_f
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2d
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3453,14 +3454,14 @@
 
     invoke-virtual {v2, v1, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_2d
     return-void
 .end method
 
 .method public connect(IIII)V
-    .locals 7
+    .registers 12
 
     .line 1021
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3473,7 +3474,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 1022
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3491,7 +3492,7 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 1024
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -3518,7 +3519,7 @@
 
     const/4 v6, -0x1
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_1aa
 
     .line 1109
     new-instance p1, Ljava/lang/IllegalArgumentException;
@@ -3556,8 +3557,8 @@
 
     throw p1
 
-    :pswitch_0
-    if-ne p4, v1, :cond_1
+    :pswitch_58
+    if-ne p4, v1, :cond_60
 
     .line 1099
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToEnd:I
@@ -3565,10 +3566,10 @@
     .line 1100
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
-    :cond_1
-    if-ne p4, v2, :cond_2
+    :cond_60
+    if-ne p4, v2, :cond_68
 
     .line 1102
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
@@ -3576,10 +3577,10 @@
     .line 1103
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToEnd:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
     .line 1105
-    :cond_2
+    :cond_68
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3608,8 +3609,8 @@
 
     throw p1
 
-    :pswitch_1
-    if-ne p4, v2, :cond_3
+    :pswitch_88
+    if-ne p4, v2, :cond_90
 
     .line 1088
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToStart:I
@@ -3617,10 +3618,10 @@
     .line 1089
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
-    :cond_3
-    if-ne p4, v1, :cond_4
+    :cond_90
+    if-ne p4, v1, :cond_98
 
     .line 1091
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
@@ -3628,10 +3629,10 @@
     .line 1092
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToStart:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
     .line 1094
-    :cond_4
+    :cond_98
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3660,10 +3661,10 @@
 
     throw p1
 
-    :pswitch_2
+    :pswitch_b8
     const/4 p2, 0x5
 
-    if-ne p4, p2, :cond_5
+    if-ne p4, p2, :cond_c7
 
     .line 1077
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
@@ -3680,10 +3681,10 @@
     .line 1081
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
     .line 1083
-    :cond_5
+    :cond_c7
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3712,8 +3713,8 @@
 
     throw p1
 
-    :pswitch_3
-    if-ne p4, v3, :cond_6
+    :pswitch_e7
+    if-ne p4, v3, :cond_f1
 
     .line 1064
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToBottom:I
@@ -3724,10 +3725,10 @@
     .line 1066
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
-    :cond_6
-    if-ne p4, v4, :cond_7
+    :cond_f1
+    if-ne p4, v4, :cond_fb
 
     .line 1068
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToTop:I
@@ -3738,10 +3739,10 @@
     .line 1070
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto/16 :goto_0
+    goto/16 :goto_188
 
     .line 1072
-    :cond_7
+    :cond_fb
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3770,8 +3771,8 @@
 
     throw p1
 
-    :pswitch_4
-    if-ne p4, v4, :cond_8
+    :pswitch_11b
+    if-ne p4, v4, :cond_124
 
     .line 1051
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToTop:I
@@ -3782,10 +3783,10 @@
     .line 1053
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto :goto_0
+    goto :goto_188
 
-    :cond_8
-    if-ne p4, v3, :cond_9
+    :cond_124
+    if-ne p4, v3, :cond_12d
 
     .line 1055
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
@@ -3796,10 +3797,10 @@
     .line 1057
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto :goto_0
+    goto :goto_188
 
     .line 1059
-    :cond_9
+    :cond_12d
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3828,8 +3829,8 @@
 
     throw p1
 
-    :pswitch_5
-    if-ne p4, v5, :cond_a
+    :pswitch_14d
+    if-ne p4, v5, :cond_154
 
     .line 1039
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToLeft:I
@@ -3837,10 +3838,10 @@
     .line 1040
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
-    goto :goto_0
+    goto :goto_188
 
-    :cond_a
-    if-ne p4, v0, :cond_b
+    :cond_154
+    if-ne p4, v0, :cond_15b
 
     .line 1043
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
@@ -3848,10 +3849,10 @@
     .line 1044
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToLeft:I
 
-    goto :goto_0
+    goto :goto_188
 
     .line 1046
-    :cond_b
+    :cond_15b
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3880,8 +3881,8 @@
 
     throw p1
 
-    :pswitch_6
-    if-ne p4, v5, :cond_c
+    :pswitch_17b
+    if-ne p4, v5, :cond_182
 
     .line 1028
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
@@ -3889,10 +3890,10 @@
     .line 1029
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
 
-    goto :goto_0
+    goto :goto_188
 
-    :cond_c
-    if-ne p4, v0, :cond_d
+    :cond_182
+    if-ne p4, v0, :cond_189
 
     .line 1031
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
@@ -3900,11 +3901,11 @@
     .line 1032
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
 
-    :goto_0
+    :goto_188
     return-void
 
     .line 1034
-    :cond_d
+    :cond_189
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -3935,20 +3936,20 @@
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_1aa
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_17b
+        :pswitch_14d
+        :pswitch_11b
+        :pswitch_e7
+        :pswitch_b8
+        :pswitch_88
+        :pswitch_58
     .end packed-switch
 .end method
 
 .method public connect(IIIII)V
-    .locals 7
+    .registers 13
 
     .line 908
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3961,7 +3962,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1b
 
     .line 909
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -3979,7 +3980,7 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     .line 911
-    :cond_0
+    :cond_1b
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -4006,7 +4007,7 @@
 
     const/4 v6, -0x1
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_1b2
 
     .line 1007
     new-instance p1, Ljava/lang/IllegalArgumentException;
@@ -4044,8 +4045,8 @@
 
     throw p1
 
-    :pswitch_0
-    if-ne p4, v1, :cond_1
+    :pswitch_58
+    if-ne p4, v1, :cond_5f
 
     .line 996
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToEnd:I
@@ -4053,10 +4054,10 @@
     .line 997
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
 
-    goto :goto_0
+    goto :goto_65
 
-    :cond_1
-    if-ne p4, v2, :cond_2
+    :cond_5f
+    if-ne p4, v2, :cond_69
 
     .line 999
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
@@ -4065,13 +4066,13 @@
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endToEnd:I
 
     .line 1004
-    :goto_0
+    :goto_65
     iput p5, p1, Landroid/support/constraint/ConstraintSet$Constraint;->endMargin:I
 
-    goto/16 :goto_6
+    goto/16 :goto_191
 
     .line 1002
-    :cond_2
+    :cond_69
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4100,8 +4101,8 @@
 
     throw p1
 
-    :pswitch_1
-    if-ne p4, v2, :cond_3
+    :pswitch_89
+    if-ne p4, v2, :cond_90
 
     .line 984
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToStart:I
@@ -4109,10 +4110,10 @@
     .line 985
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
 
-    goto :goto_1
+    goto :goto_96
 
-    :cond_3
-    if-ne p4, v1, :cond_4
+    :cond_90
+    if-ne p4, v1, :cond_9a
 
     .line 987
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
@@ -4121,13 +4122,13 @@
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startToStart:I
 
     .line 992
-    :goto_1
+    :goto_96
     iput p5, p1, Landroid/support/constraint/ConstraintSet$Constraint;->startMargin:I
 
-    goto/16 :goto_6
+    goto/16 :goto_191
 
     .line 990
-    :cond_4
+    :cond_9a
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4156,10 +4157,10 @@
 
     throw p1
 
-    :pswitch_2
+    :pswitch_ba
     const/4 p2, 0x5
 
-    if-ne p4, p2, :cond_5
+    if-ne p4, p2, :cond_c9
 
     .line 973
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
@@ -4176,10 +4177,10 @@
     .line 977
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
 
-    goto/16 :goto_6
+    goto/16 :goto_191
 
     .line 979
-    :cond_5
+    :cond_c9
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4208,8 +4209,8 @@
 
     throw p1
 
-    :pswitch_3
-    if-ne p4, v3, :cond_6
+    :pswitch_e9
+    if-ne p4, v3, :cond_f2
 
     .line 957
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToBottom:I
@@ -4220,10 +4221,10 @@
     .line 959
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto :goto_2
+    goto :goto_fa
 
-    :cond_6
-    if-ne p4, v4, :cond_7
+    :cond_f2
+    if-ne p4, v4, :cond_fe
 
     .line 962
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToTop:I
@@ -4235,13 +4236,13 @@
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
     .line 969
-    :goto_2
+    :goto_fa
     iput p5, p1, Landroid/support/constraint/ConstraintSet$Constraint;->bottomMargin:I
 
-    goto/16 :goto_6
+    goto/16 :goto_191
 
     .line 967
-    :cond_7
+    :cond_fe
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4270,8 +4271,8 @@
 
     throw p1
 
-    :pswitch_4
-    if-ne p4, v4, :cond_8
+    :pswitch_11e
+    if-ne p4, v4, :cond_127
 
     .line 942
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToTop:I
@@ -4282,10 +4283,10 @@
     .line 944
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
-    goto :goto_3
+    goto :goto_12f
 
-    :cond_8
-    if-ne p4, v3, :cond_9
+    :cond_127
+    if-ne p4, v3, :cond_132
 
     .line 946
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topToBottom:I
@@ -4297,13 +4298,13 @@
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->baselineToBaseline:I
 
     .line 953
-    :goto_3
+    :goto_12f
     iput p5, p1, Landroid/support/constraint/ConstraintSet$Constraint;->topMargin:I
 
-    goto :goto_6
+    goto :goto_191
 
     .line 951
-    :cond_9
+    :cond_132
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4332,8 +4333,8 @@
 
     throw p1
 
-    :pswitch_5
-    if-ne p4, v5, :cond_a
+    :pswitch_152
+    if-ne p4, v5, :cond_159
 
     .line 928
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToLeft:I
@@ -4341,10 +4342,10 @@
     .line 929
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
-    goto :goto_4
+    goto :goto_15f
 
-    :cond_a
-    if-ne p4, v0, :cond_b
+    :cond_159
+    if-ne p4, v0, :cond_162
 
     .line 932
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
@@ -4353,13 +4354,13 @@
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightToLeft:I
 
     .line 938
-    :goto_4
+    :goto_15f
     iput p5, p1, Landroid/support/constraint/ConstraintSet$Constraint;->rightMargin:I
 
-    goto :goto_6
+    goto :goto_191
 
     .line 936
-    :cond_b
+    :cond_162
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4388,8 +4389,8 @@
 
     throw p1
 
-    :pswitch_6
-    if-ne p4, v5, :cond_c
+    :pswitch_182
+    if-ne p4, v5, :cond_189
 
     .line 915
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
@@ -4397,10 +4398,10 @@
     .line 916
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
 
-    goto :goto_5
+    goto :goto_18f
 
-    :cond_c
-    if-ne p4, v0, :cond_d
+    :cond_189
+    if-ne p4, v0, :cond_192
 
     .line 918
     iput p3, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToRight:I
@@ -4409,14 +4410,14 @@
     iput v6, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
 
     .line 924
-    :goto_5
+    :goto_18f
     iput p5, p1, Landroid/support/constraint/ConstraintSet$Constraint;->leftMargin:I
 
-    :goto_6
+    :goto_191
     return-void
 
     .line 922
-    :cond_d
+    :cond_192
     new-instance p1, Ljava/lang/IllegalArgumentException;
 
     new-instance p2, Ljava/lang/StringBuilder;
@@ -4445,20 +4446,20 @@
 
     throw p1
 
-    :pswitch_data_0
+    :pswitch_data_1b2
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_182
+        :pswitch_152
+        :pswitch_11e
+        :pswitch_e9
+        :pswitch_ba
+        :pswitch_89
+        :pswitch_58
     .end packed-switch
 .end method
 
 .method public constrainDefaultHeight(II)V
-    .locals 0
+    .registers 3
 
     .line 1565
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4471,7 +4472,7 @@
 .end method
 
 .method public constrainDefaultWidth(II)V
-    .locals 0
+    .registers 3
 
     .line 1576
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4484,7 +4485,7 @@
 .end method
 
 .method public constrainHeight(II)V
-    .locals 0
+    .registers 3
 
     .line 1498
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4497,7 +4498,7 @@
 .end method
 
 .method public constrainMaxHeight(II)V
-    .locals 0
+    .registers 3
 
     .line 1520
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4510,7 +4511,7 @@
 .end method
 
 .method public constrainMaxWidth(II)V
-    .locals 0
+    .registers 3
 
     .line 1531
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4523,7 +4524,7 @@
 .end method
 
 .method public constrainMinHeight(II)V
-    .locals 0
+    .registers 3
 
     .line 1542
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4536,7 +4537,7 @@
 .end method
 
 .method public constrainMinWidth(II)V
-    .locals 0
+    .registers 3
 
     .line 1553
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4549,7 +4550,7 @@
 .end method
 
 .method public constrainWidth(II)V
-    .locals 0
+    .registers 3
 
     .line 1509
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4562,7 +4563,7 @@
 .end method
 
 .method public create(II)V
-    .locals 0
+    .registers 3
 
     .line 1779
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4581,7 +4582,7 @@
 .end method
 
 .method public createHorizontalChain(IIII[I[FI)V
-    .locals 10
+    .registers 18
 
     const/4 v8, 0x1
 
@@ -4610,7 +4611,7 @@
 .end method
 
 .method public createHorizontalChainRtl(IIII[I[FI)V
-    .locals 10
+    .registers 18
 
     const/4 v8, 0x6
 
@@ -4639,7 +4640,7 @@
 .end method
 
 .method public createVerticalChain(IIII[I[FI)V
-    .locals 12
+    .registers 20
 
     move-object v6, p0
 
@@ -4652,21 +4653,21 @@
 
     const/4 v1, 0x2
 
-    if-lt v0, v1, :cond_5
+    if-lt v0, v1, :cond_73
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_18
 
     .line 816
     array-length v0, v8
 
     array-length v1, v7
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_10
 
-    goto :goto_0
+    goto :goto_18
 
     .line 817
-    :cond_0
+    :cond_10
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "must have 2 or more widgets in a chain"
@@ -4675,11 +4676,11 @@
 
     throw v0
 
-    :cond_1
-    :goto_0
+    :cond_18
+    :goto_18
     const/4 v0, 0x0
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_25
 
     .line 820
     aget v1, v7, v0
@@ -4693,7 +4694,7 @@
     iput v2, v1, Landroid/support/constraint/ConstraintSet$Constraint;->verticalWeight:F
 
     .line 822
-    :cond_2
+    :cond_25
     aget v1, v7, v0
 
     invoke-direct {p0, v1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4724,10 +4725,10 @@
     move v10, v9
 
     .line 825
-    :goto_1
+    :goto_3b
     array-length v0, v7
 
-    if-ge v10, v0, :cond_4
+    if-ge v10, v0, :cond_65
 
     .line 826
     aget v0, v7, v10
@@ -4760,7 +4761,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    if-eqz v8, :cond_3
+    if-eqz v8, :cond_62
 
     .line 830
     aget v0, v7, v10
@@ -4773,13 +4774,13 @@
 
     iput v1, v0, Landroid/support/constraint/ConstraintSet$Constraint;->verticalWeight:F
 
-    :cond_3
+    :cond_62
     add-int/lit8 v10, v10, 0x1
 
-    goto :goto_1
+    goto :goto_3b
 
     .line 833
-    :cond_4
+    :cond_65
     array-length v0, v7
 
     sub-int/2addr v0, v9
@@ -4801,7 +4802,7 @@
     return-void
 
     .line 814
-    :cond_5
+    :cond_73
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "must have 2 or more widgets in a chain"
@@ -4812,7 +4813,7 @@
 .end method
 
 .method public getApplyElevation(I)Z
-    .locals 0
+    .registers 2
 
     .line 1349
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -4825,7 +4826,7 @@
 .end method
 
 .method public load(Landroid/content/Context;I)V
-    .locals 4
+    .registers 7
 
     .line 1855
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -4838,24 +4839,24 @@
     move-result-object p2
 
     .line 1861
-    :try_start_0
+    :try_start_8
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getEventType()I
 
     move-result v0
 
-    :goto_0
+    :goto_c
     const/4 v1, 0x1
 
-    if-eq v0, v1, :cond_2
+    if-eq v0, v1, :cond_48
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_37
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v0, :pswitch_data_4a
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 1869
-    :pswitch_0
+    :pswitch_15
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     move-result-object v0
@@ -4876,13 +4877,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2b
 
     .line 1872
     iput-boolean v1, v2, Landroid/support/constraint/ConstraintSet$Constraint;->mIsGuideline:Z
 
     .line 1874
-    :cond_0
+    :cond_2b
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
 
     iget v1, v2, Landroid/support/constraint/ConstraintSet$Constraint;->mViewId:I
@@ -4893,53 +4894,53 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_3a
 
     .line 1866
-    :cond_1
+    :cond_37
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
     .line 1863
-    :goto_1
-    :pswitch_1
+    :goto_3a
+    :pswitch_3a
     invoke-interface {p2}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
     move-result v0
-    :try_end_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_8 .. :try_end_3e} :catch_44
+    .catch Ljava/io/IOException; {:try_start_8 .. :try_end_3e} :catch_3f
 
-    goto :goto_0
+    goto :goto_c
 
-    :catch_0
+    :catch_3f
     move-exception p0
 
     .line 1886
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_2
+    goto :goto_48
 
-    :catch_1
+    :catch_44
     move-exception p0
 
     .line 1884
     invoke-virtual {p0}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
 
-    :cond_2
-    :goto_2
+    :cond_48
+    :goto_48
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_4a
     .packed-switch 0x2
-        :pswitch_0
-        :pswitch_1
+        :pswitch_15
+        :pswitch_3a
     .end packed-switch
 .end method
 
 .method public removeFromHorizontalChain(I)V
-    .locals 8
+    .registers 10
 
     .line 1727
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -4952,7 +4953,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_a8
 
     .line 1728
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -4975,27 +4976,27 @@
 
     const/4 v1, -0x1
 
-    if-ne v6, v1, :cond_6
+    if-ne v6, v1, :cond_6a
 
-    if-eq v7, v1, :cond_0
+    if-eq v7, v1, :cond_22
 
-    goto :goto_1
+    goto :goto_6a
 
     .line 1749
-    :cond_0
+    :cond_22
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->startToEnd:I
 
     .line 1750
     iget v7, v0, Landroid/support/constraint/ConstraintSet$Constraint;->endToStart:I
 
-    if-ne v2, v1, :cond_1
+    if-ne v2, v1, :cond_2a
 
-    if-eq v7, v1, :cond_5
+    if-eq v7, v1, :cond_61
 
-    :cond_1
-    if-eq v2, v1, :cond_2
+    :cond_2a
+    if-eq v2, v1, :cond_40
 
-    if-eq v7, v1, :cond_2
+    if-eq v7, v1, :cond_40
 
     const/4 v3, 0x7
 
@@ -5025,18 +5026,18 @@
     .line 1755
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    goto :goto_0
+    goto :goto_61
 
-    :cond_2
-    if-ne v6, v1, :cond_3
+    :cond_40
+    if-ne v6, v1, :cond_44
 
-    if-eq v7, v1, :cond_5
+    if-eq v7, v1, :cond_61
 
     .line 1757
-    :cond_3
+    :cond_44
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
-    if-eq v2, v1, :cond_4
+    if-eq v2, v1, :cond_53
 
     const/4 v2, 0x7
 
@@ -5053,13 +5054,13 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    goto :goto_0
+    goto :goto_61
 
     .line 1760
-    :cond_4
+    :cond_53
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
 
-    if-eq v2, v1, :cond_5
+    if-eq v2, v1, :cond_61
 
     const/4 v2, 0x6
 
@@ -5076,8 +5077,8 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_5
-    :goto_0
+    :cond_61
+    :goto_61
     const/4 v0, 0x6
 
     .line 1766
@@ -5088,13 +5089,13 @@
     .line 1767
     invoke-virtual {p0, p1, v0}, Landroid/support/constraint/ConstraintSet;->clear(II)V
 
-    goto :goto_3
+    goto :goto_a8
 
-    :cond_6
-    :goto_1
-    if-eq v6, v1, :cond_7
+    :cond_6a
+    :goto_6a
+    if-eq v6, v1, :cond_7f
 
-    if-eq v7, v1, :cond_7
+    if-eq v7, v1, :cond_7f
 
     const/4 v2, 0x2
 
@@ -5122,18 +5123,18 @@
     .line 1735
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    goto :goto_2
+    goto :goto_a0
 
-    :cond_7
-    if-ne v6, v1, :cond_8
+    :cond_7f
+    if-ne v6, v1, :cond_83
 
-    if-eq v7, v1, :cond_a
+    if-eq v7, v1, :cond_a0
 
     .line 1737
-    :cond_8
+    :cond_83
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->rightToRight:I
 
-    if-eq v2, v1, :cond_9
+    if-eq v2, v1, :cond_92
 
     const/4 v2, 0x2
 
@@ -5150,13 +5151,13 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    goto :goto_2
+    goto :goto_a0
 
     .line 1740
-    :cond_9
+    :cond_92
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->leftToLeft:I
 
-    if-eq v2, v1, :cond_a
+    if-eq v2, v1, :cond_a0
 
     const/4 v2, 0x1
 
@@ -5173,8 +5174,8 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_a
-    :goto_2
+    :cond_a0
+    :goto_a0
     const/4 v0, 0x1
 
     .line 1745
@@ -5185,13 +5186,13 @@
     .line 1746
     invoke-virtual {p0, p1, v0}, Landroid/support/constraint/ConstraintSet;->clear(II)V
 
-    :cond_b
-    :goto_3
+    :cond_a8
+    :goto_a8
     return-void
 .end method
 
 .method public removeFromVerticalChain(I)V
-    .locals 9
+    .registers 11
 
     .line 1695
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -5204,7 +5205,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_57
 
     .line 1696
     iget-object v0, p0, Landroid/support/constraint/ConstraintSet;->mConstraints:Ljava/util/HashMap;
@@ -5227,14 +5228,14 @@
 
     const/4 v1, -0x1
 
-    if-ne v7, v1, :cond_0
+    if-ne v7, v1, :cond_21
 
-    if-eq v8, v1, :cond_4
+    if-eq v8, v1, :cond_57
 
-    :cond_0
-    if-eq v7, v1, :cond_1
+    :cond_21
+    if-eq v7, v1, :cond_36
 
-    if-eq v8, v1, :cond_1
+    if-eq v8, v1, :cond_36
 
     const/4 v3, 0x4
 
@@ -5262,18 +5263,18 @@
     .line 1703
     invoke-virtual/range {v1 .. v6}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    goto :goto_0
+    goto :goto_57
 
-    :cond_1
-    if-ne v7, v1, :cond_2
+    :cond_36
+    if-ne v7, v1, :cond_3a
 
-    if-eq v8, v1, :cond_4
+    if-eq v8, v1, :cond_57
 
     .line 1705
-    :cond_2
+    :cond_3a
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->bottomToBottom:I
 
-    if-eq v2, v1, :cond_3
+    if-eq v2, v1, :cond_49
 
     const/4 v3, 0x4
 
@@ -5290,13 +5291,13 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    goto :goto_0
+    goto :goto_57
 
     .line 1708
-    :cond_3
+    :cond_49
     iget v2, v0, Landroid/support/constraint/ConstraintSet$Constraint;->topToTop:I
 
-    if-eq v2, v1, :cond_4
+    if-eq v2, v1, :cond_57
 
     const/4 v3, 0x3
 
@@ -5313,8 +5314,8 @@
 
     invoke-virtual/range {v1 .. v6}, Landroid/support/constraint/ConstraintSet;->connect(IIIII)V
 
-    :cond_4
-    :goto_0
+    :cond_57
+    :goto_57
     const/4 v0, 0x3
 
     .line 1715
@@ -5329,7 +5330,7 @@
 .end method
 
 .method public setAlpha(IF)V
-    .locals 0
+    .registers 3
 
     .line 1340
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5342,7 +5343,7 @@
 .end method
 
 .method public setApplyElevation(IZ)V
-    .locals 0
+    .registers 3
 
     .line 1360
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5355,7 +5356,7 @@
 .end method
 
 .method public setDimensionRatio(ILjava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 1320
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5368,7 +5369,7 @@
 .end method
 
 .method public setElevation(IF)V
-    .locals 1
+    .registers 4
 
     .line 1370
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5390,14 +5391,14 @@
 .end method
 
 .method public setGoneMargin(III)V
-    .locals 0
+    .registers 4
 
     .line 1265
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
 
     move-result-object p0
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_2a
 
     .line 1288
     new-instance p0, Ljava/lang/IllegalArgumentException;
@@ -5409,19 +5410,19 @@
     throw p0
 
     .line 1285
-    :pswitch_0
+    :pswitch_f
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneEndMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1282
-    :pswitch_1
+    :pswitch_12
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneStartMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1280
-    :pswitch_2
+    :pswitch_15
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "baseline does not support margins"
@@ -5431,46 +5432,46 @@
     throw p0
 
     .line 1277
-    :pswitch_3
+    :pswitch_1d
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneBottomMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1274
-    :pswitch_4
+    :pswitch_20
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneTopMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1271
-    :pswitch_5
+    :pswitch_23
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneRightMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1268
-    :pswitch_6
+    :pswitch_26
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->goneLeftMargin:I
 
-    :goto_0
+    :goto_28
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_26
+        :pswitch_23
+        :pswitch_20
+        :pswitch_1d
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method public setGuidelineBegin(II)V
-    .locals 1
+    .registers 4
 
     .line 1791
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5501,7 +5502,7 @@
 .end method
 
 .method public setGuidelineEnd(II)V
-    .locals 1
+    .registers 4
 
     .line 1804
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5532,7 +5533,7 @@
 .end method
 
 .method public setGuidelinePercent(IF)V
-    .locals 1
+    .registers 4
 
     .line 1816
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5561,7 +5562,7 @@
 .end method
 
 .method public setHorizontalBias(IF)V
-    .locals 0
+    .registers 3
 
     .line 1299
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5574,7 +5575,7 @@
 .end method
 
 .method public setHorizontalChainStyle(II)V
-    .locals 0
+    .registers 3
 
     .line 1614
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5587,7 +5588,7 @@
 .end method
 
 .method public setHorizontalWeight(IF)V
-    .locals 0
+    .registers 3
 
     .line 1588
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5600,14 +5601,14 @@
 .end method
 
 .method public setMargin(III)V
-    .locals 0
+    .registers 4
 
     .line 1230
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
 
     move-result-object p0
 
-    packed-switch p2, :pswitch_data_0
+    packed-switch p2, :pswitch_data_2a
 
     .line 1253
     new-instance p0, Ljava/lang/IllegalArgumentException;
@@ -5619,19 +5620,19 @@
     throw p0
 
     .line 1250
-    :pswitch_0
+    :pswitch_f
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->endMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1247
-    :pswitch_1
+    :pswitch_12
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->startMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1245
-    :pswitch_2
+    :pswitch_15
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "baseline does not support margins"
@@ -5641,46 +5642,46 @@
     throw p0
 
     .line 1242
-    :pswitch_3
+    :pswitch_1d
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->bottomMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1239
-    :pswitch_4
+    :pswitch_20
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->topMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1236
-    :pswitch_5
+    :pswitch_23
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->rightMargin:I
 
-    goto :goto_0
+    goto :goto_28
 
     .line 1233
-    :pswitch_6
+    :pswitch_26
     iput p3, p0, Landroid/support/constraint/ConstraintSet$Constraint;->leftMargin:I
 
-    :goto_0
+    :goto_28
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_26
+        :pswitch_23
+        :pswitch_20
+        :pswitch_1d
+        :pswitch_15
+        :pswitch_12
+        :pswitch_f
     .end packed-switch
 .end method
 
 .method public setRotationX(IF)V
-    .locals 0
+    .registers 3
 
     .line 1381
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5693,7 +5694,7 @@
 .end method
 
 .method public setRotationY(IF)V
-    .locals 0
+    .registers 3
 
     .line 1391
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5706,7 +5707,7 @@
 .end method
 
 .method public setScaleX(IF)V
-    .locals 0
+    .registers 3
 
     .line 1401
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5719,7 +5720,7 @@
 .end method
 
 .method public setScaleY(IF)V
-    .locals 0
+    .registers 3
 
     .line 1411
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5732,7 +5733,7 @@
 .end method
 
 .method public setTransformPivot(IFF)V
-    .locals 0
+    .registers 4
 
     .line 1442
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5749,7 +5750,7 @@
 .end method
 
 .method public setTransformPivotX(IF)V
-    .locals 0
+    .registers 3
 
     .line 1421
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5762,7 +5763,7 @@
 .end method
 
 .method public setTransformPivotY(IF)V
-    .locals 0
+    .registers 3
 
     .line 1431
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5775,7 +5776,7 @@
 .end method
 
 .method public setTranslation(IFF)V
-    .locals 0
+    .registers 4
 
     .line 1475
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5792,7 +5793,7 @@
 .end method
 
 .method public setTranslationX(IF)V
-    .locals 0
+    .registers 3
 
     .line 1454
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5805,7 +5806,7 @@
 .end method
 
 .method public setTranslationY(IF)V
-    .locals 0
+    .registers 3
 
     .line 1464
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5818,7 +5819,7 @@
 .end method
 
 .method public setTranslationZ(IF)V
-    .locals 0
+    .registers 3
 
     .line 1487
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5831,7 +5832,7 @@
 .end method
 
 .method public setVerticalBias(IF)V
-    .locals 0
+    .registers 3
 
     .line 1309
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5844,7 +5845,7 @@
 .end method
 
 .method public setVerticalChainStyle(II)V
-    .locals 0
+    .registers 3
 
     .line 1630
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5857,7 +5858,7 @@
 .end method
 
 .method public setVerticalWeight(IF)V
-    .locals 0
+    .registers 3
 
     .line 1599
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;
@@ -5870,7 +5871,7 @@
 .end method
 
 .method public setVisibility(II)V
-    .locals 0
+    .registers 3
 
     .line 1330
     invoke-direct {p0, p1}, Landroid/support/constraint/ConstraintSet;->get(I)Landroid/support/constraint/ConstraintSet$Constraint;

@@ -9,13 +9,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 11
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,9 +24,9 @@
 .end method
 
 .method public static getVersionInfo(Landroid/content/Context;)Ljava/lang/String;
-    .locals 2
+    .registers 3
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_12
 
     const-string v0, "HockeyApp"
 
@@ -48,16 +48,16 @@
 
     return-object p0
 
-    :cond_0
+    :cond_12
     const-string p0, "[]"
 
     return-object p0
 .end method
 
 .method public static setVersionInfo(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 2
+    .registers 4
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_15
 
     const-string v0, "HockeyApp"
 
@@ -81,6 +81,6 @@
     .line 19
     invoke-interface {p0}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    :cond_0
+    :cond_15
     return-void
 .end method

@@ -24,7 +24,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 190
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 .end method
 
 .method public static getAudioAttributes(Ljava/lang/Object;)Landroid/media/AudioAttributes;
-    .locals 0
+    .registers 1
 
     .line 196
     check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
@@ -46,7 +46,7 @@
 .end method
 
 .method public static getCurrentVolume(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 213
     check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
@@ -59,7 +59,7 @@
 .end method
 
 .method public static getLegacyAudioStream(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 200
     invoke-static {p0}, Landroid/support/v4/media/session/MediaControllerCompatApi21$PlaybackInfo;->getAudioAttributes(Ljava/lang/Object;)Landroid/media/AudioAttributes;
@@ -75,7 +75,7 @@
 .end method
 
 .method public static getMaxVolume(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 209
     check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
@@ -88,7 +88,7 @@
 .end method
 
 .method public static getPlaybackType(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 192
     check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
@@ -101,7 +101,7 @@
 .end method
 
 .method public static getVolumeControl(Ljava/lang/Object;)I
-    .locals 0
+    .registers 1
 
     .line 205
     check-cast p0, Landroid/media/session/MediaController$PlaybackInfo;
@@ -114,7 +114,7 @@
 .end method
 
 .method private static toLegacyStreamType(Landroid/media/AudioAttributes;)I
-    .locals 3
+    .registers 4
 
     .line 224
     invoke-virtual {p0}, Landroid/media/AudioAttributes;->getFlags()I
@@ -125,14 +125,14 @@
 
     and-int/2addr v0, v1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_a
 
     const/4 p0, 0x7
 
     return p0
 
     .line 228
-    :cond_0
+    :cond_a
     invoke-virtual {p0}, Landroid/media/AudioAttributes;->getFlags()I
 
     move-result v0
@@ -141,70 +141,70 @@
 
     and-int/2addr v0, v2
 
-    if-ne v0, v2, :cond_1
+    if-ne v0, v2, :cond_14
 
     const/4 p0, 0x6
 
     return p0
 
     .line 233
-    :cond_1
+    :cond_14
     invoke-virtual {p0}, Landroid/media/AudioAttributes;->getUsage()I
 
     move-result p0
 
     const/4 v0, 0x3
 
-    packed-switch p0, :pswitch_data_0
+    packed-switch p0, :pswitch_data_2a
 
     return v0
 
-    :pswitch_0
+    :pswitch_1d
     return v1
 
-    :pswitch_1
+    :pswitch_1e
     const/4 p0, 0x2
 
     return p0
 
-    :pswitch_2
+    :pswitch_20
     const/4 p0, 0x5
 
     return p0
 
-    :pswitch_3
+    :pswitch_22
     return v2
 
-    :pswitch_4
+    :pswitch_23
     const/16 p0, 0x8
 
     return p0
 
-    :pswitch_5
+    :pswitch_26
     const/4 p0, 0x0
 
     return p0
 
-    :pswitch_6
+    :pswitch_28
     return v0
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_2a
     .packed-switch 0x1
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_2
-        :pswitch_6
-        :pswitch_6
-        :pswitch_0
-        :pswitch_6
+        :pswitch_28
+        :pswitch_26
+        :pswitch_23
+        :pswitch_22
+        :pswitch_20
+        :pswitch_1e
+        :pswitch_20
+        :pswitch_20
+        :pswitch_20
+        :pswitch_20
+        :pswitch_28
+        :pswitch_28
+        :pswitch_1d
+        :pswitch_28
     .end packed-switch
 .end method

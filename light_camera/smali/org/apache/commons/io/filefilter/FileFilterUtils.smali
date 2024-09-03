@@ -11,7 +11,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     const/4 v0, 0x2
 
@@ -77,7 +77,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 45
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -86,7 +86,7 @@
 .end method
 
 .method public static ageFileFilter(J)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 530
     new-instance v0, Lorg/apache/commons/io/filefilter/AgeFileFilter;
@@ -97,7 +97,7 @@
 .end method
 
 .method public static ageFileFilter(JZ)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 4
 
     .line 543
     new-instance v0, Lorg/apache/commons/io/filefilter/AgeFileFilter;
@@ -108,7 +108,7 @@
 .end method
 
 .method public static ageFileFilter(Ljava/io/File;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 583
     new-instance v0, Lorg/apache/commons/io/filefilter/AgeFileFilter;
@@ -119,7 +119,7 @@
 .end method
 
 .method public static ageFileFilter(Ljava/io/File;Z)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 597
     new-instance v0, Lorg/apache/commons/io/filefilter/AgeFileFilter;
@@ -130,7 +130,7 @@
 .end method
 
 .method public static ageFileFilter(Ljava/util/Date;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 556
     new-instance v0, Lorg/apache/commons/io/filefilter/AgeFileFilter;
@@ -141,7 +141,7 @@
 .end method
 
 .method public static ageFileFilter(Ljava/util/Date;Z)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 569
     new-instance v0, Lorg/apache/commons/io/filefilter/AgeFileFilter;
@@ -152,7 +152,7 @@
 .end method
 
 .method public static varargs and([Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 421
     new-instance v0, Lorg/apache/commons/io/filefilter/AndFileFilter;
@@ -167,7 +167,7 @@
 .end method
 
 .method public static andFileFilter(Lorg/apache/commons/io/filefilter/IOFileFilter;Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -180,7 +180,7 @@
 .end method
 
 .method public static asFileFilter(Ljava/io/FileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 504
     new-instance v0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;
@@ -191,7 +191,7 @@
 .end method
 
 .method public static asFileFilter(Ljava/io/FilenameFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 516
     new-instance v0, Lorg/apache/commons/io/filefilter/DelegateFileFilter;
@@ -202,7 +202,7 @@
 .end method
 
 .method public static directoryFileFilter()Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 1
 
     .line 365
     sget-object v0, Lorg/apache/commons/io/filefilter/DirectoryFileFilter;->DIRECTORY:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -211,7 +211,7 @@
 .end method
 
 .method public static falseFileFilter()Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 1
 
     .line 491
     sget-object v0, Lorg/apache/commons/io/filefilter/FalseFileFilter;->FALSE:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -220,7 +220,7 @@
 .end method
 
 .method public static fileFileFilter()Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 1
 
     .line 375
     sget-object v0, Lorg/apache/commons/io/filefilter/FileFileFilter;->FILE:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -229,7 +229,7 @@
 .end method
 
 .method private static filter(Lorg/apache/commons/io/filefilter/IOFileFilter;Ljava/lang/Iterable;Ljava/util/Collection;)Ljava/util/Collection;
-    .locals 2
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T::",
@@ -243,22 +243,22 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_29
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_28
 
     .line 274
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
-    :cond_0
-    :goto_0
+    :cond_8
+    :goto_8
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_28
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -266,22 +266,22 @@
 
     check-cast v0, Ljava/io/File;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_20
 
     .line 278
     invoke-interface {p0, v0}, Lorg/apache/commons/io/filefilter/IOFileFilter;->accept(Ljava/io/File;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_8
 
     .line 279
     invoke-interface {p2, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
-    goto :goto_0
+    goto :goto_8
 
     .line 276
-    :cond_1
+    :cond_20
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "file collection contains null"
@@ -290,11 +290,11 @@
 
     throw p0
 
-    :cond_2
+    :cond_28
     return-object p2
 
     .line 271
-    :cond_3
+    :cond_29
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "file filter is null"
@@ -305,7 +305,7 @@
 .end method
 
 .method public static filter(Lorg/apache/commons/io/filefilter/IOFileFilter;Ljava/lang/Iterable;)[Ljava/io/File;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -339,13 +339,13 @@
 .end method
 
 .method public static varargs filter(Lorg/apache/commons/io/filefilter/IOFileFilter;[Ljava/io/File;)[Ljava/io/File;
-    .locals 5
+    .registers 7
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_35
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_8
 
     .line 81
     new-array p0, v0, [Ljava/io/File;
@@ -353,7 +353,7 @@
     return-object p0
 
     .line 83
-    :cond_0
+    :cond_8
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -361,30 +361,30 @@
     .line 84
     array-length v2, p1
 
-    :goto_0
-    if-ge v0, v2, :cond_3
+    :goto_e
+    if-ge v0, v2, :cond_28
 
     aget-object v3, p1, v0
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_20
 
     .line 88
     invoke-interface {p0, v3}, Lorg/apache/commons/io/filefilter/IOFileFilter;->accept(Ljava/io/File;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_1d
 
     .line 89
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_1
+    :cond_1d
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_e
 
     .line 86
-    :cond_2
+    :cond_20
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "file array contains null"
@@ -394,7 +394,7 @@
     throw p0
 
     .line 92
-    :cond_3
+    :cond_28
     invoke-interface {v1}, Ljava/util/List;->size()I
 
     move-result p0
@@ -410,7 +410,7 @@
     return-object p0
 
     .line 78
-    :cond_4
+    :cond_35
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "file filter is null"
@@ -421,7 +421,7 @@
 .end method
 
 .method public static filterList(Lorg/apache/commons/io/filefilter/IOFileFilter;Ljava/lang/Iterable;)Ljava/util/List;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -450,7 +450,7 @@
 .end method
 
 .method public static varargs filterList(Lorg/apache/commons/io/filefilter/IOFileFilter;[Ljava/io/File;)Ljava/util/List;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -478,7 +478,7 @@
 .end method
 
 .method public static filterSet(Lorg/apache/commons/io/filefilter/IOFileFilter;Ljava/lang/Iterable;)Ljava/util/Set;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -507,7 +507,7 @@
 .end method
 
 .method public static varargs filterSet(Lorg/apache/commons/io/filefilter/IOFileFilter;[Ljava/io/File;)Ljava/util/Set;
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -539,7 +539,7 @@
 .end method
 
 .method public static magicNumberFileFilter(Ljava/lang/String;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 658
     new-instance v0, Lorg/apache/commons/io/filefilter/MagicNumberFileFilter;
@@ -550,7 +550,7 @@
 .end method
 
 .method public static magicNumberFileFilter(Ljava/lang/String;J)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 4
 
     .line 679
     new-instance v0, Lorg/apache/commons/io/filefilter/MagicNumberFileFilter;
@@ -561,7 +561,7 @@
 .end method
 
 .method public static magicNumberFileFilter([B)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 698
     new-instance v0, Lorg/apache/commons/io/filefilter/MagicNumberFileFilter;
@@ -572,7 +572,7 @@
 .end method
 
 .method public static magicNumberFileFilter([BJ)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 4
 
     .line 719
     new-instance v0, Lorg/apache/commons/io/filefilter/MagicNumberFileFilter;
@@ -583,16 +583,16 @@
 .end method
 
 .method public static makeCVSAware(Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 742
     sget-object p0, Lorg/apache/commons/io/filefilter/FileFilterUtils;->cvsFilter:Lorg/apache/commons/io/filefilter/IOFileFilter;
 
     return-object p0
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x2
 
     .line 744
@@ -616,9 +616,9 @@
 .end method
 
 .method public static makeDirectoryOnly(Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 776
     sget-object p0, Lorg/apache/commons/io/filefilter/DirectoryFileFilter;->DIRECTORY:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -626,7 +626,7 @@
     return-object p0
 
     .line 778
-    :cond_0
+    :cond_5
     new-instance v0, Lorg/apache/commons/io/filefilter/AndFileFilter;
 
     sget-object v1, Lorg/apache/commons/io/filefilter/DirectoryFileFilter;->DIRECTORY:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -637,9 +637,9 @@
 .end method
 
 .method public static makeFileOnly(Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 791
     sget-object p0, Lorg/apache/commons/io/filefilter/FileFileFilter;->FILE:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -647,7 +647,7 @@
     return-object p0
 
     .line 793
-    :cond_0
+    :cond_5
     new-instance v0, Lorg/apache/commons/io/filefilter/AndFileFilter;
 
     sget-object v1, Lorg/apache/commons/io/filefilter/FileFileFilter;->FILE:Lorg/apache/commons/io/filefilter/IOFileFilter;
@@ -658,16 +658,16 @@
 .end method
 
 .method public static makeSVNAware(Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 2
+    .registers 3
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_5
 
     .line 759
     sget-object p0, Lorg/apache/commons/io/filefilter/FileFilterUtils;->svnFilter:Lorg/apache/commons/io/filefilter/IOFileFilter;
 
     return-object p0
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x2
 
     .line 761
@@ -691,7 +691,7 @@
 .end method
 
 .method public static nameFileFilter(Ljava/lang/String;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 342
     new-instance v0, Lorg/apache/commons/io/filefilter/NameFileFilter;
@@ -702,7 +702,7 @@
 .end method
 
 .method public static nameFileFilter(Ljava/lang/String;Lorg/apache/commons/io/IOCase;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 355
     new-instance v0, Lorg/apache/commons/io/filefilter/NameFileFilter;
@@ -713,7 +713,7 @@
 .end method
 
 .method public static notFileFilter(Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 470
     new-instance v0, Lorg/apache/commons/io/filefilter/NotFileFilter;
@@ -724,7 +724,7 @@
 .end method
 
 .method public static varargs or([Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 436
     new-instance v0, Lorg/apache/commons/io/filefilter/OrFileFilter;
@@ -739,7 +739,7 @@
 .end method
 
 .method public static orFileFilter(Lorg/apache/commons/io/filefilter/IOFileFilter;Lorg/apache/commons/io/filefilter/IOFileFilter;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -752,7 +752,7 @@
 .end method
 
 .method public static prefixFileFilter(Ljava/lang/String;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 294
     new-instance v0, Lorg/apache/commons/io/filefilter/PrefixFileFilter;
@@ -763,7 +763,7 @@
 .end method
 
 .method public static prefixFileFilter(Ljava/lang/String;Lorg/apache/commons/io/IOCase;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 307
     new-instance v0, Lorg/apache/commons/io/filefilter/PrefixFileFilter;
@@ -774,7 +774,7 @@
 .end method
 
 .method public static sizeFileFilter(J)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 610
     new-instance v0, Lorg/apache/commons/io/filefilter/SizeFileFilter;
@@ -785,7 +785,7 @@
 .end method
 
 .method public static sizeFileFilter(JZ)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 4
 
     .line 623
     new-instance v0, Lorg/apache/commons/io/filefilter/SizeFileFilter;
@@ -796,7 +796,7 @@
 .end method
 
 .method public static sizeRangeFileFilter(JJ)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 3
+    .registers 7
 
     .line 637
     new-instance v0, Lorg/apache/commons/io/filefilter/SizeFileFilter;
@@ -825,7 +825,7 @@
 .end method
 
 .method public static suffixFileFilter(Ljava/lang/String;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 2
 
     .line 318
     new-instance v0, Lorg/apache/commons/io/filefilter/SuffixFileFilter;
@@ -836,7 +836,7 @@
 .end method
 
 .method public static suffixFileFilter(Ljava/lang/String;Lorg/apache/commons/io/IOCase;)Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 3
 
     .line 331
     new-instance v0, Lorg/apache/commons/io/filefilter/SuffixFileFilter;
@@ -847,7 +847,7 @@
 .end method
 
 .method public static varargs toList([Lorg/apache/commons/io/filefilter/IOFileFilter;)Ljava/util/List;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -859,7 +859,7 @@
         }
     .end annotation
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_35
 
     .line 452
     new-instance v0, Ljava/util/ArrayList;
@@ -871,15 +871,15 @@
     const/4 v1, 0x0
 
     .line 453
-    :goto_0
+    :goto_9
     array-length v2, p0
 
-    if-ge v1, v2, :cond_1
+    if-ge v1, v2, :cond_34
 
     .line 454
     aget-object v2, p0, v1
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_18
 
     .line 457
     aget-object v2, p0, v1
@@ -888,10 +888,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
     .line 455
-    :cond_0
+    :cond_18
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -916,11 +916,11 @@
 
     throw p0
 
-    :cond_1
+    :cond_34
     return-object v0
 
     .line 450
-    :cond_2
+    :cond_35
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "The filters must not be null"
@@ -931,7 +931,7 @@
 .end method
 
 .method public static trueFileFilter()Lorg/apache/commons/io/filefilter/IOFileFilter;
-    .locals 1
+    .registers 1
 
     .line 481
     sget-object v0, Lorg/apache/commons/io/filefilter/TrueFileFilter;->TRUE:Lorg/apache/commons/io/filefilter/IOFileFilter;

@@ -44,7 +44,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/google/gson/internal/Excluder;ZZLcom/google/gson/Gson;Lcom/google/gson/reflect/TypeToken;)V
-    .locals 0
+    .registers 6
 
     .line 120
     iput-object p1, p0, Lcom/google/gson/internal/Excluder$1;->this$0:Lcom/google/gson/internal/Excluder;
@@ -63,7 +63,7 @@
 .end method
 
 .method private delegate()Lcom/google/gson/TypeAdapter;
-    .locals 3
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -75,12 +75,12 @@
     .line 141
     iget-object v0, p0, Lcom/google/gson/internal/Excluder$1;->delegate:Lcom/google/gson/TypeAdapter;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_5
 
-    goto :goto_0
+    goto :goto_11
 
     .line 142
-    :cond_0
+    :cond_5
     iget-object v0, p0, Lcom/google/gson/internal/Excluder$1;->val$gson:Lcom/google/gson/Gson;
 
     iget-object v1, p0, Lcom/google/gson/internal/Excluder$1;->this$0:Lcom/google/gson/internal/Excluder;
@@ -94,14 +94,14 @@
 
     iput-object v0, p0, Lcom/google/gson/internal/Excluder$1;->delegate:Lcom/google/gson/TypeAdapter;
 
-    :goto_0
+    :goto_11
     return-object v0
 .end method
 
 
 # virtual methods
 .method public read(Lcom/google/gson/stream/JsonReader;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -119,7 +119,7 @@
     .line 125
     iget-boolean v0, p0, Lcom/google/gson/internal/Excluder$1;->val$skipDeserialize:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 126
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonReader;->skipValue()V
@@ -129,7 +129,7 @@
     return-object p0
 
     .line 129
-    :cond_0
+    :cond_9
     invoke-direct {p0}, Lcom/google/gson/internal/Excluder$1;->delegate()Lcom/google/gson/TypeAdapter;
 
     move-result-object p0
@@ -142,7 +142,7 @@
 .end method
 
 .method public write(Lcom/google/gson/stream/JsonWriter;Ljava/lang/Object;)V
-    .locals 1
+    .registers 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -160,7 +160,7 @@
     .line 133
     iget-boolean v0, p0, Lcom/google/gson/internal/Excluder$1;->val$skipSerialize:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_8
 
     .line 134
     invoke-virtual {p1}, Lcom/google/gson/stream/JsonWriter;->nullValue()Lcom/google/gson/stream/JsonWriter;
@@ -168,7 +168,7 @@
     return-void
 
     .line 137
-    :cond_0
+    :cond_8
     invoke-direct {p0}, Lcom/google/gson/internal/Excluder$1;->delegate()Lcom/google/gson/TypeAdapter;
 
     move-result-object p0

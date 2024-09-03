@@ -42,7 +42,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 53
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
@@ -104,7 +104,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 153
     invoke-direct {p0}, Landroid/support/transition/Visibility;-><init>()V
@@ -126,7 +126,7 @@
 .end method
 
 .method public constructor <init>(I)V
-    .locals 1
+    .registers 3
 
     .line 160
     invoke-direct {p0}, Landroid/support/transition/Visibility;-><init>()V
@@ -148,7 +148,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+    .registers 6
 
     .line 165
     invoke-direct {p0, p1, p2}, Landroid/support/transition/Visibility;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
@@ -191,7 +191,7 @@
 .end method
 
 .method private captureValues(Landroid/support/transition/TransitionValues;)V
-    .locals 1
+    .registers 3
 
     .line 175
     iget-object p0, p1, Landroid/support/transition/TransitionValues;->view:Landroid/view/View;
@@ -217,7 +217,7 @@
 
 # virtual methods
 .method public captureEndValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -233,7 +233,7 @@
 .end method
 
 .method public captureStartValues(Landroid/support/transition/TransitionValues;)V
-    .locals 0
+    .registers 2
     .param p1    # Landroid/support/transition/TransitionValues;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -249,7 +249,7 @@
 .end method
 
 .method public getSlideEdge()I
-    .locals 0
+    .registers 1
 
     .line 240
     iget p0, p0, Landroid/support/transition/Slide;->mSlideEdge:I
@@ -258,16 +258,16 @@
 .end method
 
 .method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 9
+    .registers 14
 
-    if-nez p4, :cond_0
+    if-nez p4, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 249
-    :cond_0
+    :cond_4
     iget-object p3, p4, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v0, "android:slide:screenPosition"
@@ -326,16 +326,16 @@
 .end method
 
 .method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/support/transition/TransitionValues;Landroid/support/transition/TransitionValues;)Landroid/animation/Animator;
-    .locals 9
+    .registers 14
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_4
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 265
-    :cond_0
+    :cond_4
     iget-object p4, p3, Landroid/support/transition/TransitionValues;->values:Ljava/util/Map;
 
     const-string v0, "android:slide:screenPosition"
@@ -394,41 +394,41 @@
 .end method
 
 .method public setSlideEdge(I)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x3
 
-    if-eq p1, v0, :cond_5
+    if-eq p1, v0, :cond_39
 
     const/4 v0, 0x5
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_34
 
     const/16 v0, 0x30
 
-    if-eq p1, v0, :cond_3
+    if-eq p1, v0, :cond_2f
 
     const/16 v0, 0x50
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_2a
 
     const v0, 0x800003
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_25
 
     const v0, 0x800005
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1d
 
     .line 219
     sget-object v0, Landroid/support/transition/Slide;->sCalculateEnd:Landroid/support/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroid/support/transition/Slide;->mSlideCalculator:Landroid/support/transition/Slide$CalculateSlide;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 222
-    :cond_0
+    :cond_1d
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Invalid slide direction"
@@ -438,45 +438,45 @@
     throw p0
 
     .line 216
-    :cond_1
+    :cond_25
     sget-object v0, Landroid/support/transition/Slide;->sCalculateStart:Landroid/support/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroid/support/transition/Slide;->mSlideCalculator:Landroid/support/transition/Slide$CalculateSlide;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 213
-    :cond_2
+    :cond_2a
     sget-object v0, Landroid/support/transition/Slide;->sCalculateBottom:Landroid/support/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroid/support/transition/Slide;->mSlideCalculator:Landroid/support/transition/Slide$CalculateSlide;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 207
-    :cond_3
+    :cond_2f
     sget-object v0, Landroid/support/transition/Slide;->sCalculateTop:Landroid/support/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroid/support/transition/Slide;->mSlideCalculator:Landroid/support/transition/Slide$CalculateSlide;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 210
-    :cond_4
+    :cond_34
     sget-object v0, Landroid/support/transition/Slide;->sCalculateRight:Landroid/support/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroid/support/transition/Slide;->mSlideCalculator:Landroid/support/transition/Slide$CalculateSlide;
 
-    goto :goto_0
+    goto :goto_3d
 
     .line 204
-    :cond_5
+    :cond_39
     sget-object v0, Landroid/support/transition/Slide;->sCalculateLeft:Landroid/support/transition/Slide$CalculateSlide;
 
     iput-object v0, p0, Landroid/support/transition/Slide;->mSlideCalculator:Landroid/support/transition/Slide$CalculateSlide;
 
     .line 224
-    :goto_0
+    :goto_3d
     iput p1, p0, Landroid/support/transition/Slide;->mSlideEdge:I
 
     .line 225

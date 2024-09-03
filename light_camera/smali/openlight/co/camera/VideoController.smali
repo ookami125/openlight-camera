@@ -88,7 +88,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .registers 4
 
     .line 71
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
@@ -118,7 +118,7 @@
 .end method
 
 .method constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Landroid/view/ViewGroup;Landroid/view/View;)V
-    .locals 2
+    .registers 7
 
     .line 174
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -235,7 +235,7 @@
 .end method
 
 .method static synthetic access$000(Lopenlight/co/camera/VideoController;)V
-    .locals 0
+    .registers 1
 
     .line 56
     invoke-direct {p0}, Lopenlight/co/camera/VideoController;->updateTimerSeconds()V
@@ -244,7 +244,7 @@
 .end method
 
 .method static synthetic access$100(Lopenlight/co/camera/VideoController;)Landroid/os/Handler;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
@@ -253,7 +253,7 @@
 .end method
 
 .method static synthetic access$200(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
@@ -262,7 +262,7 @@
 .end method
 
 .method static synthetic access$300(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/managers/video/VideoManager;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
@@ -271,7 +271,7 @@
 .end method
 
 .method static synthetic access$400(Lopenlight/co/camera/VideoController;)Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mContext:Landroid/content/Context;
@@ -280,7 +280,7 @@
 .end method
 
 .method static synthetic access$500()J
-    .locals 2
+    .registers 2
 
     .line 56
     sget-wide v0, Lopenlight/co/camera/VideoController;->RECORDING_MAX_DURATION_MS:J
@@ -289,12 +289,12 @@
 .end method
 
 .method private addOrShowAncillaryToolbar()V
-    .locals 4
+    .registers 5
 
     .line 503
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_18
 
     .line 504
     new-instance v0, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
@@ -314,15 +314,15 @@
 
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    goto :goto_0
+    goto :goto_1d
 
     .line 508
-    :cond_0
+    :cond_18
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->resetItemsToFirstLevel()V
 
-    :goto_0
+    :goto_1d
     const/4 v0, 0x1
 
     .line 510
@@ -332,7 +332,7 @@
 .end method
 
 .method private addOrShowGridView()V
-    .locals 4
+    .registers 5
 
     .line 468
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -348,7 +348,7 @@
     .line 469
     iget-object v1, p0, Lopenlight/co/camera/VideoController;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1a
 
     .line 470
     new-instance v1, Lopenlight/co/camera/view/grid/GridView;
@@ -361,16 +361,16 @@
 
     iput-object v1, p0, Lopenlight/co/camera/VideoController;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
-    goto :goto_0
+    goto :goto_1f
 
     .line 472
-    :cond_0
+    :cond_1a
     iget-object v1, p0, Lopenlight/co/camera/VideoController;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
     invoke-virtual {v1, v0}, Lopenlight/co/camera/view/grid/GridView;->updateGridType(Ljava/lang/String;)V
 
     .line 474
-    :goto_0
+    :goto_1f
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mGridView:Lopenlight/co/camera/view/grid/GridView;
 
     const/4 v0, 0x0
@@ -381,12 +381,12 @@
 .end method
 
 .method private addOrShowModeDragView()V
-    .locals 4
+    .registers 5
 
     .line 528
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mModeDragLayout:Landroid/view/ViewGroup;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_24
 
     .line 529
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mRootContainer:Landroid/view/ViewGroup;
@@ -422,10 +422,10 @@
     iput-object v0, p0, Lopenlight/co/camera/VideoController;->mDraggerModelHelper:Lopenlight/co/camera/models/DraggerModelHelper;
 
     .line 534
-    :cond_0
+    :cond_24
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4a
 
     .line 535
     new-instance v0, Lopenlight/co/camera/view/wheel/ModeWheel;
@@ -462,7 +462,7 @@
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/wheel/ModeWheel;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
 
     .line 541
-    :cond_1
+    :cond_4a
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mModeDragLayout:Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
@@ -473,41 +473,41 @@
 .end method
 
 .method private setAncillaryToolbarVisibility(Z)V
-    .locals 1
+    .registers 3
 
     .line 518
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 519
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;->setVisibility(Z)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private setModeDragViewVisibility(I)V
-    .locals 1
+    .registers 3
 
     .line 549
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mModeDragLayout:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 550
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mModeDragLayout:Landroid/view/ViewGroup;
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private setModeWheelDragPosition(F)V
-    .locals 2
+    .registers 4
 
     .line 559
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
@@ -530,24 +530,24 @@
 .end method
 
 .method private setPrimaryControlVisibility(Z)V
-    .locals 1
+    .registers 3
 
     .line 494
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 495
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->setVisibility(Z)V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private setUpModeWheel()V
-    .locals 2
+    .registers 3
 
     .line 478
     new-instance v0, Lopenlight/co/camera/models/DraggerModelHelper;
@@ -574,24 +574,24 @@
 .end method
 
 .method private tearDownModeWheelView()V
-    .locals 1
+    .registers 2
 
     .line 484
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 485
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mModeWheel:Lopenlight/co/camera/view/wheel/ModeWheel;
 
     invoke-virtual {p0}, Lopenlight/co/camera/view/wheel/ModeWheel;->setDragComplete()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method private updateTimerSeconds()V
-    .locals 5
+    .registers 6
 
     .line 567
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mTimerDate:Ljava/util/Date;
@@ -624,7 +624,7 @@
 .end method
 
 .method private updateTimerViewOrientation(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 5
+    .registers 7
 
     .line 578
     invoke-virtual {p1}, Lopenlight/co/camera/enums/OrientationConfig;->getViewRotationAngle()I
@@ -648,16 +648,16 @@
 
     const/4 v4, -0x1
 
-    if-eq p1, v2, :cond_1
+    if-eq p1, v2, :cond_2f
 
     sget-object v2, Lopenlight/co/camera/enums/OrientationConfig;->LANDSCAPE_REVERSE:Lopenlight/co/camera/enums/OrientationConfig;
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_17
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 589
-    :cond_0
+    :cond_17
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mRootContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getId()I
@@ -683,11 +683,11 @@
     .line 592
     iput v3, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->rightMargin:I
 
-    goto :goto_1
+    goto :goto_46
 
     .line 584
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mRootContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {p1}, Landroid/view/ViewGroup;->getId()I
@@ -714,7 +714,7 @@
     iput v3, v1, Landroid/support/constraint/ConstraintLayout$LayoutParams;->leftMargin:I
 
     .line 594
-    :goto_1
+    :goto_46
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mTimerView:Landroid/widget/TextView;
 
     invoke-virtual {p1, v1}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
@@ -732,12 +732,12 @@
 
 # virtual methods
 .method addOrShowPrimaryControl()V
-    .locals 4
+    .registers 5
 
     .line 453
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 455
     new-instance v0, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
@@ -758,7 +758,7 @@
     invoke-virtual {v0, p0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     .line 459
-    :cond_0
+    :cond_17
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->resetThumbnailPath()V
@@ -778,7 +778,7 @@
 .end method
 
 .method public clear()V
-    .locals 3
+    .registers 4
 
     .line 367
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
@@ -808,42 +808,42 @@
 .end method
 
 .method public ftuRemovePrimaryControl()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public ftuRemoveZoomView()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public ftuResetZoomOnComplete()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public ftuShowZoomView()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public ftuUpdateCurrentView(Lopenlight/co/camera/enums/FtuView;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method
 
 .method public ftuUpdatePrimaryControl()V
-    .locals 1
+    .registers 2
 
     .line 152
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_a
 
     .line 153
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
@@ -852,18 +852,18 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->setVisibility(Z)V
 
-    :cond_0
+    :cond_a
     return-void
 .end method
 
 .method public ftuUpdatePrimaryControlOnComplete()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getListenerName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 381
     sget-object p0, Lopenlight/co/camera/VideoController;->TAG:Ljava/lang/String;
@@ -872,7 +872,7 @@
 .end method
 
 .method hideAllControlViews()V
-    .locals 1
+    .registers 2
 
     const/4 v0, 0x0
 
@@ -891,12 +891,12 @@
 .end method
 
 .method isAncillaryToolbarVisible()Z
-    .locals 1
+    .registers 2
 
     .line 411
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mAncillaryToolbar:Lopenlight/co/camera/view/ancillarytoolbar/VideoAncillaryToolbar;
 
@@ -904,26 +904,26 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method isModeWheelVisible()Z
-    .locals 1
+    .registers 2
 
     .line 407
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mModeDragLayout:Landroid/view/ViewGroup;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_e
 
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mModeDragLayout:Landroid/view/ViewGroup;
 
@@ -931,21 +931,21 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_e
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 
-    :cond_0
+    :cond_e
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_f
     return p0
 .end method
 
 .method onCaptureSessionConfigured()V
-    .locals 2
+    .registers 3
 
     .line 390
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
@@ -956,19 +956,19 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_f
 
     .line 391
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {p0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :cond_0
+    :cond_f
     return-void
 .end method
 
 .method public onClick(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     .line 195
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -977,44 +977,44 @@
 
     const v0, 0x7f090022
 
-    if-eq p1, v0, :cond_2
+    if-eq p1, v0, :cond_1e
 
     const v0, 0x7f090172
 
-    if-eq p1, v0, :cond_1
+    if-eq p1, v0, :cond_19
 
     const v0, 0x7f090175
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_14
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_0
+    :cond_14
     const/4 p1, 0x0
 
     .line 197
     invoke-virtual {p0, p1}, Lopenlight/co/camera/VideoController;->updateToolbarsVisibility(Z)V
 
-    goto :goto_0
+    goto :goto_21
 
-    :cond_1
+    :cond_19
     const/4 p1, 0x1
 
     .line 200
     invoke-virtual {p0, p1}, Lopenlight/co/camera/VideoController;->updateToolbarsVisibility(Z)V
 
-    goto :goto_0
+    goto :goto_21
 
     .line 206
-    :cond_2
+    :cond_1e
     invoke-direct {p0}, Lopenlight/co/camera/VideoController;->addOrShowGridView()V
 
-    :goto_0
+    :goto_21
     return-void
 .end method
 
 .method public onError(Lopenlight/co/camera/managers/video/VideoManager$ErrorType;)V
-    .locals 2
+    .registers 4
 
     .line 313
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mTimerView:Landroid/widget/TextView;
@@ -1032,27 +1032,27 @@
 
     aget p1, v0, p1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_2e
 
     const p1, 0x7f0e0135
 
-    goto :goto_0
+    goto :goto_21
 
-    :pswitch_0
+    :pswitch_16
     const p1, 0x7f0e0134
 
-    goto :goto_0
+    goto :goto_21
 
-    :pswitch_1
+    :pswitch_1a
     const p1, 0x7f0e0136
 
-    goto :goto_0
+    goto :goto_21
 
-    :pswitch_2
+    :pswitch_1e
     const p1, 0x7f0e00fe
 
     .line 331
-    :goto_0
+    :goto_21
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mOverlayWarningView:Lopenlight/co/camera/view/alerts/OverlayWarningView;
 
     const/4 v1, 0x0
@@ -1068,16 +1068,16 @@
 
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_2e
     .packed-switch 0x1
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_1e
+        :pswitch_1a
+        :pswitch_16
     .end packed-switch
 .end method
 
 .method public onMediaSaveComplete(Ljava/lang/String;)V
-    .locals 3
+    .registers 5
 
     .line 252
     sget-object v0, Lopenlight/co/camera/VideoController;->TAG:Ljava/lang/String;
@@ -1111,7 +1111,7 @@
     .line 256
     instance-of v1, v0, Lopenlight/co/camera/utils/CameraPreferences;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_28
 
     .line 257
     check-cast v0, Lopenlight/co/camera/utils/CameraPreferences;
@@ -1119,10 +1119,10 @@
     invoke-virtual {v0, p1}, Lopenlight/co/camera/utils/CameraPreferences;->addLockedName(Ljava/lang/String;)V
 
     .line 260
-    :cond_0
+    :cond_28
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mStatusListener:Lopenlight/co/camera/VideoController$OnStatusListener;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_31
 
     .line 262
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mStatusListener:Lopenlight/co/camera/VideoController$OnStatusListener;
@@ -1130,7 +1130,7 @@
     invoke-interface {p1}, Lopenlight/co/camera/VideoController$OnStatusListener;->onMediaSaveComplete()V
 
     .line 264
-    :cond_1
+    :cond_31
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
 
     const/16 p1, 0x12d
@@ -1143,7 +1143,7 @@
 .end method
 
 .method public onOrientationChange(Lopenlight/co/camera/enums/OrientationConfig;)V
-    .locals 1
+    .registers 3
 
     .line 375
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
@@ -1157,7 +1157,7 @@
 .end method
 
 .method public onRecordStatusChange(Lopenlight/co/camera/managers/video/VideoManager$State;)V
-    .locals 9
+    .registers 11
 
     .line 275
     sget-object v0, Lopenlight/co/camera/VideoController;->TAG:Ljava/lang/String;
@@ -1204,7 +1204,7 @@
 
     const/4 v6, 0x0
 
-    if-ne p1, v1, :cond_0
+    if-ne p1, v1, :cond_59
 
     .line 279
     invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
@@ -1249,10 +1249,10 @@
     .line 289
     invoke-virtual {v0, v3}, Landroid/view/Window;->addFlags(I)V
 
-    goto :goto_0
+    goto :goto_7d
 
     .line 291
-    :cond_0
+    :cond_59
     iget-object v1, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
     invoke-virtual {v1, v2}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->setThumbnailSpinnerVisibility(Z)V
@@ -1289,7 +1289,7 @@
     invoke-virtual {v0, v3}, Landroid/view/Window;->clearFlags(I)V
 
     .line 301
-    :goto_0
+    :goto_7d
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
     invoke-virtual {v0, v6}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->enableControls(Z)V
@@ -1299,21 +1299,21 @@
 
     sget-object v0, Lopenlight/co/camera/managers/video/VideoManager$State;->RECORDING:Lopenlight/co/camera/managers/video/VideoManager$State;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_89
 
-    goto :goto_1
+    goto :goto_8a
 
-    :cond_1
+    :cond_89
     move v2, v6
 
-    :goto_1
+    :goto_8a
     invoke-virtual {p0, v2}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->updateRecordControlDrawable(Z)V
 
     return-void
 .end method
 
 .method public onResume()V
-    .locals 7
+    .registers 8
 
     .line 344
     invoke-virtual {p0}, Lopenlight/co/camera/VideoController;->addOrShowPrimaryControl()V
@@ -1361,7 +1361,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_44
 
     .line 356
     iget-object v0, p0, Lopenlight/co/camera/VideoController;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1388,12 +1388,12 @@
     .line 359
     invoke-virtual {p0, v0}, Lopenlight/co/camera/VideoController;->updateToolbarsVisibility(Z)V
 
-    :cond_0
+    :cond_44
     return-void
 .end method
 
 .method public onStopRecording()V
-    .locals 1
+    .registers 2
 
     .line 337
     iget-object p0, p0, Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
@@ -1406,7 +1406,7 @@
 .end method
 
 .method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 2
+    .registers 5
 
     .line 214
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -1415,23 +1415,23 @@
 
     const/4 v0, 0x1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_7a
 
-    goto :goto_0
+    goto :goto_79
 
     .line 224
-    :pswitch_0
+    :pswitch_9
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getPointerCount()I
 
     move-result p1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_79
 
     invoke-virtual {p0}, Lopenlight/co/camera/VideoController;->isModeWheelVisible()Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_79
 
     .line 225
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -1440,10 +1440,10 @@
 
     invoke-direct {p0, p1}, Lopenlight/co/camera/VideoController;->setModeWheelDragPosition(F)V
 
-    goto :goto_0
+    goto :goto_79
 
     .line 229
-    :pswitch_1
+    :pswitch_1d
     sget-object p1, Lopenlight/co/camera/VideoController;->TAG:Ljava/lang/String;
 
     const-string p2, "onTouch UP"
@@ -1455,13 +1455,13 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2d
 
     .line 231
     invoke-direct {p0}, Lopenlight/co/camera/VideoController;->tearDownModeWheelView()V
 
     .line 234
-    :cond_0
+    :cond_2d
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
 
     invoke-virtual {p1}, Lopenlight/co/camera/managers/video/VideoManager;->getCameraMode()Lopenlight/co/camera/CameraMode;
@@ -1472,7 +1472,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_79
 
     .line 235
     sget-object p1, Lopenlight/co/camera/VideoController;->TAG:Ljava/lang/String;
@@ -1514,10 +1514,10 @@
 
     invoke-virtual {p0}, Landroid/app/FragmentTransaction;->commit()I
 
-    goto :goto_0
+    goto :goto_79
 
     .line 216
-    :pswitch_2
+    :pswitch_63
     sget-object p1, Lopenlight/co/camera/VideoController;->TAG:Ljava/lang/String;
 
     const-string v1, "onTouch Down"
@@ -1529,7 +1529,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_79
 
     .line 218
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
@@ -1541,20 +1541,20 @@
     .line 219
     invoke-direct {p0}, Lopenlight/co/camera/VideoController;->setUpModeWheel()V
 
-    :cond_1
-    :goto_0
+    :cond_79
+    :goto_79
     return v0
 
-    :pswitch_data_0
+    :pswitch_data_7a
     .packed-switch 0x0
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_63
+        :pswitch_1d
+        :pswitch_9
     .end packed-switch
 .end method
 
 .method setStatusListener(Lopenlight/co/camera/VideoController$OnStatusListener;)V
-    .locals 0
+    .registers 2
 
     .line 399
     iput-object p1, p0, Lopenlight/co/camera/VideoController;->mStatusListener:Lopenlight/co/camera/VideoController$OnStatusListener;
@@ -1563,11 +1563,11 @@
 .end method
 
 .method updateToolbarsVisibility(Z)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1a
 
     .line 421
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mFtuHelper:Lopenlight/co/camera/view/ftu/FtuHelper;
@@ -1576,7 +1576,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1a
 
     .line 422
     invoke-direct {p0, v0}, Lopenlight/co/camera/VideoController;->setAncillaryToolbarVisibility(Z)V
@@ -1593,10 +1593,10 @@
 
     invoke-virtual {p0, p1}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->setVisibility(Z)V
 
-    goto :goto_0
+    goto :goto_35
 
     .line 426
-    :cond_0
+    :cond_1a
     iget-object p1, p0, Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
     invoke-virtual {p1, v0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->setVisibility(Z)V
@@ -1608,7 +1608,7 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_35
 
     .line 430
     invoke-direct {p0}, Lopenlight/co/camera/VideoController;->addOrShowAncillaryToolbar()V
@@ -1620,12 +1620,12 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_35
 
     .line 433
     invoke-direct {p0}, Lopenlight/co/camera/VideoController;->addOrShowModeDragView()V
 
-    :cond_1
-    :goto_0
+    :cond_35
+    :goto_35
     return-void
 .end method

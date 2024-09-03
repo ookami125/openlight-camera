@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 407
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -27,7 +27,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
+    .registers 3
 
     .line 410
     invoke-static {p1}, Lnet/hockeyapp/android/FeedbackManager;->takeScreenshot(Landroid/content/Context;)V

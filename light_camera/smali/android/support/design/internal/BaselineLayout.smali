@@ -9,7 +9,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -27,7 +27,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -43,7 +43,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
+    .registers 4
 
     .line 42
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -59,7 +59,7 @@
 
 # virtual methods
 .method public getBaseline()I
-    .locals 0
+    .registers 1
 
     .line 114
     iget p0, p0, Landroid/support/design/internal/BaselineLayout;->mBaseline:I
@@ -68,7 +68,7 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 6
+    .registers 12
 
     .line 85
     invoke-virtual {p0}, Landroid/support/design/internal/BaselineLayout;->getChildCount()I
@@ -98,8 +98,8 @@
 
     const/4 p5, 0x0
 
-    :goto_0
-    if-ge p5, p1, :cond_2
+    :goto_14
+    if-ge p5, p1, :cond_4d
 
     .line 92
     invoke-virtual {p0, p5}, Landroid/support/design/internal/BaselineLayout;->getChildAt(I)Landroid/view/View;
@@ -113,12 +113,12 @@
 
     const/16 v2, 0x8
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_23
 
-    goto :goto_2
+    goto :goto_4a
 
     .line 97
-    :cond_0
+    :cond_23
     invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v1
@@ -140,13 +140,13 @@
 
     const/4 v5, -0x1
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_44
 
     invoke-virtual {v0}, Landroid/view/View;->getBaseline()I
 
     move-result v4
 
-    if-eq v4, v5, :cond_1
+    if-eq v4, v5, :cond_44
 
     .line 103
     iget v4, p0, Landroid/support/design/internal/BaselineLayout;->mBaseline:I
@@ -159,12 +159,12 @@
 
     sub-int/2addr v4, v5
 
-    goto :goto_1
+    goto :goto_45
 
-    :cond_1
+    :cond_44
     move v4, p2
 
-    :goto_1
+    :goto_45
     add-int/2addr v1, v3
 
     add-int/2addr v2, v4
@@ -172,17 +172,17 @@
     .line 108
     invoke-virtual {v0, v3, v4, v1, v2}, Landroid/view/View;->layout(IIII)V
 
-    :goto_2
+    :goto_4a
     add-int/lit8 p5, p5, 0x1
 
-    goto :goto_0
+    goto :goto_14
 
-    :cond_2
+    :cond_4d
     return-void
 .end method
 
 .method protected onMeasure(II)V
-    .locals 11
+    .registers 14
 
     .line 47
     invoke-virtual {p0}, Landroid/support/design/internal/BaselineLayout;->getChildCount()I
@@ -203,8 +203,8 @@
 
     move v7, v6
 
-    :goto_0
-    if-ge v2, v0, :cond_2
+    :goto_b
+    if-ge v2, v0, :cond_4b
 
     .line 55
     invoke-virtual {p0, v2}, Landroid/support/design/internal/BaselineLayout;->getChildAt(I)Landroid/view/View;
@@ -218,12 +218,12 @@
 
     const/16 v10, 0x8
 
-    if-ne v9, v10, :cond_0
+    if-ne v9, v10, :cond_1a
 
-    goto :goto_1
+    goto :goto_48
 
     .line 60
-    :cond_0
+    :cond_1a
     invoke-virtual {p0, v8, p1, p2}, Landroid/support/design/internal/BaselineLayout;->measureChild(Landroid/view/View;II)V
 
     .line 61
@@ -231,7 +231,7 @@
 
     move-result v9
 
-    if-eq v9, v1, :cond_1
+    if-eq v9, v1, :cond_30
 
     .line 63
     invoke-static {v3, v9}, Ljava/lang/Math;->max(II)I
@@ -250,7 +250,7 @@
     move-result v4
 
     .line 66
-    :cond_1
+    :cond_30
     invoke-virtual {v8}, Landroid/view/View;->getMeasuredWidth()I
 
     move-result v9
@@ -277,13 +277,13 @@
 
     move-result v7
 
-    :goto_1
+    :goto_48
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto :goto_b
 
-    :cond_2
-    if-eq v3, v1, :cond_3
+    :cond_4b
+    if-eq v3, v1, :cond_5c
 
     .line 71
     invoke-virtual {p0}, Landroid/support/design/internal/BaselineLayout;->getPaddingBottom()I
@@ -305,7 +305,7 @@
     iput v3, p0, Landroid/support/design/internal/BaselineLayout;->mBaseline:I
 
     .line 75
-    :cond_3
+    :cond_5c
     invoke-virtual {p0}, Landroid/support/design/internal/BaselineLayout;->getSuggestedMinimumHeight()I
 
     move-result v0

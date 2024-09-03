@@ -9,7 +9,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;)V
-    .locals 2
+    .registers 4
 
     .line 114
     invoke-static {}, Lopenlight/co/camera/CameraApp;->get()Lopenlight/co/camera/CameraApp;
@@ -42,7 +42,7 @@
 
 # virtual methods
 .method getIconId()I
-    .locals 0
+    .registers 1
 
     .line 156
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -55,7 +55,7 @@
 .end method
 
 .method getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 141
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -68,7 +68,7 @@
 .end method
 
 .method getRelatedListId()I
-    .locals 0
+    .registers 1
 
     .line 146
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -81,7 +81,7 @@
 .end method
 
 .method getResourceList()Ljava/util/List;
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,7 +102,7 @@
 .end method
 
 .method getSettingsId()Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
-    .locals 0
+    .registers 1
 
     .line 131
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -111,7 +111,7 @@
 .end method
 
 .method getType()I
-    .locals 0
+    .registers 1
 
     .line 136
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -124,7 +124,7 @@
 .end method
 
 .method initValue()V
-    .locals 2
+    .registers 3
 
     .line 123
     iget-object v0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;
@@ -133,7 +133,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_13
 
     .line 125
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -146,12 +146,12 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->setSettingsValue(Ljava/lang/String;)V
 
-    :cond_0
+    :cond_13
     return-void
 .end method
 
 .method isSelectionHighlighted()Z
-    .locals 0
+    .registers 1
 
     .line 160
     iget-object p0, p0, Lopenlight/co/camera/view/setting/SettingsIdSettingModel;->mSettingsId:Lopenlight/co/camera/view/setting/SettingAdapter$SettingsId;

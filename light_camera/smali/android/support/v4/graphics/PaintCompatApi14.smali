@@ -23,7 +23,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 29
     new-instance v0, Ljava/lang/ThreadLocal;
@@ -36,7 +36,7 @@
 .end method
 
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 .end method
 
 .method static hasGlyph(Landroid/graphics/Paint;Ljava/lang/String;)Z
-    .locals 8
+    .registers 10
     .param p0    # Landroid/graphics/Paint;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -64,7 +64,7 @@
 
     const/4 v2, 0x0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_13
 
     .line 34
     invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
@@ -75,11 +75,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_13
 
     return v1
 
-    :cond_0
+    :cond_13
     const-string v3, "\udb3f\udffd"
 
     .line 39
@@ -103,12 +103,12 @@
 
     cmpl-float v7, v5, v6
 
-    if-nez v7, :cond_1
+    if-nez v7, :cond_29
 
     return v2
 
     .line 49
-    :cond_1
+    :cond_29
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
     move-result v7
@@ -117,7 +117,7 @@
 
     move-result v7
 
-    if-le v7, v1, :cond_4
+    if-le v7, v1, :cond_53
 
     const/high16 v7, 0x40000000    # 2.0f
 
@@ -125,15 +125,15 @@
 
     cmpl-float v4, v5, v4
 
-    if-lez v4, :cond_2
+    if-lez v4, :cond_3b
 
     return v2
 
-    :cond_2
+    :cond_3b
     move v4, v2
 
-    :goto_0
-    if-ge v4, v0, :cond_3
+    :goto_3c
+    if-ge v4, v0, :cond_4e
 
     .line 69
     invoke-virtual {p1, v4}, Ljava/lang/String;->codePointAt(I)I
@@ -155,24 +155,24 @@
 
     move v4, v7
 
-    goto :goto_0
+    goto :goto_3c
 
-    :cond_3
+    :cond_4e
     cmpl-float v4, v5, v6
 
-    if-ltz v4, :cond_4
+    if-ltz v4, :cond_53
 
     return v2
 
-    :cond_4
+    :cond_53
     cmpl-float v3, v5, v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_58
 
     return v1
 
     .line 85
-    :cond_5
+    :cond_58
     invoke-static {}, Landroid/support/v4/graphics/PaintCompatApi14;->obtainEmptyRects()Landroid/support/v4/util/Pair;
 
     move-result-object v3
@@ -216,7 +216,7 @@
 .end method
 
 .method private static obtainEmptyRects()Landroid/support/v4/util/Pair;
-    .locals 3
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -236,7 +236,7 @@
 
     check-cast v0, Landroid/support/v4/util/Pair;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1f
 
     .line 94
     new-instance v0, Landroid/support/v4/util/Pair;
@@ -256,10 +256,10 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/ThreadLocal;->set(Ljava/lang/Object;)V
 
-    goto :goto_0
+    goto :goto_2d
 
     .line 97
-    :cond_0
+    :cond_1f
     iget-object v1, v0, Landroid/support/v4/util/Pair;->first:Ljava/lang/Object;
 
     check-cast v1, Landroid/graphics/Rect;
@@ -273,6 +273,6 @@
 
     invoke-virtual {v1}, Landroid/graphics/Rect;->setEmpty()V
 
-    :goto_0
+    :goto_2d
     return-object v0
 .end method

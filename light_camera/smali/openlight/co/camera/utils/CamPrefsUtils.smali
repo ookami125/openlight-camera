@@ -255,20 +255,20 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     const/16 v0, 0xa
 
     .line 50
     new-array v0, v0, [F
 
-    fill-array-data v0, :array_0
+    fill-array-data v0, :array_a
 
     sput-object v0, Lopenlight/co/camera/utils/CamPrefsUtils;->DOF_F_VALUE:[F
 
     return-void
 
-    :array_0
+    :array_a
     .array-data 4
         0x3f800000    # 1.0f
         0x40000000    # 2.0f
@@ -284,7 +284,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 24
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -296,7 +296,7 @@
 
     new-array v1, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v1, :array_1c
 
     invoke-direct {v0, v1}, Landroid/graphics/ColorMatrix;-><init>([F)V
 
@@ -315,7 +315,7 @@
 
     nop
 
-    :array_0
+    :array_1c
     .array-data 4
         -0x40800000    # -1.0f
         0x0
@@ -341,7 +341,7 @@
 .end method
 
 .method private static checkAndUpdateFlash(Ljava/lang/String;Lopenlight/co/lib/content/Prefs;)V
-    .locals 4
+    .registers 6
 
     const-string v0, "flash_setting"
 
@@ -350,7 +350,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_4b
 
     .line 519
     invoke-interface {p1, p0}, Lopenlight/co/lib/content/Prefs;->getStringValue(Ljava/lang/String;)Ljava/lang/String;
@@ -366,63 +366,63 @@
 
     const/16 v3, 0xddf
 
-    if-eq v2, v3, :cond_2
+    if-eq v2, v3, :cond_34
 
     const v3, 0x1ad6f
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_2a
 
     const v3, 0x2dddaf
 
-    if-eq v2, v3, :cond_0
+    if-eq v2, v3, :cond_20
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_0
+    :cond_20
     const-string v2, "auto"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     const/4 v1, 0x1
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_1
+    :cond_2a
     const-string v2, "off"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_3d
 
-    :cond_2
+    :cond_34
     const-string v2, "on"
 
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_3d
 
     const/4 v1, 0x2
 
-    :cond_3
-    :goto_0
-    packed-switch v1, :pswitch_data_0
+    :cond_3d
+    :goto_3d
+    packed-switch v1, :pswitch_data_4c
 
-    goto :goto_1
+    goto :goto_4b
 
     .line 524
-    :pswitch_0
+    :pswitch_41
     sget-object v0, Lopenlight/co/camera/utils/CamPrefsUtils;->TAG:Ljava/lang/String;
 
     const-string v1, "Flash setting is incorrect. Resetting Flash setting"
@@ -432,20 +432,20 @@
     .line 525
     invoke-interface {p1, p0}, Lopenlight/co/lib/content/Prefs;->removeValue(Ljava/lang/String;)V
 
-    :cond_4
-    :goto_1
+    :cond_4b
+    :goto_4b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_4c
     .packed-switch 0x0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_41
+        :pswitch_41
+        :pswitch_41
     .end packed-switch
 .end method
 
 .method public static getCafMode()Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 434
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -466,29 +466,29 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     const-string v1, "cam_manual_mode_caf"
 
-    goto :goto_0
+    goto :goto_20
 
     .line 440
-    :cond_0
+    :cond_15
     invoke-virtual {v1}, Lopenlight/co/camera/CameraMode;->isVideo()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     const-string v1, "cam_video_mode_caf"
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1e
     const-string v1, "cam_auto_mode_caf"
 
     .line 445
-    :goto_0
+    :goto_20
     invoke-interface {v0, v1}, Lopenlight/co/lib/content/Prefs;->getStringValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -497,7 +497,7 @@
 .end method
 
 .method public static getExpCompIndex()I
-    .locals 3
+    .registers 3
 
     .line 496
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -518,12 +518,12 @@
 
     array-length v2, v2
 
-    if-ge v1, v2, :cond_0
+    if-ge v1, v2, :cond_12
 
     return v1
 
     .line 502
-    :cond_0
+    :cond_12
     div-int/lit8 v2, v2, 0x2
 
     const-string v1, "ex_index"
@@ -535,7 +535,7 @@
 .end method
 
 .method public static getFlash()Ljava/lang/String;
-    .locals 3
+    .registers 3
 
     .line 419
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -555,17 +555,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     const-string v1, "flash_setting_manual"
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const-string v1, "flash_setting"
 
     .line 423
-    :goto_0
+    :goto_17
     invoke-static {v1, v0}, Lopenlight/co/camera/utils/CamPrefsUtils;->checkAndUpdateFlash(Ljava/lang/String;Lopenlight/co/lib/content/Prefs;)V
 
     .line 424
@@ -577,24 +577,24 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     const-string v0, "flash_off"
 
-    goto :goto_1
+    goto :goto_2b
 
     .line 425
-    :cond_1
+    :cond_27
     invoke-interface {v0, v1}, Lopenlight/co/lib/content/Prefs;->getStringValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_1
+    :goto_2b
     return-object v0
 .end method
 
 .method public static isFlashOff()Z
-    .locals 2
+    .registers 2
 
     .line 484
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -614,17 +614,17 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     const-string v1, "flash_setting_manual"
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const-string v1, "flash_setting"
 
     .line 487
-    :goto_0
+    :goto_17
     invoke-interface {v0, v1}, Lopenlight/co/lib/content/Prefs;->getStringValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -639,7 +639,7 @@
 .end method
 
 .method public static putFlash(Ljava/lang/String;)V
-    .locals 2
+    .registers 3
 
     .line 472
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -659,24 +659,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_15
 
     const-string v1, "flash_setting_manual"
 
-    goto :goto_0
+    goto :goto_17
 
-    :cond_0
+    :cond_15
     const-string v1, "flash_setting"
 
     .line 475
-    :goto_0
+    :goto_17
     invoke-interface {v0, v1, p0}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public static setCafMode(Ljava/lang/String;)V
-    .locals 3
+    .registers 4
 
     .line 453
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -697,29 +697,29 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_15
 
     const-string v1, "cam_manual_mode_caf"
 
-    goto :goto_0
+    goto :goto_20
 
     .line 458
-    :cond_0
+    :cond_15
     invoke-virtual {v1}, Lopenlight/co/camera/CameraMode;->isVideo()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_1e
 
     const-string v1, "cam_video_mode_caf"
 
-    goto :goto_0
+    goto :goto_20
 
-    :cond_1
+    :cond_1e
     const-string v1, "cam_auto_mode_caf"
 
     .line 463
-    :goto_0
+    :goto_20
     invoke-interface {v0, v1, p0}, Lopenlight/co/lib/content/Prefs;->putValue(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void

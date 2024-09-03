@@ -28,7 +28,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/LogViewerActivity;Landroid/content/Context;ILjava/util/List;)V
-    .locals 0
+    .registers 5
 
     .line 121
     iput-object p1, p0, Lopenlight/co/camera/LogViewerActivity$3;->this$0:Lopenlight/co/camera/LogViewerActivity;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public getItemId(I)J
-    .locals 0
+    .registers 2
 
     .line 141
     invoke-virtual {p0, p1}, Lopenlight/co/camera/LogViewerActivity$3;->getItem(I)Ljava/lang/Object;
@@ -58,7 +58,7 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 2
+    .registers 6
     .param p2    # Landroid/view/View;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation
@@ -70,7 +70,7 @@
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_10
 
     .line 126
     iget-object p2, p0, Lopenlight/co/camera/LogViewerActivity$3;->this$0:Lopenlight/co/camera/LogViewerActivity;
@@ -89,7 +89,7 @@
 
     move-result-object p2
 
-    :cond_0
+    :cond_10
     check-cast p2, Lopenlight/co/camera/view/logviewer/LogViewerEntry;
 
     .line 130
@@ -105,7 +105,7 @@
 .end method
 
 .method public hasStableIds()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 

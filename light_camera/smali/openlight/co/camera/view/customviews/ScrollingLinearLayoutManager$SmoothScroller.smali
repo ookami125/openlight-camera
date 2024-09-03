@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager;Landroid/content/Context;II)V
-    .locals 0
+    .registers 5
 
     .line 38
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager$SmoothScroller;->this$0:Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager;
@@ -56,7 +56,7 @@
 
     const/16 p2, 0x2710
 
-    if-ge p3, p2, :cond_0
+    if-ge p3, p2, :cond_21
 
     .line 42
     invoke-static {p3}, Ljava/lang/Math;->abs(I)I
@@ -71,12 +71,12 @@
 
     int-to-float p1, p1
 
-    goto :goto_0
+    goto :goto_22
 
-    :cond_0
+    :cond_21
     int-to-float p1, p4
 
-    :goto_0
+    :goto_22
     iput p1, p0, Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager$SmoothScroller;->duration:F
 
     return-void
@@ -85,7 +85,7 @@
 
 # virtual methods
 .method protected calculateTimeForScrolling(I)I
-    .locals 1
+    .registers 3
 
     int-to-float p1, p1
 
@@ -105,7 +105,7 @@
 .end method
 
 .method public computeScrollVectorForPosition(I)Landroid/graphics/PointF;
-    .locals 0
+    .registers 2
 
     .line 47
     iget-object p0, p0, Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager$SmoothScroller;->this$0:Lopenlight/co/camera/view/customviews/ScrollingLinearLayoutManager;

@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 189
     invoke-direct {p0}, Landroid/support/v4/graphics/drawable/DrawableCompat$DrawableCompatApi17Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public getAlpha(Landroid/graphics/drawable/Drawable;)I
-    .locals 0
+    .registers 2
 
     .line 210
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getAlpha()I
@@ -42,7 +42,7 @@
 .end method
 
 .method public isAutoMirrored(Landroid/graphics/drawable/Drawable;)Z
-    .locals 0
+    .registers 2
 
     .line 197
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->isAutoMirrored()Z
@@ -53,7 +53,7 @@
 .end method
 
 .method public setAutoMirrored(Landroid/graphics/drawable/Drawable;Z)V
-    .locals 0
+    .registers 3
 
     .line 192
     invoke-virtual {p1, p2}, Landroid/graphics/drawable/Drawable;->setAutoMirrored(Z)V
@@ -62,12 +62,12 @@
 .end method
 
 .method public wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 2
 
     .line 202
     instance-of p0, p1, Landroid/support/v4/graphics/drawable/TintAwareDrawable;
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_a
 
     .line 203
     new-instance p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;
@@ -76,6 +76,6 @@
 
     return-object p0
 
-    :cond_0
+    :cond_a
     return-object p1
 .end method

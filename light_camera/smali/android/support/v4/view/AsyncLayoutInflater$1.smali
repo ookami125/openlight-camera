@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/view/AsyncLayoutInflater;)V
-    .locals 0
+    .registers 2
 
     .line 94
     iput-object p1, p0, Landroid/support/v4/view/AsyncLayoutInflater$1;->this$0:Landroid/support/v4/view/AsyncLayoutInflater;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 4
+    .registers 6
 
     .line 97
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -46,7 +46,7 @@
     .line 98
     iget-object v0, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->view:Landroid/view/View;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     .line 99
     iget-object v0, p0, Landroid/support/v4/view/AsyncLayoutInflater$1;->this$0:Landroid/support/v4/view/AsyncLayoutInflater;
@@ -66,7 +66,7 @@
     iput-object v0, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->view:Landroid/view/View;
 
     .line 102
-    :cond_0
+    :cond_17
     iget-object v0, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->callback:Landroid/support/v4/view/AsyncLayoutInflater$OnInflateFinishedListener;
 
     iget-object v1, p1, Landroid/support/v4/view/AsyncLayoutInflater$InflateRequest;->view:Landroid/view/View;

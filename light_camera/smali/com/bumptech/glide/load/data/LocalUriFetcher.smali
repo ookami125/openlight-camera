@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 0
+    .registers 3
 
     .line 36
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -60,30 +60,30 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public cleanup()V
-    .locals 2
+    .registers 3
 
     .line 50
     iget-object v0, p0, Lcom/bumptech/glide/load/data/LocalUriFetcher;->data:Ljava/lang/Object;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     .line 52
-    :try_start_0
+    :try_start_4
     iget-object v0, p0, Lcom/bumptech/glide/load/data/LocalUriFetcher;->data:Ljava/lang/Object;
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/load/data/LocalUriFetcher;->close(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_9
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_9} :catch_a
 
-    goto :goto_0
+    goto :goto_1b
 
-    :catch_0
+    :catch_a
     move-exception p0
 
     const-string v0, "LocalUriFetcher"
@@ -95,7 +95,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1b
 
     const-string v0, "LocalUriFetcher"
 
@@ -104,8 +104,8 @@
     .line 55
     invoke-static {v0, v1, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_0
-    :goto_0
+    :cond_1b
+    :goto_1b
     return-void
 .end method
 
@@ -124,7 +124,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 69
     iget-object p0, p0, Lcom/bumptech/glide/load/data/LocalUriFetcher;->uri:Landroid/net/Uri;
@@ -137,7 +137,7 @@
 .end method
 
 .method public final loadData(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

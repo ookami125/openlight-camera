@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/VideoController;Landroid/os/Looper;)V
-    .locals 0
+    .registers 3
 
     .line 109
     iput-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
@@ -33,21 +33,22 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)V
-    .locals 2
+    .registers 4
 
     .line 112
     iget p1, p1, Landroid/os/Message;->what:I
 
     const/4 v0, 0x1
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_6e
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 122
-    :pswitch_0
+    :pswitch_7
     iget-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
     invoke-static {p1}, Lopenlight/co/camera/VideoController;->access$300(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/managers/video/VideoManager;
 
     move-result-object p1
@@ -56,11 +57,12 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_6c
 
     .line 123
     iget-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
     invoke-static {p1}, Lopenlight/co/camera/VideoController;->access$300(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/managers/video/VideoManager;
 
     move-result-object p1
@@ -72,6 +74,7 @@
     .line 125
     iget-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
     invoke-static {p1}, Lopenlight/co/camera/VideoController;->access$300(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/managers/video/VideoManager;
 
     move-result-object p1
@@ -81,6 +84,7 @@
     .line 126
     iget-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mContext:Landroid/content/Context;
     invoke-static {p1}, Lopenlight/co/camera/VideoController;->access$400(Lopenlight/co/camera/VideoController;)Landroid/content/Context;
 
     move-result-object p1
@@ -97,6 +101,7 @@
     .line 128
     iget-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mVideoManager:Lopenlight/co/camera/managers/video/VideoManager;
     invoke-static {p1}, Lopenlight/co/camera/VideoController;->access$300(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/managers/video/VideoManager;
 
     move-result-object p1
@@ -106,6 +111,7 @@
     .line 130
     iget-object p0, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
     invoke-static {p0}, Lopenlight/co/camera/VideoController;->access$100(Lopenlight/co/camera/VideoController;)Landroid/os/Handler;
 
     move-result-object p0
@@ -113,6 +119,7 @@
     const/16 p1, 0x12e
 
     .line 131
+    # getter for: Lopenlight/co/camera/VideoController;->RECORDING_MAX_DURATION_MS:J
     invoke-static {}, Lopenlight/co/camera/VideoController;->access$500()J
 
     move-result-wide v0
@@ -120,29 +127,32 @@
     .line 130
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 119
-    :pswitch_1
+    :pswitch_50
     iget-object p0, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mPrimaryControl:Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
     invoke-static {p0}, Lopenlight/co/camera/VideoController;->access$200(Lopenlight/co/camera/VideoController;)Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;
 
     move-result-object p0
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/primarycontrol/VideoPrimaryControl;->enableControls(Z)V
 
-    goto :goto_0
+    goto :goto_6c
 
     .line 114
-    :pswitch_2
+    :pswitch_5a
     iget-object p1, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # invokes: Lopenlight/co/camera/VideoController;->updateTimerSeconds()V
     invoke-static {p1}, Lopenlight/co/camera/VideoController;->access$000(Lopenlight/co/camera/VideoController;)V
 
     .line 115
     iget-object p0, p0, Lopenlight/co/camera/VideoController$1;->this$0:Lopenlight/co/camera/VideoController;
 
+    # getter for: Lopenlight/co/camera/VideoController;->mHandler:Landroid/os/Handler;
     invoke-static {p0}, Lopenlight/co/camera/VideoController;->access$100(Lopenlight/co/camera/VideoController;)Landroid/os/Handler;
 
     move-result-object p0
@@ -153,16 +163,16 @@
 
     invoke-virtual {p0, p1, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_0
-    :goto_0
+    :cond_6c
+    :goto_6c
     return-void
 
     nop
 
-    :pswitch_data_0
+    :pswitch_data_6e
     .packed-switch 0x12c
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
+        :pswitch_5a
+        :pswitch_50
+        :pswitch_7
     .end packed-switch
 .end method

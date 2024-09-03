@@ -28,7 +28,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;IIZI)V
-    .locals 0
+    .registers 6
     .param p1    # Landroid/net/Uri;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -80,7 +80,7 @@
 
 # virtual methods
 .method public getResultCode()I
-    .locals 0
+    .registers 1
 
     .line 342
     iget p0, p0, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->mResultCode:I
@@ -89,7 +89,7 @@
 .end method
 
 .method public getTtcIndex()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/IntRange;
         from = 0x0L
     .end annotation
@@ -101,7 +101,7 @@
 .end method
 
 .method public getUri()Landroid/net/Uri;
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -112,7 +112,7 @@
 .end method
 
 .method public getWeight()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/IntRange;
         from = 0x1L
         to = 0x3e8L
@@ -125,7 +125,7 @@
 .end method
 
 .method public isItalic()Z
-    .locals 0
+    .registers 1
 
     .line 333
     iget-boolean p0, p0, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->mItalic:Z

@@ -39,7 +39,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 31
     invoke-static {}, Lopenlight/co/lib/utils/FeatureManager;->get()Lopenlight/co/lib/utils/FeatureManager;
@@ -84,7 +84,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+    .registers 3
 
     const/4 v0, 0x0
 
@@ -95,7 +95,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .registers 4
 
     const/4 v0, 0x0
 
@@ -106,7 +106,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 2
+    .registers 6
 
     .line 68
     invoke-direct {p0, p1, p2, p3}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
@@ -215,7 +215,7 @@
 .end method
 
 .method private setupPaintAttributes(Landroid/graphics/Paint;IFF)V
-    .locals 0
+    .registers 5
 
     .line 103
     invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColor(I)V
@@ -247,7 +247,7 @@
 
 # virtual methods
 .method public clear()V
-    .locals 1
+    .registers 2
 
     .line 134
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceView;->mCurrentFaces:Ljava/util/List;
@@ -256,7 +256,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_10
 
     .line 135
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceView;->mCurrentFaces:Ljava/util/List;
@@ -266,12 +266,12 @@
     .line 136
     invoke-virtual {p0}, Lopenlight/co/camera/view/face/FaceView;->invalidate()V
 
-    :cond_0
+    :cond_10
     return-void
 .end method
 
 .method public clearAndDrawAllRectangles(Ljava/util/List;)V
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -286,7 +286,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_17
 
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceView;->mCurrentFaces:Ljava/util/List;
 
@@ -294,7 +294,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_17
 
     .line 120
     iget-object p1, p0, Lopenlight/co/camera/view/face/FaceView;->mCurrentFaces:Ljava/util/List;
@@ -304,15 +304,15 @@
     .line 121
     invoke-virtual {p0}, Lopenlight/co/camera/view/face/FaceView;->invalidate()V
 
-    goto :goto_0
+    goto :goto_2a
 
     .line 122
-    :cond_0
+    :cond_17
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_2a
 
     .line 123
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceView;->mCurrentFaces:Ljava/util/List;
@@ -327,13 +327,13 @@
     .line 125
     invoke-virtual {p0}, Lopenlight/co/camera/view/face/FaceView;->invalidate()V
 
-    :cond_1
-    :goto_0
+    :cond_2a
+    :goto_2a
     return-void
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 9
+    .registers 11
 
     .line 145
     iget-object v0, p0, Lopenlight/co/camera/view/face/FaceView;->mCurrentFaces:Ljava/util/List;
@@ -344,12 +344,12 @@
 
     const/4 v1, 0x1
 
-    :goto_0
+    :goto_7
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_7c
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -357,17 +357,17 @@
 
     check-cast v2, Landroid/hardware/camera2/params/Face;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_19
 
     .line 150
     iget-object v1, p0, Lopenlight/co/camera/view/face/FaceView;->mTrackedFacePaint:Landroid/graphics/Paint;
 
     const/4 v3, 0x0
 
-    goto :goto_1
+    goto :goto_1e
 
     .line 153
-    :cond_0
+    :cond_19
     iget-object v3, p0, Lopenlight/co/camera/view/face/FaceView;->mDefaultPaint:Landroid/graphics/Paint;
 
     move-object v8, v3
@@ -377,7 +377,7 @@
     move-object v1, v8
 
     .line 159
-    :goto_1
+    :goto_1e
     iget-object v4, p0, Lopenlight/co/camera/view/face/FaceView;->mReusedRectF:Landroid/graphics/RectF;
 
     invoke-virtual {v2}, Landroid/hardware/camera2/params/Face;->getBounds()Landroid/graphics/Rect;
@@ -404,7 +404,7 @@
 
     const/high16 v5, 0x40000000    # 2.0f
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_55
 
     .line 166
     invoke-virtual {v2}, Landroid/hardware/camera2/params/Face;->getScore()I
@@ -442,10 +442,10 @@
     invoke-virtual {p1, v4, v6, v7, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
     .line 174
-    :cond_1
+    :cond_55
     sget-boolean v4, Lopenlight/co/camera/view/face/FaceView;->DISPLAY_FACE_ID:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_7a
 
     .line 175
     invoke-virtual {v2}, Landroid/hardware/camera2/params/Face;->getId()I
@@ -489,11 +489,11 @@
     .line 176
     invoke-virtual {p1, v2, v4, v5, v1}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    :cond_2
+    :cond_7a
     move v1, v3
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_3
+    :cond_7c
     return-void
 .end method

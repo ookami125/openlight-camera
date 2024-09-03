@@ -39,7 +39,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/AssetManager;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 21
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,33 +56,33 @@
 
 # virtual methods
 .method public cancel()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public cleanup()V
-    .locals 2
+    .registers 3
 
     .line 34
     iget-object v0, p0, Lcom/bumptech/glide/load/data/AssetPathFetcher;->data:Ljava/lang/Object;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_5
 
     return-void
 
     .line 38
-    :cond_0
-    :try_start_0
+    :cond_5
+    :try_start_5
     iget-object v0, p0, Lcom/bumptech/glide/load/data/AssetPathFetcher;->data:Ljava/lang/Object;
 
     invoke-virtual {p0, v0}, Lcom/bumptech/glide/load/data/AssetPathFetcher;->close(Ljava/lang/Object;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_a
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_a} :catch_b
 
-    goto :goto_0
+    goto :goto_1c
 
-    :catch_0
+    :catch_b
     move-exception p0
 
     const-string v0, "AssetUriFetcher"
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1c
 
     const-string v0, "AssetUriFetcher"
 
@@ -103,8 +103,8 @@
     .line 41
     invoke-static {v0, v1, p0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :cond_1
-    :goto_0
+    :cond_1c
+    :goto_1c
     return-void
 .end method
 
@@ -123,7 +123,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 49
     iget-object p0, p0, Lcom/bumptech/glide/load/data/AssetPathFetcher;->assetPath:Ljava/lang/String;
@@ -132,7 +132,7 @@
 .end method
 
 .method public loadData(Lcom/bumptech/glide/Priority;)Ljava/lang/Object;
-    .locals 1
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

@@ -26,7 +26,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 826
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -36,7 +36,7 @@
 
     const/16 v1, 0x17
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_15
 
     .line 828
     new-instance v0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback$StubApi23;
@@ -49,22 +49,22 @@
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackObj:Ljava/lang/Object;
 
-    goto :goto_0
+    goto :goto_18
 
-    :cond_0
+    :cond_15
     const/4 v0, 0x0
 
     .line 830
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$ItemCallback;->mItemCallbackObj:Ljava/lang/Object;
 
-    :goto_0
+    :goto_18
     return-void
 .end method
 
 
 # virtual methods
 .method public onError(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
     .param p1    # Ljava/lang/String;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -74,7 +74,7 @@
 .end method
 
 .method public onItemLoaded(Landroid/support/v4/media/MediaBrowserCompat$MediaItem;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

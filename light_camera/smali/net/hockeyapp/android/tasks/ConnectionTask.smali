@@ -21,7 +21,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 18
     invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
@@ -30,7 +30,7 @@
 .end method
 
 .method private static convertStreamToString(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 4
+    .registers 5
 
     .line 29
     new-instance v0, Ljava/io/BufferedReader;
@@ -49,13 +49,13 @@
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
     .line 34
-    :goto_0
-    :try_start_0
+    :goto_11
+    :try_start_11
     invoke-virtual {v0}, Ljava/io/BufferedReader;->readLine()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_2c
 
     .line 35
     new-instance v3, Ljava/lang/StringBuilder;
@@ -73,51 +73,51 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_2b
+    .catch Ljava/io/IOException; {:try_start_11 .. :try_end_2b} :catch_37
+    .catchall {:try_start_11 .. :try_end_2b} :catchall_35
 
-    goto :goto_0
+    goto :goto_11
 
     .line 41
-    :cond_0
-    :try_start_1
+    :cond_2c
+    :try_start_2c
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    :try_end_2f
+    .catch Ljava/io/IOException; {:try_start_2c .. :try_end_2f} :catch_30
 
-    goto :goto_1
+    goto :goto_3e
 
-    :catch_0
+    :catch_30
     move-exception p0
 
     .line 43
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
-    goto :goto_1
+    goto :goto_3e
 
-    :catchall_0
+    :catchall_35
     move-exception v0
 
-    goto :goto_2
+    goto :goto_43
 
-    :catch_1
+    :catch_37
     move-exception v0
 
     .line 38
-    :try_start_2
+    :try_start_38
     invoke-virtual {v0}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_3b
+    .catchall {:try_start_38 .. :try_end_3b} :catchall_35
 
     .line 41
-    :try_start_3
+    :try_start_3b
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_3
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+    :try_end_3e
+    .catch Ljava/io/IOException; {:try_start_3b .. :try_end_3e} :catch_30
 
     .line 46
-    :goto_1
+    :goto_3e
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -125,27 +125,27 @@
     return-object p0
 
     .line 41
-    :goto_2
-    :try_start_4
+    :goto_43
+    :try_start_43
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_2
+    :try_end_46
+    .catch Ljava/io/IOException; {:try_start_43 .. :try_end_46} :catch_47
 
-    goto :goto_3
+    goto :goto_4b
 
-    :catch_2
+    :catch_47
     move-exception p0
 
     .line 43
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 44
-    :goto_3
+    :goto_4b
     throw v0
 .end method
 
 .method protected static getStringFromConnection(Ljava/net/HttpURLConnection;)Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;

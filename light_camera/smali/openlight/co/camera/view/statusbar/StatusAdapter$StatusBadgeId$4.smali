@@ -16,7 +16,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;IZLjava/lang/String;IFI)V
-    .locals 9
+    .registers 17
 
     const/4 v8, 0x0
 
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public getIconId()I
-    .locals 1
+    .registers 2
 
     .line 90
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;
@@ -61,6 +61,7 @@
     move-result-object p0
 
     .line 91
+    # invokes: Lopenlight/co/camera/view/statusbar/StatusAdapter;->getCafIcon(Ljava/lang/String;)I
     invoke-static {p0}, Lopenlight/co/camera/view/statusbar/StatusAdapter;->access$300(Ljava/lang/String;)I
 
     move-result p0
@@ -69,7 +70,7 @@
 .end method
 
 .method public getPreferenceKey()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 81
     invoke-static {}, Lopenlight/co/camera/managers/CameraManager;->get()Lopenlight/co/camera/managers/CameraManager;
@@ -84,15 +85,15 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_11
 
     const-string p0, "cam_manual_mode_caf"
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_0
+    :cond_11
     const-string p0, "cam_auto_mode_caf"
 
-    :goto_0
+    :goto_13
     return-object p0
 .end method

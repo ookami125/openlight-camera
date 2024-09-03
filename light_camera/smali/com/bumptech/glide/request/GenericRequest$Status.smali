@@ -44,7 +44,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 10
+    .registers 10
 
     .line 42
     new-instance v0, Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -177,7 +177,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -191,7 +191,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/request/GenericRequest$Status;
-    .locals 1
+    .registers 2
 
     .line 40
     const-class v0, Lcom/bumptech/glide/request/GenericRequest$Status;
@@ -206,7 +206,7 @@
 .end method
 
 .method public static values()[Lcom/bumptech/glide/request/GenericRequest$Status;
-    .locals 1
+    .registers 1
 
     .line 40
     sget-object v0, Lcom/bumptech/glide/request/GenericRequest$Status;->$VALUES:[Lcom/bumptech/glide/request/GenericRequest$Status;

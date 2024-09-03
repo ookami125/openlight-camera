@@ -32,7 +32,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 14
     new-instance v0, Lcom/bumptech/glide/load/resource/NullResourceEncoder;
@@ -45,7 +45,7 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 13
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 .end method
 
 .method public static get()Lcom/bumptech/glide/load/resource/NullResourceEncoder;
-    .locals 1
+    .registers 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -74,7 +74,7 @@
 
 # virtual methods
 .method public encode(Lcom/bumptech/glide/load/engine/Resource;Ljava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -91,7 +91,7 @@
 .end method
 
 .method public bridge synthetic encode(Ljava/lang/Object;Ljava/io/OutputStream;)Z
-    .locals 0
+    .registers 3
 
     .line 13
     check-cast p1, Lcom/bumptech/glide/load/engine/Resource;
@@ -104,7 +104,7 @@
 .end method
 
 .method public getId()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, ""
 

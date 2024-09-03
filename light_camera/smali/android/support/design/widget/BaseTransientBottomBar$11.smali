@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
 
     .line 575
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$11;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .registers 4
 
     .line 580
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
@@ -57,11 +57,12 @@
     move-result p1
 
     .line 581
+    # getter for: Landroid/support/design/widget/BaseTransientBottomBar;->USE_OFFSET_API:Z
     invoke-static {}, Landroid/support/design/widget/BaseTransientBottomBar;->access$100()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1c
 
     .line 582
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar$11;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -74,10 +75,10 @@
 
     invoke-static {v0, v1}, Landroid/support/v4/view/ViewCompat;->offsetTopAndBottom(Landroid/view/View;I)V
 
-    goto :goto_0
+    goto :goto_24
 
     .line 585
-    :cond_0
+    :cond_1c
     iget-object v0, p0, Landroid/support/design/widget/BaseTransientBottomBar$11;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
 
     iget-object v0, v0, Landroid/support/design/widget/BaseTransientBottomBar;->mView:Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;
@@ -87,7 +88,7 @@
     invoke-virtual {v0, v1}, Landroid/support/design/widget/BaseTransientBottomBar$SnackbarBaseLayout;->setTranslationY(F)V
 
     .line 587
-    :goto_0
+    :goto_24
     iput p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$11;->mPreviousAnimatedIntValue:I
 
     return-void

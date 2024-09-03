@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 919
     invoke-direct {p0}, Landroid/support/v4/app/NotificationCompat$NotificationCompatApi24Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public build(Landroid/support/v4/app/NotificationCompat$Builder;Landroid/support/v4/app/NotificationCompat$BuilderExtender;)Landroid/app/Notification;
-    .locals 45
+    .registers 48
 
     move-object/from16 v0, p1
 
@@ -169,6 +169,7 @@
     move/from16 v39, v1
 
     .line 932
+    # getter for: Landroid/support/v4/app/NotificationCompat$Builder;->mGroupAlertBehavior:I
     invoke-static/range {p1 .. p1}, Landroid/support/v4/app/NotificationCompat$Builder;->access$000(Landroid/support/v4/app/NotificationCompat$Builder;)I
 
     move-result v40
@@ -189,14 +190,14 @@
     .line 934
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_a0
 
     .line 935
     iget-object v1, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
     invoke-virtual {v1, v2}, Landroid/support/v4/app/NotificationCompat$Style;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
 
-    :cond_0
+    :cond_a0
     move-object/from16 v1, p2
 
     .line 937
@@ -207,7 +208,7 @@
     .line 938
     iget-object v2, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_b3
 
     .line 939
     iget-object v0, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
@@ -218,6 +219,6 @@
 
     invoke-virtual {v0, v2}, Landroid/support/v4/app/NotificationCompat$Style;->addCompatExtras(Landroid/os/Bundle;)V
 
-    :cond_1
+    :cond_b3
     return-object v1
 .end method

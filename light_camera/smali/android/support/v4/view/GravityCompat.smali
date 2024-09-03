@@ -15,7 +15,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 153
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,83 +24,83 @@
 .end method
 
 .method public static apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;I)V
-    .locals 2
+    .registers 10
 
     .line 98
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 99
     invoke-static/range {p0 .. p7}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;I)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 101
-    :cond_0
+    :cond_a
     invoke-static/range {p0 .. p6}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;IILandroid/graphics/Rect;)V
 
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public static apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
-    .locals 2
+    .registers 8
 
     .line 64
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 65
     invoke-static/range {p0 .. p5}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 67
-    :cond_0
+    :cond_a
     invoke-static {p0, p1, p2, p3, p4}, Landroid/view/Gravity;->apply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public static applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
-    .locals 2
+    .registers 6
 
     .line 126
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_a
 
     .line 127
     invoke-static {p0, p1, p2, p3}, Landroid/view/Gravity;->applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
-    goto :goto_0
+    goto :goto_d
 
     .line 129
-    :cond_0
+    :cond_a
     invoke-static {p0, p1, p2}, Landroid/view/Gravity;->applyDisplay(ILandroid/graphics/Rect;Landroid/graphics/Rect;)V
 
-    :goto_0
+    :goto_d
     return-void
 .end method
 
 .method public static getAbsoluteGravity(II)I
-    .locals 2
+    .registers 4
 
     .line 145
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
     const/16 v1, 0x11
 
-    if-lt v0, v1, :cond_0
+    if-lt v0, v1, :cond_b
 
     .line 146
     invoke-static {p0, p1}, Landroid/view/Gravity;->getAbsoluteGravity(II)I
@@ -109,7 +109,7 @@
 
     return p0
 
-    :cond_0
+    :cond_b
     const p1, -0x800001
 
     and-int/2addr p0, p1

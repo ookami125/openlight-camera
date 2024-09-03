@@ -12,7 +12,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;)V
-    .locals 0
+    .registers 2
 
     .line 12
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,7 +26,7 @@
 
 # virtual methods
 .method public obtain(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-    .locals 0
+    .registers 4
 
     .line 18
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifBitmapProvider;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
@@ -39,7 +39,7 @@
 .end method
 
 .method public release(Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 2
 
     .line 23
     iget-object p0, p0, Lcom/bumptech/glide/load/resource/gif/GifBitmapProvider;->bitmapPool:Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;
@@ -48,11 +48,11 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_b
 
     .line 24
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_0
+    :cond_b
     return-void
 .end method

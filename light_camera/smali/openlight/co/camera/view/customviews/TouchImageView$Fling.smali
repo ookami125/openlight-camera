@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/customviews/TouchImageView;II)V
-    .locals 11
+    .registers 15
 
     .line 1201
     iput-object p1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
@@ -39,11 +39,13 @@
     .line 1202
     sget-object v0, Lopenlight/co/camera/view/customviews/TouchImageView$State;->FLING:Lopenlight/co/camera/view/customviews/TouchImageView$State;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->setState(Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
     invoke-static {p1, v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1100(Lopenlight/co/camera/view/customviews/TouchImageView;Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
 
     .line 1203
     new-instance v0, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->context:Landroid/content/Context;
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2600(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/content/Context;
 
     move-result-object v1
@@ -53,10 +55,12 @@
     iput-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->scroller:Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
 
     .line 1204
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1700(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/graphics/Matrix;
 
     move-result-object v0
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2700(Lopenlight/co/camera/view/customviews/TouchImageView;)[F
 
     move-result-object v1
@@ -64,6 +68,7 @@
     invoke-virtual {v0, v1}, Landroid/graphics/Matrix;->getValues([F)V
 
     .line 1206
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2700(Lopenlight/co/camera/view/customviews/TouchImageView;)[F
 
     move-result-object v0
@@ -75,6 +80,7 @@
     float-to-int v0, v0
 
     .line 1207
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->m:[F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2700(Lopenlight/co/camera/view/customviews/TouchImageView;)[F
 
     move-result-object v1
@@ -86,10 +92,12 @@
     float-to-int v10, v1
 
     .line 1210
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->getImageWidth()F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1300(Lopenlight/co/camera/view/customviews/TouchImageView;)F
 
     move-result v1
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->viewWidth:I
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1200(Lopenlight/co/camera/view/customviews/TouchImageView;)I
 
     move-result v2
@@ -100,13 +108,15 @@
 
     const/4 v2, 0x0
 
-    if-lez v1, :cond_0
+    if-lez v1, :cond_4b
 
     .line 1211
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->viewWidth:I
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1200(Lopenlight/co/camera/view/customviews/TouchImageView;)I
 
     move-result v1
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->getImageWidth()F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1300(Lopenlight/co/camera/view/customviews/TouchImageView;)F
 
     move-result v3
@@ -119,19 +129,21 @@
 
     move v7, v2
 
-    goto :goto_0
+    goto :goto_4d
 
-    :cond_0
+    :cond_4b
     move v6, v0
 
     move v7, v6
 
     .line 1218
-    :goto_0
+    :goto_4d
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->getImageHeight()F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1600(Lopenlight/co/camera/view/customviews/TouchImageView;)F
 
     move-result v1
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->viewHeight:I
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1500(Lopenlight/co/camera/view/customviews/TouchImageView;)I
 
     move-result v3
@@ -140,13 +152,15 @@
 
     cmpl-float v1, v1, v3
 
-    if-lez v1, :cond_1
+    if-lez v1, :cond_67
 
     .line 1219
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->viewHeight:I
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1500(Lopenlight/co/camera/view/customviews/TouchImageView;)I
 
     move-result v1
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->getImageHeight()F
     invoke-static {p1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1600(Lopenlight/co/camera/view/customviews/TouchImageView;)F
 
     move-result p1
@@ -159,15 +173,15 @@
 
     move v9, v2
 
-    goto :goto_1
+    goto :goto_69
 
-    :cond_1
+    :cond_67
     move v8, v10
 
     move v9, v8
 
     .line 1226
-    :goto_1
+    :goto_69
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->scroller:Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
 
     move v2, v0
@@ -192,18 +206,19 @@
 
 # virtual methods
 .method public cancelFling()V
-    .locals 2
+    .registers 3
 
     .line 1233
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->scroller:Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1234
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
     sget-object v1, Lopenlight/co/camera/view/customviews/TouchImageView$State;->NONE:Lopenlight/co/camera/view/customviews/TouchImageView$State;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->setState(Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
     invoke-static {v0, v1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1100(Lopenlight/co/camera/view/customviews/TouchImageView;Lopenlight/co/camera/view/customviews/TouchImageView$State;)V
 
     .line 1235
@@ -213,25 +228,27 @@
 
     invoke-virtual {p0, v0}, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->forceFinished(Z)V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public run()V
-    .locals 4
+    .registers 5
 
     .line 1246
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->touchImageViewListener:Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
     invoke-static {v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2100(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_11
 
     .line 1247
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->touchImageViewListener:Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
     invoke-static {v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$2100(Lopenlight/co/camera/view/customviews/TouchImageView;)Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;
 
     move-result-object v0
@@ -239,14 +256,14 @@
     invoke-interface {v0}, Lopenlight/co/camera/view/customviews/TouchImageView$OnTouchImageViewListener;->onMove()V
 
     .line 1250
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->scroller:Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->isFinished()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1d
 
     const/4 v0, 0x0
 
@@ -256,14 +273,14 @@
     return-void
 
     .line 1255
-    :cond_1
+    :cond_1d
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->scroller:Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
 
     invoke-virtual {v0}, Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;->computeScrollOffset()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5d
 
     .line 1256
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->scroller:Lopenlight/co/camera/view/customviews/TouchImageView$CompatScroller;
@@ -298,6 +315,7 @@
     .line 1262
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
     invoke-static {v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1700(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/graphics/Matrix;
 
     move-result-object v0
@@ -311,6 +329,7 @@
     .line 1263
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->fixTrans()V
     invoke-static {v0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1800(Lopenlight/co/camera/view/customviews/TouchImageView;)V
 
     .line 1264
@@ -318,6 +337,7 @@
 
     iget-object v1, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # getter for: Lopenlight/co/camera/view/customviews/TouchImageView;->matrix:Landroid/graphics/Matrix;
     invoke-static {v1}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$1700(Lopenlight/co/camera/view/customviews/TouchImageView;)Landroid/graphics/Matrix;
 
     move-result-object v1
@@ -327,8 +347,9 @@
     .line 1265
     iget-object v0, p0, Lopenlight/co/camera/view/customviews/TouchImageView$Fling;->this$0:Lopenlight/co/camera/view/customviews/TouchImageView;
 
+    # invokes: Lopenlight/co/camera/view/customviews/TouchImageView;->compatPostOnAnimation(Ljava/lang/Runnable;)V
     invoke-static {v0, p0}, Lopenlight/co/camera/view/customviews/TouchImageView;->access$500(Lopenlight/co/camera/view/customviews/TouchImageView;Ljava/lang/Runnable;)V
 
-    :cond_2
+    :cond_5d
     return-void
 .end method

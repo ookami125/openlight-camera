@@ -34,7 +34,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 991
     new-instance v0, Landroid/support/design/widget/TextInputLayout$SavedState$1;
@@ -47,7 +47,7 @@
 .end method
 
 .method constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
-    .locals 0
+    .registers 3
 
     .line 971
     invoke-direct {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
@@ -70,21 +70,21 @@
 
     const/4 p2, 0x1
 
-    if-ne p1, p2, :cond_0
+    if-ne p1, p2, :cond_15
 
-    goto :goto_0
+    goto :goto_16
 
-    :cond_0
+    :cond_15
     const/4 p2, 0x0
 
-    :goto_0
+    :goto_16
     iput-boolean p2, p0, Landroid/support/design/widget/TextInputLayout$SavedState;->isPasswordToggledVisible:Z
 
     return-void
 .end method
 
 .method constructor <init>(Landroid/os/Parcelable;)V
-    .locals 0
+    .registers 2
 
     .line 967
     invoke-direct {p0, p1}, Landroid/support/v4/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
@@ -95,7 +95,7 @@
 
 # virtual methods
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 986
     new-instance v0, Ljava/lang/StringBuilder;
@@ -137,7 +137,7 @@
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 1
+    .registers 4
 
     .line 979
     invoke-super {p0, p1, p2}, Landroid/support/v4/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V

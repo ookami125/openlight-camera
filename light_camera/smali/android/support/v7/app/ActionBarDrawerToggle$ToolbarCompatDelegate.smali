@@ -27,7 +27,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/Toolbar;)V
-    .locals 1
+    .registers 3
 
     .line 659
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method public getActionBarThemedContext()Landroid/content/Context;
-    .locals 0
+    .registers 1
 
     .line 687
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
@@ -68,7 +68,7 @@
 .end method
 
 .method public getThemeUpIndicator()Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 1
 
     .line 682
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mDefaultUpIndicator:Landroid/graphics/drawable/Drawable;
@@ -77,7 +77,7 @@
 .end method
 
 .method public isNavigationVisible()Z
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x1
 
@@ -85,13 +85,13 @@
 .end method
 
 .method public setActionBarDescription(I)V
-    .locals 0
+    .registers 2
     .param p1    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation
     .end param
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_a
 
     .line 674
     iget-object p1, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
@@ -100,20 +100,20 @@
 
     invoke-virtual {p1, p0}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(Ljava/lang/CharSequence;)V
 
-    goto :goto_0
+    goto :goto_f
 
     .line 676
-    :cond_0
+    :cond_a
     iget-object p0, p0, Landroid/support/v7/app/ActionBarDrawerToggle$ToolbarCompatDelegate;->mToolbar:Landroid/support/v7/widget/Toolbar;
 
     invoke-virtual {p0, p1}, Landroid/support/v7/widget/Toolbar;->setNavigationContentDescription(I)V
 
-    :goto_0
+    :goto_f
     return-void
 .end method
 
 .method public setActionBarUpIndicator(Landroid/graphics/drawable/Drawable;I)V
-    .locals 1
+    .registers 4
     .param p2    # I
         .annotation build Landroid/support/annotation/StringRes;
         .end annotation

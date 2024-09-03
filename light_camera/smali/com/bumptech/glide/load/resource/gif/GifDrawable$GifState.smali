@@ -48,7 +48,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/bumptech/glide/gifdecoder/GifHeader;[BLandroid/content/Context;Lcom/bumptech/glide/load/Transformation;IILcom/bumptech/glide/gifdecoder/GifDecoder$BitmapProvider;Lcom/bumptech/glide/load/engine/bitmap_recycle/BitmapPool;Landroid/graphics/Bitmap;)V
-    .locals 0
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -68,7 +68,7 @@
     .line 332
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
 
-    if-eqz p9, :cond_0
+    if-eqz p9, :cond_1c
 
     .line 336
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->gifHeader:Lcom/bumptech/glide/gifdecoder/GifHeader;
@@ -104,7 +104,7 @@
     return-void
 
     .line 334
-    :cond_0
+    :cond_1c
     new-instance p0, Ljava/lang/NullPointerException;
 
     const-string p1, "The first frame of the GIF must not be null"
@@ -115,12 +115,12 @@
 .end method
 
 .method public constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;)V
-    .locals 1
+    .registers 3
 
     .line 347
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_29
 
     .line 349
     iget-object v0, p1, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->gifHeader:Lcom/bumptech/glide/gifdecoder/GifHeader;
@@ -167,14 +167,14 @@
 
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->firstFrame:Landroid/graphics/Bitmap;
 
-    :cond_0
+    :cond_29
     return-void
 .end method
 
 
 # virtual methods
 .method public getChangingConfigurations()I
-    .locals 0
+    .registers 1
 
     const/4 p0, 0x0
 
@@ -182,7 +182,7 @@
 .end method
 
 .method public newDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .registers 2
 
     .line 368
     new-instance v0, Lcom/bumptech/glide/load/resource/gif/GifDrawable;
@@ -193,7 +193,7 @@
 .end method
 
 .method public newDrawable(Landroid/content/res/Resources;)Landroid/graphics/drawable/Drawable;
-    .locals 0
+    .registers 2
 
     .line 363
     invoke-virtual {p0}, Lcom/bumptech/glide/load/resource/gif/GifDrawable$GifState;->newDrawable()Landroid/graphics/drawable/Drawable;

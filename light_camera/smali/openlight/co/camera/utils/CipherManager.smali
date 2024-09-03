@@ -25,7 +25,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .registers 1
 
     .line 30
     const-class v0, Lopenlight/co/camera/utils/CipherManager;
@@ -47,7 +47,7 @@
 .end method
 
 .method private constructor <init>()V
-    .locals 5
+    .registers 6
 
     .line 133
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -71,7 +71,7 @@
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_31
 
     .line 138
     new-instance v0, Ljava/io/File;
@@ -85,21 +85,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_51
 
     .line 141
-    :try_start_0
+    :try_start_22
     invoke-static {v0}, Lopenlight/co/camera/utils/CipherManager;->readKey(Ljava/io/File;)Ljava/security/PublicKey;
 
     move-result-object v0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_26
+    .catch Ljava/lang/Exception; {:try_start_22 .. :try_end_26} :catch_28
 
     move-object v2, v0
 
-    goto :goto_0
+    goto :goto_51
 
-    :catch_0
+    :catch_28
     move-exception v0
 
     .line 143
@@ -109,15 +109,15 @@
 
     invoke-static {v1, v3, v0}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    goto :goto_0
+    goto :goto_51
 
     .line 148
-    :cond_0
+    :cond_31
     invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_51
 
     .line 149
     sget-object v0, Lopenlight/co/camera/utils/CipherManager;->TAG:Ljava/lang/String;
@@ -143,15 +143,15 @@
     invoke-static {v0, v1}, Lopenlight/co/lib/utils/LogUtil;->w(Ljava/lang/String;Ljava/lang/String;)V
 
     .line 152
-    :cond_1
-    :goto_0
+    :cond_51
+    :goto_51
     iput-object v2, p0, Lopenlight/co/camera/utils/CipherManager;->mPublicKey:Ljava/security/PublicKey;
 
     return-void
 .end method
 
 .method static encryptedName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
+    .registers 2
 
     const-string v0, ".zip"
 
@@ -160,11 +160,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
-    goto :goto_0
+    goto :goto_1a
 
-    :cond_0
+    :cond_9
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -179,12 +179,12 @@
 
     move-result-object p0
 
-    :goto_0
+    :goto_1a
     return-object p0
 .end method
 
 .method public static get()Lopenlight/co/camera/utils/CipherManager;
-    .locals 1
+    .registers 1
 
     .line 48
     sget-object v0, Lopenlight/co/camera/utils/CipherManager;->sInstance:Lopenlight/co/camera/utils/CipherManager;
@@ -193,7 +193,7 @@
 .end method
 
 .method private static readKey(Ljava/io/File;)Ljava/security/PublicKey;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -228,7 +228,7 @@
 .end method
 
 .method static unencryptedName(Ljava/lang/String;)Ljava/lang/String;
-    .locals 3
+    .registers 4
 
     const-string v0, ".zip"
 
@@ -237,7 +237,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_18
 
     const/4 v0, 0x0
 
@@ -258,14 +258,14 @@
 
     move-result-object p0
 
-    :cond_0
+    :cond_18
     return-object p0
 .end method
 
 
 # virtual methods
 .method getPublicKey()Ljava/security/PublicKey;
-    .locals 0
+    .registers 1
 
     .line 56
     iget-object p0, p0, Lopenlight/co/camera/utils/CipherManager;->mPublicKey:Ljava/security/PublicKey;
@@ -274,16 +274,16 @@
 .end method
 
 .method public getPublicKeyHash()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 66
     invoke-virtual {p0}, Lopenlight/co/camera/utils/CipherManager;->hasKey()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_24
 
-    :try_start_0
+    :try_start_6
     const-string v0, "SHA256"
 
     .line 68
@@ -307,12 +307,12 @@
     invoke-static {p0, v0}, Landroid/util/Base64;->encodeToString([BI)Ljava/lang/String;
 
     move-result-object p0
-    :try_end_0
-    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1b
+    .catch Ljava/security/NoSuchAlgorithmException; {:try_start_6 .. :try_end_1b} :catch_1c
 
     return-object p0
 
-    :catch_0
+    :catch_1c
     move-exception p0
 
     .line 71
@@ -322,63 +322,63 @@
 
     invoke-static {v0, v1, p0}, Lopenlight/co/lib/utils/LogUtil;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
-    :cond_0
+    :cond_24
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public hasKey()Z
-    .locals 0
+    .registers 1
 
     .line 83
     iget-object p0, p0, Lopenlight/co/camera/utils/CipherManager;->mPublicKey:Ljava/security/PublicKey;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_6
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_7
 
-    :cond_0
+    :cond_6
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_7
     return p0
 .end method
 
 .method isEncrypting(I)Z
-    .locals 1
+    .registers 3
 
     const/16 v0, 0x100
 
-    if-eq p1, v0, :cond_0
+    if-eq p1, v0, :cond_8
 
     const/16 v0, 0x23
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_10
 
     .line 93
-    :cond_0
+    :cond_8
     invoke-virtual {p0}, Lopenlight/co/camera/utils/CipherManager;->isEncryptionEnabled()Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_10
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_11
 
-    :cond_1
+    :cond_10
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_11
     return p0
 .end method
 
 .method public isEncryptionEnabled()Z
-    .locals 1
+    .registers 2
 
     .line 103
     invoke-static {}, Lopenlight/co/lib/content/CamPrefsFactory;->get()Lopenlight/co/lib/content/Prefs;

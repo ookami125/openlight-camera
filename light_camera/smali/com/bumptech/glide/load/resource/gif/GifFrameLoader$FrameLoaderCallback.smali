@@ -29,7 +29,7 @@
 
 # direct methods
 .method private constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;)V
-    .locals 0
+    .registers 2
 
     .line 127
     iput-object p1, p0, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameLoaderCallback;->this$0:Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;
@@ -40,7 +40,7 @@
 .end method
 
 .method synthetic constructor <init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$1;)V
-    .locals 0
+    .registers 3
 
     .line 127
     invoke-direct {p0, p1}, Lcom/bumptech/glide/load/resource/gif/GifFrameLoader$FrameLoaderCallback;-><init>(Lcom/bumptech/glide/load/resource/gif/GifFrameLoader;)V
@@ -51,14 +51,14 @@
 
 # virtual methods
 .method public handleMessage(Landroid/os/Message;)Z
-    .locals 2
+    .registers 4
 
     .line 133
     iget v0, p1, Landroid/os/Message;->what:I
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_f
 
     .line 134
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -73,12 +73,12 @@
     return v1
 
     .line 137
-    :cond_0
+    :cond_f
     iget p0, p1, Landroid/os/Message;->what:I
 
     const/4 v0, 0x2
 
-    if-ne p0, v0, :cond_1
+    if-ne p0, v0, :cond_1b
 
     .line 138
     iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -88,7 +88,7 @@
     .line 139
     invoke-static {p0}, Lcom/bumptech/glide/Glide;->clear(Lcom/bumptech/glide/request/target/Target;)V
 
-    :cond_1
+    :cond_1b
     const/4 p0, 0x0
 
     return p0

@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/camera/view/depthoffield/DepthOfField;)V
-    .locals 0
+    .registers 2
 
     .line 318
     iput-object p1, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField$3;->this$0:Lopenlight/co/camera/view/depthoffield/DepthOfField;
@@ -36,13 +36,14 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .registers 6
 
     .line 321
     iget-object v0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField$3;->this$0:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
     iget-object p0, p0, Lopenlight/co/camera/view/depthoffield/DepthOfField$3;->this$0:Lopenlight/co/camera/view/depthoffield/DepthOfField;
 
+    # getter for: Lopenlight/co/camera/view/depthoffield/DepthOfField;->mCalRadius:F
     invoke-static {p0}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->access$200(Lopenlight/co/camera/view/depthoffield/DepthOfField;)F
 
     move-result p0
@@ -59,6 +60,7 @@
 
     add-float/2addr p0, v1
 
+    # setter for: Lopenlight/co/camera/view/depthoffield/DepthOfField;->mTitleOffset:F
     invoke-static {v0, p0}, Lopenlight/co/camera/view/depthoffield/DepthOfField;->access$302(Lopenlight/co/camera/view/depthoffield/DepthOfField;F)F
 
     return-void

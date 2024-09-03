@@ -25,7 +25,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 22
     iput-object p1, p0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory$1;->val$context:Landroid/content/Context;
@@ -40,7 +40,7 @@
 
 # virtual methods
 .method public getCacheDirectory()Ljava/io/File;
-    .locals 2
+    .registers 3
 
     .line 25
     iget-object v0, p0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory$1;->val$context:Landroid/content/Context;
@@ -49,17 +49,17 @@
 
     move-result-object v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_a
 
     const/4 p0, 0x0
 
     return-object p0
 
     .line 29
-    :cond_0
+    :cond_a
     iget-object v1, p0, Lcom/bumptech/glide/load/engine/cache/InternalCacheDiskCacheFactory$1;->val$diskCacheName:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_16
 
     .line 30
     new-instance v1, Ljava/io/File;
@@ -70,6 +70,6 @@
 
     return-object v1
 
-    :cond_1
+    :cond_16
     return-object v0
 .end method

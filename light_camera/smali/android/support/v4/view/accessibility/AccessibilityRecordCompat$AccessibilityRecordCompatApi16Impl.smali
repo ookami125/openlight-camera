@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 77
     invoke-direct {p0}, Landroid/support/v4/view/accessibility/AccessibilityRecordCompat$AccessibilityRecordCompatApi15Impl;-><init>()V
@@ -31,7 +31,7 @@
 
 # virtual methods
 .method public setSource(Landroid/view/accessibility/AccessibilityRecord;Landroid/view/View;I)V
-    .locals 0
+    .registers 4
 
     .line 80
     invoke-virtual {p1, p2, p3}, Landroid/view/accessibility/AccessibilityRecord;->setSource(Landroid/view/View;I)V

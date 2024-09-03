@@ -24,7 +24,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/ref/WeakReference;Lnet/hockeyapp/android/CrashManagerListener;Lnet/hockeyapp/android/objects/CrashMetaData;)V
-    .locals 0
+    .registers 4
 
     .line 584
     iput-object p1, p0, Lnet/hockeyapp/android/CrashManager$5;->val$weakContext:Ljava/lang/ref/WeakReference;
@@ -41,7 +41,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .registers 3
 
     .line 587
     iget-object v0, p0, Lnet/hockeyapp/android/CrashManager$5;->val$weakContext:Ljava/lang/ref/WeakReference;
@@ -55,6 +55,7 @@
     const/4 p0, 0x0
 
     .line 588
+    # setter for: Lnet/hockeyapp/android/CrashManager;->submitting:Z
     invoke-static {p0}, Lnet/hockeyapp/android/CrashManager;->access$002(Z)Z
 
     return-void

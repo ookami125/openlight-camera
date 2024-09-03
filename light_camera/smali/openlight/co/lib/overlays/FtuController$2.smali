@@ -26,7 +26,7 @@
 
 # direct methods
 .method constructor <init>(Lopenlight/co/lib/overlays/FtuController;Landroid/view/View;Landroid/view/ViewPropertyAnimator;Ljava/lang/Runnable;)V
-    .locals 0
+    .registers 5
 
     .line 265
     iput-object p1, p0, Lopenlight/co/lib/overlays/FtuController$2;->this$0:Lopenlight/co/lib/overlays/FtuController;
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    .registers 2
 
     .line 282
     iget-object p0, p0, Lopenlight/co/lib/overlays/FtuController$2;->val$anim:Landroid/view/ViewPropertyAnimator;
@@ -58,7 +58,7 @@
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .registers 3
 
     .line 268
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController$2;->val$view:Landroid/view/View;
@@ -84,13 +84,13 @@
     .line 272
     iget-object p1, p0, Lopenlight/co/lib/overlays/FtuController$2;->val$runAfter:Ljava/lang/Runnable;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1d
 
     .line 273
     iget-object p0, p0, Lopenlight/co/lib/overlays/FtuController$2;->val$runAfter:Ljava/lang/Runnable;
 
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
-    :cond_0
+    :cond_1d
     return-void
 .end method

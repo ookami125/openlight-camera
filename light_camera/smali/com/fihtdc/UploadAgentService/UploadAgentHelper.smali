@@ -46,13 +46,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 0
+    .registers 0
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 0
+    .registers 2
 
     .line 71
     invoke-direct {p0, p1}, Landroid/content/ContextWrapper;-><init>(Landroid/content/Context;)V
@@ -89,7 +89,7 @@
 .end method
 
 .method private checkBufferedSize(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 13
+    .registers 16
 
     .line 574
     new-instance v0, Ljava/io/File;
@@ -101,7 +101,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_fd
 
     .line 577
     invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;
@@ -127,8 +127,8 @@
 
     move-wide v6, v4
 
-    :goto_0
-    if-lt v3, v2, :cond_5
+    :goto_1e
+    if-lt v3, v2, :cond_b3
 
     .line 598
     new-instance p2, Lcom/fihtdc/UploadAgentService/UploadAgentHelper$LongComparator;
@@ -142,12 +142,12 @@
 
     cmp-long v2, v6, v2
 
-    if-gtz v2, :cond_0
+    if-gtz v2, :cond_2e
 
-    goto/16 :goto_6
+    goto/16 :goto_fd
 
     .line 603
-    :cond_0
+    :cond_2e
     new-instance v8, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;
 
     invoke-direct {v8, p1}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;-><init>(Landroid/content/Context;)V
@@ -164,14 +164,14 @@
     move-result-object v9
 
     .line 607
-    :try_start_0
+    :try_start_3b
     invoke-static {v1, p2}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3e
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3b .. :try_end_3e} :catch_3f
 
-    goto :goto_1
+    goto :goto_57
 
-    :catch_0
+    :catch_3f
     move-exception p1
 
     .line 609
@@ -196,7 +196,7 @@
     invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 612
-    :goto_1
+    :goto_57
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p0
@@ -206,16 +206,16 @@
 
     move-result-object v10
 
-    :cond_1
+    :cond_5f
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_66
 
-    goto :goto_4
+    goto :goto_af
 
-    :cond_2
+    :cond_66
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p1
@@ -234,16 +234,16 @@
 
     move-result-object p1
 
-    :goto_2
+    :goto_76
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p2
 
-    if-nez p2, :cond_3
+    if-nez p2, :cond_7d
 
-    goto :goto_3
+    goto :goto_a3
 
-    :cond_3
+    :cond_7d
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p2
@@ -261,7 +261,7 @@
 
     cmp-long v1, v1, v3
 
-    if-gtz v1, :cond_4
+    if-gtz v1, :cond_a3
 
     .line 617
     invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
@@ -279,20 +279,20 @@
     move-result-object p0
 
     .line 621
-    :try_start_1
+    :try_start_9c
     invoke-virtual {v8, p2}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->delete(Ljava/io/File;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_9f
+    .catch Ljava/lang/Exception; {:try_start_9c .. :try_end_9f} :catch_9f
 
     .line 626
-    :catch_1
+    :catch_9f
     invoke-virtual {p2}, Ljava/io/File;->delete()Z
 
-    goto :goto_2
+    goto :goto_76
 
     .line 631
-    :cond_4
-    :goto_3
+    :cond_a3
+    :goto_a3
     invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
 
     move-result-wide p1
@@ -303,16 +303,16 @@
 
     cmp-long p1, p1, v1
 
-    if-lez p1, :cond_1
+    if-lez p1, :cond_5f
 
     .line 636
-    :goto_4
+    :goto_af
     invoke-virtual {v8}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->close()V
 
-    goto :goto_6
+    goto :goto_fd
 
     .line 582
-    :cond_5
+    :cond_b3
     aget-object v8, p2, v3
 
     .line 583
@@ -325,7 +325,7 @@
 
     move-result v11
 
-    if-nez v11, :cond_6
+    if-nez v11, :cond_c6
 
     .line 585
     invoke-static {v9, v10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -335,7 +335,7 @@
     invoke-virtual {v1, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 587
-    :cond_6
+    :cond_c6
     invoke-virtual {v8}, Ljava/io/File;->length()J
 
     move-result-wide v11
@@ -351,7 +351,7 @@
 
     move-result v11
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_ea
 
     .line 589
     invoke-static {v9, v10}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -374,10 +374,10 @@
 
     invoke-virtual {v0, v8, v11}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_5
+    goto :goto_f9
 
     .line 593
-    :cond_7
+    :cond_ea
     new-instance v11, Ljava/util/LinkedList;
 
     invoke-direct {v11}, Ljava/util/LinkedList;-><init>()V
@@ -392,18 +392,18 @@
 
     invoke-virtual {v0, v8, v11}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :goto_5
+    :goto_f9
     add-int/lit8 v3, v3, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_1e
 
-    :cond_8
-    :goto_6
+    :cond_fd
+    :goto_fd
     return-void
 .end method
 
 .method private checkPeriodBuffered(Landroid/content/Context;Ljava/lang/String;)V
-    .locals 13
+    .registers 16
 
     .line 645
     new-instance v0, Ljava/io/File;
@@ -434,7 +434,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_134
 
     .line 652
     invoke-virtual {v0}, Ljava/io/File;->listFiles()[Ljava/io/File;
@@ -456,8 +456,8 @@
 
     const/4 v6, 0x0
 
-    :goto_0
-    if-lt v6, v5, :cond_5
+    :goto_2e
+    if-lt v6, v5, :cond_ec
 
     .line 673
     new-instance v0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper$LongComparator;
@@ -470,14 +470,14 @@
     invoke-direct {v7, p1}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;-><init>(Landroid/content/Context;)V
 
     .line 677
-    :try_start_0
+    :try_start_3a
     invoke-static {v4, v0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_3d
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_3a .. :try_end_3d} :catch_3e
 
-    goto :goto_1
+    goto :goto_56
 
-    :catch_0
+    :catch_3e
     move-exception p1
 
     .line 679
@@ -501,7 +501,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
+    :goto_56
     const-wide/16 v5, 0x0
 
     .line 682
@@ -512,20 +512,20 @@
 
     move-result-object v8
 
-    :goto_2
+    :goto_5f
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_6a
 
     .line 710
     invoke-virtual {v7}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->close()V
 
-    goto/16 :goto_7
+    goto/16 :goto_134
 
     .line 683
-    :cond_0
+    :cond_6a
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p1
@@ -555,17 +555,17 @@
 
     move-result-object v10
 
-    :cond_1
-    :goto_3
+    :cond_84
+    :goto_84
     invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_8b
 
-    goto :goto_2
+    goto :goto_5f
 
-    :cond_2
+    :cond_8b
     invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p1
@@ -581,24 +581,24 @@
 
     cmp-long v0, v4, v11
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_84
 
     .line 688
     invoke-interface {p2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_3
-    :goto_4
+    :cond_a2
+    :goto_a2
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-nez v4, :cond_4
+    if-nez v4, :cond_a9
 
-    goto :goto_3
+    goto :goto_84
 
-    :cond_4
+    :cond_a9
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v4
@@ -614,10 +614,10 @@
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_a2
 
     .line 694
-    :try_start_1
+    :try_start_b9
     invoke-virtual {v7, p1}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->delete(Ljava/io/File;)V
 
     .line 695
@@ -626,12 +626,12 @@
     move-result-object v4
 
     invoke-virtual {v7, v4}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->deleteUploadFile(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_c3
+    .catch Ljava/lang/Exception; {:try_start_b9 .. :try_end_c3} :catch_c4
 
-    goto :goto_5
+    goto :goto_e8
 
-    :catch_1
+    :catch_c4
     move-exception v4
 
     .line 697
@@ -666,13 +666,13 @@
     invoke-static {v5, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 700
-    :goto_5
+    :goto_e8
     invoke-virtual {p1}, Ljava/io/File;->delete()Z
 
-    goto :goto_4
+    goto :goto_a2
 
     .line 657
-    :cond_5
+    :cond_ec
     aget-object v7, v0, v6
 
     .line 658
@@ -685,7 +685,7 @@
 
     move-result v10
 
-    if-nez v10, :cond_6
+    if-nez v10, :cond_ff
 
     .line 660
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -695,7 +695,7 @@
     invoke-virtual {v4, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 662
-    :cond_6
+    :cond_ff
     invoke-virtual {v7}, Ljava/io/File;->length()J
 
     .line 663
@@ -707,7 +707,7 @@
 
     move-result v10
 
-    if-eqz v10, :cond_7
+    if-eqz v10, :cond_121
 
     .line 664
     invoke-static {v8, v9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -730,10 +730,10 @@
 
     invoke-virtual {v3, v7, v10}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_6
+    goto :goto_130
 
     .line 668
-    :cond_7
+    :cond_121
     new-instance v10, Ljava/util/LinkedList;
 
     invoke-direct {v10}, Ljava/util/LinkedList;-><init>()V
@@ -748,18 +748,18 @@
 
     invoke-virtual {v3, v7, v10}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :goto_6
+    :goto_130
     add-int/lit8 v6, v6, 0x1
 
-    goto/16 :goto_0
+    goto/16 :goto_2e
 
-    :cond_8
-    :goto_7
+    :cond_134
+    :goto_134
     return-void
 .end method
 
 .method private getFileInformation([Ljava/io/File;Ljava/lang/String;)Ljava/util/HashMap;
-    .locals 8
+    .registers 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -776,7 +776,7 @@
     .line 287
     array-length p0, p1
 
-    if-lez p0, :cond_3
+    if-lez p0, :cond_93
 
     .line 288
     new-instance p0, Ljava/util/HashMap;
@@ -797,12 +797,12 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-lt v3, v2, :cond_0
+    :goto_13
+    if-lt v3, v2, :cond_17
 
-    goto/16 :goto_2
+    goto/16 :goto_94
 
-    :cond_0
+    :cond_17
     aget-object v4, p1, v3
 
     const-wide/16 v5, 0x1
@@ -820,7 +820,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_6b
 
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -830,7 +830,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_6b
 
     .line 293
     new-instance v5, Ljava/lang/StringBuilder;
@@ -869,7 +869,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_90
 
     .line 296
     invoke-virtual {v6}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -886,10 +886,10 @@
 
     invoke-virtual {p0, v4, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    goto :goto_1
+    goto :goto_90
 
     .line 298
-    :cond_1
+    :cond_6b
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -900,7 +900,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_90
 
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -910,7 +910,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_90
 
     .line 299
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -927,25 +927,25 @@
 
     invoke-virtual {p0, v5, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
-    :goto_1
+    :cond_90
+    :goto_90
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_3
+    :cond_93
     const/4 p0, 0x0
 
-    :goto_2
+    :goto_94
     return-object p0
 .end method
 
 .method public static getSystemProperty(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-    .locals 8
+    .registers 10
 
     const-string v0, ""
 
-    :try_start_0
+    :try_start_2
     const-string v1, "android.os.SystemProperties"
 
     .line 784
@@ -990,12 +990,12 @@
     move-result-object p0
 
     check-cast p0, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_28
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_28} :catch_29
 
-    goto :goto_0
+    goto :goto_2e
 
-    :catch_0
+    :catch_29
     move-exception p0
 
     .line 788
@@ -1003,12 +1003,12 @@
 
     move-object p0, v0
 
-    :goto_0
+    :goto_2e
     return-object p0
 .end method
 
 .method private getUploadFileInformation([Ljava/io/File;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/util/HashSet;
-    .locals 8
+    .registers 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "([",
@@ -1026,7 +1026,7 @@
     .line 308
     array-length p0, p1
 
-    if-lez p0, :cond_3
+    if-lez p0, :cond_8b
 
     .line 309
     new-instance p0, Ljava/util/HashSet;
@@ -1047,12 +1047,12 @@
 
     const/4 v3, 0x0
 
-    :goto_0
-    if-lt v3, v2, :cond_0
+    :goto_13
+    if-lt v3, v2, :cond_17
 
-    goto/16 :goto_2
+    goto/16 :goto_8c
 
-    :cond_0
+    :cond_17
     aget-object v4, p1, v3
 
     const-wide/16 v5, 0x1
@@ -1070,7 +1070,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_6f
 
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -1080,7 +1080,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_6f
 
     .line 314
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1131,15 +1131,15 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_88
 
     .line 317
     invoke-virtual {p0, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto :goto_88
 
     .line 319
-    :cond_1
+    :cond_6f
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
     move-result-object v5
@@ -1150,7 +1150,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_88
 
     invoke-virtual {v4}, Ljava/io/File;->getName()Ljava/lang/String;
 
@@ -1160,26 +1160,26 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_88
 
     .line 320
     invoke-virtual {p0, v4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    :cond_2
-    :goto_1
+    :cond_88
+    :goto_88
     add-int/lit8 v3, v3, 0x1
 
-    goto :goto_0
+    goto :goto_13
 
-    :cond_3
+    :cond_8b
     const/4 p0, 0x0
 
-    :goto_2
+    :goto_8c
     return-object p0
 .end method
 
 .method private insertFileInfo(Landroid/content/Context;Ljava/util/Set;ZZ)V
-    .locals 5
+    .registers 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1200,12 +1200,12 @@
 
     move-result-object p1
 
-    :goto_0
+    :goto_9
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p2
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_13
 
     .line 280
     invoke-virtual {v0}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->close()V
@@ -1213,7 +1213,7 @@
     return-void
 
     .line 271
-    :cond_0
+    :cond_13
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p2
@@ -1221,14 +1221,14 @@
     check-cast p2, Ljava/lang/String;
 
     .line 273
-    :try_start_0
+    :try_start_19
     invoke-virtual {v0, p2, p3, p4}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->insertUploadFileInfo(Ljava/lang/String;ZZ)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1c
+    .catch Ljava/lang/Exception; {:try_start_19 .. :try_end_1c} :catch_1d
 
-    goto :goto_0
+    goto :goto_9
 
-    :catch_0
+    :catch_1d
     move-exception v1
 
     .line 275
@@ -1258,11 +1258,11 @@
 
     invoke-static {v2, p2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_0
+    goto :goto_9
 .end method
 
 .method private updateAgentInfo(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .registers 6
 
     const-string p0, "agentInfo"
 
@@ -1318,7 +1318,7 @@
 
 # virtual methods
 .method public check3GStatus(Landroid/content/Context;)Z
-    .locals 5
+    .registers 7
 
     const-string p0, "connectivity"
 
@@ -1342,12 +1342,12 @@
 
     move v1, v0
 
-    :goto_0
-    if-lt v0, p1, :cond_0
+    :goto_f
+    if-lt v0, p1, :cond_12
 
     return v1
 
-    :cond_0
+    :cond_12
     aget-object v2, p0, v0
 
     .line 412
@@ -1361,25 +1361,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     .line 413
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_27
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 .end method
 
 .method public checkConnectedStatus(Landroid/content/Context;)Z
-    .locals 9
+    .registers 11
 
     const-string p0, "connectivity"
 
@@ -1409,23 +1409,23 @@
 
     move v4, v3
 
-    :goto_0
+    :goto_12
     const/4 v5, 0x1
 
-    if-lt v1, p1, :cond_1
+    if-lt v1, p1, :cond_1d
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1c
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1c
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1c
 
     return v0
 
-    :cond_0
+    :cond_1c
     return v5
 
-    :cond_1
+    :cond_1d
     aget-object v6, p0, v1
 
     .line 431
@@ -1439,19 +1439,19 @@
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_32
 
     .line 432
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_32
 
     move v2, v5
 
     .line 436
-    :cond_2
+    :cond_32
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->getTypeName()Ljava/lang/String;
 
     move-result-object v7
@@ -1462,19 +1462,19 @@
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_45
 
     .line 437
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v7
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_45
 
     move v3, v5
 
     .line 441
-    :cond_3
+    :cond_45
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->getTypeName()Ljava/lang/String;
 
     move-result-object v7
@@ -1485,7 +1485,7 @@
 
     move-result v7
 
-    if-nez v7, :cond_4
+    if-nez v7, :cond_5d
 
     .line 442
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->getTypeName()Ljava/lang/String;
@@ -1498,26 +1498,26 @@
 
     move-result v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_64
 
     .line 443
-    :cond_4
+    :cond_5d
     invoke-virtual {v6}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_64
 
     move v4, v5
 
-    :cond_5
+    :cond_64
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_12
 .end method
 
 .method public declared-synchronized checkUploadFiles(Landroid/content/Context;[Ljava/io/File;)Ljava/util/ArrayList;
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1534,20 +1534,20 @@
     monitor-enter p0
 
     .line 747
-    :try_start_0
+    :try_start_1
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     .line 749
     array-length v0, p2
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_7
+    .catchall {:try_start_1 .. :try_end_7} :catchall_24
 
     const/4 v1, 0x0
 
-    :goto_0
-    if-lt v1, v0, :cond_0
+    :goto_8
+    if-lt v1, v0, :cond_c
 
     .line 757
     monitor-exit p0
@@ -1555,8 +1555,8 @@
     return-object p1
 
     .line 749
-    :cond_0
-    :try_start_1
+    :cond_c
+    :try_start_c
     aget-object v2, p2, v1
 
     .line 750
@@ -1564,36 +1564,36 @@
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_15
 
-    goto :goto_1
+    goto :goto_21
 
     .line 751
-    :cond_1
+    :cond_15
     invoke-virtual {p0, v2}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->getUploadFileInfo(Ljava/io/File;)Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;
 
     move-result-object v2
 
     invoke-virtual {p1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_1c
+    .catchall {:try_start_c .. :try_end_1c} :catchall_24
 
     const-wide/16 v2, 0x12c
 
     .line 753
-    :try_start_2
+    :try_start_1e
     invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_21
+    .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_21} :catch_21
+    .catchall {:try_start_1e .. :try_end_21} :catchall_24
 
-    :catch_0
-    :goto_1
+    :catch_21
+    :goto_21
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_0
+    goto :goto_8
 
-    :catchall_0
+    :catchall_24
     move-exception p1
 
     .line 746
@@ -1603,7 +1603,7 @@
 .end method
 
 .method public checkWifiStatus(Landroid/content/Context;)Z
-    .locals 5
+    .registers 7
 
     const-string p0, "connectivity"
 
@@ -1627,12 +1627,12 @@
 
     move v1, v0
 
-    :goto_0
-    if-lt v0, p1, :cond_0
+    :goto_f
+    if-lt v0, p1, :cond_12
 
     return v1
 
-    :cond_0
+    :cond_12
     aget-object v2, p0, v0
 
     .line 395
@@ -1646,32 +1646,32 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_27
 
     .line 396
     invoke-virtual {v2}, Landroid/net/NetworkInfo;->isConnected()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_27
 
     const/4 v1, 0x1
 
-    :cond_1
+    :cond_27
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_f
 .end method
 
 .method public createSelfUploadFile(Landroid/content/Context;[Ljava/io/File;Ljava/lang/String;)V
-    .locals 7
+    .registers 11
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_63
 
     .line 101
     array-length v0, p2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_63
 
     .line 102
     new-instance v0, Lcom/fihtdc/UploadAgentService/util/Util;
@@ -1712,12 +1712,12 @@
 
     move-result-object p2
 
-    :goto_0
+    :goto_25
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p3
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_33
 
     .line 118
     invoke-virtual {v5}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -1726,10 +1726,10 @@
 
     invoke-direct {p0, p1, p2}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->checkBufferedSize(Landroid/content/Context;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_63
 
     .line 108
-    :cond_0
+    :cond_33
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p3
@@ -1779,22 +1779,22 @@
 
     invoke-virtual {p3, v3}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
-    :goto_1
+    :cond_63
+    :goto_63
     return-void
 .end method
 
 .method public createSelfUploadFile(Landroid/content/Context;[Ljava/io/File;Ljava/lang/String;Z)V
-    .locals 7
+    .registers 12
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_65
 
     .line 123
     array-length v0, p2
 
-    if-lez v0, :cond_1
+    if-lez v0, :cond_65
 
     .line 124
     new-instance v0, Lcom/fihtdc/UploadAgentService/util/Util;
@@ -1835,14 +1835,14 @@
 
     move-result-object p2
 
-    :goto_0
+    :goto_25
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p3
 
-    if-nez p3, :cond_0
+    if-nez p3, :cond_35
 
-    if-eqz p4, :cond_1
+    if-eqz p4, :cond_65
 
     .line 141
     invoke-virtual {v5}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
@@ -1851,10 +1851,10 @@
 
     invoke-direct {p0, p1, p2}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->checkBufferedSize(Landroid/content/Context;Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_65
 
     .line 130
-    :cond_0
+    :cond_35
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object p3
@@ -1904,15 +1904,15 @@
 
     invoke-virtual {p3, v3}, Ljava/io/File;->renameTo(Ljava/io/File;)Z
 
-    goto :goto_0
+    goto :goto_25
 
-    :cond_1
-    :goto_1
+    :cond_65
+    :goto_65
     return-void
 .end method
 
 .method public filesToZip([Ljava/io/File;Ljava/lang/String;Ljava/lang/String;)Ljava/io/File;
-    .locals 7
+    .registers 11
 
     .line 335
     new-instance p0, Ljava/util/Date;
@@ -1928,7 +1928,7 @@
 
     move-result p0
 
-    if-nez p0, :cond_0
+    if-nez p0, :cond_22
 
     .line 337
     new-instance p0, Ljava/lang/StringBuilder;
@@ -1947,11 +1947,11 @@
 
     move-result-object p3
 
-    :cond_0
+    :cond_22
     const/4 p0, 0x0
 
     .line 340
-    :try_start_0
+    :try_start_23
     new-instance v0, Ljava/io/File;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1979,14 +1979,14 @@
 
     move-result p2
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_b9
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_b9
 
     .line 342
     array-length p2, p1
 
-    if-lez p2, :cond_4
+    if-lez p2, :cond_b9
 
     .line 343
     new-instance p2, Ljava/io/FileOutputStream;
@@ -2001,20 +2001,20 @@
     invoke-direct {v1, p2}, Ljava/io/BufferedOutputStream;-><init>(Ljava/io/OutputStream;)V
 
     invoke-direct {p3, v1}, Ljava/util/zip/ZipOutputStream;-><init>(Ljava/io/OutputStream;)V
-    :try_end_0
-    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_8
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_7
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    :try_end_57
+    .catch Ljava/io/FileNotFoundException; {:try_start_23 .. :try_end_57} :catch_e0
+    .catch Ljava/io/IOException; {:try_start_23 .. :try_end_57} :catch_d5
+    .catchall {:try_start_23 .. :try_end_57} :catchall_d2
 
     const/16 p2, 0x2800
 
     .line 346
-    :try_start_1
+    :try_start_59
     new-array v1, p2, [B
-    :try_end_1
-    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_5
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_4
-    .catchall {:try_start_1 .. :try_end_1} :catchall_3
+    :try_end_5b
+    .catch Ljava/io/FileNotFoundException; {:try_start_59 .. :try_end_5b} :catch_b7
+    .catch Ljava/io/IOException; {:try_start_59 .. :try_end_5b} :catch_b5
+    .catchall {:try_start_59 .. :try_end_5b} :catchall_eb
 
     const/4 v2, 0x0
 
@@ -2023,25 +2023,25 @@
     move p0, v2
 
     .line 347
-    :goto_0
-    :try_start_2
+    :goto_5e
+    :try_start_5e
     array-length v4, p1
 
-    if-lt p0, v4, :cond_1
+    if-lt p0, v4, :cond_64
 
     move-object p0, v3
 
-    goto/16 :goto_3
+    goto/16 :goto_ba
 
     .line 348
-    :cond_1
+    :cond_64
     aget-object v4, p1, p0
 
     invoke-virtual {v4}, Ljava/io/File;->exists()Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_a6
 
     .line 349
     new-instance v4, Ljava/util/zip/ZipEntry;
@@ -2070,21 +2070,21 @@
     new-instance v5, Ljava/io/BufferedInputStream;
 
     invoke-direct {v5, v4, p2}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;I)V
-    :try_end_2
-    .catch Ljava/io/FileNotFoundException; {:try_start_2 .. :try_end_2} :catch_3
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_86
+    .catch Ljava/io/FileNotFoundException; {:try_start_5e .. :try_end_86} :catch_b1
+    .catch Ljava/io/IOException; {:try_start_5e .. :try_end_86} :catch_ad
+    .catchall {:try_start_5e .. :try_end_86} :catchall_a9
 
     .line 355
-    :goto_1
-    :try_start_3
+    :goto_86
+    :try_start_86
     invoke-virtual {v5, v1, v2, p2}, Ljava/io/BufferedInputStream;->read([BII)I
 
     move-result v3
 
     const/4 v6, -0x1
 
-    if-ne v3, v6, :cond_2
+    if-ne v3, v6, :cond_95
 
     .line 358
     invoke-virtual {v4}, Ljava/io/FileInputStream;->close()V
@@ -2094,118 +2094,118 @@
 
     move-object v3, v5
 
-    goto :goto_2
+    goto :goto_a6
 
     .line 356
-    :cond_2
+    :cond_95
     invoke-virtual {p3, v1, v2, v3}, Ljava/util/zip/ZipOutputStream;->write([BII)V
-    :try_end_3
-    .catch Ljava/io/FileNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
-    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    :try_end_98
+    .catch Ljava/io/FileNotFoundException; {:try_start_86 .. :try_end_98} :catch_a2
+    .catch Ljava/io/IOException; {:try_start_86 .. :try_end_98} :catch_9e
+    .catchall {:try_start_86 .. :try_end_98} :catchall_99
 
-    goto :goto_1
+    goto :goto_86
 
-    :catchall_0
+    :catchall_99
     move-exception p0
 
     move-object p1, p0
 
     move-object p0, v5
 
-    goto/16 :goto_9
+    goto/16 :goto_ec
 
-    :catch_0
+    :catch_9e
     move-exception p0
 
     move-object p1, p0
 
     move-object p0, v5
 
-    goto :goto_7
+    goto :goto_d7
 
-    :catch_1
+    :catch_a2
     move-exception p0
 
     move-object p1, p0
 
     move-object p0, v5
 
-    goto :goto_8
+    goto :goto_e2
 
-    :cond_3
-    :goto_2
+    :cond_a6
+    :goto_a6
     add-int/lit8 p0, p0, 0x1
 
-    goto :goto_0
+    goto :goto_5e
 
-    :catchall_1
+    :catchall_a9
     move-exception p0
 
     move-object p1, p0
 
     move-object p0, v3
 
-    goto :goto_9
+    goto :goto_ec
 
-    :catch_2
+    :catch_ad
     move-exception p0
 
     move-object p1, p0
 
     move-object p0, v3
 
-    goto :goto_7
+    goto :goto_d7
 
-    :catch_3
+    :catch_b1
     move-exception p0
 
     move-object p1, p0
 
     move-object p0, v3
 
-    goto :goto_8
+    goto :goto_e2
 
-    :catch_4
+    :catch_b5
     move-exception p1
 
-    goto :goto_7
+    goto :goto_d7
 
-    :catch_5
+    :catch_b7
     move-exception p1
 
-    goto :goto_8
+    goto :goto_e2
 
-    :cond_4
+    :cond_b9
     move-object p3, p0
 
-    :goto_3
-    if-eqz p0, :cond_5
+    :goto_ba
+    if-eqz p0, :cond_c2
 
     .line 374
-    :try_start_4
+    :try_start_bc
     invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
 
-    goto :goto_4
+    goto :goto_c2
 
-    :catch_6
+    :catch_c0
     move-exception p0
 
-    goto :goto_5
+    goto :goto_c8
 
-    :cond_5
-    :goto_4
-    if-eqz p3, :cond_6
+    :cond_c2
+    :goto_c2
+    if-eqz p3, :cond_d1
 
     .line 376
     invoke-virtual {p3}, Ljava/util/zip/ZipOutputStream;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_6
+    :try_end_c7
+    .catch Ljava/io/IOException; {:try_start_bc .. :try_end_c7} :catch_c0
 
-    goto :goto_6
+    goto :goto_d1
 
     .line 378
-    :goto_5
+    :goto_c8
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 379
@@ -2215,25 +2215,25 @@
 
     throw p1
 
-    :cond_6
-    :goto_6
+    :cond_d1
+    :goto_d1
     return-object v0
 
-    :catchall_2
+    :catchall_d2
     move-exception p1
 
     move-object p3, p0
 
-    goto :goto_9
+    goto :goto_ec
 
-    :catch_7
+    :catch_d5
     move-exception p1
 
     move-object p3, p0
 
     .line 369
-    :goto_7
-    :try_start_5
+    :goto_d7
+    :try_start_d7
     invoke-virtual {p1}, Ljava/io/IOException;->printStackTrace()V
 
     .line 370
@@ -2243,13 +2243,13 @@
 
     throw p2
 
-    :catch_8
+    :catch_e0
     move-exception p1
 
     move-object p3, p0
 
     .line 366
-    :goto_8
+    :goto_e2
     invoke-virtual {p1}, Ljava/io/FileNotFoundException;->printStackTrace()V
 
     .line 367
@@ -2258,39 +2258,39 @@
     invoke-direct {p2, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
 
     throw p2
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_3
+    :try_end_eb
+    .catchall {:try_start_d7 .. :try_end_eb} :catchall_eb
 
-    :catchall_3
+    :catchall_eb
     move-exception p1
 
-    :goto_9
-    if-eqz p0, :cond_7
+    :goto_ec
+    if-eqz p0, :cond_f4
 
     .line 374
-    :try_start_6
+    :try_start_ee
     invoke-virtual {p0}, Ljava/io/BufferedInputStream;->close()V
 
-    goto :goto_a
+    goto :goto_f4
 
-    :catch_9
+    :catch_f2
     move-exception p0
 
-    goto :goto_b
+    goto :goto_fa
 
-    :cond_7
-    :goto_a
-    if-eqz p3, :cond_8
+    :cond_f4
+    :goto_f4
+    if-eqz p3, :cond_103
 
     .line 376
     invoke-virtual {p3}, Ljava/util/zip/ZipOutputStream;->close()V
-    :try_end_6
-    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_9
+    :try_end_f9
+    .catch Ljava/io/IOException; {:try_start_ee .. :try_end_f9} :catch_f2
 
-    goto :goto_c
+    goto :goto_103
 
     .line 378
-    :goto_b
+    :goto_fa
     invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
 
     .line 379
@@ -2301,20 +2301,20 @@
     throw p1
 
     .line 381
-    :cond_8
-    :goto_c
+    :cond_103
+    :goto_103
     throw p1
 .end method
 
 .method public getAPRServerURL()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     const-string v0, "apr.c2dms.com"
 
     const/4 v1, 0x0
 
     .line 527
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -2332,12 +2332,12 @@
     invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_11} :catch_42
+    .catchall {:try_start_3 .. :try_end_11} :catchall_3f
 
     .line 528
-    :try_start_1
+    :try_start_11
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
 
     .line 529
@@ -2345,7 +2345,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_37
 
     const-string v3, "aprServerUrl"
 
@@ -2354,7 +2354,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_37
 
     const-string v3, "null"
 
@@ -2369,7 +2369,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_37
 
     const-string v3, "aprServerUrl"
 
@@ -2377,34 +2377,34 @@
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_36
+    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_36} :catch_3d
+    .catchall {:try_start_11 .. :try_end_36} :catchall_53
 
     move-object v0, v1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_37
+    if-eqz v2, :cond_52
 
     .line 542
-    :goto_0
+    :goto_39
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    goto :goto_52
 
-    :catch_0
+    :catch_3d
     move-exception v1
 
-    goto :goto_1
+    goto :goto_46
 
-    :catchall_0
+    :catchall_3f
     move-exception p0
 
     move-object v2, v1
 
-    goto :goto_3
+    goto :goto_54
 
-    :catch_1
+    :catch_42
     move-exception v2
 
     move-object v8, v2
@@ -2414,8 +2414,8 @@
     move-object v1, v8
 
     .line 539
-    :goto_1
-    :try_start_2
+    :goto_46
+    :try_start_46
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -2423,40 +2423,40 @@
     move-result-object v1
 
     invoke-static {p0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_4f
+    .catchall {:try_start_46 .. :try_end_4f} :catchall_53
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_52
 
-    goto :goto_0
+    goto :goto_39
 
-    :cond_1
-    :goto_2
+    :cond_52
+    :goto_52
     return-object v0
 
-    :catchall_1
+    :catchall_53
     move-exception p0
 
-    :goto_3
-    if-eqz v2, :cond_2
+    :goto_54
+    if-eqz v2, :cond_59
 
     .line 542
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
     .line 545
-    :cond_2
+    :cond_59
     throw p0
 .end method
 
 .method public getDUTInfoString()Ljava/lang/String;
-    .locals 9
+    .registers 10
 
     const-string v0, ""
 
     const/4 v1, 0x0
 
     .line 554
-    :try_start_0
+    :try_start_3
     invoke-virtual {p0}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -2474,12 +2474,12 @@
     invoke-virtual/range {v2 .. v7}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v2
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_11
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_11} :catch_2c
+    .catchall {:try_start_3 .. :try_end_11} :catchall_29
 
     .line 555
-    :try_start_1
+    :try_start_11
     invoke-interface {v2}, Landroid/database/Cursor;->moveToNext()Z
 
     .line 556
@@ -2487,7 +2487,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_21
 
     const-string v3, "stringDUT"
 
@@ -2495,34 +2495,34 @@
     invoke-virtual {v1, v3}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_20
+    .catch Ljava/lang/Exception; {:try_start_11 .. :try_end_20} :catch_27
+    .catchall {:try_start_11 .. :try_end_20} :catchall_3d
 
     move-object v0, v1
 
-    :cond_0
-    if-eqz v2, :cond_1
+    :cond_21
+    if-eqz v2, :cond_3c
 
     .line 565
-    :goto_0
+    :goto_23
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    goto :goto_3c
 
-    :catch_0
+    :catch_27
     move-exception v1
 
-    goto :goto_1
+    goto :goto_30
 
-    :catchall_0
+    :catchall_29
     move-exception p0
 
     move-object v2, v1
 
-    goto :goto_3
+    goto :goto_3e
 
-    :catch_1
+    :catch_2c
     move-exception v2
 
     move-object v8, v2
@@ -2532,8 +2532,8 @@
     move-object v1, v8
 
     .line 562
-    :goto_1
-    :try_start_2
+    :goto_30
+    :try_start_30
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -2541,33 +2541,33 @@
     move-result-object v1
 
     invoke-static {p0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_39
+    .catchall {:try_start_30 .. :try_end_39} :catchall_3d
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_3c
 
-    goto :goto_0
+    goto :goto_23
 
-    :cond_1
-    :goto_2
+    :cond_3c
+    :goto_3c
     return-object v0
 
-    :catchall_1
+    :catchall_3d
     move-exception p0
 
-    :goto_3
-    if-eqz v2, :cond_2
+    :goto_3e
+    if-eqz v2, :cond_43
 
     .line 565
     invoke-interface {v2}, Landroid/database/Cursor;->close()V
 
     .line 568
-    :cond_2
+    :cond_43
     throw p0
 .end method
 
 .method public getUploadFileInfo(Ljava/io/File;)Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;
-    .locals 3
+    .registers 5
 
     .line 761
     new-instance p0, Lcom/fihtdc/UploadAgentService/upload/UploadLog;
@@ -2619,7 +2619,7 @@
 .end method
 
 .method public isUserAgreeUpload()Z
-    .locals 10
+    .registers 11
 
     const-string v0, "persist.sys.agree.upload"
 
@@ -2660,12 +2660,12 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_7e
 
     const/4 v0, 0x0
 
     .line 496
-    :try_start_0
+    :try_start_2a
     invoke-virtual {p0}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -2683,12 +2683,12 @@
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catch Ljava/lang/Exception; {:try_start_2a .. :try_end_38} :catch_53
+    .catchall {:try_start_2a .. :try_end_38} :catchall_50
 
     .line 497
-    :try_start_1
+    :try_start_38
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
     .line 498
@@ -2696,7 +2696,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_48
 
     const-string v3, "service_on"
 
@@ -2704,34 +2704,34 @@
     invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_47
+    .catch Ljava/lang/Exception; {:try_start_38 .. :try_end_47} :catch_4e
+    .catchall {:try_start_38 .. :try_end_47} :catchall_77
 
     move v2, v0
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_48
+    if-eqz v1, :cond_63
 
     .line 507
-    :goto_0
+    :goto_4a
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    goto :goto_63
 
-    :catch_0
+    :catch_4e
     move-exception v0
 
-    goto :goto_1
+    goto :goto_57
 
-    :catchall_0
+    :catchall_50
     move-exception p0
 
     move-object v1, v0
 
-    goto :goto_3
+    goto :goto_78
 
-    :catch_1
+    :catch_53
     move-exception v1
 
     move-object v9, v1
@@ -2741,8 +2741,8 @@
     move-object v0, v9
 
     .line 504
-    :goto_1
-    :try_start_2
+    :goto_57
+    :try_start_57
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -2750,16 +2750,16 @@
     move-result-object v0
 
     invoke-static {v3, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_60
+    .catchall {:try_start_57 .. :try_end_60} :catchall_77
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_63
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 511
-    :cond_1
-    :goto_2
+    :cond_63
+    :goto_63
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2776,34 +2776,34 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_96
 
-    :catchall_1
+    :catchall_77
     move-exception p0
 
-    :goto_3
-    if-eqz v1, :cond_2
+    :goto_78
+    if-eqz v1, :cond_7d
 
     .line 507
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 510
-    :cond_2
+    :cond_7d
     throw p0
 
     .line 514
-    :cond_3
-    :try_start_3
+    :cond_7e
+    :try_start_7e
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_82
+    .catch Ljava/lang/Exception; {:try_start_7e .. :try_end_82} :catch_83
 
     move v2, v0
 
     .line 518
-    :catch_2
+    :catch_83
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2820,12 +2820,12 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_4
+    :goto_96
     return v2
 .end method
 
 .method public isWifiOnly()Z
-    .locals 10
+    .registers 11
 
     const-string v0, "persist.sys.wifi.only"
 
@@ -2866,12 +2866,12 @@
 
     const/4 v2, 0x1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_7e
 
     const/4 v0, 0x0
 
     .line 461
-    :try_start_0
+    :try_start_2a
     invoke-virtual {p0}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v3
@@ -2889,12 +2889,12 @@
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v1
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_38
+    .catch Ljava/lang/Exception; {:try_start_2a .. :try_end_38} :catch_53
+    .catchall {:try_start_2a .. :try_end_38} :catchall_50
 
     .line 462
-    :try_start_1
+    :try_start_38
     invoke-interface {v1}, Landroid/database/Cursor;->moveToNext()Z
 
     .line 463
@@ -2902,7 +2902,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_48
 
     const-string v3, "wifi_only"
 
@@ -2910,34 +2910,34 @@
     invoke-virtual {v0, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+    :try_end_47
+    .catch Ljava/lang/Exception; {:try_start_38 .. :try_end_47} :catch_4e
+    .catchall {:try_start_38 .. :try_end_47} :catchall_77
 
     move v2, v0
 
-    :cond_0
-    if-eqz v1, :cond_1
+    :cond_48
+    if-eqz v1, :cond_63
 
     .line 472
-    :goto_0
+    :goto_4a
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_2
+    goto :goto_63
 
-    :catch_0
+    :catch_4e
     move-exception v0
 
-    goto :goto_1
+    goto :goto_57
 
-    :catchall_0
+    :catchall_50
     move-exception p0
 
     move-object v1, v0
 
-    goto :goto_3
+    goto :goto_78
 
-    :catch_1
+    :catch_53
     move-exception v1
 
     move-object v9, v1
@@ -2947,8 +2947,8 @@
     move-object v0, v9
 
     .line 469
-    :goto_1
-    :try_start_2
+    :goto_57
+    :try_start_57
     iget-object v3, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
@@ -2956,16 +2956,16 @@
     move-result-object v0
 
     invoke-static {v3, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+    :try_end_60
+    .catchall {:try_start_57 .. :try_end_60} :catchall_77
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_63
 
-    goto :goto_0
+    goto :goto_4a
 
     .line 476
-    :cond_1
-    :goto_2
+    :cond_63
+    :goto_63
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -2982,34 +2982,34 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_4
+    goto :goto_96
 
-    :catchall_1
+    :catchall_77
     move-exception p0
 
-    :goto_3
-    if-eqz v1, :cond_2
+    :goto_78
+    if-eqz v1, :cond_7d
 
     .line 472
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     .line 475
-    :cond_2
+    :cond_7d
     throw p0
 
     .line 479
-    :cond_3
-    :try_start_3
+    :cond_7e
+    :try_start_7e
     invoke-static {v0}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+    :try_end_82
+    .catch Ljava/lang/Exception; {:try_start_7e .. :try_end_82} :catch_83
 
     move v2, v0
 
     .line 483
-    :catch_2
+    :catch_83
     iget-object p0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -3026,12 +3026,12 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_4
+    :goto_96
     return v2
 .end method
 
 .method public startAgentUpload(Landroid/content/Context;Ljava/lang/Class;[Ljava/io/File;Ljava/lang/String;Z)V
-    .locals 8
+    .registers 14
 
     const/4 v6, 0x0
 
@@ -3056,7 +3056,7 @@
 .end method
 
 .method public startAgentUpload(Landroid/content/Context;Ljava/lang/Class;[Ljava/io/File;Ljava/lang/String;ZZ)V
-    .locals 8
+    .registers 15
 
     const/4 v7, 0x1
 
@@ -3081,12 +3081,12 @@
 .end method
 
 .method public startAgentUpload(Landroid/content/Context;Ljava/lang/Class;[Ljava/io/File;Ljava/lang/String;ZZZ)V
-    .locals 4
+    .registers 12
 
     .line 84
     array-length v0, p3
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_54
 
     const/4 v0, 0x0
 
@@ -3170,12 +3170,12 @@
     .line 96
     invoke-virtual {p0, p4}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    :cond_0
+    :cond_54
     return-void
 .end method
 
 .method public startSelfUpload(Landroid/content/Context;)V
-    .locals 8
+    .registers 10
 
     .line 148
     iget-object v0, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
@@ -3201,35 +3201,35 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_1f1
 
     .line 153
     array-length v1, v0
 
-    if-lez v1, :cond_8
+    if-lez v1, :cond_1f1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_23
 
     .line 156
     invoke-virtual {p0, p1, v0}, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->checkUploadFiles(Landroid/content/Context;[Ljava/io/File;)Ljava/util/ArrayList;
 
     move-result-object v1
 
-    :goto_0
+    :goto_21
     move-object v6, v1
 
-    goto :goto_1
+    goto :goto_29
 
     .line 158
-    :cond_0
+    :cond_23
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    goto :goto_0
+    goto :goto_21
 
-    :goto_1
-    if-eqz v6, :cond_1
+    :goto_29
+    if-eqz v6, :cond_42
 
     .line 161
     iget-object v1, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
@@ -3253,7 +3253,7 @@
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 163
-    :cond_1
+    :cond_42
     new-instance v1, Lcom/fihtdc/UploadAgentService/sharedPref/SharedPrefHelper;
 
     invoke-direct {v1}, Lcom/fihtdc/UploadAgentService/sharedPref/SharedPrefHelper;-><init>()V
@@ -3270,23 +3270,23 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_182
 
     .line 166
     new-instance v1, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;
 
     invoke-direct {v1, p1}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;-><init>(Landroid/content/Context;)V
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_1f1
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_1f1
 
     .line 167
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_1f1
 
     .line 168
     new-instance v0, Lcom/fihtdc/UploadAgentService/util/Util;
@@ -3325,17 +3325,17 @@
 
     move-result-object p1
 
-    :cond_2
-    :goto_2
+    :cond_81
+    :goto_81
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_89
 
-    goto/16 :goto_8
+    goto/16 :goto_1f1
 
-    :cond_3
+    :cond_89
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -3345,12 +3345,12 @@
     .line 176
     iget-boolean v2, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->isNeedUpload:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_132
 
     .line 177
     iget-boolean v2, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->isUploadSuccess:Z
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_de
 
     .line 178
     iget-object v2, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
@@ -3376,16 +3376,16 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 180
-    :try_start_0
+    :try_start_b0
     iget-object v2, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->uploadFileName:Ljava/lang/String;
 
     invoke-virtual {v1, v2}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->deleteUploadFile(Ljava/lang/String;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_b5
+    .catch Ljava/lang/Exception; {:try_start_b0 .. :try_end_b5} :catch_b6
 
-    goto :goto_3
+    goto :goto_d8
 
-    :catch_0
+    :catch_b6
     move-exception v2
 
     .line 182
@@ -3418,15 +3418,15 @@
     invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 185
-    :goto_3
+    :goto_d8
     iget-object v0, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    goto :goto_2
+    goto :goto_81
 
     .line 187
-    :cond_4
+    :cond_de
     iget-object v2, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3452,10 +3452,10 @@
     .line 188
     iget-boolean v2, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->isResend:Z
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_81
 
     .line 190
-    :try_start_1
+    :try_start_fb
     iget-object v2, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -3463,12 +3463,12 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->deleteUploadFile(Ljava/lang/String;)V
-    :try_end_1
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
+    :try_end_104
+    .catch Ljava/lang/Exception; {:try_start_fb .. :try_end_104} :catch_105
 
-    goto :goto_4
+    goto :goto_12b
 
-    :catch_1
+    :catch_105
     move-exception v2
 
     .line 192
@@ -3505,15 +3505,15 @@
     invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 194
-    :goto_4
+    :goto_12b
     iget-object v0, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    goto/16 :goto_2
+    goto/16 :goto_81
 
     .line 198
-    :cond_5
+    :cond_132
     iget-object v2, p0, Lcom/fihtdc/UploadAgentService/UploadAgentHelper;->TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -3537,7 +3537,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 200
-    :try_start_2
+    :try_start_14b
     iget-object v2, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -3545,12 +3545,12 @@
     move-result-object v2
 
     invoke-virtual {v1, v2}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->deleteUploadFile(Ljava/lang/String;)V
-    :try_end_2
-    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_2
+    :try_end_154
+    .catch Ljava/lang/Exception; {:try_start_14b .. :try_end_154} :catch_155
 
-    goto :goto_5
+    goto :goto_17b
 
-    :catch_2
+    :catch_155
     move-exception v2
 
     .line 202
@@ -3587,24 +3587,24 @@
     invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 204
-    :goto_5
+    :goto_17b
     iget-object v0, v0, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v0}, Ljava/io/File;->delete()Z
 
-    goto/16 :goto_2
+    goto/16 :goto_81
 
-    :cond_6
-    if-eqz v0, :cond_8
+    :cond_182
+    if-eqz v0, :cond_1f1
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_1f1
 
     .line 209
     invoke-virtual {v6}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_1f1
 
     .line 210
     new-instance v0, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;
@@ -3616,16 +3616,16 @@
 
     move-result-object p1
 
-    :goto_6
+    :goto_195
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-nez v1, :cond_7
+    if-nez v1, :cond_19c
 
-    goto :goto_8
+    goto :goto_1f1
 
-    :cond_7
+    :cond_19c
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
@@ -3656,7 +3656,7 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 214
-    :try_start_3
+    :try_start_1bb
     iget-object v2, v1, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v2}, Ljava/io/File;->getName()Ljava/lang/String;
@@ -3664,12 +3664,12 @@
     move-result-object v2
 
     invoke-virtual {v0, v2}, Lcom/fihtdc/UploadAgentService/database/UploadLogDBHelper;->deleteUploadFile(Ljava/lang/String;)V
-    :try_end_3
-    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_1c4
+    .catch Ljava/lang/Exception; {:try_start_1bb .. :try_end_1c4} :catch_1c5
 
-    goto :goto_7
+    goto :goto_1eb
 
-    :catch_3
+    :catch_1c5
     move-exception v2
 
     .line 216
@@ -3706,20 +3706,20 @@
     invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 218
-    :goto_7
+    :goto_1eb
     iget-object v1, v1, Lcom/fihtdc/UploadAgentService/data/UploadFileInfo;->file:Ljava/io/File;
 
     invoke-virtual {v1}, Ljava/io/File;->delete()Z
 
-    goto :goto_6
+    goto :goto_195
 
-    :cond_8
-    :goto_8
+    :cond_1f1
+    :goto_1f1
     return-void
 .end method
 
 .method public updateUploadServiceStatus(Z)V
-    .locals 2
+    .registers 4
 
     .line 776
     new-instance v0, Landroid/content/ContentValues;

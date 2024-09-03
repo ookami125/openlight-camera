@@ -20,7 +20,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;)V
-    .locals 0
+    .registers 2
 
     .line 1855
     iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
@@ -33,19 +33,19 @@
 
 # virtual methods
 .method public onVolumeChanged(Landroid/support/v4/media/VolumeProviderCompat;)V
-    .locals 7
+    .registers 9
 
     .line 1858
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     iget-object v0, v0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mVolumeProvider:Landroid/support/v4/media/VolumeProviderCompat;
 
-    if-eq v0, p1, :cond_0
+    if-eq v0, p1, :cond_7
 
     return-void
 
     .line 1861
-    :cond_0
+    :cond_7
     new-instance v0, Landroid/support/v4/media/session/ParcelableVolumeInfo;
 
     iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$1;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;

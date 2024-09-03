@@ -29,7 +29,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+    .registers 3
 
     .line 68
     invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
@@ -47,7 +47,7 @@
 
 # virtual methods
 .method public get(Landroid/graphics/drawable/Drawable;)Landroid/graphics/PointF;
-    .locals 1
+    .registers 3
 
     .line 80
     iget-object v0, p0, Landroid/support/transition/ChangeBounds$1;->mBounds:Landroid/graphics/Rect;
@@ -75,7 +75,7 @@
 .end method
 
 .method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .registers 2
 
     .line 68
     check-cast p1, Landroid/graphics/drawable/Drawable;
@@ -88,7 +88,7 @@
 .end method
 
 .method public set(Landroid/graphics/drawable/Drawable;Landroid/graphics/PointF;)V
-    .locals 2
+    .registers 5
 
     .line 73
     iget-object v0, p0, Landroid/support/transition/ChangeBounds$1;->mBounds:Landroid/graphics/Rect;
@@ -121,7 +121,7 @@
 .end method
 
 .method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+    .registers 3
 
     .line 68
     check-cast p1, Landroid/graphics/drawable/Drawable;

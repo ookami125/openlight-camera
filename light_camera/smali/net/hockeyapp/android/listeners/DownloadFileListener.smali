@@ -5,7 +5,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -16,13 +16,13 @@
 
 # virtual methods
 .method public downloadFailed(Lnet/hockeyapp/android/tasks/DownloadFileTask;Ljava/lang/Boolean;)V
-    .locals 0
+    .registers 3
 
     return-void
 .end method
 
 .method public downloadSuccessful(Lnet/hockeyapp/android/tasks/DownloadFileTask;)V
-    .locals 0
+    .registers 2
 
     return-void
 .end method

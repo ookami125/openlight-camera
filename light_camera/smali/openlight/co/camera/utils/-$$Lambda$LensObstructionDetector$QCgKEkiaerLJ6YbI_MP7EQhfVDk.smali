@@ -12,7 +12,7 @@
 
 # direct methods
 .method public synthetic constructor <init>(Lopenlight/co/camera/utils/LensObstructionDetector;)V
-    .locals 0
+    .registers 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -24,7 +24,7 @@
 
 # virtual methods
 .method public final onTheaterModeChange()V
-    .locals 0
+    .registers 1
 
     iget-object p0, p0, Lopenlight/co/camera/utils/-$$Lambda$LensObstructionDetector$QCgKEkiaerLJ6YbI_MP7EQhfVDk;->f$0:Lopenlight/co/camera/utils/LensObstructionDetector;
 

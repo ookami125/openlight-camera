@@ -14,33 +14,33 @@
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
-    .locals 1
+    .registers 4
 
     .line 56
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_b
 
     .line 57
     new-instance v0, Landroid/widget/OverScroller;
 
     invoke-direct {v0, p1, p2}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;Landroid/view/animation/Interpolator;)V
 
-    goto :goto_0
+    goto :goto_10
 
-    :cond_0
+    :cond_b
     new-instance v0, Landroid/widget/OverScroller;
 
     invoke-direct {v0, p1}, Landroid/widget/OverScroller;-><init>(Landroid/content/Context;)V
 
-    :goto_0
+    :goto_10
     iput-object v0, p0, Landroid/support/v4/widget/ScrollerCompat;->mScroller:Landroid/widget/OverScroller;
 
     return-void
 .end method
 
 .method public static create(Landroid/content/Context;)Landroid/support/v4/widget/ScrollerCompat;
-    .locals 1
+    .registers 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -55,7 +55,7 @@
 .end method
 
 .method public static create(Landroid/content/Context;Landroid/view/animation/Interpolator;)Landroid/support/v4/widget/ScrollerCompat;
-    .locals 1
+    .registers 3
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -70,7 +70,7 @@
 
 # virtual methods
 .method public abortAnimation()V
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -83,7 +83,7 @@
 .end method
 
 .method public computeScrollOffset()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -98,7 +98,7 @@
 .end method
 
 .method public fling(IIIIIIII)V
-    .locals 9
+    .registers 18
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -129,7 +129,7 @@
 .end method
 
 .method public fling(IIIIIIIIII)V
-    .locals 11
+    .registers 22
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -164,7 +164,7 @@
 .end method
 
 .method public getCurrVelocity()F
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -179,7 +179,7 @@
 .end method
 
 .method public getCurrX()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -194,7 +194,7 @@
 .end method
 
 .method public getCurrY()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -209,7 +209,7 @@
 .end method
 
 .method public getFinalX()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -224,7 +224,7 @@
 .end method
 
 .method public getFinalY()I
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -239,7 +239,7 @@
 .end method
 
 .method public isFinished()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -254,7 +254,7 @@
 .end method
 
 .method public isOverScrolled()Z
-    .locals 0
+    .registers 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -269,7 +269,7 @@
 .end method
 
 .method public notifyHorizontalEdgeReached(III)V
-    .locals 0
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -282,7 +282,7 @@
 .end method
 
 .method public notifyVerticalEdgeReached(III)V
-    .locals 0
+    .registers 4
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -295,7 +295,7 @@
 .end method
 
 .method public springBack(IIIIII)Z
-    .locals 7
+    .registers 14
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -322,7 +322,7 @@
 .end method
 
 .method public startScroll(IIII)V
-    .locals 0
+    .registers 5
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -335,7 +335,7 @@
 .end method
 
 .method public startScroll(IIIII)V
-    .locals 6
+    .registers 12
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 

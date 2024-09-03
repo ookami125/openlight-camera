@@ -17,7 +17,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 2
+    .registers 4
 
     const-wide/16 v0, -0x1
 
@@ -28,7 +28,7 @@
 .end method
 
 .method public constructor <init>(Ljava/io/InputStream;J)V
-    .locals 2
+    .registers 6
 
     .line 62
     invoke-direct {p0}, Ljava/io/InputStream;-><init>()V
@@ -60,7 +60,7 @@
 
 # virtual methods
 .method public available()I
-    .locals 4
+    .registers 5
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -74,7 +74,7 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     iget-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->pos:J
 
@@ -82,14 +82,14 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     const/4 p0, 0x0
 
     return p0
 
     .line 155
-    :cond_0
+    :cond_12
     iget-object p0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {p0}, Ljava/io/InputStream;->available()I
@@ -100,7 +100,7 @@
 .end method
 
 .method public close()V
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -110,19 +110,19 @@
     .line 174
     iget-boolean v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->propagateClose:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_9
 
     .line 175
     iget-object p0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {p0}, Ljava/io/InputStream;->close()V
 
-    :cond_0
+    :cond_9
     return-void
 .end method
 
 .method public isPropagateClose()Z
-    .locals 0
+    .registers 1
 
     .line 217
     iget-boolean p0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->propagateClose:Z
@@ -131,12 +131,12 @@
 .end method
 
 .method public declared-synchronized mark(I)V
-    .locals 2
+    .registers 4
 
     monitor-enter p0
 
     .line 195
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1}, Ljava/io/InputStream;->mark(I)V
@@ -145,15 +145,15 @@
     iget-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->pos:J
 
     iput-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->mark:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_c
 
     .line 197
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_c
     move-exception p1
 
     .line 194
@@ -163,7 +163,7 @@
 .end method
 
 .method public markSupported()Z
-    .locals 0
+    .registers 1
 
     .line 205
     iget-object p0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
@@ -176,7 +176,7 @@
 .end method
 
 .method public read()I
-    .locals 5
+    .registers 6
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -190,7 +190,7 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     iget-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->pos:J
 
@@ -198,14 +198,14 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     const/4 p0, -0x1
 
     return p0
 
     .line 91
-    :cond_0
+    :cond_12
     iget-object v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->read()I
@@ -225,7 +225,7 @@
 .end method
 
 .method public read([B)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -245,7 +245,7 @@
 .end method
 
 .method public read([BII)I
-    .locals 8
+    .registers 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -261,7 +261,7 @@
 
     const/4 v1, -0x1
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     iget-wide v4, p0, Lorg/apache/commons/io/input/BoundedInputStream;->pos:J
 
@@ -269,17 +269,17 @@
 
     cmp-long v0, v4, v6
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_12
 
     return v1
 
     .line 122
-    :cond_0
+    :cond_12
     iget-wide v4, p0, Lorg/apache/commons/io/input/BoundedInputStream;->max:J
 
     cmp-long v0, v4, v2
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_23
 
     int-to-long v2, p3
 
@@ -293,13 +293,13 @@
 
     move-result-wide v2
 
-    goto :goto_0
+    goto :goto_24
 
-    :cond_1
+    :cond_23
     int-to-long v2, p3
 
     .line 123
-    :goto_0
+    :goto_24
     iget-object p3, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     long-to-int v0, v2
@@ -308,12 +308,12 @@
 
     move-result p1
 
-    if-ne p1, v1, :cond_2
+    if-ne p1, v1, :cond_2e
 
     return v1
 
     .line 129
-    :cond_2
+    :cond_2e
     iget-wide p2, p0, Lorg/apache/commons/io/input/BoundedInputStream;->pos:J
 
     int-to-long v0, p1
@@ -326,7 +326,7 @@
 .end method
 
 .method public declared-synchronized reset()V
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -336,7 +336,7 @@
     monitor-enter p0
 
     .line 185
-    :try_start_0
+    :try_start_1
     iget-object v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
@@ -345,15 +345,15 @@
     iget-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->mark:J
 
     iput-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->pos:J
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_a
+    .catchall {:try_start_1 .. :try_end_a} :catchall_c
 
     .line 187
     monitor-exit p0
 
     return-void
 
-    :catchall_0
+    :catchall_c
     move-exception v0
 
     .line 184
@@ -363,7 +363,7 @@
 .end method
 
 .method public setPropagateClose(Z)V
-    .locals 0
+    .registers 2
 
     .line 230
     iput-boolean p1, p0, Lorg/apache/commons/io/input/BoundedInputStream;->propagateClose:Z
@@ -372,7 +372,7 @@
 .end method
 
 .method public skip(J)J
-    .locals 4
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -386,7 +386,7 @@
 
     cmp-long v0, v0, v2
 
-    if-ltz v0, :cond_0
+    if-ltz v0, :cond_11
 
     iget-wide v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->max:J
 
@@ -399,7 +399,7 @@
     move-result-wide p1
 
     .line 142
-    :cond_0
+    :cond_11
     iget-object v0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;
 
     invoke-virtual {v0, p1, p2}, Ljava/io/InputStream;->skip(J)J
@@ -417,7 +417,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 164
     iget-object p0, p0, Lorg/apache/commons/io/input/BoundedInputStream;->in:Ljava/io/InputStream;

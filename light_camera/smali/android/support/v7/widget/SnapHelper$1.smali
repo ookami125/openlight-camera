@@ -22,7 +22,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/v7/widget/SnapHelper;)V
-    .locals 0
+    .registers 2
 
     .line 45
     iput-object p1, p0, Landroid/support/v7/widget/SnapHelper$1;->this$0:Landroid/support/v7/widget/SnapHelper;
@@ -40,17 +40,17 @@
 
 # virtual methods
 .method public onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
-    .locals 0
+    .registers 3
 
     .line 50
     invoke-super {p0, p1, p2}, Landroid/support/v7/widget/RecyclerView$OnScrollListener;->onScrollStateChanged(Landroid/support/v7/widget/RecyclerView;I)V
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_11
 
     .line 51
     iget-boolean p1, p0, Landroid/support/v7/widget/SnapHelper$1;->mScrolled:Z
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_11
 
     const/4 p1, 0x0
 
@@ -62,23 +62,23 @@
 
     invoke-virtual {p0}, Landroid/support/v7/widget/SnapHelper;->snapToTargetExistingView()V
 
-    :cond_0
+    :cond_11
     return-void
 .end method
 
 .method public onScrolled(Landroid/support/v7/widget/RecyclerView;II)V
-    .locals 0
+    .registers 4
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_4
 
-    if-eqz p3, :cond_1
+    if-eqz p3, :cond_7
 
-    :cond_0
+    :cond_4
     const/4 p1, 0x1
 
     .line 60
     iput-boolean p1, p0, Landroid/support/v7/widget/SnapHelper$1;->mScrolled:Z
 
-    :cond_1
+    :cond_7
     return-void
 .end method

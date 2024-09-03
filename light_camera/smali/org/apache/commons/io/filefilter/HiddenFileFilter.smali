@@ -16,7 +16,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 2
+    .registers 2
 
     .line 56
     new-instance v0, Lorg/apache/commons/io/filefilter/HiddenFileFilter;
@@ -38,7 +38,7 @@
 .end method
 
 .method protected constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 64
     invoke-direct {p0}, Lorg/apache/commons/io/filefilter/AbstractFileFilter;-><init>()V
@@ -49,7 +49,7 @@
 
 # virtual methods
 .method public accept(Ljava/io/File;)Z
-    .locals 0
+    .registers 2
 
     .line 76
     invoke-virtual {p1}, Ljava/io/File;->isHidden()Z

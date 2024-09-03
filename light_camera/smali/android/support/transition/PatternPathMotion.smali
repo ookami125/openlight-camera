@@ -13,7 +13,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .registers 4
 
     .line 52
     invoke-direct {p0}, Landroid/support/transition/PathMotion;-><init>()V
@@ -50,7 +50,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .registers 5
 
     .line 57
     invoke-direct {p0}, Landroid/support/transition/PathMotion;-><init>()V
@@ -77,7 +77,7 @@
     move-result-object p1
 
     .line 60
-    :try_start_0
+    :try_start_17
     check-cast p2, Lorg/xmlpull/v1/XmlPullParser;
 
     const-string v0, "patternPathData"
@@ -88,7 +88,7 @@
 
     move-result-object p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_2d
 
     .line 65
     invoke-static {p2}, Landroid/support/v4/graphics/PathParser;->createPathFromPathData(Ljava/lang/String;)Landroid/graphics/Path;
@@ -97,8 +97,8 @@
 
     .line 66
     invoke-virtual {p0, p2}, Landroid/support/transition/PatternPathMotion;->setPatternPath(Landroid/graphics/Path;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    :try_end_29
+    .catchall {:try_start_17 .. :try_end_29} :catchall_35
 
     .line 68
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -106,8 +106,8 @@
     return-void
 
     .line 63
-    :cond_0
-    :try_start_1
+    :cond_2d
+    :try_start_2d
     new-instance p0, Ljava/lang/RuntimeException;
 
     const-string p2, "pathData must be supplied for patternPathMotion"
@@ -115,10 +115,10 @@
     invoke-direct {p0, p2}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
     throw p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_35
+    .catchall {:try_start_2d .. :try_end_35} :catchall_35
 
-    :catchall_0
+    :catchall_35
     move-exception p0
 
     .line 68
@@ -128,7 +128,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/Path;)V
-    .locals 1
+    .registers 3
 
     .line 80
     invoke-direct {p0}, Landroid/support/transition/PathMotion;-><init>()V
@@ -154,7 +154,7 @@
 .end method
 
 .method private static distance(FF)F
-    .locals 0
+    .registers 2
 
     mul-float/2addr p0, p0
 
@@ -177,7 +177,7 @@
 
 # virtual methods
 .method public getPath(FFFF)Landroid/graphics/Path;
-    .locals 3
+    .registers 8
 
     sub-float/2addr p3, p1
 
@@ -234,7 +234,7 @@
 .end method
 
 .method public getPatternPath()Landroid/graphics/Path;
-    .locals 0
+    .registers 1
 
     .line 92
     iget-object p0, p0, Landroid/support/transition/PatternPathMotion;->mOriginalPatternPath:Landroid/graphics/Path;
@@ -243,7 +243,7 @@
 .end method
 
 .method public setPatternPath(Landroid/graphics/Path;)V
-    .locals 8
+    .registers 10
 
     .line 103
     new-instance v0, Landroid/graphics/PathMeasure;
@@ -288,16 +288,16 @@
 
     cmpl-float v3, v0, v2
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_2f
 
     cmpl-float v3, v1, v6
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_27
 
-    goto :goto_0
+    goto :goto_2f
 
     .line 114
-    :cond_0
+    :cond_27
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "pattern must not end at the starting point"
@@ -307,8 +307,8 @@
     throw p0
 
     .line 117
-    :cond_1
-    :goto_0
+    :cond_2f
+    :goto_2f
     iget-object v3, p0, Landroid/support/transition/PatternPathMotion;->mTempMatrix:Landroid/graphics/Matrix;
 
     neg-float v4, v0

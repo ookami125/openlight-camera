@@ -30,7 +30,7 @@
 
 # direct methods
 .method constructor <init>(Ljava/lang/String;Lorg/apache/commons/io/FileDeleteStrategy;Ljava/lang/Object;Ljava/lang/ref/ReferenceQueue;)V
-    .locals 0
+    .registers 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -50,12 +50,12 @@
     .line 264
     iput-object p1, p0, Lorg/apache/commons/io/FileCleaningTracker$Tracker;->path:Ljava/lang/String;
 
-    if-nez p2, :cond_0
+    if-nez p2, :cond_9
 
     .line 265
     sget-object p2, Lorg/apache/commons/io/FileDeleteStrategy;->NORMAL:Lorg/apache/commons/io/FileDeleteStrategy;
 
-    :cond_0
+    :cond_9
     iput-object p2, p0, Lorg/apache/commons/io/FileCleaningTracker$Tracker;->deleteStrategy:Lorg/apache/commons/io/FileDeleteStrategy;
 
     return-void
@@ -64,7 +64,7 @@
 
 # virtual methods
 .method public delete()Z
-    .locals 2
+    .registers 3
 
     .line 284
     iget-object v0, p0, Lorg/apache/commons/io/FileCleaningTracker$Tracker;->deleteStrategy:Lorg/apache/commons/io/FileDeleteStrategy;
@@ -83,7 +83,7 @@
 .end method
 
 .method public getPath()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 274
     iget-object p0, p0, Lorg/apache/commons/io/FileCleaningTracker$Tracker;->path:Ljava/lang/String;

@@ -25,7 +25,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 10
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -57,18 +57,18 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 4
+    .registers 6
 
     const/4 v0, 0x1
 
-    if-ne p0, p1, :cond_0
+    if-ne p0, p1, :cond_4
 
     return v0
 
-    :cond_0
+    :cond_4
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2b
 
     .line 36
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -79,12 +79,12 @@
 
     move-result-object v3
 
-    if-eq v2, v3, :cond_1
+    if-eq v2, v3, :cond_12
 
-    goto :goto_0
+    goto :goto_2b
 
     .line 40
-    :cond_1
+    :cond_12
     check-cast p1, Lcom/bumptech/glide/util/MultiClassKey;
 
     .line 42
@@ -96,12 +96,12 @@
 
     move-result v2
 
-    if-nez v2, :cond_2
+    if-nez v2, :cond_1f
 
     return v1
 
     .line 45
-    :cond_2
+    :cond_1f
     iget-object p0, p0, Lcom/bumptech/glide/util/MultiClassKey;->second:Ljava/lang/Class;
 
     iget-object p1, p1, Lcom/bumptech/glide/util/MultiClassKey;->second:Ljava/lang/Class;
@@ -110,20 +110,20 @@
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_2a
 
     return v1
 
-    :cond_3
+    :cond_2a
     return v0
 
-    :cond_4
-    :goto_0
+    :cond_2b
+    :goto_2b
     return v1
 .end method
 
 .method public hashCode()I
-    .locals 1
+    .registers 2
 
     .line 54
     iget-object v0, p0, Lcom/bumptech/glide/util/MultiClassKey;->first:Ljava/lang/Class;
@@ -147,7 +147,7 @@
 .end method
 
 .method public set(Ljava/lang/Class;Ljava/lang/Class;)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -168,7 +168,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .registers 3
 
     .line 25
     new-instance v0, Ljava/lang/StringBuilder;

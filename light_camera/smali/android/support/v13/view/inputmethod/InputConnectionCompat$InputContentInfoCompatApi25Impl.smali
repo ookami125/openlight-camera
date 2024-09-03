@@ -23,7 +23,7 @@
 
 # direct methods
 .method private constructor <init>()V
-    .locals 0
+    .registers 1
 
     .line 134
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,7 +32,7 @@
 .end method
 
 .method synthetic constructor <init>(Landroid/support/v13/view/inputmethod/InputConnectionCompat$1;)V
-    .locals 0
+    .registers 2
 
     .line 134
     invoke-direct {p0}, Landroid/support/v13/view/inputmethod/InputConnectionCompat$InputContentInfoCompatApi25Impl;-><init>()V
@@ -43,7 +43,7 @@
 
 # virtual methods
 .method public commitContent(Landroid/view/inputmethod/InputConnection;Landroid/support/v13/view/inputmethod/InputContentInfoCompat;ILandroid/os/Bundle;)Z
-    .locals 0
+    .registers 5
     .param p1    # Landroid/view/inputmethod/InputConnection;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -72,7 +72,7 @@
 .end method
 
 .method public createWrapper(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/support/v13/view/inputmethod/InputConnectionCompat$OnCommitContentListener;)Landroid/view/inputmethod/InputConnection;
-    .locals 1
+    .registers 5
     .param p1    # Landroid/view/inputmethod/InputConnection;
         .annotation build Landroid/support/annotation/Nullable;
         .end annotation

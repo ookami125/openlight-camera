@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .registers 2
 
     .line 40
     invoke-direct {p0}, Lnet/hockeyapp/android/metrics/model/TelemetryData;-><init>()V
@@ -55,7 +55,7 @@
 
 # virtual methods
 .method protected InitializeFields()V
-    .locals 1
+    .registers 2
 
     const-string v0, "com.microsoft.applicationinsights.contracts.EventData"
 
@@ -66,13 +66,13 @@
 .end method
 
 .method public SetupAttributes()V
-    .locals 0
+    .registers 1
 
     return-void
 .end method
 
 .method public getBaseType()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "EventData"
 
@@ -80,7 +80,7 @@
 .end method
 
 .method public getEnvelopeName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     const-string p0, "Microsoft.ApplicationInsights.Event"
 
@@ -88,7 +88,7 @@
 .end method
 
 .method public getMeasurements()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -102,7 +102,7 @@
     .line 108
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->measurements:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 109
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -112,14 +112,14 @@
     iput-object v0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->measurements:Ljava/util/Map;
 
     .line 111
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->measurements:Ljava/util/Map;
 
     return-object p0
 .end method
 
 .method public getName()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 77
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->name:Ljava/lang/String;
@@ -128,7 +128,7 @@
 .end method
 
 .method public getProperties()Ljava/util/Map;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -142,7 +142,7 @@
     .line 91
     iget-object v0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->properties:Ljava/util/Map;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_b
 
     .line 92
     new-instance v0, Ljava/util/LinkedHashMap;
@@ -152,14 +152,14 @@
     iput-object v0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->properties:Ljava/util/Map;
 
     .line 94
-    :cond_0
+    :cond_b
     iget-object p0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->properties:Ljava/util/Map;
 
     return-object p0
 .end method
 
 .method public getVer()I
-    .locals 0
+    .registers 1
 
     .line 63
     iget p0, p0, Lnet/hockeyapp/android/metrics/model/EventData;->ver:I
@@ -168,7 +168,7 @@
 .end method
 
 .method protected serializeContent(Ljava/io/Writer;)Ljava/lang/String;
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -243,7 +243,7 @@
     .line 136
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/EventData;->properties:Ljava/util/Map;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_65
 
     .line 137
     new-instance v1, Ljava/lang/StringBuilder;
@@ -270,10 +270,10 @@
     const-string v0, ","
 
     .line 142
-    :cond_0
+    :cond_65
     iget-object v1, p0, Lnet/hockeyapp/android/metrics/model/EventData;->measurements:Ljava/util/Map;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_84
 
     .line 143
     new-instance v1, Ljava/lang/StringBuilder;
@@ -299,12 +299,12 @@
 
     const-string v0, ","
 
-    :cond_1
+    :cond_84
     return-object v0
 .end method
 
 .method public setMeasurements(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -322,7 +322,7 @@
 .end method
 
 .method public setName(Ljava/lang/String;)V
-    .locals 0
+    .registers 2
 
     .line 84
     iput-object p1, p0, Lnet/hockeyapp/android/metrics/model/EventData;->name:Ljava/lang/String;
@@ -331,7 +331,7 @@
 .end method
 
 .method public setProperties(Ljava/util/Map;)V
-    .locals 0
+    .registers 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -349,7 +349,7 @@
 .end method
 
 .method public setVer(I)V
-    .locals 0
+    .registers 2
 
     .line 70
     iput p1, p0, Lnet/hockeyapp/android/metrics/model/EventData;->ver:I

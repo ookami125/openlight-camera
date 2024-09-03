@@ -8,7 +8,7 @@
 
 # direct methods
 .method public constructor <init>(Ljava/io/InputStream;)V
-    .locals 0
+    .registers 2
 
     .line 48
     invoke-direct {p0, p1}, Lorg/apache/commons/io/input/ProxyInputStream;-><init>(Ljava/io/InputStream;)V
@@ -19,7 +19,7 @@
 
 # virtual methods
 .method public readBoolean()Z
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -32,21 +32,21 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_8
 
     const/4 p0, 0x1
 
-    goto :goto_0
+    goto :goto_9
 
-    :cond_0
+    :cond_8
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_9
     return p0
 .end method
 
 .method public readByte()B
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -67,7 +67,7 @@
 .end method
 
 .method public readChar()C
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -86,7 +86,7 @@
 .end method
 
 .method public readDouble()D
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -105,7 +105,7 @@
 .end method
 
 .method public readFloat()F
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -124,7 +124,7 @@
 .end method
 
 .method public readFully([B)V
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -143,7 +143,7 @@
 .end method
 
 .method public readFully([BII)V
-    .locals 3
+    .registers 7
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -153,8 +153,8 @@
 
     move v0, p3
 
-    :goto_0
-    if-lez v0, :cond_1
+    :goto_1
+    if-lez v0, :cond_15
 
     add-int v1, p2, p3
 
@@ -167,26 +167,26 @@
 
     const/4 v2, -0x1
 
-    if-eq v2, v1, :cond_0
+    if-eq v2, v1, :cond_f
 
     sub-int/2addr v0, v1
 
-    goto :goto_0
+    goto :goto_1
 
     .line 146
-    :cond_0
+    :cond_f
     new-instance p0, Ljava/io/EOFException;
 
     invoke-direct {p0}, Ljava/io/EOFException;-><init>()V
 
     throw p0
 
-    :cond_1
+    :cond_15
     return-void
 .end method
 
 .method public readInt()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -205,7 +205,7 @@
 .end method
 
 .method public readLine()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -224,7 +224,7 @@
 .end method
 
 .method public readLong()J
-    .locals 2
+    .registers 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -243,7 +243,7 @@
 .end method
 
 .method public readShort()S
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -262,7 +262,7 @@
 .end method
 
 .method public readUTF()Ljava/lang/String;
-    .locals 1
+    .registers 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -281,7 +281,7 @@
 .end method
 
 .method public readUnsignedByte()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -300,7 +300,7 @@
 .end method
 
 .method public readUnsignedShort()I
-    .locals 0
+    .registers 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,
@@ -319,7 +319,7 @@
 .end method
 
 .method public skipBytes(I)I
-    .locals 2
+    .registers 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;,

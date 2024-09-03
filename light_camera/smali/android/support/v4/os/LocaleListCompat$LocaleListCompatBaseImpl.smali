@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>()V
-    .locals 2
+    .registers 3
 
     .line 37
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 # virtual methods
 .method public equals(Ljava/lang/Object;)Z
-    .locals 0
+    .registers 2
 
     .line 74
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -64,7 +64,7 @@
 .end method
 
 .method public get(I)Ljava/util/Locale;
-    .locals 0
+    .registers 2
 
     .line 52
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -77,14 +77,14 @@
 .end method
 
 .method public getFirstMatch([Ljava/lang/String;)Ljava/util/Locale;
-    .locals 1
+    .registers 3
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
     .line 95
     iget-object v0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_b
 
     .line 96
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -95,14 +95,14 @@
 
     return-object p0
 
-    :cond_0
+    :cond_b
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
 .method public getLocaleList()Ljava/lang/Object;
-    .locals 0
+    .registers 1
 
     .line 47
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -111,7 +111,7 @@
 .end method
 
 .method public hashCode()I
-    .locals 0
+    .registers 1
 
     .line 79
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -124,7 +124,7 @@
 .end method
 
 .method public indexOf(Ljava/util/Locale;)I
-    .locals 0
+    .registers 2
     .annotation build Landroid/support/annotation/IntRange;
         from = -0x1L
     .end annotation
@@ -140,7 +140,7 @@
 .end method
 
 .method public isEmpty()Z
-    .locals 0
+    .registers 1
 
     .line 57
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -153,7 +153,7 @@
 .end method
 
 .method public varargs setLocaleList([Ljava/util/Locale;)V
-    .locals 1
+    .registers 3
     .param p1    # [Ljava/util/Locale;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -170,7 +170,7 @@
 .end method
 
 .method public size()I
-    .locals 0
+    .registers 1
     .annotation build Landroid/support/annotation/IntRange;
         from = 0x0L
     .end annotation
@@ -186,7 +186,7 @@
 .end method
 
 .method public toLanguageTags()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 89
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;
@@ -199,7 +199,7 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 0
+    .registers 1
 
     .line 84
     iget-object p0, p0, Landroid/support/v4/os/LocaleListCompat$LocaleListCompatBaseImpl;->mLocaleList:Landroid/support/v4/os/LocaleListHelper;

@@ -30,7 +30,7 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .registers 5
 
     .line 22
     new-instance v0, Lcom/bumptech/glide/load/DecodeFormat;
@@ -93,7 +93,7 @@
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
-    .locals 0
+    .registers 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
@@ -107,7 +107,7 @@
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/bumptech/glide/load/DecodeFormat;
-    .locals 1
+    .registers 2
 
     .line 14
     const-class v0, Lcom/bumptech/glide/load/DecodeFormat;
@@ -122,7 +122,7 @@
 .end method
 
 .method public static values()[Lcom/bumptech/glide/load/DecodeFormat;
-    .locals 1
+    .registers 1
 
     .line 14
     sget-object v0, Lcom/bumptech/glide/load/DecodeFormat;->$VALUES:[Lcom/bumptech/glide/load/DecodeFormat;

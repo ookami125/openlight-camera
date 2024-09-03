@@ -23,7 +23,7 @@
 
 # direct methods
 .method constructor <init>(Landroid/support/design/widget/BaseTransientBottomBar;)V
-    .locals 0
+    .registers 2
 
     .line 416
     iput-object p1, p0, Landroid/support/design/widget/BaseTransientBottomBar$4;->this$0:Landroid/support/design/widget/BaseTransientBottomBar;
@@ -36,7 +36,7 @@
 
 # virtual methods
 .method public onDismiss(Landroid/view/View;)V
-    .locals 1
+    .registers 3
 
     const/16 v0, 0x8
 
@@ -54,14 +54,14 @@
 .end method
 
 .method public onDragStateChanged(I)V
-    .locals 0
+    .registers 2
 
-    packed-switch p1, :pswitch_data_0
+    packed-switch p1, :pswitch_data_1c
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 429
-    :pswitch_0
+    :pswitch_4
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
 
     move-result-object p1
@@ -72,10 +72,10 @@
 
     invoke-virtual {p1, p0}, Landroid/support/design/widget/SnackbarManager;->pauseTimeout(Landroid/support/design/widget/SnackbarManager$Callback;)V
 
-    goto :goto_0
+    goto :goto_1b
 
     .line 433
-    :pswitch_1
+    :pswitch_10
     invoke-static {}, Landroid/support/design/widget/SnackbarManager;->getInstance()Landroid/support/design/widget/SnackbarManager;
 
     move-result-object p1
@@ -87,13 +87,13 @@
     .line 434
     invoke-virtual {p1, p0}, Landroid/support/design/widget/SnackbarManager;->restoreTimeoutIfPaused(Landroid/support/design/widget/SnackbarManager$Callback;)V
 
-    :goto_0
+    :goto_1b
     return-void
 
-    :pswitch_data_0
+    :pswitch_data_1c
     .packed-switch 0x0
-        :pswitch_1
-        :pswitch_0
-        :pswitch_0
+        :pswitch_10
+        :pswitch_4
+        :pswitch_4
     .end packed-switch
 .end method
