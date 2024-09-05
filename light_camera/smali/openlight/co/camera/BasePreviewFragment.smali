@@ -738,8 +738,8 @@
 
     if-nez v0, :cond_64
 
-    .line 1320
-    invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removePrimaryControl()V
+    # .line 1320
+    # invoke-virtual {p0}, Lopenlight/co/camera/BasePreviewFragment;->removePrimaryControl()V
 
     .line 1321
     sget-object v0, Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;->TOUCHSTRIP:Lopenlight/co/camera/view/zoom/ZoomWheel$EventType;
