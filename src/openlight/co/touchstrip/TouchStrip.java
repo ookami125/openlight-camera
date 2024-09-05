@@ -311,7 +311,7 @@ public class TouchStrip {
     }
 
     private void updateTouchStripStatus(Application paramApplication) {
-        this.mIsTouchStripDisabled = "off".equals(getSharedPreferences((Context) paramApplication).getString("device_touchstrip_setting", "off"));
+        this.mIsTouchStripDisabled = "off".equals(getSharedPreferences((Context) paramApplication).getString("device_touchstrip_setting", "on"));
         Log.i(TAG, "TouchStrip Disabled: " + this.mIsTouchStripDisabled);
         if (!this.mIsTouchStripDisabled)
             this.mDetector = initTouchDetector();
