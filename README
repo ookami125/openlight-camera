@@ -1,23 +1,10 @@
 # openlight-camera
 
-This is an extraction and decompilation of the light L16 camera light_camera.apk 
+This is an extraction, decompilation, and recompilation of the light L16 camera light_camera.apk 
 
 ## Setup
 
-4 things are needed for compilation.
-
-1) dex-tools (available here: https://github.com/pxb1988/dex2jar) needs a copy of a release build to tools/dex-tools. This has mainly been tested with version 2.4
-
-2) the Android SDK, the location isn't specific. But an environment variable (ANDROID_PLATFORM) that points to the folder that contains android.sdk. 
-example:
-```
-[cieric@laptop new-rebuild]$ echo $ANDROID_PLATFORM
-/home/cieric/Android/Sdk/platforms/android-34/
-```
-
-3) a jdk of some kind is needed, java-17-openjdk is what's primarily tested against. javac needs to be available on the path.
-
-4) the programs apktool, apksigner and unzip are all needed.
+1) Just run `./recomp.sh build` this will build the docker image to repro the build and then run the build itself.
 
 ## Contributing
 
