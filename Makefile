@@ -1,5 +1,3 @@
-include .env
-
 OUTPUT_NAME := openlight_camera.apk
 
 SOURCEDIR := src/
