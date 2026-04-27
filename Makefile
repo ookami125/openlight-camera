@@ -9,11 +9,21 @@ JAVA_FILES := $(shell find $(SOURCEDIR) -name '*.java')
 JAVA_FILES_SAFE := $(shell find $(SOURCEDIR) -name '*.java' | sed 's/\$$/\\\$$/g')
 BASE_CLASS_FILES := $(patsubst $(SOURCEDIR)%,$(STAGE2_BUILDDIR)%,$(patsubst %.java,%.class,$(JAVA_FILES)))
 
-.PHONY: apk-signed
+# Stamp file holding a sorted list of all smali files; rebuild stage1 when the list changes (i.e. files are deleted)
+build/smali.stamp: FORCE
+	@mkdir -p build
+	@find light_camera/smali -name '*.smali' | sort > build/smali.stamp.new
+	@if ! diff -q build/smali.stamp.new $@ > /dev/null 2>&1; then \
+		mv build/smali.stamp.new $@; \
+	else \
+		rm build/smali.stamp.new; \
+	fi
+
+.PHONY: apk-signed FORCE
 apk-signed: $(OUTPUT_NAME)
 	$(APKSIGNER) sign --ks .private/my-release-key.keystore --ks-pass file:.private/pass --in $(OUTPUT_NAME)
 
-build/stage1.apk: $(LIGHT_CAMERA_FILES)
+build/stage1.apk: $(LIGHT_CAMERA_FILES) build/smali.stamp
 	rm -rf light_camera/build/
 	$(APKTOOL) b light_camera -o $@
 
