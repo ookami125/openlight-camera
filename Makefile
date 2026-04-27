@@ -4,7 +4,7 @@ SOURCEDIR := src/
 STAGE2_BUILDDIR := build/stage2/
 STAGE3_BUILDDIR := build/stage3/
 
-LIGHT_CAMERA_FILES := $(wildcard light_camera/*)
+LIGHT_CAMERA_FILES := $(shell find light_camera/ -type f)
 JAVA_FILES := $(shell find $(SOURCEDIR) -name '*.java')
 JAVA_FILES_SAFE := $(shell find $(SOURCEDIR) -name '*.java' | sed 's/\$$/\\\$$/g')
 BASE_CLASS_FILES := $(patsubst $(SOURCEDIR)%,$(STAGE2_BUILDDIR)%,$(patsubst %.java,%.class,$(JAVA_FILES)))
@@ -28,7 +28,7 @@ $(STAGE2_BUILDDIR): build/classes.jar $(JAVA_FILES)
 	$(JAVAC_EXE) --release 8 -Xlint:-options -d $@ -cp $(ANDROID_JAR):build/classes.jar $(JAVA_FILES_SAFE) "-Xlint:unchecked"
 
 build/classes2.jar: $(STAGE2_BUILDDIR) build/classes.dex $(BASE_CLASS_FILES)
-	$(D8) --output $@ build/classes.dex $(patsubst %,"%",$(shell find $(STAGE2_BUILDDIR) -name '*.class' | sed 's/\$$/\\\$$/g'))
+	$(D8) --lib $(ANDROID_JAR) --output $@ build/classes.dex $(patsubst %,"%",$(shell find $(STAGE2_BUILDDIR) -name '*.class' | sed 's/\$$/\\\$$/g'))
 
 $(STAGE3_BUILDDIR): build/classes2.jar $(LIGHT_CAMERA_FILES)
 	mkdir -p $@
@@ -37,7 +37,7 @@ $(STAGE3_BUILDDIR): build/classes2.jar $(LIGHT_CAMERA_FILES)
 	cp -r light_camera/res $@
 	cp -r light_camera/AndroidManifest.xml $@
 	cp -r light_camera/apktool.yml $@
-	$(UNZIP_EXE) -j build/classes2.jar "classes.dex" -d $@
+	$(UNZIP_EXE) -oj build/classes2.jar "classes.dex" -d $@
 
 $(OUTPUT_NAME): $(STAGE3_BUILDDIR)
 	$(APKTOOL) b $(STAGE3_BUILDDIR) -o $@

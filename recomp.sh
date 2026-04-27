@@ -67,8 +67,11 @@ if (( need_build == 1 )); then
   docker build -f docker/Dockerfile -t "$IMAGE" .
 fi
 
+INTERACTIVE=0
+
 if [[ $# -eq 0 ]]; then
   CMD=(bash)
+  INTERACTIVE=1
 else
   case "$1" in
     build)
@@ -85,6 +88,7 @@ else
       ;;
     bash|shell)
       CMD=(bash)
+      INTERACTIVE=1
       shift
       ;;
     *)
@@ -98,10 +102,7 @@ else
   fi
 fi
 
-docker run -it --rm \
-  -e UID="$(id -u)" \
-  -e GID="$(id -g)" \
-  -v "$PWD":/workspace \
-  -w /workspace \
-  "$IMAGE" \
-  "${CMD[@]}"
+DOCKER_FLAGS=(--rm -e UID="$(id -u)" -e GID="$(id -g)" -v "$PWD":/workspace -w /workspace)
+[[ $INTERACTIVE -eq 1 ]] && DOCKER_FLAGS+=(-it)
+
+docker run "${DOCKER_FLAGS[@]}" "$IMAGE" "${CMD[@]}"
