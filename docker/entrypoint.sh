@@ -62,6 +62,11 @@ mount --bind /repo/build /workspace/build
 
 cd /workspace
 
+# Force copy-up of .git into the overlay upper layer as root so appuser
+# can create lock files and index entries without hitting a permission
+# error on the lower-layer files owned by the host user.
+chown -R "${APP_UID}:${APP_GID}" /workspace/.git
+
 # Make the overlay view match the Git index:
 # - staged changes remain visible
 # - unstaged changes are hidden by copied-up index versions
