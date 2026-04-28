@@ -5,29 +5,24 @@ jobs:
   Build-the-APK:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo
-        uses: actions/checkout@main
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+      - name: Build Docker image
+        run: docker build -f docker/Dockerfile -t openlight-decomp-tools:latest .
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+      - name: Build APK
+        run: |
+          docker run --rm --privileged \
+            -v "$PWD":/repo \
+            openlight-decomp-tools:latest \
+            make clean apk
 
-      - name: Download Needed Tools
-        run: bash ./.github/scripts/download-tools.sh
-
-      - name: Build the APK
-        run: make apk
-
-      - uses: ookami125/apksigner-android@v1
-        name: Sign app APK
+      - name: Sign APK
+        uses: ookami125/apksigner-android@v1
         id: sign_app
         with:
-          releaseDirectory: .
+          releaseDirectory: build
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -35,8 +30,8 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "34.0.0"
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload signed APK
+        uses: actions/upload-artifact@v4
         with:
-          name: Signed app bundle
-          path: ${{steps.sign_app.outputs.signedReleaseFile}}
-
+          name: openlight_camera
+          path: ${{ steps.sign_app.outputs.signedReleaseFile }}
