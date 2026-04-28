@@ -14,6 +14,7 @@ jobs:
       - name: Build APK
         run: |
           docker run --rm --privileged \
+            -e PUID="$(id -u)" -e PGID="$(id -g)" \
             -v "$PWD":/repo \
             openlight-decomp-tools:latest \
             make clean apk
