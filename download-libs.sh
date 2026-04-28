@@ -60,7 +60,16 @@ dl_aar  "transition.jar"                 "$BASE/transition/26.1.0/transition-26.
 dl_aar  "animated-vector-drawable.jar"   "$BASE/animated-vector-drawable/26.1.0/animated-vector-drawable-26.1.0.aar"
 dl_aar  "support-vector-drawable.jar"    "$BASE/support-vector-drawable/26.1.0/support-vector-drawable-26.1.0.aar"
 dl_aar  "multidex.jar"                   "https://dl.google.com/dl/android/maven2/com/android/support/multidex/1.0.3/multidex-1.0.3.aar"
-dl_aar  "constraint-layout.jar"          "https://dl.google.com/dl/android/maven2/com/android/support/constraint/constraint-layout/1.1.3/constraint-layout-1.1.3.aar"
+
+mkdir -p "$LIBS/provided"
+echo ""
+echo "=== Downloading provided (compile-time only) JARs ==="
+if wget -q -O /tmp/cl.aar "https://dl.google.com/dl/android/maven2/com/android/support/constraint/constraint-layout/1.1.3/constraint-layout-1.1.3.aar"; then
+    unzip -p /tmp/cl.aar classes.jar > "$LIBS/provided/constraint-layout.jar" && ok "provided/constraint-layout.jar"
+    rm -f /tmp/cl.aar
+else
+    fail "provided/constraint-layout.jar"
+fi
 
 echo ""
 echo "=== Downloading Android Architecture Components ==="
