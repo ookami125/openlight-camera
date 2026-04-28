@@ -57,6 +57,7 @@ rm -rf /workspace
 ln -s /mnt/overlay-tmp/merged /workspace
 
 mkdir -p /repo/build
+chown "${APP_UID}:${APP_GID}" /repo/build
 mkdir -p /workspace/build
 mount --bind /repo/build /workspace/build
 
