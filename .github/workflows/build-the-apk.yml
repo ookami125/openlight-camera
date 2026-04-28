@@ -11,6 +11,9 @@ jobs:
       - name: Build Docker image
         run: docker build -f docker/Dockerfile -t openlight-decomp-tools:latest .
 
+      - name: Download libraries
+        run: bash download-libs.sh
+
       - name: Build APK
         run: |
           docker run --rm --privileged \
