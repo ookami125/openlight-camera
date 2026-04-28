@@ -1,4 +1,4 @@
-OUTPUT_NAME := openlight_camera.apk
+OUTPUT_NAME := build/openlight_camera.apk
 
 SOURCEDIR := src/
 STAGE2_BUILDDIR := build/stage2/
@@ -74,7 +74,8 @@ install: apk-signed
 
 .PHONY: clean
 clean:
-	rm -rf build
+	rm -rf build/*
+	
 
 # .PHONY: disasm
 # disasm:
