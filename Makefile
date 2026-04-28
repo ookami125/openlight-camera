@@ -3,11 +3,20 @@ OUTPUT_NAME := openlight_camera.apk
 SOURCEDIR := src/
 STAGE2_BUILDDIR := build/stage2/
 STAGE3_BUILDDIR := build/stage3/
+LIBSDIR := libs/
 
 LIGHT_CAMERA_FILES := $(shell find light_camera/ -type f)
 JAVA_FILES := $(shell find $(SOURCEDIR) -name '*.java')
 JAVA_FILES_SAFE := $(shell find $(SOURCEDIR) -name '*.java' | sed 's/\$$/\\\$$/g')
 BASE_CLASS_FILES := $(patsubst $(SOURCEDIR)%,$(STAGE2_BUILDDIR)%,$(patsubst %.java,%.class,$(JAVA_FILES)))
+
+# Third-party library JARs bundled into the DEX
+LIB_JARS := $(wildcard $(LIBSDIR)*.jar)
+LIB_CLASSPATH := $(shell echo "$(LIB_JARS)" | tr ' ' ':')
+
+# "Provided" JARs: compile-time only, available on device at runtime (not bundled)
+PROVIDED_JARS := $(wildcard $(LIBSDIR)provided/*.jar)
+PROVIDED_CLASSPATH := $(shell echo "$(PROVIDED_JARS)" | tr ' ' ':')
 
 # Stamp file holding a sorted list of all smali files; rebuild stage1 when the list changes (i.e. files are deleted)
 build/smali.stamp: FORCE
@@ -34,11 +43,15 @@ build/classes.dex: build/stage1.apk
 build/classes.jar: build/classes.dex
 	$(DEX2JAR) build/classes.dex -o $@ --force
 
-$(STAGE2_BUILDDIR): build/classes.jar $(JAVA_FILES)
-	$(JAVAC_EXE) --release 8 -Xlint:-options -d $@ -cp $(ANDROID_JAR):build/classes.jar $(JAVA_FILES_SAFE) "-Xlint:unchecked"
+$(STAGE2_BUILDDIR): build/classes.jar $(JAVA_FILES) $(LIB_JARS) $(PROVIDED_JARS)
+	$(JAVAC_EXE) --release 8 -Xlint:-options -d $@ \
+	    -cp $(ANDROID_JAR):build/classes.jar$(if $(LIB_JARS),:$(LIB_CLASSPATH))$(if $(PROVIDED_JARS),:$(PROVIDED_CLASSPATH)) \
+	    $(JAVA_FILES_SAFE) "-Xlint:unchecked"
 
-build/classes2.jar: $(STAGE2_BUILDDIR) build/classes.dex $(BASE_CLASS_FILES)
-	$(D8) --lib $(ANDROID_JAR) --output $@ build/classes.dex $(patsubst %,"%",$(shell find $(STAGE2_BUILDDIR) -name '*.class' | sed 's/\$$/\\\$$/g'))
+build/classes2.jar: $(STAGE2_BUILDDIR) build/classes.dex $(BASE_CLASS_FILES) $(LIB_JARS) $(PROVIDED_JARS)
+	$(D8) --lib $(ANDROID_JAR) $(patsubst %,--lib %,$(PROVIDED_JARS)) --output $@ build/classes.dex \
+	    $(LIB_JARS) \
+	    $(patsubst %,"%",$(shell find $(STAGE2_BUILDDIR) -name '*.class' | sed 's/\$$/\\\$$/g'))
 
 $(STAGE3_BUILDDIR): build/classes2.jar $(LIGHT_CAMERA_FILES)
 	mkdir -p $@
