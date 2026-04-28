@@ -7,7 +7,7 @@ public enum VideoQualityMode {
     QUALITY_2160P(8, 0x7f0e002d),
     QUALITY_HIGH(1, 0x7f0e0030);
 
-    public static final String DEFAULT = QUALITY_1080P.toString();
+    public static final String DEFAULT = QUALITY_HIGH.toString();
 
     private final int mQualityProfile;
     private final int mResId;
