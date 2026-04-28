@@ -22,7 +22,6 @@ if ! getent passwd "${APP_UID}" >/dev/null 2>&1; then
         --gecos "" \
         --home "/home/${USERNAME}" \
         --ingroup "${GROUPNAME}" \
-        --no-create-home \
         --uid "${APP_UID}" \
         "${USERNAME}"
 else
