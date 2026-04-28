@@ -18,3 +18,4 @@ files.txt
 .private/my-release-key.keystore
 
 .env
+.docker-build-stamp
