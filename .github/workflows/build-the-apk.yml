@@ -38,4 +38,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: openlight_camera
-          path: ${{ steps.sign_app.outputs.signedReleaseFile }}
+          path: build/openlight_camera.apk
