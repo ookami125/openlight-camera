@@ -16,7 +16,7 @@ public class VideoAncillaryToolbar extends AncillaryToolbar implements Orientati
 
     static {
         TAG = Utils.safeTag(VideoAncillaryToolbar.class);
-        QUALITY_PROFILES_SUPPORTED = FeatureManager.get().getBoolean("video.quality.selector.beta", false);
+        QUALITY_PROFILES_SUPPORTED = FeatureManager.get().getBoolean("video.quality.selector.beta", true);
     }
 
     private final VideoManager mVideoMgr;
@@ -96,7 +96,7 @@ public class VideoAncillaryToolbar extends AncillaryToolbar implements Orientati
     private AncillaryModel getQualityProfile() {
         String value = mCamPref.getStringValue("quality_profile");
         return new AncillaryModel.Builder(
-                VideoQualityMode.fromAnyString(value).getResId(), "quality_profile")
+                VideoQualityMode.valueOf(value).getResId(), "quality_profile")
                 .enabled(!mVideoMgr.isRecording())
                 .build();
     }

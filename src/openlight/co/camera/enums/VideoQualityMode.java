@@ -19,18 +19,4 @@ public enum VideoQualityMode {
 
     public int getQualityProfile() { return mQualityProfile; }
     public int getResId() { return mResId; }
-
-    public static VideoQualityMode fromAnyString(String s) {
-        if (s == null || s.isEmpty()) return QUALITY_1080P;
-        switch (s) {
-            case "480p": return QUALITY_480P;
-            case "720p": return QUALITY_720P;
-            case "1080p": return QUALITY_1080P;
-            case "2160p": return QUALITY_2160P;
-            case "4k": return QUALITY_HIGH;
-            default:
-                try { return valueOf(s); }
-                catch (IllegalArgumentException e) { return QUALITY_1080P; }
-        }
-    }
 }

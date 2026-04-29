@@ -25,7 +25,6 @@
     <public type="array" name="replay_tutorials_list" id="0x7f030004" />
     <public type="array" name="shutter_value" id="0x7f030005" />
     <public type="array" name="sound_themes" id="0x7f030006" />
-    <public type="array" name="video_format_list" id="0x7f030007" />
     <public type="attr" name="actionBarDivider" id="0x7f040000" />
     <public type="attr" name="actionBarItemBackground" id="0x7f040001" />
     <public type="attr" name="actionBarPopupTheme" id="0x7f040002" />

@@ -19,7 +19,7 @@ video.feature=true
 video.quality=6
 
 # Show quality selector UI in video ancillary toolbar (default: false)
-video.quality.selector.beta=false
+video.quality.selector.beta=true
 
 # Maximum video recording length in seconds (default: 25)
 video.length.max=25
