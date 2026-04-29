@@ -273,7 +273,7 @@ public class VideoManager extends CameraManager {
         mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.CAMCORDER);
         mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.SURFACE);
         mMediaRecorder.setInputSurface(mRecordingSurface);
-        mVideoQualityProfile = VideoQualityMode.valueOf(mCamPref.getStringValue("quality_profile"))
+        mVideoQualityProfile = VideoQualityMode.fromAnyString(mCamPref.getStringValue("quality_profile"))
                 .getQualityProfile();
         mMediaRecorder.setProfile(CamcorderProfile.get(mVideoQualityProfile));
         mCurrentVideoAbsolutePath = getVideoFileAbsolutePath();

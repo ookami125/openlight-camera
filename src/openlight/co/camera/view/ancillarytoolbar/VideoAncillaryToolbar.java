@@ -96,7 +96,7 @@ public class VideoAncillaryToolbar extends AncillaryToolbar implements Orientati
     private AncillaryModel getQualityProfile() {
         String value = mCamPref.getStringValue("quality_profile");
         return new AncillaryModel.Builder(
-                VideoQualityMode.valueOf(value).getResId(), "quality_profile")
+                VideoQualityMode.fromAnyString(value).getResId(), "quality_profile")
                 .enabled(!mVideoMgr.isRecording())
                 .build();
     }

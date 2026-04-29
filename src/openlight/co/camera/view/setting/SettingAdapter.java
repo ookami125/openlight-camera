@@ -40,6 +40,18 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingH
         updateData();
     }
 
+    private static String qualityProfileDisplay(String val) {
+        if (val == null) return "";
+        switch (val) {
+            case "QUALITY_480P": return "480p";
+            case "QUALITY_720P": return "720p";
+            case "QUALITY_1080P": return "1080p";
+            case "QUALITY_2160P": return "2160p";
+            case "QUALITY_HIGH": return "4k";
+            default: return val;
+        }
+    }
+
     static boolean isSettingDisabled(SettingsId id) {
         switch (id) {
             case IN_POCKET_DETECTION: return TheaterModeSettings.get().isPocketDetectionDisabled();
@@ -163,6 +175,9 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingH
             } else {
                 holder.parentItem.setAlpha(1.0f);
                 optionValue = model.getSettingsValue();
+                if (settingsId == SettingsId.VIDEO_FORMAT) {
+                    optionValue = qualityProfileDisplay(optionValue);
+                }
             }
             if (settingsId != SettingsId.FTU_RESET) {
                 holder.optionText.setText(optionValue);
@@ -260,7 +275,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingH
             }
         },
         ASPECT_RATIO(false, 0x7f0e0112, "aspect_ratio_setting", 3, 0, 0, true),
-        VIDEO_FORMAT(false, 0x7f0e0120, "video_format", 3, 0, 0, true),
+        VIDEO_FORMAT(true, 0x7f0e0120, "quality_profile", 3, 0, 0x7f030007, true),
         DEPTH_EFFECT(false, 0x7f0e0114, "dof_setting", 3, 0, true),
         EXPOSURE(true, 0x7f0e0118, "hud_setting", 1, 0x7f080140, 0, false),
         DEVICE_STATUS(true, 0x7f0e0115, "device_status_setting", 1, 0x7f08013e, false),
@@ -268,7 +283,7 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingH
         VIEWFINDER_TIMEOUT(false, 0x7f0e0121, "device_cam_finder_timeout_setting", 3, 0, 0, true),
         HAPTIC(true, 0x7f0e011b, "device_haptic_setting", 3, 0x7f080142, 0x7f030001, true),
         AUDIO(true, 0x7f0e0113, "device_audio_setting", 3, 0x7f08013d, 0x7f030006, false),
-        TOUCHSTRIP(false, 0x7f0e011f, "device_touchstrip_setting", 1, 0x7f080149, false),
+        TOUCHSTRIP(true, 0x7f0e011f, "device_touchstrip_setting", 1, 0x7f080149, false),
         FTU_RESET(true, 0x7f0e0119, "ftu_setting", 3, 0x7f080147, 0x7f030004, null, false) {
             @Override
             public List<Integer> getOptionList() {
