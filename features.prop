@@ -1,0 +1,97 @@
+# Camera feature flags
+# Loaded from external storage at startup; missing keys use the hardcoded defaults listed below.
+
+# --- General ---
+# Enable debug mode even on user builds (default: false)
+debug_on_user=false
+
+# Show restart-on-error recovery (default: true)
+restart.on.error=true
+
+# Enable CLI test-intent support (default: true)
+feature.cli_support=true
+
+# --- Video ---
+# Enable video mode entirely (default: true)
+video.feature=true
+
+# CamcorderProfile quality index: 4=480p 5=720p 6=1080p 8=2160p 1=high (default: 6)
+video.quality=6
+
+# Show quality selector UI in video ancillary toolbar (default: false)
+video.quality.selector.beta=false
+
+# Maximum video recording length in seconds (default: 25)
+video.length.max=25
+
+# --- Face detection ---
+# Enable face detection (default: true)
+face.detect=true
+
+# How often the face UI updates in milliseconds (default: 100)
+face.ui.period=100
+
+# Debug overlays: show face score / ID / rect (default: false each)
+show.face.score=false
+show.face.id=false
+show.face.rect=false
+
+# --- Focus / SmartAF ---
+# Minimum face score to use for AF targeting (default: 50)
+min.face.score=50
+
+# Face area change thresholds at min/max zoom before re-triggering AF (default: 25 / 10)
+face.area.change.min.zoom=25
+face.area.change.max.zoom=10
+
+# Time in ms to disable CAF after a tap-to-focus (default: 5000)
+caf.disabled.post.tap=5000
+
+# Time in ms to pause face-AF after a focus event (default: 2500)
+pause.face.post.focus=2500
+
+# Maximum face tracking distance in pixels (default: 300)
+face.distance=300
+
+# Maximum face inter-frame movement in pixels (default: 12)
+face.interframe.dist=12
+
+# --- Motion / stabilisation ---
+# Enable significant motion detection (default: true)
+motion.detect=true
+
+# Sensor to use for motion detection: GYRO or ACCEL (default: null = auto-select)
+#motion.type=GYRO
+
+# Low-pass filter alpha for accelerometer smoothing (default: 0.85)
+accel.lowpass.alpha=0.85
+
+# Time in ms the device must be stable before motion is considered settled (default: 300)
+motion.stable.time=300
+
+# Gyroscope movement threshold (rad/s) to trigger motion (default: 0.7)
+gyro.threshold=0.7
+
+# Accelerometer movement threshold (m/s^2) to trigger motion (default: 1.4)
+accel.threshold=1.4
+
+# --- In-pocket / lens detection ---
+# Time in ms the sensor must read low before declaring in-pocket (default: 30)
+in.pocket.timeout=30
+
+# ALS value below which the lens is considered blocked (default: 2.0)
+in.pocket.als.max.val=2.0
+
+# --- Settings UI ---
+# Show the image encryption setting row (default: true)
+encryption_setting_displayed=true
+
+# Show the stacked capture setting row (default: false)
+stacked.capture.selector=false
+
+# --- HUD / debug ---
+# Enable verbose HUD logging (default: false)
+hud.logging=false
+
+# Enable histogram display (default: false)
+histogram.enable=false
