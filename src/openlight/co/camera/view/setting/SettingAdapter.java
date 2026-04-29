@@ -288,7 +288,8 @@ public class SettingAdapter extends RecyclerView.Adapter<SettingAdapter.SettingH
         },
         MICROPHONE(true, 0x7f0e011e, "device_microphone_setting", 1, 0x7f080146, false),
         DREAM_PROCESSING(true, 0x7f0e0116, "dream_processing_setting", 1, 0x7f0800fd, false),
-        MANAGE_PRESETS(true, 0x7f0e001f, 4, 0x7f080125,
+        // TODO: This requires openlight gallery app to exist
+        MANAGE_PRESETS(false, 0x7f0e001f, 4, 0x7f080125,
                 new Intent().setComponent(new ComponentName(
                         "light.co.lightgallery",
                         "light.co.gallery.view.ManagePresetsActivity"))),
