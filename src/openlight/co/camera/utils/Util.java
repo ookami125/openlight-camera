@@ -245,7 +245,6 @@ public class Util {
             prefs.removeValue("burst_mode");
             prefs.removeValue("focal_length");
             prefs.removeValue("zoom_value");
-            prefs.removeValue("device_touchstrip_setting");
             prefs.removeValue("white_balance_setting");
         } catch (PackageManager.NameNotFoundException e) {
             LogUtil.e(TAG, "Exception in resettingCameraPreference", e);
